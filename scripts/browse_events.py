@@ -1,8 +1,10 @@
 """Build a single self-contained HTML page for browsing scraped events.
 
-    python scripts/browse_events.py data/*.jsonl -o data/events.html
+    python scripts/browse_events.py data/site -o data/events.html        # pipeline output
+    python scripts/browse_events.py data/events/*.jsonl -o data/raw.html  # raw `podia fetch`
 
-Reads the JSON lines written by `podia fetch`, and writes a page with a searchable,
+Reads giggle-build's output (kept gigs plus left-out events with their reasons) or the
+JSON lines written by `podia fetch`, and writes a page with a searchable,
 filterable table (venue, city, genre, month, availability) and a per-venue summary of
 which fields are filled. Event text is inserted with textContent, never as HTML.
 """
@@ -23,6 +25,12 @@ TEMPLATE = Path(__file__).with_name("browse_events.html")
 def load(paths: list[Path]) -> list[dict]:
     events: dict[tuple[str, str], dict] = {}
     for path in paths:
+        if path.is_dir():  # giggle-build output
+            for e in json.loads((path / "gigs.json").read_text())["gigs"]:
+                events[(e["venue"], e["source_id"])] = {**e, "reason": None}
+            for e in json.loads((path / "excluded.json").read_text()):
+                events[(e["venue"], e["source_id"])] = e
+            continue
         for line in path.read_text().splitlines():
             if line.strip():
                 e = json.loads(line)
@@ -46,7 +54,12 @@ def coverage(events: list[dict]) -> list[dict]:
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
-    parser.add_argument("inputs", nargs="+", type=Path, help="JSON lines files from `podia fetch`")
+    parser.add_argument(
+        "inputs",
+        nargs="+",
+        type=Path,
+        help="giggle-build output directory, or JSON lines files from `podia fetch`",
+    )
     parser.add_argument("-o", "--output", type=Path, default=Path("data/events.html"))
     args = parser.parse_args()
 

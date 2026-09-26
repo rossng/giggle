@@ -1,0 +1,57 @@
+name: nightly
+
+on:
+  schedule:
+    - cron: "17 3 * * *" # 05:17 in Amsterdam (summer time); off the hour to dodge queueing
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write # open and close venue-health issues
+  actions: write # read the last run's data, and re-enable this schedule
+
+concurrency:
+  group: nightly
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+    steps:
+      - uses: actions/checkout@v5
+      - uses: cachix/install-nix-action@v31
+      - uses: actions/cache@v4
+        with:
+          path: ~/.cache/uv
+          key: uv-${{ runner.os }}-${{ hashFiles('uv.lock', '.python-version') }}
+
+      # The previous run's counts are the baseline for spotting broken venues.
+      - name: Fetch the previous run's health history
+        run: |
+          run=$(gh run list --workflow nightly.yml --status success --limit 1 \
+            --json databaseId -q '.[0].databaseId')
+          if [ -n "$run" ]; then
+            gh run download "$run" --name site-data --dir data/site || true
+          fi
+
+      - name: Build
+        run: nix develop -c make data
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: site-data
+          path: data/site
+          retention-days: 30
+
+      - name: Open or close venue-health issues
+        if: always() && hashFiles('data/site/health.json') != ''
+        run: nix develop -c uv run giggle-issues data/site/health.json
+
+      # GitHub disables schedules in public repos after 60 days without activity.
+      - name: Keep this schedule enabled
+        if: always()
+        run: gh api -X PUT "repos/$GH_REPO/actions/workflows/nightly.yml/enable"

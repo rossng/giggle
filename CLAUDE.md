@@ -5,7 +5,10 @@ Upcoming-gig radio for Amsterdam and nearby. Design report: https://claude.ai/ar
 ## Layout
 - `packages/podia/` — venue agenda library, published separately (Blue Oak 1.0.0). Must stay
   app-agnostic: no artist matching, LLM calls, genre filtering or giggle-specific logic.
-- `pipeline/` — nightly build (matching, enrichment, blurbs, TTS). Not yet written.
+- `pipeline/` — nightly build (`giggle-build`): collect venues in parallel, drop out-of-scope
+  events by the rules in `scope.toml` (each with a reason), merge cross-venue duplicates, check
+  venue health against recent runs. `giggle-issues` opens/closes one GitHub issue per broken
+  venue. Artist matching, enrichment, blurbs and TTS come next.
 - `web/` — SvelteKit 2 + Svelte 5 static SPA. Not yet written.
 
 ## Commands
@@ -15,8 +18,9 @@ uv, Node, pnpm and make only; Python is uv-managed (`.python-version`), deps com
 `git add` new flake inputs before `nix develop`.
 
 - `uv sync` · `uv run podia list` · `uv run podia fetch <venue>`
-- Inspect scraped data: `make fetch` (all venues → `data/events/*.jsonl`, ~10 min), then
-  `make browse` (builds and opens `data/events.html`; `data/` is git-ignored)
+- Build data: `make data` (live, ~4 min) or `make data-offline` (fixtures, seconds) → `data/site/`
+- Inspect it: `make browse` (kept + left-out events with reasons; `data/` is git-ignored).
+  Raw adapter output: `make fetch` then `make browse-raw`.
 - Tests: `cd packages/podia && uv run --group dev pytest -q`
 - Lint: `uv run --group dev ruff check packages && uv run --group dev ruff format packages`
 - Re-record a venue's fixtures: `cd packages/podia && uv run podia record <venue> --max-pages 2`,
@@ -34,6 +38,8 @@ and `--local` writing to `./data/` instead of R2. Keep `make help` accurate.
   `REDACTED-TOKEN`). Never commit a raw venue page.
 - Adapters use `FetchOptions.since`, never `date.today()`, so fixtures replay deterministically.
 - Prefer structured sources (APIs, feeds, embedded JSON) over HTML; don't guess missing fields.
-- Scope decisions (applied in the pipeline, not podia): no club/EDM nights, no classical or
-  contemporary classical, no arenas (AFAS Live, Ziggo Dome). YouTube Music only; Spotify on hold.
+- Scope decisions live in `pipeline/src/giggle_pipeline/scope.toml`, not in podia: no club/EDM
+  nights, classical, tribute acts, non-music or children's events; no arenas (AFAS Live, Ziggo
+  Dome). When changing rules, add a case to `pipeline/tests/test_scope.py`.
+- YouTube Music only; Spotify on hold.
 - Svelte: never put player/SDK objects in `$state`; use private fields or `$state.raw`.

@@ -1,0 +1,21 @@
+[project]
+name = "giggle-pipeline"
+version = "0.1.0"
+description = "giggle's nightly build: collect, filter and publish gigs"
+license = "BlueOak-1.0.0"
+requires-python = ">=3.12"
+dependencies = ["podia"]
+
+[project.scripts]
+giggle-build = "giggle_pipeline.build:main"
+giggle-issues = "giggle_pipeline.issues:main"
+
+[tool.uv.sources]
+podia = { workspace = true }
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

@@ -5,16 +5,17 @@ description = "Upcoming-gig radio for Amsterdam and nearby: data pipeline"
 readme = "README.md"
 license = "BlueOak-1.0.0"
 requires-python = ">=3.12"
-dependencies = ["podia"]
+dependencies = ["podia", "giggle-pipeline"]
 
 [tool.uv]
 package = false
 
 [tool.uv.sources]
 podia = { workspace = true }
+giggle-pipeline = { workspace = true }
 
 [tool.uv.workspace]
-members = ["packages/*"]
+members = ["packages/*", "pipeline"]
 
 [dependency-groups]
 dev = ["pytest>=8", "ruff>=0.6"]
@@ -22,7 +23,13 @@ dev = ["pytest>=8", "ruff>=0.6"]
 [tool.ruff]
 line-length = 100
 target-version = "py312"
-src = ["packages/podia/src", "packages/podia/tests", "scripts"]
+src = [
+    "packages/podia/src",
+    "packages/podia/tests",
+    "pipeline/src",
+    "pipeline/tests",
+    "scripts",
+]
 
 [tool.ruff.lint]
 select = ["E", "F", "I", "UP", "B", "SIM"]
