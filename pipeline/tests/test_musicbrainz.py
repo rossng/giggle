@@ -136,16 +136,28 @@ def test_503_is_retried_with_backoff(cache):
     assert sleeps[:2] == [5, 10]
 
 
-def test_persistent_503_gives_up_uncached_and_stops_asking(cache):
-    server = Server(fail=100)
+def test_a_failed_lookup_cools_down_and_carries_on(cache):
+    server = Server(fail=4)  # one lookup's worth of failures, then MusicBrainz is back
     mb, sleeps = client(cache, server)
     assert mb.match("Kaizers Orchestra", []) is None
-    assert len(server.requests) == 4 and sleeps == [5, 10, 20]
+    assert sleeps == [5, 10, 20, 60], "retries, then a one-minute cool-down"
+    assert not mb.unavailable
+    assert mb.match("Nouvelle Vague", ["jazz"])["confidence"] == "high"
+
+
+def test_repeated_outages_give_up_uncached_and_stop_asking(cache):
+    server = Server(fail=100)
+    mb, sleeps = client(cache, server)
+    for name in ("Kaizers Orchestra", "Nouvelle Vague", "Nobu"):
+        assert mb.match(name, []) is None
     assert mb.unavailable
+    backoffs = [s for s in sleeps if s >= 5]  # leave out the ~1 s spacing between requests
+    assert backoffs == [5, 10, 20, 60, 5, 10, 20, 120, 5, 10, 20]
+    asked = len(server.requests)
     # For the rest of the run, lookups return at once instead of backing off again.
-    assert mb.match("Nouvelle Vague", []) is None
+    assert mb.match("Glass Harbour", []) is None
     assert mb.details(NOUVELLE_VAGUE) is None
-    assert len(server.requests) == 4
+    assert len(server.requests) == asked
 
     later, _ = client(cache, Server())  # the next run tries again: nothing was cached
     assert later.match("Kaizers Orchestra", [])["confidence"] == "high"
