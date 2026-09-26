@@ -1,0 +1,90 @@
+# Which events giggle leaves out, and why.
+#
+# Rules are checked in order; the first match drops the event with its `reason`.
+# All conditions in a rule must hold. Matching is case-insensitive and exact, except
+# `genre_prefix`. A rule doesn't apply if the event has any `unless_*` value.
+#
+#   status        event status (cancelled, postponed, moved)
+#   venue         venue slug
+#   category      any of the event's categories (event type: Concert, Clubnacht, Film…)
+#   genre         any of the event's genres
+#   genre_prefix  any genre starting with this text
+#   no_genres     true: the event has no genres at all
+
+[[rule]]
+reason = "cancelled"
+status = ["cancelled"]
+
+# Club and dance nights. A club genre alone isn't enough when the venue also calls it a
+# concert: live bands get tagged "Drum & Bass" or "House" too.
+[[rule]]
+reason = "club night"
+category = ["clubnacht", "club", "dance", "dance/nacht", "party"]
+
+[[rule]]
+reason = "club night"
+genre = [
+    "clubnacht", "nachtleven", "dance / by night", "techno", "house", "house/techno",
+    "rave", "edm", "trance", "club3",
+]
+unless_category = ["concert", "muziek", "music", "pop", "jazz", "global"]
+
+[[rule]]
+reason = "club night"
+genre_prefix = ["club - "]
+unless_category = ["concert"]
+
+# Classical and contemporary classical, unless the venue also files it under a
+# popular genre (Muziekgebouw tags crossover shows "hedendaags" + "jazz", for example).
+[[rule]]
+reason = "classical"
+category = ["chamber music", "symphonic music"]
+
+[[rule]]
+reason = "classical"
+genre = [
+    "klassiek", "kamermuziek", "symfonisch", "oude muziek", "oud", "neoklassiek",
+    "nieuwe muziek", "hedendaags", "strijkkwartet", "minimal music", "vocaal",
+    "viool/altviool/cello", "blaasinstrumenten", "piano",
+]
+unless_genre = [
+    "jazz", "pop", "global", "elektronisch", "electronic", "pop / rock", "rock",
+    "indie", "soul/funk/jazz",
+]
+
+[[rule]]
+reason = "tribute act"
+genre = ["tribute", "klassiekers / tributes"]
+
+[[rule]]
+reason = "not music"
+category = [
+    "film", "expositie", "theater", "talk", "workshop", "kunst", "natuur",
+    "kinderactiviteit", "doorlopend", "knowledge & debate", "education & participation",
+    "guided tours", "corporate/sponsor events", "business events", "bar/cafe",
+    "course/workshop", "literair / wetenschap / politiek / kunst", "vrije ruimte",
+]
+unless_genre = ["pop", "jazz", "rock", "indie", "global", "pop / rock"]
+
+[[rule]]
+reason = "not music"
+genre = [
+    "kennis & debat", "comedy", "cultuur & maatschappij", "spoken word", "(pop)cultuur",
+    "educatie", "muziekdocumentaire", "film",
+]
+
+[[rule]]
+reason = "family / children"
+category = ["family"]
+
+[[rule]]
+reason = "family / children"
+genre = ["familie", "familieconcerten", "jeugd / familie"]
+unless_genre = ["pop", "jazz", "rock", "indie"]
+
+# Muziekgebouw tags every concert with a genre; the untagged listings are tours,
+# workshops and similar.
+[[rule]]
+reason = "not music"
+venue = ["muziekgebouw"]
+no_genres = true

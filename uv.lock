@@ -5,6 +5,7 @@ requires-python = ">=3.12"
 [manifest]
 members = [
     "giggle",
+    "giggle-pipeline",
     "podia",
 ]
 
@@ -44,6 +45,7 @@ name = "giggle"
 version = "0.1.0"
 source = { virtual = "." }
 dependencies = [
+    { name = "giggle-pipeline" },
     { name = "podia" },
 ]
 
@@ -54,13 +56,27 @@ dev = [
 ]
 
 [package.metadata]
-requires-dist = [{ name = "podia", editable = "packages/podia" }]
+requires-dist = [
+    { name = "giggle-pipeline", editable = "pipeline" },
+    { name = "podia", editable = "packages/podia" },
+]
 
 [package.metadata.requires-dev]
 dev = [
     { name = "pytest", specifier = ">=8" },
     { name = "ruff", specifier = ">=0.6" },
 ]
+
+[[package]]
+name = "giggle-pipeline"
+version = "0.1.0"
+source = { editable = "pipeline" }
+dependencies = [
+    { name = "podia" },
+]
+
+[package.metadata]
+requires-dist = [{ name = "podia", editable = "packages/podia" }]
 
 [[package]]
 name = "h11"

@@ -40,6 +40,8 @@ tr.detail pre{white-space:pre-wrap;margin:6px 0 0;font:12px ui-monospace,monospa
 .pill{font-size:11.5px;font-weight:600;white-space:nowrap}
 .sold_out,.cancelled{color:var(--bad)}.few_left,.postponed,.moved{color:var(--warn)}.free{color:var(--good)}
 a{color:var(--accent)}
+tr.out td{opacity:.55}
+.pill.reason{color:var(--mute);font-weight:500}
 </style>
 </head>
 <body>
@@ -51,6 +53,7 @@ a{color:var(--accent)}
   <select id="genre"><option value="">All genres</option></select>
   <select id="month"><option value="">All months</option></select>
   <select id="avail"><option value="">Any status</option></select>
+  <select id="kept"><option value="">Kept and left out</option><option value="kept">Kept</option></select>
   <span id="count"></span>
 </header>
 <main>
@@ -91,6 +94,10 @@ const fill = (id, values, label = (v) => v) => {
   for (const v of values) $(id).append(el("option", {value: v, textContent: label(v)}));
 };
 const uniq = (xs) => [...new Set(xs)].sort();
+const reasonKey = (e) => e.reason ? e.reason.replace(/ of .*/, "") : null;
+const hasReasons = events.some((e) => "reason" in e);
+if (hasReasons) fill("kept", uniq(events.map(reasonKey).filter(Boolean)), (r) => "Left out: " + r);
+else $("kept").hidden = true;
 fill("venue", uniq(events.map((e) => e.venue)));
 fill("city", uniq(events.map((e) => e.city).filter(Boolean)));
 fill("genre", uniq(events.flatMap((e) => e.genres.map((g) => g.toLowerCase()))));
@@ -118,7 +125,7 @@ const sorters = {
   price: (e) => priceOf(e) ?? Infinity,
 };
 function row(e) {
-  const tr = el("tr", {className: "ev"});
+  const tr = el("tr", {className: "ev" + (e.reason ? " out" : "")});
   const status = [e.status !== "scheduled" ? e.status : null, e.availability !== "unknown" ? e.availability : null]
     .filter(Boolean);
   const who = [...e.performers, ...e.support.map((s) => "+ " + s)].join(", ");
@@ -133,7 +140,8 @@ function row(e) {
     el("td", {}, ...e.genres.map((g) => el("span", {className: "tag", textContent: g})),
       ...e.categories.map((c) => el("span", {className: "tag", textContent: "[" + c + "]"}))),
     el("td", {className: "num", textContent: priceText(e)}),
-    el("td", {}, ...status.map((s) => el("div", {className: "pill " + s, textContent: s.replaceAll("_", " ")}))),
+    el("td", {}, ...status.map((s) => el("div", {className: "pill " + s, textContent: s.replaceAll("_", " ")})),
+      e.reason ? el("div", {className: "pill reason", textContent: "left out: " + e.reason}) : null),
     el("td", {}, e.url ? el("a", {href: e.url, target: "_blank", rel: "noopener", textContent: "page"}) : null,
       e.url && e.ticket_url ? " · " : null,
       e.ticket_url ? el("a", {href: e.ticket_url, target: "_blank", rel: "noopener", textContent: "tickets"}) : null),
@@ -151,11 +159,13 @@ function row(e) {
 }
 function render() {
   const q = $("q").value.trim().toLowerCase();
-  const [venue, city, genre, month, avail] = ["venue", "city", "genre", "month", "avail"].map((id) => $(id).value);
+  const [venue, city, genre, month, avail, kept] =
+    ["venue", "city", "genre", "month", "avail", "kept"].map((id) => $(id).value);
   const shown = events.filter((e) =>
     (!venue || e.venue === venue) && (!city || e.city === city) && (!month || monthKey(e) === month) &&
     (!genre || e.genres.some((g) => g.toLowerCase() === genre)) &&
     (!avail || e.availability === avail || e.status === avail) &&
+    (!kept || (kept === "kept" ? !e.reason : reasonKey(e) === kept)) &&
     (!q || e._search.includes(q)));
   const key = sorters[sortKey];
   shown.sort((a, b) => (key(a) < key(b) ? -1 : key(a) > key(b) ? 1 : 0) * sortDir);
@@ -166,7 +176,7 @@ for (const e of events) {
   e._search = [e.title, e.subtitle, e.room, e.description, ...e.performers, ...e.support, ...e.genres]
     .filter(Boolean).join(" ").toLowerCase();
 }
-for (const id of ["q", "venue", "city", "genre", "month", "avail"]) $(id).addEventListener("input", render);
+for (const id of ["q", "venue", "city", "genre", "month", "avail", "kept"]) $(id).addEventListener("input", render);
 document.querySelectorAll("th[data-sort]").forEach((th) => th.addEventListener("click", () => {
   sortDir = sortKey === th.dataset.sort ? -sortDir : 1;
   sortKey = th.dataset.sort;
