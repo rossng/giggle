@@ -1,0 +1,2187 @@
+{
+ "generated": "2026-09-26T19:08:08+02:00",
+ "since": "2026-09-26",
+ "venues": {
+  "bimhuis": {
+   "slug": "bimhuis",
+   "name": "Bimhuis",
+   "city": "Amsterdam",
+   "website": "https://www.bimhuis.nl",
+   "country": "NL"
+  },
+  "bitterzoet": {
+   "slug": "bitterzoet",
+   "name": "Bitterzoet",
+   "city": "Amsterdam",
+   "website": "https://www.bitterzoet.com",
+   "country": "NL"
+  },
+  "cinetol": {
+   "slug": "cinetol",
+   "name": "Cinetol",
+   "city": "Amsterdam",
+   "website": "https://www.cinetol.nl",
+   "country": "NL"
+  },
+  "melkweg": {
+   "slug": "melkweg",
+   "name": "Melkweg",
+   "city": "Amsterdam",
+   "website": "https://www.melkweg.nl",
+   "country": "NL"
+  },
+  "muziekgebouw": {
+   "slug": "muziekgebouw",
+   "name": "Muziekgebouw aan 't IJ",
+   "city": "Amsterdam",
+   "website": "https://www.muziekgebouw.nl",
+   "country": "NL"
+  },
+  "nobel": {
+   "slug": "nobel",
+   "name": "Nobel",
+   "city": "Leiden",
+   "website": "https://nobel.nl",
+   "country": "NL"
+  },
+  "occii": {
+   "slug": "occii",
+   "name": "OCCII",
+   "city": "Amsterdam",
+   "website": "https://occii.org",
+   "country": "NL"
+  },
+  "paradiso": {
+   "slug": "paradiso",
+   "name": "Paradiso",
+   "city": "Amsterdam",
+   "website": "https://www.paradiso.nl",
+   "country": "NL"
+  },
+  "patronaat": {
+   "slug": "patronaat",
+   "name": "Patronaat",
+   "city": "Haarlem",
+   "website": "https://patronaat.nl",
+   "country": "NL"
+  },
+  "tivolivredenburg": {
+   "slug": "tivolivredenburg",
+   "name": "TivoliVredenburg",
+   "city": "Utrecht",
+   "website": "https://www.tivolivredenburg.nl",
+   "country": "NL"
+  }
+ },
+ "gigs": [
+  {
+   "id": "occii:102229-1780394431@occii.org",
+   "venue": "occii",
+   "title": "KRONKEL FESTIVAL",
+   "start": "2026-09-26T14:00:00+02:00",
+   "end": "2026-09-26T23:00:00+02:00",
+   "city": "Amsterdam",
+   "status": "scheduled",
+   "availability": "unknown",
+   "price": {
+    "min_eur": 40.0,
+    "max_eur": 40.0,
+    "text": null
+   },
+   "lineup": {
+    "kind": "concert",
+    "headliners": [
+     "KRONKEL FESTIVAL"
+    ],
+    "support": [],
+    "source": "fake"
+   },
+   "artists": [
+    {
+     "key": "name:kronkelfestival",
+     "name": "KRONKEL FESTIVAL",
+     "role": "headliner"
+    }
+   ],
+   "ticket_url": null,
+   "url": "https://occii.org/events/kronkel-festival/",
+   "room": null
+  },
+  {
+   "id": "melkweg:27131",
+   "venue": "melkweg",
+   "title": "Polyphonic Orchestra",
+   "start": "2026-09-26T19:00:00+02:00",
+   "end": null,
+   "city": "Amsterdam",
+   "status": "scheduled",
+   "availability": "unknown",
+   "price": null,
+   "lineup": {
+    "kind": "concert",
+    "headliners": [
+     "Polyphonic Orchestra"
+    ],
+    "support": [],
+    "source": "fake"
+   },
+   "artists": [
+    {
+     "key": "name:polyphonicorchestra",
+     "name": "Polyphonic Orchestra",
+     "role": "headliner"
+    }
+   ],
+   "ticket_url": null,
+   "url": "https://www.melkweg.nl/nl/agenda/polyphonic-26-09-2026/",
+   "room": null
+  },
+  {
+   "id": "nobel:captain-kelphair-salty-seamen-26-sep-2026",
+   "venue": "nobel",
+   "title": "Captain Kelphair & The Salty Seamen",
+   "start": "2026-09-26T19:00:00+02:00",
+   "end": null,
+   "city": "Leiden",
+   "status": "scheduled",
+   "availability": "on_sale",
+   "price": {
+    "min_eur": 17.9,
+    "max_eur": null,
+    "text": "Prijs vanaf: € 17,90"
+   },
+   "lineup": {
+    "kind": "concert",
+    "headliners": [
+     "Captain Kelphair & The Salty Seamen"
+    ],
+    "support": [
+     "Black Powder Parlay"
+    ],
+    "source": "fake"
+   },
+   "artists": [
+    {
+     "key": "name:captainkelphairthesaltyseamen",
+     "name": "Captain Kelphair & The Salty Seamen",
+     "role": "headliner"
+    },
+    {
+     "key": "name:blackpowderparlay",
+     "name": "Black Powder Parlay",
+     "role": "support"
+    }
+   ],
+   "ticket_url": "https://eventix.shop/52zsuzc2",
+   "url": "https://nobel.nl/agenda/captain-kelphair-salty-seamen-26-sep-2026",
+   "room": "Kleine zaal"
+  },
+  {
+   "id": "paradiso:2886196",
+   "venue": "paradiso",
+   "title": "Nobu",
+   "start": "2026-09-26T19:30:00+02:00",
+   "end": null,
+   "city": "Amsterdam",
+   "status": "scheduled",
+   "availability": "unknown",
+   "price": null,
+   "lineup": {
+    "kind": "concert",
+    "headliners": [
+     "Nobu"
+    ],
+    "support": [],
+    "source": "fake"
+   },
+   "artists": [
+    {
+     "key": "name:nobu",
+     "name": "Nobu",
+     "role": "headliner"
+    }
+   ],
+   "ticket_url": "https://tickets.paradiso.nl/58eabfc42cf04e5287cfa0067dffe8dc",
+   "url": "https://www.paradiso.nl/programma/nobu/2886196",
+   "room": "Boven Zaal"
+  },
+  {
+   "id": "melkweg:27281",
+   "venue": "melkweg",
+   "title": "mike.",
+   "start": "2026-09-26T19:30:00+02:00",
+   "end": null,
+   "city": "Amsterdam",
+   "status": "scheduled",
+   "availability": "sold_out",
+   "price": null,
+   "lineup": {
+    "kind": "concert",
+    "headliners": [
+     "mike"
+    ],
+    "support": [],
+    "source": "fake"
+   },
+   "artists": [
+    {
+     "key": "name:mike",
+     "name": "mike",
+     "role": "headliner"
+    }
+   ],
+   "ticket_url": null,
+   "url": "https://www.melkweg.nl/nl/agenda/mike-08-10-2026/",
+   "room": null
+  },
+  {
+   "id": "paradiso:2889197",
+   "venue": "paradiso",
+   "title": "Nouvelle Vague",
+   "start": "2026-09-26T20:00:00+02:00",
+   "end": null,
+   "city": "Amsterdam",
+   "status": "scheduled",
+   "availability": "unknown",
+   "price": null,
+   "lineup": {
+    "kind": "concert",
+    "headliners": [
+     "Nouvelle Vague"
+    ],
+    "support": [],
+    "source": "fake"
+   },
+   "artists": [
+    {
+     "key": "name:nouvellevague",
+     "name": "Nouvelle Vague",
+     "role": "headliner"
+    }
+   ],
+   "ticket_url": "https://tickets.paradiso.nl/2a2436a3cc12413cb52920b3e2a7ea0d",
+   "url": "https://www.paradiso.nl/programma/nouvelle-vague/2889197",
+   "room": "Grote Zaal"
+  },
+  {
+   "id": "cinetol:shadowfall-festival",
+   "venue": "cinetol",
+   "title": "Shadowfall Festival",
+   "start": "2026-09-26T20:00:00+02:00",
+   "end": null,
+   "city": "Amsterdam",
+   "status": "scheduled",
+   "availability": "on_sale",
+   "price": {
+    "min_eur": 17.0,
+    "max_eur": 22.0,
+    "text": "ticket vanaf: €17.00; DOORSALE: €22.00"
+   },
+   "lineup": {
+    "kind": "concert",
+    "headliners": [
+     "Shadowfall Festival"
+    ],
+    "support": [],
+    "source": "fake"
+   },
+   "artists": [
+    {
+     "key": "name:shadowfallfestival",
+     "name": "Shadowfall Festival",
+     "role": "headliner"
+    }
+   ],
+   "ticket_url": "https://cinetol.stager.co/shop/cinetol-tickets/events/111671358",
+   "url": "https://www.cinetol.nl/events/shadowfall-festival",
+   "room": "Zaal, Etage"
+  },
+  {
+   "id": "bimhuis:148210",
+   "venue": "bimhuis",
+   "title": "Julie Campiche – Unspoken | Raphael Vanoli Solo",
+   "start": "2026-09-26T20:30:00+02:00",
+   "end": "2026-09-26T22:45:00+02:00",
+   "city": "Amsterdam",
+   "status": "scheduled",
+   "availability": "on_sale",
+   "price": {
+    "min_eur": 18.0,
+    "max_eur": 21.0,
+    "text": null
+   },
+   "lineup": {
+    "kind": "concert",
+    "headliners": [
+     "Julie Campiche"
+    ],
+    "support": [],
+    "source": "fake"
+   },
+   "artists": [
+    {
+     "key": "name:juliecampiche",
+     "name": "Julie Campiche",
+     "role": "headliner"
+    }
+   ],
+   "ticket_url": "https://activetickets.bimhuis.nl/nl-NL/Show/Details/54326",
+   "url": "https://www.bimhuis.nl/agenda/julie-campiche-unspoken-raphael-vanoli-solo/",
+   "room": "Zaal"
+  },
+  {
+   "id": "tivolivredenburg:a0XJz00000FQpj0MAD",
+   "venue": "tivolivredenburg",
+   "title": "Flat Earth Society - The Coltrane Mutations",
+   "start": "2026-09-27T15:00:00+02:00",
+   "end": "2026-09-27T16:15:00+02:00",
+   "city": "Utrecht",
+   "status": "scheduled",
+   "availability": "on_sale",
+   "price": {
+    "min_eur": 27.0,
+    "max_eur": 27.0,
+    "text": null
+   },
+   "lineup": {
+    "kind": "concert",
+    "headliners": [
+     "Flat Earth Society"
+    ],
+    "support": [],
+    "source": "fake"
+   },
+   "artists": [
+    {
+     "key": "name:flatearthsociety",
+     "name": "Flat Earth Society",
+     "role": "headliner"
+    }
+   ],
+   "ticket_url": "https://ticket.tivolivredenburg.nl/nl/buyingflow/tickets/56417/117259",
+   "url": "https://www.tivolivredenburg.nl/agenda/43397658/flat-earth-society-the-coltrane-mutations-27-09-2026",
+   "room": "Cloud Nine"
+  },
+  {
+   "id": "nobel:dublin-legends-27-sep-2026",
+   "venue": "nobel",
+   "title": "The Dublin Legends",
+   "start": "2026-09-27T19:00:00+02:00",
+   "end": null,
+   "city": "Leiden",
+   "status": "scheduled",
+   "availability": "on_sale",
+   "price": {
+    "min_eur": 36.9,
+    "max_eur": null,
+    "text": "Prijs vanaf: € 36,90"
+   },
+   "lineup": {
+    "kind": "concert",
+    "headliners": [
+     "The Dublin Legends"
+    ],
+    "support": [],
+    "source": "fake"
+   },
+   "artists": [
+    {
+     "key": "name:dublinlegends",
+     "name": "The Dublin Legends",
+     "role": "headliner"
+    }
+   ],
+   "ticket_url": "https://eventix.shop/gazuc4fg",
+   "url": "https://nobel.nl/agenda/dublin-legends-27-sep-2026",
+   "room": "Grote zaal"
+  },
+  {
+   "id": "bitterzoet:mad-tsai-2",
+   "venue": "bitterzoet",
+   "title": "Mad Tsai",
+   "start": "2026-09-27T19:30:00+02:00",
+   "end": "2026-09-27T22:30:00+02:00",
+   "city": "Amsterdam",
+   "status": "scheduled",
+   "availability": "sold_out",
+   "price": {
+    "min_eur": 25.7,
+    "max_eur": 25.7,
+    "text": null
+   },
+   "lineup": {
+    "kind": "concert",
+    "headliners": [
+     "Mad Tsai"
+    ],
+    "support": [],
+    "source": "fake"
+   },
+   "artists": [
+    {
+     "key": "name:madtsai",
+     "name": "Mad Tsai",
+     "role": "headliner"
+    }
+   ],
+   "ticket_url": "https://tickets.paradiso.nl/7272df50d81147358cd5602b049db132",
+   "url": "https://www.bitterzoet.com/event/mad-tsai-2/",
+   "room": null
+  },
+  {
+   "id": "cinetol:skinflower",
+   "venue": "cinetol",
+   "title": "Skinflower",
+   "start": "2026-09-27T20:00:00+02:00",
+   "end": null,
+   "city": "Amsterdam",
+   "status": "scheduled",
+   "availability": "on_sale",
+   "price": {
+    "min_eur": 10.75,
+    "max_eur": 10.75,
+    "text": "TICKET: €10.75"
+   },
+   "lineup": {
+    "kind": "concert",
+    "headliners": [
+     "Skinflower"
+    ],
+    "support": [
+     "stuzzy pink"
+    ],
+    "source": "fake"
+   },
+   "artists": [
+    {
+     "key": "name:skinflower",
+     "name": "Skinflower",
+     "role": "headliner"
+    },
+    {
+     "key": "name:stuzzypink",
+     "name": "stuzzy pink",
+     "role": "support"
+    }
+   ],
+   "ticket_url": "https://cinetol.stager.co/shop/cinetol-tickets/events/111658333",
+   "url": "https://www.cinetol.nl/events/skinflower",
+   "room": "Zaal"
+  },
+  {
+   "id": "tivolivredenburg:a0XJz00000DPYlYMAX",
+   "venue": "tivolivredenburg",
+   "title": "Djavan",
+   "start": "2026-09-27T20:30:00+02:00",
+   "end": "2026-09-27T22:30:00+02:00",
+   "city": "Utrecht",
+   "status": "scheduled",
+   "availability": "sold_out",
+   "price": {
+    "min_eur": 62.5,
+    "max_eur": 62.5,
+    "text": null
+   },
+   "lineup": {
+    "kind": "concert",
+    "headliners": [
+     "Djavan"
+    ],
+    "support": [],
+    "source": "fake"
+   },
+   "artists": [
+    {
+     "key": "name:djavan",
+     "name": "Djavan",
+     "role": "headliner"
+    }
+   ],
+   "ticket_url": "https://ticket.tivolivredenburg.nl/nl/buyingflow/tickets/51604/111227",
+   "url": "https://www.tivolivredenburg.nl/agenda/28576432/djavan-27-09-2026",
+   "room": "Grote zaal"
+  },
+  {
+   "id": "tivolivredenburg:a0XJz00000KdqZXMAZ",
+   "venue": "tivolivredenburg",
+   "title": "Berre",
+   "start": "2026-09-27T20:45:00+02:00",
+   "end": "2026-09-27T22:00:00+02:00",
+   "city": "Utrecht",
+   "status": "scheduled",
+   "availability": "sold_out",
+   "price": {
+    "min_eur": 18.0,
+    "max_eur": 18.0,
+    "text": null
+   },
+   "lineup": {
+    "kind": "concert",
+    "headliners": [
+     "Berre"
+    ],
+    "support": [],
+    "source": "fake"
+   },
+   "artists": [
+    {
+     "key": "name:berre",
+     "name": "Berre",
+     "role": "headliner"
+    }
+   ],
+   "ticket_url": "https://ticket.tivolivredenburg.nl/nl/buyingflow/tickets/59094/121001",
+   "url": "https://www.tivolivredenburg.nl/agenda/34467641/berre-27-09-2026",
+   "room": "Club Nine"
+  },
+  {
+   "id": "tivolivredenburg:a0XJz00000HpWFNMA3",
+   "venue": "tivolivredenburg",
+   "title": "The Olllam",
+   "start": "2026-09-27T21:00:00+02:00",
+   "end": "2026-09-27T22:30:00+02:00",
+   "city": "Utrecht",
+   "status": "scheduled",
+   "availability": "sold_out",
+   "price": {
+    "min_eur": 29.0,
+    "max_eur": 29.0,
+    "text": null
+   },
+   "lineup": {
+    "kind": "concert",
+    "headliners": [
+     "The Olllam"
+    ],
+    "support": [],
+    "source": "fake"
+   },
+   "artists": [
+    {
+     "key": "name:olllam",
+     "name": "The Olllam",
+     "role": "headliner"
+    }
+   ],
+   "ticket_url": "https://ticket.tivolivredenburg.nl/nl/buyingflow/tickets/59441/121580",
+   "url": "https://www.tivolivredenburg.nl/agenda/47238619/the-olllam-27-09-2026",
+   "room": "Cloud Nine"
+  },
+  {
+   "id": "tivolivredenburg:a0XJz00000LPaiXMAT",
+   "venue": "tivolivredenburg",
+   "title": "Rabo Open Stage: Tamarae",
+   "start": "2026-09-27T22:00:00+02:00",
+   "end": "2026-09-27T23:00:00+02:00",
+   "city": "Utrecht",
+   "status": "scheduled",
+   "availability": "free",
+   "price": null,
+   "lineup": {
+    "kind": "concert",
+    "headliners": [
+     "Rabo Open Stage: Tamarae"
+    ],
+    "support": [],
+    "source": "fake"
+   },
+   "artists": [
+    {
+     "key": "name:raboopenstagetamarae",
+     "name": "Rabo Open Stage: Tamarae",
+     "role": "headliner"
+    }
+   ],
+   "ticket_url": null,
+   "url": "https://www.tivolivredenburg.nl/agenda/72389043/rabo-open-stage-tamarae-27-09-2026",
+   "room": "Hal: GP& ROS"
+  },
+  {
+   "id": "paradiso:2895863",
+   "venue": "paradiso",
+   "title": "The Afghan Whigs",
+   "start": "2026-09-28T20:00:00+02:00",
+   "end": null,
+   "city": "Amsterdam",
+   "status": "scheduled",
+   "availability": "unknown",
+   "price": null,
+   "lineup": {
+    "kind": "concert",
+    "headliners": [
+     "The Afghan Whigs"
+    ],
+    "support": [
+     "Ed Harcourt"
+    ],
+    "source": "fake"
+   },
+   "artists": [
+    {
+     "key": "name:afghanwhigs",
+     "name": "The Afghan Whigs",
+     "role": "headliner"
+    },
+    {
+     "key": "name:edharcourt",
+     "name": "Ed Harcourt",
+     "role": "support"
+    }
+   ],
+   "ticket_url": "https://tickets.paradiso.nl/8698038472524404b5bf4bbea3dea359",
+   "url": "https://www.paradiso.nl/programma/the-afghan-whigs/2895863",
+   "room": "Grote Zaal"
+  },
+  {
+   "id": "bimhuis:149944",
+   "venue": "bimhuis",
+   "title": "Tuesday Jam",
+   "start": "2026-09-29T22:00:00+02:00",
+   "end": "2026-09-30T00:30:00+02:00",
+   "city": "Amsterdam",
+   "status": "scheduled",
+   "availability": "free",
+   "price": {
+    "min_eur": 0.0,
+    "max_eur": 0.0,
+    "text": null
+   },
+   "lineup": {
+    "kind": "concert",
+    "headliners": [
+     "Tuesday Jam"
+    ],
+    "support": [],
+    "source": "fake"
+   },
+   "artists": [
+    {
+     "key": "name:tuesdayjam",
+     "name": "Tuesday Jam",
+     "role": "headliner"
+    }
+   ],
+   "ticket_url": null,
+   "url": "https://www.bimhuis.nl/agenda/tuesday-jam-277/",
+   "room": "Café"
+  },
+  {
+   "id": "melkweg:26919",
+   "venue": "melkweg",
+   "title": "Donny Benét",
+   "start": "2026-09-30T19:00:00+02:00",
+   "end": null,
+   "city": "Amsterdam",
+   "status": "scheduled",
+   "availability": "unknown",
+   "price": null,
+   "lineup": {
+    "kind": "concert",
+    "headliners": [
+     "Donny Benét"
+    ],
+    "support": [
+     "GIGI GIRLS"
+    ],
+    "source": "fake"
+   },
+   "artists": [
+    {
+     "key": "name:donnybenet",
+     "name": "Donny Benét",
+     "role": "headliner"
+    },
+    {
+     "key": "name:gigigirls",
+     "name": "GIGI GIRLS",
+     "role": "support"
+    }
+   ],
+   "ticket_url": null,
+   "url": "https://www.melkweg.nl/nl/agenda/donny-benet-30-09-2026/",
+   "room": null
+  },
+  {
+   "id": "bimhuis:148355",
+   "venue": "bimhuis",
+   "title": "Scott Hamilton & Rein de Graaff Trio ft. Philip Catherine",
+   "start": "2026-09-30T20:30:00+02:00",
+   "end": "2026-09-30T22:30:00+02:00",
+   "city": "Amsterdam",
+   "status": "scheduled",
+   "availability": "few_left",
+   "price": {
+    "min_eur": 29.0,
+    "max_eur": 34.0,
+    "text": null
+   },
+   "lineup": {
+    "kind": "concert",
+    "headliners": [
+     "Scott Hamilton & Rein de Graaff Trio",
+     "Philip Catherine"
+    ],
+    "support": [],
+    "source": "fake"
+   },
+   "artists": [
+    {
+     "key": "name:scotthamiltonreindegraafftrio",
+     "name": "Scott Hamilton & Rein de Graaff Trio",
+     "role": "headliner"
+    },
+    {
+     "key": "name:philipcatherine",
+     "name": "Philip Catherine",
+     "role": "headliner"
+    }
+   ],
+   "ticket_url": "https://activetickets.bimhuis.nl/nl-NL/Show/Details/54328",
+   "url": "https://www.bimhuis.nl/agenda/scott-hamilton-rein-de-graaff-trio-ft-philip-catherine/",
+   "room": "Zaal"
+  },
+  {
+   "id": "nobel:coroner-01-oct-2026",
+   "venue": "nobel",
+   "title": "Coroner",
+   "start": "2026-10-01T19:30:00+02:00",
+   "end": null,
+   "city": "Leiden",
+   "status": "scheduled",
+   "availability": "on_sale",
+   "price": {
+    "min_eur": 29.9,
+    "max_eur": null,
+    "text": "Prijs vanaf: € 29,90"
+   },
+   "lineup": {
+    "kind": "concert",
+    "headliners": [
+     "Coroner"
+    ],
+    "support": [
+     "Tar Pond",
+     "Schizophrenia"
+    ],
+    "source": "fake"
+   },
+   "artists": [
+    {
+     "key": "name:coroner",
+     "name": "Coroner",
+     "role": "headliner"
+    },
+    {
+     "key": "name:tarpond",
+     "name": "Tar Pond",
+     "role": "support"
+    },
+    {
+     "key": "name:schizophrenia",
+     "name": "Schizophrenia",
+     "role": "support"
+    }
+   ],
+   "ticket_url": "https://eventix.shop/guqrsk4c",
+   "url": "https://nobel.nl/agenda/coroner-01-oct-2026",
+   "room": "Grote zaal"
+  },
+  {
+   "id": "patronaat:25064",
+   "venue": "patronaat",
+   "title": "INI Movement Jam Sessions • Haarlem Vinyl Festival",
+   "start": "2026-10-01T20:00:00+02:00",
+   "end": "2026-10-01T22:00:00+02:00",
+   "city": "Haarlem",
+   "status": "scheduled",
+   "availability": "unknown",
+   "price": {
+    "min_eur": 5.0,
+    "max_eur": 5.0,
+    "text": null
+   },
+   "lineup": {
+    "kind": "concert",
+    "headliners": [
+     "INI Movement Jam Sessions"
+    ],
+    "support": [],
+    "source": "fake"
+   },
+   "artists": [
+    {
+     "key": "name:inimovementjamsessions",
+     "name": "INI Movement Jam Sessions",
+     "role": "headliner"
+    }
+   ],
+   "ticket_url": "https://www.ticketmaster.nl/event/1465621542?brand=nl_patronaat",
+   "url": "https://patronaat.nl/event/ini-jam-sessie-01-10-26/",
+   "room": null
+  },
+  {
+   "id": "patronaat:24174",
+   "venue": "patronaat",
+   "title": "Bnnyhunna • Haarlem Vinyl Festival",
+   "start": "2026-10-02T19:00:00+02:00",
+   "end": "2026-10-02T21:00:00+02:00",
+   "city": "Haarlem",
+   "status": "scheduled",
+   "availability": "unknown",
+   "price": {
+    "min_eur": 23.5,
+    "max_eur": 23.5,
+    "text": null
+   },
+   "lineup": {
+    "kind": "concert",
+    "headliners": [
+     "Bnnyhunna"
+    ],
+    "support": [
+     "Droppa & Diggler"
+    ],
+    "source": "fake"
+   },
+   "artists": [
+    {
+     "key": "name:bnnyhunna",
+     "name": "Bnnyhunna",
+     "role": "headliner"
+    },
+    {
+     "key": "name:droppadiggler",
+     "name": "Droppa & Diggler",
+     "role": "support"
+    }
+   ],
+   "ticket_url": "https://www.ticketmaster.nl/event/677350096?brand=nl_patronaat",
+   "url": "https://patronaat.nl/event/bnnyhunna-haarlem-vinyl-festival-02-10-26/",
+   "room": null
+  },
+  {
+   "id": "melkweg:26463",
+   "venue": "melkweg",
+   "title": "Conor McLain",
+   "start": "2026-10-02T19:30:00+02:00",
+   "end": null,
+   "city": "Amsterdam",
+   "status": "scheduled",
+   "availability": "unknown",
+   "price": null,
+   "lineup": {
+    "kind": "concert",
+    "headliners": [
+     "Conor McLain"
+    ],
+    "support": [],
+    "source": "fake"
+   },
+   "artists": [
+    {
+     "key": "name:conormclain",
+     "name": "Conor McLain",
+     "role": "headliner"
+    }
+   ],
+   "ticket_url": null,
+   "url": "https://www.melkweg.nl/nl/agenda/conor-mclain-02-10-2026/",
+   "room": null
+  },
+  {
+   "id": "patronaat:24668",
+   "venue": "patronaat",
+   "title": "Weval + Ineffekt + Nebula • Haarlem Vinyl Festival",
+   "start": "2026-10-02T20:00:00+02:00",
+   "end": "2026-10-02T23:30:00+02:00",
+   "city": "Haarlem",
+   "status": "scheduled",
+   "availability": "unknown",
+   "price": {
+    "min_eur": 28.5,
+    "max_eur": 28.5,
+    "text": null
+   },
+   "lineup": {
+    "kind": "concert",
+    "headliners": [
+     "Weval",
+     "Ineffekt",
+     "Nebula"
+    ],
+    "support": [
+     "Nebula",
+     "Ineffekt"
+    ],
+    "source": "fake"
+   },
+   "artists": [
+    {
+     "key": "name:weval",
+     "name": "Weval",
+     "role": "headliner"
+    },
+    {
+     "key": "name:ineffekt",
+     "name": "Ineffekt",
+     "role": "headliner"
+    },
+    {
+     "key": "name:nebula",
+     "name": "Nebula",
+     "role": "headliner"
+    }
+   ],
+   "ticket_url": "https://www.ticketmaster.nl/event/218426494?brand=nl_patronaat",
+   "url": "https://patronaat.nl/event/weval-support-haarlem-vinyl-festival-02-10-26/",
+   "room": null
+  },
+  {
+   "id": "patronaat:24092",
+   "venue": "patronaat",
+   "title": "247GO + Marble Boy • Haarlem Vinyl Festival",
+   "start": "2026-10-02T20:15:00+02:00",
+   "end": "2026-10-02T21:00:00+02:00",
+   "city": "Haarlem",
+   "status": "scheduled",
+   "availability": "unknown",
+   "price": {
+    "min_eur": 11.5,
+    "max_eur": 11.5,
+    "text": null
+   },
+   "lineup": {
+    "kind": "concert",
+    "headliners": [
+     "247GO",
+     "Marble Boy"
+    ],
+    "support": [
+     "247GO",
+     "Marble Boy"
+    ],
+    "source": "fake"
+   },
+   "artists": [
+    {
+     "key": "name:247go",
+     "name": "247GO",
+     "role": "headliner"
+    },
+    {
+     "key": "name:marbleboy",
+     "name": "Marble Boy",
+     "role": "headliner"
+    }
+   ],
+   "ticket_url": "https://www.ticketmaster.nl/event/28591572?brand=nl_patronaat",
+   "url": "https://patronaat.nl/event/247go-02-10-26/",
+   "room": null
+  },
+  {
+   "id": "bimhuis:148525",
+   "venue": "bimhuis",
+   "title": "Benjamin Herman’s European Alto Festival",
+   "start": "2026-10-02T20:30:00+02:00",
+   "end": "2026-10-02T22:00:00+02:00",
+   "city": "Amsterdam",
+   "status": "scheduled",
+   "availability": "few_left",
+   "price": {
+    "min_eur": 22.0,
+    "max_eur": 26.0,
+    "text": null
+   },
+   "lineup": {
+    "kind": "concert",
+    "headliners": [
+     "Benjamin Herman’s European Alto Festival"
+    ],
+    "support": [],
+    "source": "fake"
+   },
+   "artists": [
+    {
+     "key": "name:benjaminhermanseuropeanaltofestival",
+     "name": "Benjamin Herman’s European Alto Festival",
+     "role": "headliner"
+    }
+   ],
+   "ticket_url": "https://activetickets.bimhuis.nl/nl-NL/Show/Details/54341",
+   "url": "https://www.bimhuis.nl/agenda/benjamin-hermans-european-alto-festival-2/",
+   "room": "Zaal"
+  },
+  {
+   "id": "cinetol:cafe-palestina-6",
+   "venue": "cinetol",
+   "title": "Café Palestina",
+   "start": "2026-10-04T12:30:00+02:00",
+   "end": null,
+   "city": "Amsterdam",
+   "status": "scheduled",
+   "availability": "free",
+   "price": {
+    "min_eur": 0.0,
+    "max_eur": 0.0,
+    "text": "TICKET: gratis"
+   },
+   "lineup": {
+    "kind": "concert",
+    "headliners": [
+     "Café Palestina"
+    ],
+    "support": [],
+    "source": "fake"
+   },
+   "artists": [
+    {
+     "key": "name:cafepalestina",
+     "name": "Café Palestina",
+     "role": "headliner"
+    }
+   ],
+   "ticket_url": null,
+   "url": "https://www.cinetol.nl/events/cafe-palestina-6",
+   "room": "Zaal"
+  },
+  {
+   "id": "occii:103314-1786057915@occii.org",
+   "venue": "occii",
+   "title": "PARKHOF NIGHT w/ WANDA'S + THE BATTLE OF PARKHOF (BOOK) + IS THERE MORE THAN THE STREET (FILM) + GW SOK (q/a)",
+   "start": "2026-10-04T20:00:00+02:00",
+   "end": "2026-10-04T23:30:00+02:00",
+   "city": "Amsterdam",
+   "status": "scheduled",
+   "availability": "unknown",
+   "price": {
+    "min_eur": 8.0,
+    "max_eur": 8.0,
+    "text": null
+   },
+   "lineup": {
+    "kind": "concert",
+    "headliners": [
+     "PARKHOF NIGHT",
+     "WANDA'S",
+     "THE BATTLE OF PARKHOF",
+     "IS THERE MORE THAN THE STREET",
+     "GW SOK"
+    ],
+    "support": [],
+    "source": "fake"
+   },
+   "artists": [
+    {
+     "key": "name:parkhofnight",
+     "name": "PARKHOF NIGHT",
+     "role": "headliner"
+    },
+    {
+     "key": "name:wandas",
+     "name": "WANDA'S",
+     "role": "headliner"
+    },
+    {
+     "key": "name:battleofparkhof",
+     "name": "THE BATTLE OF PARKHOF",
+     "role": "headliner"
+    },
+    {
+     "key": "name:istheremorethanthestreet",
+     "name": "IS THERE MORE THAN THE STREET",
+     "role": "headliner"
+    },
+    {
+     "key": "name:gwsok",
+     "name": "GW SOK",
+     "role": "headliner"
+    }
+   ],
+   "ticket_url": null,
+   "url": "https://occii.org/events/parkhof-night-w-wandas-the-battle-of-parkhof-book-is-there-more-than-the-street-film-gw-sok-q-a/",
+   "room": null
+  },
+  {
+   "id": "muziekgebouw:15875",
+   "venue": "muziekgebouw",
+   "title": "Rafet El Roman",
+   "start": "2026-10-04T20:15:00+02:00",
+   "end": null,
+   "city": "Amsterdam",
+   "status": "scheduled",
+   "availability": "few_left",
+   "price": {
+    "min_eur": 44.0,
+    "max_eur": 55.0,
+    "text": "€ 44,00–€ 55,00"
+   },
+   "lineup": {
+    "kind": "concert",
+    "headliners": [
+     "Rafet El Roman"
+    ],
+    "support": [],
+    "source": "fake"
+   },
+   "artists": [
+    {
+     "key": "name:rafetelroman",
+     "name": "Rafet El Roman",
+     "role": "headliner"
+    }
+   ],
+   "ticket_url": "https://tickets.muziekgebouw.nl/nl/buyingflow/tickets/60137/122580",
+   "url": "https://www.muziekgebouw.nl/nl/agenda/rafet-el-roman-891v",
+   "room": "Grote Zaal"
+  },
+  {
+   "id": "bimhuis:146394",
+   "venue": "bimhuis",
+   "title": "Cato van Dijck & Anton Goudsmit",
+   "start": "2026-10-04T20:30:00+02:00",
+   "end": "2026-10-04T22:00:00+02:00",
+   "city": "Amsterdam",
+   "status": "scheduled",
+   "availability": "few_left",
+   "price": {
+    "min_eur": 19.0,
+    "max_eur": 23.0,
+    "text": null
+   },
+   "lineup": {
+    "kind": "concert",
+    "headliners": [
+     "Cato van Dijck & Anton Goudsmit"
+    ],
+    "support": [],
+    "source": "fake"
+   },
+   "artists": [
+    {
+     "key": "name:catovandijckantongoudsmit",
+     "name": "Cato van Dijck & Anton Goudsmit",
+     "role": "headliner"
+    }
+   ],
+   "ticket_url": "https://activetickets.bimhuis.nl/nl-NL/Show/Details/54251",
+   "url": "https://www.bimhuis.nl/agenda/cato-van-dijck-anton-goudsmit/",
+   "room": "Zaal"
+  },
+  {
+   "id": "paradiso:2816756",
+   "venue": "paradiso",
+   "title": "Loreen - THE WILDFIRE TOUR",
+   "start": "2026-10-06T19:30:00+02:00",
+   "end": null,
+   "city": "Amsterdam",
+   "status": "postponed",
+   "availability": "unknown",
+   "price": null,
+   "lineup": {
+    "kind": "concert",
+    "headliners": [
+     "Loreen"
+    ],
+    "support": [],
+    "source": "fake"
+   },
+   "artists": [
+    {
+     "key": "name:loreen",
+     "name": "Loreen",
+     "role": "headliner"
+    }
+   ],
+   "ticket_url": "https://tickets.paradiso.nl/4535ca587d4c46f5aa17b55b70d4a1e8",
+   "url": "https://www.paradiso.nl/programma/loreen-the-wildfire-tour/2816756",
+   "room": "Grote Zaal"
+  },
+  {
+   "id": "paradiso:2921756",
+   "venue": "paradiso",
+   "title": "Monokate",
+   "start": "2026-10-06T19:30:00+02:00",
+   "end": null,
+   "city": "Amsterdam",
+   "status": "postponed",
+   "availability": "unknown",
+   "price": null,
+   "lineup": {
+    "kind": "concert",
+    "headliners": [
+     "Monokate"
+    ],
+    "support": [],
+    "source": "fake"
+   },
+   "artists": [
+    {
+     "key": "name:monokate",
+     "name": "Monokate",
+     "role": "headliner"
+    }
+   ],
+   "ticket_url": "https://tickets.paradiso.nl/0b35792c78b44f0eb8adf54902dd6e4a",
+   "url": "https://www.paradiso.nl/programma/monokate/2921756",
+   "room": "Grote Zaal"
+  },
+  {
+   "id": "bimhuis:149946",
+   "venue": "bimhuis",
+   "title": "Tuesday Jam",
+   "start": "2026-10-06T22:00:00+02:00",
+   "end": "2026-10-07T00:30:00+02:00",
+   "city": "Amsterdam",
+   "status": "scheduled",
+   "availability": "free",
+   "price": {
+    "min_eur": 0.0,
+    "max_eur": 0.0,
+    "text": null
+   },
+   "lineup": {
+    "kind": "concert",
+    "headliners": [
+     "Tuesday Jam"
+    ],
+    "support": [],
+    "source": "fake"
+   },
+   "artists": [
+    {
+     "key": "name:tuesdayjam",
+     "name": "Tuesday Jam",
+     "role": "headliner"
+    }
+   ],
+   "ticket_url": null,
+   "url": "https://www.bimhuis.nl/agenda/tuesday-jam-280/",
+   "room": "Café"
+  },
+  {
+   "id": "cinetol:the-homesick",
+   "venue": "cinetol",
+   "title": "The Homesick",
+   "start": "2026-10-08T00:00:00+02:00",
+   "end": null,
+   "city": "Amsterdam",
+   "status": "scheduled",
+   "availability": "unknown",
+   "price": null,
+   "lineup": {
+    "kind": "concert",
+    "headliners": [
+     "The Homesick"
+    ],
+    "support": [],
+    "source": "fake"
+   },
+   "artists": [
+    {
+     "key": "name:homesick",
+     "name": "The Homesick",
+     "role": "headliner"
+    }
+   ],
+   "ticket_url": null,
+   "url": "https://www.cinetol.nl/events/the-homesick",
+   "room": null
+  },
+  {
+   "id": "nobel:bare-jams-08-oct-2026",
+   "venue": "nobel",
+   "title": "Bare Jams",
+   "start": "2026-10-08T19:30:00+02:00",
+   "end": null,
+   "city": "Leiden",
+   "status": "scheduled",
+   "availability": "on_sale",
+   "price": {
+    "min_eur": 17.9,
+    "max_eur": null,
+    "text": "Prijs vanaf: € 17,90"
+   },
+   "lineup": {
+    "kind": "concert",
+    "headliners": [
+     "Bare Jams"
+    ],
+    "support": [],
+    "source": "fake"
+   },
+   "artists": [
+    {
+     "key": "name:barejams",
+     "name": "Bare Jams",
+     "role": "headliner"
+    }
+   ],
+   "ticket_url": "https://eventix.shop/k4nyq4em",
+   "url": "https://nobel.nl/agenda/bare-jams-08-oct-2026",
+   "room": "Kleine zaal"
+  },
+  {
+   "id": "paradiso:2887560",
+   "venue": "paradiso",
+   "title": "South Summit",
+   "start": "2026-10-09T22:00:00+02:00",
+   "end": null,
+   "city": "Amsterdam",
+   "status": "scheduled",
+   "availability": "unknown",
+   "price": null,
+   "lineup": {
+    "kind": "concert",
+    "headliners": [
+     "South Summit"
+    ],
+    "support": [],
+    "source": "fake"
+   },
+   "artists": [
+    {
+     "key": "name:southsummit",
+     "name": "South Summit",
+     "role": "headliner"
+    }
+   ],
+   "ticket_url": "https://tickets.paradiso.nl/cd4fad8141bc43dba750f16036e43a39",
+   "url": "https://www.paradiso.nl/programma/south-summit/2887560",
+   "room": "Boven Zaal"
+  },
+  {
+   "id": "melkweg:28073",
+   "venue": "melkweg",
+   "title": "Dominique Fils-Aimé",
+   "start": "2026-10-12T19:30:00+02:00",
+   "end": null,
+   "city": "Amsterdam",
+   "status": "scheduled",
+   "availability": "unknown",
+   "price": null,
+   "lineup": {
+    "kind": "concert",
+    "headliners": [
+     "Dominique Fils-Aimé"
+    ],
+    "support": [],
+    "source": "fake"
+   },
+   "artists": [
+    {
+     "key": "name:dominiquefilsaime",
+     "name": "Dominique Fils-Aimé",
+     "role": "headliner"
+    }
+   ],
+   "ticket_url": null,
+   "url": "https://www.melkweg.nl/nl/agenda/dominique-fils-aime-12-10-2026/",
+   "room": null
+  },
+  {
+   "id": "nobel:eloi-youssef-15-oct-2026",
+   "venue": "nobel",
+   "title": "Eloi Youssef",
+   "start": "2026-10-15T00:00:00+02:00",
+   "end": null,
+   "city": "Leiden",
+   "status": "scheduled",
+   "availability": "few_left",
+   "price": null,
+   "lineup": {
+    "kind": "concert",
+    "headliners": [
+     "Eloi Youssef"
+    ],
+    "support": [],
+    "source": "fake"
+   },
+   "artists": [
+    {
+     "key": "name:eloiyoussef",
+     "name": "Eloi Youssef",
+     "role": "headliner"
+    }
+   ],
+   "ticket_url": null,
+   "url": "https://nobel.nl/agenda/eloi-youssef-15-oct-2026",
+   "room": null
+  },
+  {
+   "id": "melkweg:27891",
+   "venue": "melkweg",
+   "title": "Fimiguerrero",
+   "start": "2026-10-15T19:30:00+02:00",
+   "end": null,
+   "city": "Amsterdam",
+   "status": "postponed",
+   "availability": "unknown",
+   "price": null,
+   "lineup": {
+    "kind": "concert",
+    "headliners": [
+     "Fimiguerrero"
+    ],
+    "support": [],
+    "source": "fake"
+   },
+   "artists": [
+    {
+     "key": "name:fimiguerrero",
+     "name": "Fimiguerrero",
+     "role": "headliner"
+    }
+   ],
+   "ticket_url": null,
+   "url": "https://www.melkweg.nl/nl/agenda/fimiguerrero-15-10-2026/",
+   "room": null
+  },
+  {
+   "id": "patronaat:21971",
+   "venue": "patronaat",
+   "title": "Verplaatst: Masters of Reality",
+   "start": "2026-10-16T19:30:00+02:00",
+   "end": "2026-10-16T21:00:00+02:00",
+   "city": "Haarlem",
+   "status": "postponed",
+   "availability": "unknown",
+   "price": {
+    "min_eur": 29.5,
+    "max_eur": 29.5,
+    "text": null
+   },
+   "lineup": {
+    "kind": "concert",
+    "headliners": [
+     "Masters of Reality"
+    ],
+    "support": [],
+    "source": "fake"
+   },
+   "artists": [
+    {
+     "key": "name:mastersofreality",
+     "name": "Masters of Reality",
+     "role": "headliner"
+    }
+   ],
+   "ticket_url": "https://www.ticketmaster.nl/event/1011207718?brand=nl_patronaat",
+   "url": "https://patronaat.nl/event/masters-of-reality-16-10-26/",
+   "room": null
+  },
+  {
+   "id": "nobel:rowwen-heze-17-oct-2026",
+   "venue": "nobel",
+   "title": "Rowwen Hèze",
+   "start": "2026-10-17T00:00:00+02:00",
+   "end": null,
+   "city": "Leiden",
+   "status": "scheduled",
+   "availability": "sold_out",
+   "price": null,
+   "lineup": {
+    "kind": "concert",
+    "headliners": [
+     "Rowwen Hèze"
+    ],
+    "support": [],
+    "source": "fake"
+   },
+   "artists": [
+    {
+     "key": "name:rowwenheze",
+     "name": "Rowwen Hèze",
+     "role": "headliner"
+    }
+   ],
+   "ticket_url": null,
+   "url": "https://nobel.nl/agenda/rowwen-heze-17-oct-2026",
+   "room": null
+  },
+  {
+   "id": "occii:101669-1778592416@occii.org",
+   "venue": "occii",
+   "title": "FRED FRITH, TIM HODGKINSON & LIZ ALBEE (US/UK/DE) + LUKRAAK (Marcus Wärnheim & Thomas Jaspers) + JOSHUA BURKETT (US)",
+   "start": "2026-10-20T20:00:00+02:00",
+   "end": "2026-10-20T23:00:00+02:00",
+   "city": "Amsterdam",
+   "status": "scheduled",
+   "availability": "unknown",
+   "price": {
+    "min_eur": 13.0,
+    "max_eur": 13.0,
+    "text": null
+   },
+   "lineup": {
+    "kind": "concert",
+    "headliners": [
+     "FRED FRITH",
+     "TIM HODGKINSON & LIZ ALBEE",
+     "LUKRAAK",
+     "JOSHUA BURKETT"
+    ],
+    "support": [],
+    "source": "fake"
+   },
+   "artists": [
+    {
+     "key": "name:fredfrith",
+     "name": "FRED FRITH",
+     "role": "headliner"
+    },
+    {
+     "key": "name:timhodgkinsonlizalbee",
+     "name": "TIM HODGKINSON & LIZ ALBEE",
+     "role": "headliner"
+    },
+    {
+     "key": "name:lukraak",
+     "name": "LUKRAAK",
+     "role": "headliner"
+    },
+    {
+     "key": "name:joshuaburkett",
+     "name": "JOSHUA BURKETT",
+     "role": "headliner"
+    }
+   ],
+   "ticket_url": null,
+   "url": "https://occii.org/events/total-music-2/",
+   "room": null
+  },
+  {
+   "id": "occii:103586-1788552375@occii.org",
+   "venue": "occii",
+   "title": "Saba Alizadeh & Farzané (NL/IRN) + Vehicle/Passenger (US/CW/DE)",
+   "start": "2026-10-23T20:00:00+02:00",
+   "end": "2026-10-23T23:30:00+02:00",
+   "city": "Amsterdam",
+   "status": "scheduled",
+   "availability": "unknown",
+   "price": {
+    "min_eur": 13.0,
+    "max_eur": 13.0,
+    "text": null
+   },
+   "lineup": {
+    "kind": "concert",
+    "headliners": [
+     "Saba Alizadeh & Farzané",
+     "Vehicle/Passenger"
+    ],
+    "support": [],
+    "source": "fake"
+   },
+   "artists": [
+    {
+     "key": "name:sabaalizadehfarzane",
+     "name": "Saba Alizadeh & Farzané",
+     "role": "headliner"
+    },
+    {
+     "key": "name:vehiclepassenger",
+     "name": "Vehicle/Passenger",
+     "role": "headliner"
+    }
+   ],
+   "ticket_url": null,
+   "url": "https://occii.org/events/saba-alizadeh-farzane-nl-irn-vehicle-passenger-us-cw-de/",
+   "room": null
+  },
+  {
+   "id": "melkweg:27159",
+   "venue": "melkweg",
+   "title": "Jon Allen & the Luna Kings",
+   "start": "2026-10-28T19:30:00+01:00",
+   "end": null,
+   "city": "Amsterdam",
+   "status": "scheduled",
+   "availability": "unknown",
+   "price": null,
+   "lineup": {
+    "kind": "concert",
+    "headliners": [
+     "Jon Allen & the Luna Kings"
+    ],
+    "support": [],
+    "source": "fake"
+   },
+   "artists": [
+    {
+     "key": "name:jonallenthelunakings",
+     "name": "Jon Allen & the Luna Kings",
+     "role": "headliner"
+    }
+   ],
+   "ticket_url": null,
+   "url": "https://www.melkweg.nl/nl/agenda/jon-allen-the-luna-kings-28-10-2026/",
+   "room": null
+  },
+  {
+   "id": "cinetol:superfan",
+   "venue": "cinetol",
+   "title": "Superfan",
+   "start": "2026-10-31T00:00:00+01:00",
+   "end": null,
+   "city": "Amsterdam",
+   "status": "scheduled",
+   "availability": "unknown",
+   "price": null,
+   "lineup": {
+    "kind": "concert",
+    "headliners": [
+     "Superfan"
+    ],
+    "support": [],
+    "source": "fake"
+   },
+   "artists": [
+    {
+     "key": "name:superfan",
+     "name": "Superfan",
+     "role": "headliner"
+    }
+   ],
+   "ticket_url": null,
+   "url": "https://www.cinetol.nl/events/superfan",
+   "room": null
+  },
+  {
+   "id": "paradiso:2916265",
+   "venue": "paradiso",
+   "title": "Elephant Stone",
+   "start": "2026-11-02T19:30:00+01:00",
+   "end": null,
+   "city": "Amsterdam",
+   "status": "scheduled",
+   "availability": "unknown",
+   "price": null,
+   "lineup": {
+    "kind": "concert",
+    "headliners": [
+     "Elephant Stone"
+    ],
+    "support": [],
+    "source": "fake"
+   },
+   "artists": [
+    {
+     "key": "name:elephantstone",
+     "name": "Elephant Stone",
+     "role": "headliner"
+    }
+   ],
+   "ticket_url": "https://tickets.paradiso.nl/bc7051f200694d548a5ce5fadb2868e8",
+   "url": "https://www.paradiso.nl/programma/elephant-stone/2916265",
+   "room": "Boven Zaal"
+  },
+  {
+   "id": "paradiso:2895784",
+   "venue": "paradiso",
+   "title": "Julia Adriana",
+   "start": "2026-11-05T19:30:00+01:00",
+   "end": null,
+   "city": "Amsterdam",
+   "status": "scheduled",
+   "availability": "unknown",
+   "price": null,
+   "lineup": {
+    "kind": "concert",
+    "headliners": [
+     "Julia Adriana"
+    ],
+    "support": [],
+    "source": "fake"
+   },
+   "artists": [
+    {
+     "key": "name:juliaadriana",
+     "name": "Julia Adriana",
+     "role": "headliner"
+    }
+   ],
+   "ticket_url": "https://tickets.paradiso.nl/b12930ac22534750bc8574b0903d58b1",
+   "url": "https://www.paradiso.nl/programma/julia-adriana/2895784",
+   "room": "Boven Zaal"
+  },
+  {
+   "id": "bimhuis:149014",
+   "venue": "bimhuis",
+   "title": "Masterclass: Leonard Elschenbroich",
+   "start": "2026-11-07T13:30:00+01:00",
+   "end": "2026-11-07T15:15:00+01:00",
+   "city": "Amsterdam",
+   "status": "scheduled",
+   "availability": "on_sale",
+   "price": null,
+   "lineup": {
+    "kind": "concert",
+    "headliners": [
+     "Leonard Elschenbroich"
+    ],
+    "support": [],
+    "source": "fake"
+   },
+   "artists": [
+    {
+     "key": "name:leonardelschenbroich",
+     "name": "Leonard Elschenbroich",
+     "role": "headliner"
+    }
+   ],
+   "ticket_url": "https://www.cellobiennale.nl/nl/voorstellingen/leonard-elschenbroich-q6pt",
+   "url": "https://www.bimhuis.nl/agenda/masterclass-leonard-elschenbroich/",
+   "room": "Zaal"
+  },
+  {
+   "id": "melkweg:26433",
+   "venue": "melkweg",
+   "title": "The Hardkiss",
+   "start": "2026-11-10T19:00:00+01:00",
+   "end": null,
+   "city": "Amsterdam",
+   "status": "scheduled",
+   "availability": "unknown",
+   "price": null,
+   "lineup": {
+    "kind": "concert",
+    "headliners": [
+     "The Hardkiss"
+    ],
+    "support": [
+     "Felin"
+    ],
+    "source": "fake"
+   },
+   "artists": [
+    {
+     "key": "name:hardkiss",
+     "name": "The Hardkiss",
+     "role": "headliner"
+    },
+    {
+     "key": "name:felin",
+     "name": "Felin",
+     "role": "support"
+    }
+   ],
+   "ticket_url": null,
+   "url": "https://www.melkweg.nl/nl/agenda/the-hardkiss-10-11-2026/",
+   "room": null
+  },
+  {
+   "id": "melkweg:27494",
+   "venue": "melkweg",
+   "title": "Nemzzz",
+   "start": "2026-11-13T19:00:00+01:00",
+   "end": null,
+   "city": "Amsterdam",
+   "status": "scheduled",
+   "availability": "sold_out",
+   "price": null,
+   "lineup": {
+    "kind": "concert",
+    "headliners": [
+     "Nemzzz"
+    ],
+    "support": [],
+    "source": "fake"
+   },
+   "artists": [
+    {
+     "key": "name:nemzzz",
+     "name": "Nemzzz",
+     "role": "headliner"
+    }
+   ],
+   "ticket_url": null,
+   "url": "https://www.melkweg.nl/nl/agenda/nemzzz-13-11-2026/",
+   "room": null
+  },
+  {
+   "id": "cinetol:lynnic-itsarius",
+   "venue": "cinetol",
+   "title": "Lynnic & ItsArius",
+   "start": "2026-11-17T00:00:00+01:00",
+   "end": null,
+   "city": "Amsterdam",
+   "status": "scheduled",
+   "availability": "sold_out",
+   "price": null,
+   "lineup": {
+    "kind": "concert",
+    "headliners": [
+     "Lynnic & ItsArius"
+    ],
+    "support": [],
+    "source": "fake"
+   },
+   "artists": [
+    {
+     "key": "name:lynnicitsarius",
+     "name": "Lynnic & ItsArius",
+     "role": "headliner"
+    }
+   ],
+   "ticket_url": null,
+   "url": "https://www.cinetol.nl/events/lynnic-itsarius",
+   "room": null
+  },
+  {
+   "id": "melkweg:27193",
+   "venue": "melkweg",
+   "title": "Chico Chico",
+   "start": "2026-11-20T19:30:00+01:00",
+   "end": null,
+   "city": "Amsterdam",
+   "status": "scheduled",
+   "availability": "unknown",
+   "price": null,
+   "lineup": {
+    "kind": "concert",
+    "headliners": [
+     "Chico Chico"
+    ],
+    "support": [],
+    "source": "fake"
+   },
+   "artists": [
+    {
+     "key": "name:chicochico",
+     "name": "Chico Chico",
+     "role": "headliner"
+    }
+   ],
+   "ticket_url": null,
+   "url": "https://www.melkweg.nl/nl/agenda/chico-chico-20-11-2026/",
+   "room": null
+  },
+  {
+   "id": "melkweg:28089",
+   "venue": "melkweg",
+   "title": "Tinie Tempah",
+   "start": "2026-11-24T19:30:00+01:00",
+   "end": null,
+   "city": "Amsterdam",
+   "status": "scheduled",
+   "availability": "unknown",
+   "price": null,
+   "lineup": {
+    "kind": "concert",
+    "headliners": [
+     "Tinie Tempah"
+    ],
+    "support": [],
+    "source": "fake"
+   },
+   "artists": [
+    {
+     "key": "name:tinietempah",
+     "name": "Tinie Tempah",
+     "role": "headliner"
+    }
+   ],
+   "ticket_url": null,
+   "url": "https://www.melkweg.nl/nl/agenda/tinie-tempah-24-11-2026/",
+   "room": null
+  },
+  {
+   "id": "cinetol:la-elite",
+   "venue": "cinetol",
+   "title": "LA ÉLITE",
+   "start": "2026-11-28T00:00:00+01:00",
+   "end": null,
+   "city": "Amsterdam",
+   "status": "scheduled",
+   "availability": "unknown",
+   "price": null,
+   "lineup": {
+    "kind": "concert",
+    "headliners": [
+     "LA ÉLITE"
+    ],
+    "support": [
+     "eigen risico",
+     "feral"
+    ],
+    "source": "fake"
+   },
+   "artists": [
+    {
+     "key": "name:laelite",
+     "name": "LA ÉLITE",
+     "role": "headliner"
+    },
+    {
+     "key": "name:eigenrisico",
+     "name": "eigen risico",
+     "role": "support"
+    },
+    {
+     "key": "name:feral",
+     "name": "feral",
+     "role": "support"
+    }
+   ],
+   "ticket_url": null,
+   "url": "https://www.cinetol.nl/events/la-elite",
+   "room": null
+  },
+  {
+   "id": "bitterzoet:kevin-atwater",
+   "venue": "bitterzoet",
+   "title": "Kevin Atwater",
+   "start": "2026-12-03T19:30:00+01:00",
+   "end": null,
+   "city": "Amsterdam",
+   "status": "scheduled",
+   "availability": "on_sale",
+   "price": {
+    "min_eur": 21.7,
+    "max_eur": 21.7,
+    "text": null
+   },
+   "lineup": {
+    "kind": "concert",
+    "headliners": [
+     "Kevin Atwater"
+    ],
+    "support": [],
+    "source": "fake"
+   },
+   "artists": [
+    {
+     "key": "name:kevinatwater",
+     "name": "Kevin Atwater",
+     "role": "headliner"
+    }
+   ],
+   "ticket_url": "https://tickets.paradiso.nl/3ac0bfa6443d47cabc50f27425aac17f",
+   "url": "https://www.bitterzoet.com/event/kevin-atwater/",
+   "room": null
+  },
+  {
+   "id": "melkweg:28072",
+   "venue": "melkweg",
+   "title": "Kadavar",
+   "start": "2026-12-09T19:00:00+01:00",
+   "end": null,
+   "city": "Amsterdam",
+   "status": "scheduled",
+   "availability": "unknown",
+   "price": null,
+   "lineup": {
+    "kind": "concert",
+    "headliners": [
+     "Kadavar"
+    ],
+    "support": [
+     "Scott Hepple & The Sun Band"
+    ],
+    "source": "fake"
+   },
+   "artists": [
+    {
+     "key": "name:kadavar",
+     "name": "Kadavar",
+     "role": "headliner"
+    },
+    {
+     "key": "name:scotthepplethesunband",
+     "name": "Scott Hepple & The Sun Band",
+     "role": "support"
+    }
+   ],
+   "ticket_url": null,
+   "url": "https://www.melkweg.nl/nl/agenda/kadavar-09-12-2026/",
+   "room": null
+  },
+  {
+   "id": "cinetol:stippenlift",
+   "venue": "cinetol",
+   "title": "10 jaar Kerst met Stippenlift",
+   "start": "2026-12-18T00:00:00+01:00",
+   "end": null,
+   "city": "Amsterdam",
+   "status": "scheduled",
+   "availability": "unknown",
+   "price": null,
+   "lineup": {
+    "kind": "concert",
+    "headliners": [
+     "10 jaar Kerst met Stippenlift"
+    ],
+    "support": [],
+    "source": "fake"
+   },
+   "artists": [
+    {
+     "key": "name:10jaarkerstmetstippenlift",
+     "name": "10 jaar Kerst met Stippenlift",
+     "role": "headliner"
+    }
+   ],
+   "ticket_url": null,
+   "url": "https://www.cinetol.nl/events/stippenlift",
+   "room": null
+  },
+  {
+   "id": "melkweg:27995",
+   "venue": "melkweg",
+   "title": "Loïs Lane",
+   "start": "2027-01-09T19:00:00+01:00",
+   "end": null,
+   "city": "Amsterdam",
+   "status": "scheduled",
+   "availability": "unknown",
+   "price": null,
+   "lineup": {
+    "kind": "concert",
+    "headliners": [
+     "Loïs Lane"
+    ],
+    "support": [],
+    "source": "fake"
+   },
+   "artists": [
+    {
+     "key": "name:loislane",
+     "name": "Loïs Lane",
+     "role": "headliner"
+    }
+   ],
+   "ticket_url": null,
+   "url": "https://www.melkweg.nl/nl/agenda/lois-lane-09-01-2027/",
+   "room": null
+  },
+  {
+   "id": "melkweg:28227",
+   "venue": "melkweg",
+   "title": "Basement",
+   "start": "2027-02-02T19:00:00+01:00",
+   "end": null,
+   "city": "Amsterdam",
+   "status": "scheduled",
+   "availability": "unknown",
+   "price": null,
+   "lineup": {
+    "kind": "concert",
+    "headliners": [
+     "Basement"
+    ],
+    "support": [
+     "Fleshwater",
+     "Béton Armé"
+    ],
+    "source": "fake"
+   },
+   "artists": [
+    {
+     "key": "name:basement",
+     "name": "Basement",
+     "role": "headliner"
+    },
+    {
+     "key": "name:fleshwater",
+     "name": "Fleshwater",
+     "role": "support"
+    },
+    {
+     "key": "name:betonarme",
+     "name": "Béton Armé",
+     "role": "support"
+    }
+   ],
+   "ticket_url": null,
+   "url": "https://www.melkweg.nl/nl/agenda/basement-02-02-2027/",
+   "room": null
+  },
+  {
+   "id": "nobel:nashvilles-country-cafe-25-feb-2027",
+   "venue": "nobel",
+   "title": "Nashville's Country Café",
+   "start": "2027-02-25T00:00:00+01:00",
+   "end": null,
+   "city": "Leiden",
+   "status": "scheduled",
+   "availability": "unknown",
+   "price": null,
+   "lineup": {
+    "kind": "concert",
+    "headliners": [
+     "Nashville's Country Café"
+    ],
+    "support": [],
+    "source": "fake"
+   },
+   "artists": [
+    {
+     "key": "name:nashvillescountrycafe",
+     "name": "Nashville's Country Café",
+     "role": "headliner"
+    }
+   ],
+   "ticket_url": null,
+   "url": "https://nobel.nl/agenda/nashvilles-country-cafe-25-feb-2027",
+   "room": null
+  },
+  {
+   "id": "nobel:pussy-riots-diana-burkot-27-mar-2027",
+   "venue": "nobel",
+   "title": "Pussy Riot's Diana Burkot",
+   "start": "2027-03-27T00:00:00+01:00",
+   "end": null,
+   "city": "Leiden",
+   "status": "scheduled",
+   "availability": "unknown",
+   "price": null,
+   "lineup": {
+    "kind": "concert",
+    "headliners": [
+     "Pussy Riot's Diana Burkot"
+    ],
+    "support": [],
+    "source": "fake"
+   },
+   "artists": [
+    {
+     "key": "name:pussyriotsdianaburkot",
+     "name": "Pussy Riot's Diana Burkot",
+     "role": "headliner"
+    }
+   ],
+   "ticket_url": null,
+   "url": "https://nobel.nl/agenda/pussy-riots-diana-burkot-27-mar-2027",
+   "room": null
+  },
+  {
+   "id": "melkweg:27765",
+   "venue": "melkweg",
+   "title": "John Vincent III",
+   "start": "2027-05-31T19:30:00+02:00",
+   "end": null,
+   "city": "Amsterdam",
+   "status": "scheduled",
+   "availability": "unknown",
+   "price": null,
+   "lineup": {
+    "kind": "concert",
+    "headliners": [
+     "John Vincent III"
+    ],
+    "support": [],
+    "source": "fake"
+   },
+   "artists": [
+    {
+     "key": "name:johnvincentiii",
+     "name": "John Vincent III",
+     "role": "headliner"
+    }
+   ],
+   "ticket_url": null,
+   "url": "https://www.melkweg.nl/nl/agenda/john-vincent-iii-31-05-2027/",
+   "room": null
+  }
+ ]
+}
