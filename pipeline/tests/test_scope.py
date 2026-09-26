@@ -37,6 +37,8 @@ def event(venue="melkweg", categories=(), genres=(), status=Status.SCHEDULED, ro
         (event(venue="muziekgebouw", genres=["hedendaags", "jazz"]), None),
         (event(venue="patronaat", genres=["Klassiekers / Tributes"]), "tribute act"),
         (event(categories=["Film"]), "not music"),
+        # Tolhuistuin files its weekly choir rehearsal under "Doorlopend" (ongoing).
+        (event(venue="tolhuistuin", categories=["Doorlopend"], room="IJzaal"), "not music"),
         (event(venue="tivolivredenburg", categories=["Pop"], genres=["Comedy"]), "not music"),
         (event(venue="muziekgebouw"), "not music"),
         (event(venue="muziekgebouw", genres=["familie"]), "family / children"),

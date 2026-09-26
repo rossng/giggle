@@ -19,6 +19,9 @@ uv, Node, pnpm and make only; Python is uv-managed (`.python-version`), deps com
 
 - `uv sync` · `uv run podia list` · `uv run podia fetch <venue>`
 - Build data: `make data` (live, ~4 min) or `make data-offline` (fixtures, seconds) → `data/site/`
+- Listen to it: `make radio` (rough playback preview on localhost:8765; YouTube embeds need a real
+  http origin, not file://). Uses naive title rules + cached YouTube Music lookups
+  (`data/cache/ytmusic.json`).
 - Inspect it: `make browse` (kept + left-out events with reasons; `data/` is git-ignored).
   Raw adapter output: `make fetch` then `make browse-raw`.
 - Tests: `cd packages/podia && uv run --group dev pytest -q`

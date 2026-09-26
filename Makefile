@@ -1,6 +1,6 @@
 # Local development. `make help` lists targets.
 
-.PHONY: help sync test lint format data data-offline browse fetch browse-raw
+.PHONY: help sync test lint format data data-offline browse radio fetch browse-raw
 
 help:
 	@grep -E "^[a-z-]+:.*## " $(MAKEFILE_LIST) | sed "s/:.*## /\t/"
@@ -29,6 +29,11 @@ data-offline: ## run the pipeline on recorded fixtures into data/site (seconds, 
 browse: ## build data/events.html from data/site (kept and left-out events) and open it
 	uv run python scripts/browse_events.py data/site -o data/events.html
 	open data/events.html
+
+radio: ## rough playback preview of the next 14 days, served on localhost:8765 (Ctrl-C stops)
+	uv run python scripts/radio_preview.py --days 14
+	(sleep 1 && open http://localhost:8765/) &
+	uv run python -m http.server 8765 --bind 127.0.0.1 --directory data/radio
 
 fetch: ## raw podia output, unfiltered, into data/events/<venue>.jsonl (~10 min)
 	mkdir -p data/events
