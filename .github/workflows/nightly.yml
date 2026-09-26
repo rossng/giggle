@@ -18,8 +18,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     # A normal night takes minutes. Cold caches take longer, but the build's per-run budgets
-    # (LLM calls, MusicBrainz/Last.fm/Wikipedia requests) cap each night's share of the work.
-    timeout-minutes: 45
+    # (LLM calls, MusicBrainz/Last.fm/Wikipedia requests, voice clips) cap each night's share
+    # of the work.
+    timeout-minutes: 60
     env:
       GH_TOKEN: ${{ github.token }}
       GH_REPO: ${{ github.repository }}
@@ -31,8 +32,24 @@ jobs:
           path: ~/.cache/uv
           key: uv-${{ runner.os }}-${{ hashFiles('uv.lock', '.python-version') }}
 
-      # The previous run's counts are the baseline for spotting broken venues.
-      - name: Fetch the previous run's health history
+      # The voice model (Kokoro, ~350 MB in data/cache/models) is fixed by the checksums pinned
+      # in voice.py, so unlike the growing pipeline cache below it suits actions/cache: one
+      # immutable entry per model version, keyed on those checksums. Saved after the build.
+      - name: Voice model cache key
+        id: model-key
+        run: |
+          sums=$(grep -oE '"[0-9a-f]{64}"' pipeline/src/giggle_pipeline/voice.py | sha256sum)
+          echo "key=kokoro-v1.0-fp32-${sums:0:16}" >> "$GITHUB_OUTPUT"
+      - name: Restore the voice model
+        id: model
+        uses: actions/cache/restore@v4
+        with:
+          path: data/cache/models
+          key: ${{ steps.model-key.outputs.key }}
+
+      # The previous run's counts are the baseline for spotting broken venues, and its
+      # data/site/voice/ clips are kept, so only new announcements get rendered.
+      - name: Fetch the previous run's health history and voice clips
         run: |
           run=$(gh run list --workflow nightly.yml --status success --limit 1 \
             --json databaseId -q '.[0].databaseId')
@@ -77,6 +94,8 @@ jobs:
               unset "$name"
             fi
           done
+          # The voice extra (kokoro-onnx) renders announcer clips; `uv run` keeps it installed.
+          nix develop -c uv sync --all-packages --extra voice
           nix develop -c make data
 
       - uses: actions/upload-artifact@v4
@@ -85,13 +104,29 @@ jobs:
           path: data/site
           retention-days: 30
 
-      # Also after a failed or timed-out build: whatever it looked up is worth keeping.
+      # Also after a failed or timed-out build: whatever it looked up is worth keeping. The
+      # voice model has its own cache (above), so it stays out of this artifact.
       - uses: actions/upload-artifact@v4
         if: always() && hashFiles('data/cache/**') != ''
         with:
           name: pipeline-cache
-          path: data/cache
+          path: |
+            data/cache
+            !data/cache/models
           retention-days: 30
+
+      # Only once both files are complete (an interrupted download leaves just a .part file).
+      - name: Save the voice model
+        if: >-
+          always() && steps.model.outputs.cache-hit != 'true'
+          && hashFiles('data/cache/models/kokoro-v1.0.onnx') != ''
+          && hashFiles('data/cache/models/voices-v1.0.bin') != ''
+        uses: actions/cache/save@v4
+        with:
+          path: |
+            data/cache/models
+            !data/cache/models/*.part
+          key: ${{ steps.model-key.outputs.key }}
 
       - name: Open or close venue-health issues
         if: always() && hashFiles('data/site/health.json') != ''
