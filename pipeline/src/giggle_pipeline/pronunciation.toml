@@ -1,0 +1,31 @@
+# How the British announcer voices should say names that English spelling gets wrong.
+#
+# Each entry maps a written form to IPA in the symbols espeak-ng's en-gb voice produces
+# (`giggle-voice-samples --phonemes "some text"` shows what espeak makes of a text),
+# with ˈ before the stressed syllable and ˌ before a secondary stress. These are
+# anglicised on purpose: an English voice attempting Dutch vowels (ui, ij, the soft g)
+# sounds worse than a confident English approximation. Avoid x, ç and œ: the model has
+# rarely or never heard them in English.
+#
+# Matching is whole-word and case-insensitive; the longest written form wins, so
+# "Muziekgebouw aan 't IJ" is said as one name. A possessive ("Paradiso's") gets the
+# right s/z/ɪz ending. Use { ipa = "…", match_case = true } where a lower-case
+# spelling is an ordinary word. Editing an entry re-renders only clips that use it.
+
+[names]
+Tolhuistuin = "tˈɒlhaʊstˌaʊn"                          # TOL-house-town
+Bimhuis = "bˈɪmhaʊs"                                   # BIM-house
+Muziekgebouw = "muːzˈiːkhəbˌaʊ"                        # moo-ZEEK-huh-bow
+"Muziekgebouw aan 't IJ" = "muːzˈiːkhəbˌaʊ ɑːn ət ˈaɪ" # … ahn ut EYE
+IJ = { ipa = "ˈaɪ", match_case = true }                # the river: EYE
+Paradiso = "pˌaɹədˈiːzəʊ"                              # para-DEE-zo, not para-DYE-zo
+Melkweg = "mˈɛlkvɛɡ"                                   # MELK-vegg
+# Locals call it "de Okkie"; not confirmed by the venue, so change it if wrong.
+OCCII = { ipa = "ˈɒki", match_case = true }            # OCK-ee
+TivoliVredenburg = "tˈiːvəʊli vɹˈeɪdənbˌɜːɡ"           # TEE-vo-lee VRAY-den-burg
+"Tivoli Vredenburg" = "tˈiːvəʊli vɹˈeɪdənbˌɜːɡ"
+Vredenburg = "vɹˈeɪdənbˌɜːɡ"
+Patronaat = "pˌatɹəʊnˈɑːt"                             # pat-ro-NAHT
+Nobel = "nəʊbˈɛl"                                      # no-BELL (the Leiden venue)
+Cinetol = "sˈiːnətˌɒl"                                 # SEE-nuh-tol
+Bitterzoet = "bˈɪtəzˌuːt"                              # BIT-er-zoot
