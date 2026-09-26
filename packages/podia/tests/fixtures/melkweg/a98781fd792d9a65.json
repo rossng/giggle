@@ -1,0 +1,93 @@
+{
+ "pageProps": {
+  "pageData": {
+   "id": "41265",
+   "attributes": {
+    "title": "NOFX: 40 Years of Fuckin' Up (2026)",
+    "url": "/nl/agenda/nofx-40-years-of-fuckin-up-2026-26-09-2026",
+    "metadata": {
+     "name": "NOFX: 40 Years of Fuckin' Up (2026)",
+     "tags": [
+      "16",
+      "21"
+     ],
+     "intro": "<p>'40 Years of Fuckin' Up' is Spinal Tap, maar dan in het echt. Het is een film over de beruchte, geduchte en geliefde punkrockband NOFX. Dit is het ongelooflijke verhaal over hoe een groep talentloze, door drugs benevelde tienerpunks op de een of andere manier de meest succesvolle onafhankelijke band uit de geschiedenis werd — en dat deden ze zonder enig plan, helemaal op eigen kracht.</p><p><i>In de Melkweg vinden vaak gelijktijdig verschillende soorten programma’s plaats, zoals concerten, clubnachten en films. Houd er rekening mee dat er af en toe geluidsoverlast kan zijn van andere programma's tijdens de vertoning.</i></p>",
+     "genres": [
+      "53"
+     ],
+     "status": "Uitverkocht",
+     "endtime": "2026-09-26T21:15:00.000000Z",
+     "profile": "Film",
+     "cineville": true,
+     "locations": [
+      "CINEMA"
+     ],
+     "movieYear": "2026",
+     "starttime": "2026-09-26T19:15:00.000000Z",
+     "ticketInfo": "Alle tickets voor dit programma zijn uitverkocht. Op de website van Ticketmaster bieden we kaartkopers die verhinderd zijn de mogelijkheid om hun tickets op een betrouwbare manier door te verkopen. Tickets die elders worden aangeboden zijn doorverkochte tickets die meestal voor een veel hoger bedrag worden verkocht en waarvan wij de geldigheid niet kunnen garanderen. Let op: er zijn oplichters actief!",
+     "ticketLink": "https://www.ticketmaster.nl/event/1190457662?brand=nl_melkweg",
+     "yesplan_id": "10150662401-1787147210",
+     "headerColor": "dark",
+     "projectCode": "260926CI",
+     "announced_at": "2026-08-21T08:00:00.000000Z",
+     "movieCountry": "United States of America",
+     "ticketPrices": {
+      "ticket1": {
+       "show": true,
+       "label": "regular",
+       "price": "€ 12",
+       "primary": true,
+       "membership_required": false
+      },
+      "ticket2": {
+       "show": true,
+       "label": "Cineville gratis",
+       "price": "€ 0",
+       "primary": false,
+       "membership_required": false
+      },
+      "ticket3": {
+       "show": false,
+       "primary": false,
+       "membership_required": false
+      },
+      "ticket4": {
+       "show": false,
+       "primary": false,
+       "membership_required": false
+      },
+      "ticket5": {
+       "show": false,
+       "primary": false,
+       "membership_required": false
+      },
+      "ticket6": {
+       "show": false,
+       "primary": false,
+       "membership_required": false
+      }
+     },
+     "timeschedule": "21:00 Doors\r\n21:15 NOFX: 40 Years of Fuckin' Up (2026)",
+     "movieDirector": "James Buddy Day",
+     "movieDuration": "120 min",
+     "private_event": false,
+     "relatedEvents": [
+      "41208"
+     ],
+     "relatedThemes": [
+      "1169",
+      "1172"
+     ],
+     "start_presale": "2026-08-21T08:00:00.000000Z",
+     "free_for_members": false,
+     "yesplan_group_id": "10143492609-1787147194",
+     "description_source": "subtitle",
+     "movieSpokenLanguage": "EN",
+     "free_for_subbacultcha": false,
+     "free_for_we_are_public": false,
+     "movieLanguageSubtitles": "-"
+    }
+   }
+  }
+ }
+}

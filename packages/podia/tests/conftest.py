@@ -21,10 +21,20 @@ HERE = Path(__file__).parent
 
 def replay_events(slug: str):
     """Parse a venue's recorded responses with the same options they were recorded with."""
+    return replay(slug)[0]
+
+
+def replay(slug: str):
+    """The venue's recorded events, plus the first ones run through `details()` (as many as
+    `podia record --details` saved event pages for; none for venues without details)."""
     directory = HERE / "fixtures" / slug
     meta = json.loads((directory / "meta.json").read_text())
     options = FetchOptions(since=date.fromisoformat(meta["since"]), max_pages=meta["max_pages"])
-    return list(get_venue(slug).events(Replay(directory), options))
+    fetch = Replay(directory)
+    venue = get_venue(slug)
+    events = list(venue.events(fetch, options))
+    detailed = [venue.details(fetch, e) for e in events[: meta.get("details", 0)]]
+    return events, detailed
 
 
 def check_golden(slug: str, events) -> None:

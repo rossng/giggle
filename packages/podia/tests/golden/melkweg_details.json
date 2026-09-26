@@ -1,0 +1,119 @@
+[
+ {
+  "availability": "unknown",
+  "categories": [
+   "Concert"
+  ],
+  "city": "Amsterdam",
+  "description": "Van de mainstage op Rampage tot AFAS Live en terug naar de MAX in Melkweg! 2026 belooft een belangrijk jaar te worden voor Polyphonic. Het ensemble heeft als missie om te bewijzen dat drum & bass voor iedereen is. De afgelopen jaren groeide drum & bass-ensemble Polyphonic uit tot een ware sensatie. Hun energieke live-optredens en speelse marching-band-streken werden door miljoenen mensen bekeken op Instagram, terwijl hun innovatieve live-interpretaties van drum & bass-anthems werden gedeeld door onder anderen Sub Focus, Bou en Netsky. Polyphonic bestaat uit EDM-vocalist Diandra Faye (100M+ streams), Liquicity-MC Wolf Pax en een team van gerenommeerde muzikanten. Hun liveshows voelen als een speelse mix van tien genres, volledig doordrenkt met de rauwe energie van drum & bass. De shows worden niet alleen gewaardeerd door drum & bass-fans, maar spreken een veel breder publiek aan, met zowel eigen materiaal als verrassende klassiekers van onder anderen Chase & Status, Sub Focus, Mozart, Eminem en Avicii.",
+  "doors": "2026-09-26T19:00:00+02:00",
+  "end": null,
+  "extra": {
+   "membership_required": true,
+   "timetable": [
+    "19:00 Doors",
+    "20:00 Polyphonic Orchestra"
+   ]
+  },
+  "genres": [
+   "Electronic",
+   "Drum & Bass",
+   "Live"
+  ],
+  "image": "https://assets.melkweg.nl/eventpages/3b8bb582-56dd-42bb-aa9c-79d423384540/Polyphonic_Banner2.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 28.75,
+   "min_eur": 28.75,
+   "text": "regular € 28,75"
+  },
+  "room": "MAX",
+  "source_id": "27131",
+  "start": "2026-09-26T20:00:00+02:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://www.ticketmaster.nl/event/1110031271?brand=nl_melkweg",
+  "title": "Polyphonic Orchestra",
+  "url": "https://www.melkweg.nl/nl/agenda/polyphonic-26-09-2026/",
+  "venue": "melkweg"
+ },
+ {
+  "availability": "sold_out",
+  "categories": [
+   "Concert"
+  ],
+  "city": "Amsterdam",
+  "description": "Met ruim tien jaar aan een onafhankelijke carrière en een voortdurend evoluerende sound waarin invloeden uit vele genres samenkomen, brengt mike. (voor de laatste keer) zijn unieke vibe naar Amsterdam. Met een trouwe schare fans, een grassroots-aanpak en een catalogus die al miljarden streams heeft behaald, weet mike. zich al jaren steeds opnieuw te hervinden. Dit wordt zijn laatste tour, aangezien hij zijn aanstaande pensioen heeft aangekondigd, dus mis het niet!",
+  "doors": "2026-09-26T19:30:00+02:00",
+  "end": null,
+  "extra": {
+   "membership_required": true,
+   "timetable": [
+    "18:00 VIP doors",
+    "19:30 Doors",
+    "20:30 mike."
+   ]
+  },
+  "genres": [
+   "Hiphop",
+   "Alternatieve hiphop",
+   "Pop"
+  ],
+  "image": "https://assets.melkweg.nl/eventpages/d0ac86f3-e315-4ca1-be82-e834c8256f61/mike2024.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 23.0,
+   "min_eur": 23.0,
+   "text": "regular € 23; VIP Package € 105"
+  },
+  "room": "Oude Zaal",
+  "source_id": "27281",
+  "start": "2026-09-26T20:30:00+02:00",
+  "status": "scheduled",
+  "subtitle": "Upside Down Tour Pt. 3",
+  "support": [],
+  "ticket_url": "https://www.ticketmaster.nl/event/1865810180?brand=nl_melkweg",
+  "title": "mike.",
+  "url": "https://www.melkweg.nl/nl/agenda/mike-08-10-2026/",
+  "venue": "melkweg"
+ },
+ {
+  "availability": "sold_out",
+  "categories": [
+   "Film"
+  ],
+  "city": "Amsterdam",
+  "description": "'40 Years of Fuckin' Up' is Spinal Tap, maar dan in het echt. Het is een film over de beruchte, geduchte en geliefde punkrockband NOFX. Dit is het ongelooflijke verhaal over hoe een groep talentloze, door drugs benevelde tienerpunks op de een of andere manier de meest succesvolle onafhankelijke band uit de geschiedenis werd — en dat deden ze zonder enig plan, helemaal op eigen kracht. In de Melkweg vinden vaak gelijktijdig verschillende soorten programma’s plaats, zoals concerten, clubnachten en films. Houd er rekening mee dat er af en toe geluidsoverlast kan zijn van andere programma's tijdens de vertoning.",
+  "doors": "2026-09-26T21:00:00+02:00",
+  "end": "2026-09-26T23:15:00+02:00",
+  "extra": {
+   "timetable": [
+    "21:00 Doors",
+    "21:15 NOFX: 40 Years of Fuckin' Up (2026)"
+   ]
+  },
+  "genres": [
+   "Heavy",
+   "Muziekdocumentaire",
+   "Punk"
+  ],
+  "image": "https://assets.melkweg.nl/eventpages/3e8b86ae-4bdb-4434-80e8-0f192f6f1f60/NOFX_GROUP-SHOT_PHOTO-BY_-Jesse-Fischer-Web.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 12.0,
+   "min_eur": 12.0,
+   "text": "regular € 12; Cineville gratis € 0"
+  },
+  "room": "CINEMA",
+  "source_id": "28281",
+  "start": "2026-09-26T21:15:00+02:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://www.ticketmaster.nl/event/1190457662?brand=nl_melkweg",
+  "title": "NOFX: 40 Years of Fuckin' Up (2026)",
+  "url": "https://www.melkweg.nl/nl/agenda/nofx-40-years-of-fuckin-up-2026-26-09-2026/",
+  "venue": "melkweg"
+ }
+]

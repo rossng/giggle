@@ -30,14 +30,37 @@ class Venue(ABC):
     Subclasses set `info` and implement `events()`. They should prefer structured sources
     (APIs, feeds, embedded JSON) over HTML, never store raw pages, and put every network
     call through the given `Fetcher`.
+
+    `events()` should stay cheap: ideally one or a few requests for the whole agenda. When
+    some fields are only on per-event pages, an adapter sets `has_details = True` and
+    overrides `details()`, so callers can fetch those pages only for the events they care
+    about (typically the ones they haven't seen before).
     """
 
     info: ClassVar[VenueInfo]
+    has_details: ClassVar[bool] = False
 
     @abstractmethod
     def events(self, fetch: Fetcher, options: FetchOptions | None = None) -> Iterator[Event]:
         """Yield upcoming events, soonest first where the source allows.
         `options` defaults to `FetchOptions()`."""
+
+    def details(self, fetch: Fetcher, event: Event) -> Event:
+        """Return `event` enriched from its own page (room, price, ticket link, times…).
+
+        The contract, for every adapter:
+        - pure enrichment: the result has the same `venue` and `source_id`, fills empty
+          fields or corrects ones the listing got only approximately (e.g. a doors time
+          given as the start), and never empties a field the listing filled;
+        - the input event is not modified; a new `Event` is returned (or the same one when
+          there is nothing to add);
+        - it may raise on network or parse errors; the caller decides whether to keep the
+          listing's event.
+
+        The default returns the event unchanged; `has_details` says whether an adapter
+        does more.
+        """
+        return event
 
     def redact(self, url: str, text: str) -> str:
         """Trim a response before it is saved as a test fixture. Override to remove anything
