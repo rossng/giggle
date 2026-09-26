@@ -54,6 +54,18 @@ BRITISH_VOICES = (
     "bm_daniel",
 )
 
+# The announcers: two presenters, chosen by ear on 2026-09-26. Each artist always gets the
+# same one (see `announcer_for`), so clips stay cacheable and voices alternate between
+# artists as the radio moves on.
+ANNOUNCERS = ("bf_isabella", "bm_fable")
+
+
+def announcer_for(artist_key: str) -> str:
+    """The announcer voice for an artist: stable per artist, roughly half each."""
+    digest = hashlib.sha256(artist_key.encode()).digest()
+    return ANNOUNCERS[digest[0] % len(ANNOUNCERS)]
+
+
 SAMPLE_RATE = 24_000
 BITRATE_KBPS = 48
 TARGET_RMS_DBFS = -18.0  # speech level, measured over voiced frames only
