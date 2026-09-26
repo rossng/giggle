@@ -58,7 +58,7 @@ export interface TrackAnnouncementInput {
 }
 
 /** The longest song title worth saying out loud. */
-const MAX_SPOKEN_TITLE = 70;
+export const MAX_SPOKEN_TITLE = 70;
 
 interface GigCtx {
   name: string;
@@ -71,7 +71,7 @@ interface GigCtx {
   headliner: string | null;
 }
 
-interface PriceCtx {
+export interface PriceCtx {
   price: string;
   range: boolean;
 }
@@ -82,7 +82,7 @@ interface MicroCtx {
   nth: string | null;
 }
 
-const cap = (t: string): string => t.charAt(0).toUpperCase() + t.slice(1);
+export const cap = (t: string): string => t.charAt(0).toUpperCase() + t.slice(1);
 
 // ---------- phrase banks ----------
 
@@ -121,23 +121,23 @@ const LEAD_WITH_GIG: Template<GigCtx>[] = [
   (c) => `${cap(c.day.bare)} at ${c.where}: ${c.name}.`,
 ];
 
-const SOLD_OUT = [
+export const SOLD_OUT: readonly string[] = [
   "It's sold out, sadly.",
   "That one's already sold out.",
   "Tickets are gone, I'm afraid.",
   "It's sold out, so keep an eye out for resale.",
 ];
-const FEW_LEFT = [
+export const FEW_LEFT: readonly string[] = [
   "Only a few tickets left.",
   "Tickets are nearly gone.",
   "It's almost sold out.",
   "Be quick: tickets are running low.",
 ];
-const FREE = ["And it's free.", "Entry is free.", "It's free to get in."];
-const NOT_YET = ["Tickets aren't on sale just yet.", "Tickets aren't on sale yet, so watch this space."];
-const POSTPONED = ["Heads up: it's been postponed, so check the date.", "Note that it's been postponed."];
+export const FREE: readonly string[] = ["And it's free.", "Entry is free.", "It's free to get in."];
+export const NOT_YET: readonly string[] = ["Tickets aren't on sale just yet.", "Tickets aren't on sale yet, so watch this space."];
+export const POSTPONED: readonly string[] = ["Heads up: it's been postponed, so check the date.", "Note that it's been postponed."];
 
-const PRICE: Template<PriceCtx>[] = [
+export const PRICE: Template<PriceCtx>[] = [
   (c) => `Tickets from ${c.price}.`,
   (c) => `Tickets start at ${c.price}.`,
   (c) => !c.range && `It's ${c.price} to get in.`,
@@ -155,7 +155,7 @@ const MICRO: Template<MicroCtx>[] = [
 ];
 
 /** Collapses stray spacing and never returns leftover template debris. */
-function tidy(text: string): string {
+export function tidy(text: string): string {
   return text
     .replace(/\s+/g, " ")
     .replace(/\s+([.,:])/g, "$1")
@@ -195,13 +195,15 @@ export class Announcer {
     return `${name} in ${city}`;
   }
 
-  #song(entry: QueueEntry, trackIndex: number): string | null {
+  /** The cleaned title of track `trackIndex`, or null when missing or too long to say. */
+  song(entry: QueueEntry, trackIndex: number): string | null {
     const title = entry.tracks[trackIndex]?.title;
     const song = title ? cleanSongTitle(title, entry.name) : "";
     return song && song.length <= MAX_SPOKEN_TITLE ? song : null;
   }
 
-  #headliner(entry: QueueEntry): string | null {
+  /** For a support act, the headliner they open for; null otherwise. */
+  headliner(entry: QueueEntry): string | null {
     if (entry.role !== "support") return null;
     const top = entry.gig.artists.find((a) => a.role === "headliner" && a.key !== entry.artistKey);
     return top?.name?.trim() || null;
@@ -215,11 +217,11 @@ export class Announcer {
     const sayTime = this.#chance(this.#p.time);
     return {
       name: entry.name,
-      song: this.#song(entry, trackIndex),
+      song: this.song(entry, trackIndex),
       where: this.where(gig),
       day: spokenDay(gig.start, now, this.#timeZone),
       at: time && afternoonOrLater && sayTime ? `, at ${time}` : "",
-      headliner: this.#headliner(entry),
+      headliner: this.headliner(entry),
     };
   }
 
@@ -287,7 +289,7 @@ export class Announcer {
     if (!this.#chance(this.#p.micro)) return null;
     const ctx: MicroCtx = {
       name: entry.name,
-      song: this.#song(entry, trackIndex),
+      song: this.song(entry, trackIndex),
       nth: ordinalWord(trackIndex + 1) ?? null,
     };
     return tidy(this.picker.render("micro", MICRO, ctx)) || null;

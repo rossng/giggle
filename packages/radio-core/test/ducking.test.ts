@@ -331,3 +331,46 @@ describe("DuckingController (injected timers)", () => {
     expect(player.volume).toBe(100);
   });
 });
+
+describe("DuckingController per-announcement options (fake timers)", () => {
+  beforeEach(() => {
+    vi.useFakeTimers();
+  });
+  afterEach(() => {
+    vi.useRealTimers();
+  });
+
+  it("can duck to silence and fade back slowly", async () => {
+    const player = new FakePlayer(60);
+    const duck = new DuckingController(player);
+    const s = speech();
+    const done = duck.duck(s.speak, { duckTo: 0, restoreMs: 1200 });
+    await vi.advanceTimersByTimeAsync(300);
+    expect(player.volume).toBe(0);
+    s.finish();
+    await vi.advanceTimersByTimeAsync(600);
+    expect(player.volume).toBe(30);
+    await vi.advanceTimersByTimeAsync(600);
+    await done;
+    expect(player.volume).toBe(60);
+  });
+
+  it("level() brings the music up under the voice without changing the target", async () => {
+    const player = new FakePlayer(60);
+    const duck = new DuckingController(player, { rampMs: 0 });
+    await duck.level(40); // not ducked: nothing happens
+    expect(player.volume).toBe(60);
+    const s = speech();
+    const done = duck.duck(s.speak, { duckTo: 0 });
+    await vi.advanceTimersByTimeAsync(0);
+    expect(player.volume).toBe(0);
+    await duck.level(20);
+    expect(player.volume).toBe(20);
+    await duck.level(90); // never above the listener's volume
+    expect(player.volume).toBe(60);
+    s.finish();
+    await done;
+    expect(player.volume).toBe(60);
+    expect(duck.ducked).toBe(false);
+  });
+});

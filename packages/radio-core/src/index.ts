@@ -11,3 +11,8 @@ export * from "./titles.ts";
 export * from "./picker.ts";
 export * from "./announcer.ts";
 export * from "./ducking.ts";
+export * from "./speech.ts";
+export * from "./said.ts";
+export * from "./facts.ts";
+export * from "./presenter.ts";
+export * from "./timing.ts";
