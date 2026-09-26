@@ -14,4 +14,10 @@ jobs:
         with:
           path: ~/.cache/uv
           key: uv-${{ runner.os }}-${{ hashFiles('uv.lock', '.python-version') }}
+      - uses: actions/cache@v4
+        with:
+          path: ~/.local/share/pnpm/store
+          key: pnpm-${{ runner.os }}-${{ hashFiles('pnpm-lock.yaml') }}
+      - run: nix develop -c pnpm install --frozen-lockfile
       - run: nix develop -c make lint test
+      - run: nix develop -c pnpm --dir web build

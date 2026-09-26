@@ -1,0 +1,9 @@
+{
+  "name": "giggle",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "pnpm -r test",
+    "check": "pnpm -r --if-present check && pnpm -r --if-present typecheck"
+  }
+}

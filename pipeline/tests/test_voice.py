@@ -237,3 +237,11 @@ def mp3_frames(data: bytes) -> tuple[int, int]:
         count += 1
     assert pos == len(data) and count
     return count, rate
+
+
+def test_each_artist_keeps_one_announcer_and_both_are_used():
+    from giggle_pipeline.voice import ANNOUNCERS, announcer_for
+
+    keys = [f"mb:{i:04d}" for i in range(200)]
+    assert {announcer_for(k) for k in keys} == set(ANNOUNCERS)
+    assert announcer_for("mb:b017a7ae") == announcer_for("mb:b017a7ae")

@@ -9,7 +9,11 @@ Upcoming-gig radio for Amsterdam and nearby. Design report: https://claude.ai/ar
   events by the rules in `scope.toml` (each with a reason), merge cross-venue duplicates, check
   venue health against recent runs. `giggle-issues` opens/closes one GitHub issue per broken
   venue. Artist matching, enrichment, blurbs and TTS come next.
-- `web/` — SvelteKit 2 + Svelte 5 static SPA. Not yet written.
+- `web/` — SvelteKit 2 + Svelte 5 static SPA (adapter-static, `ssr = false`). Agenda works; Radio,
+  Board are placeholders. One filter model (`web/src/lib/data/filters.ts`) lives in the URL.
+- `packages/radio-core/` — TypeScript radio engine (queue, Mix/Shuffle, session restore, announcer
+  text, ducking): framework-free, deterministic, no runtime deps. Web imports it as
+  `@giggle/radio-core` via the root pnpm workspace.
 
 ## Commands
 Enter the toolchain shell first: `direnv allow` (uses `.envrc`) or `nix develop`. The flake pins
@@ -22,6 +26,7 @@ uv, Node, pnpm and make only; Python is uv-managed (`.python-version`), deps com
 - Listen to it: `make radio` (rough playback preview on localhost:8765; YouTube embeds need a real
   http origin, not file://). Uses naive title rules + cached YouTube Music lookups
   (`data/cache/ytmusic.json`).
+- Web app: `make web-dev` (localhost:5173, serves `data/site` via a Vite plugin), `make web-build`.
 - Inspect it: `make browse` (kept + left-out events with reasons; `data/` is git-ignored).
   Raw adapter output: `make fetch` then `make browse-raw`.
 - Tests: `cd packages/podia && uv run --group dev pytest -q`
@@ -30,6 +35,8 @@ uv, Node, pnpm and make only; Python is uv-managed (`.python-version`), deps com
   then `PODIA_UPDATE_GOLDEN=1 uv run --group dev pytest -q tests/test_<venue>.py`
 
 ## Voices
+The announcers are `bf_isabella` and `bm_fable` (`ANNOUNCERS`); `announcer_for(artist_key)` gives
+each artist one of them, stably.
 Announcer clips (`pipeline/src/giggle_pipeline/voice.py`) use Kokoro-82M v1.0 via kokoro-onnx
 (ONNX Runtime on CPU, espeak-ng from a wheel), British voices only (`bf_*`, `bm_*`, `lang="en-gb"`).
 It's the `voice` extra: `uv run --package giggle-pipeline --extra voice giggle-voice-samples`
