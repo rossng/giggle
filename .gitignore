@@ -7,3 +7,5 @@ node_modules/
 .env
 data/
 .direnv/
+# data/ above means the pipeline output; the web app's data modules are source.
+!web/src/lib/data/
