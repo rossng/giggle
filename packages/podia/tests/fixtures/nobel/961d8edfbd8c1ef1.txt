@@ -1,0 +1,102 @@
+<section class="event-page">
+<div class="container">
+<div class="columns is-variable is-justify-content-center">
+<div class="column is-12">
+<figure class="animation animation--scroll-left-to-right hide" data-inview="{&quot;direction&quot;: &quot;scroll-left-to-right&quot;, &quot;percentVisible&quot;: 0, &quot;percentVisibleMobile&quot;: 20}">
+<img loading="eager" class="img-responsive image-style-two-to-one" src="/sites/default/files/styles/two_to_one/public/2026-05/CORONER%202-1.png.webp?itok=lzFW1CRv" width="1600" height="800" alt="CORONER live concert in Nobel Leiden" typeof="foaf:Image">
+</figure>
+<div class="info">
+<div class="info--content animation animation--fade-in" data-inview="{&quot;direction&quot;: &quot;fade-in&quot;, &quot;percentVisible&quot;: 0, &quot;percentVisibleMobile&quot;: 20}">
+<div class="info--time">
+<div class="info--tags">
+<time datetime="2026-03-24T14:30:01+0100">
+donderdag
+01
+oktober
+2026
+</time>
+<span>  19:30
+</span>
+<span>  Grote zaal
+</span>
+<span>  Metal
+</span>
+</div>
+<h2>Coroner</h2>
+<p class="event-intro">  Progressieve thrash-legendes terug op het podium
+</p>
+</div>
+<a href="https://eventix.shop/guqrsk4c" id="js-scroll-to-eventix">
+<div class="tickets aninmation animation--fade-in">
+<p class="tickets-title">  Tickets
+<i class="fa-sharp fa-solid fa-arrow-right"></i>
+</p>
+<p>
+<span>Prijs vanaf:</span>
+€ 29,90
+</p>
+</div>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="event-content">
+<div class="container">
+<div class="columns is-variable is-multiline is-centered is-justify-content-center contentBlocks">
+<div class="column is-10">
+<div class="content">
+<div class="content--fields">
+<div class="column is-12-mobile is-8-desktop is-12">
+<p class="event-intro animation animation--fade-in" data-inview="{&quot;direction&quot;: &quot;fade-in&quot;, &quot;percentVisible&quot;: 0, &quot;percentVisibleMobile&quot;: 20}">
+Sinds 1985 staat Coroner bekend als één van de meest vooruitstrevende en invloedrijke bands binnen de (progressieve) thrash metal. Met baanbrekende albums, een cultstatus in de underground en een veelgeprezen nieuw hoofdstuk via Century Media bewijzen de Zwitsers dat hun sound nog altijd even scherp en relevant is.
+</p>
+</div>
+<div class="column paragraph paragraph--text-full paragraph--text-full--default is-8-widescreen is-10-desktop is-12">
+<p>Al sinds het begin verlegt <span>Coroner</span> de grenzen van metal. Met Ron Broder (bas/vocalen), Tommy Vetterli (gitaar) en Marky Edelmann (drums) bracht het trio tussen 1987 en 1994 vijf veelgeprezen studioalbums. Albums als <span>R.I.P.</span>, <span>Punishment for Decadence</span>, <span>No More Color</span>, <span>Mental Vortex</span>, <span>Grin</span> en <span>Coroner</span> groeiden uit tot cultklassiekers en legden de basis voor wat later technical en progressive thrash zou worden.</p><p>Hun sound is een messcherpe botsing van snelheid, complexe structuren en volledige controle. Niet voor niets worden ze vaak “de Rush van de thrash metal” genoemd, samen met vernieuwers als <span>Voivod</span> en <span>Watchtower</span>.&nbsp;</p><p>Na een stilte sinds 1996 keerde Coroner in 2011 terug met hernieuwde energie. Ze speelden sindsdien selecte shows en toonaangevende festivals als <span>Hellfest</span>, <span>Maryland Deathfest</span> en <span>Brutal Assault</span>, waarbij elke show de intensiteit en precisie onderstreept waar ze om bekendstaan.</p><p>In oktober 2025 verscheen hun eerste nieuwe studioalbum in meer dan dertig jaar. Met dit nieuwe werk én hun legendarische repertoire op zak brengt Coroner hun volgende hoofdstuk nu naar Nobel. Verwacht een intense en energieke liveshow die je bijblijft.</p><p><em><span>Deze show wordt georganiseerd in samenwerking met <strong>Loud Noise.</strong></span></em></p>
+</div>
+<div class="column paragraph paragraph--embed paragraph--embed--default is-8-widescreen is-10-desktop is-12">
+<iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/artist/7lfdXL6PuTM5iWJNvI7PPV?utm_source=generator" width="100%" height="152" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+</div>
+<div class="column paragraph paragraph--video paragraph--video--default video is-8-widescreen is-10-desktop is-12">
+<div class="media media--type-video embedded-video video-d3a1fbc6 media--view-mode-">
+<button aria-label="Speel video af" class="play_button"><i class="fa-solid fa-play"></i></button>
+<iframe src="https://nobel.nl/media/oembed?url=https%3A//www.youtube.com/watch%3Fv%3DN2-6Krl9lSc%26list%3DRDN2-6Krl9lSc%26start_radio%3D1&amp;max_width=0&amp;max_height=0&amp;hash=F4ZzMq65_Z5phTw1uJ62nLFGgRhk3c5lGtsqw6t_Zew" width="200" height="113" class="media-oembed-content" loading="eager" title="Coroner live | Rockpalast | 2018"></iframe>
+<div class="cookie-alert">
+<div class="cookie-bg"></div>
+<div class="cookie-content">
+<span class="cookie-text">Accepteer social cookies om de video te bekijken</span>
+<span id="cookie-accept" class="cookie-accept">Klik hier om te accepteren</span>
+</div>
+</div>
+</div>
+</div>
+<div class="column paragraph paragraph--text-full paragraph--text-full--default is-8-widescreen is-10-desktop is-12">
+<h3><strong>Support: Tar Pond&nbsp;</strong></h3>
+</div>
+<div class="column paragraph paragraph--text-full paragraph--text-full--default is-8-widescreen is-10-desktop is-12">
+<p><span>Tar Pond is allesbehalve een doorsnee band. Deze Zwitserse doomformatie ontstond uit een samenwerking tussen zwaargewichten uit de metalwereld, waaronder voormalig Coronerdrummer Marky Edelmann en de inmiddels overleden Celtic Frostbassist Martin Ain. Hun donkere, logge en sfeervolle sound beweegt zich tussen doom, melancholie en loodzware riffs.</span></p><p><span>Met hun debuutalbum "Protocol Of Constant Sadness" creëerde Tar Pond een intens en beklemmend geluid dat even zwaar als meeslepend is. Verwacht een duistere soundtrack vol trage grooves, zware atmosfeer en pure intensiteit.</span></p>
+</div>
+<div class="column paragraph paragraph--embed paragraph--embed--default is-8-widescreen is-10-desktop is-12">
+<iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/artist/4Uztr4l9SqJ4RWStTgPtIj?utm_source=generator" width="100%" height="152" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+</div>
+<div class="column paragraph paragraph--text-full paragraph--text-full--default is-8-widescreen is-10-desktop is-12">
+<h3><strong>Support: Schizophrenia</strong></h3>
+</div>
+<div class="column paragraph paragraph--text-full paragraph--text-full--default is-8-widescreen is-10-desktop is-12">
+<p><span>Het Belgische Schizophrenia behoort tot de spannendste nieuwe namen binnen de extreme metalscene. De band combineert thrash, death metal en brute energie tot een explosieve liveervaring die zowel oldschool als verfrissend aanvoelt.</span></p><p><span>In korte tijd speelde Schizophrenia zich naar grote festivals als Hellfest, Wacken en Graspop en deelde het podium met namen als Cannibal Corpse, Municipal Waste en Immolation. Verwacht een vernietigende set vol snelheid, technische riffs en compromisloze agressie.</span></p>
+</div>
+<div class="column paragraph paragraph--embed paragraph--embed--default is-8-widescreen is-10-desktop is-12">
+<iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/artist/2Mre9sRBibjJBYO5N2aK7l?utm_source=generator" width="100%" height="152" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+</div>
+<div id="shop-frame" class="col-sm-12" data-url="https://eventix.shop/guqrsk4c">
+<div id="tickets"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>

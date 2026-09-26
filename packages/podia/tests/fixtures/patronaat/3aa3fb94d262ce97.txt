@@ -1,0 +1,1563 @@
+<events>
+            <event>
+                            <name>ABBA Dance</name>
+                                        <subtitle>Laat ABBA opleven als nergens anders!</subtitle>
+                                        <description>&lt;strong&gt;Lay all your love on me! ABBA Dance keert terug naar Patronaat met een middag vol ABBA-hits op zondag 27 september. Laat je meenemen naar die goede oude tijd vol onvervalste classics van de legendarische band!&lt;/strong&gt;
+
+ABBA Dance bestaat uit zes doorgewinterde muzikanten die met hun tribute niet zozeer ABBA willen ‘nadoen’ (wat ook haast onmogelijk is), maar de groep willen eren. Hoe dan? Door met de grootste hits en stralende aankleding het ABBA-gevoel te doen herleven bij het publiek. Meezingen zo hard je dus maar kunt met hits als ‘Waterloo’, ‘Mamma Mia’, ‘The Winner Takes it All’ en nog veel meer!
+
+&lt;span style="color: #231f20;"&gt;&lt;strong style="color: #000000;"&gt;Tijdschema (onder voorbehoud)&lt;/strong&gt;&lt;/span&gt; &lt;br style="color: #231f20;" /&gt;&lt;span style="color: #231f20;"&gt;Deuren open • 14:30&lt;/span&gt;&lt;br style="color: #231f20;" /&gt;&lt;span style="color: #231f20;"&gt;15:00 • ABBA Dance&lt;/span&gt;&lt;br style="color: #231f20;" /&gt;&lt;span style="color: #231f20;"&gt;Verwacht einde • 17:00&lt;/span&gt;</description>
+                                        <link>https://patronaat.nl/event/abba-dance-27-09-26/</link>
+                                        <location>Patronaat</location>
+                                        <genres>
+                                            <genre>Klassiekers / Tributes</genre>
+                                            <genre>Pop</genre>
+                                    </genres>
+                                        <event_id>24101</event_id>
+                                        <event_type>Verhuur openbaar (concert)</event_type>
+                                        <yesplan_id>9305054721-1760613627</yesplan_id>
+                        <start>
+                                    <date>20260927</date>
+                                                    <time>15:00</time>
+                            </start>
+            <end>
+                                    <date>20260927</date>
+                                                    <time>16:00</time>
+                            </end>
+                            <images>
+                                            <image>https://patronaat.nl/app/uploads/2026/04/485757308_1183276167134508_126270684173579218_n.jpg</image>
+                                            <image>https://patronaat.nl/app/uploads/2026/04/485757308_1183276167134508_126270684173579218_n.jpg</image>
+                                            <image>https://patronaat.nl/app/uploads/2026/04/485757308_1183276167134508_126270684173579218_n.jpg</image>
+                                            <image>https://patronaat.nl/app/uploads/2026/04/485757308_1183276167134508_126270684173579218_n.jpg</image>
+                                            </images>
+                                        <ticket_url>https://www.ticketmaster.nl/event/19714886?brand=nl_patronaat</ticket_url>
+                                        <ticket_price>27.5</ticket_price>
+                                        <publication_date>2026-04-16 10:55:27</publication_date>
+                                </event>
+            <event>
+                            <name>Daft Funk Live</name>
+                                        <subtitle>Daft Punk komt weer tot leven bij deze live ode</subtitle>
+                                        <description>&lt;strong&gt;Op donderdag 1 oktober landen de robots in Patronaat, Haarlem. Daft Funk Live zet de zaal op scherp met een eerlijke, keiharde en volledig live ode aan Daft Punk. Geen DJ-set, geen half werk, maar synths, gitaren, drums en een lichtshow die strak op de maat knalt. Daft Funk Live bouwt al jaren aan een reputatie die ver voorbij tribute gaat. Ze pakken de energie van 'Homework', de glans van 'Discovery' en de grootse emotie van 'Random Access Memories', en gieten dat in één lange, vloeiende liveset.&lt;/strong&gt;
+
+'Harder, Better, Faster, Stronger' komt voorbij, net als diepe cuts, eigen edits en verrassende overgangen die je niet ziet aankomen. Alles klopt, het geluid, het licht, de timing, en vooral het respect voor de robots. Voor iedereen die Daft Punk nooit live kon zien, en voor iedereen die dat gemis nog steeds voelt, is dit zo dichtbij als het maar komt.
+
+&lt;span style="color: #231f20;"&gt;&lt;strong style="color: #000000;"&gt;Tijdschema (onder voorbehoud)&lt;/strong&gt;&lt;/span&gt; &lt;br style="color: #231f20;" /&gt;&lt;span style="color: #231f20;"&gt;Deuren open • 19:30&lt;/span&gt;&lt;br style="color: #231f20;" /&gt;&lt;span style="color: #231f20;"&gt;19:30 • &lt;strong&gt;ANU&lt;/strong&gt;&lt;/span&gt;&lt;br style="color: #231f20;" /&gt;&lt;span style="color: #231f20;"&gt;20:30 • &lt;strong&gt;Daft Funk Live&lt;/strong&gt;&lt;/span&gt;&lt;br style="color: #231f20;" /&gt;&lt;span style="color: #231f20;"&gt;Verwacht einde • 22:00&lt;/span&gt;</description>
+                                        <link>https://patronaat.nl/event/daft-funk-01-10-26/</link>
+                                        <location>Patronaat</location>
+                                        <genres>
+                                            <genre>Klassiekers / Tributes</genre>
+                                            <genre>Pop</genre>
+                                    </genres>
+                                        <event_id>23082</event_id>
+                                        <event_type>Concert</event_type>
+                                        <yesplan_id>3108247809-1762938603</yesplan_id>
+                        <start>
+                                    <date>20261001</date>
+                                                    <time>20:30</time>
+                            </start>
+            <end>
+                                    <date>20261001</date>
+                                                    <time>21:00</time>
+                            </end>
+                            <images>
+                                            <image>https://patronaat.nl/app/uploads/2026/01/67-12.jpg</image>
+                                            <image>https://patronaat.nl/app/uploads/2026/01/67-12.jpg</image>
+                                            <image>https://patronaat.nl/app/uploads/2026/01/67-12.jpg</image>
+                                            <image>https://patronaat.nl/app/uploads/2026/01/67-12.jpg</image>
+                                            </images>
+                                        <ticket_url>https://www.ticketmaster.nl/event/274944385?brand=nl_patronaat</ticket_url>
+                                        <ticket_price>30.5</ticket_price>
+                                        <publication_date>2026-02-02 10:00:09</publication_date>
+                                        <support_acts>
+                                            <act>
+                                                            <name>Anu</name>
+                                                                                                                    <webite>https://www.instagram.com/anutheskygod/?hl=en</webite>
+                                                    </act>
+                                    </support_acts>
+                    </event>
+            <event>
+                            <name>INI Movement Jam Sessions • Haarlem Vinyl Festival</name>
+                                        <subtitle>Braziliaanse grooves, soul, jazz, improvisatie en dans</subtitle>
+                                        <description>&lt;strong&gt;INI Sessions keert op vrijdag 1 oktober terug tijdens Haarlem Vinyl Festival in Patronaat. Deze speciale editie staat volledig in het teken van Brazilië. De avond wordt geopend door Lucas Santana &amp;amp; band, waarna we de grens tussen concert en club volledig laten verdwijnen tijdens een speciale Estafête – Brazilian Edition.&lt;/strong&gt;
+
+Verwacht een avond vol Braziliaanse grooves, soul, jazz, improvisatie en dans, waarbij dj's en live muzikanten elkaar afwisselen en het stokje steeds opnieuw aan elkaar doorgeven. Vanaf 21:00 is het een open jam waarbij iedereen welkom is. Kom luisteren, ontdekken, dansen en vier samen met ons de kracht van live muziek en community.
+
+&lt;span style="color: #231f20;"&gt;&lt;strong style="color: #000000;"&gt;Tijdschema (onder voorbehoud)&lt;/strong&gt;&lt;/span&gt; &lt;br style="color: #231f20;" /&gt;&lt;span style="color: #231f20;"&gt;Deuren open • 19:30&lt;/span&gt;&lt;br style="color: #231f20;" /&gt;&lt;span style="color: #231f20;"&gt;20:00 • &lt;strong&gt;Lucas Santana&lt;/strong&gt;&lt;/span&gt;&lt;br style="color: #231f20;" /&gt;&lt;span style="color: #231f20;"&gt;21:00 • &lt;strong&gt;Jamsessie&lt;/strong&gt;&lt;/span&gt;&lt;br style="color: #231f20;" /&gt;&lt;span style="color: #231f20;"&gt;Verwacht einde • 23:00&lt;/span&gt;</description>
+                                        <link>https://patronaat.nl/event/ini-jam-sessie-01-10-26/</link>
+                                        <location>Patronaat</location>
+                                        <genres>
+                                            <genre>Funk / Soul / Jazz</genre>
+                                            <genre>Hiphop</genre>
+                                    </genres>
+                                        <event_id>25064</event_id>
+                                        <event_type>Co-creator (concert)</event_type>
+                                                    <yesplan_id>9683415809-1769433409</yesplan_id>
+                        <start>
+                                    <date>20261001</date>
+                                                    <time>20:00</time>
+                            </start>
+            <end>
+                                    <date>20261001</date>
+                                                    <time>22:00</time>
+                            </end>
+                            <images>
+                                            <image>https://patronaat.nl/app/uploads/2026/08/INI-Sessions-x-Lucas-Santana-with-Estafete.jpeg</image>
+                                            <image>https://patronaat.nl/app/uploads/2026/08/INI-Sessions-x-Lucas-Santana-with-Estafete.jpeg</image>
+                                            <image>https://patronaat.nl/app/uploads/2026/08/INI-Sessions-x-Lucas-Santana-with-Estafete.jpeg</image>
+                                            <image>https://patronaat.nl/app/uploads/2026/08/INI-Sessions-x-Lucas-Santana-with-Estafete.jpeg</image>
+                                            </images>
+                                        <ticket_url>https://www.ticketmaster.nl/event/1465621542?brand=nl_patronaat</ticket_url>
+                                        <ticket_price>5</ticket_price>
+                                        <publication_date>2026-08-28 10:00:45</publication_date>
+                                </event>
+            <event>
+                            <name>247GO + Marble Boy • Haarlem Vinyl Festival</name>
+                                        <subtitle>Nieuwe Haarlemse/Amsterdamse muziek</subtitle>
+                                        <description>&lt;strong&gt;247GO en Marble Boy maken tijdens Haarlem Vinyl Festival op vrijdag 2 oktober hun debuut in Patronaat. De twee acts uit zowel Haarlem als Amsterdam komen er samen een top avond van maken vol verhalende songs en fijne melodieën.&lt;/strong&gt;
+
+&lt;span style="color: #231f20;"&gt;&lt;strong style="color: #000000;"&gt;Tijdschema (onder voorbehoud)&lt;/strong&gt;&lt;/span&gt; &lt;br style="color: #231f20;" /&gt;&lt;span style="color: #231f20;"&gt;Deuren open • 19:30&lt;/span&gt;&lt;br style="color: #231f20;" /&gt;&lt;span style="color: #231f20;"&gt;20:15 • &lt;strong&gt;Marble Boy&lt;/strong&gt;&lt;/span&gt;&lt;br style="color: #231f20;" /&gt;&lt;span style="color: #231f20;"&gt;21:30 • &lt;strong&gt;247GO&lt;/strong&gt;&lt;/span&gt;&lt;br style="color: #231f20;" /&gt;&lt;span style="color: #231f20;"&gt;Verwacht einde • 22:20&lt;/span&gt;</description>
+                                        <link>https://patronaat.nl/event/247go-02-10-26/</link>
+                                        <location>Patronaat</location>
+                                        <genres>
+                                            <genre>Elektronisch</genre>
+                                            <genre>Indie</genre>
+                                    </genres>
+                                        <event_id>24092</event_id>
+                                        <event_type>Verhuur openbaar (concert)</event_type>
+                                                    <yesplan_id>4873342721-1769682833</yesplan_id>
+                        <start>
+                                    <date>20261002</date>
+                                                    <time>20:15</time>
+                            </start>
+            <end>
+                                    <date>20261002</date>
+                                                    <time>21:00</time>
+                            </end>
+                            <images>
+                                            <image>https://patronaat.nl/app/uploads/2026/04/247GO-3-1-scaled.jpg</image>
+                                            <image>https://patronaat.nl/app/uploads/2026/04/247GO-3-1-scaled.jpg</image>
+                                            <image>https://patronaat.nl/app/uploads/2026/04/247GO-3-1-scaled.jpg</image>
+                                            </images>
+                                        <ticket_url>https://www.ticketmaster.nl/event/28591572?brand=nl_patronaat</ticket_url>
+                                        <ticket_price>11.5</ticket_price>
+                                        <publication_date>2026-04-29 10:00:17</publication_date>
+                                        <support_acts>
+                                            <act>
+                                                            <name>247GO</name>
+                                                                                        <description>De verhalen in de liedjes van deze band komen uit een plek waar verlangen en spijt elkaar raken: gemiste kansen, nachtelijk dwalen, verwarring en hoop die net zo destructief kan zijn als ze troost biedt. Hun muziek beweegt tussen de donkere romantiek van Nick Cave, de intensiteit van Warhaus en de pulserende elektronica van Soulwax. Nummers monden uit in spanning: repeterende patronen die zich vastbijten en groeien. 247GO maakt muziek die je niet hoeft op te lossen of te begrijpen en je midden in een verhaal achterlaat.</description>
+                                                                                        <webite>https://www.instagram.com/247go_band/</webite>
+                                                    </act>
+                                            <act>
+                                                            <name>Marble Boy</name>
+                                                                                        <description>Marble Boy is het psychedelische indie-project van Daan Frieling uit Haarlem, waarin dromerige klanken, warme grooves en meerstemmige zang samenkomen. De muziek beweegt zich tussen escapisme en engagement: een zoektocht naar rust in een wereld die steeds sneller lijkt te gaan. Na zijn eerste EP uit 2022 werkte Marble Boy aan een debuutalbum dat volgend jaar zal verschijnen. Met die nieuwe muziek op zak betreedt Marble Boy het podium met een achtkoppige liveband die de gelaagde sound van het album volledig tot zijn recht laat komen. &lt;br /&gt;
+&lt;br /&gt;
+Geïnspireerd door Men I Trust, Andy Shauf en Mild High Club klinkt Marble Boy tegelijkertijd melancholisch en introspectief. Zijn muziek zweeft tussen dromerige indie en subtiele psychedelica, met songs die je bij de hand nemen en uitnodigen om te vertragen, te verdwalen en even los te komen van de drukte van alledag.&lt;br /&gt;
+</description>
+                                                                                        <webite>https://www.instagram.com/marbleboymusic/</webite>
+                                                    </act>
+                                    </support_acts>
+                    </event>
+            <event>
+                            <name>Bnnyhunna • Haarlem Vinyl Festival</name>
+                                        <subtitle>Mooie mix van jazz, hiphop, r&amp;b en afro van talentvolle artiest</subtitle>
+                                        <description>&lt;strong&gt;Bnnyhunna was al eerder in Patronaat te zien tijdens OSHI Fest en keert nu terug tijdens Haarlem Vinyl Festival met een eigen show in onze Stage 2 op vrijdag 2 oktober. &lt;/strong&gt;
+
+Bnnyhunna aka Benjamin Ankomag is een Ghanese artiest uit Amsterdam Zuidoost. Tijdens zijn uitdagende jeugd werd muziek zijn uitlaatklep waarbij hij piano, drums en gitaar leerde spelen in de kerk. Tegenwoordig maakt hij een mix van jazz, hiphop, r&amp;amp;b en afro en weerspiegelt zijn muziek zijn West-Afrikaanse achtergrond. Hij is verder beïnvloed door Fela Kuti, Yussef Dayes en Kendrick Lamar en werkte hij samen met artiesten als Braxton Cook, Rimon, Jose James, Gaidaa, Arp Frique en Akwasi.
+
+In 2021 verscheen debuut EP ‘SINTHA’, terwijl hij dit jaar werd beloond met een Edison voor zijn eerste album ‘Echoes of a Prayer’. Daarnaast speelde hij op festivals als North Sea Jazz, Lowlands en Down The Rabbit Hole en is hij kind aan huis bij Super-Sonic Jazz.
+
+&lt;span style="color: #231f20;"&gt;&lt;strong style="color: #000000;"&gt;Tijdschema (onder voorbehoud)&lt;/strong&gt;&lt;/span&gt; &lt;br style="color: #231f20;" /&gt;&lt;span style="color: #231f20;"&gt;Deuren open • 19:00&lt;/span&gt;&lt;br style="color: #231f20;" /&gt;&lt;span style="color: #231f20;"&gt;19:00 • &lt;strong&gt;Droppa &amp;amp; Diggler&lt;/strong&gt;&lt;/span&gt;&lt;br style="color: #231f20;" /&gt;&lt;span style="color: #231f20;"&gt;20:45 • &lt;strong&gt;Bnnyhunna&lt;/strong&gt;&lt;/span&gt;&lt;br style="color: #231f20;" /&gt;&lt;span style="color: #231f20;"&gt;Verwacht einde • 22:00&lt;/span&gt;
+
+&amp;nbsp;
+
+&lt;strong&gt;Speciale luistersessie&lt;/strong&gt;
+Een dag later, op zaterdag 3 oktober, zal de artiest in PHIL Haarlem tijdens een speciale luistersessie zijn nieuwe project Selah laten horen. Dit album nam Bnnyhunna op 22 juli in Haarlem op tijdens een zogenoemde direct-to-disc opnamesessie waarbij slechts een klein groepje fans aanwezig kon zijn. Tijdens HVF neemt Bnnyhunna je mee in dit proces. Omdat je al tickets hebt gekocht voor het concert op vrijdag in Patronaat mogen wij je gratis kaarten aanbieden voor deze luistersessie. Wil je hierbij zijn? Klik dan hieronder op de link.
+
+Nog even alle informatie over de luistersessie op een rijtje:
+Bnnyhhunna presents: Selah listening session (Dutch spoken)
+Zaterdag 3 oktober, 11:30.
+
+PHIL vind je aan de Lange Begijnestraat 11, Haarlem. Kijk voor alle informatie over de locatie, parkeren, bereikbaarheid en toegankelijkheid op https://www.philhaarlem.nl/.</description>
+                                        <link>https://patronaat.nl/event/bnnyhunna-haarlem-vinyl-festival-02-10-26/</link>
+                                        <location>Patronaat</location>
+                                        <genres>
+                                            <genre>Afro</genre>
+                                            <genre>Funk / Soul / Jazz</genre>
+                                    </genres>
+                                        <event_id>24174</event_id>
+                                        <event_type>Concert</event_type>
+                                        <yesplan_id>11818363393-1775658607</yesplan_id>
+                        <start>
+                                    <date>20261002</date>
+                                                    <time>19:00</time>
+                            </start>
+            <end>
+                                    <date>20261002</date>
+                                                    <time>21:00</time>
+                            </end>
+                            <images>
+                                            <image>https://patronaat.nl/app/uploads/2026/04/Bnnyhunna-press-02-1-scaled.jpeg</image>
+                                            <image>https://patronaat.nl/app/uploads/2026/04/Bnnyhunna-press-02-1-scaled.jpeg</image>
+                                            <image>https://patronaat.nl/app/uploads/2026/04/Bnnyhunna-press-02-1-scaled.jpeg</image>
+                                            </images>
+                                        <ticket_url>https://www.ticketmaster.nl/event/677350096?brand=nl_patronaat</ticket_url>
+                                        <ticket_price>23.5</ticket_price>
+                                        <publication_date>2026-04-29 10:00:30</publication_date>
+                                        <support_acts>
+                                            <act>
+                                                            <name>Droppa &amp; Diggler</name>
+                                                                                                            </act>
+                                    </support_acts>
+                    </event>
+            <event>
+                            <name>Chef&amp;#8217;Special • PHIL • Haarlem Vinyl Festival</name>
+                                        <subtitle>Haarlemse helden voor het eerst in PHIL</subtitle>
+                                        <description>&lt;strong&gt;Haarlemse helden Chef’Special komen op vrijdag 2 oktober tijdens Haarlem Vinyl Festival eindelijk naar PHIL! Sinds 2008 is deze band uitgegroeid tot één van de meest energieke en veelzijdige bands van Nederland en mixen ze moeiteloos pop, rock, reggae, hiphop en funk.&lt;/strong&gt;
+
+Chef’Special brak door bij het grote publiek als huisband van De Wereld Draait Door en scoorden daarna hits als ‘Amigo’, ‘In Your Arms’, ‘Nicotine’ en ‘Afraid Of The Dark’. De band staat bekend om hun aanstekelijke liveshows: een mix van dansbare beats, meezingmomenten en interactie met het publiek. Elk optreden is een feest waarbij iedereen wordt meegenomen in hun energie en positieve vibe. En met talloze festivaloptredens in binnen- en buitenland hebben ze bewezen dat ze elk podium weten om te toveren tot een onvergetelijke ervaring.</description>
+                                        <link>https://patronaat.nl/event/chefspecial-phil-haarlem-vinyl-festival-02-10-26/</link>
+                                        <location>PHIL</location>
+                                        <genres>
+                                            <genre>Pop</genre>
+                                    </genres>
+                                        <event_id>24183</event_id>
+                                        <event_type>Concert</event_type>
+                                        <yesplan_id>9760394753-1776687680</yesplan_id>
+                        <start>
+                                    <date>20261002</date>
+                                                    <time>20:00</time>
+                            </start>
+            <end>
+                                    <date>20261002</date>
+                                                    <time>21:00</time>
+                            </end>
+                            <images>
+                                            <image>https://patronaat.nl/app/uploads/2026/04/2026-ChefSpecial-credits-Mikfiles-HiRes-Square-1-scaled.jpg</image>
+                                            <image>https://patronaat.nl/app/uploads/2026/04/2026-ChefSpecial-credits-Mikfiles-HiRes-Square-1-scaled.jpg</image>
+                                            <image>https://patronaat.nl/app/uploads/2026/04/2026-ChefSpecial-credits-Mikfiles-HiRes-Square-1-scaled.jpg</image>
+                                            </images>
+                                        <ticket_url>https://www.ticketmaster.nl/event/2073065627</ticket_url>
+                                        <ticket_price>53.5</ticket_price>
+                                        <publication_date>2026-04-29 10:00:43</publication_date>
+                                        <support_acts>
+                                            <act>
+                                                            <name>Jacob Drescher</name>
+                                                                                        <description>Jacob Drescher presenteert zijn verhalen door te balanceren op de grens tussen intimiteit en geladen spanning. In zijn DIY caravan studio vormt hij deze songs tot een mix van indie-folk en late night soul. Blauwe nachten en zachte liedjes, diep gelaagd met shoe-gazy gitaren, vocale harmonieen, jazz-doordrenkte drumgrooves en prachtige klarinet melodie‰n.</description>
+                                                                                        <webite>https://www.instagram.com/jacob.drescher/</webite>
+                                                    </act>
+                                    </support_acts>
+                    </event>
+            <event>
+                            <name>Weval + Ineffekt + Nebula • Haarlem Vinyl Festival</name>
+                                        <subtitle>Eén van de meest indrukwekkende elektronische liveduo's uit Nederland</subtitle>
+                                        <description>&lt;strong&gt;We kunnen wel stellen dat Weval live een van de beste reputaties heeft dankzij hun gelaagde en doordachte elektronische muziek. Het duo stond al over de hele wereld en op festivals als Lowlands, Primavera, Best Kept Secret, Rock en Seine en DGTL Amsterdam. Nu komt Weval naar Patronaat op vrijdag 2 oktober tijdens Haarlem Vinyl Festival!&lt;/strong&gt;
+
+Weval, bestaande uit Harm Coolen en Merijn Scholten Albers, debuteerde in 2013 en viel meteen op door warme, analoge en filmische sound. Hun vierde album ‘CHOROPHOBIA’ verscheen onlangs en leunt aan tegen datgene waar ze zich nooit aan durfden te wagen: dance. Niet gek dus dat ze het album zo genoemd hebben, want chorophobia is de angst om te dansen. Het resultaat is een groovy en uitgesproken album waardoor hun liveshows nog indrukwekkender gaan worden!
+
+&lt;span style="color: #231f20;"&gt;&lt;strong style="color: #000000;"&gt;Tijdschema (onder voorbehoud)&lt;/strong&gt;&lt;/span&gt; &lt;br style="color: #231f20;" /&gt;&lt;span style="color: #231f20;"&gt;Deuren open • 19:30&lt;/span&gt;&lt;br style="color: #231f20;" /&gt;&lt;span style="color: #231f20;"&gt;20:00 • &lt;strong&gt;Nebula&lt;/strong&gt;&lt;/span&gt;&lt;br style="color: #231f20;" /&gt;&lt;span style="color: #231f20;"&gt;21:00 • &lt;strong&gt;Weval&lt;/strong&gt;&lt;/span&gt;&lt;br style="color: #231f20;" /&gt;&lt;span style="color: #231f20;"&gt;23:00 • &lt;strong&gt;Ineffekt&lt;/strong&gt;&lt;/span&gt;&lt;br style="color: #231f20;" /&gt;&lt;span style="color: #231f20;"&gt;Verwacht einde • 01:00&lt;/span&gt;</description>
+                                        <link>https://patronaat.nl/event/weval-support-haarlem-vinyl-festival-02-10-26/</link>
+                                        <location>Patronaat</location>
+                                        <genres>
+                                            <genre>Elektronisch</genre>
+                                            <genre>Nachtleven</genre>
+                                    </genres>
+                                        <event_id>24668</event_id>
+                                        <event_type>Concert</event_type>
+                                        <yesplan_id>1960699137-1782482793</yesplan_id>
+                        <start>
+                                    <date>20261002</date>
+                                                    <time>20:00</time>
+                            </start>
+            <end>
+                                    <date>20261002</date>
+                                                    <time>23:30</time>
+                            </end>
+                            <images>
+                                            <image>https://patronaat.nl/app/uploads/2026/06/2-scaled.jpg</image>
+                                            <image>https://patronaat.nl/app/uploads/2026/06/2-scaled.jpg</image>
+                                            <image>https://patronaat.nl/app/uploads/2026/06/2-scaled.jpg</image>
+                                            </images>
+                                        <ticket_url>https://www.ticketmaster.nl/event/218426494?brand=nl_patronaat</ticket_url>
+                                        <ticket_price>28.5</ticket_price>
+                                        <publication_date>2026-07-03 10:00:45</publication_date>
+                                        <support_acts>
+                                            <act>
+                                                            <name>Voor Weval: Nebula</name>
+                                                                                        <description>NEBULA is een kamer zonder plafond, muren of vloer. Op het podium, omringd door elektronische instrumenten, maakt ze atmosferische muziek voor wie op de grond wil liggen en weg wil zinken, maar je mag ook dansen op het pulserende ritme - de keuze is aan jou. Een plek tussen de storm en de rust na de storm. NEBULA is meer dan een artiest, ze is een ervaring.</description>
+                                                                                        <webite>https://www.instagram.com/nebulamuse/</webite>
+                                                    </act>
+                                            <act>
+                                                            <name>Na Weval: Ineffekt</name>
+                                                                                        <description>Met een mix van sprankelende vocalen, dromerige melodielijnen en uitgesproken ritmes weet Ineﬀekt slim een sound neer te zetten die tegelijk vertrouwd én ongrijpbaar aanvoelt. Omringd door invloeden uit een brede waaier aan hedendaagse muziek mikt hij niet op één vastomlijnd geluid, maar op een balans tussen tijdperken en stijlen. De afgelopen twee jaar zorgde zijn werk ervoor dat gewaardeerde artiesten en platforms uit de left-field zijn output omarmden. Eerder stond de 23-jarige in het voorprogramma van Avalon Emerson, Bicep, Bonobo, Disclosure, Mall Grab en Sammy Virji, en speelde hij op Draaimolen, Dekmantel, DGTL, Lowlands, Best Kept Secret en op toonaangevende dansvloeren als De School, Nitsa en Club Raum. </description>
+                                                                                        <webite>https://ineffekt.net/</webite>
+                                                    </act>
+                                    </support_acts>
+                    </event>
+            <event>
+                            <name>Zwarte Liefde • Haarlem Vinyl Festival</name>
+                                        <subtitle> Zwarte Liefde viert de liefde voor vinyl en zwarte muziek met iedereen</subtitle>
+                                        <description>&lt;strong&gt;Gedreven door een diepe liefde voor vinyl en kratten vol platen houdt Zwarte Liefde de vinylcultuur al meer dan 10 jaar springlevend, en viert het zwarte muziek overal waar de naald neerkomt. Op vrijdag 2 oktober staat het collectief in Patronaat tijdens Haarlem Vinyl Festival. &lt;/strong&gt;
+
+Zwarte Liefde ontstond in 2016 in Amsterdam, opgericht door vinylliefhebber en DJ Welly Ibrahim, ook wel bekend als Welly Well. Wat begon als een simpel idee, groeide al snel uit tot een beweging en ontwikkelde zich tot een reeks events en een collectief, gesteund door DJ’s als DNS en Chuckie. Zwarte Liefde sloeg de handen ineen met het legendarische merk Technics: een echte full-circle voor een concept dat draait om de iconische draaitafels die de DJ-cultuur hebben gevormd.
+
+Door de jaren heen heeft Zwarte Liefde een trouwe achterban opgebouwd, onder zowel vinylliefhebbers als liefhebbers van black music. Het Zwarte Liefde-collectief organiseerde events en vinyl-only DJ-sets op locaties als Paradiso, Amsterdam Roest, Bret, Rapa Nui, Pacific Amsterdam, DeDakkas en de A’DAM Tower. Zwarte Liefde stond op talloze nationale en internationale festivals, waaronder toonaangevende Nederlandse festivals als Zwarte Cross, Mysteryland, Appelpop, Amsterdam Dance Event en Haarlem Vinyl Festival, én internationale festivals zoals 12 Inch Lovers (vinyl only).
+
+&lt;strong&gt;Line-up:&lt;/strong&gt;
+&lt;a href="https://www.instagram.com/extince/"&gt;Extince&lt;/a&gt; - Dutch Hip-Hop Pioneer, Behind the Decks - First-Ever Vinyl set
+
+&lt;a href="https://www.instagram.com/dj_rafik/"&gt;Rafik&lt;/a&gt; - 6× World DJ Champion, Exclusive Vinyl DJ set + world-class Turntablism Showcase
+
+&lt;a href="https://www.instagram.com/djchuckie/"&gt;Chuckie&lt;/a&gt; - The King of Mixing, High Energy Eclectic Vinyl DJ set
+
+&lt;a href="https://www.instagram.com/deejaynd/"&gt;ND&lt;/a&gt;
+
+&lt;a href="https://www.instagram.com/itswellywell/"&gt;Welly Well&lt;/a&gt; - Zwarte Liefde Founder, Freestyle Vinyl set. Refreshing blends across genres
+
+&lt;a href="https://www.instagram.com/dj_dns/"&gt;DNS&lt;/a&gt; - 4× Dutch DJ Champion, Creative Vinyl set. Live Scratches &amp;amp; Mash-ups
+
+&lt;a href="https://www.instagram.com/dj_desibel/"&gt;Desibel&lt;/a&gt; - Vinyl lover and Mash-up maker, Disco, Soul &amp;amp; Funk vinyl set. Classics with a Vocal Twist
+
+&lt;a href="https://www.instagram.com/djrodneywilliams/"&gt;Rodney Williams&lt;/a&gt; - All-round Vinyl Specialist, Vinyl set. From Timeless Classics to Today's hits.
+
+&lt;a href="https://www.instagram.com/djsetiono/"&gt;Setiono&lt;/a&gt; - Scratch DJ &amp;amp; Turntablist, Live Cuts, Scratches &amp;amp; Tricks
+
+&lt;span style="color: #231f20;"&gt;&lt;strong style="color: #000000;"&gt;Tijdschema (onder voorbehoud)&lt;/strong&gt;&lt;/span&gt; &lt;br style="color: #231f20;" /&gt;&lt;span style="color: #231f20;"&gt;Deuren open • 23:00&lt;/span&gt;&lt;br style="color: #231f20;" /&gt;&lt;span style="color: #231f20;"&gt;23:00 • &lt;strong&gt;Zwarte Liefde&lt;/strong&gt;&lt;/span&gt;&lt;br style="color: #231f20;" /&gt;&lt;span style="color: #231f20;"&gt;Verwacht einde • 04:00&lt;/span&gt;</description>
+                                        <link>https://patronaat.nl/event/zwarte-liefde-02-10-26/</link>
+                                        <location>Patronaat</location>
+                                        <genres>
+                                            <genre>Hiphop</genre>
+                                            <genre>Nachtleven</genre>
+                                    </genres>
+                                        <event_id>24701</event_id>
+                                        <event_type>Dance</event_type>
+                                        <yesplan_id>6329910785-1776853870</yesplan_id>
+                        <start>
+                                    <date>20261002</date>
+                                                    <time>23:00</time>
+                            </start>
+            <end>
+                                    <date>20261002</date>
+                                                    <time>02:00</time>
+                            </end>
+                            <images>
+                                            <image>https://patronaat.nl/app/uploads/2026/07/Crew-RT_DSC01037-1-scaled.jpg</image>
+                                            <image>https://patronaat.nl/app/uploads/2026/07/Crew-RT_DSC01037-1-scaled.jpg</image>
+                                            <image>https://patronaat.nl/app/uploads/2026/07/Crew-RT_DSC01037-1-scaled.jpg</image>
+                                            </images>
+                                        <ticket_url>https://www.ticketmaster.nl/event/1001791891</ticket_url>
+                                        <ticket_price>20</ticket_price>
+                                        <publication_date>2026-07-06 13:10:41</publication_date>
+                                </event>
+            <event>
+                            <name>Nieuwe Datum: Ruud Jolie (Within Temptation) | Ongefilterd • PHIL</name>
+                                        <subtitle>Within Temptation-gitarist openhartig, boeiend en droogkomisch</subtitle>
+                                        <description>&lt;strong&gt; Ruud Jolie is als gitarist al ruim twintig jaren een vaste waarde in Within Temptation. De symfonische metalband is het belangrijkste Nederlandse exportproduct op het gebied van rockmuziek en geldt in haar genre wereldwijd als een van de vaandeldragers. Als geen ander weet Ruud Jolie wat een leven on the road kan betekenen. Naar aanleiding van zijn binnenkort te verschijnen boek In Spotlight And Shadow vertelt Ruud Jolie in Ongefilterd over zijn belevenissen op zondag 7 december doet hij dit in PHIL. &lt;/strong&gt;
+
+De successen en de daarmee gepaard gaande roem. Optreden voor tienduizenden fans op de grootste podia ter wereld. Met Within Temptation op tournee gaan met klinkende namen als Iron Maiden en Evanescence. Maar ook de ongemakken, de onzekerheden en de stress. En natuurlijk de onvermijdelijke en hilarische Spinal Tap voorvallen. Ruud vertelt dit alles openhartig, boeiend, droogkomisch én met de nodige relativering en zelfspot.
+
+Bij het programma zijn een Q&amp;amp;A en boeksignering inbegrepen.
+
+&lt;hr /&gt;
+
+&lt;em&gt;Let op: Dit evenement is verplaatst van zondag 7 december 2025 naar zaterdag 3 oktober 2026, naar de Van Beinumzaal bij PHIL Haarlem. Kaartkopers hebben vanuit Ticketmaster een mail ontvangen met meer informatie.&lt;/em&gt;</description>
+                                        <link>https://patronaat.nl/event/ruud-jolie-within-temptation-ongefilterd-phil-07-12-25/</link>
+                                        <location>PHIL</location>
+                                        <genres>
+                                            <genre>LOUD</genre>
+                                    </genres>
+                                        <event_id>20008</event_id>
+                                        <event_type>Concert</event_type>
+                                        <yesplan_id>5661774593-1745411463</yesplan_id>
+                        <start>
+                                    <date>20261003</date>
+                                                    <time>20:00</time>
+                            </start>
+            <end>
+                                    <date>20261003</date>
+                                                    <time>21:00</time>
+                            </end>
+                            <images>
+                                            <image>https://patronaat.nl/app/uploads/2025/04/Ruud-Jolie-publiciteitsfoto.jpg</image>
+                                            <image>https://patronaat.nl/app/uploads/2025/04/Ruud-Jolie-publiciteitsfoto.jpg</image>
+                                            <image>https://patronaat.nl/app/uploads/2025/04/Ruud-Jolie-publiciteitsfoto.jpg</image>
+                                            </images>
+                                        <ticket_url>https://www.ticketmaster.nl/event/289154863</ticket_url>
+                                        <ticket_price>26</ticket_price>
+                                        <publication_date>2025-04-24 10:00:11</publication_date>
+                                </event>
+            <event>
+                            <name>Hannah Mae + Coos • Haarlem Vinyl Festival</name>
+                                        <subtitle>Persoonlijke songs van Nederlandse zangeres</subtitle>
+                                        <description>&lt;strong&gt;Hannah Mae brak de afgelopen jaren door met hits als ‘Wat Wil Je Van Mij’ en ‘Waterdicht’ en groeide uit tot een vaste waarde in de Nederlandse popscene, mede dankzij haar persoonlijke debuutalbum ‘Rode Draad’. Op zaterdag 3 oktober staat ze tijdens Haarlem Vinyl Festival in Patronaat. &lt;/strong&gt;
+
+Hannah Mae heeft snel een vaste plek gekregen in de Nederlandse muziekscene. Na haar doorbraak met ‘Back to You’, volgden ‘Wat Wil Je Van Mij’, ‘Waterdicht’ en ‘Ik Wil Dat Je Liegt’. Voor ‘Wat Wil Je Van Mij’, een duet met de Vlaamse artiest Metejoor, ontving ze een Buma Award. Ook deed ze in 2024 mee aan ‘Beste Zangers’ en stond ze al op Pinkpop.</description>
+                                        <link>https://patronaat.nl/event/hannah-mae-haarlem-vinyl-festival-03-10-26/</link>
+                                        <location>Patronaat</location>
+                                        <genres>
+                                            <genre>Pop</genre>
+                                    </genres>
+                                        <event_id>23083</event_id>
+                                        <event_type>Concert</event_type>
+                                        <yesplan_id>4367353345-1763025734</yesplan_id>
+                        <start>
+                                    <date>20261003</date>
+                                                    <time>20:00</time>
+                            </start>
+            <end>
+                                    <date>20261003</date>
+                                                    <time>21:00</time>
+                            </end>
+                            <images>
+                                            <image>https://patronaat.nl/app/uploads/2026/04/Hannah-Mae-persfoto-okt-25-door-Alicia-Karsonopoero-1-scaled-e1777558714962-466x420.jpg</image>
+                                    </images>
+                                        <ticket_url>https://www.ticketmaster.nl/event/1050315560?brand=nl_patronaat</ticket_url>
+                                        <ticket_price>30.5</ticket_price>
+                                        <publication_date>2026-04-29 10:00:13</publication_date>
+                                        <support_acts>
+                                            <act>
+                                                            <name>Coos</name>
+                                                                                        <description>Coos geeft je een ongefilterde blik in haar hoofd met haar indiefolk/popnummers. Haar teksten komen rechtstreeks uit haar dagboek. Ze laat je de ongemakkelijkheid van het leven zien waar we allemaal doorheen proberen te navigeren. Je bevindt jezelf in warm bad met harmonieuze zang die aanvoelt als een zachte deken om je heen. Coos' emoties drijven de muziek, de liedjes variëren van klein en intiem tot groots en intens.</description>
+                                                                                        <webite>https://www.instagram.com/coosmusic/</webite>
+                                                    </act>
+                                    </support_acts>
+                    </event>
+            <event>
+                            <name>Janne Schra • Haarlem Vinyl Festival</name>
+                                        <subtitle>Multidisciplinaire kunstenaar uit Amsterdam</subtitle>
+                                        <description>&lt;strong&gt;Janne Schra is zangeres, songwriter en schilder. Binnenkort verschijnt haar nieuwe album 'Work Out' en dat is reden genoeg om weer de poppodia in te duiken. Op zaterdag 3 oktober staat ze in Patronaat. &lt;/strong&gt;
+
+Sinds de start van haar solocarrière in 2010 bracht de muzikante verschillende geprezen albums uit. In 2023 won ze de Edison Jazz Award met haar band DeVogels. Haar werk kenmerkt zich door een breed scala aan samenwerkingen – met artiesten als M. Ward en Benny Sings, en met orkesten zoals het Metropole Orkest – en door opnames in legendarische studio’s, waaronder Konk Studios in Londen, studio’s in New York en Capitol Studios in Los Angeles.
+
+Ze verwierf voor het eerst internationale erkenning als frontvrouw van Room Eleven, waarmee ze meerdere gouden en platina platen behaalde en optrad op grote festivals, waaronder het Montreal Jazz Festival, en in steden als Johannesburg en Tokio.</description>
+                                        <link>https://patronaat.nl/event/janne-schra-support-03-10-26/</link>
+                                        <location>Patronaat</location>
+                                        <genres>
+                                            <genre>Funk / Soul / Jazz</genre>
+                                            <genre>Singer-songwriter</genre>
+                                    </genres>
+                                        <event_id>23537</event_id>
+                                        <event_type>Concert</event_type>
+                                        <yesplan_id>10477619457-1771354893</yesplan_id>
+                        <start>
+                                    <date>20261003</date>
+                                                    <time>20:00</time>
+                            </start>
+            <end>
+                                    <date>20261003</date>
+                                                    <time>21:00</time>
+                            </end>
+                            <images>
+                                            <image>https://patronaat.nl/app/uploads/2026/02/6c4ff5cbf_janneschra_workout_packshot_low-2.jpg</image>
+                                            <image>https://patronaat.nl/app/uploads/2026/02/6c4ff5cbf_janneschra_workout_packshot_low-2.jpg</image>
+                                            <image>https://patronaat.nl/app/uploads/2026/02/6c4ff5cbf_janneschra_workout_packshot_low-2.jpg</image>
+                                            <image>https://patronaat.nl/app/uploads/2026/02/6c4ff5cbf_janneschra_workout_packshot_low-2.jpg</image>
+                                            <image>https://patronaat.nl/app/uploads/2026/02/6c4ff5cbf_janneschra_workout_packshot_low-2.jpg</image>
+                                            </images>
+                                        <ticket_url>https://www.ticketmaster.nl/event/1501747793?brand=nl_patronaat</ticket_url>
+                                        <ticket_price>23.5</ticket_price>
+                                        <publication_date>2026-02-23 10:21:36</publication_date>
+                                        <support_acts>
+                                            <act>
+                                                            <name>Babette Zwinkels</name>
+                                                                                        <description>Babette Zwinkels is een 23-jarige Rotterdamse singer-songwriter met een kraakheldere stem en een hart vol muziek. Haar dromerige popliedjes met een vleugje kleinkunst raken je diep en vertellen verhalen over liefde, het verlangen om gezien te worden en het omarmen van ongemak, met een ontwapenende eerlijkheid die je niet loslaat. Live brengt ze haar muziek tot leven samen met haar violiste Yolanda Kuijper en pianiste Esther Jacobs. </description>
+                                                                                        <webite>https://www.babettezwinkels.com/</webite>
+                                                    </act>
+                                    </support_acts>
+                    </event>
+            <event>
+                            <name>Mula + Lusho + Marou &amp;amp; Massin • PHIL • Haarlem Vinyl Festival</name>
+                                        <subtitle>Trap, hiphop, jazz en rock worden versmolten met pop</subtitle>
+                                        <description>&lt;strong&gt;In 2024 stond Mula twee keer in Haarlem, nu komt hij terug op zaterdag 3 oktober in PHIL. In de tussentijd speelde hij menig festival plat, bracht hij zijn album ‘Narcopop’ uit én won hij een Edison voor Beste Hiphop. &lt;/strong&gt;
+
+‘Narcopop’ wordt gezien als het Beste Nederlandstalige Hiphop-album van 2023. Niet vreemd, want track voor track is te horen dat Mula zijn huidige stijl verder heeft ontwikkeld. Trap, hiphop en zelfs jazz en rock worden versmolten met pop. Tel daarbij nog Mula’s lyrics - die met name over straatleven en zijn ervaringen gaan - bij op en je komt uit op kunst.
+
+Mula introduceerde trap in Nederland met label en gelegenheidscollectief Wilde Westen. Zijn eerste wapenfeit was mixtape D&amp;amp;G en wordt door de unieke beats in combinatie met vernieuwende flows en taalgebruik gezien als één van de bepalende albums in de Nederlandse hiphopscene.</description>
+                                        <link>https://patronaat.nl/event/mula-b-phil-haarlem-vinyl-festival-03-10-26/</link>
+                                        <location>PHIL</location>
+                                        <genres>
+                                            <genre>Hiphop</genre>
+                                    </genres>
+                                        <event_id>24184</event_id>
+                                        <event_type>Concert</event_type>
+                                        <yesplan_id>10068177921-1776688170</yesplan_id>
+                        <start>
+                                    <date>20261003</date>
+                                                    <time>20:00</time>
+                            </start>
+            <end>
+                                    <date>20261003</date>
+                                                    <time>21:00</time>
+                            </end>
+                            <images>
+                                            <image>https://patronaat.nl/app/uploads/2026/04/Mula-B-2025-MartijnKuyvenhoven-2-1-1-scaled-e1777558547765-466x420.jpg</image>
+                                    </images>
+                                        <ticket_url>https://www.ticketmaster.nl/event/2062105449</ticket_url>
+                                        <ticket_price>37</ticket_price>
+                                        <publication_date>2026-04-29 10:00:58</publication_date>
+                                        <support_acts>
+                                            <act>
+                                                            <name>Lusho</name>
+                                                                                        <description>In mei 2022 plaatste de Amsterdamse Lusho samen met Moski een snippet van hun track Zo Boos op TikTok. De track ging binnen no time viraal en heeft inmiddels meer dan 4 miljoen streams én trok de aandacht van o.a. Ronnie Flex, Chivv en Josylvio. Tel daar nog bij op dat Lusho ook nog viraal ging met New Balance en Out Of Place en je weet dat je een nieuwe ster te pakken hebt!&lt;br /&gt;
+&lt;br /&gt;
+Op festivals als Rolling Loud en in een uitverkochte Paradiso bovenzaal groeiden zijn moshpits uit tot handelsmerk en werd duidelijk dat Lusho’s ook live zijn publiek in beweging krijgt. Nu werkt hij aan zijn debuutalbum en blaast ie een frisse wind door de Nederlandse scene. Geïnspireerd door internationale sounds zoals UK rap, Memphis rap en Jersey Club. Met zijn debuutproject in aantocht is dit pas het begin.</description>
+                                                                                        <webite>https://www.instagram.com/7usho/</webite>
+                                                    </act>
+                                            <act>
+                                                            <name>Marou &amp; Massin</name>
+                                                                                        <description> Marou en Massin zijn twee opkomende rappers uit Purmerend die zich onderscheiden door hun authentieke flows, dubbelzinnige bars en gevatte teksten. Met invloeden uit zowel de Nederlandse als internationale muziek brengen ze een nodige energie naar de scene. Hun muziek behandelt persoonlijke ervaringen, sociale thema’s en de dagelijkse realiteit, waarmee ze een directe connectie weten te leggen met hun luisteraars. Marou en Massin staan bekend om hun synergie op het podium en hebben al verschillende shows op hun naam staan, en met hun verfrissende stijl is dat niet onbegrijpelijk.</description>
+                                                                                        <webite>https://www.instagram.com/42marou/</webite>
+                                                    </act>
+                                    </support_acts>
+                    </event>
+            <event>
+                            <name>CLUB3 X The Flexican</name>
+                                        <subtitle>Vinyl only special!</subtitle>
+                                        <description>&lt;strong&gt;This very special edition of CLUB3 during Haarlem Vinyl Festival is all about vinyl! The one and only The Flexican will be taking over the turntables for a two hour vinyl only session. He will be joined by Dora and Just &amp;amp; Kay.&lt;/strong&gt;
+
+Born in Mexico City and raised on a diet of Pink Floyd, Guns N' Roses and his uncle's backstage rock gigs, Thomás — aka The Flexican — moved to Amsterdam in 1992, where MTV's hip-hop wave rewired his ears for good. He traded his drum kit for turntables as a teenager, cut his teeth spinning high school parties and weddings, and studied production at SAE. Early mixtapes like Summer Madness caught the ear of eclectic scene veteran Real El Canario, launching his first agency deal and residencies at Dance Tracks and Rhythm Import.
+
+Since then he's built a name as one of Amsterdam's most genre-fluid selectors, holding down residencies at Jimmy Woo, Paradiso and Monza, and behind the boards for Juize.FM, 3voor12XL and Lijn5.com. As producer and MC with hip-hop outfit Flinke Namen, he helped deliver Dutch rap landmarks like Superstuntwerk and the cult favorite Bumayé. Equally at home in hip-hop, funk and house, The Flexican brings a crate-digger's ear and a dancefloor instinct to every set — expect vinyl, expect surprises.
+
+&lt;strong&gt;Line-up:&lt;/strong&gt;
+The Flexican
+Dora
+Just &amp;amp; Kay</description>
+                                        <link>https://patronaat.nl/event/club3-x-the-flexican-03-10-26/</link>
+                                        <location>Patronaat</location>
+                                        <genres>
+                                            <genre>CLUB3</genre>
+                                            <genre>Nachtleven</genre>
+                                    </genres>
+                                        <event_id>24984</event_id>
+                                        <event_type>Dance</event_type>
+                                                    <yesplan_id>13407373313-1762959224</yesplan_id>
+                        <start>
+                                    <date>20261003</date>
+                                                    <time>23:00</time>
+                            </start>
+            <end>
+                                    <date>20261003</date>
+                                                    <time>03:00</time>
+                            </end>
+                            <images>
+                                            <image>https://patronaat.nl/app/uploads/2026/08/flexican-post-scaled.png</image>
+                                            <image>https://patronaat.nl/app/uploads/2026/08/flexican-post-scaled.png</image>
+                                            <image>https://patronaat.nl/app/uploads/2026/08/flexican-post-scaled.png</image>
+                                            </images>
+                                        <ticket_url>https://www.universe.com/events/club3-x-the-flexican-tickets-6XFB0H</ticket_url>
+                                        <ticket_price>15</ticket_price>
+                                        <publication_date>2026-08-21 11:00:08</publication_date>
+                                </event>
+            <event>
+                            <name>Blanks • Haarlem Vinyl Festival</name>
+                                        <subtitle>Catchy pop, retro-vibes en een aanstekelijke energie</subtitle>
+                                        <description>&lt;strong&gt;De Nederlandse songwriter en producer Blanks is inmiddels niet meer weg te denken uit de indiepop. Waar hij ooit zijn fanbase opbouwde via social media, staat hij nu stevig op eigen benen met een sound die meteen glimlach-trekkerig werkt: catchy pop, retro-vibes en een aanstekelijke energie. Tussen Nashville, de Bahama’s en elke tussenstop die hij kon pakken, werkte hij aan nieuwe muziek. In het voorjaar van 2026 verschijnt zijn nieuwe album, en die hoor je ook tijdens zijn show op zondag 4 oktober!&lt;/strong&gt;
+
+Achter de schermen was het het afgelopen jaar een snelkookpan: Blanks schreef mee aan grote hits zoals &lt;em data-start="707" data-end="714"&gt;Atlas&lt;/em&gt; van Pommelien Thijs en &lt;em data-start="738" data-end="756"&gt;Nog Even Blijven&lt;/em&gt; van MEAU &amp;amp; Douwe Bob. Live gaat Blanks nóg een stap verder. Verwacht gitaar-gedreven indiepop, spontane energie en een show waarin de vibe net zo belangrijk is als de songs. Zijn community bouwde hij vanaf dag één zelf, en dat gevoel van verbinding stroomt nog steeds door alles wat hij doet. De nieuwe show klinkt volwassener, zoekt meer de rafelranden op, maar houdt vast aan die warme, optimistische Blanks-signature waar iedereen voor terugkomt.
+
+https://www.tiktok.com/@musicbyblanks</description>
+                                        <link>https://patronaat.nl/event/blanks-support-05-04-26/</link>
+                                        <location>Patronaat</location>
+                                        <genres>
+                                            <genre>Pop</genre>
+                                    </genres>
+                                        <event_id>21158</event_id>
+                                        <event_type>Concert</event_type>
+                                        <yesplan_id>7709360385-1756808573</yesplan_id>
+                        <start>
+                                    <date>20261004</date>
+                                                    <time>20:00</time>
+                            </start>
+            <end>
+                                    <date>20261004</date>
+                                                    <time>21:00</time>
+                            </end>
+                            <images>
+                                            <image>https://patronaat.nl/app/uploads/2025/11/BLANKS_HIGH-RES_JANTINA-TALSMA-6-scaled.jpg</image>
+                                            <image>https://patronaat.nl/app/uploads/2025/11/BLANKS_HIGH-RES_JANTINA-TALSMA-6-scaled.jpg</image>
+                                            <image>https://patronaat.nl/app/uploads/2025/11/BLANKS_HIGH-RES_JANTINA-TALSMA-6-scaled.jpg</image>
+                                            </images>
+                                        <ticket_url>https://www.ticketmaster.nl/event/1024335376?brand=nl_patronaat</ticket_url>
+                                        <ticket_price>25.5</ticket_price>
+                                        <publication_date>2025-12-03 10:00:24</publication_date>
+                                        <support_acts>
+                                            <act>
+                                                            <name>SUUS</name>
+                                                                                        <description>SUUS verpakt ongemak in glitter. Achter haar vrolijke, dansbare sound schuilt een scherpe blik op opgroeien als vrouw binnen de gen-z generatie. Haar songs balanceren tussen licht en gelaagd, speels en eerlijk, met heel veel subtiel sarcasme. </description>
+                                                                                        <webite>https://www.instagram.com/suusmusic/</webite>
+                                                    </act>
+                                    </support_acts>
+                    </event>
+            <event>
+                            <name>JOHAN + Bas van Holt • Haarlem Vinyl Festival</name>
+                                        <subtitle>Integraal hun mooiste album in Haarlem!</subtitle>
+                                        <description>&lt;strong&gt;‘Pergola’ van JOHAN kun je gerust een Nederlandse klassieker noemen. Het album verscheen 25 jaar geleden en met die reden tourde JOHAN de afgelopen weken door ons land. Nu gaan ze nog één keer ‘Pergola’ integraal spelen en wel tijdens Haarlem Vinyl Festival op zondag 4 oktober in Patronaat. &lt;/strong&gt;
+
+Op ‘Pergola’ staan parels als ‘Tumble and Fall’, ‘Day is Done’, ‘Pergola’ en ‘Here’ die de band tot een belangrijke waarde in de Nederlandse popmuziek bombardeerden.
+
+Voor frontman Jacob de Greeuw was het album ook belangrijk: ‘‘Pergola is voor mij een heel dierbaar album dat tot stand is gekomen na een periode met zware depressies. Bandleden stopten ermee, een platendeal in Amerika afgeketst. Ik besloot samen met drummer Wim Kwakman door te gaan en hard te werken aan het album. Samen met luisterend oor, vriend en producer Frans Hagenaars. Een mooi, vreugdevol maar soms ook verdrietig proces. Ik ben nog altijd heel trots op het bijzondere eindresultaat: een verslag van vallen en opstaan, omgaan met teleurstelling maar ook één waar (meer zelfs dan ik toen vermoedde) veel hoop en liefde in zit.Ik zit nu goed in m’n vel en popel om 25 jaar na dato het album dat zoveel voor JOHAN en mij betekent live te spelen.”
+
+&lt;strong&gt; Speciale luistersessie&lt;/strong&gt;
+'s Middags vertelt de band in PHIL Haarlem tijdens een luistersessie over het album, dat wordt afgespeeld op vinyl, over de totstandkoming. Het verhaal eromheen is bijzonder en kwetsbaar, hoe mooi om dat te illustreren met de muziek zelf, en de gedachtes en keuzes erachter erbij te horen. Aan degenen die tickets aanschaffen voor het concert in de avond in Patronaat, mogen wij gratis kaarten aanbieden voor deze luistersessie. Wil je hierbij zijn? Je kunt deze gratis kaarten tijdens het aankoopproces aanschaffen.
+
+Nog even alle informatie over de luistersessie op een rijtje:
+25 Years of Pergola Listening Session (Dutch spoken)
+13:00 - 14:.30
+Moderatie: Menno Pot
+
+PHIL vind je aan de Lange Begijnestraat 11, Haarlem. Kijk voor alle informatie over de locatie, parkeren, bereikbaarheid en toegankelijkheid op https://www.philhaarlem.nl/.</description>
+                                        <link>https://patronaat.nl/event/johan-support-haarlem-vinyl-festival-04-10-26/</link>
+                                        <location>Patronaat</location>
+                                        <genres>
+                                            <genre>Indie</genre>
+                                            <genre>Rock</genre>
+                                    </genres>
+                                        <event_id>24162</event_id>
+                                        <event_type>Concert</event_type>
+                                        <yesplan_id>9485772033-1759143169</yesplan_id>
+                        <start>
+                                    <date>20261004</date>
+                                                    <time>20:00</time>
+                            </start>
+            <end>
+                                    <date>20261004</date>
+                                                    <time>21:30</time>
+                            </end>
+                            <images>
+                                            <image>https://patronaat.nl/app/uploads/2026/04/JOHAN-Credits-Felice-Hofhuizen-1-scaled.jpg</image>
+                                            <image>https://patronaat.nl/app/uploads/2026/04/JOHAN-Credits-Felice-Hofhuizen-1-scaled.jpg</image>
+                                            <image>https://patronaat.nl/app/uploads/2026/04/JOHAN-Credits-Felice-Hofhuizen-1-scaled.jpg</image>
+                                            </images>
+                                        <ticket_url>https://www.ticketmaster.nl/event/542926939?brand=nl_patronaat</ticket_url>
+                                        <ticket_price>34.5</ticket_price>
+                                        <publication_date>2026-04-29 10:00:58</publication_date>
+                                        <support_acts>
+                                            <act>
+                                                            <name>Bas van Holt</name>
+                                                                                        <description>Na tien jaar touren, schrijven en opnemen met Dawn Brothers gaat Bas van Holt op een side-quest. In zijn soloproject verschuift de aandacht van bandspel naar intuïtie en experiment. De muziek beweegt zich tussen ‘gekke rock’, indiefolk en instrumentale gitaarstukken, beïnvloed door artiesten als Beck, Daniel Lanois en Paul McCartney. &lt;br /&gt;
+&lt;br /&gt;
+Grotendeels zelf ingespeeld door Bas, maar hier en daar bijgestaan door bevriende muzikanten zoals Pablo van de Poel (DeWolff), Darryl Ciggaar (Minko), Ties Voskamp (Cocobolo), Jelle Rozenburg en Yanna Pelser. Naast verhalende folksongs klinken er spontane improvisaties, grungeliedjes en verstilde gitaarmuziek. Verwacht geen stijlvaste plaat, maar een persoonlijke verzameling songs en klanken waarin nieuwsgierigheid belangrijker is dan genre. </description>
+                                                                                        <webite>https://www.instagram.com/basvanholt/</webite>
+                                                    </act>
+                                    </support_acts>
+                    </event>
+            <event>
+                            <name>Bente • PHIL • Haarlem Vinyl Festival</name>
+                                        <subtitle>Na mooi jaar vol highlights komt Bente terug naar Haarlem!</subtitle>
+                                        <description>&lt;strong&gt;Bente heeft een indrukwekkend jaar achter de rug. Ze won de 3FM Award voor Beste Indie Act, stond op festivals als Paaspop en Concert at Sea, scoorde een hitsingle met BLØF en was te zien in Beste Zangers 2025 met hit ‘Kan Je Me Zien’. Ook verkocht ze afgelopen maart twee keer Patronaat uit. Nu komt ze terug naar Haarlem op zondag 4 oktober. &lt;/strong&gt;
+
+Na de release van haar tweede album ‘Drift’ stootte Bente door naar een nieuw niveau in haar carrière. Het album, waarin ze op indringende wijze thema’s als liefde, verlies en volwassen worden onderzoekt, werd breed geprezen en markeerde een artistieke verdieping. Als bekroning op een succesvol jaar verkocht Bente het Koninklijk Theater Carré volledig uit. Daarmee bewees ze definitief haar plek in de voorhoede van de Nederlandstalige pop. In 2026 zet ze die lijn door met veel nieuwe muziek en shows.</description>
+                                        <link>https://patronaat.nl/event/bente-phil-haarlem-vinyl-festival-04-10-26/</link>
+                                        <location>PHIL</location>
+                                        <genres>
+                                            <genre>Pop</genre>
+                                    </genres>
+                                        <event_id>24185</event_id>
+                                        <event_type>Concert</event_type>
+                                        <yesplan_id>10290321153-1776688616</yesplan_id>
+                        <start>
+                                    <date>20261004</date>
+                                                    <time>20:00</time>
+                            </start>
+            <end>
+                                    <date>20261004</date>
+                                                    <time>21:00</time>
+                            </end>
+                            <images>
+                                            <image>https://patronaat.nl/app/uploads/2026/04/Bente2-scaled.jpg</image>
+                                            <image>https://patronaat.nl/app/uploads/2026/04/Bente2-scaled.jpg</image>
+                                            <image>https://patronaat.nl/app/uploads/2026/04/Bente2-scaled.jpg</image>
+                                            </images>
+                                        <ticket_url>https://www.ticketmaster.nl/event/835850955</ticket_url>
+                                        <ticket_price>37</ticket_price>
+                                        <publication_date>2026-04-29 10:00:57</publication_date>
+                                        <support_acts>
+                                            <act>
+                                                            <name>Else Lena</name>
+                                                                                        <description>Verhalend, eigenzinnig, kwetsbaar en indringend. Else Lena neemt je moeiteloos mee in haar fantasierijke wereld. Voor de één herkenbaar, voor de ander een nieuw perspectief. Als klein meisje schreef ze al gedichten en verhalen, die ze achter de piano omtoverde tot liedjes. Daar vond ze haar thuis; een plek waar haar overvolle hart en grote fantasie vrijuit kunnen spreken. &lt;br /&gt;
+&lt;br /&gt;
+Inmiddels is ze uitgegroeid tot een ware verhalenverteller, geïnspireerd door Ramses Shaffy, Wende en het Franse Chanson. Samen met haar vijfkoppige liveband en live strijkers krijgen haar nummers een extra dimensie, met arrangementen die variëren van klein en intiem tot groots en meeslepend.  In mei 2026 verscheen haar debuut-EP Verlangen en Verliezen: een liedjesbundel waarin Else Lena de verhalen van het leven muzikaal tot leven brengt. &lt;br /&gt;
+&lt;br /&gt;
+ </description>
+                                                                                        <webite>https://www.instagram.com/elselenaaa/</webite>
+                                                    </act>
+                                    </support_acts>
+                    </event>
+            <event>
+                            <name>Monolord + special guest: Dopelord</name>
+                                        <subtitle>Doom zonder omwegen</subtitle>
+                                        <description>&lt;p data-start="0" data-end="210"&gt;&lt;strong&gt;Monolord komt op 7 oktober naar Patronaat, met Dopelord als special guest! De Zweedse doomgrootmacht brengt met het nieuwe album 'Neverending' een nieuwe verpletterende golf aan logge riffs en massieve grooves. Sinds de doorbraak met 'Empress Rising' groeit Monolord uit tot een vaste waarde binnen de moderne doom. Met releases als 'Rust', 'No Comfort' en 'Your Time To Shine' scherpt de band hun geluid steeds verder aan: traag, zwaar en doordrenkt met een constante dreiging. Geen overbodige franje, maar pure focus op impact met riffs die blijven hangen en lagen die zich langzaam ontvouwen.&lt;/strong&gt;&lt;/p&gt;
+&lt;p data-start="739" data-end="1025"&gt;Dopelord als special guest sluit daar logisch op aan: de Poolse band bouwde sinds 2010 een stevige reputatie op binnen de Europese stoner- en doomscene met albums als 'Magick Rites', 'Black Arts, Riff Worship &amp;amp; Weed Cult' en 'Sign of the Devil', en speelde zich via tours en festivals naar een vaste plek binnen het genre.&lt;/p&gt;</description>
+                                        <link>https://patronaat.nl/event/monolord-dopelord-07-10-26/</link>
+                                        <location>Patronaat</location>
+                                        <genres>
+                                            <genre>LOUD</genre>
+                                    </genres>
+                                        <event_id>21979</event_id>
+                                        <event_type>Concert</event_type>
+                                        <yesplan_id>7291319553-1753783342</yesplan_id>
+                        <start>
+                                    <date>20261007</date>
+                                                    <time>20:00</time>
+                            </start>
+            <end>
+                                    <date>20261007</date>
+                                                    <time>21:00</time>
+                            </end>
+                            <images>
+                                            <image>https://patronaat.nl/app/uploads/2026/03/Monolord.jpg</image>
+                                            <image>https://patronaat.nl/app/uploads/2026/03/Monolord.jpg</image>
+                                            <image>https://patronaat.nl/app/uploads/2026/03/Monolord.jpg</image>
+                                            <image>https://patronaat.nl/app/uploads/2026/03/Monolord.jpg</image>
+                                            </images>
+                                        <ticket_url>https://www.ticketmaster.nl/event/1649545239?brand=nl_patronaat</ticket_url>
+                                        <ticket_price>28.5</ticket_price>
+                                        <publication_date>2026-03-31 17:00:09</publication_date>
+                                        <support_acts>
+                                            <act>
+                                                            <name>Dopelord</name>
+                                                                                                                    <webite>https://dopelord.pl</webite>
+                                                    </act>
+                                    </support_acts>
+                    </event>
+            <event>
+                            <name>Eloi Youssef • Sint Bavokerk</name>
+                                        <subtitle>Extra show!</subtitle>
+                                        <description>&lt;strong&gt;In 2021 koos Eloi Youssef een nieuw pad. Na zestien jaar als frontman van Kensington zoekt hij in zijn solowerk naar de kern van zijn muzikale drijfveer: puur, integer en eerlijk. Het eerste resultaat was single ‘Unbind’ en die track en nog meer komt Eloi op ook op woensdag 7 oktober laten horen in de Sint Bavokerk in Haarlem.&lt;/strong&gt;
+
+‘Unbind’ was het eerste wat Eloi liet horen onder zijn eigen naam: het is een song over hoe onverwacht vastlopen kan leiden tot bevrijding en groei. In 2025 trok hij samen met Kamerate Zuid en het Nederlands Kamerkoor in een volledige uitverkochte tour langs de theaters. Nu zijn de podia aan de beurt. Akoestisch en solo. Een unieke show op een prachtlocatie, dus mis het niet.</description>
+                                        <link>https://patronaat.nl/event/eloi-youssef-sint-bavokerk-07-10-26/</link>
+                                        <location>Sint Bavokerk</location>
+                                        <genres>
+                                            <genre>Pop</genre>
+                                            <genre>Singer-songwriter</genre>
+                                    </genres>
+                                        <event_id>24121</event_id>
+                                        <event_type>Concert</event_type>
+                                        <yesplan_id>8889402113-1776256762</yesplan_id>
+                        <start>
+                                    <date>20261007</date>
+                                                    <time>20:30</time>
+                            </start>
+            <end>
+                                    <date>20261007</date>
+                                                    <time>20:30</time>
+                            </end>
+                            <images>
+                                            <image>https://patronaat.nl/app/uploads/2026/04/Eloi-Youssef-persfoto-2-scaled.jpg</image>
+                                            <image>https://patronaat.nl/app/uploads/2026/04/Eloi-Youssef-persfoto-2-scaled.jpg</image>
+                                            <image>https://patronaat.nl/app/uploads/2026/04/Eloi-Youssef-persfoto-2-scaled.jpg</image>
+                                            </images>
+                                        <ticket_url>https://www.ticketmaster.nl/event/2042047952?brand=nl_patronaat</ticket_url>
+                                        <ticket_price>34.5</ticket_price>
+                                        <publication_date>2026-05-06 11:00:24</publication_date>
+                                </event>
+            <event>
+                            <name>néomí + support</name>
+                                        <subtitle>Intieme folkpop met rauwe emotie en poëtische melodieën</subtitle>
+                                        <description>&lt;strong&gt;Op donderdag 8 oktober staat de Nederlands-Surinaamse singer-songwriter néomí op het podium van Patronaat. Met haar nieuwe single 'Didn’t I' luidt ze een nieuw muzikaal hoofdstuk in, waarin haar kenmerkende mix van etherische folk en minimalistische pop samenkomt met rauwe emotie en introspectie. &lt;/strong&gt;
+
+Sinds haar EP’s 'before' uit 2022 en 'after'uit 2023 en haar bekroonde debuutalbum 'somebody’s daughter' (2024) groeide néomí uit tot een van Europa’s meest indringende nieuwe stemmen. Haar intieme songs, poëtische teksten en verstilde maar krachtige live-optredens leverden haar vergelijkingen op met artiesten als Laura Marling, Phoebe Bridgers en Daughter. Tijdens haar show in Patronaat brengt néomí haar emotioneel geladen repertoire tot leven in een setting waar kwetsbaarheid en muzikale zeggingskracht centraal staan.</description>
+                                        <link>https://patronaat.nl/event/neomi-support-08-10-26/</link>
+                                        <location>Patronaat</location>
+                                        <genres>
+                                            <genre>Pop</genre>
+                                            <genre>Singer-songwriter</genre>
+                                    </genres>
+                                        <event_id>23101</event_id>
+                                        <event_type>Concert</event_type>
+                                        <yesplan_id>3801419521-1765360777</yesplan_id>
+                        <start>
+                                    <date>20261008</date>
+                                                    <time>20:00</time>
+                            </start>
+            <end>
+                                    <date>20261008</date>
+                                                    <time>21:30</time>
+                            </end>
+                            <images>
+                                            <image>https://patronaat.nl/app/uploads/2026/02/Didnt-I-artwork-3600x3600-1-scaled.jpg</image>
+                                            <image>https://patronaat.nl/app/uploads/2026/02/Didnt-I-artwork-3600x3600-1-scaled.jpg</image>
+                                            <image>https://patronaat.nl/app/uploads/2026/02/Didnt-I-artwork-3600x3600-1-scaled.jpg</image>
+                                            </images>
+                                        <ticket_url>https://www.ticketmaster.nl/event/922270844?brand=nl_patronaat</ticket_url>
+                                        <ticket_price>21</ticket_price>
+                                        <publication_date>2026-02-04 09:55:03</publication_date>
+                                </event>
+            <event>
+                            <name>IOS &amp;#8211; ISOOKSCHITTEREND &amp;#8211; CLUBTOUR 8</name>
+                                        <subtitle>Nederlands hitband terug in de podia! </subtitle>
+                                        <description>&lt;strong&gt;IOS (IsOokSchitterend) was er ineens, eind jaren ‘90. Debuutsingle 'Voltooid Verleden Tijd' stond maar liefst 30 weken in de Top 40. De band bivakkeerde 15 jaar in de hoogste regionen van de Nederpop met hits als 'Uit de Schaduw', 'Hoe het Voelt' en 'Altijd wel Iemand' en bouwde een stevige live reputatie op. Met tien avonden in Ahoy nam IOS in 2010 tijdens Vrienden van Amstel Live afscheid van het publiek en de spotlights. Nu zijn ze terug en staan ze op donderdag 8 oktober in Patronaat!&lt;/strong&gt; 
+
+Een optreden in Haarlem komt er dus aan, maar daarvoor deed de band een reünieconcert in een uitverkochte Tivoli, zes nieuwe singles, een club- en een theatertour en een best-of LP later (nieuw licht/oude bekenden). De band werkt nu aan haar 8e studioalbum. Verwacht dus veel nieuw werk, naast natuurlijk de grote hits en bekende meezingers. Een avond Nederpop met een ruig randje, fris maar toch vertrouwd. IOS is terug.  
+
+ </description>
+                                        <link>https://patronaat.nl/event/ios-isookschitterend-clubtour-8-08-10-26/</link>
+                                        <location>Patronaat</location>
+                                        <genres>
+                                            <genre>Pop</genre>
+                                    </genres>
+                                        <event_id>23797</event_id>
+                                        <event_type>Concert</event_type>
+                                        <yesplan_id>11888042241-1772547911</yesplan_id>
+                        <start>
+                                    <date>20261008</date>
+                                                    <time>20:00</time>
+                            </start>
+            <end>
+                                    <date>20261008</date>
+                                                    <time>21:30</time>
+                            </end>
+                            <images>
+                                            <image>https://patronaat.nl/app/uploads/2026/03/IOS-1x1-1.png</image>
+                                            <image>https://patronaat.nl/app/uploads/2026/03/IOS-1x1-1.png</image>
+                                            <image>https://patronaat.nl/app/uploads/2026/03/IOS-1x1-1.png</image>
+                                            <image>https://patronaat.nl/app/uploads/2026/03/IOS-1x1-1.png</image>
+                                            <image>https://patronaat.nl/app/uploads/2026/03/IOS-1x1-1.png</image>
+                                            </images>
+                                        <ticket_url>https://www.ticketmaster.nl/event/1021843081?brand=nl_patronaat</ticket_url>
+                                        <ticket_price>29.5</ticket_price>
+                                        <publication_date>2026-03-18 10:00:08</publication_date>
+                                        <support_acts>
+                                            <act>
+                                                            <name>Nienke Leone</name>
+                                                                                        <description>Nienke Leone zingt waarover ze niet durft te praten. Haar verhalende liedjes zijn poppy, ultra catchy, maar vooral radicaal eerlijk. Aanstekelijk enthousiasme en ontwapenende kwetsbaarheid komen samen in haar shows, waarbij ze laat zien dat pop zowel toegankelijk als diepgaand mag zijn. Voordat Nienke haar debuut maakte, schreef&lt;br /&gt;
+ze al voor artiesten als Emma Heesters, Zoë Livay, Miss Montreal en Yves Berendse en scoorde ze hits met o.a. ‘Alles Wordt Beter’ (Emma Heesters) en Gooische Vrouwen anthem ‘Spijt is voor Later’. Ook won ze hiervoor meerdere Buma Awards. Nu werkt ze aan haar debuutalbum, dat verwacht wordt in 2027, samen met een nieuwe headline tour&lt;br /&gt;
+door Nederland.</description>
+                                                                                        <webite>https://www.instagram.com/nienkeleone/</webite>
+                                                    </act>
+                                    </support_acts>
+                    </event>
+            <event>
+                            <name>Eloi Youssef • Sint Bavokerk</name>
+                                        <subtitle>Oud-Kensington frontman brengt solowerk naar Haarlem</subtitle>
+                                        <description>&lt;strong&gt;In 2021 koos Eloi Youssef een nieuw pad. Na zestien jaar als frontman van Kensington zoekt hij in zijn solowerk naar de kern van zijn muzikale drijfveer: puur, integer en eerlijk. Het eerste resultaat was single ‘Unbind’ en die track en nog meer komt Eloi op donderdag 8 oktober laten horen in de Sint Bavokerk in Haarlem. &lt;/strong&gt;
+
+‘Unbind’ was het eerste wat Eloi liet horen onder zijn eigen naam: het is een song over hoe onverwacht vastlopen kan leiden tot bevrijding en groei. In 2025 trok hij samen met Kamerate Zuid en het Nederlands Kamerkoor in een volledige uitverkochte tour langs de theaters. Nu zijn de podia aan de beurt. Akoestisch en solo. Een unieke show op een prachtlocatie, dus mis het niet.</description>
+                                        <link>https://patronaat.nl/event/eloi-youssef-08-10-26/</link>
+                                        <location>Sint Bavokerk</location>
+                                        <genres>
+                                            <genre>Pop</genre>
+                                            <genre>Singer-songwriter</genre>
+                                    </genres>
+                                        <event_id>23897</event_id>
+                                        <event_type>Concert</event_type>
+                                        <yesplan_id>9754872577-1773240524</yesplan_id>
+                        <start>
+                                    <date>20261008</date>
+                                                    <time>20:30</time>
+                            </start>
+            <end>
+                                    <date>20261008</date>
+                                                    <time>20:30</time>
+                            </end>
+                            <images>
+                                            <image>https://patronaat.nl/app/uploads/2026/04/Eloi-Youssef-persfoto-2-scaled.jpg</image>
+                                            <image>https://patronaat.nl/app/uploads/2026/04/Eloi-Youssef-persfoto-2-scaled.jpg</image>
+                                            <image>https://patronaat.nl/app/uploads/2026/04/Eloi-Youssef-persfoto-2-scaled.jpg</image>
+                                            </images>
+                                        <ticket_url>https://www.ticketmaster.nl/event/1801203402?brand=nl_patronaat</ticket_url>
+                                        <ticket_price>34.5</ticket_price>
+                                        <publication_date>2026-04-15 10:00:51</publication_date>
+                                </event>
+            <event>
+                            <name>The Pelumas &amp;#8211; 023jazz</name>
+                                        <subtitle>Voor liefhebbers van rootsrock</subtitle>
+                                        <description>&lt;strong&gt;The Pelumas hebben als driekoppige rockband hun eigen weg gevonden door de hedendaagse Western-Rock &amp;amp; Roots scene. Op donderdag 8 oktober staan ze in Patronaat tijdens een weekend waarin 023 Jazz op verschillende locaties jazz &amp;amp; rootsconcerten presenteert. &lt;/strong&gt;
+
+De afgelopen jaren hebben The Pelumas een reputatie opgebouwd voor het leveren van het echte werk: rauwe zang, krachtige gitaarsounds en ongekende grooves. Na de vinyl-release van hun debuutsingle “Who Is Who”, is de band klaar voor de volgende stap met een nieuwe EP.</description>
+                                        <link>https://patronaat.nl/event/the-pelumas-023jazz-08-10-26/</link>
+                                        <location>Patronaat</location>
+                                        <genres>
+                                            <genre>Rock</genre>
+                                            <genre>Roots / Blues</genre>
+                                    </genres>
+                                        <event_id>25076</event_id>
+                                        <event_type>Co-creator (concert)</event_type>
+                                                    <yesplan_id>5936167169-1779977853</yesplan_id>
+                        <start>
+                                    <date>20261008</date>
+                                                    <time>20:00</time>
+                            </start>
+            <end>
+                                    <date>20261008</date>
+                                                    <time>20:30</time>
+                            </end>
+                            <images>
+                                            <image>https://patronaat.nl/app/uploads/2026/08/261008_patronaat_023jazz_thepelumas_square.png</image>
+                                            <image>https://patronaat.nl/app/uploads/2026/08/261008_patronaat_023jazz_thepelumas_square.png</image>
+                                            <image>https://patronaat.nl/app/uploads/2026/08/261008_patronaat_023jazz_thepelumas_square.png</image>
+                                            <image>https://patronaat.nl/app/uploads/2026/08/261008_patronaat_023jazz_thepelumas_square.png</image>
+                                            <image>https://patronaat.nl/app/uploads/2026/08/261008_patronaat_023jazz_thepelumas_square.png</image>
+                                            </images>
+                                        <ticket_url>https://www.ticketmaster.nl/event/1467049682?brand=nl_patronaat</ticket_url>
+                                        <ticket_price>10</ticket_price>
+                                        <publication_date>2026-09-01 11:00:29</publication_date>
+                                </event>
+            <event>
+                            <name>Rapalje &amp;#8211; Celtic Folk Night</name>
+                                        <subtitle>Nederlandse vaandeldragers van de Keltische folk</subtitle>
+                                        <description>&lt;strong&gt;Kilts op het podium, doedelzakken die loeien, viool, whistles, bodhrán en ja: zelfs een theekistbas. Rapalje, de meervoudig bekroonde Nederlandse folkformatie, blaast traditionele melodieën nieuw leven in en zet de zaal aan het zingen. De set loopt van Ierse en Schotse traditionals tot Nederlandstalige folk, gebracht met humor, vaart en volop samenzang. 'Wat Zullen We Drinken (Zeven Dagen Lang)' groeit steevast uit tot één groot koor. Op vrijdag 9 oktober staan ze in Patronaat! Voor een feestje weet je waar je moet zijn.&lt;/strong&gt;
+
+Al ruim drie decennia speelt Rapalje clubs, festivals en theaters in binnen- en buitenland plat. Sinds de mid-jaren ’90 bouwden ze aan een stevige discografie (van 'Into Folk' tot 'Scotland’s Story') en een live-reputatie die draait om spelplezier en direct contact met het publiek. Vaandeldragers van de Keltische folk - nog altijd fris, energiek en dicht op de zaal.
+
+&lt;em&gt;Dit evenement zou oorspronkelijk plaatsvinden op vrijdag 20 februari en werd toen verplaatst naar vrijdag 16 oktober. Kort daarna werd de show toch verplaatst naar vrijdag 9 oktober! De kaartkopers hebben per mail meer informatie ontvangen.&lt;/em&gt;</description>
+                                        <link>https://patronaat.nl/event/rapalje-celtic-folk-night-09-10-26/</link>
+                                        <location>Patronaat</location>
+                                        <genres>
+                                            <genre>Klassiek</genre>
+                                            <genre>LOUD</genre>
+                                    </genres>
+                                        <event_id>22267</event_id>
+                                        <event_type>Concert</event_type>
+                                        <yesplan_id>10618574337-1763643688</yesplan_id>
+                        <start>
+                                    <date>20261009</date>
+                                                    <time>20:15</time>
+                            </start>
+            <end>
+                                    <date>20261009</date>
+                                                    <time>21:00</time>
+                            </end>
+                            <images>
+                                            <image>https://patronaat.nl/app/uploads/2025/10/Irish-Folk2-scaled.jpg</image>
+                                            <image>https://patronaat.nl/app/uploads/2025/10/Irish-Folk2-scaled.jpg</image>
+                                            <image>https://patronaat.nl/app/uploads/2025/10/Irish-Folk2-scaled.jpg</image>
+                                            </images>
+                                        <ticket_url>https://www.ticketmaster.nl/event/1495160853?brand=nl_patronaat</ticket_url>
+                                        <ticket_price>25.5</ticket_price>
+                                        <publication_date>2025-11-20 17:55:44</publication_date>
+                                </event>
+            <event>
+                            <name>Only10s</name>
+                                        <subtitle>wow, such 2010-2019, very party</subtitle>
+                                        <description>&lt;strong&gt;&lt;i&gt;Look at all those chickens!&lt;/i&gt; 🐔 Op vrijdag 9 oktober reis je terug naar de tijd dat het internet nog zorgeloos en onbezonnen was. Terug naar 2010-2019, vol eerste Instagram posts, snorren, Vine, Tumblr en hondenfilters op Snapchat. De wereld lag aan onze voeten: Instagram was nog geen carriere en onze smartphones kregen touchscreens met emoji’s 💩. Nummers als &lt;i&gt;Gangnam Style, King Kunta, Shake it Off, Starships, Last Friday Night (T.G.I.F.), Whistle en Wrecking Ball&lt;/i&gt; domineerden de hitlijsten. &lt;i&gt;Sorry for party rocking!&lt;/i&gt;&lt;/strong&gt;
+
+&lt;span style="font-weight: 400;"&gt;Dans je als left shark de nacht in? 🦈 Praat je alle Vines mee in onze Vine Bios? En doe je de Nae Nae met je bae mee? Do it for the Vine! &lt;/span&gt;&lt;i&gt;&lt;span style="font-weight: 400;"&gt;Iiii ain’t gon’ do it… &lt;/span&gt;&lt;/i&gt;
+
+&lt;span style="font-weight: 400;"&gt;Stof je galaxy legging af, zoek je white Vans en trek die zwart met blauwe- of goud met witte?- jurk aan. Giiiirl, you’ll look thicker than a bowl of oatmeal 🥣✨. Stift bij de hand? Krabbel dan gelijk die snor op je wijsvinger. &lt;/span&gt;</description>
+                                        <link>https://patronaat.nl/event/only10s-09-10-26/</link>
+                                        <location>Patronaat</location>
+                                        <genres>
+                                            <genre>Nachtleven</genre>
+                                            <genre>Pop</genre>
+                                    </genres>
+                                        <event_id>23180</event_id>
+                                        <event_type>Dance</event_type>
+                                        <yesplan_id>5589700609-1753875588</yesplan_id>
+                        <start>
+                                    <date>20261009</date>
+                                                    <time>23:00</time>
+                            </start>
+            <end>
+                                    <date>20261009</date>
+                                                    <time>02:00</time>
+                            </end>
+                            <images>
+                                            <image>https://patronaat.nl/app/uploads/2026/08/only10s-POST.png</image>
+                                            <image>https://patronaat.nl/app/uploads/2026/08/only10s-POST.png</image>
+                                            <image>https://patronaat.nl/app/uploads/2026/08/only10s-POST.png</image>
+                                            <image>https://patronaat.nl/app/uploads/2026/08/only10s-POST.png</image>
+                                            </images>
+                                        <ticket_url>https://www.ticketmaster.nl/event/1772150872?brand=nl_patronaat</ticket_url>
+                                        <ticket_price>13</ticket_price>
+                                        <publication_date>2026-08-10 12:00:50</publication_date>
+                                </event>
+            <event>
+                            <name>T-Motion</name>
+                                        <subtitle>The House music experience!</subtitle>
+                                        <description>&lt;div dir="auto"&gt;
+
+&lt;strong&gt;T-Motion keert terug op 9 oktober. T-Motion keert terug naar Patronaat voor een nacht die je zintuigen laat trillen. Op vrijdag 9 oktober transformeert Patronaat opnieuw tot een dampende club tempel waar de fijnste sounds uit de elektronische hoek samenkomen. Van club en Deep house tot melodische techno en alles daartussenin, T-Motion is dé Haarlemse nacht waar underground en euforie elkaar ontmoeten.&lt;/strong&gt;
+
+Voor deze vijfde editie pakt T-Motion uit met wel 2 headliners nl. Secret Cinema en Alexander Koning b2b met Ronald Molendijk, dit zijn absolute legendes in de Nederlandse dancescene: Deze 3 heren zijn al decennialang bekend om hun hypnotiserende sets en ongeëvenaarde energie achter de decks. Of je ze kent van Ibiza, Wooferland, Thuishaven, Summer of Love, of het organiseren van dancefeesten en nog veel meer om op te noemen, deze gasten wil je live meemaken.
+
+Naast deze 3 heren kan je ook rekenen op een ijzersterke line-up met Tino Willems, Sandro Ceglia en Timo de Reuver.
+
+&lt;strong&gt;Line-up:&lt;/strong&gt;
+&lt;div data-olk-copy-source="MessageBody"&gt;23.00-00.00 Tino Willems&lt;/div&gt;
+&lt;div&gt;00.00-01.30  Alexander Koning B2B Ronald Molendijk&lt;/div&gt;
+&lt;div&gt;01.30-03.00  Secret Cinema&lt;/div&gt;
+&lt;div&gt;03.00-05.00  Sandro Ceglia B2B Timo de Reuver&lt;/div&gt;
+&lt;/div&gt;</description>
+                                        <link>https://patronaat.nl/event/t-motion-09-10-26/</link>
+                                        <location>Patronaat</location>
+                                        <genres>
+                                            <genre>Nachtleven</genre>
+                                    </genres>
+                                        <event_id>23182</event_id>
+                                        <event_type>Dance</event_type>
+                                                    <yesplan_id>5883279105-1768572453</yesplan_id>
+                        <start>
+                                    <date>20261009</date>
+                                                    <time>23:00</time>
+                            </start>
+            <end>
+                                    <date>20261009</date>
+                                                    <time>03:00</time>
+                            </end>
+                            <images>
+                                            <image>https://patronaat.nl/app/uploads/2026/08/00ed1167-ffc1-4d18-8e0a-18f5ac773463.jpg</image>
+                                            <image>https://patronaat.nl/app/uploads/2026/08/00ed1167-ffc1-4d18-8e0a-18f5ac773463.jpg</image>
+                                            <image>https://patronaat.nl/app/uploads/2026/08/00ed1167-ffc1-4d18-8e0a-18f5ac773463.jpg</image>
+                                            <image>https://patronaat.nl/app/uploads/2026/08/00ed1167-ffc1-4d18-8e0a-18f5ac773463.jpg</image>
+                                            </images>
+                                        <ticket_url>https://www.ticketmaster.nl/event/2093938359?brand=nl_patronaat</ticket_url>
+                                        <ticket_price>18.25</ticket_price>
+                                        <publication_date>2026-08-11 16:08:04</publication_date>
+                                </event>
+            <event>
+                            <name>40UP</name>
+                                        <subtitle>40UP zet hun tour voort!</subtitle>
+                                        <description>&lt;strong&gt;40UP bestaat 20 jaar én is hot! Ze konden daarom de verleiding niet weerstaan om zaterdag 10 oktober weer naar Haarlem komen voor een heerlijke dansavond in Patronaat! We hebben zoveel mooie herinneringen, en we zijn klaar om er nog veel meer bij te maken! Schrijf dus in de agenda dat je zaterdag 10 oktober naar het feest der herkenning gaat, met zoveel mogelijk vrienden en vriendinnen in Patronaat… Dit wordt een onvergetelijke avond, beloofd!&lt;/strong&gt;
+
+De dansschoenen gaan uit de kast en alle voeten gaan van de vloer op de fijnste hits van de afgelopen 40 jaar. Natuurlijk flitsen alle originele videoclips weer op grote schermen voorbij om het de avond compleet te maken.
+
+Geen poespas, gewoon keihard genieten van de ongedwongen en gezellige sfeer die 40UP al 20 jaar kenmerkt. Yes!
+
+Let’s dance again!</description>
+                                        <link>https://patronaat.nl/event/40up-10-10-26/</link>
+                                        <location>Patronaat</location>
+                                        <genres>
+                                            <genre>Nachtleven</genre>
+                                            <genre>Pop</genre>
+                                    </genres>
+                                        <event_id>23898</event_id>
+                                        <event_type>Dance</event_type>
+                                                    <yesplan_id>9776315905-1759317028</yesplan_id>
+                        <start>
+                                    <date>20261010</date>
+                                                    <time>20:00</time>
+                            </start>
+            <end>
+                                    <date>20261010</date>
+                                                    <time>23:00</time>
+                            </end>
+                            <images>
+                                            <image>https://patronaat.nl/app/uploads/2026/05/40-UP-ALGEMEEN-END.jpg</image>
+                                            <image>https://patronaat.nl/app/uploads/2026/05/40-UP-ALGEMEEN-END.jpg</image>
+                                            <image>https://patronaat.nl/app/uploads/2026/05/40-UP-ALGEMEEN-END.jpg</image>
+                                            <image>https://patronaat.nl/app/uploads/2026/05/40-UP-ALGEMEEN-END.jpg</image>
+                                            </images>
+                                        <ticket_url>https://shop.paylogic.com/72a386bf58c04320b9194ce98ab86b16</ticket_url>
+                                                    <publication_date>2026-05-14 15:34:27</publication_date>
+                                </event>
+            <event>
+                            <name>Spätkauf</name>
+                                        <subtitle>Techno zoals te horen op Awakenings en clubs als Berghain in Berlijn. </subtitle>
+                                        <description>&lt;div class="" data-block="true" data-editor="3cqli" data-offset-key="da856-0-0"&gt;
+&lt;div class="public-DraftStyleDefault-block public-DraftStyleDefault-ltr" data-offset-key="da856-0-0"&gt;
+
+&lt;strong&gt;Line-up:&lt;/strong&gt;
+
+- NEUX
+
+- PULSE
+
+- RINI BERLINI B2B JOOST VETTER
+
+- RAVEYED B2B RUL3
+
+- DETRIMENT (Body Impulse)
+
+At CLUB3, we’re putting Haarlem back on the map with a nightlife scene that’s fresh, forward, and full of local flavor. Powered by the best electronic sounds and led by people who live and breathe the scene, our nights are all about spotlighting rising talent and giving a platform to both hometown heroes and exciting new acts. It’s not just a party, it’s a celebration of the city we love. Big thanks to everyone who grabs a presale ticket, you’re helping us set the tone and keep the dancefloor alive. Come through and be part of the new wave shaking up Haarlem, one unforgettable night at a time.
+
+&lt;/div&gt;
+&lt;/div&gt;</description>
+                                        <link>https://patronaat.nl/event/spatkauf-10-10-26/</link>
+                                        <location>Patronaat</location>
+                                        <genres>
+                                            <genre>CLUB3</genre>
+                                            <genre>Nachtleven</genre>
+                                    </genres>
+                                        <event_id>24982</event_id>
+                                        <event_type>Co-creator (dance)</event_type>
+                                        <yesplan_id>6824718593-1776945104</yesplan_id>
+                        <start>
+                                    <date>20261010</date>
+                                                    <time>23:00</time>
+                            </start>
+            <end>
+                                    <date>20261010</date>
+                                                    <time>03:00</time>
+                            </end>
+                            <images>
+                                            <image>https://patronaat.nl/app/uploads/2026/08/IMG_5625-e1787820718537.jpeg</image>
+                                            </images>
+                                        <ticket_url>https://www.universe.com/events/spatkauf-tickets-0WY16L</ticket_url>
+                                        <ticket_price>7.5</ticket_price>
+                                        <publication_date>2026-08-11 16:50:39</publication_date>
+                                </event>
+            <event>
+                            <name>The Narrator + Accvsed + IMPVLSE</name>
+                                        <subtitle>Opkomende metalcore band uit Duitsland</subtitle>
+                                        <description>&lt;strong&gt;Voor iedereen die zich graag vroeg vastbijt in nieuwe metalcore-golven: The Narrator is er eentje om te checken. Strakke hooks, moderne elektronica en lompe breakdowns—klaar voor de pit en klaar voor je playlists. Debuutalbum 'Lore' zette ze meteen op de kaart met miljoenen streams, de single 'Unbind Me' liet een volgende versnelling horen en hun track record op tours en festivals groeit rap. Kort gezegd: ze klinken hard, zitten vol ideeën en staan op het punt nog veel groter te worden. Op 11 oktober 2026 staan ze in Patronaat!&lt;/strong&gt;
+
+&amp;nbsp;
+
+https://www.tiktok.com/@thenarratorhc</description>
+                                        <link>https://patronaat.nl/event/the-narrator-11-10-26/</link>
+                                        <location>Patronaat</location>
+                                        <genres>
+                                            <genre>LOUD</genre>
+                                    </genres>
+                                        <event_id>21668</event_id>
+                                        <event_type>Concert</event_type>
+                                        <yesplan_id>6767973633-1754492078</yesplan_id>
+                        <start>
+                                    <date>20261011</date>
+                                                    <time>19:30</time>
+                            </start>
+            <end>
+                                    <date>20261011</date>
+                                                    <time>21:15</time>
+                            </end>
+                            <images>
+                                            <image>https://patronaat.nl/app/uploads/2025/10/The-Narrator-Promo-3-–-Credits_-Fragilegold_Leah-W-scaled.jpg</image>
+                                            <image>https://patronaat.nl/app/uploads/2025/10/The-Narrator-Promo-3-–-Credits_-Fragilegold_Leah-W-scaled.jpg</image>
+                                            <image>https://patronaat.nl/app/uploads/2025/10/The-Narrator-Promo-3-–-Credits_-Fragilegold_Leah-W-scaled.jpg</image>
+                                            </images>
+                                        <ticket_url>https://www.ticketmaster.nl/event/1676355677?brand=nl_patronaat</ticket_url>
+                                        <ticket_price>18</ticket_price>
+                                        <publication_date>2025-10-13 16:06:50</publication_date>
+                                        <support_acts>
+                                            <act>
+                                                            <name>Accvsed</name>
+                                                                                        <description>Accvsed brengt moderne metalcore zonder rem. Strakke riffs, mokerslagen van breakdowns en refreinen die je meteen terugschreeuwt. De band uit Wiesbaden brak door met House of Doubt en knalde daarna door met het debuutalbum Dealers of Doom. Wat hen onderscheidt? De perfecte mix van snoeiharde agressie en melodieuze hooks die blijven hangen. Live gaat het dak eraf: hoge energie, geen rustmomenten en een show die je voelt tot in je ribbenkast.</description>
+                                                                                        <webite>https://accvsed.de/</webite>
+                                                    </act>
+                                            <act>
+                                                            <name>IMPVLSE</name>
+                                                                                        <description>Progressieve metalcore uit Duitsland die brute riffs en breakdowns combineert met filmische soundscapes en maatschappijkritische teksten. Sinds hun oprichting groeide IMPVLSE uit van regionale winnaar tot een vaste naam op festivals als Rock im Park en Summer Breeze, met een sound die fans van Currents, Invent Animate en Polaris zal aanspreken.</description>
+                                                                                        <webite>https://www.impvlse.de/</webite>
+                                                    </act>
+                                    </support_acts>
+                    </event>
+            <event>
+                            <name>Kitty, Daisy &amp;amp; Lewis + support</name>
+                                        <subtitle>Een fifties sound in een eigentijds en vernieuwend jasje</subtitle>
+                                        <description>&lt;strong&gt;Op zondag 11 oktober krijgen we in Patronaat bezoek van de Londense broer en zussen Kitty, Daisy &amp;amp; Lewis! Het trio staat bekend om hun catchy sound en hun mix van rockabilly, blues, country en swing. &lt;/strong&gt;
+
+Inspiratie vinden de siblings in de jaren veertig en vijftig maar tegelijkertijd weten ze te verrassen met hun eigentijdse sound. Ze verkochten al meer dan een kwart miljoen albums en werkte samen met Mark Ronson en Jools Holland. Ook mochten ze Amy Winehouse tot hun fans rekenen, net als David Lynch overigens. Live spelen ook hun ouders mee, dus met recht een family affair!</description>
+                                        <link>https://patronaat.nl/event/kitty-daisy-lewis-support-11-10-26/</link>
+                                        <location>Patronaat</location>
+                                        <genres>
+                                            <genre>Indie</genre>
+                                            <genre>Pop</genre>
+                                    </genres>
+                                        <event_id>23047</event_id>
+                                        <event_type>Concert</event_type>
+                                        <yesplan_id>9418696705-1769002545</yesplan_id>
+                        <start>
+                                    <date>20261011</date>
+                                                    <time>20:00</time>
+                            </start>
+            <end>
+                                    <date>20261011</date>
+                                                    <time>21:00</time>
+                            </end>
+                            <images>
+                                            <image>https://patronaat.nl/app/uploads/2026/01/Kitty-Daisy-Lewis-press-shot-credit-Graeme-Durham.jpg</image>
+                                            <image>https://patronaat.nl/app/uploads/2026/01/Kitty-Daisy-Lewis-press-shot-credit-Graeme-Durham.jpg</image>
+                                            <image>https://patronaat.nl/app/uploads/2026/01/Kitty-Daisy-Lewis-press-shot-credit-Graeme-Durham.jpg</image>
+                                            </images>
+                                        <ticket_url>https://www.ticketmaster.nl/event/687375506?brand=nl_patronaat</ticket_url>
+                                        <ticket_price>30.5</ticket_price>
+                                        <publication_date>2026-01-28 11:00:14</publication_date>
+                                </event>
+            <event>
+                            <name>Tamikrest + support</name>
+                                        <subtitle>Echo’s van dub, blues, psychedelica, funk en zelfs artrock worden naadloos verweven met elkaar</subtitle>
+                                        <description>&lt;strong&gt;Op woensdag 14 oktober staat Tamikrest in Patronaat. De Saharan rockband uit Mali combineert traditionele Tamasheq-invloeden met de rauwe energie van rock en psychedelische trance. Sinds hun oprichting in 2006 groeide Tamikrest uit tot een van de belangrijkste vertegenwoordigers van de moderne Afrikaanse rockscene. Hun muziek is geworteld in de Tuareg-traditie, maar tegelijk urgent en eigentijds, met krachtige songs die zowel op plaat als live volledig tot hun recht komen.&lt;/strong&gt;
+
+Na tours over de hele wereld staat de band bekend om intense liveshows waarin hypnotiserende grooves, melodie en rock samenkomen. Tamikrest brak internationaal door met albums als 'Adagh', 'Toumastin' en 'Chatma', dat in 2013 werd bekroond met een Songlines Award voor Beste Album van het Jaar. Met latere releases als 'Kidal' en 'Tamotait' verstevigde de band zijn positie binnen de internationale rock- en wereldmuziekscene, met optredens op toonaangevende festivals en podia in Europa, Afrika, Azië en Amerika.</description>
+                                        <link>https://patronaat.nl/event/tamikrest-support-14-10-26/</link>
+                                        <location>Patronaat</location>
+                                        <genres>
+                                            <genre>Funk / Soul / Jazz</genre>
+                                            <genre>Roots / Blues</genre>
+                                    </genres>
+                                        <event_id>22527</event_id>
+                                        <event_type>Concert</event_type>
+                                        <yesplan_id>6840653313-1765976593</yesplan_id>
+                        <start>
+                                    <date>20261014</date>
+                                                    <time>20:00</time>
+                            </start>
+            <end>
+                                    <date>20261014</date>
+                                                    <time>21:00</time>
+                            </end>
+                            <images>
+                                            <image>https://patronaat.nl/app/uploads/2026/01/Press-Tamikrest-2026©Arnaud-Contreras-web.jpg</image>
+                                            <image>https://patronaat.nl/app/uploads/2026/01/Press-Tamikrest-2026©Arnaud-Contreras-web.jpg</image>
+                                            <image>https://patronaat.nl/app/uploads/2026/01/Press-Tamikrest-2026©Arnaud-Contreras-web.jpg</image>
+                                            <image>https://patronaat.nl/app/uploads/2026/01/Press-Tamikrest-2026©Arnaud-Contreras-web.jpg</image>
+                                            <image>https://patronaat.nl/app/uploads/2026/01/Press-Tamikrest-2026©Arnaud-Contreras-web.jpg</image>
+                                            <image>https://patronaat.nl/app/uploads/2026/01/Press-Tamikrest-2026©Arnaud-Contreras-web.jpg</image>
+                                            </images>
+                                        <ticket_url>https://www.ticketmaster.nl/event/1530855298?brand=nl_patronaat</ticket_url>
+                                        <ticket_price>27.5</ticket_price>
+                                        <publication_date>2026-05-13 11:00:26</publication_date>
+                                </event>
+            <event>
+                            <name>Beach Boys&amp;#8217; Best</name>
+                                        <subtitle>De winnaars van The Tribute Battle of the Bands 2025!</subtitle>
+                                        <description>&lt;strong&gt;Beach Boys' Best won seizoen 5 van The Tribute Battle of the Bands! Met hun perfecte harmonieën, aanstekelijke energie en ongeëvenaard vakmanschap bewezen zij dat zij de ultieme Beach Boys-tribute zijn en ze komen op donderdag 15 oktober naar Patronaat! &lt;/strong&gt;
+
+In 1961 ontstond in Californië een band die de wereld voorgoed zou laten meezingen, dromen en surfen: The Beach Boys. Brian Wilson creëerde samen met zijn broers Carl en Dennis, neef Mike Love en vriend Al Jardine een soundtrack die het gevoel vangt van zonovergoten stranden, eindeloze zomers en een ongekend gevoel van vrijheid. Met klassiekers als 'Surfin' USA', 'Tears in the Morning' en 'Sloop John B' veroverden ze niet alleen Amerika, maar de hele wereld.
+
+Meer dan zestig jaar later brengt Beach Boys' Best deze tijdloze muziek opnieuw tot leven. Met hoorbare liefde voor het origineel en oog voor detail speelt de band een feest der herkenning vol grote hits. Van 'Good Vibrations' en 'California Girls' tot 'I Get Around' en 'God Only Knows', alle iconische songs komen voorbij.
+
+Verwacht een energieke liveshow vol meerstemmige zang, zonnige harmonieën en pure feelgood vibes. Beach Boys' Best is een ode aan één van de meest legendarische bands uit de muziekgeschiedenis en garandeert een avond vol meezingen, wegdromen en… good vibrations!
+
+&lt;del&gt;&lt;em&gt;Let op: Al onze evenementen zijn volledig staand. Ben je slecht ter been? We hebben een beperkt aantal barkukken beschikbaar voor mensen die niet het hele evenement kunnen staan. Deze barkrukken kunnen wegens brandveiligheid echter niet overal in de zaal staan. We vragen je om tijdig contact met ons op te nemen via info@patronaat.nl zodat we op de hoogte zijn van je komst, en je kunnen informeren over de mogelijkheden.&lt;/em&gt;&lt;/del&gt;
+
+&lt;em&gt;Let op: Alle barkrukken die we beschikbaar hebben voor mensen die slecht ter been zijn, zijn nu gereserveerd. We kunnen helaas geen zitplaatsen meer toezeggen.&lt;/em&gt;</description>
+                                        <link>https://patronaat.nl/event/beach-boys-best-15-10-26/</link>
+                                        <location>Patronaat</location>
+                                        <genres>
+                                            <genre>Klassiekers / Tributes</genre>
+                                            <genre>Pop</genre>
+                                    </genres>
+                                        <event_id>23140</event_id>
+                                        <event_type>Concert</event_type>
+                                        <yesplan_id>12405263361-1763563174</yesplan_id>
+                        <start>
+                                    <date>20261015</date>
+                                                    <time>20:30</time>
+                            </start>
+            <end>
+                                    <date>20261015</date>
+                                                    <time>21:00</time>
+                            </end>
+                            <images>
+                                            <image>https://patronaat.nl/app/uploads/2026/02/1G3A2282-scaled.jpg</image>
+                                            <image>https://patronaat.nl/app/uploads/2026/02/1G3A2282-scaled.jpg</image>
+                                            <image>https://patronaat.nl/app/uploads/2026/02/1G3A2282-scaled.jpg</image>
+                                            </images>
+                                        <ticket_url>https://www.ticketmaster.nl/event/1369784397?brand=nl_patronaat</ticket_url>
+                                        <ticket_price>36.5</ticket_price>
+                                        <publication_date>2026-02-05 16:00:14</publication_date>
+                                </event>
+            <event>
+                            <name>Spain &amp;#8211; The Blue Moods Of Spain + NÆL</name>
+                                        <subtitle>Jubileum show van een slowcore cultfavoriet</subtitle>
+                                        <description>&lt;strong&gt;Spain staat bekend om hun zinderende mix van melancholische indie, warme gitaarlijnen en meeslepende verhalen. Op vrijdag 15 oktober brengen ze die magie naar Patronaat! Ze braken door met hun debuutalbum 'The Blue Moods of Spain' en vieren dat met deze jubileum show. Het album werd al snel een cultfavoriet in de slowcore-scene en bevat nummers als 'Untitled #1' en 'Spiritual', dat later door Johnny Cash werd gecoverd. &lt;/strong&gt;
+
+Onder leiding van Josh Haden bouwt de band een intiem, maar toch grootste sounds die je zowel raakt als vasthoudt. Hun nummers ontvouwen zich langzaam, met geslaagde melodieën die hypnotiseren. Hun muziek is een theater van emoties: van hartverscheurende ballads tot golven van melancholische energie, altijd gedragen door Haden's karaterstieke, soulvolle stem.</description>
+                                        <link>https://patronaat.nl/event/spain-15-10-26/</link>
+                                        <location>Patronaat</location>
+                                        <genres>
+                                            <genre>Indie</genre>
+                                            <genre>Rock</genre>
+                                    </genres>
+                                        <event_id>23172</event_id>
+                                        <event_type>Concert</event_type>
+                                        <yesplan_id>7630468097-1769686774</yesplan_id>
+                        <start>
+                                    <date>20261015</date>
+                                                    <time>20:00</time>
+                            </start>
+            <end>
+                                    <date>20261015</date>
+                                                    <time>21:00</time>
+                            </end>
+                            <images>
+                                            <image>https://patronaat.nl/app/uploads/2026/03/Spain_Josh-Haden_20250331_Portrait-Color-scaled.jpeg</image>
+                                            <image>https://patronaat.nl/app/uploads/2026/03/Spain_Josh-Haden_20250331_Portrait-Color-scaled.jpeg</image>
+                                            <image>https://patronaat.nl/app/uploads/2026/03/Spain_Josh-Haden_20250331_Portrait-Color-scaled.jpeg</image>
+                                            </images>
+                                        <ticket_url>https://www.ticketmaster.nl/event/785120500?brand=nl_patronaat</ticket_url>
+                                        <ticket_price>27.5</ticket_price>
+                                        <publication_date>2026-03-25 12:00:41</publication_date>
+                                        <support_acts>
+                                            <act>
+                                                            <name>NÆL</name>
+                                                                                        <description>NÆL is het cinematografische indieproject rond songwriter en vocalist Renée Spijker. Haar muziek beweegt tussen elektronische texturen, organische bas- en drumgrooves en lyrische trompetmelodieën. In gelaagde, filmische composities ontstaat een klankwereld die zowel intiem als weids aanvoelt, altijd ademend, altijd in beweging.&lt;br /&gt;
+Kwetsbaarheid vormt het hart van NÆL, niet als zwakte maar als kracht. Voor Renée is het project een oefening in zachtheid: een herinnering dat emoties ons niet definiëren, maar door ons heen bewegen en ons laten groeien. Haar stem draagt de songs met een dromerige intensiteit die nog lang resoneert nadat de laatste noot heeft geklonken.&lt;br /&gt;
+Na een vormende periode in Australië kreeg haar geluid een nieuwe diepte en openheid. Met de debuut-EP This Is How We Grow (2024) verkent NÆL thema’s als ontwikkeling, veerkracht en wedergeboorte, verpakt in atmosferische soundscapes die aanvoelen als hoofdstukken uit een groter verhaal.&lt;br /&gt;
+Voor liefhebbers van indie met een filmische rand, denk aan de gelaagdheid en emotionele zeggingskracht van Fleetwood Mac, biedt NÆL een muzikale wereld waarin zachtheid, ruimte en verbinding centraal staan.&lt;br /&gt;
+</description>
+                                                                                        <webite>https://www.thisisnael.com/</webite>
+                                                    </act>
+                                    </support_acts>
+                    </event>
+            <event>
+                            <name>Verplaatst: Masters of Reality</name>
+                                        <subtitle>De 'godfathers of stonerrock'</subtitle>
+                                        <description>&lt;strong&gt;Let op: &lt;/strong&gt;Wegens gezondheidsuitdagingen binnen de band is de show opnieuw verplaatst. De nieuwe datum is &lt;strong&gt;13 oktober 2027&lt;/strong&gt;. Alle kaartkopers die voor de verplaatsing een ticket hadden gekocht, hebben per mail meer informatie ontvangen.
+
+We wensen de band veel sterkte en kijken ernaar uit om hen op de nieuwe datum te verwelkomen.
+
+[button url="https://patronaat.nl/event/masters-of-reality-13-10-27/"]Naar het nieuwe evenement[/button]
+
+&lt;hr /&gt;
+
+&lt;strong&gt;De Amerikaanse band Masters of Reality wordt vaak gezien als pionier binnen de stoner rock scene en hebben een vrij unieke stijl die elementen van hard rock, blues, psychedelica en zelfs een beetje pop bevat. Frontman Chris Goss wordt ook wel eens de Godfather of Stoner Rock genoemd, mede omdat hij als producer veel invloed had op bands als Kyuss en Queens of the Stone Age. Op vrijdag 16 oktober staan ze in Patronaat!&lt;/strong&gt;
+
+Hun titelloze debuutalbum uit 1989, soms ook wel het 'Blue Garden'-album genoemd, is cult-klassieker. Dat ze na 15 jaar terugkomen met 'Sugar' en vervolgens met het album 'The Archer' voelt als een soort muzikale wedergeboorte, maar dan in ware Goss-stijl: introspectief, mystiek en vol creatieve risico’s.</description>
+                                        <link>https://patronaat.nl/event/masters-of-reality-16-10-26/</link>
+                                        <location>Patronaat</location>
+                                        <genres>
+                                            <genre>LOUD</genre>
+                                            <genre>Rock</genre>
+                                    </genres>
+                                        <event_id>21971</event_id>
+                                        <event_type>Concert</event_type>
+                                        <yesplan_id>9105694721-1761745091</yesplan_id>
+                        <start>
+                                    <date>20261016</date>
+                                                    <time>19:30</time>
+                            </start>
+            <end>
+                                    <date>20261016</date>
+                                                    <time>21:00</time>
+                            </end>
+                            <images>
+                                            <image>https://patronaat.nl/app/uploads/2025/04/2-Color-scaled.jpg</image>
+                                            <image>https://patronaat.nl/app/uploads/2025/04/2-Color-scaled.jpg</image>
+                                            <image>https://patronaat.nl/app/uploads/2025/04/2-Color-scaled.jpg</image>
+                                            </images>
+                                        <ticket_url>https://www.ticketmaster.nl/event/1011207718?brand=nl_patronaat</ticket_url>
+                                        <ticket_price>29.5</ticket_price>
+                                        <publication_date>2025-10-29 17:42:41</publication_date>
+                                </event>
+            <event>
+                            <name>SpoorBijster</name>
+                                        <subtitle>Third edition with high energy dance music!</subtitle>
+                                        <description>&lt;strong&gt;On Friday October 10th, &lt;span class="hover:entity-accent entity-underline inline cursor-pointer align-baseline"&gt;&lt;span class="whitespace-normal"&gt;SpoorBijster&lt;/span&gt;&lt;/span&gt; returns for its third edition at Club3 with a night driven purely by love for electronic music, bringing a sound to Haarlem’s nightlife that believe deserves far more space. This edition unites rising talent and established names on one stage, giving bedroom DJs the opportunity to prove themselves in front of an energetic crowd while sharing the booth with recognized artists, creating a unique blend of raw ambition, experience, and forward thinking electronic sounds. Expect an immersive atmosphere, genuine connection on the dance floor, and a night where new stories are written and fresh talent steps confidently into the spotlight.&lt;/strong&gt;
+
+At&lt;strong&gt; CLUB3&lt;/strong&gt;, we’re putting Haarlem back on the map with a nightlife scene that’s fresh, forward, and full of local flavor. Powered by the best electronic sounds and led by people who live and breathe the scene, our nights are all about spotlighting rising talent and giving a platform to both hometown heroes and exciting new acts. It’s not just a party, it’s a celebration of the city we love. Big thanks to everyone who grabs a presale ticket, you’re helping us set the tone and keep the dancefloor alive. Come through and be part of the new wave shaking up Haarlem, one unforgettable night at a time.
+
+&lt;strong&gt;Line up:&lt;/strong&gt;
+
+Centre Court
+
+Pessy
+
+Post</description>
+                                        <link>https://patronaat.nl/event/yuna-10-10-26/</link>
+                                        <location>Patronaat</location>
+                                        <genres>
+                                            <genre>CLUB3</genre>
+                                            <genre>Nachtleven</genre>
+                                    </genres>
+                                        <event_id>24090</event_id>
+                                        <event_type>Co-creator (dance)</event_type>
+                                                    <yesplan_id>10896310273-1762523974</yesplan_id>
+                        <start>
+                                    <date>20261016</date>
+                                                    <time>23:00</time>
+                            </start>
+            <end>
+                                    <date>20261016</date>
+                                                    <time>03:00</time>
+                            </end>
+                            <images>
+                                            <image>https://patronaat.nl/app/uploads/2026/09/sb-1-e1790254798703-466x420.png</image>
+                                    </images>
+                                        <ticket_url>https://www.universe.com/events/spoorbijster-tickets-V4NBWG</ticket_url>
+                                        <ticket_price>7.5</ticket_price>
+                                        <publication_date>2026-09-24 14:57:54</publication_date>
+                                </event>
+            <event>
+                            <name>Celine Cairo + support</name>
+                                        <subtitle>Betoverende mix van indie-folk en cinematic pop</subtitle>
+                                        <description>&lt;p data-start="0" data-end="426"&gt;&lt;strong&gt;Op vrijdag 16 oktober staat &lt;span class="hover:entity-accent entity-underline inline cursor-pointer align-baseline"&gt;&lt;span class="whitespace-normal"&gt;Celine Cairo&lt;/span&gt;&lt;/span&gt; in Patronaat. De Amsterdamse singer-songwriter beweegt moeiteloos tussen subtiele indiefolk en zinderende pop, met een unieke stem en gelaagde songs die haar de afgelopen jaren een trouw internationaal publiek opleverden. Met albums als &lt;em data-start="303" data-end="314"&gt;Free Fall&lt;/em&gt; en &lt;em data-start="318" data-end="328"&gt;Overflow&lt;/em&gt; groeide ze uit tot een geliefde naam, met miljoenen streams en muziek in internationale series.&lt;/strong&gt;&lt;/p&gt;
+&lt;p data-start="428" data-end="774" data-is-last-node="" data-is-only-node=""&gt;Nu keert &lt;span class="hover:entity-accent entity-underline inline cursor-pointer align-baseline"&gt;&lt;span class="whitespace-normal"&gt;Celine Cairo&lt;/span&gt;&lt;/span&gt; terug naar de Nederlandse podia met haar volledige band en het langverwachte derde album &lt;em data-start="564" data-end="573"&gt;Panacea&lt;/em&gt;. Live schakelt ze moeiteloos tussen intieme gitaarliedjes en een krachtige, verfijnde livesound. Een avond vol emotie, schoonheid en meeslepende songs van een artiest die klaar is voor het grote werk.&lt;/p&gt;</description>
+                                        <link>https://patronaat.nl/event/celine-cairo-support-16-10-26/</link>
+                                        <location>Patronaat</location>
+                                        <genres>
+                                            <genre>Pop</genre>
+                                            <genre>Singer-songwriter</genre>
+                                    </genres>
+                                        <event_id>24137</event_id>
+                                        <event_type>Concert</event_type>
+                                        <yesplan_id>10150383873-1771423092</yesplan_id>
+                        <start>
+                                    <date>20261016</date>
+                                                    <time>20:00</time>
+                            </start>
+            <end>
+                                    <date>20261016</date>
+                                                    <time>21:30</time>
+                            </end>
+                            <images>
+                                            <image>https://patronaat.nl/app/uploads/2026/04/Main-profile-pic-by-Carlijn-Andriessen-scaled.jpg</image>
+                                            <image>https://patronaat.nl/app/uploads/2026/04/Main-profile-pic-by-Carlijn-Andriessen-scaled.jpg</image>
+                                            <image>https://patronaat.nl/app/uploads/2026/04/Main-profile-pic-by-Carlijn-Andriessen-scaled.jpg</image>
+                                            </images>
+                                        <ticket_url>https://www.ticketmaster.nl/event/689082004?brand=nl_patronaat</ticket_url>
+                                        <ticket_price>25</ticket_price>
+                                        <publication_date>2026-04-22 10:00:53</publication_date>
+                                </event>
+            <event>
+                            <name>SlodDe &amp;amp; Vos</name>
+                                        <subtitle>Interactieve kindervoorstelling van ex-muzikanten van Relax</subtitle>
+                                        <description>&lt;strong&gt;Betrapt op het verkleden van je huisdieren? Gesnapt terwijl je stiekem verstoppertje speelde op een verboden plek? Geen zorgen, hier zijn alle boefjes thuis! Leer de kneepjes van het kattekwaadvak met Slodde en Vos. Twee vriendelijke boefjes die altijd in voor gekkigheid zijn. Op vrijdag 16 oktober staan ze in Patronaat! &lt;/strong&gt;
+
+SlodDe &amp;amp; VoS is een bont gezelschap, bestaande uit Llewy Isselt, Bart Possemis en Satindra Kalpoe. Ze maken eigenzinnige, Nederlandstalige kinderliedjes voor kinderen van 3 tot 8 jaar, met shows die bol staan van avontuur, interactie en ondeugende liedjes die jong én oud boeien. In 2022 begonnen ze hun muzikale reis voor kinderen en wisten met hun speelse optredens al snel het publiek te veroveren. Dit bracht hen in korte tijd naar grotere podia, zoals het Bevrijdingsfestival, de Zwarte Cross, en meerdere shows in onze Stage 1. Van intieme theaters tot grote festivals: hun muziek is veelzijdig en maakt overal indruk. In 2025 gingen ze op tour tijdens de Kindermuziekweek, waar hun populaire "sitdowns" en grappige verhalen zorgen voor een eigentijdse muzikale beleving. Momenteel touren ze langs theaters en popzalen met de voorstelling SlodDe &amp;amp; VoS op Boevenpad.
+
+&lt;em&gt;Let op: Er zijn verschillende soorten tickets verkrijgbaar. Zo zijn er tickets voor wanneer je minder te besteden hebt, maar ook kun je met een bredere portemonnee ook donatietickets aanschaffen. Uiteraard zijn er ook gewone tickets te koop. Verder geeft 1 ticket toegang tot 1 persoon. Houd er rekening mee dat het niet mogelijk is om kinderwagens mee te nemen!&lt;/em&gt;</description>
+                                        <link>https://patronaat.nl/event/slodde-vos-16-10-26/</link>
+                                        <location>Patronaat</location>
+                                        <genres>
+                                            <genre>Jeugd / Familie</genre>
+                                    </genres>
+                                        <event_id>25142</event_id>
+                                        <event_type>Concert</event_type>
+                                        <yesplan_id>1539125761-1786958015</yesplan_id>
+                        <start>
+                                    <date>20261016</date>
+                                                    <time>15:15</time>
+                            </start>
+            <end>
+                                    <date>20261016</date>
+                                                    <time>15:00</time>
+                            </end>
+                            <images>
+                                            <image>https://patronaat.nl/app/uploads/2026/09/SlodDe-VoS-op-boevenpad-4-scaled.jpg</image>
+                                            <image>https://patronaat.nl/app/uploads/2026/09/SlodDe-VoS-op-boevenpad-4-scaled.jpg</image>
+                                            <image>https://patronaat.nl/app/uploads/2026/09/SlodDe-VoS-op-boevenpad-4-scaled.jpg</image>
+                                            </images>
+                                        <ticket_url>https://www.ticketmaster.nl/event/1526245507?brand=nl_patronaat</ticket_url>
+                                        <ticket_price>10</ticket_price>
+                                        <publication_date>2026-09-03 09:55:57</publication_date>
+                                </event>
+            <event>
+                            <name>Veya</name>
+                                        <subtitle>Een eigenzinnige mix van alternatieve pop, klassieke invloeden en moderne elektronica</subtitle>
+                                        <description>&lt;strong&gt;Op 17 oktober staat Veya op het podium in Patronaat. Deze Haarlemse multi-instrumentalist creëert als zangeres, violiste, songwriter en producer een eigenzinnige mix van alternatieve pop, klassieke invloeden en moderne elektronica. Geïnspireerd door artiesten als AURORA, Hozier en Maggie Rogers beweegt de muziek zich van intieme, kwetsbare momenten naar filmische climaxen, gedragen door weidse strijkers, soulvolle ritmes en subtiele elektronische details.&lt;/strong&gt;
+
+Na bijna een decennium als sessiemuzikant en songwriter te hebben gewerkt, viert Veya deze avond de release van haar debuut EP ‘Silence in the Storm’. Hierin verkent ze veerkracht in tijden van tegenspoed. Centraal staat de gedachte dat je niet kunt bepalen wat de wereld op je pad brengt, maar wel hoe je daarop reageert. Met behulp van haar instrumenten verzameling, live looping en haar band, zal Veya haar producties terugbrengen naar een eigenzinnige live-setting, op zoek naar stilte, kracht en verbinding.</description>
+                                        <link>https://patronaat.nl/event/veya-17-10-26-2/</link>
+                                        <location>Patronaat</location>
+                                        <genres>
+                                            <genre>Elektronisch</genre>
+                                            <genre>Indie</genre>
+                                    </genres>
+                                        <event_id>24646</event_id>
+                                        <event_type>Concert</event_type>
+                                        <yesplan_id>7732690433-1770032723</yesplan_id>
+                        <start>
+                                    <date>20261017</date>
+                                                    <time>20:00</time>
+                            </start>
+            <end>
+                                    <date>20261017</date>
+                                                    <time>20:00</time>
+                            </end>
+                            <images>
+                                            <image>https://patronaat.nl/app/uploads/2026/06/Veya-Patronaat-2026-466x420.png</image>
+                                    </images>
+                                        <ticket_url>https://www.ticketmaster.nl/event/1209560739?brand=nl_patronaat</ticket_url>
+                                        <ticket_price>13.5</ticket_price>
+                                        <publication_date>2026-06-19 12:00:45</publication_date>
+                                </event>
+            <event>
+                            <name>Disco Del Mundo</name>
+                                        <subtitle>Dans de wereld rond met wereldse grooves en tropische sferen</subtitle>
+                                        <description>&lt;strong&gt;Zet je schrap voor een gloednieuwe dansnacht! Op zaterdag 17 oktober neemt Disco Del Mundo je mee op een muzikale wereldreis. Met de meest dansbare grooves van de planeet wordt het Patronaat omgetoverd in een tropisch dansparadijs. Disco Del Mundo brengt een explosieve mix die je gegarandeerd in beweging krijgt. Verwacht een zorgvuldig geselecteerde selectie van onder andere Worldbeat, Cumbia, Latin, Afro, Bhangra, Arabizi en Dancehall&lt;/strong&gt;
+
+Achter de draaitafels staat DJ Paullie. Deze doorgewinterde globetrotter heeft een hart vol ritme en een flinke dosis ervaring. Met zijn unieke platenkeuze brengt hij werelden samen en is stilstaan simpelweg geen optie!
+
+&amp;nbsp;</description>
+                                        <link>https://patronaat.nl/event/disco-del-mundo-17-10-26/</link>
+                                        <location>Patronaat</location>
+                                        <genres>
+                                            <genre>Nachtleven</genre>
+                                            <genre>Zoca Flavor</genre>
+                                    </genres>
+                                        <event_id>25075</event_id>
+                                        <event_type>Dance</event_type>
+                                                    <yesplan_id>3656633089-1785940212</yesplan_id>
+                        <start>
+                                    <date>20261017</date>
+                                                    <time>20:00</time>
+                            </start>
+            <end>
+                                    <date>20261017</date>
+                                                    <time>22:00</time>
+                            </end>
+                            <images>
+                                            <image>https://patronaat.nl/app/uploads/2026/08/disco-del-mundo-post-scaled-e1787663179987-466x420.png</image>
+                                    </images>
+                                        <ticket_url>https://www.ticketmaster.nl/event/1142744724?brand=nl_patronaat</ticket_url>
+                                        <ticket_price>13.75</ticket_price>
+                                        <publication_date>2026-08-27 11:00:44</publication_date>
+                                </event>
+            <event>
+                            <name>The Slackers + Leah Farmer &amp;amp; The Badasonics</name>
+                                        <subtitle>New York ska, reggae en soul met vuige rand sinds 1991</subtitle>
+                                        <description>&lt;strong&gt;Op zondag 18 oktober 2026 staan The Slackers weer in Patronaat! Al 34 jaar dragen ze het geluid van New York de wereld over, met een mix van ska, reggae en soul die warm voelt, maar nooit netjes blijft. Dit is muziek voor zweterige zalen, knikkende hoofden en meebrullen zonder schaamte. De pers noemt ze al decennia top of their game, maar dat hoor je vooral live. Strak, los, swingend en altijd met die rauwe stem van Vic Ruggiero die alles net even schuurpapier geeft. The Slackers zijn geen nostalgietrip, dit is een band die vandaag nog steeds knalt.&lt;/strong&gt;
+
+Sinds 1991 bouwden ze een catalogus waar je u tegen zegt, met albums, EP’s en losse tracks die blijven opduiken in playlists en kroegen. Ook de laatste jaren blijven ze scherp. 'Money Is King' prikte recht door macht en geld heen, 'My Last Star' was een eerbetoon met kippenvel, en 'Lost and Found Vol.2' verraste met een boogaloo-hit die niemand zag aankomen. Ze touren nog altijd keihard, van kleine clubs tot festivals, en weten elke zaal om te vormen tot één grote, dampende familie. Verwacht geen poespas, wel songs met hart, groove en een New Yorkse ziel die je nog dagen bijblijft.
+
+Deze show wordt gepresenteerd door &lt;a href="https://www.instagram.com/minor_operation_bookings/"&gt;Minor Operation Bookings&lt;/a&gt;!</description>
+                                        <link>https://patronaat.nl/event/the-slackers-support-18-10-26/</link>
+                                        <location>Patronaat</location>
+                                        <genres>
+                                            <genre>Reggae / Ska / Dancehall</genre>
+                                            <genre>Rock</genre>
+                                    </genres>
+                                        <event_id>21950</event_id>
+                                        <event_type>Concert</event_type>
+                                        <yesplan_id>10274886401-1759410475</yesplan_id>
+                        <start>
+                                    <date>20261018</date>
+                                                    <time>20:00</time>
+                            </start>
+            <end>
+                                    <date>20261018</date>
+                                                    <time>21:30</time>
+                            </end>
+                            <images>
+                                            <image>https://patronaat.nl/app/uploads/2025/11/slackers-group-2-scaled.jpg</image>
+                                            <image>https://patronaat.nl/app/uploads/2025/11/slackers-group-2-scaled.jpg</image>
+                                            <image>https://patronaat.nl/app/uploads/2025/11/slackers-group-2-scaled.jpg</image>
+                                            </images>
+                                        <ticket_url>https://www.ticketmaster.nl/event/810155190?brand=nl_patronaat</ticket_url>
+                                        <ticket_price>28.5</ticket_price>
+                                        <publication_date>2026-01-20 14:26:57</publication_date>
+                                        <support_acts>
+                                            <act>
+                                                            <name>Leah Farmer &amp; The Badasonics</name>
+                                                                                        <description>Leah Farmer stapt naar voren met haar eerste soloalbum, samen met The Badasonics. De zangeres uit Portland, Oregon verdiende haar sporen bij onder meer The Bandulus en The Cascadians en brengt nu haar eigen muzikale wereld volledig in beeld. Reggae, rocksteady, soul en Franse yéyé uit de jaren zestig vormen de basis, met warme grooves en vintage orgelklanken als rode draad.</description>
+                                                                                        <webite>https://www.leahfarmermusic.com/</webite>
+                                                    </act>
+                                    </support_acts>
+                    </event>
+            <event>
+                            <name>Rolf Sanchez + support</name>
+                                        <subtitle>Eén nacht. Één gevoel. Latin op zijn best... kortom Rolf SANCHEZ</subtitle>
+                                        <description>&lt;p data-start="0" data-end="221"&gt;&lt;strong&gt;Op zondag 18 oktober komt &lt;span class="hover:entity-accent entity-underline inline cursor-pointer align-baseline"&gt;&lt;span class="whitespace-normal"&gt;Rolf Sanchez&lt;/span&gt;&lt;/span&gt; naar Patronaat met zijn gloednieuwe clubtour genaamd De Rolf Sanchez Club. Verwacht een avond vol warme latin vibes, dansbare ritmes en de kenmerkende energie die je van hem gewend bent.&lt;/strong&gt;&lt;/p&gt;
+&lt;p data-start="223" data-end="595"&gt;Rolf heeft allesbehalve stilgezeten: in 2026 bracht hij samenwerkingen uit met &lt;span class="hover:entity-accent entity-underline inline cursor-pointer align-baseline"&gt;&lt;span class="whitespace-normal"&gt;Ronnie Flex&lt;/span&gt;&lt;/span&gt; en &lt;span class="hover:entity-accent entity-underline inline cursor-pointer align-baseline"&gt;&lt;span class="whitespace-normal"&gt;Flemming&lt;/span&gt;&lt;/span&gt;, en dook hij dieper in zijn roots in de Dominicaanse Republiek. Die invloeden hoor je terug in zijn nieuwe muziek, waar hij momenteel hard aan werkt. Tijdens deze clubtour krijg je alvast een exclusief voorproefje.&lt;/p&gt;
+&lt;p data-start="597" data-end="642" data-is-last-node="" data-is-only-node=""&gt;&lt;/p&gt;</description>
+                                        <link>https://patronaat.nl/event/rolf-sanchez-support-18-10-26/</link>
+                                        <location>Patronaat</location>
+                                        <genres>
+                                            <genre>Latin</genre>
+                                            <genre>Pop</genre>
+                                    </genres>
+                                        <event_id>24040</event_id>
+                                        <event_type>Concert</event_type>
+                                        <yesplan_id>8172344065-1770810727</yesplan_id>
+                        <start>
+                                    <date>20261018</date>
+                                                    <time>20:00</time>
+                            </start>
+            <end>
+                                    <date>20261018</date>
+                                                    <time>21:00</time>
+                            </end>
+                            <images>
+                                            <image>https://patronaat.nl/app/uploads/2026/04/DIGITAL-VERSIONTIMELINE-1-scaled.jpg</image>
+                                            <image>https://patronaat.nl/app/uploads/2026/04/DIGITAL-VERSIONTIMELINE-1-scaled.jpg</image>
+                                            <image>https://patronaat.nl/app/uploads/2026/04/DIGITAL-VERSIONTIMELINE-1-scaled.jpg</image>
+                                            </images>
+                                        <ticket_url>https://www.ticketmaster.nl/event/1534035978?brand=nl_patronaat</ticket_url>
+                                        <ticket_price>33.5</ticket_price>
+                                        <publication_date>2026-04-08 10:00:58</publication_date>
+                                </event>
+            </events>

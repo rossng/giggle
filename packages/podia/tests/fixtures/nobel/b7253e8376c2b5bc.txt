@@ -1,0 +1,94 @@
+<section class="event-page">
+<div class="container">
+<div class="columns is-variable is-justify-content-center">
+<div class="column is-12">
+<figure class="animation animation--scroll-left-to-right hide" data-inview="{&quot;direction&quot;: &quot;scroll-left-to-right&quot;, &quot;percentVisible&quot;: 0, &quot;percentVisibleMobile&quot;: 20}">
+<img loading="eager" class="img-responsive image-style-two-to-one" src="/sites/default/files/styles/two_to_one/public/2025-12/The%20Dublin%20Legends%20-%202-1%20.jpg.webp?itok=-ukIUpqF" width="1600" height="800" alt="The Dublin Legends - Dubliners in Nobel Leiden" typeof="foaf:Image">
+</figure>
+<div class="info">
+<div class="info--content animation animation--fade-in" data-inview="{&quot;direction&quot;: &quot;fade-in&quot;, &quot;percentVisible&quot;: 0, &quot;percentVisibleMobile&quot;: 20}">
+<div class="info--time">
+<div class="info--tags">
+<time datetime="2025-11-29T16:00:02+0100">
+zondag
+27
+september
+2026
+</time>
+<span>  19:00
+</span>
+<span>  Grote zaal
+</span>
+<span>  Folk
+</span>
+</div>
+<h2>The Dublin Legends</h2>
+<p class="event-intro">  Formerly The Dubliners - Further Along the Road Tour
+</p>
+</div>
+<a href="https://eventix.shop/gazuc4fg" id="js-scroll-to-eventix">
+<div class="tickets aninmation animation--fade-in">
+<p class="tickets-title">  Tickets
+<i class="fa-sharp fa-solid fa-arrow-right"></i>
+</p>
+<p>
+<span>Prijs vanaf:</span>
+€ 36,90
+</p>
+</div>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="event-content">
+<div class="container">
+<div class="columns is-variable is-multiline is-centered is-justify-content-center contentBlocks">
+<div class="column is-10">
+<div class="content">
+<div class="content--fields">
+<div class="column is-12-mobile is-8-desktop is-12">
+<div class="schedule">
+<div class="schedule--content animation animation--fade-in" data-inview="{&quot;direction&quot;: &quot;fade-in&quot;, &quot;percentVisible&quot;: 0, &quot;percentVisibleMobile&quot;: 20}">
+<h2>Tijdschema</h2>
+19:00 - Deuren open<br>
+19:45 - Aanvang<br>
+20:45 - Pauze<br>
+21:15 - Hervatting<br>
+22:15 - Verwacht einde
+</div>
+</div>
+<p class="event-intro animation animation--fade-in" data-inview="{&quot;direction&quot;: &quot;fade-in&quot;, &quot;percentVisible&quot;: 0, &quot;percentVisibleMobile&quot;: 20}">
+Een halve eeuw geleden stonden the Dubliners voor het eerst op Nederlandse bodem voor een serie optredens. Ruim 50 jaar later komen the Dublin Legends, de fakkeldragers van deze legendarische Ierse folkgroep, terug naar de Lage Landen. Met in hun gelederen zanger/gitarist Sean Cannon, de man die van 1982 tot 2020 deel uitmaakte van the Dubliners.
+</p>
+</div>
+<div class="column paragraph paragraph--text-full paragraph--text-full--default is-8-widescreen is-10-desktop is-12">
+<p><span>Als The Dublin Legends het podium bestijgen, waan je je binnen een paar minuten in een Irish pub. Het kloppend hart van de Ierse steden en dorpen, waar verhalen over stoere zeebonken, vurige romances en ongelukkige liefdes rond gaan onder het genot van een pint Guinness of een goed glas whiskey. Geen band kan dat authentieke en aanstekelijke sfeertje met zoveel geestdrift neerzetten als het viermanschap Seán Cannon, Gerry O’Connor, Shay Kavanagh en Paul Watchorn.</span><br><br><span>De echte folk fans kennen de muzikanten wellicht beter onder de legendarische naam ‘The Dubliners’. Die naam verdween toen Dubliners-voorman John Sheahan er in 2012 mee stopte, maar de legende bleef! Net als de waanzinnig lekkere pubsfeer, die de luisteraars stampend en klappend meesleept door opzwepende songs en melancholieke ballades.</span><br><br><span>The Dublin Legends brengen Ierse folk zoals Ierse folk bedoeld is. Puur en rauw vanuit het hart. Ze hebben geen blinkende decors en special effects nodig om indruk te maken; goede Folk draagt zichzelf. En dat bewijst het begaafde viertal keer op keer als ze met hun enthousiasme en ritme de zaal op stelten zetten. ‘Molly Mallone’, ‘Whiskey in the jar’, Seven Drunken Nights, The Irish Rover en ‘Dirty Old Town’, stuk voor stuk klassiekers die je wel mee móet zingen. Tien jaar na het 50-jarig jubileum van de fameuze Dubliners is die fameuze naam dan wel geschiedenis, maar heeft de band nog geen fractie ingeboet op zijn ongeëvenaarde stijl.&nbsp;</span><span lang="EN-US">Folk met hoofdletters!</span></p>
+</div>
+<div class="column paragraph paragraph--video paragraph--video--default video is-8-widescreen is-10-desktop is-12">
+<div class="media media--type-video embedded-video video-b6e33254 media--view-mode-">
+<button aria-label="Speel video af" class="play_button"><i class="fa-solid fa-play"></i></button>
+<iframe src="https://nobel.nl/media/oembed?url=https%3A//www.youtube.com/watch%3Fv%3DXAu82hmIsq8&amp;max_width=0&amp;max_height=0&amp;hash=UlLOBuvlJmWqqb4pESKZ3dQ0xNnizaAUz-sH7A90yTE" width="200" height="113" class="media-oembed-content" loading="eager" title="The Dublin Legends - Dubliners -  Live in XIX Montelago (2022)"></iframe>
+<div class="cookie-alert">
+<div class="cookie-bg"></div>
+<div class="cookie-content">
+<span class="cookie-text">Accepteer social cookies om de video te bekijken</span>
+<span id="cookie-accept" class="cookie-accept">Klik hier om te accepteren</span>
+</div>
+</div>
+</div>
+</div>
+<div class="column paragraph paragraph--embed paragraph--embed--default is-8-widescreen is-10-desktop is-12">
+<iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/artist/0drShGBo03TrffMqvlvDkO?utm_source=generator" width="100%" height="152" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+</div>
+<div id="shop-frame" class="col-sm-12" data-url="https://eventix.shop/gazuc4fg">
+<div id="tickets"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>

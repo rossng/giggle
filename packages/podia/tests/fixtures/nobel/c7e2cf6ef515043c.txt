@@ -1,0 +1,90 @@
+<section class="event-page">
+<div class="container">
+<div class="columns is-variable is-justify-content-center">
+<div class="column is-12">
+<figure class="animation animation--scroll-left-to-right hide" data-inview="{&quot;direction&quot;: &quot;scroll-left-to-right&quot;, &quot;percentVisible&quot;: 0, &quot;percentVisibleMobile&quot;: 20}">
+<img loading="eager" class="img-responsive image-style-two-to-one" src="/sites/default/files/styles/two_to_one/public/2026-05/CK%26SS%202-1.png.webp?itok=Fynp2uMZ" width="1600" height="800" alt="Captain Kelphair &amp; The Salty Seamen | 26 september in nobel" typeof="foaf:Image">
+</figure>
+<div class="info">
+<div class="info--content animation animation--fade-in" data-inview="{&quot;direction&quot;: &quot;fade-in&quot;, &quot;percentVisible&quot;: 0, &quot;percentVisibleMobile&quot;: 20}">
+<div class="info--time">
+<div class="info--tags">
+<time datetime="2026-05-04T09:45:01+0200">
+zaterdag
+26
+september
+2026
+</time>
+<span>  19:00
+</span>
+<span>  Kleine zaal
+</span>
+<span>  Folk
+</span>
+</div>
+<h2>Captain Kelphair &amp; The Salty Seamen</h2>
+<p class="event-intro">  Pirate Plunder Party met Black Powder Parlay
+</p>
+</div>
+<a href="https://eventix.shop/52zsuzc2" id="js-scroll-to-eventix">
+<div class="tickets aninmation animation--fade-in">
+<p class="tickets-title">  Tickets
+<i class="fa-sharp fa-solid fa-arrow-right"></i>
+</p>
+<p>
+<span>Prijs vanaf:</span>
+€ 17,90
+</p>
+</div>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="event-content">
+<div class="container">
+<div class="columns is-variable is-multiline is-centered is-justify-content-center contentBlocks">
+<div class="column is-10">
+<div class="content">
+<div class="content--fields">
+<div class="column is-12-mobile is-8-desktop is-12">
+<p class="event-intro animation animation--fade-in" data-inview="{&quot;direction&quot;: &quot;fade-in&quot;, &quot;percentVisible&quot;: 0, &quot;percentVisibleMobile&quot;: 20}">
+ALL HANDS ON DECK! Een nieuw album doemt op aan de horizon: Captain Kelphair &amp; the Salty Seamen zijn klaar om te enteren. Met snoeiharde riffs, middeleeuwse instrumenten en folk gedreven melodieën sleuren ze je mee in hun piratenepos The Rise of Dreadmaw.
+</p>
+</div>
+<div class="column paragraph paragraph--text-full paragraph--text-full--default is-8-widescreen is-10-desktop is-12">
+<p>Captain Kelphair en zijn beruchte crew, The Salty Seamen, zetten koers richting het podium met een ruim vol nieuwe nummers én geliefde klassiekers van 'The Rise of Dreadmaw'. Verwacht een explosieve mix van zware gitaarriffs, authentieke middeleeuwse klanken, opzwepende folk invloeden, en wie weet zelfs een paar échte zwaarden. Dit is geen brave zeemansmuziek, dit is pure pirate metal waanzin.</p><p>Ze kapen je schip, plunderen je schatkist en laten niets anders achter dan rokend wrakhout op de zeebodem. Maar wees gerust: je mag vrijwillig aanmonsteren. Bereid je voor op een avond vol meebrulmomenten, opgestoken zwaarden en kolkende energie.</p><p>Alsof dat nog niet genoeg is, nemen ze een verse lading metalpiraten mee: Black Powder Parlay, klaar om het buskruit verder aan te wakkeren. Deze avond wordt één groot, stormachtig piratenfestijn.</p><p>&nbsp;</p>
+</div>
+<div class="column paragraph paragraph--embed paragraph--embed--default is-8-widescreen is-10-desktop is-12">
+<iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/artist/3hkHF4AgZiJeZDIbygFIXw?utm_source=generator" width="100%" height="152" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+</div>
+<div class="column paragraph paragraph--text-full paragraph--text-full--default is-8-widescreen is-10-desktop is-12">
+<h3>Support: Black Powder Parlay</h3>
+</div>
+<div class="column paragraph paragraph--text-full paragraph--text-full--default is-8-widescreen is-10-desktop is-12">
+<p>Black Powder Parlay is een Nederlandse folkmetalband die in 2025 het anker lichtte. Wat begon als een eenmansproject voor een muziekopleiding groeide razendsnel uit tot een volwaardige metalband, met leden uit onder andere Epistulum, Mourning Wood en Super Star Gods. Samen brengen ze een energieke liveshow die staat als een schip in volle vaart.</p><p>Geïnspireerd door de gouden eeuw van de piraterij duikt de band in de rauwe realiteit van het leven op zee, ver weg van geromantiseerde zeemansverhalen. Verwacht technische riffs die inslaan als kanonschoten, grootse arrangementen die aanzwellen als een storm en refreinen die je moeiteloos meebrult.</p><p>Black Powder Parlay staat garant voor een avond vol energie, kruitdamp en epische verhalen.&nbsp;</p><p>&nbsp;</p>
+</div>
+<div class="column paragraph paragraph--video paragraph--video--default video is-8-widescreen is-10-desktop is-12">
+<div class="media media--type-video embedded-video video-e73f9823 media--view-mode-">
+<button aria-label="Speel video af" class="play_button"><i class="fa-solid fa-play"></i></button>
+<iframe src="https://nobel.nl/media/oembed?url=https%3A//www.youtube.com/watch%3Fv%3D5SddKAgXRbg%26list%3DRD5SddKAgXRbg%26start_radio%3D1&amp;max_width=0&amp;max_height=0&amp;hash=BzCXJHJXeTJeJLn0gklpTTqCtlvSzxEKwSBCGeOmmus" width="200" height="113" class="media-oembed-content" loading="eager" title="Captain Kelphair &amp; the Salty Seamen - Rebel's Shanty - Official music video"></iframe>
+<div class="cookie-alert">
+<div class="cookie-bg"></div>
+<div class="cookie-content">
+<span class="cookie-text">Accepteer social cookies om de video te bekijken</span>
+<span id="cookie-accept" class="cookie-accept">Klik hier om te accepteren</span>
+</div>
+</div>
+</div>
+</div>
+<div id="shop-frame" class="col-sm-12" data-url="https://eventix.shop/52zsuzc2">
+<div id="tickets"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>

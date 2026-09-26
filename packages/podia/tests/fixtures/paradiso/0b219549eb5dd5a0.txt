@@ -1,0 +1,1 @@
+"".concat("https://knwxh8dmh1.execute-api.eu-central-1.amazonaws.com","/graphql"),"Bearer ".concat("REDACTED-TOKEN")

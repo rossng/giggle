@@ -1,0 +1,32 @@
+{
+  "1899c555af35d792": {
+    "body": {
+      "query": "\nquery Agenda($first: Int!, $after: String) {\n  events(first: $first, after: $after, where: {language: NL, timeframe: CURRENT}) {\n    pageInfo { hasNextPage endCursor }\n    nodes {\n      databaseId title link\n      featuredImage { node { sourceUrl } }\n      eventData { excerpt }\n      filters { nodes { name } }\n      specials { nodes { name } }\n      tags { nodes { name } }\n      ticketsData { externalLocation externalTicketUrl isLastTickets }\n      times {\n        event_id location door_open program_start program_end program_end_visible\n        status status_label ticket_link tickets_free\n        price { normal price }\n      }\n    }\n  }\n}\n",
+      "variables": {
+        "after": "YXJyYXljb25uZWN0aW9uOjE0OTAxNA==",
+        "first": 50
+      }
+    },
+    "content_type": "application/json; charset=UTF-8",
+    "file": "1899c555af35d792.json",
+    "method": "POST",
+    "params": null,
+    "status": 200,
+    "url": "https://backend.bimhuis.nl/wp/graphql"
+  },
+  "b8acbd7af8677c75": {
+    "body": {
+      "query": "\nquery Agenda($first: Int!, $after: String) {\n  events(first: $first, after: $after, where: {language: NL, timeframe: CURRENT}) {\n    pageInfo { hasNextPage endCursor }\n    nodes {\n      databaseId title link\n      featuredImage { node { sourceUrl } }\n      eventData { excerpt }\n      filters { nodes { name } }\n      specials { nodes { name } }\n      tags { nodes { name } }\n      ticketsData { externalLocation externalTicketUrl isLastTickets }\n      times {\n        event_id location door_open program_start program_end program_end_visible\n        status status_label ticket_link tickets_free\n        price { normal price }\n      }\n    }\n  }\n}\n",
+      "variables": {
+        "after": null,
+        "first": 50
+      }
+    },
+    "content_type": "application/json; charset=UTF-8",
+    "file": "b8acbd7af8677c75.json",
+    "method": "POST",
+    "params": null,
+    "status": 200,
+    "url": "https://backend.bimhuis.nl/wp/graphql"
+  }
+}

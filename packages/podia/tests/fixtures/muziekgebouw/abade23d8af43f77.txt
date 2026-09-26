@@ -1,0 +1,19 @@
+<li class="eventCard" data-entry-id="15886"></li>
+<li class="eventCard" data-entry-id="15610"></li>
+<li class="eventCard" data-entry-id="15611"></li>
+<li class="eventCard" data-entry-id="15623"></li>
+<li class="eventCard" data-entry-id="15647"></li>
+<li class="eventCard" data-entry-id="15629"></li>
+<li class="eventCard" data-entry-id="15640"></li>
+<li class="eventCard" data-entry-id="15461"></li>
+<li class="eventCard" data-entry-id="15722"></li>
+<li class="eventCard" data-entry-id="15659"></li>
+<a class="hidden" href="/nl/agenda/global?p54_page=2" translate="no" aria-label="Deze pagina in het Nederlands" lang="nl">
+                nl
+            </a>
+<a href="/en/agenda/global?p54_page=2" translate="no" aria-label="This page in English" lang="en">
+                en
+            </a>
+<a href="/nl/agenda/global?p54_page=1#page_part_54" class="btn btn-default prev" rel="prev">
+                Vorige
+            </a>

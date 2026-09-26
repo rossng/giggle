@@ -1,0 +1,2062 @@
+[
+ {
+  "availability": "on_sale",
+  "categories": [],
+  "city": "Amsterdam",
+  "description": "Het lied in de 19e eeuw: twee tegenpolen",
+  "doors": null,
+  "end": null,
+  "extra": {
+   "tariffs": [
+    {
+     "eur": 55.0,
+     "rank": "1",
+     "type": "Normaal"
+    },
+    {
+     "eur": 44.0,
+     "rank": "1",
+     "type": "CJP"
+    },
+    {
+     "eur": 44.0,
+     "rank": "1",
+     "type": "Stadspas"
+    },
+    {
+     "eur": 12.5,
+     "rank": "1",
+     "type": "Sprintplaats"
+    },
+    {
+     "eur": 44.0,
+     "rank": "2",
+     "type": "Normaal"
+    },
+    {
+     "eur": 44.0,
+     "rank": "2",
+     "type": "CJP"
+    },
+    {
+     "eur": 44.0,
+     "rank": "2",
+     "type": "Stadspas"
+    },
+    {
+     "eur": 12.5,
+     "rank": "2",
+     "type": "Sprintplaats"
+    }
+   ],
+   "ticket_label": "In winkelmandje"
+  },
+  "genres": [
+   "klassiek"
+  ],
+  "image": "https://img.muziekgebouw.nl/mCJLhLAjZ7RnUl671eYEyIFBSMeGmJ3s1xtMfpkDHuE/c:2300:1300:fp:0.5:0.33/s:690:390:1/aHR0cHM6Ly93d3cubXV6aWVrZ2Vib3V3Lm5sLy9jbXNfZmlsZXMvc3lzdGVtL2ltYWdlcy9pbWc4NDEwN19vcmlnLkpQRw",
+  "performers": [],
+  "price": {
+   "max_eur": 55.0,
+   "min_eur": 12.5,
+   "text": "€ 12,50–€ 55,00"
+  },
+  "room": "Grote Zaal",
+  "source_id": "15433",
+  "start": "2026-09-26T20:15:00+02:00",
+  "status": "scheduled",
+  "subtitle": "Ian Bostridge + Julius Drake",
+  "support": [],
+  "ticket_url": "https://tickets.muziekgebouw.nl/nl/buyingflow/tickets/54490/114533",
+  "title": "Wolf en Schubert",
+  "url": "https://www.muziekgebouw.nl/nl/agenda/wolf-en-schubert-7dpg",
+  "venue": "muziekgebouw"
+ },
+ {
+  "availability": "sold_out",
+  "categories": [],
+  "city": "Amsterdam",
+  "description": "De ideale kennismaking met het Fokker-orgel",
+  "doors": null,
+  "end": null,
+  "extra": {
+   "ticket_label": "Uitverkocht"
+  },
+  "genres": [
+   "hedendaags",
+   "oud"
+  ],
+  "image": "https://img.muziekgebouw.nl/8lHRhFpt5SSgX-WaPUB0oMIJL6nUJa9dT2LkRX74brU/c:2300:1300:fp:0.5:0.33/s:690:390:1/aHR0cHM6Ly93d3cubXV6aWVrZ2Vib3V3Lm5sLy9jbXNfZmlsZXMvc3lzdGVtL2ltYWdlcy9pbWc4NDExOF9vcmlnLmpwZw",
+  "performers": [],
+  "price": null,
+  "room": "Kleine Zaal",
+  "source_id": "15696",
+  "start": "2026-09-27T11:00:00+02:00",
+  "status": "scheduled",
+  "subtitle": "Ere Lievonen + Raymond Honing",
+  "support": [],
+  "ticket_url": null,
+  "title": "Ode aan de klassieken",
+  "url": "https://www.muziekgebouw.nl/nl/agenda/ode-aan-de-klassieken-bz41",
+  "venue": "muziekgebouw"
+ },
+ {
+  "availability": "few_left",
+  "categories": [],
+  "city": "Amsterdam",
+  "description": "Een unieke kans om voor én achter de schermen te kijken",
+  "doors": null,
+  "end": null,
+  "extra": {
+   "tariffs": [
+    {
+     "eur": 12.5,
+     "rank": "Ongeplaceerd",
+     "type": "Normaal"
+    },
+    {
+     "eur": 10.0,
+     "rank": "Ongeplaceerd",
+     "type": "CJP"
+    },
+    {
+     "eur": 10.0,
+     "rank": "Ongeplaceerd",
+     "type": "Stadspas"
+    }
+   ],
+   "ticket_label": "Laatste kaarten"
+  },
+  "genres": [],
+  "image": "https://img.muziekgebouw.nl/k_Wj3IZeJBONHyFayItz7PwyH9UrsLMNcWjAztphe0o/c:2000:1130:fp:0.5:0.33/s:690:390:1/aHR0cHM6Ly93d3cubXV6aWVrZ2Vib3V3Lm5sLy9jbXNfZmlsZXMvc3lzdGVtL2ltYWdlcy9pbWc4MzkwNF9vcmlnLmpwZw",
+  "performers": [],
+  "price": {
+   "max_eur": 12.5,
+   "min_eur": 10.0,
+   "text": "€ 10,00–€ 12,50"
+  },
+  "room": "Rondleiding",
+  "source_id": "15732",
+  "start": "2026-09-27T13:00:00+02:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://tickets.muziekgebouw.nl/nl/buyingflow/tickets/56779/117844",
+  "title": "Rondleiding",
+  "url": "https://www.muziekgebouw.nl/nl/agenda/rondleiding-yqc9",
+  "venue": "muziekgebouw"
+ },
+ {
+  "availability": "few_left",
+  "categories": [],
+  "city": "Amsterdam",
+  "description": "Unieke workshop met wonderlijke instrumenten",
+  "doors": null,
+  "end": null,
+  "extra": {
+   "tariffs": [
+    {
+     "eur": 13.5,
+     "rank": "Ongeplaceerd",
+     "type": "Normaal"
+    },
+    {
+     "eur": 10.0,
+     "rank": "Ongeplaceerd",
+     "type": "Kind"
+    }
+   ],
+   "ticket_label": "Laatste kaarten"
+  },
+  "genres": [
+   "familie"
+  ],
+  "image": "https://img.muziekgebouw.nl/RQcsBC7VLnDnAVvVORn7IdtL9kNB8spC1oXXdbF5Y4M/c:1350:763:fp:0.5:0.33/s:690:390:1/aHR0cHM6Ly93d3cubXV6aWVrZ2Vib3V3Lm5sLy9jbXNfZmlsZXMvc3lzdGVtL2ltYWdlcy9pbWc4NTQyMF9vcmlnLmpwZw",
+  "performers": [],
+  "price": {
+   "max_eur": 13.5,
+   "min_eur": 10.0,
+   "text": "€ 10,00–€ 13,50"
+  },
+  "room": "Atriumzaal",
+  "source_id": "15819",
+  "start": "2026-09-27T13:00:00+02:00",
+  "status": "scheduled",
+  "subtitle": "Voor kinderen (7+) met volwassenen",
+  "support": [],
+  "ticket_url": "https://tickets.muziekgebouw.nl/nl/buyingflow/tickets/58947/120780",
+  "title": "SoundLAB workshop",
+  "url": "https://www.muziekgebouw.nl/nl/agenda/soundlab-workshop-tm9p",
+  "venue": "muziekgebouw"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [],
+  "city": "Amsterdam",
+  "description": "Van Bach tot Pärt",
+  "doors": null,
+  "end": null,
+  "extra": {
+   "tariffs": [
+    {
+     "eur": 49.0,
+     "rank": "1",
+     "type": "Normaal"
+    },
+    {
+     "eur": 39.0,
+     "rank": "1",
+     "type": "CJP"
+    },
+    {
+     "eur": 39.0,
+     "rank": "1",
+     "type": "Stadspas"
+    },
+    {
+     "eur": 39.0,
+     "rank": "2",
+     "type": "Normaal"
+    },
+    {
+     "eur": 39.0,
+     "rank": "2",
+     "type": "CJP"
+    },
+    {
+     "eur": 39.0,
+     "rank": "2",
+     "type": "Stadspas"
+    }
+   ],
+   "ticket_label": "In winkelmandje"
+  },
+  "genres": [
+   "hedendaags",
+   "oud"
+  ],
+  "image": "https://img.muziekgebouw.nl/hSXsuIgo6FJeDqJO5406BD8kAzgO2HUepKqKOXhKcd0/c:2300:1300:fp:0.5:0.33/s:690:390:1/aHR0cHM6Ly93d3cubXV6aWVrZ2Vib3V3Lm5sLy9jbXNfZmlsZXMvc3lzdGVtL2ltYWdlcy9pbWc4NDI3N19vcmlnLmpwZw",
+  "performers": [],
+  "price": {
+   "max_eur": 49.0,
+   "min_eur": 39.0,
+   "text": "€ 39,00–€ 49,00"
+  },
+  "room": "Grote Zaal",
+  "source_id": "15434",
+  "start": "2026-09-27T15:00:00+02:00",
+  "status": "scheduled",
+  "subtitle": "Nederlandse Bachvereniging",
+  "support": [],
+  "ticket_url": "https://tickets.muziekgebouw.nl/nl/buyingflow/tickets/54821/115011",
+  "title": "De schoonheid van het verschil",
+  "url": "https://www.muziekgebouw.nl/nl/agenda/de-schoonheid-van-het-verschil-xgrq",
+  "venue": "muziekgebouw"
+ },
+ {
+  "availability": "sold_out",
+  "categories": [],
+  "city": "Amsterdam",
+  "description": "Unieke workshop met wonderlijke instrumenten",
+  "doors": null,
+  "end": null,
+  "extra": {
+   "ticket_label": "Uitverkocht"
+  },
+  "genres": [
+   "familie"
+  ],
+  "image": "https://img.muziekgebouw.nl/cpDkjwEkDsi6iXbOEkJ7WCbGyWlftlqesgDSAItTxps/c:5551:3138:fp:0.5:0.33/s:690:390:1/aHR0cHM6Ly93d3cubXV6aWVrZ2Vib3V3Lm5sLy9jbXNfZmlsZXMvc3lzdGVtL2ltYWdlcy9pbWc4NTQzMF9vcmlnLmpwZw",
+  "performers": [],
+  "price": null,
+  "room": "Atriumzaal",
+  "source_id": "15820",
+  "start": "2026-09-27T15:00:00+02:00",
+  "status": "scheduled",
+  "subtitle": "Voor volwassenen",
+  "support": [],
+  "ticket_url": null,
+  "title": "SoundLAB workshop",
+  "url": "https://www.muziekgebouw.nl/nl/agenda/soundlab-workshop-ml32",
+  "venue": "muziekgebouw"
+ },
+ {
+  "availability": "sold_out",
+  "categories": [],
+  "city": "Amsterdam",
+  "description": "Stravinsky’s parabel met marionetten van Georg Baselitz",
+  "doors": null,
+  "end": null,
+  "extra": {
+   "ticket_label": "Uitverkocht"
+  },
+  "genres": [
+   "hedendaags"
+  ],
+  "image": "https://img.muziekgebouw.nl/MIYZWAm2GbyumLZI7QrQhrqDbkRMaF1ikEY6CPJ9Sf8/c:2300:1300:fp:0.5:0.33/s:690:390:1/aHR0cHM6Ly93d3cubXV6aWVrZ2Vib3V3Lm5sLy9jbXNfZmlsZXMvc3lzdGVtL2ltYWdlcy9pbWc4NDI5Ml9vcmlnLmpwZw",
+  "performers": [],
+  "price": null,
+  "room": "Grote Zaal",
+  "source_id": "15757",
+  "start": "2026-09-29T20:15:00+02:00",
+  "status": "scheduled",
+  "subtitle": "Salzburger Marionettentheater, Dominique Horwitz + Isabelle Faust",
+  "support": [],
+  "ticket_url": null,
+  "title": "L’histoire du soldat",
+  "url": "https://www.muziekgebouw.nl/nl/agenda/l-histoire-du-soldat-tmbh",
+  "venue": "muziekgebouw"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [],
+  "city": "Amsterdam",
+  "description": "Vertrouwde en nieuwe arrangementen voor rietkwintet",
+  "doors": null,
+  "end": null,
+  "extra": {
+   "tariffs": [
+    {
+     "eur": 39.0,
+     "rank": "Ongeplaceerd",
+     "type": "Normaal"
+    },
+    {
+     "eur": 31.0,
+     "rank": "Ongeplaceerd",
+     "type": "CJP"
+    },
+    {
+     "eur": 31.0,
+     "rank": "Ongeplaceerd",
+     "type": "Stadspas"
+    }
+   ],
+   "ticket_label": "In winkelmandje"
+  },
+  "genres": [
+   "hedendaags"
+  ],
+  "image": "https://img.muziekgebouw.nl/ObgWrVfvbqsyGMxIdc8Fzem23k6XonxFUzsxhmgP008/c:2300:1300:fp:0.5:0.33/s:690:390:1/aHR0cHM6Ly93d3cubXV6aWVrZ2Vib3V3Lm5sLy9jbXNfZmlsZXMvc3lzdGVtL2ltYWdlcy9pbWc4NDI5OV9vcmlnLmpwZw",
+  "performers": [],
+  "price": {
+   "max_eur": 39.0,
+   "min_eur": 31.0,
+   "text": "€ 31,00–€ 39,00"
+  },
+  "room": "Grote Zaal",
+  "source_id": "15435",
+  "start": "2026-09-30T20:15:00+02:00",
+  "status": "scheduled",
+  "subtitle": "Calefax",
+  "support": [],
+  "ticket_url": "https://tickets.muziekgebouw.nl/nl/buyingflow/tickets/55210/115770",
+  "title": "Menu de Saison",
+  "url": "https://www.muziekgebouw.nl/nl/agenda/menu-de-saison-s5k3",
+  "venue": "muziekgebouw"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [],
+  "city": "Amsterdam",
+  "description": "Van eenzaamheid naar symbiotische liefde",
+  "doors": null,
+  "end": null,
+  "extra": {
+   "tariffs": [
+    {
+     "eur": 45.0,
+     "rank": "1",
+     "type": "Normaal"
+    },
+    {
+     "eur": 36.0,
+     "rank": "1",
+     "type": "CJP"
+    },
+    {
+     "eur": 36.0,
+     "rank": "1",
+     "type": "Stadspas"
+    },
+    {
+     "eur": 36.0,
+     "rank": "2",
+     "type": "Normaal"
+    },
+    {
+     "eur": 36.0,
+     "rank": "2",
+     "type": "CJP"
+    },
+    {
+     "eur": 36.0,
+     "rank": "2",
+     "type": "Stadspas"
+    }
+   ],
+   "ticket_label": "In winkelmandje"
+  },
+  "genres": [
+   "hedendaags"
+  ],
+  "image": "https://img.muziekgebouw.nl/d_HRJ3Ncq3669fG3Cv2ofONJSY1jwlyf0_v0PKo1wbg/c:1400:791:fp:0.5:0.33/s:690:390:1/aHR0cHM6Ly93d3cubXV6aWVrZ2Vib3V3Lm5sLy9jbXNfZmlsZXMvc3lzdGVtL2ltYWdlcy9pbWc4MzU0M19vcmlnLmpwZw",
+  "performers": [],
+  "price": {
+   "max_eur": 45.0,
+   "min_eur": 36.0,
+   "text": "€ 36,00–€ 45,00"
+  },
+  "room": "Grote Zaal",
+  "source_id": "15436",
+  "start": "2026-10-01T20:15:00+02:00",
+  "status": "scheduled",
+  "subtitle": "Nederlands Kamerkoor",
+  "support": [],
+  "ticket_url": "https://tickets.muziekgebouw.nl/nl/buyingflow/tickets/54922/115134",
+  "title": "Cantique des cantiques",
+  "url": "https://www.muziekgebouw.nl/nl/agenda/cantique-des-cantiques-164h",
+  "venue": "muziekgebouw"
+ },
+ {
+  "availability": "few_left",
+  "categories": [],
+  "city": "Amsterdam",
+  "description": "Een unieke kans om voor én achter de schermen te kijken",
+  "doors": null,
+  "end": null,
+  "extra": {
+   "tariffs": [
+    {
+     "eur": 12.5,
+     "rank": "Ongeplaceerd",
+     "type": "Normaal"
+    },
+    {
+     "eur": 10.0,
+     "rank": "Ongeplaceerd",
+     "type": "CJP"
+    },
+    {
+     "eur": 10.0,
+     "rank": "Ongeplaceerd",
+     "type": "Stadspas"
+    }
+   ],
+   "ticket_label": "Laatste kaarten"
+  },
+  "genres": [],
+  "image": "https://img.muziekgebouw.nl/WMb5_02N2NYZEXsPgRgAmxumtbluCkdxjGyB62Se10c/c:2000:1130:fp:0.5:0.33/s:690:390:1/aHR0cHM6Ly93d3cubXV6aWVrZ2Vib3V3Lm5sLy9jbXNfZmlsZXMvc3lzdGVtL2ltYWdlcy9pbWc4MzkwOF9vcmlnLmpwZw",
+  "performers": [],
+  "price": {
+   "max_eur": 12.5,
+   "min_eur": 10.0,
+   "text": "€ 10,00–€ 12,50"
+  },
+  "room": "Rondleiding",
+  "source_id": "15733",
+  "start": "2026-10-02T10:45:00+02:00",
+  "status": "scheduled",
+  "subtitle": "+ gratis lunchconcert",
+  "support": [],
+  "ticket_url": "https://tickets.muziekgebouw.nl/nl/buyingflow/tickets/56776/117841",
+  "title": "Rondleiding",
+  "url": "https://www.muziekgebouw.nl/nl/agenda/rondleiding-7d5x",
+  "venue": "muziekgebouw"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [],
+  "city": "Amsterdam",
+  "description": "Vernieuwend programma rondom de speelgoedpiano",
+  "doors": null,
+  "end": null,
+  "extra": {
+   "tariffs": [
+    {
+     "eur": 6.5,
+     "rank": "Ongeplaceerd",
+     "type": "Normaal"
+    }
+   ],
+   "ticket_label": "In winkelmandje"
+  },
+  "genres": [
+   "hedendaags"
+  ],
+  "image": "https://img.muziekgebouw.nl/rSx6we6wAhhO89eQGwkQYsh1toMtV3siKXUbXCihzck/c:5246:2963:nowe:0:1761/s:690:390:1/aHR0cHM6Ly93d3cubXV6aWVrZ2Vib3V3Lm5sLy9jbXNfZmlsZXMvc3lzdGVtL2ltYWdlcy9pbWc4MzYzM19vcmlnLmpwZw",
+  "performers": [],
+  "price": {
+   "max_eur": 6.5,
+   "min_eur": 6.5,
+   "text": "€ 6,50"
+  },
+  "room": "Grote Zaal",
+  "source_id": "15706",
+  "start": "2026-10-02T12:30:00+02:00",
+  "status": "scheduled",
+  "subtitle": "Lunchconcert Dutch Classical Talent",
+  "support": [],
+  "ticket_url": "https://tickets.muziekgebouw.nl/nl/buyingflow/tickets/54740/114905",
+  "title": "Elizabeth Goh",
+  "url": "https://www.muziekgebouw.nl/nl/agenda/elizabeth-goh-16bx",
+  "venue": "muziekgebouw"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [],
+  "city": "Amsterdam",
+  "description": "De John Lennon van de 16e eeuw",
+  "doors": null,
+  "end": null,
+  "extra": {
+   "tariffs": [
+    {
+     "eur": 39.0,
+     "rank": "1",
+     "type": "Normaal"
+    },
+    {
+     "eur": 31.0,
+     "rank": "1",
+     "type": "CJP"
+    },
+    {
+     "eur": 31.0,
+     "rank": "1",
+     "type": "Stadspas"
+    },
+    {
+     "eur": 31.0,
+     "rank": "2",
+     "type": "Normaal"
+    },
+    {
+     "eur": 31.0,
+     "rank": "2",
+     "type": "CJP"
+    },
+    {
+     "eur": 31.0,
+     "rank": "2",
+     "type": "Stadspas"
+    }
+   ],
+   "ticket_label": "In winkelmandje"
+  },
+  "genres": [
+   "oud"
+  ],
+  "image": "https://img.muziekgebouw.nl/3qDSoeEVhBIwpqPJS4zFCL5mskjl38RbC1kwvISOu6A/c:4372:2471:nowe:0:804/s:690:390:1/aHR0cHM6Ly93d3cubXV6aWVrZ2Vib3V3Lm5sLy9jbXNfZmlsZXMvc3lzdGVtL2ltYWdlcy9pbWc4MzU1MV9vcmlnLmpwZw",
+  "performers": [],
+  "price": {
+   "max_eur": 39.0,
+   "min_eur": 31.0,
+   "text": "€ 31,00–€ 39,00"
+  },
+  "room": "Grote Zaal",
+  "source_id": "15437",
+  "start": "2026-10-02T20:15:00+02:00",
+  "status": "scheduled",
+  "subtitle": "Thomas Dunford + Jupiter",
+  "support": [],
+  "ticket_url": "https://tickets.muziekgebouw.nl/nl/buyingflow/tickets/54739/114904",
+  "title": "Dowland 400",
+  "url": "https://www.muziekgebouw.nl/nl/agenda/dowland-400-nwyj",
+  "venue": "muziekgebouw"
+ },
+ {
+  "availability": "few_left",
+  "categories": [],
+  "city": "Amsterdam",
+  "description": "Monumentale cantate door groots ensemble",
+  "doors": null,
+  "end": null,
+  "extra": {
+   "ticket_label": "Laatste kaarten"
+  },
+  "genres": [
+   "hedendaags"
+  ],
+  "image": "https://img.muziekgebouw.nl/wp0o7xs6PrLxhnvTgS9jrOCvivZysdmHbJPjMBzhcDo/c:3582:2025/s:690:390:1/aHR0cHM6Ly93d3cubXV6aWVrZ2Vib3V3Lm5sLy9jbXNfZmlsZXMvc3lzdGVtL2ltYWdlcy9pbWc4MzU2NV9vcmlnLmpwZw",
+  "performers": [],
+  "price": null,
+  "room": "Grote Zaal",
+  "source_id": "15438",
+  "start": "2026-10-03T20:15:00+02:00",
+  "status": "scheduled",
+  "subtitle": "Het Muziek, Nederlands Kamerkoor, HIIIT, Ensemble Klang + New European Ensemble",
+  "support": [],
+  "ticket_url": "https://tickets.muziekgebouw.nl/nl/buyingflow/tickets/55027/115364",
+  "title": "The Desert Music van Steve Reich",
+  "url": "https://www.muziekgebouw.nl/nl/agenda/the-desert-music-van-steve-reich-5pjj",
+  "venue": "muziekgebouw"
+ },
+ {
+  "availability": "unknown",
+  "categories": [],
+  "city": "Amsterdam",
+  "description": "Poëtische, gedurfde folk",
+  "doors": null,
+  "end": null,
+  "extra": {
+   "ticket_label": "Bestel via Bimhuis"
+  },
+  "genres": [
+   "pop"
+  ],
+  "image": "https://img.muziekgebouw.nl/FSoRqyDGLWXsTA2-9nbrNqlOQDJjkfO_fpKx3aUYTp4/c:1000:565:nowe:0:184/s:690:390:1/aHR0cHM6Ly93d3cubXV6aWVrZ2Vib3V3Lm5sLy9jbXNfZmlsZXMvc3lzdGVtL2ltYWdlcy9pbWc4NTg4NV9vcmlnLndlYnA",
+  "performers": [],
+  "price": null,
+  "room": "Bimhuis",
+  "source_id": "15887",
+  "start": "2026-10-03T20:30:00+02:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://www.bimhuis.nl/agenda/wendy-eisenberg",
+  "title": "Wendy Eisenberg",
+  "url": "https://www.muziekgebouw.nl/nl/agenda/wendy-eisenberg-nwdb",
+  "venue": "muziekgebouw"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [],
+  "city": "Amsterdam",
+  "description": "Hyperpop en clowncore visuals",
+  "doors": null,
+  "end": null,
+  "extra": {
+   "tariffs": [
+    {
+     "eur": 6.5,
+     "rank": "Ongeplaceerd",
+     "type": "Normaal"
+    }
+   ],
+   "ticket_label": "In winkelmandje"
+  },
+  "genres": [
+   "pop",
+   "elektronisch"
+  ],
+  "image": "https://img.muziekgebouw.nl/dwfTc3eiw7AldjS3HUiVmrlDS3y9_77BRvU7Dz3R1o8/c:3435:1942/s:690:390:1/format:png/aHR0cHM6Ly93d3cubXV6aWVrZ2Vib3V3Lm5sLy9jbXNfZmlsZXMvc3lzdGVtL2ltYWdlcy9pbWc4NTkyMl9vcmlnLnBuZw",
+  "performers": [],
+  "price": {
+   "max_eur": 6.5,
+   "min_eur": 6.5,
+   "text": "€ 6,50"
+  },
+  "room": "Kleine Zaal",
+  "source_id": "15885",
+  "start": "2026-10-03T22:30:00+02:00",
+  "status": "scheduled",
+  "subtitle": "Pensive Vivifier, Human Observer + Burchhhha",
+  "support": [],
+  "ticket_url": "https://tickets.muziekgebouw.nl/nl/buyingflow/tickets/60343/122929",
+  "title": "Forced to be the Clown",
+  "url": "https://www.muziekgebouw.nl/nl/agenda/forced-to-be-the-clown-s5rt",
+  "venue": "muziekgebouw"
+ },
+ {
+  "availability": "sold_out",
+  "categories": [],
+  "city": "Amsterdam",
+  "description": "Monument van de dichtkunst onder de loep Tarenskeen",
+  "doors": null,
+  "end": null,
+  "extra": {
+   "ticket_label": "Uitverkocht"
+  },
+  "genres": [
+   "hedendaags"
+  ],
+  "image": "https://img.muziekgebouw.nl/qrY20bKHYc6gJW1D3swXQldrg6IZQwXGPbhupsmgJio/c:4872:2753:fp:0.5:0.33/s:690:390:1/aHR0cHM6Ly93d3cubXV6aWVrZ2Vib3V3Lm5sLy9jbXNfZmlsZXMvc3lzdGVtL2ltYWdlcy9pbWc4MzE2Ml9vcmlnLmpwZw",
+  "performers": [],
+  "price": null,
+  "room": "Kleine Zaal",
+  "source_id": "15663",
+  "start": "2026-10-04T16:00:00+02:00",
+  "status": "scheduled",
+  "subtitle": "Nieuw Amsterdams Peil",
+  "support": [],
+  "ticket_url": null,
+  "title": "TODESFUGE",
+  "url": "https://www.muziekgebouw.nl/nl/agenda/todesfuge-rbbj",
+  "venue": "muziekgebouw"
+ },
+ {
+  "availability": "few_left",
+  "categories": [],
+  "city": "Amsterdam",
+  "description": "Turkse sterzanger die generaties overbrugt",
+  "doors": null,
+  "end": null,
+  "extra": {
+   "tariffs": [
+    {
+     "eur": 55.0,
+     "rank": "1",
+     "type": "Normaal"
+    },
+    {
+     "eur": 44.0,
+     "rank": "1",
+     "type": "CJP"
+    },
+    {
+     "eur": 44.0,
+     "rank": "1",
+     "type": "Stadspas"
+    },
+    {
+     "eur": 44.0,
+     "rank": "2",
+     "type": "Normaal"
+    },
+    {
+     "eur": 44.0,
+     "rank": "2",
+     "type": "CJP"
+    },
+    {
+     "eur": 44.0,
+     "rank": "2",
+     "type": "Stadspas"
+    }
+   ],
+   "ticket_label": "Laatste kaarten"
+  },
+  "genres": [
+   "pop",
+   "global"
+  ],
+  "image": "https://img.muziekgebouw.nl/3nbd6lxJIaU47Sy8ckWeZI-81rKvu8G8h4TGpFzRShE/c:3456:1953:fp:0.5:0.33/s:690:390:1/aHR0cHM6Ly93d3cubXV6aWVrZ2Vib3V3Lm5sLy9jbXNfZmlsZXMvc3lzdGVtL2ltYWdlcy9pbWc4NTc4OF9vcmlnLkpQRUc",
+  "performers": [],
+  "price": {
+   "max_eur": 55.0,
+   "min_eur": 44.0,
+   "text": "€ 44,00–€ 55,00"
+  },
+  "room": "Grote Zaal",
+  "source_id": "15875",
+  "start": "2026-10-04T20:15:00+02:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://tickets.muziekgebouw.nl/nl/buyingflow/tickets/60137/122580",
+  "title": "Rafet El Roman",
+  "url": "https://www.muziekgebouw.nl/nl/agenda/rafet-el-roman-891v",
+  "venue": "muziekgebouw"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [],
+  "city": "Amsterdam",
+  "description": "Rauwe emotie, levendige contrasten en expressieve melodieën",
+  "doors": null,
+  "end": null,
+  "extra": {
+   "tariffs": [
+    {
+     "eur": 49.0,
+     "rank": "1",
+     "type": "Normaal"
+    },
+    {
+     "eur": 39.0,
+     "rank": "1",
+     "type": "CJP"
+    },
+    {
+     "eur": 39.0,
+     "rank": "1",
+     "type": "Stadspas"
+    },
+    {
+     "eur": 12.5,
+     "rank": "1",
+     "type": "Early Bird (13-30jr)"
+    },
+    {
+     "eur": 39.0,
+     "rank": "2",
+     "type": "Normaal"
+    },
+    {
+     "eur": 39.0,
+     "rank": "2",
+     "type": "CJP"
+    },
+    {
+     "eur": 39.0,
+     "rank": "2",
+     "type": "Stadspas"
+    },
+    {
+     "eur": 12.5,
+     "rank": "2",
+     "type": "Early Bird (13-30jr)"
+    }
+   ],
+   "ticket_label": "In winkelmandje"
+  },
+  "genres": [
+   "hedendaags",
+   "oud"
+  ],
+  "image": "https://img.muziekgebouw.nl/9f-g60Lh0g9H12H_-ps-bXJsyBrXjAyyQ3BkT5ZFky8/c:5000:2826:fp:0.5:0.33/s:690:390:1/aHR0cHM6Ly93d3cubXV6aWVrZ2Vib3V3Lm5sLy9jbXNfZmlsZXMvc3lzdGVtL2ltYWdlcy9pbWc4MzU4OV9vcmlnLmpwZw",
+  "performers": [],
+  "price": {
+   "max_eur": 49.0,
+   "min_eur": 12.5,
+   "text": "€ 12,50–€ 49,00"
+  },
+  "room": "Grote Zaal",
+  "source_id": "15439",
+  "start": "2026-10-07T20:15:00+02:00",
+  "status": "scheduled",
+  "subtitle": "Amsterdam Sinfonietta + Liza Ferschtman",
+  "support": [],
+  "ticket_url": "https://tickets.muziekgebouw.nl/nl/buyingflow/tickets/55028/115367",
+  "title": "Intieme brieven",
+  "url": "https://www.muziekgebouw.nl/nl/agenda/intieme-brieven-nwyl",
+  "venue": "muziekgebouw"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [],
+  "city": "Amsterdam",
+  "description": "Bevriende componist en meesterpianist in een visionair programma",
+  "doors": null,
+  "end": null,
+  "extra": {
+   "tariffs": [
+    {
+     "eur": 49.0,
+     "rank": "1",
+     "type": "Normaal"
+    },
+    {
+     "eur": 39.0,
+     "rank": "1",
+     "type": "CJP"
+    },
+    {
+     "eur": 39.0,
+     "rank": "1",
+     "type": "Stadspas"
+    },
+    {
+     "eur": 12.5,
+     "rank": "1",
+     "type": "Early Bird (13-30jr)"
+    },
+    {
+     "eur": 39.0,
+     "rank": "2",
+     "type": "Normaal"
+    },
+    {
+     "eur": 39.0,
+     "rank": "2",
+     "type": "CJP"
+    },
+    {
+     "eur": 39.0,
+     "rank": "2",
+     "type": "Stadspas"
+    },
+    {
+     "eur": 12.5,
+     "rank": "2",
+     "type": "Early Bird (13-30jr)"
+    }
+   ],
+   "ticket_label": "In winkelmandje"
+  },
+  "genres": [
+   "hedendaags"
+  ],
+  "image": "https://img.muziekgebouw.nl/O9XdLYh3NszCr0uQxggmC0FyqubIA3yr5EEiINhBf6A/c:5616:3177:nowe:0:562/s:690:390:1/aHR0cHM6Ly93d3cubXV6aWVrZ2Vib3V3Lm5sLy9jbXNfZmlsZXMvc3lzdGVtL2ltYWdlcy9pbWc4MzU5M19vcmlnLmpwZWc",
+  "performers": [],
+  "price": {
+   "max_eur": 49.0,
+   "min_eur": 12.5,
+   "text": "€ 12,50–€ 49,00"
+  },
+  "room": "Grote Zaal",
+  "source_id": "15440",
+  "start": "2026-10-08T20:15:00+02:00",
+  "status": "scheduled",
+  "subtitle": "Pierre-Laurent Aimard + George Benjamin",
+  "support": [],
+  "ticket_url": "https://tickets.muziekgebouw.nl/nl/buyingflow/tickets/54749/114910",
+  "title": "Franse lijnen",
+  "url": "https://www.muziekgebouw.nl/nl/agenda/franse-lijnen-fklh",
+  "venue": "muziekgebouw"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [],
+  "city": "Amsterdam",
+  "description": "Gloednieuwe Stravinsky-bewerking en liefdesmuziek van Janáček",
+  "doors": null,
+  "end": null,
+  "extra": {
+   "tariffs": [
+    {
+     "eur": 49.0,
+     "rank": "1",
+     "type": "Normaal"
+    },
+    {
+     "eur": 39.0,
+     "rank": "1",
+     "type": "CJP"
+    },
+    {
+     "eur": 39.0,
+     "rank": "1",
+     "type": "Stadspas"
+    },
+    {
+     "eur": 12.5,
+     "rank": "1",
+     "type": "Early Bird (13-30jr)"
+    },
+    {
+     "eur": 39.0,
+     "rank": "2",
+     "type": "Normaal"
+    },
+    {
+     "eur": 39.0,
+     "rank": "2",
+     "type": "CJP"
+    },
+    {
+     "eur": 39.0,
+     "rank": "2",
+     "type": "Stadspas"
+    },
+    {
+     "eur": 12.5,
+     "rank": "2",
+     "type": "Early Bird (13-30jr)"
+    }
+   ],
+   "ticket_label": "In winkelmandje"
+  },
+  "genres": [
+   "hedendaags",
+   "oud"
+  ],
+  "image": "https://img.muziekgebouw.nl/CH8GNNEXkhTdO4mcett0GaBrkPSAMzPK1GuOLAmcy3g/c:3333:1884:nowe:0:2293/s:690:390:1/aHR0cHM6Ly93d3cubXV6aWVrZ2Vib3V3Lm5sLy9jbXNfZmlsZXMvc3lzdGVtL2ltYWdlcy9pbWc4MzYwN19vcmlnLmpwZw",
+  "performers": [],
+  "price": {
+   "max_eur": 49.0,
+   "min_eur": 12.5,
+   "text": "€ 12,50–€ 49,00"
+  },
+  "room": "Grote Zaal",
+  "source_id": "15441",
+  "start": "2026-10-09T20:15:00+02:00",
+  "status": "scheduled",
+  "subtitle": "Amsterdam Sinfonietta, Liza Ferschtman + Rick Stotijn",
+  "support": [],
+  "ticket_url": "https://tickets.muziekgebouw.nl/nl/buyingflow/tickets/55211/115771",
+  "title": "Intieme brieven en Suite Italienne",
+  "url": "https://www.muziekgebouw.nl/nl/agenda/intieme-brieven-en-suite-italienne-rb3k",
+  "venue": "muziekgebouw"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [],
+  "city": "Amsterdam",
+  "description": "Indiase slidegitaar, strijkkwartet en poëzie voor de 100e IJ-Salon",
+  "doors": null,
+  "end": null,
+  "extra": {
+   "tariffs": [
+    {
+     "eur": 39.0,
+     "rank": "Ongeplaceerd",
+     "type": "Normaal"
+    },
+    {
+     "eur": 31.0,
+     "rank": "Ongeplaceerd",
+     "type": "CJP"
+    },
+    {
+     "eur": 31.0,
+     "rank": "Ongeplaceerd",
+     "type": "Stadspas"
+    },
+    {
+     "eur": 12.5,
+     "rank": "Ongeplaceerd",
+     "type": "Early Bird (13-30jr)"
+    }
+   ],
+   "ticket_label": "In winkelmandje"
+  },
+  "genres": [
+   "hedendaags"
+  ],
+  "image": "https://img.muziekgebouw.nl/NBleBDLeItjmqwRtFwmm7cs09AeQJOnlrqJgEkUtDt4/c:2122:1199:fp:0.5:0.33/s:690:390:1/aHR0cHM6Ly93d3cubXV6aWVrZ2Vib3V3Lm5sLy9jbXNfZmlsZXMvc3lzdGVtL2ltYWdlcy9pbWc4NjA1NV9vcmlnLmpwZw",
+  "performers": [],
+  "price": {
+   "max_eur": 39.0,
+   "min_eur": 12.5,
+   "text": "€ 12,50–€ 39,00"
+  },
+  "room": "Grote Zaal",
+  "source_id": "15442",
+  "start": "2026-10-10T14:15:00+02:00",
+  "status": "scheduled",
+  "subtitle": "IJ-Salon",
+  "support": [],
+  "ticket_url": "https://tickets.muziekgebouw.nl/nl/buyingflow/tickets/54495/114542",
+  "title": "Confluence | A Brilliant Noise",
+  "url": "https://www.muziekgebouw.nl/nl/agenda/confluence-a-brilliant-noise-zr9q",
+  "venue": "muziekgebouw"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [],
+  "city": "Amsterdam",
+  "description": "Een Frans-Russisch programma van twee uitzonderlijke zussen",
+  "doors": null,
+  "end": null,
+  "extra": {
+   "tariffs": [
+    {
+     "eur": 39.0,
+     "rank": "1",
+     "type": "Normaal"
+    },
+    {
+     "eur": 31.0,
+     "rank": "1",
+     "type": "CJP"
+    },
+    {
+     "eur": 31.0,
+     "rank": "1",
+     "type": "Stadspas"
+    },
+    {
+     "eur": 12.5,
+     "rank": "1",
+     "type": "Early Bird (13-30jr)"
+    },
+    {
+     "eur": 31.0,
+     "rank": "2",
+     "type": "Normaal"
+    },
+    {
+     "eur": 31.0,
+     "rank": "2",
+     "type": "CJP"
+    },
+    {
+     "eur": 31.0,
+     "rank": "2",
+     "type": "Stadspas"
+    },
+    {
+     "eur": 12.5,
+     "rank": "2",
+     "type": "Early Bird (13-30jr)"
+    }
+   ],
+   "ticket_label": "In winkelmandje"
+  },
+  "genres": [
+   "hedendaags",
+   "klassiek"
+  ],
+  "image": "https://img.muziekgebouw.nl/_FMrD3xQXNsM3AkLnHHpSC3fWEMi_Bh0u5MmXUkH24g/c:1323:747:fp:0.5:0.33/s:690:390:1/aHR0cHM6Ly93d3cubXV6aWVrZ2Vib3V3Lm5sLy9jbXNfZmlsZXMvc3lzdGVtL2ltYWdlcy9pbWc4MzY0OV9vcmlnLmpwZw",
+  "performers": [],
+  "price": {
+   "max_eur": 39.0,
+   "min_eur": 12.5,
+   "text": "€ 12,50–€ 39,00"
+  },
+  "room": "Grote Zaal",
+  "source_id": "15443",
+  "start": "2026-10-10T20:15:00+02:00",
+  "status": "scheduled",
+  "subtitle": "Maria Milstein + Nathalia Milstein",
+  "support": [],
+  "ticket_url": "https://tickets.muziekgebouw.nl/nl/buyingflow/tickets/54494/114541",
+  "title": "Nostalgie en tragiek",
+  "url": "https://www.muziekgebouw.nl/nl/agenda/nostalgie-en-tragiek-5pjz",
+  "venue": "muziekgebouw"
+ },
+ {
+  "availability": "sold_out",
+  "categories": [],
+  "city": "Amsterdam",
+  "description": "Met blokfluiten de sterren tegemoet",
+  "doors": null,
+  "end": null,
+  "extra": {
+   "ticket_label": "Uitverkocht"
+  },
+  "genres": [
+   "familie"
+  ],
+  "image": "https://img.muziekgebouw.nl/56kMDLTb_ltn-syVHvbzZM-_8fBLzBi0vMv4U_0hqos/c:1080:610:fp:0.5:0.33/s:690:390:1/aHR0cHM6Ly93d3cubXV6aWVrZ2Vib3V3Lm5sLy9jbXNfZmlsZXMvc3lzdGVtL2ltYWdlcy9pbWc4MzY4OF9vcmlnLmpwZWc",
+  "performers": [],
+  "price": null,
+  "room": "Kleine Zaal",
+  "source_id": "15723",
+  "start": "2026-10-11T13:30:00+02:00",
+  "status": "scheduled",
+  "subtitle": "Sarah Jeffery",
+  "support": [],
+  "ticket_url": null,
+  "title": "Blast Off! (2+)",
+  "url": "https://www.muziekgebouw.nl/nl/agenda/blast-off-2-rb9l",
+  "venue": "muziekgebouw"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [],
+  "city": "Amsterdam",
+  "description": "Twee accordeonisten, drie dansers en een wereld waarin niets is wat het lijkt",
+  "doors": null,
+  "end": null,
+  "extra": {
+   "tariffs": [
+    {
+     "eur": 23.0,
+     "rank": "1",
+     "type": "Normaal"
+    },
+    {
+     "eur": 18.5,
+     "rank": "1",
+     "type": "Stadspas"
+    },
+    {
+     "eur": 12.5,
+     "rank": "1",
+     "type": "Kind"
+    },
+    {
+     "eur": 18.5,
+     "rank": "2",
+     "type": "Normaal"
+    },
+    {
+     "eur": 18.5,
+     "rank": "2",
+     "type": "Stadspas"
+    },
+    {
+     "eur": 12.5,
+     "rank": "2",
+     "type": "Kind"
+    }
+   ],
+   "ticket_label": "In winkelmandje"
+  },
+  "genres": [
+   "familie"
+  ],
+  "image": "https://img.muziekgebouw.nl/Er3VX24nKUv39-pxb5sohmLRWWKHxQk9TRzBDmBcP44/c:3543:2002:fp:0.5:0.33/s:690:390:1/aHR0cHM6Ly93d3cubXV6aWVrZ2Vib3V3Lm5sLy9jbXNfZmlsZXMvc3lzdGVtL2ltYWdlcy9pbWc4MzcwMF9vcmlnLmpwZw",
+  "performers": [],
+  "price": {
+   "max_eur": 23.0,
+   "min_eur": 12.5,
+   "text": "€ 12,50–€ 23,00"
+  },
+  "room": "Grote Zaal",
+  "source_id": "15724",
+  "start": "2026-10-11T13:30:00+02:00",
+  "status": "scheduled",
+  "subtitle": "De Stilte + TOEAC",
+  "support": [],
+  "ticket_url": "https://tickets.muziekgebouw.nl/nl/buyingflow/tickets/55031/115370",
+  "title": "Halve verhalen (6+)",
+  "url": "https://www.muziekgebouw.nl/nl/agenda/halve-verhalen-6-d4p1",
+  "venue": "muziekgebouw"
+ },
+ {
+  "availability": "sold_out",
+  "categories": [],
+  "city": "Amsterdam",
+  "description": "Met blokfluiten de sterren tegemoet",
+  "doors": null,
+  "end": null,
+  "extra": {
+   "ticket_label": "Uitverkocht"
+  },
+  "genres": [
+   "familie"
+  ],
+  "image": "https://img.muziekgebouw.nl/lIlrvKpO64rwq0TQOFprEEt10BTUN2HAosjhNrH6hVo/c:1080:610:nowe:0:339/s:690:390:1/aHR0cHM6Ly93d3cubXV6aWVrZ2Vib3V3Lm5sLy9jbXNfZmlsZXMvc3lzdGVtL2ltYWdlcy9pbWc4MzY4OV9vcmlnLmpwZWc",
+  "performers": [],
+  "price": null,
+  "room": "Kleine Zaal",
+  "source_id": "15725",
+  "start": "2026-10-11T15:30:00+02:00",
+  "status": "scheduled",
+  "subtitle": "Sarah Jeffery",
+  "support": [],
+  "ticket_url": null,
+  "title": "Blast Off! (2+)",
+  "url": "https://www.muziekgebouw.nl/nl/agenda/blast-off-2-89n4",
+  "venue": "muziekgebouw"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [],
+  "city": "Amsterdam",
+  "description": "Een onheilspellend toekomstbeeld voor 2026",
+  "doors": null,
+  "end": null,
+  "extra": {
+   "tariffs": [
+    {
+     "eur": 39.0,
+     "rank": "1",
+     "type": "Normaal"
+    },
+    {
+     "eur": 31.0,
+     "rank": "1",
+     "type": "CJP"
+    },
+    {
+     "eur": 31.0,
+     "rank": "1",
+     "type": "Stadspas"
+    },
+    {
+     "eur": 12.5,
+     "rank": "1",
+     "type": "Early Bird (13-30jr)"
+    },
+    {
+     "eur": 31.0,
+     "rank": "2",
+     "type": "Normaal"
+    },
+    {
+     "eur": 31.0,
+     "rank": "2",
+     "type": "CJP"
+    },
+    {
+     "eur": 31.0,
+     "rank": "2",
+     "type": "Stadspas"
+    },
+    {
+     "eur": 12.5,
+     "rank": "2",
+     "type": "Early Bird (13-30jr)"
+    }
+   ],
+   "ticket_label": "In winkelmandje"
+  },
+  "genres": [
+   "elektronisch",
+   "film"
+  ],
+  "image": "https://img.muziekgebouw.nl/DbGn7kPydcSKBaFmgoQVundi2QV2FAfL9wZ0_5QDByg/c:9334:5281:nowe:0:934/s:690:390:1/aHR0cHM6Ly93d3cubXV6aWVrZ2Vib3V3Lm5sLy9jbXNfZmlsZXMvc3lzdGVtL2ltYWdlcy9pbWc4NTE3NF9vcmlnLmpwZw",
+  "performers": [],
+  "price": {
+   "max_eur": 39.0,
+   "min_eur": 12.5,
+   "text": "€ 12,50–€ 39,00"
+  },
+  "room": "Grote Zaal",
+  "source_id": "15444",
+  "start": "2026-10-11T19:30:00+02:00",
+  "status": "scheduled",
+  "subtitle": "Wishful Singing, Yonga Sun, Steven Kamperman + Jorrit Westerhof",
+  "support": [],
+  "ticket_url": "https://tickets.muziekgebouw.nl/nl/buyingflow/tickets/54496/114543",
+  "title": "Metropolis (1927)",
+  "url": "https://www.muziekgebouw.nl/nl/agenda/metropolis-1927-qvgw",
+  "venue": "muziekgebouw"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [],
+  "city": "Amsterdam",
+  "description": "Muziek die zich aan de tijd onttrekt",
+  "doors": null,
+  "end": null,
+  "extra": {
+   "tariffs": [
+    {
+     "eur": 43.0,
+     "rank": "1",
+     "type": "Normaal"
+    },
+    {
+     "eur": 34.5,
+     "rank": "1",
+     "type": "CJP"
+    },
+    {
+     "eur": 34.5,
+     "rank": "1",
+     "type": "Stadspas"
+    },
+    {
+     "eur": 12.5,
+     "rank": "1",
+     "type": "Early Bird (13-30jr)"
+    },
+    {
+     "eur": 34.5,
+     "rank": "2",
+     "type": "Normaal"
+    },
+    {
+     "eur": 34.5,
+     "rank": "2",
+     "type": "CJP"
+    },
+    {
+     "eur": 34.5,
+     "rank": "2",
+     "type": "Stadspas"
+    },
+    {
+     "eur": 12.5,
+     "rank": "2",
+     "type": "Early Bird (13-30jr)"
+    }
+   ],
+   "ticket_label": "In winkelmandje"
+  },
+  "genres": [
+   "hedendaags",
+   "klassiek"
+  ],
+  "image": "https://img.muziekgebouw.nl/fLy8lN5a2cmaqNSzCkPOjkD_jGGWZvMcfSo3p0wAd68/c:9520:5380:fp:0.5:0.33/s:690:390:1/aHR0cHM6Ly93d3cubXV6aWVrZ2Vib3V3Lm5sLy9jbXNfZmlsZXMvc3lzdGVtL2ltYWdlcy9pbWc4MzczNF9vcmlnLmpwZw",
+  "performers": [],
+  "price": {
+   "max_eur": 43.0,
+   "min_eur": 12.5,
+   "text": "€ 12,50–€ 43,00"
+  },
+  "room": "Grote Zaal",
+  "source_id": "15445",
+  "start": "2026-10-14T20:15:00+02:00",
+  "status": "scheduled",
+  "subtitle": "Calidore String Quartet",
+  "support": [],
+  "ticket_url": "https://tickets.muziekgebouw.nl/nl/buyingflow/tickets/54498/114548",
+  "title": "Verleden, heden, toekomst",
+  "url": "https://www.muziekgebouw.nl/nl/agenda/verleden-heden-toekomst-lt6q",
+  "venue": "muziekgebouw"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [],
+  "city": "Amsterdam",
+  "description": "Explosief en hypnotiserend meesterwerk voor groot ensemble",
+  "doors": null,
+  "end": null,
+  "extra": {
+   "tariffs": [
+    {
+     "eur": 39.0,
+     "rank": "1",
+     "type": "Normaal"
+    },
+    {
+     "eur": 31.0,
+     "rank": "1",
+     "type": "CJP"
+    },
+    {
+     "eur": 31.0,
+     "rank": "1",
+     "type": "Stadspas"
+    },
+    {
+     "eur": 12.5,
+     "rank": "1",
+     "type": "Early Bird (13-30jr)"
+    },
+    {
+     "eur": 31.0,
+     "rank": "2",
+     "type": "Normaal"
+    },
+    {
+     "eur": 31.0,
+     "rank": "2",
+     "type": "CJP"
+    },
+    {
+     "eur": 31.0,
+     "rank": "2",
+     "type": "Stadspas"
+    },
+    {
+     "eur": 12.5,
+     "rank": "2",
+     "type": "Early Bird (13-30jr)"
+    }
+   ],
+   "ticket_label": "In winkelmandje"
+  },
+  "genres": [
+   "hedendaags"
+  ],
+  "image": "https://img.muziekgebouw.nl/1t3Oeg8SyStxSAGqYsaWPoEhXDBvQpR0rJs2iqVi8Ew/c:1920:1085:fp:0.5:0.33/s:690:390:1/aHR0cHM6Ly93d3cubXV6aWVrZ2Vib3V3Lm5sLy9jbXNfZmlsZXMvc3lzdGVtL2ltYWdlcy9pbWc4MzczN19vcmlnLmpwZw",
+  "performers": [],
+  "price": {
+   "max_eur": 39.0,
+   "min_eur": 12.5,
+   "text": "€ 12,50–€ 39,00"
+  },
+  "room": "Grote Zaal",
+  "source_id": "15704",
+  "start": "2026-10-15T20:15:00+02:00",
+  "status": "scheduled",
+  "subtitle": "Ensemble Klang + United Instruments of Lucilin",
+  "support": [],
+  "ticket_url": "https://tickets.muziekgebouw.nl/nl/buyingflow/tickets/54753/114914",
+  "title": "Michael Gordons Trance",
+  "url": "https://www.muziekgebouw.nl/nl/agenda/michael-gordons-trance-xghj",
+  "venue": "muziekgebouw"
+ },
+ {
+  "availability": "few_left",
+  "categories": [],
+  "city": "Amsterdam",
+  "description": "Een unieke kans om voor én achter de schermen te kijken",
+  "doors": null,
+  "end": null,
+  "extra": {
+   "tariffs": [
+    {
+     "eur": 12.5,
+     "rank": "Ongeplaceerd",
+     "type": "Normaal"
+    },
+    {
+     "eur": 10.0,
+     "rank": "Ongeplaceerd",
+     "type": "CJP"
+    },
+    {
+     "eur": 10.0,
+     "rank": "Ongeplaceerd",
+     "type": "Stadspas"
+    }
+   ],
+   "ticket_label": "Laatste kaarten"
+  },
+  "genres": [],
+  "image": "https://img.muziekgebouw.nl/r38oVvleS0E5LG509M8E0uufnxNtHhUNrXytmvVaAhw/c:2000:1130:fp:0.5:0.33/s:690:390:1/aHR0cHM6Ly93d3cubXV6aWVrZ2Vib3V3Lm5sLy9jbXNfZmlsZXMvc3lzdGVtL2ltYWdlcy9pbWc4MzkxMl9vcmlnLmpwZw",
+  "performers": [],
+  "price": {
+   "max_eur": 12.5,
+   "min_eur": 10.0,
+   "text": "€ 10,00–€ 12,50"
+  },
+  "room": "Rondleiding",
+  "source_id": "15734",
+  "start": "2026-10-16T10:45:00+02:00",
+  "status": "scheduled",
+  "subtitle": "+ gratis lunchconcert",
+  "support": [],
+  "ticket_url": "https://tickets.muziekgebouw.nl/nl/buyingflow/tickets/56775/117840",
+  "title": "Rondleiding",
+  "url": "https://www.muziekgebouw.nl/nl/agenda/rondleiding-xgzy",
+  "venue": "muziekgebouw"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [],
+  "city": "Amsterdam",
+  "description": "Kennis maken met grote talenten en fantastische muziek",
+  "doors": null,
+  "end": null,
+  "extra": {
+   "tariffs": [
+    {
+     "eur": 6.5,
+     "rank": "Ongeplaceerd",
+     "type": "Normaal"
+    }
+   ],
+   "ticket_label": "In winkelmandje"
+  },
+  "genres": [
+   "hedendaags",
+   "klassiek"
+  ],
+  "image": "https://img.muziekgebouw.nl/mcoXrFtpvuFbhklUucCZLvQJTGGLmURSWiLuLofDYF0/c:6720:3798:fp:0.5:0.33/s:690:390:1/aHR0cHM6Ly93d3cubXV6aWVrZ2Vib3V3Lm5sLy9jbXNfZmlsZXMvc3lzdGVtL2ltYWdlcy9pbWc4NTY3Nl9vcmlnLmpwZw",
+  "performers": [],
+  "price": {
+   "max_eur": 6.5,
+   "min_eur": 6.5,
+   "text": "€ 6,50"
+  },
+  "room": "Grote Zaal",
+  "source_id": "15713",
+  "start": "2026-10-16T12:30:00+02:00",
+  "status": "scheduled",
+  "subtitle": "Lunchconcert i.s.m. Conservatorium van Amsterdam",
+  "support": [],
+  "ticket_url": "https://tickets.muziekgebouw.nl/nl/buyingflow/tickets/54828/115023",
+  "title": "Duo Lehit",
+  "url": "https://www.muziekgebouw.nl/nl/agenda/duo-lehit-5pw6",
+  "venue": "muziekgebouw"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [],
+  "city": "Amsterdam",
+  "description": "Fascinerende koormuziek uit een tijd van religieuze spanning",
+  "doors": null,
+  "end": null,
+  "extra": {
+   "tariffs": [
+    {
+     "eur": 45.0,
+     "rank": "1",
+     "type": "Normaal"
+    },
+    {
+     "eur": 36.0,
+     "rank": "1",
+     "type": "CJP"
+    },
+    {
+     "eur": 36.0,
+     "rank": "1",
+     "type": "Stadspas"
+    },
+    {
+     "eur": 12.5,
+     "rank": "1",
+     "type": "Early Bird (13-30jr)"
+    },
+    {
+     "eur": 36.0,
+     "rank": "2",
+     "type": "Normaal"
+    },
+    {
+     "eur": 36.0,
+     "rank": "2",
+     "type": "CJP"
+    },
+    {
+     "eur": 36.0,
+     "rank": "2",
+     "type": "Stadspas"
+    },
+    {
+     "eur": 12.5,
+     "rank": "2",
+     "type": "Early Bird (13-30jr)"
+    }
+   ],
+   "ticket_label": "In winkelmandje"
+  },
+  "genres": [
+   "oud"
+  ],
+  "image": "https://img.muziekgebouw.nl/bDRsZupNYfg2zn2EKNO91WmDdciqTJIyKZMbbiVYykg/c:5568:3150:nowe:0:245/s:690:390:1/aHR0cHM6Ly93d3cubXV6aWVrZ2Vib3V3Lm5sLy9jbXNfZmlsZXMvc3lzdGVtL2ltYWdlcy9pbWc4Mzc0Ml9vcmlnLmpwZw",
+  "performers": [],
+  "price": {
+   "max_eur": 45.0,
+   "min_eur": 12.5,
+   "text": "€ 12,50–€ 45,00"
+  },
+  "room": "Grote Zaal",
+  "source_id": "15446",
+  "start": "2026-10-16T20:15:00+02:00",
+  "status": "scheduled",
+  "subtitle": "Tenebrae",
+  "support": [],
+  "ticket_url": "https://tickets.muziekgebouw.nl/nl/buyingflow/tickets/54575/114648",
+  "title": "Engelse pracht uit de zestiende eeuw",
+  "url": "https://www.muziekgebouw.nl/nl/agenda/engelse-pracht-uit-de-zestiende-eeuw-1646",
+  "venue": "muziekgebouw"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [],
+  "city": "Amsterdam",
+  "description": "Een mis voor het universum",
+  "doors": null,
+  "end": null,
+  "extra": {
+   "tariffs": [
+    {
+     "eur": 49.0,
+     "rank": "1",
+     "type": "Normaal"
+    },
+    {
+     "eur": 39.0,
+     "rank": "1",
+     "type": "CJP"
+    },
+    {
+     "eur": 39.0,
+     "rank": "1",
+     "type": "Stadspas"
+    },
+    {
+     "eur": 12.5,
+     "rank": "1",
+     "type": "Early Bird (13-30jr)"
+    },
+    {
+     "eur": 39.0,
+     "rank": "2",
+     "type": "Normaal"
+    },
+    {
+     "eur": 39.0,
+     "rank": "2",
+     "type": "CJP"
+    },
+    {
+     "eur": 39.0,
+     "rank": "2",
+     "type": "Stadspas"
+    },
+    {
+     "eur": 12.5,
+     "rank": "2",
+     "type": "Early Bird (13-30jr)"
+    }
+   ],
+   "ticket_label": "In winkelmandje"
+  },
+  "genres": [
+   "hedendaags"
+  ],
+  "image": "https://img.muziekgebouw.nl/dx2wi_Q0P157u1rGjGsEP3PFveiKYPc3XmO4FH8ArOE/c:4724:2670:fp:0.5:0.33/s:690:390:1/aHR0cHM6Ly93d3cubXV6aWVrZ2Vib3V3Lm5sLy9jbXNfZmlsZXMvc3lzdGVtL2ltYWdlcy9pbWc4Mzc5M19vcmlnLmpwZw",
+  "performers": [],
+  "price": {
+   "max_eur": 49.0,
+   "min_eur": 12.5,
+   "text": "€ 12,50–€ 49,00"
+  },
+  "room": "Grote Zaal",
+  "source_id": "15447",
+  "start": "2026-10-17T20:15:00+02:00",
+  "status": "scheduled",
+  "subtitle": "Nederlands Blazers Ensemble, Studium Chorale + Christianne Stotijn",
+  "support": [],
+  "ticket_url": "https://tickets.muziekgebouw.nl/nl/buyingflow/tickets/54785/114967",
+  "title": "Broze aarde",
+  "url": "https://www.muziekgebouw.nl/nl/agenda/broze-aarde-qvgm",
+  "venue": "muziekgebouw"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [],
+  "city": "Amsterdam",
+  "description": "Prominente sarod-speler deelt het podium met vrouw en zoon",
+  "doors": null,
+  "end": null,
+  "extra": {
+   "tariffs": [
+    {
+     "eur": 35.0,
+     "rank": "1",
+     "type": "Normaal"
+    },
+    {
+     "eur": 28.0,
+     "rank": "1",
+     "type": "CJP"
+    },
+    {
+     "eur": 28.0,
+     "rank": "1",
+     "type": "Stadspas"
+    },
+    {
+     "eur": 12.5,
+     "rank": "1",
+     "type": "Early Bird (13-30jr)"
+    },
+    {
+     "eur": 28.0,
+     "rank": "2",
+     "type": "Normaal"
+    },
+    {
+     "eur": 28.0,
+     "rank": "2",
+     "type": "CJP"
+    },
+    {
+     "eur": 28.0,
+     "rank": "2",
+     "type": "Stadspas"
+    },
+    {
+     "eur": 12.5,
+     "rank": "2",
+     "type": "Early Bird (13-30jr)"
+    }
+   ],
+   "ticket_label": "In winkelmandje"
+  },
+  "genres": [
+   "global"
+  ],
+  "image": "https://img.muziekgebouw.nl/n7lnFXP25adMZYXGillhHBJCIWl0lSI8HIHPhbXNv2g/c:5526:3127:nowe:0:586/s:690:390:1/aHR0cHM6Ly93d3cubXV6aWVrZ2Vib3V3Lm5sLy9jbXNfZmlsZXMvc3lzdGVtL2ltYWdlcy9pbWc4Mzc5OF9vcmlnLmpwZw",
+  "performers": [],
+  "price": {
+   "max_eur": 35.0,
+   "min_eur": 12.5,
+   "text": "€ 12,50–€ 35,00"
+  },
+  "room": "Grote Zaal",
+  "source_id": "15448",
+  "start": "2026-10-18T14:15:00+02:00",
+  "status": "scheduled",
+  "subtitle": "Ranajit, Shirin en Rajarshi Sengupta + Kousik Banerjee",
+  "support": [],
+  "ticket_url": "https://tickets.muziekgebouw.nl/nl/buyingflow/tickets/54756/114919",
+  "title": "Een Indiase muzikale familie",
+  "url": "https://www.muziekgebouw.nl/nl/agenda/een-indiase-muzikale-familie-932w",
+  "venue": "muziekgebouw"
+ },
+ {
+  "availability": "unknown",
+  "categories": [],
+  "city": "Amsterdam",
+  "description": "Gloednieuwe composities door toonaangevende musici",
+  "doors": null,
+  "end": null,
+  "extra": {
+   "ticket_label": "Bestel via Plein Theater"
+  },
+  "genres": [],
+  "image": "https://img.muziekgebouw.nl/E8s-E6rSYbfIWmWuAcCPuGsF5X-JIXkbyY6BYivXYxg/c:1500:847:fp:0.5:0.33/s:690:390:1/aHR0cHM6Ly93d3cubXV6aWVrZ2Vib3V3Lm5sLy9jbXNfZmlsZXMvc3lzdGVtL2ltYWdlcy9pbWc4NjAzNF9vcmlnLmpwZw",
+  "performers": [],
+  "price": null,
+  "room": "Plein Theater",
+  "source_id": "15929",
+  "start": "2026-10-18T15:00:00+02:00",
+  "status": "scheduled",
+  "subtitle": "Trio Scala",
+  "support": [],
+  "ticket_url": "https://www.plein-theater.nl/agenda/22302/nieuwe-noten-amsterdam-microtonale-klankwerelden",
+  "title": "Nieuwe Noten in het Plein Theater",
+  "url": "https://www.muziekgebouw.nl/nl/agenda/nieuwe-noten-in-het-plein-theater-h1g6",
+  "venue": "muziekgebouw"
+ },
+ {
+  "availability": "unknown",
+  "categories": [],
+  "city": "Amsterdam",
+  "description": "Vlammende mix van krautrock, elektronica, avant-jazz, Aarabische poëzie door zeskoppige sensatie uit Beiroet",
+  "doors": null,
+  "end": null,
+  "extra": {
+   "ticket_label": "Bestel via Bimhuis"
+  },
+  "genres": [
+   "jazz",
+   "pop",
+   "elektronisch"
+  ],
+  "image": "https://img.muziekgebouw.nl/Ehh29-YgaYIsX1F_nHik-hikmpv9cNwta0sSaX6W0fQ/c:4995:2823:nowe:1003:2885/s:690:390:1/aHR0cHM6Ly93d3cubXV6aWVrZ2Vib3V3Lm5sLy9jbXNfZmlsZXMvc3lzdGVtL2ltYWdlcy9pbWc4NTczMV9vcmlnLmpwZw",
+  "performers": [],
+  "price": null,
+  "room": "Bimhuis",
+  "source_id": "15872",
+  "start": "2026-10-18T20:30:00+02:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://www.bimhuis.nl/agenda/sanam",
+  "title": "SANAM",
+  "url": "https://www.muziekgebouw.nl/nl/agenda/sanam-6hvr",
+  "venue": "muziekgebouw"
+ },
+ {
+  "availability": "few_left",
+  "categories": [],
+  "city": "Amsterdam",
+  "description": "Een ontdekkingstocht in de wonderlijke wereld van de zwaartekracht",
+  "doors": null,
+  "end": null,
+  "extra": {
+   "tariffs": [
+    {
+     "eur": 19.0,
+     "rank": "Ongeplaceerd",
+     "type": "Normaal"
+    },
+    {
+     "eur": 15.0,
+     "rank": "Ongeplaceerd",
+     "type": "Stadspas"
+    },
+    {
+     "eur": 12.5,
+     "rank": "Ongeplaceerd",
+     "type": "Kind"
+    },
+    {
+     "eur": 6.0,
+     "rank": "Ongeplaceerd",
+     "type": "Baby"
+    }
+   ],
+   "ticket_label": "Laatste kaarten"
+  },
+  "genres": [
+   "familie"
+  ],
+  "image": "https://img.muziekgebouw.nl/HmACNI92RR2L96-jxbVw9Cs4UqjOLn4ug0_jVq7Wyq8/c:2300:1300:fp:0.5:0.33/s:690:390:1/aHR0cHM6Ly93d3cubXV6aWVrZ2Vib3V3Lm5sLy9jbXNfZmlsZXMvc3lzdGVtL2ltYWdlcy9pbWc4NDQzNF9vcmlnLmpwZw",
+  "performers": [],
+  "price": {
+   "max_eur": 19.0,
+   "min_eur": 6.0,
+   "text": "€ 6,00–€ 19,00"
+  },
+  "room": "Kleine Zaal",
+  "source_id": "15452",
+  "start": "2026-10-21T09:30:00+02:00",
+  "status": "scheduled",
+  "subtitle": "Frisse Oren",
+  "support": [],
+  "ticket_url": "https://tickets.muziekgebouw.nl/nl/buyingflow/tickets/54468/114511",
+  "title": "Tuimelaar (6-18 maanden)",
+  "url": "https://www.muziekgebouw.nl/nl/agenda/tuimelaar-6-18-maanden-6h7k",
+  "venue": "muziekgebouw"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [],
+  "city": "Amsterdam",
+  "description": "Een ontdekkingstocht in de wonderlijke wereld van de zwaartekracht",
+  "doors": null,
+  "end": null,
+  "extra": {
+   "tariffs": [
+    {
+     "eur": 19.0,
+     "rank": "Ongeplaceerd",
+     "type": "Normaal"
+    },
+    {
+     "eur": 15.0,
+     "rank": "Ongeplaceerd",
+     "type": "Stadspas"
+    },
+    {
+     "eur": 12.5,
+     "rank": "Ongeplaceerd",
+     "type": "Kind"
+    },
+    {
+     "eur": 6.0,
+     "rank": "Ongeplaceerd",
+     "type": "Baby"
+    }
+   ],
+   "ticket_label": "In winkelmandje"
+  },
+  "genres": [
+   "familie"
+  ],
+  "image": "https://img.muziekgebouw.nl/udx5n1RmM6Z0udEnFAy2taAAPDnz7h7obWQUYZDEJZs/c:2300:1300:fp:0.5:0.33/s:690:390:1/aHR0cHM6Ly93d3cubXV6aWVrZ2Vib3V3Lm5sLy9jbXNfZmlsZXMvc3lzdGVtL2ltYWdlcy9pbWc4NDQzM19vcmlnLmpwZw",
+  "performers": [],
+  "price": {
+   "max_eur": 19.0,
+   "min_eur": 6.0,
+   "text": "€ 6,00–€ 19,00"
+  },
+  "room": "Kleine Zaal",
+  "source_id": "15451",
+  "start": "2026-10-21T11:00:00+02:00",
+  "status": "scheduled",
+  "subtitle": "Frisse Oren",
+  "support": [],
+  "ticket_url": "https://tickets.muziekgebouw.nl/nl/buyingflow/tickets/54469/114512",
+  "title": "Tuimelaar (6-18 maanden)",
+  "url": "https://www.muziekgebouw.nl/nl/agenda/tuimelaar-6-18-maanden-fklb",
+  "venue": "muziekgebouw"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [],
+  "city": "Amsterdam",
+  "description": "Een ontdekkingstocht in de wonderlijke wereld van de zwaartekracht",
+  "doors": null,
+  "end": null,
+  "extra": {
+   "tariffs": [
+    {
+     "eur": 19.0,
+     "rank": "Ongeplaceerd",
+     "type": "Normaal"
+    },
+    {
+     "eur": 15.0,
+     "rank": "Ongeplaceerd",
+     "type": "Stadspas"
+    },
+    {
+     "eur": 12.5,
+     "rank": "Ongeplaceerd",
+     "type": "Kind"
+    },
+    {
+     "eur": 6.0,
+     "rank": "Ongeplaceerd",
+     "type": "Baby"
+    }
+   ],
+   "ticket_label": "In winkelmandje"
+  },
+  "genres": [
+   "familie"
+  ],
+  "image": "https://img.muziekgebouw.nl/U6cCS2J3Pl1YqPFPZj-Qd1NLh0vlGJysvAXkumRhZxs/c:2300:1300:fp:0.5:0.33/s:690:390:1/aHR0cHM6Ly93d3cubXV6aWVrZ2Vib3V3Lm5sLy9jbXNfZmlsZXMvc3lzdGVtL2ltYWdlcy9pbWc4NDQ0M19vcmlnLmpwZw",
+  "performers": [],
+  "price": {
+   "max_eur": 19.0,
+   "min_eur": 6.0,
+   "text": "€ 6,00–€ 19,00"
+  },
+  "room": "Kleine Zaal",
+  "source_id": "15450",
+  "start": "2026-10-21T12:30:00+02:00",
+  "status": "scheduled",
+  "subtitle": "Frisse Oren",
+  "support": [],
+  "ticket_url": "https://tickets.muziekgebouw.nl/nl/buyingflow/tickets/54470/114513",
+  "title": "Tuimelaar (6-18 maanden)",
+  "url": "https://www.muziekgebouw.nl/nl/agenda/tuimelaar-6-18-maanden-475j",
+  "venue": "muziekgebouw"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [],
+  "city": "Amsterdam",
+  "description": "Electronic Music beyond the dance floor",
+  "doors": null,
+  "end": null,
+  "extra": {
+   "tariffs": [
+    {
+     "eur": 19.0,
+     "rank": "Ongeplaceerd",
+     "type": "Normaal"
+    },
+    {
+     "eur": 15.0,
+     "rank": "Ongeplaceerd",
+     "type": "CJP"
+    },
+    {
+     "eur": 15.0,
+     "rank": "Ongeplaceerd",
+     "type": "Stadspas"
+    },
+    {
+     "eur": 12.5,
+     "rank": "Ongeplaceerd",
+     "type": "Early Bird (13-30jr)"
+    }
+   ],
+   "ticket_label": "In winkelmandje"
+  },
+  "genres": [
+   "hedendaags",
+   "elektronisch"
+  ],
+  "image": "https://img.muziekgebouw.nl/Gk-MBRztcxsJ47-Kd9a0_C_6L3-SRXBG132OEeM5eBU/c:3000:1697:nowe:0:150/s:690:390:1/aHR0cHM6Ly93d3cubXV6aWVrZ2Vib3V3Lm5sLy9jbXNfZmlsZXMvc3lzdGVtL2ltYWdlcy9pbWc4NTkxNF9vcmlnLmpwZw",
+  "performers": [],
+  "price": {
+   "max_eur": 19.0,
+   "min_eur": 12.5,
+   "text": "€ 12,50–€ 19,00"
+  },
+  "room": "Grote Zaal",
+  "source_id": "15889",
+  "start": "2026-10-21T20:15:00+02:00",
+  "status": "scheduled",
+  "subtitle": "Nothing Here Now x The Rest is Noise x Amsterdam Dance Event",
+  "support": [],
+  "ticket_url": "https://tickets.muziekgebouw.nl/nl/buyingflow/tickets/60481/123105",
+  "title": "Crawler + Nkisi + 2K88 & Rainy Miller & Bianca Scout",
+  "url": "https://www.muziekgebouw.nl/nl/agenda/crawler-nkisi-2k88-rainy-miller-bianca-scout-nwd9",
+  "venue": "muziekgebouw"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [],
+  "city": "Amsterdam",
+  "description": "Een ontdekkingstocht in de wonderlijke wereld van de zwaartekracht",
+  "doors": null,
+  "end": null,
+  "extra": {
+   "tariffs": [
+    {
+     "eur": 19.0,
+     "rank": "Ongeplaceerd",
+     "type": "Normaal"
+    },
+    {
+     "eur": 15.0,
+     "rank": "Ongeplaceerd",
+     "type": "Stadspas"
+    },
+    {
+     "eur": 12.5,
+     "rank": "Ongeplaceerd",
+     "type": "Kind"
+    },
+    {
+     "eur": 6.0,
+     "rank": "Ongeplaceerd",
+     "type": "Baby"
+    }
+   ],
+   "ticket_label": "In winkelmandje"
+  },
+  "genres": [
+   "familie"
+  ],
+  "image": "https://img.muziekgebouw.nl/C4uuA-L75dpvmwzHqp_2TL4lXMARtuONJL87G2AHQ7U/c:2300:1300:fp:0.5:0.33/s:690:390:1/aHR0cHM6Ly93d3cubXV6aWVrZ2Vib3V3Lm5sLy9jbXNfZmlsZXMvc3lzdGVtL2ltYWdlcy9pbWc4NDQzMl9vcmlnLmpwZw",
+  "performers": [],
+  "price": {
+   "max_eur": 19.0,
+   "min_eur": 6.0,
+   "text": "€ 6,00–€ 19,00"
+  },
+  "room": "Kleine Zaal",
+  "source_id": "15668",
+  "start": "2026-10-22T09:30:00+02:00",
+  "status": "scheduled",
+  "subtitle": "Frisse Oren",
+  "support": [],
+  "ticket_url": "https://tickets.muziekgebouw.nl/nl/buyingflow/tickets/54471/114514",
+  "title": "Tuimelaar (6-18 maanden)",
+  "url": "https://www.muziekgebouw.nl/nl/agenda/tuimelaar-6-18-maanden-cxxg",
+  "venue": "muziekgebouw"
+ }
+]

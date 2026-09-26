@@ -1,0 +1,74 @@
+{
+  "2136d22a73ecf14c": {
+    "body": {
+      "form": {
+        "action": "load_agenda_results",
+        "agendaNonce": "80bbf47343",
+        "query": "{\"label\": \"all\", \"query\": \"\", \"month\": \"\"}"
+      }
+    },
+    "content_type": "text/html; charset=UTF-8",
+    "file": "2136d22a73ecf14c.txt",
+    "method": "POST",
+    "params": null,
+    "status": 200,
+    "url": "https://www.bitterzoet.com/wp-admin/admin-ajax.php"
+  },
+  "4027cd0d8308d004": {
+    "body": {
+      "form": {
+        "action": "load_agenda_results",
+        "agendaNonce": "80bbf47343",
+        "query": "{\"label\": \"clubnight\", \"query\": \"\", \"month\": \"\"}"
+      }
+    },
+    "content_type": "text/html; charset=UTF-8",
+    "file": "4027cd0d8308d004.txt",
+    "method": "POST",
+    "params": null,
+    "status": 200,
+    "url": "https://www.bitterzoet.com/wp-admin/admin-ajax.php"
+  },
+  "5a7d107cfb4e4c37": {
+    "body": null,
+    "content_type": "text/html; charset=UTF-8",
+    "file": "5a7d107cfb4e4c37.txt",
+    "method": "GET",
+    "params": null,
+    "status": 200,
+    "url": "https://www.bitterzoet.com/event/allnight-bassa-friends/"
+  },
+  "94546e0eff80fdf9": {
+    "body": {
+      "form": {
+        "action": "load_agenda_results",
+        "agendaNonce": "80bbf47343",
+        "query": "{\"label\": \"concert\", \"query\": \"\", \"month\": \"\"}"
+      }
+    },
+    "content_type": "text/html; charset=UTF-8",
+    "file": "94546e0eff80fdf9.txt",
+    "method": "POST",
+    "params": null,
+    "status": 200,
+    "url": "https://www.bitterzoet.com/wp-admin/admin-ajax.php"
+  },
+  "b5cdb5c53af3aefc": {
+    "body": null,
+    "content_type": "text/html; charset=UTF-8",
+    "file": "b5cdb5c53af3aefc.txt",
+    "method": "GET",
+    "params": null,
+    "status": 200,
+    "url": "https://www.bitterzoet.com/event/mad-tsai-2/"
+  },
+  "d2238487b4756a90": {
+    "body": null,
+    "content_type": "text/html; charset=UTF-8",
+    "file": "d2238487b4756a90.txt",
+    "method": "GET",
+    "params": null,
+    "status": 200,
+    "url": "https://www.bitterzoet.com/agenda/"
+  }
+}

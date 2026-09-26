@@ -1,0 +1,75 @@
+<section class="event-page">
+<div class="container">
+<div class="columns is-variable is-justify-content-center">
+<div class="column is-12">
+<figure class="animation animation--scroll-left-to-right hide" data-inview="{&quot;direction&quot;: &quot;scroll-left-to-right&quot;, &quot;percentVisible&quot;: 0, &quot;percentVisibleMobile&quot;: 20}">
+<img loading="eager" class="img-responsive image-style-two-to-one" src="/sites/default/files/styles/two_to_one/public/2026-07/Het%20FOMO%20Huis%202-1_0.png.webp?itok=K60ywCEa" width="1600" height="800" alt="Het FOMO Huis hits uitgaan club dance Nobel Leiden" typeof="foaf:Image">
+</figure>
+<div class="info">
+<div class="info--content animation animation--fade-in" data-inview="{&quot;direction&quot;: &quot;fade-in&quot;, &quot;percentVisible&quot;: 0, &quot;percentVisibleMobile&quot;: 20}">
+<div class="info--time">
+<div class="info--tags">
+<time datetime="2026-07-07T10:00:01+0200">
+zaterdag
+26
+september
+2026
+</time>
+<span>  23:00
+</span>
+<span>  Grote zaal
+</span>
+<span>  Hits
+</span>
+</div>
+<h2>Het FOMO Huis</h2>
+<p class="event-intro">  Knalfeest vol hits, house en Hollandse bangers
+</p>
+</div>
+<a href="https://eventix.shop/t6rq4mtt" id="js-scroll-to-eventix">
+<div class="tickets aninmation animation--fade-in">
+<p class="tickets-title">  Tickets
+<i class="fa-sharp fa-solid fa-arrow-right"></i>
+</p>
+<p>
+<span>Prijs vanaf:</span>
+€ 12,90
+</p>
+</div>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="event-content">
+<div class="container">
+<div class="columns is-variable is-multiline is-centered is-justify-content-center contentBlocks">
+<div class="column is-10">
+<div class="content">
+<div class="content--fields">
+<div class="column is-12-mobile is-8-desktop is-12">
+<div class="schedule">
+<div class="schedule--content animation animation--fade-in" data-inview="{&quot;direction&quot;: &quot;fade-in&quot;, &quot;percentVisible&quot;: 0, &quot;percentVisibleMobile&quot;: 20}">
+<h2>Tijdschema</h2>
+23:00 - Deuren open<br>
+04:00 - Verwacht einde
+</div>
+</div>
+<p class="event-intro animation animation--fade-in" data-inview="{&quot;direction&quot;: &quot;fade-in&quot;, &quot;percentVisible&quot;: 0, &quot;percentVisibleMobile&quot;: 20}">
+Veel feesten verdwijnen, uitgaan wordt duurder en steeds vaker blijft de groepschat stil. Maar Leiden krijgt er een clubnacht bij! Want de mooiste herinneringen maak je niet thuis op de bank, maar samen met je vrienden op de dansvloer. Daarom is er nu Het FOMO Huis.
+</p>
+</div>
+<div class="column paragraph paragraph--text-full paragraph--text-full--default is-8-widescreen is-10-desktop is-12">
+<p>Het FOMO Huis is een gloednieuw concept dat uitgaan weer terugbrengt zoals het hoort te zijn: toegankelijk, gezellig, veilig en betaalbaar. Een avond waar je binnenloopt alsof je bij vrienden thuiskomt, en die eindigt in een club waar iedereen losgaat. Verwacht een mix van hits, house en Hollandse muziek.</p><p>Leiden verdient weer een vaste avond waar je zonder twijfel naartoe gaat. Waar je nieuwe mensen leert kennen, oude bekenden tegenkomt en herinneringen maakt waar je het een maand later nog over hebt.</p><p>Geen ingewikkelde dresscode. Geen dure ticketprijzen. Gewoon jij, je vrienden en een clubavond waar iedereen welkom is.&nbsp;</p>
+</div>
+<div id="shop-frame" class="col-sm-12" data-url="https://eventix.shop/t6rq4mtt">
+<div id="tickets"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>

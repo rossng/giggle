@@ -1,0 +1,20 @@
+{
+  "2ee4e81bab4da22a": {
+    "body": null,
+    "content_type": "text/html; charset=UTF-8",
+    "file": "2ee4e81bab4da22a.txt",
+    "method": "GET",
+    "params": null,
+    "status": 200,
+    "url": "https://patronaat.nl/programma/"
+  },
+  "3aa3fb94d262ce97": {
+    "body": null,
+    "content_type": "application/xml; charset=UTF-8",
+    "file": "3aa3fb94d262ce97.txt",
+    "method": "GET",
+    "params": null,
+    "status": 200,
+    "url": "https://patronaat.nl/api/event-info/v1/events-detailed"
+  }
+}

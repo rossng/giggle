@@ -1,0 +1,2147 @@
+[
+ {
+  "availability": "on_sale",
+  "categories": [
+   "clubnacht"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": "2026-09-26T23:30:00+02:00",
+  "end": "2026-09-27T04:00:00+02:00",
+  "extra": {},
+  "genres": [
+   "Afro",
+   "Caribbean",
+   "Baile Funk & Dutch Urban Sounds"
+  ],
+  "image": "https://www.bitterzoet.com/wp-content/uploads/2026/09/WhatsApp-Image-2026-09-22-at-22.25.09-900x1024.jpeg",
+  "performers": [],
+  "price": {
+   "max_eur": 8.0,
+   "min_eur": 8.0,
+   "text": null
+  },
+  "room": null,
+  "source_id": "allnight-bassa-friends",
+  "start": "2026-09-26T23:30:00+02:00",
+  "status": "scheduled",
+  "subtitle": "Afro, Caribbean, Baile Funk & Dutch Urban Sounds",
+  "support": [],
+  "ticket_url": "https://bitterzoet.weticket.io/allnight-bassa-friends-2/shop",
+  "title": "ALLNIGHT: BASSA & FRIENDS",
+  "url": "https://www.bitterzoet.com/event/allnight-bassa-friends/",
+  "venue": "bitterzoet"
+ },
+ {
+  "availability": "sold_out",
+  "categories": [
+   "concert"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": "2026-09-27T19:30:00+02:00",
+  "end": "2026-09-27T22:30:00+02:00",
+  "extra": {},
+  "genres": [
+   "Pop"
+  ],
+  "image": "https://www.bitterzoet.com/wp-content/uploads/2026/06/channels4_profile-1.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 25.7,
+   "min_eur": 25.7,
+   "text": null
+  },
+  "room": null,
+  "source_id": "mad-tsai-2",
+  "start": "2026-09-27T19:30:00+02:00",
+  "status": "scheduled",
+  "subtitle": "Pop",
+  "support": [],
+  "ticket_url": "https://tickets.paradiso.nl/7272df50d81147358cd5602b049db132",
+  "title": "Mad Tsai",
+  "url": "https://www.bitterzoet.com/event/mad-tsai-2/",
+  "venue": "bitterzoet"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [
+   "concert"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": "2026-09-28T19:30:00+02:00",
+  "end": null,
+  "extra": {},
+  "genres": [
+   "Hip-Hop",
+   "Electronic",
+   "Soul"
+  ],
+  "image": "https://www.bitterzoet.com/wp-content/uploads/2026/06/Black-Milk-2026-1024x630.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 28.7,
+   "min_eur": 28.7,
+   "text": null
+  },
+  "room": null,
+  "source_id": "black-milk",
+  "start": "2026-09-28T19:30:00+02:00",
+  "status": "scheduled",
+  "subtitle": "Hip-Hop, Electronic, Soul",
+  "support": [],
+  "ticket_url": "https://tickets.paradiso.nl/59d0a2d4fb224811bd60bf2d251be81d",
+  "title": "Black Milk",
+  "url": "https://www.bitterzoet.com/event/black-milk/",
+  "venue": "bitterzoet"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [
+   "concert"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": "2026-09-30T19:30:00+02:00",
+  "end": null,
+  "extra": {},
+  "genres": [
+   "Electronic Hip Hop",
+   "Trap",
+   "Techno-Pop"
+  ],
+  "image": "https://www.bitterzoet.com/wp-content/uploads/2026/06/Amsterdam_Aigel-1024x1024.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 49.0,
+   "min_eur": 49.0,
+   "text": null
+  },
+  "room": null,
+  "source_id": "aigel",
+  "start": "2026-09-30T19:30:00+02:00",
+  "status": "scheduled",
+  "subtitle": "Electronic Hip Hop, Trap, Techno-Pop",
+  "support": [],
+  "ticket_url": "https://bitterzoet.weticket.io/aigel/shop",
+  "title": "AIGEL",
+  "url": "https://www.bitterzoet.com/event/aigel/",
+  "venue": "bitterzoet"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [
+   "concert"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": "2026-10-01T19:30:00+02:00",
+  "end": null,
+  "extra": {},
+  "genres": [
+   "Hip Hop"
+  ],
+  "image": "https://www.bitterzoet.com/wp-content/uploads/2026/09/WhatsApp-Image-2026-09-07-at-15.44.17-1024x1024.jpeg",
+  "performers": [],
+  "price": {
+   "max_eur": 15.0,
+   "min_eur": 15.0,
+   "text": null
+  },
+  "room": null,
+  "source_id": "buurthuis-presents-amsterdamdma",
+  "start": "2026-10-01T19:30:00+02:00",
+  "status": "scheduled",
+  "subtitle": "Hip Hop",
+  "support": [],
+  "ticket_url": "https://bitterzoet.weticket.io/buurthuis-presents-amsterdamdma/shop",
+  "title": "Buurthuis presents: AmsterdaMDMA",
+  "url": "https://www.bitterzoet.com/event/buurthuis-presents-amsterdamdma/",
+  "venue": "bitterzoet"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [
+   "clubnacht"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": "2026-10-02T19:00:00+02:00",
+  "end": null,
+  "extra": {},
+  "genres": [
+   "Hiphop",
+   "Dancehall",
+   "R&B en meer"
+  ],
+  "image": "https://www.bitterzoet.com/wp-content/uploads/2026/07/IMG_0017-1024x1024.jpeg",
+  "performers": [],
+  "price": {
+   "max_eur": 10.0,
+   "min_eur": 10.0,
+   "text": null
+  },
+  "room": null,
+  "source_id": "vroege-vogels-25",
+  "start": "2026-10-02T19:00:00+02:00",
+  "status": "scheduled",
+  "subtitle": "Hiphop, Dancehall, R&B en meer",
+  "support": [],
+  "ticket_url": "https://bitterzoet.weticket.io/vroege-vogels-25/shop",
+  "title": "Vroege Vogels (25+)",
+  "url": "https://www.bitterzoet.com/event/vroege-vogels-25/",
+  "venue": "bitterzoet"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [
+   "clubnacht"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": "2026-10-02T23:30:00+02:00",
+  "end": null,
+  "extra": {},
+  "genres": [],
+  "image": "https://www.bitterzoet.com/wp-content/uploads/2023/03/BZ_Logo_Geel-blac-2.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 8.0,
+   "min_eur": 8.0,
+   "text": null
+  },
+  "room": null,
+  "source_id": "all-night-blem-sounds-friends",
+  "start": "2026-10-02T23:30:00+02:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://bitterzoet.weticket.io/all-night-blem-sounds-friends/shop",
+  "title": "ALL NIGHT: BLEM SOUNDS & FRIENDS",
+  "url": "https://www.bitterzoet.com/event/all-night-blem-sounds-friends/",
+  "venue": "bitterzoet"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [
+   "clubnacht"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": "2026-10-03T19:00:00+02:00",
+  "end": null,
+  "extra": {},
+  "genres": [
+   "R&B",
+   "Hip-Hop",
+   "Dancehall",
+   "Throwbacks",
+   "Caribbean",
+   "Afro"
+  ],
+  "image": "https://www.bitterzoet.com/wp-content/uploads/2026/09/Dripped-Sat-03OKT-1024X10242-Alicia-de-Lima.png",
+  "performers": [],
+  "price": {
+   "max_eur": 15.0,
+   "min_eur": 15.0,
+   "text": null
+  },
+  "room": null,
+  "source_id": "dripped-25",
+  "start": "2026-10-03T19:00:00+02:00",
+  "status": "scheduled",
+  "subtitle": "R&B, Hip-Hop, Dancehall, Throwbacks, Caribbean, Afro",
+  "support": [],
+  "ticket_url": "https://bitterzoet.weticket.io/dripped-25/shop",
+  "title": "Dripped (25+)",
+  "url": "https://www.bitterzoet.com/event/dripped-25/",
+  "venue": "bitterzoet"
+ },
+ {
+  "availability": "unknown",
+  "categories": [
+   "concert"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": "2026-10-03T19:30:00+02:00",
+  "end": null,
+  "extra": {},
+  "genres": [
+   "Math Folk"
+  ],
+  "image": "https://www.bitterzoet.com/wp-content/uploads/2026/04/Credit-Tony-DeBacco-1024x1024.jpeg",
+  "performers": [],
+  "price": null,
+  "room": null,
+  "source_id": "emma-harner",
+  "start": "2026-10-03T19:30:00+02:00",
+  "status": "cancelled",
+  "subtitle": "Math Folk",
+  "support": [],
+  "ticket_url": null,
+  "title": "Emma Harner",
+  "url": "https://www.bitterzoet.com/event/emma-harner/",
+  "venue": "bitterzoet"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [
+   "clubnacht"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": "2026-10-03T23:30:00+02:00",
+  "end": null,
+  "extra": {},
+  "genres": [
+   "Hip-hop",
+   "R&B",
+   "Reggaeton"
+  ],
+  "image": "https://www.bitterzoet.com/wp-content/uploads/2024/04/WASSERETTE-LOGO-BACKGROUND.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 8.0,
+   "min_eur": 8.0,
+   "text": null
+  },
+  "room": null,
+  "source_id": "wasserette-48",
+  "start": "2026-10-03T23:30:00+02:00",
+  "status": "scheduled",
+  "subtitle": "Hip-hop, R&B, Reggaeton",
+  "support": [],
+  "ticket_url": "https://bitterzoet.weticket.io/wasserette-4/shop",
+  "title": "Wasserette",
+  "url": "https://www.bitterzoet.com/event/wasserette-48/",
+  "venue": "bitterzoet"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [
+   "concert"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": "2026-10-04T19:30:00+02:00",
+  "end": null,
+  "extra": {},
+  "genres": [
+   "Pop",
+   "Indie"
+  ],
+  "image": "https://www.bitterzoet.com/wp-content/uploads/2026/06/72581-21332-JudeYork-Once-Upon-a-Tour-Promo-Pic-querformat-1280x1469-1-1024x1024.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 23.7,
+   "min_eur": 23.7,
+   "text": null
+  },
+  "room": null,
+  "source_id": "jude-york-once-upon-a-tour",
+  "start": "2026-10-04T19:30:00+02:00",
+  "status": "scheduled",
+  "subtitle": "Pop, Indie",
+  "support": [],
+  "ticket_url": "https://tickets.paradiso.nl/2b056f3f72f241b9a4fca676235d478e",
+  "title": "Jude York – Once Upon a Tour",
+  "url": "https://www.bitterzoet.com/event/jude-york-once-upon-a-tour/",
+  "venue": "bitterzoet"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [
+   "concert"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": "2026-10-06T19:30:00+02:00",
+  "end": null,
+  "extra": {},
+  "genres": [
+   "RnB",
+   "Soul",
+   "Jazz"
+  ],
+  "image": "https://www.bitterzoet.com/wp-content/uploads/2026/06/b22de2e9-377d-4c8f-9a5a-31cf088e7171-1024x1024.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 25.7,
+   "min_eur": 25.7,
+   "text": null
+  },
+  "room": null,
+  "source_id": "tiana-major9",
+  "start": "2026-10-06T19:30:00+02:00",
+  "status": "scheduled",
+  "subtitle": "RnB, Soul, Jazz",
+  "support": [],
+  "ticket_url": "https://tickets.paradiso.nl/b168c016ba284cd6bb60c7762ba8f38a",
+  "title": "Tiana Major9",
+  "url": "https://www.bitterzoet.com/event/tiana-major9/",
+  "venue": "bitterzoet"
+ },
+ {
+  "availability": "unknown",
+  "categories": [
+   "concert"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": "2026-10-07T19:30:00+02:00",
+  "end": null,
+  "extra": {},
+  "genres": [
+   "Synth-pop",
+   "New wave",
+   "Tribute"
+  ],
+  "image": "https://www.bitterzoet.com/wp-content/uploads/2026/05/PetchMode_Promotion_Color07.10.24_16-SQ.jpg-1024x1024.jpeg",
+  "performers": [],
+  "price": null,
+  "room": null,
+  "source_id": "petch-mode-an-evening-with-depeche-mode-music",
+  "start": "2026-10-07T19:30:00+02:00",
+  "status": "postponed",
+  "subtitle": "Synth-pop, New wave, Tribute",
+  "support": [],
+  "ticket_url": null,
+  "title": "Petch Mode, An Evening With Depeche Mode Music",
+  "url": "https://www.bitterzoet.com/event/petch-mode-an-evening-with-depeche-mode-music/",
+  "venue": "bitterzoet"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [
+   "concert"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": "2026-10-08T19:30:00+02:00",
+  "end": null,
+  "extra": {},
+  "genres": [
+   "Angry Weepy Chaos Rock"
+  ],
+  "image": "https://www.bitterzoet.com/wp-content/uploads/2026/05/maryinthejunk-1024x1024.png",
+  "performers": [],
+  "price": {
+   "max_eur": 20.7,
+   "min_eur": 20.7,
+   "text": null
+  },
+  "room": null,
+  "source_id": "mary-in-the-junkyard",
+  "start": "2026-10-08T19:30:00+02:00",
+  "status": "scheduled",
+  "subtitle": "Angry Weepy Chaos Rock",
+  "support": [],
+  "ticket_url": "https://tickets.paradiso.nl/28f8c35a95b0494ba88f3ad10b2e402a",
+  "title": "mary in the junkyard",
+  "url": "https://www.bitterzoet.com/event/mary-in-the-junkyard/",
+  "venue": "bitterzoet"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [
+   "clubnacht"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": "2026-10-08T23:59:00+02:00",
+  "end": null,
+  "extra": {},
+  "genres": [
+   "Afrobeats",
+   "Dancehall",
+   "Bouyon",
+   "Bubbling",
+   "Baile Funk"
+  ],
+  "image": "https://www.bitterzoet.com/wp-content/uploads/2026/09/FLYER-BYN-Shail-Wijdenbosch-1.png",
+  "performers": [],
+  "price": {
+   "max_eur": 5.0,
+   "min_eur": 5.0,
+   "text": null
+  },
+  "room": null,
+  "source_id": "byond-normal-road-to-ade",
+  "start": "2026-10-08T23:59:00+02:00",
+  "status": "scheduled",
+  "subtitle": "Afrobeats, Dancehall, Bouyon, Bubbling, Baile Funk",
+  "support": [],
+  "ticket_url": "https://bitterzoet.weticket.io/byond-normal-road-to-ade",
+  "title": "BYOND NORMAL – ROAD TO ADE",
+  "url": "https://www.bitterzoet.com/event/byond-normal-road-to-ade/",
+  "venue": "bitterzoet"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [
+   "concert"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": "2026-10-09T19:30:00+02:00",
+  "end": null,
+  "extra": {},
+  "genres": [
+   "Disco Rap"
+  ],
+  "image": "https://www.bitterzoet.com/wp-content/uploads/2026/09/bungalow-collect__by_bitterzoet__cover_photo-01a086a9-0f11-7373-8916-05fd53a1b8b9-1024x1024.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 20.0,
+   "min_eur": 20.0,
+   "text": null
+  },
+  "room": null,
+  "source_id": "bungalow-collect",
+  "start": "2026-10-09T19:30:00+02:00",
+  "status": "scheduled",
+  "subtitle": "Disco Rap",
+  "support": [],
+  "ticket_url": "https://bitterzoet.weticket.io/bungalow-collect/shop",
+  "title": "Bungalow Collect",
+  "url": "https://www.bitterzoet.com/event/bungalow-collect/",
+  "venue": "bitterzoet"
+ },
+ {
+  "availability": "unknown",
+  "categories": [
+   "concert"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": "2026-10-10T19:30:00+02:00",
+  "end": null,
+  "extra": {},
+  "genres": [
+   "Rap",
+   "Pop"
+  ],
+  "image": "https://www.bitterzoet.com/wp-content/uploads/2026/05/BABS-VOORKEUR-Babs_LindeDorenbos-6693-1024x1024.jpg",
+  "performers": [],
+  "price": null,
+  "room": null,
+  "source_id": "babs",
+  "start": "2026-10-10T19:30:00+02:00",
+  "status": "cancelled",
+  "subtitle": "Rap, Pop",
+  "support": [],
+  "ticket_url": null,
+  "title": "Babs",
+  "url": "https://www.bitterzoet.com/event/babs/",
+  "venue": "bitterzoet"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [
+   "clubnacht"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": "2026-10-10T23:30:00+02:00",
+  "end": null,
+  "extra": {},
+  "genres": [
+   "Hip Hop",
+   "R&B",
+   "Throwbacks"
+  ],
+  "image": "https://www.bitterzoet.com/wp-content/uploads/2026/09/website-design-Do-you-remember.png",
+  "performers": [],
+  "price": {
+   "max_eur": 10.0,
+   "min_eur": 10.0,
+   "text": null
+  },
+  "room": null,
+  "source_id": "do-you-remember-21",
+  "start": "2026-10-10T23:30:00+02:00",
+  "status": "scheduled",
+  "subtitle": "Hip Hop, R&B, Throwbacks",
+  "support": [],
+  "ticket_url": "https://bitterzoet.weticket.io/do-you-remember-3/shop",
+  "title": "Do You Remember",
+  "url": "https://www.bitterzoet.com/event/do-you-remember-21/",
+  "venue": "bitterzoet"
+ },
+ {
+  "availability": "unknown",
+  "categories": [
+   "concert"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": "2026-10-13T19:30:00+02:00",
+  "end": null,
+  "extra": {},
+  "genres": [
+   "Afropop",
+   "Dancehall"
+  ],
+  "image": "https://www.bitterzoet.com/wp-content/uploads/2026/06/avatars-PFyvjqzhSE16eJTX-ZRRzjg-t1080x1080-1024x1024.jpg",
+  "performers": [],
+  "price": null,
+  "room": null,
+  "source_id": "moliy",
+  "start": "2026-10-13T19:30:00+02:00",
+  "status": "cancelled",
+  "subtitle": "Afropop, Dancehall",
+  "support": [],
+  "ticket_url": null,
+  "title": "Moliy",
+  "url": "https://www.bitterzoet.com/event/moliy/",
+  "venue": "bitterzoet"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [
+   "clubnacht"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": "2026-10-16T23:30:00+02:00",
+  "end": null,
+  "extra": {},
+  "genres": [
+   "Hip hop",
+   "RnB",
+   "Afro & Caribbean"
+  ],
+  "image": "https://www.bitterzoet.com/wp-content/uploads/2026/09/D736DA43-E28F-458B-AD89-E4BD418AA5B6-Jahwin-Rellum-DJ-Jahwin.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 8.0,
+   "min_eur": 8.0,
+   "text": null
+  },
+  "room": null,
+  "source_id": "roadtrip-jahwin-birthday-celebration",
+  "start": "2026-10-16T23:30:00+02:00",
+  "status": "scheduled",
+  "subtitle": "Hip hop, RnB, Afro & Caribbean",
+  "support": [],
+  "ticket_url": "https://bitterzoet.weticket.io/roadtrip-jahwin-birthday-celebration/shop",
+  "title": "ROADTRIP: Jahwin Birthday Celebration",
+  "url": "https://www.bitterzoet.com/event/roadtrip-jahwin-birthday-celebration/",
+  "venue": "bitterzoet"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [
+   "concert"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": "2026-10-17T19:30:00+02:00",
+  "end": null,
+  "extra": {},
+  "genres": [
+   "feelgood indiefolk"
+  ],
+  "image": "https://www.bitterzoet.com/wp-content/uploads/2026/04/PRESS-4_3-Carolina-Sierra-1-1024x1024.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 19.7,
+   "min_eur": 19.7,
+   "text": null
+  },
+  "room": null,
+  "source_id": "tay-oskee",
+  "start": "2026-10-17T19:30:00+02:00",
+  "status": "scheduled",
+  "subtitle": "feelgood indiefolk",
+  "support": [],
+  "ticket_url": "https://tickets.paradiso.nl/c039df9dd09048cdaf20cc344c6a6645",
+  "title": "Tay Oskee",
+  "url": "https://www.bitterzoet.com/event/tay-oskee/",
+  "venue": "bitterzoet"
+ },
+ {
+  "availability": "unknown",
+  "categories": [
+   "concert"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": "2026-10-18T19:00:00+02:00",
+  "end": null,
+  "extra": {},
+  "genres": [
+   "Pop",
+   "R&B"
+  ],
+  "image": "https://www.bitterzoet.com/wp-content/uploads/2026/09/eli.jpg",
+  "performers": [],
+  "price": null,
+  "room": null,
+  "source_id": "stage-girl-starring-eli-eu-uk-tour",
+  "start": "2026-10-18T19:00:00+02:00",
+  "status": "cancelled",
+  "subtitle": "Pop, R&B",
+  "support": [],
+  "ticket_url": null,
+  "title": "Stage Girl (Starring Eli) – EU/UK Tour",
+  "url": "https://www.bitterzoet.com/event/stage-girl-starring-eli-eu-uk-tour/",
+  "venue": "bitterzoet"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [
+   "clubnacht"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": "2026-10-21T23:00:00+02:00",
+  "end": null,
+  "extra": {},
+  "genres": [
+   "Afro",
+   "Gqom",
+   "Amapiano"
+  ],
+  "image": "https://www.bitterzoet.com/wp-content/uploads/2026/09/IMG_6504.png",
+  "performers": [],
+  "price": {
+   "max_eur": 25.0,
+   "min_eur": 25.0,
+   "text": null
+  },
+  "room": null,
+  "source_id": "vim-4",
+  "start": "2026-10-21T23:00:00+02:00",
+  "status": "scheduled",
+  "subtitle": "Afro, Gqom, Amapiano",
+  "support": [],
+  "ticket_url": "https://homeofvim.com/ade-2026?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAdGRleAUZHKFwZG9mAmZkaWQWUOmdME2E7cS3swSl8oABYXQkvWXGtGV4dG4DYWVtAjExAHNydGMGYXBwX2lkDzEyNDAyNDU3NDI4NzQxNAABp_gpE598VCWdxUHv4mcCusTYPGItx0xL2sTRe_JZ6Us_QGq6_2KkM0YhYdN9_aem_l_RZUXBKifHAhLHXjTvkWA",
+  "title": "VIM",
+  "url": "https://www.bitterzoet.com/event/vim-4/",
+  "venue": "bitterzoet"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [
+   "clubnacht"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": "2026-10-22T23:30:00+02:00",
+  "end": null,
+  "extra": {},
+  "genres": [
+   "Trap",
+   "Bass",
+   "Dubstep",
+   "House"
+  ],
+  "image": "https://www.bitterzoet.com/wp-content/uploads/2026/09/TEMP-FLYER5-Nils-_-Yellow-Claw-1024x1024.png",
+  "performers": [],
+  "price": {
+   "max_eur": 16.0,
+   "min_eur": 16.0,
+   "text": null
+  },
+  "room": null,
+  "source_id": "yellow-claw-friends",
+  "start": "2026-10-22T23:30:00+02:00",
+  "status": "scheduled",
+  "subtitle": "Trap, Bass, Dubstep, House",
+  "support": [],
+  "ticket_url": "https://bitterzoet.weticket.io/yellow-claw-friends/shop",
+  "title": "ADE – Yellow Claw & Friends",
+  "url": "https://www.bitterzoet.com/event/yellow-claw-friends/",
+  "venue": "bitterzoet"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [
+   "clubnacht"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": "2026-10-23T19:00:00+02:00",
+  "end": null,
+  "extra": {},
+  "genres": [],
+  "image": "https://www.bitterzoet.com/wp-content/uploads/2026/09/poster_feed1.png",
+  "performers": [],
+  "price": {
+   "max_eur": 25.0,
+   "min_eur": 25.0,
+   "text": null
+  },
+  "room": null,
+  "source_id": "ade-nems-x-unleashed",
+  "start": "2026-10-23T19:00:00+02:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://shop.weeztix.com/1faffb3f-3a44-4bcf-85a8-6820964c2dc1/tickets",
+  "title": "ADE – NEMS x UNLEASHED",
+  "url": "https://www.bitterzoet.com/event/ade-nems-x-unleashed/",
+  "venue": "bitterzoet"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [
+   "clubnacht"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": "2026-10-23T23:59:00+02:00",
+  "end": null,
+  "extra": {},
+  "genres": [
+   "Basshall",
+   "Shatta",
+   "Dancehall",
+   "Latin"
+  ],
+  "image": "https://www.bitterzoet.com/wp-content/uploads/2026/09/Basshall-ADE-Flyer-Wbsite-Giulio-Lofari.png",
+  "performers": [],
+  "price": {
+   "max_eur": 20.0,
+   "min_eur": 20.0,
+   "text": null
+  },
+  "room": null,
+  "source_id": "basshall-presents-back-to-the-origins",
+  "start": "2026-10-23T23:59:00+02:00",
+  "status": "scheduled",
+  "subtitle": "Basshall, Shatta, Dancehall, Latin",
+  "support": [],
+  "ticket_url": "https://sales.ticketing.cm.com/basshallpresentsbacktotheorigins/en-gb/e977a514-44a7-4de8-8fce-65841eaeb3be",
+  "title": "Basshall Presents: Back to the Origins",
+  "url": "https://www.bitterzoet.com/event/basshall-presents-back-to-the-origins/",
+  "venue": "bitterzoet"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [
+   "clubnacht"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": "2026-10-24T19:00:00+02:00",
+  "end": null,
+  "extra": {},
+  "genres": [
+   "House",
+   "Afro",
+   "Baile Funk",
+   "Edits/Remixes"
+  ],
+  "image": "https://www.bitterzoet.com/wp-content/uploads/2026/08/Flyer-Dave-Nunes.png",
+  "performers": [],
+  "price": {
+   "max_eur": 9.95,
+   "min_eur": 9.95,
+   "text": null
+  },
+  "room": null,
+  "source_id": "ade-dave-nunes-presents-diaspora-ade-special",
+  "start": "2026-10-24T19:00:00+02:00",
+  "status": "scheduled",
+  "subtitle": "House, Afro, Baile Funk, Edits/Remixes",
+  "support": [],
+  "ticket_url": "https://davenunes.com/diaspora-ade",
+  "title": "ADE – DAVE NUNES PRESENTS: DIASPORA ADE SPECIAL",
+  "url": "https://www.bitterzoet.com/event/ade-dave-nunes-presents-diaspora-ade-special/",
+  "venue": "bitterzoet"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [
+   "clubnacht"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": "2026-10-24T23:59:00+02:00",
+  "end": null,
+  "extra": {},
+  "genres": [
+   "Afro Caribbean"
+  ],
+  "image": "https://www.bitterzoet.com/wp-content/uploads/2026/08/IMG_0183.jpeg",
+  "performers": [],
+  "price": {
+   "max_eur": 25.0,
+   "min_eur": 25.0,
+   "text": null
+  },
+  "room": null,
+  "source_id": "ade-can-i-get-a-jea",
+  "start": "2026-10-24T23:59:00+02:00",
+  "status": "scheduled",
+  "subtitle": "Afro Caribbean",
+  "support": [],
+  "ticket_url": "https://bitterzoet.weticket.io/can-i-get-a-jea",
+  "title": "ADE – JEA Presents: Can I Get A JEA",
+  "url": "https://www.bitterzoet.com/event/ade-can-i-get-a-jea/",
+  "venue": "bitterzoet"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [
+   "clubnacht"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": "2026-10-25T18:00:00+01:00",
+  "end": null,
+  "extra": {},
+  "genres": [
+   "ADE"
+  ],
+  "image": "https://www.bitterzoet.com/wp-content/uploads/2026/08/IMG_0183.jpeg",
+  "performers": [],
+  "price": {
+   "max_eur": 25.0,
+   "min_eur": 25.0,
+   "text": null
+  },
+  "room": null,
+  "source_id": "jea-presents-can-i-get-a-jea-night-2",
+  "start": "2026-10-25T18:00:00+01:00",
+  "status": "scheduled",
+  "subtitle": "ADE",
+  "support": [],
+  "ticket_url": "https://bitterzoet.weticket.io/ade-can-i-get-a-jea-night-2",
+  "title": "ADE – JEA presents: Can i get a JEA! (Night 2)",
+  "url": "https://www.bitterzoet.com/event/jea-presents-can-i-get-a-jea-night-2/",
+  "venue": "bitterzoet"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [
+   "clubnacht"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": "2026-10-25T23:00:00+01:00",
+  "end": null,
+  "extra": {},
+  "genres": [
+   "Afro",
+   "Amapiano",
+   "Suriname Sounds"
+  ],
+  "image": "https://www.bitterzoet.com/wp-content/uploads/2026/09/melvee-x-afrolosjes-insta-post-1080-x-1350-website-1024x1024.png",
+  "performers": [],
+  "price": {
+   "max_eur": 10.0,
+   "min_eur": 10.0,
+   "text": null
+  },
+  "room": null,
+  "source_id": "afrolosjes-x-gowtu-x-melvee-friends",
+  "start": "2026-10-25T23:00:00+01:00",
+  "status": "scheduled",
+  "subtitle": "Afro, Amapiano, Suriname Sounds",
+  "support": [],
+  "ticket_url": "https://bitterzoet.weticket.io/afrolosjes-gowtu-melv-ee-friends/shop",
+  "title": "Afrolosjes × Gowtu × Melv!ee & Friends",
+  "url": "https://www.bitterzoet.com/event/afrolosjes-x-gowtu-x-melvee-friends/",
+  "venue": "bitterzoet"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [
+   "concert"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": "2026-10-26T19:30:00+01:00",
+  "end": null,
+  "extra": {},
+  "genres": [
+   "Alt-RnB",
+   "Neo-Soul",
+   "Grunge"
+  ],
+  "image": "https://www.bitterzoet.com/wp-content/uploads/2026/06/Natanya-website-1780829516-1024x630.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 22.7,
+   "min_eur": 22.7,
+   "text": null
+  },
+  "room": null,
+  "source_id": "natanya-the-attitude-tour",
+  "start": "2026-10-26T19:30:00+01:00",
+  "status": "scheduled",
+  "subtitle": "Alt-RnB, Neo-Soul, Grunge",
+  "support": [],
+  "ticket_url": "https://tickets.paradiso.nl/b92b46206a154d499249de28759a43b4",
+  "title": "Natanya – THE ATTITUDE TOUR",
+  "url": "https://www.bitterzoet.com/event/natanya-the-attitude-tour/",
+  "venue": "bitterzoet"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [
+   "clubnacht"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": "2026-10-29T23:30:00+01:00",
+  "end": null,
+  "extra": {},
+  "genres": [],
+  "image": "https://www.bitterzoet.com/wp-content/uploads/2023/03/BZ_Logo_Geel-blac-2.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 10.0,
+   "min_eur": 10.0,
+   "text": null
+  },
+  "room": null,
+  "source_id": "a-yelloween-story-pirates-of-the-caribbean",
+  "start": "2026-10-29T23:30:00+01:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://bitterzoet.weticket.io/a-yelloween-story-pirates-of-the-caribbean/shop",
+  "title": "A Yelloween Story: Pirates of the Caribbean",
+  "url": "https://www.bitterzoet.com/event/a-yelloween-story-pirates-of-the-caribbean/",
+  "venue": "bitterzoet"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [
+   "clubnacht"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": "2026-10-30T19:30:00+01:00",
+  "end": null,
+  "extra": {},
+  "genres": [],
+  "image": "https://www.bitterzoet.com/wp-content/uploads/2023/03/BZ_Logo_Geel-blac-2.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 10.0,
+   "min_eur": 10.0,
+   "text": null
+  },
+  "room": null,
+  "source_id": "hells-favorite-girls-by-jealousy-girls-girls-girls",
+  "start": "2026-10-30T19:30:00+01:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://bitterzoet.weticket.io/hells-favorite-girls-by-jealousy-girls-girls-girls/shop",
+  "title": "Hells Favorite Girls / by Jealousy & Girls Girls Girls",
+  "url": "https://www.bitterzoet.com/event/hells-favorite-girls-by-jealousy-girls-girls-girls/",
+  "venue": "bitterzoet"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [
+   "clubnacht"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": "2026-10-31T23:30:00+01:00",
+  "end": null,
+  "extra": {},
+  "genres": [],
+  "image": "https://www.bitterzoet.com/wp-content/uploads/2023/03/BZ_Logo_Geel-blac-2.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 10.0,
+   "min_eur": 10.0,
+   "text": null
+  },
+  "room": null,
+  "source_id": "a-bitter-halloween",
+  "start": "2026-10-31T23:30:00+01:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://bitterzoet.weticket.io/a-bitter-halloween/shop",
+  "title": "A Bitter Halloween",
+  "url": "https://www.bitterzoet.com/event/a-bitter-halloween/",
+  "venue": "bitterzoet"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [
+   "concert"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": "2026-11-01T19:00:00+01:00",
+  "end": null,
+  "extra": {},
+  "genres": [
+   "Indie Rock",
+   "Ambient Pop",
+   "Psychedelic Folk"
+  ],
+  "image": "https://www.bitterzoet.com/wp-content/uploads/2026/05/SW-LOMA-TOUR-DATES-1080-x-1350-px-pdf-1024x1024.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 26.2,
+   "min_eur": 26.2,
+   "text": null
+  },
+  "room": null,
+  "source_id": "shearwater-loma-any-kind",
+  "start": "2026-11-01T19:00:00+01:00",
+  "status": "scheduled",
+  "subtitle": "Indie Rock, Ambient Pop, Psychedelic Folk",
+  "support": [],
+  "ticket_url": "https://tickets.paradiso.nl/f13078d3f10a4a229fdee5d942935e2d",
+  "title": "Shearwater + Loma + Any Kind",
+  "url": "https://www.bitterzoet.com/event/shearwater-loma-any-kind/",
+  "venue": "bitterzoet"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [
+   "concert"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": "2026-11-03T19:00:00+01:00",
+  "end": null,
+  "extra": {},
+  "genres": [
+   "Turkse folk",
+   "indie",
+   "akoestische pop"
+  ],
+  "image": "https://www.bitterzoet.com/wp-content/uploads/2026/03/images-3.jpeg",
+  "performers": [],
+  "price": {
+   "max_eur": 39.0,
+   "min_eur": 39.0,
+   "text": null
+  },
+  "room": null,
+  "source_id": "kalben-land-of-lost-poets-tour",
+  "start": "2026-11-03T19:00:00+01:00",
+  "status": "scheduled",
+  "subtitle": "Turkse folk, indie, akoestische pop",
+  "support": [],
+  "ticket_url": "https://tickets.paradiso.nl/f533740cd58f49ebb232503591db3b56/",
+  "title": "Kalben ‘Land of Lost Poets’ Tour",
+  "url": "https://www.bitterzoet.com/event/kalben-land-of-lost-poets-tour/",
+  "venue": "bitterzoet"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [
+   "concert"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": "2026-11-05T19:30:00+01:00",
+  "end": null,
+  "extra": {},
+  "genres": [
+   "elektronica",
+   "artpop",
+   "afropop",
+   "saudade en alternatieve Latin"
+  ],
+  "image": "https://www.bitterzoet.com/wp-content/uploads/2026/02/Ao-band-2025_4799_HR_©AlexanderPopelier-1-1024x1024.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 21.7,
+   "min_eur": 21.7,
+   "text": null
+  },
+  "room": null,
+  "source_id": "ao",
+  "start": "2026-11-05T19:30:00+01:00",
+  "status": "scheduled",
+  "subtitle": "elektronica, artpop, afropop, saudade en alternatieve Latin",
+  "support": [],
+  "ticket_url": "https://tickets.paradiso.nl/33e5be3e0e1d4b0b97fa5030c36d6f97/offsale",
+  "title": "Ão",
+  "url": "https://www.bitterzoet.com/event/ao/",
+  "venue": "bitterzoet"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [
+   "clubnacht"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": "2026-11-06T19:00:00+01:00",
+  "end": null,
+  "extra": {},
+  "genres": [
+   "90's Hits"
+  ],
+  "image": "https://www.bitterzoet.com/wp-content/uploads/2026/09/Banner-Blauw-–-37-1024x900.png",
+  "performers": [],
+  "price": {
+   "max_eur": 16.0,
+   "min_eur": 16.0,
+   "text": null
+  },
+  "room": null,
+  "source_id": "90s-now-2",
+  "start": "2026-11-06T19:00:00+01:00",
+  "status": "scheduled",
+  "subtitle": "90's Hits",
+  "support": [],
+  "ticket_url": "https://bitterzoet.weticket.io/90-s-now/shop",
+  "title": "90’s NOW",
+  "url": "https://www.bitterzoet.com/event/90s-now-2/",
+  "venue": "bitterzoet"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [
+   "clubnacht"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": "2026-11-06T23:30:00+01:00",
+  "end": null,
+  "extra": {},
+  "genres": [
+   "UK Garage",
+   "UK Funky",
+   "Club Edits",
+   "Bubbling and more"
+  ],
+  "image": "https://www.bitterzoet.com/wp-content/uploads/2026/09/03-Main-Gibrael-Mustamu-1024x1024.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 12.0,
+   "min_eur": 12.0,
+   "text": null
+  },
+  "room": null,
+  "source_id": "shufflemode-uk-edition",
+  "start": "2026-11-06T23:30:00+01:00",
+  "status": "scheduled",
+  "subtitle": "UK Garage, UK Funky, Club Edits, Bubbling and more",
+  "support": [],
+  "ticket_url": "https://bitterzoet.weticket.io/shufflemode-uk-edition-2/shop",
+  "title": "Shufflemode (UK EDITION)",
+  "url": "https://www.bitterzoet.com/event/shufflemode-uk-edition/",
+  "venue": "bitterzoet"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [
+   "concert"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": "2026-11-07T19:30:00+01:00",
+  "end": null,
+  "extra": {},
+  "genres": [
+   "Rock",
+   "Grunge",
+   "Folk"
+  ],
+  "image": "https://www.bitterzoet.com/wp-content/uploads/2026/05/3-vertical-Photo-SSS-Edward-Freije-1024x1024.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 19.7,
+   "min_eur": 19.7,
+   "text": null
+  },
+  "room": null,
+  "source_id": "subterranean-street-society",
+  "start": "2026-11-07T19:30:00+01:00",
+  "status": "scheduled",
+  "subtitle": "Rock, Grunge, Folk",
+  "support": [],
+  "ticket_url": "https://tickets.paradiso.nl/2a1e564abf174b34adfcc72ba9ab53e0/",
+  "title": "Subterranean Street Society",
+  "url": "https://www.bitterzoet.com/event/subterranean-street-society/",
+  "venue": "bitterzoet"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [
+   "clubnacht"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": "2026-11-07T23:30:00+01:00",
+  "end": null,
+  "extra": {},
+  "genres": [
+   "Hip-hop",
+   "R&B",
+   "Reggaeton"
+  ],
+  "image": "https://www.bitterzoet.com/wp-content/uploads/2024/04/WASSERETTE-LOGO-BACKGROUND.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 8.0,
+   "min_eur": 8.0,
+   "text": null
+  },
+  "room": null,
+  "source_id": "wasserette-50",
+  "start": "2026-11-07T23:30:00+01:00",
+  "status": "scheduled",
+  "subtitle": "Hip-hop, R&B, Reggaeton",
+  "support": [],
+  "ticket_url": "https://bitterzoet.weticket.io/wasserette-6/shop",
+  "title": "Wasserette",
+  "url": "https://www.bitterzoet.com/event/wasserette-50/",
+  "venue": "bitterzoet"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [
+   "concert"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": "2026-11-08T19:30:00+01:00",
+  "end": null,
+  "extra": {},
+  "genres": [
+   "Synthpop Circus"
+  ],
+  "image": "https://www.bitterzoet.com/wp-content/uploads/2026/05/Approved-Press-Photo-2026-1024x1024.jpeg",
+  "performers": [],
+  "price": {
+   "max_eur": 21.7,
+   "min_eur": 21.7,
+   "text": null
+  },
+  "room": null,
+  "source_id": "haute-freddy",
+  "start": "2026-11-08T19:30:00+01:00",
+  "status": "scheduled",
+  "subtitle": "Synthpop Circus",
+  "support": [],
+  "ticket_url": "https://tickets.paradiso.nl/c42f7cd305f04e7096a54dfcd718915e",
+  "title": "Haute & Freddy",
+  "url": "https://www.bitterzoet.com/event/haute-freddy/",
+  "venue": "bitterzoet"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [
+   "concert"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": "2026-11-09T19:30:00+01:00",
+  "end": null,
+  "extra": {},
+  "genres": [
+   "Cumbia",
+   "Electropop",
+   "Dembow"
+  ],
+  "image": "https://www.bitterzoet.com/wp-content/uploads/2026/06/Lido-Pimienta-website-1781605442-1024x630.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 20.7,
+   "min_eur": 20.7,
+   "text": null
+  },
+  "room": null,
+  "source_id": "lido-pimienta",
+  "start": "2026-11-09T19:30:00+01:00",
+  "status": "scheduled",
+  "subtitle": "Cumbia, Electropop, Dembow",
+  "support": [],
+  "ticket_url": "https://tickets.paradiso.nl/57c0e775d6bb40d1a6392187b24c4412",
+  "title": "Lido Pimienta",
+  "url": "https://www.bitterzoet.com/event/lido-pimienta/",
+  "venue": "bitterzoet"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [
+   "concert"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": "2026-11-12T19:30:00+01:00",
+  "end": null,
+  "extra": {},
+  "genres": [
+   "Alt-RnB",
+   "Dancehall",
+   "UK Bass"
+  ],
+  "image": "https://www.bitterzoet.com/wp-content/uploads/2026/07/Alewya-website-1784108682.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 21.7,
+   "min_eur": 21.7,
+   "text": null
+  },
+  "room": null,
+  "source_id": "alewya",
+  "start": "2026-11-12T19:30:00+01:00",
+  "status": "scheduled",
+  "subtitle": "Alt-RnB, Dancehall, UK Bass",
+  "support": [],
+  "ticket_url": "https://tickets.paradiso.nl/8fe79298b66044249581e6595e48030d",
+  "title": "Alewya",
+  "url": "https://www.bitterzoet.com/event/alewya/",
+  "venue": "bitterzoet"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [
+   "clubnacht"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": "2026-11-13T19:00:00+01:00",
+  "end": null,
+  "extra": {},
+  "genres": [
+   "Hip Hop",
+   "R&B",
+   "Dancehall"
+  ],
+  "image": "https://www.bitterzoet.com/wp-content/uploads/2026/09/Bitterzoet-omslag-lo-res-David-Winter-1024x720.png",
+  "performers": [],
+  "price": {
+   "max_eur": 11.0,
+   "min_eur": 11.0,
+   "text": null
+  },
+  "room": null,
+  "source_id": "juicy-early-edition-27",
+  "start": "2026-11-13T19:00:00+01:00",
+  "status": "scheduled",
+  "subtitle": "Hip Hop, R&B, Dancehall",
+  "support": [],
+  "ticket_url": "https://bitterzoet.weticket.io/juicy-early-edition-27/shop",
+  "title": "Juicy | Early Edition | 27+",
+  "url": "https://www.bitterzoet.com/event/juicy-early-edition-27/",
+  "venue": "bitterzoet"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [
+   "concert"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": "2026-11-14T19:30:00+01:00",
+  "end": null,
+  "extra": {},
+  "genres": [
+   "Electronic",
+   "Chill",
+   "Uplifting"
+  ],
+  "image": "https://www.bitterzoet.com/wp-content/uploads/2026/05/banner-1024x936.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 20.7,
+   "min_eur": 20.7,
+   "text": null
+  },
+  "room": null,
+  "source_id": "heylucas",
+  "start": "2026-11-14T19:30:00+01:00",
+  "status": "scheduled",
+  "subtitle": "Electronic, Chill, Uplifting",
+  "support": [],
+  "ticket_url": "https://tickets.paradiso.nl/6153b09526f341aa81885ce8b300b8ba",
+  "title": "heylucas",
+  "url": "https://www.bitterzoet.com/event/heylucas/",
+  "venue": "bitterzoet"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [
+   "concert"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": "2026-11-15T19:30:00+01:00",
+  "end": null,
+  "extra": {},
+  "genres": [
+   "Indie-Alternative",
+   "Britpop",
+   "UK Rap"
+  ],
+  "image": "https://www.bitterzoet.com/wp-content/uploads/2026/06/img-db7a80f0-1024x1024.webp",
+  "performers": [],
+  "price": {
+   "max_eur": 21.2,
+   "min_eur": 21.2,
+   "text": null
+  },
+  "room": null,
+  "source_id": "mustbejohn",
+  "start": "2026-11-15T19:30:00+01:00",
+  "status": "scheduled",
+  "subtitle": "Indie-Alternative, Britpop, UK Rap",
+  "support": [],
+  "ticket_url": "https://tickets.paradiso.nl/c9755ef89183474daeab17fc78167db0",
+  "title": "mustbejohn",
+  "url": "https://www.bitterzoet.com/event/mustbejohn/",
+  "venue": "bitterzoet"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [
+   "concert"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": "2026-11-17T19:30:00+01:00",
+  "end": null,
+  "extra": {},
+  "genres": [
+   "alt pop",
+   "r&b",
+   "elektronic music"
+  ],
+  "image": "https://www.bitterzoet.com/wp-content/uploads/2026/03/Unknown-8.jpeg",
+  "performers": [],
+  "price": {
+   "max_eur": 24.7,
+   "min_eur": 24.7,
+   "text": null
+  },
+  "room": null,
+  "source_id": "chinchilla",
+  "start": "2026-11-17T19:30:00+01:00",
+  "status": "scheduled",
+  "subtitle": "alt pop, r&b, elektronic music",
+  "support": [],
+  "ticket_url": "https://tickets.paradiso.nl/b86a4ceecd17440481feaf99550c78d1/",
+  "title": "CHINCHILLA",
+  "url": "https://www.bitterzoet.com/event/chinchilla/",
+  "venue": "bitterzoet"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [
+   "concert"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": "2026-11-18T19:30:00+01:00",
+  "end": null,
+  "extra": {},
+  "genres": [
+   "Jazz"
+  ],
+  "image": "https://www.bitterzoet.com/wp-content/uploads/2026/06/18_NOV_1080x1080-1024x1024.png",
+  "performers": [],
+  "price": {
+   "max_eur": 18.0,
+   "min_eur": 18.0,
+   "text": null
+  },
+  "room": null,
+  "source_id": "raffaele-casarano",
+  "start": "2026-11-18T19:30:00+01:00",
+  "status": "scheduled",
+  "subtitle": "Jazz",
+  "support": [],
+  "ticket_url": "https://bitterzoet.weticket.io/raffaele-casarano/shop",
+  "title": "Raffaele Casarano",
+  "url": "https://www.bitterzoet.com/event/raffaele-casarano/",
+  "venue": "bitterzoet"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [
+   "concert"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": "2026-11-19T19:30:00+01:00",
+  "end": null,
+  "extra": {},
+  "genres": [
+   "Electropop",
+   "Synth",
+   "Indie"
+  ],
+  "image": "https://www.bitterzoet.com/wp-content/uploads/2026/05/CHARLOT-2026.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 21.2,
+   "min_eur": 21.2,
+   "text": null
+  },
+  "room": null,
+  "source_id": "charlot-2",
+  "start": "2026-11-19T19:30:00+01:00",
+  "status": "scheduled",
+  "subtitle": "Electropop, Synth, Indie",
+  "support": [],
+  "ticket_url": "https://tickets.paradiso.nl/8391ebf01a0440e2ace6ab84424ee3cf",
+  "title": "CHARLOT",
+  "url": "https://www.bitterzoet.com/event/charlot-2/",
+  "venue": "bitterzoet"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [
+   "concert"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": "2026-11-21T19:30:00+01:00",
+  "end": null,
+  "extra": {},
+  "genres": [
+   "trippy",
+   "r&b",
+   "soul"
+  ],
+  "image": "https://www.bitterzoet.com/wp-content/uploads/2026/03/images-4.jpeg",
+  "performers": [],
+  "price": {
+   "max_eur": 27.7,
+   "min_eur": 27.7,
+   "text": null
+  },
+  "room": null,
+  "source_id": "trixie-whitley",
+  "start": "2026-11-21T19:30:00+01:00",
+  "status": "scheduled",
+  "subtitle": "trippy, r&b, soul",
+  "support": [],
+  "ticket_url": "https://tickets.paradiso.nl/3c466a4ad873455093d99e355d1ddeef/",
+  "title": "Trixie Whitley",
+  "url": "https://www.bitterzoet.com/event/trixie-whitley/",
+  "venue": "bitterzoet"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [
+   "concert"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": "2026-11-22T19:30:00+01:00",
+  "end": null,
+  "extra": {},
+  "genres": [
+   "Punk",
+   "Hard Rock",
+   "Pub Rock."
+  ],
+  "image": "https://www.bitterzoet.com/wp-content/uploads/2026/06/DougalGorman-Landscape3-1024x1024.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 21.7,
+   "min_eur": 21.7,
+   "text": null
+  },
+  "room": null,
+  "source_id": "c-o-f-f-i-n",
+  "start": "2026-11-22T19:30:00+01:00",
+  "status": "scheduled",
+  "subtitle": "Punk, Hard Rock, Pub Rock.",
+  "support": [],
+  "ticket_url": "https://tickets.paradiso.nl/e9bb0b49a1724eeea9eb9e29387b58c8",
+  "title": "C.O.F.F.I.N",
+  "url": "https://www.bitterzoet.com/event/c-o-f-f-i-n/",
+  "venue": "bitterzoet"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [
+   "concert"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": "2026-11-24T19:30:00+01:00",
+  "end": null,
+  "extra": {},
+  "genres": [
+   "Indie Rock",
+   "Pop",
+   "Singer-songwriter"
+  ],
+  "image": "https://www.bitterzoet.com/wp-content/uploads/2026/06/5cb903b3-4ddf-41cf-b3a3-441bd860224e-1024x1024.webp",
+  "performers": [],
+  "price": {
+   "max_eur": 22.01,
+   "min_eur": 22.01,
+   "text": null
+  },
+  "room": null,
+  "source_id": "chloe-slater",
+  "start": "2026-11-24T19:30:00+01:00",
+  "status": "scheduled",
+  "subtitle": "Indie Rock, Pop, Singer-songwriter",
+  "support": [],
+  "ticket_url": "https://tickets.paradiso.nl/f34647d862b1444f9bd98f212ea6dd1b",
+  "title": "Chloe Slater",
+  "url": "https://www.bitterzoet.com/event/chloe-slater/",
+  "venue": "bitterzoet"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [
+   "concert"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": "2026-11-26T19:30:00+01:00",
+  "end": null,
+  "extra": {},
+  "genres": [
+   "Indiepop",
+   "Post-punk",
+   "Folk"
+  ],
+  "image": "https://www.bitterzoet.com/wp-content/uploads/2026/06/channels4_profile.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 17.0,
+   "min_eur": 17.0,
+   "text": null
+  },
+  "room": null,
+  "source_id": "seb-lowe-kate-couriel",
+  "start": "2026-11-26T19:30:00+01:00",
+  "status": "scheduled",
+  "subtitle": "Indiepop, Post-punk, Folk",
+  "support": [],
+  "ticket_url": "https://tickets.paradiso.nl/26e88f34dbfd418ab6e5256625d0807b",
+  "title": "Seb Lowe + Kate Couriel",
+  "url": "https://www.bitterzoet.com/event/seb-lowe-kate-couriel/",
+  "venue": "bitterzoet"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [
+   "concert"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": "2026-11-28T19:30:00+01:00",
+  "end": null,
+  "extra": {},
+  "genres": [
+   "NRG",
+   "Electronic Dance Music",
+   "Hypnagogic Pop"
+  ],
+  "image": "https://www.bitterzoet.com/wp-content/uploads/2026/06/IMG_0591-1024x861.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 20.7,
+   "min_eur": 20.7,
+   "text": null
+  },
+  "room": null,
+  "source_id": "mietze-conte",
+  "start": "2026-11-28T19:30:00+01:00",
+  "status": "scheduled",
+  "subtitle": "NRG, Electronic Dance Music, Hypnagogic Pop",
+  "support": [],
+  "ticket_url": "https://tickets.paradiso.nl/69e499fcb80748e780c51939d025a76a",
+  "title": "Mietze Conte",
+  "url": "https://www.bitterzoet.com/event/mietze-conte/",
+  "venue": "bitterzoet"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [
+   "concert"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": "2026-11-29T19:30:00+01:00",
+  "end": null,
+  "extra": {},
+  "genres": [
+   "Soul",
+   "RnB",
+   "Jazz"
+  ],
+  "image": "https://www.bitterzoet.com/wp-content/uploads/2026/05/MT_Jones©DHB-039-1024x1024.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 21.2,
+   "min_eur": 21.2,
+   "text": null
+  },
+  "room": null,
+  "source_id": "mt-jones",
+  "start": "2026-11-29T19:30:00+01:00",
+  "status": "scheduled",
+  "subtitle": "Soul, RnB, Jazz",
+  "support": [],
+  "ticket_url": "https://tickets.paradiso.nl/195dbf9af53c493e9f198c2447cd1d9a",
+  "title": "MT Jones",
+  "url": "https://www.bitterzoet.com/event/mt-jones/",
+  "venue": "bitterzoet"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [
+   "concert"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": "2026-12-03T19:30:00+01:00",
+  "end": null,
+  "extra": {},
+  "genres": [
+   "Folk with a queer twist"
+  ],
+  "image": "https://www.bitterzoet.com/wp-content/uploads/2026/06/Kevin-Atwater-Banner-1781511128-1024x630.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 21.7,
+   "min_eur": 21.7,
+   "text": null
+  },
+  "room": null,
+  "source_id": "kevin-atwater",
+  "start": "2026-12-03T19:30:00+01:00",
+  "status": "scheduled",
+  "subtitle": "Folk with a queer twist",
+  "support": [],
+  "ticket_url": "https://tickets.paradiso.nl/3ac0bfa6443d47cabc50f27425aac17f",
+  "title": "Kevin Atwater",
+  "url": "https://www.bitterzoet.com/event/kevin-atwater/",
+  "venue": "bitterzoet"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [
+   "concert"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": "2026-12-05T19:30:00+01:00",
+  "end": null,
+  "extra": {},
+  "genres": [
+   "Rap",
+   "Rock",
+   "Metal"
+  ],
+  "image": "https://www.bitterzoet.com/wp-content/uploads/2026/07/senser-1024x1024.png",
+  "performers": [],
+  "price": {
+   "max_eur": 27.99,
+   "min_eur": 27.99,
+   "text": null
+  },
+  "room": null,
+  "source_id": "senser",
+  "start": "2026-12-05T19:30:00+01:00",
+  "status": "scheduled",
+  "subtitle": "Rap, Rock, Metal",
+  "support": [],
+  "ticket_url": "https://bitterzoet.weticket.io/senser/shop",
+  "title": "Senser",
+  "url": "https://www.bitterzoet.com/event/senser/",
+  "venue": "bitterzoet"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [
+   "clubnacht"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": "2026-12-05T23:30:00+01:00",
+  "end": null,
+  "extra": {},
+  "genres": [
+   "Hip-hop",
+   "R&B",
+   "Reggaeton"
+  ],
+  "image": "https://www.bitterzoet.com/wp-content/uploads/2024/04/WASSERETTE-LOGO-BACKGROUND.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 8.0,
+   "min_eur": 8.0,
+   "text": null
+  },
+  "room": null,
+  "source_id": "wasserette-49",
+  "start": "2026-12-05T23:30:00+01:00",
+  "status": "scheduled",
+  "subtitle": "Hip-hop, R&B, Reggaeton",
+  "support": [],
+  "ticket_url": "https://bitterzoet.weticket.io/wasserette-5/shop",
+  "title": "Wasserette",
+  "url": "https://www.bitterzoet.com/event/wasserette-49/",
+  "venue": "bitterzoet"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [
+   "concert"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": "2026-12-07T19:30:00+01:00",
+  "end": null,
+  "extra": {},
+  "genres": [
+   "indierock"
+  ],
+  "image": "https://www.bitterzoet.com/wp-content/uploads/2026/03/images-1.jpeg",
+  "performers": [],
+  "price": {
+   "max_eur": 21.7,
+   "min_eur": 21.7,
+   "text": null
+  },
+  "room": null,
+  "source_id": "kids-with-buns",
+  "start": "2026-12-07T19:30:00+01:00",
+  "status": "scheduled",
+  "subtitle": "indierock",
+  "support": [],
+  "ticket_url": "https://tickets.paradiso.nl/735f86f66d614a2a88db391e68f9382e/offsale",
+  "title": "Kids With Buns",
+  "url": "https://www.bitterzoet.com/event/kids-with-buns/",
+  "venue": "bitterzoet"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [
+   "concert"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": "2026-12-12T19:30:00+01:00",
+  "end": null,
+  "extra": {},
+  "genres": [
+   "EDM",
+   "Beatboxing"
+  ],
+  "image": "https://www.bitterzoet.com/wp-content/uploads/2026/05/beardyman-1024x1024.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 23.7,
+   "min_eur": 23.7,
+   "text": null
+  },
+  "room": null,
+  "source_id": "beardyman",
+  "start": "2026-12-12T19:30:00+01:00",
+  "status": "scheduled",
+  "subtitle": "EDM, Beatboxing",
+  "support": [],
+  "ticket_url": "https://tickets.paradiso.nl/66c2f2cb7f474f388f2c2a8ad7a9155b",
+  "title": "Beardyman",
+  "url": "https://www.bitterzoet.com/event/beardyman/",
+  "venue": "bitterzoet"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [
+   "concert"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": "2026-12-13T19:30:00+01:00",
+  "end": null,
+  "extra": {},
+  "genres": [
+   "Alt R&B"
+  ],
+  "image": "https://www.bitterzoet.com/wp-content/uploads/2026/09/xillan.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 17.5,
+   "min_eur": 17.5,
+   "text": null
+  },
+  "room": null,
+  "source_id": "xillan",
+  "start": "2026-12-13T19:30:00+01:00",
+  "status": "scheduled",
+  "subtitle": "Alt R&B",
+  "support": [],
+  "ticket_url": "https://tickets.paradiso.nl/0279eac7984141269237d66a62b761f4",
+  "title": "Xillan",
+  "url": "https://www.bitterzoet.com/event/xillan/",
+  "venue": "bitterzoet"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [
+   "concert"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": "2027-02-13T19:30:00+01:00",
+  "end": null,
+  "extra": {},
+  "genres": [
+   "Pop",
+   "Indie",
+   "Alt"
+  ],
+  "image": "https://www.bitterzoet.com/wp-content/uploads/2026/09/flower.webp",
+  "performers": [],
+  "price": {
+   "max_eur": 23.7,
+   "min_eur": 23.7,
+   "text": null
+  },
+  "room": null,
+  "source_id": "flowerovlove",
+  "start": "2027-02-13T19:30:00+01:00",
+  "status": "scheduled",
+  "subtitle": "Pop, Indie, Alt",
+  "support": [],
+  "ticket_url": "https://tickets.paradiso.nl/5825bc006964409689ecbe001daefe09",
+  "title": "flowerovlove",
+  "url": "https://www.bitterzoet.com/event/flowerovlove/",
+  "venue": "bitterzoet"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [
+   "concert"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": "2027-02-27T19:30:00+01:00",
+  "end": null,
+  "extra": {},
+  "genres": [
+   "Synth-Pop",
+   "Electronic"
+  ],
+  "image": "https://www.bitterzoet.com/wp-content/uploads/2026/09/images.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 23.7,
+   "min_eur": 23.7,
+   "text": null
+  },
+  "room": null,
+  "source_id": "lewis-ofman",
+  "start": "2027-02-27T19:30:00+01:00",
+  "status": "scheduled",
+  "subtitle": "Synth-Pop, Electronic",
+  "support": [],
+  "ticket_url": "https://tickets.paradiso.nl/418d93033fb84aa394f9e9d170083840",
+  "title": "Lewis OfMan",
+  "url": "https://www.bitterzoet.com/event/lewis-ofman/",
+  "venue": "bitterzoet"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [
+   "concert"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": "2027-03-10T19:30:00+01:00",
+  "end": null,
+  "extra": {},
+  "genres": [
+   "Indie",
+   "Alternative"
+  ],
+  "image": "https://www.bitterzoet.com/wp-content/uploads/2026/08/Press-Shot-st-lundi-1024x1024.jpeg",
+  "performers": [],
+  "price": {
+   "max_eur": 30.0,
+   "min_eur": 30.0,
+   "text": null
+  },
+  "room": null,
+  "source_id": "st-lundi",
+  "start": "2027-03-10T19:30:00+01:00",
+  "status": "scheduled",
+  "subtitle": "Indie, Alternative",
+  "support": [],
+  "ticket_url": "https://bitterzoet.weticket.io/st-lundi",
+  "title": "St. Lundi",
+  "url": "https://www.bitterzoet.com/event/st-lundi/",
+  "venue": "bitterzoet"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [
+   "concert"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": "2027-03-22T19:30:00+01:00",
+  "end": null,
+  "extra": {},
+  "genres": [
+   "R&B",
+   "Indie",
+   "Pop"
+  ],
+  "image": "https://www.bitterzoet.com/wp-content/uploads/2026/09/97ae1b15-94a8-4e6c-9e89-ac35357562b21789078698-01a08d66-7a16-73ce-99f1-129925c9b81b-1024x984.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 30.0,
+   "min_eur": 30.0,
+   "text": null
+  },
+  "room": null,
+  "source_id": "admt-2",
+  "start": "2027-03-22T19:30:00+01:00",
+  "status": "scheduled",
+  "subtitle": "R&B, Indie, Pop",
+  "support": [],
+  "ticket_url": "https://bitterzoet.weticket.io/admt/shop",
+  "title": "ADMT",
+  "url": "https://www.bitterzoet.com/event/admt-2/",
+  "venue": "bitterzoet"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [
+   "concert"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": "2027-04-06T19:30:00+02:00",
+  "end": null,
+  "extra": {},
+  "genres": [
+   "Folk",
+   "Indie"
+  ],
+  "image": "https://www.bitterzoet.com/wp-content/uploads/2026/07/darren-kielly-look3-film-29-1776430754.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 22.7,
+   "min_eur": 22.7,
+   "text": null
+  },
+  "room": null,
+  "source_id": "darren-kiely",
+  "start": "2027-04-06T19:30:00+02:00",
+  "status": "scheduled",
+  "subtitle": "Folk, Indie",
+  "support": [],
+  "ticket_url": "https://tickets.paradiso.nl/ce3cfbbe5a84477894fe86b2d4654912",
+  "title": "Darren Kiely",
+  "url": "https://www.bitterzoet.com/event/darren-kiely/",
+  "venue": "bitterzoet"
+ }
+]

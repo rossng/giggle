@@ -1,0 +1,36 @@
+<html><body>
+<div class="event-program"><a class="event-program__name" href="https://patronaat.nl/event/daft-funk-01-10-26/"></a><div class="event-program__status-tag is_sold_out"></div></div>
+<div class="event-program"><a class="event-program__name" href="https://patronaat.nl/event/chefspecial-phil-haarlem-vinyl-festival-02-10-26/"></a><div class="event-program__status-tag is_sold_out"></div></div>
+<div class="event-program"><a class="event-program__name" href="https://patronaat.nl/event/bente-phil-haarlem-vinyl-festival-04-10-26/"></a><div class="event-program__status-tag is_sold_out"></div></div>
+<div class="event-program"><a class="event-program__name" href="https://patronaat.nl/event/eloi-youssef-sint-bavokerk-07-10-26/"></a><div class="event-program__status-tag is_sold_out"></div></div>
+<div class="event-program"><a class="event-program__name" href="https://patronaat.nl/event/eloi-youssef-08-10-26/"></a><div class="event-program__status-tag is_sold_out"></div></div>
+<div class="event-program"><a class="event-program__name" href="https://patronaat.nl/event/kitty-daisy-lewis-support-11-10-26/"></a><div class="event-program__status-tag last_tickets"></div></div>
+<div class="event-program"><a class="event-program__name" href="https://patronaat.nl/event/beach-boys-best-15-10-26/"></a><div class="event-program__status-tag is_sold_out"></div></div>
+<div class="event-program"><a class="event-program__name" href="https://patronaat.nl/event/yuna-10-10-26/"></a><div class="event-program__status-tag just_announced"></div></div>
+<div class="event-program"><a class="event-program__name" href="https://patronaat.nl/event/frazey-ford-support-29-10-26/"></a><div class="event-program__status-tag is_sold_out"></div></div>
+<div class="event-program"><a class="event-program__name" href="https://patronaat.nl/event/timezone-next-trip-30-10-26/"></a><div class="event-program__status-tag is_sold_out"></div></div>
+<div class="event-program"><a class="event-program__name" href="https://patronaat.nl/event/rita-dakota-04-11-26/"></a><div class="event-program__status-tag just_announced"></div></div>
+<div class="event-program"><a class="event-program__name" href="https://patronaat.nl/event/chasing-abbey-06-11-26/"></a><div class="event-program__status-tag is_sold_out"></div></div>
+<div class="event-program"><a class="event-program__name" href="https://patronaat.nl/event/nieuwe-oogst-kaya-maartje-06-11-26/"></a><div class="event-program__status-tag is_sold_out"></div></div>
+<div class="event-program"><a class="event-program__name" href="https://patronaat.nl/event/the-dire-straits-experience-07-11-26/"></a><div class="event-program__status-tag last_tickets"></div></div>
+<div class="event-program"><a class="event-program__name" href="https://patronaat.nl/event/froukje-support-14-11-26/"></a><div class="event-program__status-tag is_sold_out"></div></div>
+<div class="event-program"><a class="event-program__name" href="https://patronaat.nl/event/froukje-support-15-11-26/"></a><div class="event-program__status-tag is_sold_out"></div></div>
+<div class="event-program"><a class="event-program__name" href="https://patronaat.nl/event/dave-mccredie-support-19-11-26/"></a><div class="event-program__status-tag last_tickets"></div></div>
+<div class="event-program"><a class="event-program__name" href="https://patronaat.nl/event/emmy-darc-20-11-26/"></a><div class="event-program__status-tag last_tickets"></div></div>
+<div class="event-program"><a class="event-program__name" href="https://patronaat.nl/event/zer00s-heroes-21-11-26/"></a><div class="event-program__status-tag just_announced"></div></div>
+<div class="event-program"><a class="event-program__name" href="https://patronaat.nl/event/platina-22-11-26/"></a><div class="event-program__status-tag just_announced"></div></div>
+<div class="event-program"><a class="event-program__name" href="https://patronaat.nl/event/wesghost-25-11-26/"></a><div class="event-program__status-tag last_tickets"></div></div>
+<div class="event-program"><a class="event-program__name" href="https://patronaat.nl/event/davina-michelle-support-26-11-26/"></a><div class="event-program__status-tag is_sold_out"></div></div>
+<div class="event-program"><a class="event-program__name" href="https://patronaat.nl/event/ooes-27-11-26/"></a><div class="event-program__status-tag just_announced"></div></div>
+<div class="event-program"><a class="event-program__name" href="https://patronaat.nl/event/the-scene-support-27-11-26/"></a><div class="event-program__status-tag last_tickets"></div></div>
+<div class="event-program"><a class="event-program__name" href="https://patronaat.nl/event/nathan-ball-support-27-11-26/"></a><div class="event-program__status-tag last_tickets"></div></div>
+<div class="event-program"><a class="event-program__name" href="https://patronaat.nl/event/jimmy-car-phil-03-12-26/"></a><div class="event-program__status-tag is_sold_out"></div></div>
+<div class="event-program"><a class="event-program__name" href="https://patronaat.nl/event/waterfront-bonno-getz-03-12-26/"></a><div class="event-program__status-tag just_announced"></div></div>
+<div class="event-program"><a class="event-program__name" href="https://patronaat.nl/event/nervy-06-12-26/"></a><div class="event-program__status-tag just_announced"></div></div>
+<div class="event-program"><a class="event-program__name" href="https://patronaat.nl/event/turmion-katilot-18-02-27/"></a><div class="event-program__status-tag just_announced"></div></div>
+<div class="event-program"><a class="event-program__name" href="https://patronaat.nl/event/m-o-b-presents-de-hardheid-eskalatie-19-02-27/"></a><div class="event-program__status-tag is_sold_out"></div></div>
+<div class="event-program"><a class="event-program__name" href="https://patronaat.nl/event/chefspecial-rider-27-02-27/"></a><div class="event-program__status-tag just_announced"></div></div>
+<div class="event-program"><a class="event-program__name" href="https://patronaat.nl/event/chefspecial-rider-28-02-27/"></a><div class="event-program__status-tag just_announced"></div></div>
+<div class="event-program"><a class="event-program__name" href="https://patronaat.nl/event/king-buffalo-04-03-27/"></a><div class="event-program__status-tag just_announced"></div></div>
+<div class="event-program"><a class="event-program__name" href="https://patronaat.nl/event/personal-trainer-support-18-03-27/"></a><div class="event-program__status-tag just_announced"></div></div>
+</body></html>

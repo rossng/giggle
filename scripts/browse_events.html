@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>giggle · scraped events</title>
+<style>
+:root{--bg:#f6f6f8;--fg:#1b1726;--mute:#666073;--line:#dddbe4;--card:#fff;--accent:#a95a00;
+  --bad:#b0281f;--warn:#9a5c00;--good:#1d7a4c;color-scheme:light dark}
+@media (prefers-color-scheme:dark){:root{--bg:#111016;--fg:#ece8f4;--mute:#a49eb6;--line:#2f2a3c;
+  --card:#1a1722;--accent:#ffb547;--bad:#ff7b70;--warn:#ffb547;--good:#5fcb90}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:14px/1.45 system-ui,sans-serif}
+header{position:sticky;top:0;z-index:2;background:var(--bg);border-bottom:1px solid var(--line);
+  padding:12px 16px;display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+header h1{font-size:16px;margin:0 12px 0 0}
+input,select{font:inherit;padding:5px 8px;border:1px solid var(--line);border-radius:6px;
+  background:var(--card);color:var(--fg)}
+#q{min-width:240px;flex:1}
+select{max-width:220px}
+#count{color:var(--mute);margin-left:auto;font-variant-numeric:tabular-nums}
+main{padding:12px 16px}
+details.summary{margin-bottom:12px}
+details.summary summary{cursor:pointer;color:var(--mute)}
+table{border-collapse:collapse;width:100%;background:var(--card);border:1px solid var(--line)}
+th,td{padding:6px 8px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{position:sticky;top:57px;background:var(--card);font-size:12px;color:var(--mute);
+  text-transform:uppercase;letter-spacing:.04em;cursor:pointer;white-space:nowrap}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+.cov td{font-variant-numeric:tabular-nums}
+.lo{color:var(--bad)}.mid{color:var(--warn)}.hi{color:var(--good)}
+tr.ev{cursor:pointer}
+tr.ev:hover{background:color-mix(in srgb,var(--accent) 8%,transparent)}
+tr.detail td{background:var(--bg);font-size:13px}
+tr.detail pre{white-space:pre-wrap;margin:6px 0 0;font:12px ui-monospace,monospace;color:var(--mute)}
+.when{white-space:nowrap;font-variant-numeric:tabular-nums}
+.sub{color:var(--mute);font-size:12.5px}
+.tag{display:inline-block;font-size:11.5px;padding:1px 6px;margin:1px 2px 1px 0;border-radius:9px;
+  border:1px solid var(--line);color:var(--mute)}
+.pill{font-size:11.5px;font-weight:600;white-space:nowrap}
+.sold_out,.cancelled{color:var(--bad)}.few_left,.postponed,.moved{color:var(--warn)}.free{color:var(--good)}
+a{color:var(--accent)}
+</style>
+</head>
+<body>
+<header>
+  <h1>Scraped events</h1>
+  <input id="q" type="search" placeholder="Search title, artists, description…" autofocus>
+  <select id="venue"><option value="">All venues</option></select>
+  <select id="city"><option value="">All cities</option></select>
+  <select id="genre"><option value="">All genres</option></select>
+  <select id="month"><option value="">All months</option></select>
+  <select id="avail"><option value="">Any status</option></select>
+  <span id="count"></span>
+</header>
+<main>
+  <details class="summary"><summary id="sumtitle"></summary><table class="cov" id="coverage"></table></details>
+  <table>
+    <thead><tr>
+      <th data-sort="start">When</th><th data-sort="venue">Venue</th><th data-sort="title">Event</th>
+      <th>Genres</th><th class="num" data-sort="price">Price</th><th>Status</th><th>Links</th>
+    </tr></thead>
+    <tbody id="rows"></tbody>
+  </table>
+</main>
+<script id="data" type="application/json">__DATA__</script>
+<script>
+const {events, coverage, fields, generated} = JSON.parse(document.getElementById("data").textContent);
+const $ = (id) => document.getElementById(id);
+const el = (tag, props = {}, ...kids) => {
+  const n = Object.assign(document.createElement(tag), props);
+  for (const k of kids) if (k != null) n.append(k);
+  return n;
+};
+const fmtDate = (iso) => iso ? new Date(iso).toLocaleString("en-GB",
+  {weekday: "short", day: "numeric", month: "short", year: "numeric", hour: "2-digit", minute: "2-digit",
+   timeZone: "Europe/Amsterdam"}) : "";
+const priceOf = (e) => e.price && e.price.min_eur != null ? e.price.min_eur : null;
+const priceText = (e) => {
+  if (!e.price) return "";
+  const {min_eur: lo, max_eur: hi, text} = e.price;
+  if (lo == null) return text || "";
+  const eur = (x) => "€" + (Number.isInteger(x) ? x : x.toFixed(2));
+  if (hi == null || hi === lo) return (hi == null ? "from " : "") + eur(lo);
+  return `${eur(lo)}–${eur(hi)}`;
+};
+const monthKey = (e) => e.start.slice(0, 7);
+
+// Filter options
+const fill = (id, values, label = (v) => v) => {
+  for (const v of values) $(id).append(el("option", {value: v, textContent: label(v)}));
+};
+const uniq = (xs) => [...new Set(xs)].sort();
+fill("venue", uniq(events.map((e) => e.venue)));
+fill("city", uniq(events.map((e) => e.city).filter(Boolean)));
+fill("genre", uniq(events.flatMap((e) => e.genres.map((g) => g.toLowerCase()))));
+fill("month", uniq(events.map(monthKey)), (m) =>
+  new Date(m + "-01").toLocaleString("en-GB", {month: "long", year: "numeric"}));
+fill("avail", uniq(events.flatMap((e) => [e.availability, e.status]).filter((s) => s && s !== "unknown" && s !== "scheduled")));
+
+// Coverage summary
+$("sumtitle").textContent =
+  `${events.length} events from ${coverage.length} venues · generated ${generated} · field coverage per venue`;
+$("coverage").append(el("tr", {}, el("th", {textContent: "Venue"}), el("th", {className: "num", textContent: "Events"}),
+  ...fields.map((f) => el("th", {className: "num", textContent: f}))));
+for (const c of coverage) {
+  $("coverage").append(el("tr", {}, el("td", {textContent: c.venue}), el("td", {className: "num", textContent: c.n}),
+    ...fields.map((f) => {
+      const p = c.pct[f];
+      return el("td", {className: "num " + (p < 30 ? "lo" : p < 80 ? "mid" : "hi"), textContent: p + "%"});
+    })));
+}
+
+// Table
+let sortKey = "start", sortDir = 1;
+const sorters = {
+  start: (e) => e.start, venue: (e) => e.venue + e.start, title: (e) => e.title.toLowerCase(),
+  price: (e) => priceOf(e) ?? Infinity,
+};
+function row(e) {
+  const tr = el("tr", {className: "ev"});
+  const status = [e.status !== "scheduled" ? e.status : null, e.availability !== "unknown" ? e.availability : null]
+    .filter(Boolean);
+  const who = [...e.performers, ...e.support.map((s) => "+ " + s)].join(", ");
+  tr.append(
+    el("td", {className: "when", textContent: fmtDate(e.start)},
+      e.doors && e.doors !== e.start ? el("div", {className: "sub", textContent: "doors " + e.doors.slice(11, 16)}) : null),
+    el("td", {}, e.venue, e.room ? el("div", {className: "sub", textContent: e.room}) : null,
+      e.city ? el("div", {className: "sub", textContent: e.city}) : null),
+    el("td", {}, el("strong", {textContent: e.title}),
+      e.subtitle ? el("div", {className: "sub", textContent: e.subtitle}) : null,
+      who ? el("div", {className: "sub", textContent: who}) : null),
+    el("td", {}, ...e.genres.map((g) => el("span", {className: "tag", textContent: g})),
+      ...e.categories.map((c) => el("span", {className: "tag", textContent: "[" + c + "]"}))),
+    el("td", {className: "num", textContent: priceText(e)}),
+    el("td", {}, ...status.map((s) => el("div", {className: "pill " + s, textContent: s.replaceAll("_", " ")}))),
+    el("td", {}, e.url ? el("a", {href: e.url, target: "_blank", rel: "noopener", textContent: "page"}) : null,
+      e.url && e.ticket_url ? " · " : null,
+      e.ticket_url ? el("a", {href: e.ticket_url, target: "_blank", rel: "noopener", textContent: "tickets"}) : null),
+  );
+  tr.addEventListener("click", (ev) => {
+    if (ev.target.tagName === "A") return;
+    const next = tr.nextElementSibling;
+    if (next && next.classList.contains("detail")) { next.remove(); return; }
+    const {description, ...rest} = e;
+    const td = el("td", {colSpan: 7}, description ? el("div", {textContent: description}) : null,
+      el("pre", {textContent: JSON.stringify(rest, null, 1)}));
+    tr.after(el("tr", {className: "detail"}, td));
+  });
+  return tr;
+}
+function render() {
+  const q = $("q").value.trim().toLowerCase();
+  const [venue, city, genre, month, avail] = ["venue", "city", "genre", "month", "avail"].map((id) => $(id).value);
+  const shown = events.filter((e) =>
+    (!venue || e.venue === venue) && (!city || e.city === city) && (!month || monthKey(e) === month) &&
+    (!genre || e.genres.some((g) => g.toLowerCase() === genre)) &&
+    (!avail || e.availability === avail || e.status === avail) &&
+    (!q || e._search.includes(q)));
+  const key = sorters[sortKey];
+  shown.sort((a, b) => (key(a) < key(b) ? -1 : key(a) > key(b) ? 1 : 0) * sortDir);
+  $("rows").replaceChildren(...shown.slice(0, 1500).map(row));
+  $("count").textContent = `${shown.length} of ${events.length}` + (shown.length > 1500 ? " (first 1500 shown)" : "");
+}
+for (const e of events) {
+  e._search = [e.title, e.subtitle, e.room, e.description, ...e.performers, ...e.support, ...e.genres]
+    .filter(Boolean).join(" ").toLowerCase();
+}
+for (const id of ["q", "venue", "city", "genre", "month", "avail"]) $(id).addEventListener("input", render);
+document.querySelectorAll("th[data-sort]").forEach((th) => th.addEventListener("click", () => {
+  sortDir = sortKey === th.dataset.sort ? -sortDir : 1;
+  sortKey = th.dataset.sort;
+  render();
+}));
+render();
+</script>
+</body>
+</html>

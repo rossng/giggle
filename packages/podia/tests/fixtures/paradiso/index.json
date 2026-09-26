@@ -1,0 +1,64 @@
+{
+  "0b219549eb5dd5a0": {
+    "body": null,
+    "content_type": "application/javascript; charset=UTF-8",
+    "file": "0b219549eb5dd5a0.txt",
+    "method": "GET",
+    "params": null,
+    "status": 200,
+    "url": "https://www.paradiso.nl/_next/static/chunks/3584-fc72161c7317ab28.js"
+  },
+  "22283dbe6db431a1": {
+    "body": {
+      "query": "\nquery program($since: String, $size: Int, $after: [String]) {\n  program(site: \"paradisoNederlands\", size: $size, gteStartDateTime: $since, searchAfter: $after) {\n    events {\n      id url title subtitle startDateTime doorsOpen supportAct soldOut eventStatus\n      ticketUrl text importantInfo extras sort\n      location { title }\n      areas { label }\n      subBrand { title }\n      contentCategory { title }\n      relatedArtists { title }\n      image { type desktop }\n    }\n  }\n}\n",
+      "variables": {
+        "after": null,
+        "since": "2026-09-26",
+        "size": 100
+      }
+    },
+    "content_type": "application/json",
+    "file": "22283dbe6db431a1.json",
+    "method": "POST",
+    "params": null,
+    "status": 200,
+    "url": "https://knwxh8dmh1.execute-api.eu-central-1.amazonaws.com/graphql"
+  },
+  "536571d16cb80c2d": {
+    "body": {
+      "query": "\nquery program($since: String, $size: Int, $after: [String]) {\n  program(site: \"paradisoNederlands\", size: $size, gteStartDateTime: $since, searchAfter: $after) {\n    events {\n      id url title subtitle startDateTime doorsOpen supportAct soldOut eventStatus\n      ticketUrl text importantInfo extras sort\n      location { title }\n      areas { label }\n      subBrand { title }\n      contentCategory { title }\n      relatedArtists { title }\n      image { type desktop }\n    }\n  }\n}\n",
+      "variables": {
+        "after": [
+          "1792261800000",
+          "2815916"
+        ],
+        "since": "2026-09-26",
+        "size": 100
+      }
+    },
+    "content_type": "application/json",
+    "file": "536571d16cb80c2d.json",
+    "method": "POST",
+    "params": null,
+    "status": 200,
+    "url": "https://knwxh8dmh1.execute-api.eu-central-1.amazonaws.com/graphql"
+  },
+  "6f985f5902157b72": {
+    "body": null,
+    "content_type": "application/javascript; charset=UTF-8",
+    "file": "6f985f5902157b72.txt",
+    "method": "GET",
+    "params": null,
+    "status": 200,
+    "url": "https://www.paradiso.nl/_next/static/chunks/app/%5Blocale%5D/(program)/layout-abdd819c81bc4eab.js"
+  },
+  "9ed4d703cd909d12": {
+    "body": null,
+    "content_type": "text/html; charset=utf-8",
+    "file": "9ed4d703cd909d12.txt",
+    "method": "GET",
+    "params": null,
+    "status": 200,
+    "url": "https://www.paradiso.nl/"
+  }
+}

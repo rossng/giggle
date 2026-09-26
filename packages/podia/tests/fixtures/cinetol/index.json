@@ -1,0 +1,101 @@
+{
+  "3b5ad1466cad9da9": {
+    "body": null,
+    "content_type": "text/html; charset=utf-8",
+    "file": "3b5ad1466cad9da9.txt",
+    "method": "GET",
+    "params": null,
+    "status": 200,
+    "url": "https://www.cinetol.nl/events/dormsessions-2"
+  },
+  "433b4912ae63e3b1": {
+    "body": null,
+    "content_type": "text/html; charset=utf-8",
+    "file": "433b4912ae63e3b1.txt",
+    "method": "GET",
+    "params": null,
+    "status": 200,
+    "url": "https://www.cinetol.nl/events/alex-apolline"
+  },
+  "72f2501064ee0187": {
+    "body": null,
+    "content_type": "text/html; charset=utf-8",
+    "file": "72f2501064ee0187.txt",
+    "method": "GET",
+    "params": null,
+    "status": 200,
+    "url": "https://www.cinetol.nl/programma"
+  },
+  "731dad35c0afc158": {
+    "body": null,
+    "content_type": "text/html; charset=utf-8",
+    "file": "731dad35c0afc158.txt",
+    "method": "GET",
+    "params": null,
+    "status": 200,
+    "url": "https://www.cinetol.nl/events/my-new-band-believe"
+  },
+  "76d2bde1bf051487": {
+    "body": null,
+    "content_type": "text/html; charset=utf-8",
+    "file": "76d2bde1bf051487.txt",
+    "method": "GET",
+    "params": null,
+    "status": 200,
+    "url": "https://www.cinetol.nl/events/afar"
+  },
+  "8d26c5064da3d90f": {
+    "body": null,
+    "content_type": "text/html; charset=utf-8",
+    "file": "8d26c5064da3d90f.txt",
+    "method": "GET",
+    "params": null,
+    "status": 200,
+    "url": "https://www.cinetol.nl/events/cafe-palestina-6"
+  },
+  "9d631b99e15d3cbe": {
+    "body": null,
+    "content_type": "text/html; charset=utf-8",
+    "file": "9d631b99e15d3cbe.txt",
+    "method": "GET",
+    "params": null,
+    "status": 200,
+    "url": "https://www.cinetol.nl/events/deep-forest"
+  },
+  "ab685c6a6518b591": {
+    "body": null,
+    "content_type": "text/html; charset=utf-8",
+    "file": "ab685c6a6518b591.txt",
+    "method": "GET",
+    "params": null,
+    "status": 200,
+    "url": "https://www.cinetol.nl/events/tommy-lyon"
+  },
+  "bf705738405baf08": {
+    "body": null,
+    "content_type": "text/html; charset=utf-8",
+    "file": "bf705738405baf08.txt",
+    "method": "GET",
+    "params": null,
+    "status": 200,
+    "url": "https://www.cinetol.nl/events/shadowfall-festival"
+  },
+  "da395e05bd060a05": {
+    "body": null,
+    "content_type": "text/html; charset=utf-8",
+    "file": "da395e05bd060a05.txt",
+    "method": "GET",
+    "params": null,
+    "status": 200,
+    "url": "https://www.cinetol.nl/events/skinflower"
+  },
+  "e720fe4d2d7defd4": {
+    "body": null,
+    "content_type": "text/html; charset=utf-8",
+    "file": "e720fe4d2d7defd4.txt",
+    "method": "GET",
+    "params": null,
+    "status": 200,
+    "url": "https://www.cinetol.nl/events/furya-2"
+  }
+}
