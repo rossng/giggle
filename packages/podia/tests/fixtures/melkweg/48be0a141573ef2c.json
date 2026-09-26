@@ -1,0 +1,85 @@
+{
+ "pageProps": {
+  "pageData": {
+   "id": "27971",
+   "attributes": {
+    "title": "Polyphonic Orchestra",
+    "url": "/nl/agenda/polyphonic-26-09-2026",
+    "metadata": {
+     "name": "Polyphonic Orchestra",
+     "tags": [
+      "12",
+      "195"
+     ],
+     "intro": "<p><strong>Van de mainstage op Rampage tot AFAS Live en terug naar de MAX in Melkweg! 2026 belooft een belangrijk jaar te worden voor Polyphonic. Het ensemble heeft als missie om te bewijzen dat drum &amp; bass voor iedereen is.</strong></p><p>De afgelopen jaren groeide drum &amp; bass-ensemble Polyphonic uit tot een ware sensatie. Hun energieke live-optredens en speelse marching-band-streken werden door miljoenen mensen bekeken op Instagram, terwijl hun innovatieve live-interpretaties van drum &amp; bass-anthems werden gedeeld door onder anderen Sub Focus, Bou en Netsky.&nbsp;</p><p>Polyphonic bestaat uit EDM-vocalist Diandra Faye (100M+ streams), Liquicity-MC Wolf Pax en een team van gerenommeerde muzikanten. Hun liveshows voelen als een speelse mix van tien genres, volledig doordrenkt met de rauwe energie van drum &amp; bass. De shows worden niet alleen gewaardeerd door drum &amp; bass-fans, maar spreken een veel breder publiek aan, met zowel eigen materiaal als verrassende klassiekers van onder anderen Chase &amp; Status, Sub Focus, Mozart, Eminem en Avicii.</p>",
+     "genres": [
+      "52"
+     ],
+     "status": "Gepubliceerd",
+     "profile": "Concert",
+     "cineville": false,
+     "locations": [
+      "MAX"
+     ],
+     "starttime": "2026-09-26T17:00:00.000000Z",
+     "ticketLink": "https://www.ticketmaster.nl/event/1110031271?brand=nl_melkweg",
+     "yesplan_id": "14650451713-1762874346",
+     "headerColor": "dark",
+     "projectCode": "260926PO",
+     "announced_at": "2026-02-09T11:00:00.000000Z",
+     "ticketPrices": {
+      "ticket1": {
+       "show": true,
+       "label": "regular",
+       "price": "€ 28,75",
+       "primary": true,
+       "membership_required": true
+      },
+      "ticket2": {
+       "show": false,
+       "primary": false,
+       "membership_required": false
+      },
+      "ticket3": {
+       "show": false,
+       "primary": false,
+       "membership_required": false
+      },
+      "ticket4": {
+       "show": false,
+       "primary": false,
+       "membership_required": false
+      },
+      "ticket5": {
+       "show": false,
+       "primary": false,
+       "membership_required": false
+      },
+      "ticket6": {
+       "show": false,
+       "primary": false,
+       "membership_required": false
+      }
+     },
+     "timeschedule": "19:00 Doors\r\n20:00 Polyphonic Orchestra",
+     "private_event": false,
+     "relatedEvents": [
+      "41159",
+      "41029",
+      "41076",
+      "28134"
+     ],
+     "relatedThemes": [
+      "1170"
+     ],
+     "start_presale": "2026-02-11T11:00:00.000000Z",
+     "free_for_members": false,
+     "yesplan_group_id": "12559694849-1788438168",
+     "description_source": "artists",
+     "free_for_subbacultcha": false,
+     "free_for_we_are_public": false
+    }
+   }
+  }
+ }
+}
