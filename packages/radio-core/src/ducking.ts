@@ -24,6 +24,14 @@ export interface DuckingOptions {
   timers?: Timers;
 }
 
+/** Per-announcement overrides for `duck`. */
+export interface DuckOptions {
+  /** Volume while speaking, 0–100, instead of the controller's (0 = music paused). */
+  duckTo?: number;
+  /** Fade-back length in ms instead of the controller's `rampMs` (a slower fade-in). */
+  restoreMs?: number;
+}
+
 /** Speaks, resolving when done. Should stop early (and resolve) when `signal` aborts. */
 export type Speak<T> = (signal: AbortSignal) => Promise<T>;
 
@@ -86,20 +94,32 @@ export class DuckingController {
    * undefined if a newer announcement took over before this one started speaking.
    * If `speak` rejects, the volume is still restored and the error rethrown.
    */
-  async duck<T>(speak: Speak<T>): Promise<T | undefined> {
+  async duck<T>(speak: Speak<T>, options: DuckOptions = {}): Promise<T | undefined> {
     const generation = ++this.#generation;
     this.#abort?.abort();
     const abort = new AbortController();
     this.#abort = abort;
     if (this.#base === null) this.#base = clampVolume(this.#player.getVolume());
+    const duckTo = clampVolume(options.duckTo ?? this.#duckTo);
+    const restoreMs = Math.max(0, options.restoreMs ?? this.#rampMs);
 
-    await this.#rampTo(Math.min(this.#duckTo, this.#base));
+    await this.#rampTo(Math.min(duckTo, this.#base));
     if (generation !== this.#generation) return undefined;
     try {
       return await speak(abort.signal);
     } finally {
-      if (generation === this.#generation) await this.#restore(generation);
+      if (generation === this.#generation) await this.#restore(generation, restoreMs);
     }
+  }
+
+  /**
+   * While ducked, fades the music to `volume` (never above the listener's volume),
+   * e.g. bringing a track up under the last words of an announcement. The fade back
+   * after speaking still goes to the listener's volume. No-op when not ducked.
+   */
+  async level(volume: number, rampMs: number = this.#rampMs): Promise<void> {
+    if (this.#base === null) return;
+    await this.#rampTo(Math.min(clampVolume(volume), this.#base), rampMs);
   }
 
   /** Stops any announcement at once and puts the volume straight back. */
@@ -114,9 +134,9 @@ export class DuckingController {
     }
   }
 
-  async #restore(generation: number): Promise<void> {
+  async #restore(generation: number, rampMs: number): Promise<void> {
     this.#abort = null;
-    await this.#rampTo(this.#base ?? this.volume);
+    await this.#rampTo(this.#base ?? this.volume, rampMs);
     if (generation !== this.#generation || this.#base === null) return;
     // The listener may have changed the volume during the fade.
     if (clampVolume(this.#player.getVolume()) !== this.#base) this.#player.setVolume(this.#base);
@@ -132,12 +152,12 @@ export class DuckingController {
   }
 
   /** Fades to `target`; a newer fade cuts this one short (resolving it). */
-  #rampTo(target: number): Promise<void> {
+  #rampTo(target: number, rampMs: number = this.#rampMs): Promise<void> {
     this.#stopRamp();
     const from = clampVolume(this.#player.getVolume());
     const to = clampVolume(target);
     if (from === to) return Promise.resolve();
-    if (this.#rampMs === 0) {
+    if (rampMs === 0) {
       this.#player.setVolume(to);
       return Promise.resolve();
     }
@@ -151,10 +171,10 @@ export class DuckingController {
           if (this.#ramp === ramp) this.#ramp = null;
           resolve();
         } else {
-          ramp.handle = this.#timers.setTimeout(tick, this.#rampMs / this.#steps);
+          ramp.handle = this.#timers.setTimeout(tick, rampMs / this.#steps);
         }
       };
-      ramp.handle = this.#timers.setTimeout(tick, this.#rampMs / this.#steps);
+      ramp.handle = this.#timers.setTimeout(tick, rampMs / this.#steps);
       this.#ramp = ramp;
     });
   }
