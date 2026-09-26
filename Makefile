@@ -1,6 +1,7 @@
 # Local development. `make help` lists targets.
 
-.PHONY: help sync test lint format data data-offline browse radio fetch browse-raw web-dev web-build
+.PHONY: help sync test lint format data data-offline browse radio fetch browse-raw web-dev web-build \
+	worker-migrate worker-dev worker-test
 
 help:
 	@grep -E "^[a-z-]+:.*## " $(MAKEFILE_LIST) | sed "s/:.*## /\t/"
@@ -20,6 +21,7 @@ lint: ## check lint, formatting and types
 	pnpm --dir web check
 	pnpm --dir web lint
 	pnpm --dir packages/radio-core typecheck
+	pnpm --dir worker typecheck
 
 format: ## fix lint and formatting
 	uv run --group dev ruff check --fix packages pipeline scripts
@@ -57,5 +59,15 @@ fetch: ## raw podia output, unfiltered, into data/events/<venue>.jsonl (~10 min)
 browse-raw: ## build data/raw.html from `make fetch` output and open it
 	uv run python scripts/browse_events.py data/events/*.jsonl -o data/raw.html
 	open data/raw.html
+
+worker-migrate: ## apply worker/migrations to the local dev D1 (in worker/.wrangler/)
+	pnpm --dir worker exec wrangler d1 migrations apply DB --local --env dev
+
+worker-dev: worker-migrate ## run the Worker on 127.0.0.1:8787: dev identity, local D1, serves web/build
+	mkdir -p web/build
+	pnpm --dir worker exec wrangler dev --env dev --ip 127.0.0.1 --port 8787
+
+worker-test: ## run the Worker's tests (workerd + local D1)
+	pnpm --dir worker test
 
 # To come: `make dev` (wrangler dev + vite dev).

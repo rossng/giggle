@@ -1,0 +1,3 @@
+# Local D1 state and wrangler caches (`wrangler dev`, `wrangler d1 ... --local`).
+.wrangler/
+.dev.vars*
