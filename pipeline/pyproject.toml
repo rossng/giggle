@@ -5,6 +5,8 @@ description = "giggle's nightly build: collect, filter and publish gigs"
 license = "BlueOak-1.0.0"
 requires-python = ">=3.12"
 dependencies = [
+    "lameenc>=1.8.4",
+    "numpy>=2.5.3",
     "podia",
     "ytmusicapi>=1.12.3",
 ]
@@ -12,6 +14,12 @@ dependencies = [
 [project.scripts]
 giggle-build = "giggle_pipeline.build:main"
 giggle-issues = "giggle_pipeline.issues:main"
+giggle-voice-samples = "giggle_pipeline.voice:samples_main"
+
+[project.optional-dependencies]
+voice = [
+    "kokoro-onnx>=0.6.1",
+]
 
 [tool.uv.sources]
 podia = { workspace = true }
