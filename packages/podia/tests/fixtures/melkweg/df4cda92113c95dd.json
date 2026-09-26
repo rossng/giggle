@@ -1,0 +1,86 @@
+{
+ "pageProps": {
+  "pageData": {
+   "id": "28144",
+   "attributes": {
+    "title": "mike.",
+    "url": "/nl/agenda/mike-08-10-2026",
+    "metadata": {
+     "name": "mike.",
+     "tags": [
+      "644",
+      "292"
+     ],
+     "intro": "<p>Met ruim tien jaar aan een onafhankelijke carrière en een voortdurend evoluerende sound waarin invloeden uit vele genres samenkomen, brengt mike. (voor de laatste keer) zijn unieke vibe naar Amsterdam. Met een trouwe schare fans, een grassroots-aanpak en een catalogus die al miljarden streams heeft behaald, weet mike. zich al jaren steeds opnieuw te hervinden. Dit wordt zijn laatste tour, aangezien hij zijn aanstaande pensioen heeft aangekondigd, dus mis het niet!</p>",
+     "genres": [
+      "51"
+     ],
+     "status": "Uitverkocht",
+     "profile": "Concert",
+     "subtitle": "Upside Down Tour Pt. 3",
+     "cineville": false,
+     "locations": [
+      "OZ"
+     ],
+     "starttime": "2026-09-26T17:30:00.000000Z",
+     "ticketInfo": "Alle tickets voor dit programma zijn uitverkocht. Op de website van Ticketmaster bieden we kaartkopers die verhinderd zijn de mogelijkheid om hun tickets op een betrouwbare manier door te verkopen. Tickets die elders worden aangeboden zijn doorverkochte tickets die meestal voor een veel hoger bedrag worden verkocht en waarvan wij de geldigheid niet kunnen garanderen. Let op: er zijn oplichters actief!",
+     "ticketLink": "https://www.ticketmaster.nl/event/1865810180?brand=nl_melkweg",
+     "yesplan_id": "8755009281-1768416485",
+     "headerColor": "dark",
+     "projectCode": "260926MI",
+     "announced_at": "2026-04-20T08:00:00.000000Z",
+     "ticketPrices": {
+      "ticket1": {
+       "show": true,
+       "label": "regular",
+       "price": "€ 23",
+       "primary": true,
+       "membership_required": true
+      },
+      "ticket2": {
+       "show": true,
+       "label": "VIP Package",
+       "price": "€ 105",
+       "primary": false,
+       "membership_required": true
+      },
+      "ticket3": {
+       "show": false,
+       "primary": false,
+       "membership_required": false
+      },
+      "ticket4": {
+       "show": false,
+       "primary": false,
+       "membership_required": false
+      },
+      "ticket5": {
+       "show": false,
+       "primary": false,
+       "membership_required": false
+      },
+      "ticket6": {
+       "show": false,
+       "primary": false,
+       "membership_required": false
+      }
+     },
+     "timeschedule": "18:00 VIP doors\r\n19:30 Doors\r\n20:30 mike.",
+     "private_event": false,
+     "relatedEvents": [
+      "27988",
+      "28282",
+      "28244"
+     ],
+     "relatedThemes": [
+      "1002"
+     ],
+     "start_presale": "2026-04-24T08:00:00.000000Z",
+     "free_for_members": false,
+     "free_for_subbacultcha": false,
+     "free_for_we_are_public": false
+    }
+   }
+  }
+ }
+}
