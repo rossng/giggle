@@ -25,6 +25,15 @@ NAMESAKE_BIO = re.compile(
 )
 
 
+def trusted_identity(artist: dict[str, Any]) -> bool:
+    """Whether we're sure enough who this artist is to describe them on air. Last.fm
+    alone merges namesakes (a Dutch singer-songwriter "Nobu" with a techno "Nobu"), and a
+    low-confidence MusicBrainz match may be a different band: saying nothing beats
+    confidently describing the wrong artist."""
+    match = artist.get("match") or {}
+    return match.get("confidence") in ("high", "medium")
+
+
 def artist_key(name: str, match: dict[str, Any] | None) -> str:
     return f"mb:{match['mbid']}" if match else f"name:{normalise(name)}"
 
@@ -50,6 +59,12 @@ def enrich_artists(
         roles += [(n, "support") for n in lineup["support"]]
         for name, role in roles:
             match = mb.match(name, hints)
+            if match is None and lastfm is not None:
+                # MusicBrainz search found nothing or was too busy: Last.fm often knows
+                # the artist's MBID, which MusicBrainz can look up directly.
+                info = lastfm.info(name, None)
+                if info and info.get("mbid"):
+                    match = mb.match_by_id(info["mbid"], "lastfm")
             key = artist_key(name, match)
             entry = artists.get(key)
             if entry is None:

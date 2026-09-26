@@ -62,3 +62,30 @@ def test_youtube_songs_only_for_artists_playing_soon(tmp_path):
     )
     assert artists["mb:mbid-nv"]["youtube"]["browseId"] == "nouvellevague"
     assert artists["name:grotegeelstaart"]["youtube"] is None
+
+
+def test_lastfm_mbid_stands_in_when_musicbrainz_search_finds_nothing():
+    class Lookups(FakeMusicBrainz):
+        def match_by_id(self, mbid, source):
+            return {"mbid": mbid, "name": "Deli Girls", "confidence": "medium", "source": source}
+
+    class LastFM:
+        def info(self, name, mbid):
+            return {"name": name, "mbid": "mbid-deli" if name == "Deli Girls" else None}
+
+        def top_tracks(self, name, mbid):
+            return None
+
+    records = [gig("occii:1", "2026-10-01T20:00", ["Deli Girls"], ["Nobody Known"])]
+    artists = enrich_artists(records, Lookups(), lastfm=LastFM())
+    assert artists["mb:mbid-deli"]["match"]["source"] == "lastfm"
+    assert "name:nobodyknown" in artists
+
+
+def test_only_confident_identities_are_described_on_air():
+    from giggle_pipeline.enrich import trusted_identity
+
+    assert trusted_identity({"match": {"confidence": "high"}})
+    assert trusted_identity({"match": {"confidence": "medium", "source": "lastfm"}})
+    assert not trusted_identity({"match": {"confidence": "low"}})
+    assert not trusted_identity({"match": None, "lastfm": {"bio": "a Dutch techno artist"}})
