@@ -5,7 +5,8 @@ Upcoming-gig radio for Amsterdam and nearby. Design report: https://claude.ai/ar
 ## Layout
 - `packages/podia/` — venue agenda library, published separately (Blue Oak 1.0.0). Must stay
   app-agnostic: no artist matching, LLM calls, genre filtering or giggle-specific logic.
-- `pipeline/` — nightly build (`giggle-build`): collect venues in parallel, drop out-of-scope
+- `pipeline/` — nightly build (`giggle-build`): collect venues in parallel, fetch detail pages for
+  new/soon events (`details.py`), drop out-of-scope
   events by the rules in `scope.toml` (each with a reason), merge cross-venue duplicates, check
   venue health against recent runs. `giggle-issues` opens/closes one GitHub issue per broken
   venue. Artist matching, enrichment, blurbs and TTS come next.

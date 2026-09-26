@@ -26,6 +26,7 @@ from giggle_pipeline import health
 from giggle_pipeline.cache import Cache
 from giggle_pipeline.collect import collect_live, collect_replay
 from giggle_pipeline.dedupe import merge_duplicates, place
+from giggle_pipeline.details import fetch_details
 from giggle_pipeline.enrich import enrich_artists
 from giggle_pipeline.lastfm import LastFM
 from giggle_pipeline.lineup import fake_answer, parse_lineups
@@ -34,7 +35,7 @@ from giggle_pipeline.musicbrainz import MusicBrainz
 from giggle_pipeline.scope import exclusion_reason, load_rules
 from giggle_pipeline.wikipedia import Wikipedia
 from giggle_pipeline.ytmusic import ArtistLookup
-from podia import Event, all_venues
+from podia import Client, Event, all_venues
 
 # Line-ups the model classes as these aren't what giggle is for.
 LINEUP_EXCLUDE = {"club": "club night", "tribute": "tribute act", "not_music": "not music"}
@@ -99,6 +100,12 @@ def main(argv: list[str] | None = None) -> int:
         help="look up YouTube Music songs for artists playing within this many days",
     )
     parser.add_argument("--youtube-max-lookups", type=int, default=400)
+    parser.add_argument(
+        "--details-max-per-venue",
+        type=int,
+        default=40,
+        help="event detail pages fetched per venue per run (new and soon events first)",
+    )
     parser.add_argument("--cache", type=Path, default=Path("data/cache/pipeline.sqlite"))
     args = parser.parse_args(argv)
     load_dotenv()
@@ -107,6 +114,12 @@ def main(argv: list[str] | None = None) -> int:
         results = collect_replay(args.replay, args.venues)
     else:
         results = collect_live(args.since, args.venues)
+
+    # Detail pages (rooms, prices, show times) only for new or soon events; replays use
+    # what's cached.
+    cache = Cache(args.cache)
+    fetch_factory = None if args.replay else (lambda slug: Client())
+    results = fetch_details(results, fetch_factory, cache, max_per_venue=args.details_max_per_venue)
 
     rules = load_rules()
     kept_by_scope: list[Event] = []
@@ -123,7 +136,6 @@ def main(argv: list[str] | None = None) -> int:
     for dropped, twin in merged:
         excluded.append(gig(dropped, reason=f"duplicate of {twin.venue}:{twin.source_id}"))
 
-    cache = Cache(args.cache)
     llm = make_llm(args.llm)
     records = [gig(e) for e in gigs]
     lineups = parse_lineups(records, llm, cache, max_calls=args.llm_max_calls)

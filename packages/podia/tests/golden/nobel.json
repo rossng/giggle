@@ -1,259 +1,235 @@
 [
  {
-  "availability": "on_sale",
+  "availability": "unknown",
   "categories": [
    "Concert"
   ],
   "city": "Leiden",
-  "description": "ALL HANDS ON DECK! Een nieuw album doemt op aan de horizon: Captain Kelphair & the Salty Seamen zijn klaar om te enteren. Met snoeiharde riffs, middeleeuwse instrumenten en folk gedreven melodieën sleuren ze je mee in hun piratenepos The Rise of Dreadmaw.",
+  "description": null,
   "doors": null,
   "end": null,
-  "extra": {},
+  "extra": {
+   "time_known": false
+  },
   "genres": [
    "Folk"
   ],
   "image": "https://nobel.nl/sites/default/files/styles/4_3/public/2026-05/CK%26SS%204-3.png.webp?itok=BgD5Sux1",
   "performers": [],
-  "price": {
-   "max_eur": null,
-   "min_eur": 17.9,
-   "text": "Prijs vanaf: € 17,90"
-  },
-  "room": "Kleine zaal",
+  "price": null,
+  "room": null,
   "source_id": "captain-kelphair-salty-seamen-26-sep-2026",
-  "start": "2026-09-26T19:00:00+02:00",
+  "start": "2026-09-26T00:00:00+02:00",
   "status": "scheduled",
   "subtitle": "Pirate Plunder Party met Black Powder Parlay",
-  "support": [
-   "Black Powder Parlay"
-  ],
-  "ticket_url": "https://eventix.shop/52zsuzc2",
+  "support": [],
+  "ticket_url": null,
   "title": "Captain Kelphair & The Salty Seamen",
   "url": "https://nobel.nl/agenda/captain-kelphair-salty-seamen-26-sep-2026",
   "venue": "nobel"
  },
  {
-  "availability": "on_sale",
+  "availability": "unknown",
   "categories": [
    "Clubnacht"
   ],
   "city": "Leiden",
-  "description": "Veel feesten verdwijnen, uitgaan wordt duurder en steeds vaker blijft de groepschat stil. Maar Leiden krijgt er een clubnacht bij! Want de mooiste herinneringen maak je niet thuis op de bank, maar samen met je vrienden op de dansvloer. Daarom is er nu Het FOMO Huis.",
+  "description": null,
   "doors": null,
   "end": null,
-  "extra": {},
+  "extra": {
+   "time_known": false
+  },
   "genres": [
    "Hits"
   ],
   "image": "https://nobel.nl/sites/default/files/styles/4_3/public/2026-07/Het%20FOMO%20Huis%204-3.png.webp?itok=v_VoRN6h",
   "performers": [],
-  "price": {
-   "max_eur": null,
-   "min_eur": 12.9,
-   "text": "Prijs vanaf: € 12,90"
-  },
-  "room": "Grote zaal",
+  "price": null,
+  "room": null,
   "source_id": "het-fomo-huis-26-sep-2026",
-  "start": "2026-09-26T23:00:00+02:00",
+  "start": "2026-09-26T00:00:00+02:00",
   "status": "scheduled",
   "subtitle": "Knalfeest vol hits, house en Hollandse bangers",
   "support": [],
-  "ticket_url": "https://eventix.shop/t6rq4mtt",
+  "ticket_url": null,
   "title": "Het FOMO Huis",
   "url": "https://nobel.nl/agenda/het-fomo-huis-26-sep-2026",
   "venue": "nobel"
  },
  {
-  "availability": "on_sale",
+  "availability": "unknown",
   "categories": [
    "Concert"
   ],
   "city": "Leiden",
-  "description": "Een halve eeuw geleden stonden the Dubliners voor het eerst op Nederlandse bodem voor een serie optredens. Ruim 50 jaar later komen the Dublin Legends, de fakkeldragers van deze legendarische Ierse folkgroep, terug naar de Lage Landen. Met in hun gelederen zanger/gitarist Sean Cannon, de man die van 1982 tot 2020 deel uitmaakte van the Dubliners.",
+  "description": null,
   "doors": null,
   "end": null,
-  "extra": {},
+  "extra": {
+   "time_known": false
+  },
   "genres": [
    "Folk"
   ],
   "image": "https://nobel.nl/sites/default/files/styles/4_3/public/2025-12/The%20Dublin%20Legends%20-%204-3.jpg.webp?itok=Z3VweBzx",
   "performers": [],
-  "price": {
-   "max_eur": null,
-   "min_eur": 36.9,
-   "text": "Prijs vanaf: € 36,90"
-  },
-  "room": "Grote zaal",
+  "price": null,
+  "room": null,
   "source_id": "dublin-legends-27-sep-2026",
-  "start": "2026-09-27T19:00:00+02:00",
+  "start": "2026-09-27T00:00:00+02:00",
   "status": "scheduled",
   "subtitle": "Formerly The Dubliners - Further Along the Road Tour",
   "support": [],
-  "ticket_url": "https://eventix.shop/gazuc4fg",
+  "ticket_url": null,
   "title": "The Dublin Legends",
   "url": "https://nobel.nl/agenda/dublin-legends-27-sep-2026",
   "venue": "nobel"
  },
  {
-  "availability": "on_sale",
+  "availability": "unknown",
   "categories": [
    "Concert"
   ],
   "city": "Leiden",
-  "description": "Sinds 1985 staat Coroner bekend als één van de meest vooruitstrevende en invloedrijke bands binnen de (progressieve) thrash metal. Met baanbrekende albums, een cultstatus in de underground en een veelgeprezen nieuw hoofdstuk via Century Media bewijzen de Zwitsers dat hun sound nog altijd even scherp en relevant is.",
+  "description": null,
   "doors": null,
   "end": null,
-  "extra": {},
+  "extra": {
+   "time_known": false
+  },
   "genres": [
    "Metal"
   ],
   "image": "https://nobel.nl/sites/default/files/styles/4_3/public/2026-05/CORONER%204-3.png.webp?itok=mXPNU4QM",
   "performers": [],
-  "price": {
-   "max_eur": null,
-   "min_eur": 29.9,
-   "text": "Prijs vanaf: € 29,90"
-  },
-  "room": "Grote zaal",
+  "price": null,
+  "room": null,
   "source_id": "coroner-01-oct-2026",
-  "start": "2026-10-01T19:30:00+02:00",
+  "start": "2026-10-01T00:00:00+02:00",
   "status": "scheduled",
   "subtitle": "Progressieve thrash-legendes terug op het podium",
-  "support": [
-   "Tar Pond",
-   "Schizophrenia"
-  ],
-  "ticket_url": "https://eventix.shop/guqrsk4c",
+  "support": [],
+  "ticket_url": null,
   "title": "Coroner",
   "url": "https://nobel.nl/agenda/coroner-01-oct-2026",
   "venue": "nobel"
  },
  {
-  "availability": "on_sale",
+  "availability": "unknown",
   "categories": [
    "Clubnacht"
   ],
   "city": "Leiden",
-  "description": "Funky vanwege de onweerstaanbare grooves, Fabrique vanwege het rauwe, underground karakter. Funky Fabrique is dé plek voor liefhebbers van house, waar de lekkerste platen de hele nacht lang centraal staan.",
+  "description": null,
   "doors": null,
   "end": null,
   "extra": {
-   "age": "18+"
+   "age": "18+",
+   "time_known": false
   },
   "genres": [
    "House"
   ],
   "image": "https://nobel.nl/sites/default/files/styles/4_3/public/2026-08/FF%20-%201920x1080%20-%20By%20SOLO_0.png.webp?itok=HzMBMQq1",
   "performers": [],
-  "price": {
-   "max_eur": null,
-   "min_eur": 17.9,
-   "text": "Prijs vanaf: € 17,90"
-  },
-  "room": "Grote zaal",
+  "price": null,
+  "room": null,
   "source_id": "funky-fabrique-leidens-ontzet-02-oct-2026",
-  "start": "2026-10-02T22:00:00+02:00",
+  "start": "2026-10-02T00:00:00+02:00",
   "status": "scheduled",
   "subtitle": "Start jouw Leidens Ontzet met de dikste house bangers van o.a. NewTone!",
   "support": [],
-  "ticket_url": "https://eventix.shop/jqdrduxc",
+  "ticket_url": null,
   "title": "Funky Fabrique - Leidens Ontzet",
   "url": "https://nobel.nl/agenda/funky-fabrique-leidens-ontzet-02-oct-2026",
   "venue": "nobel"
  },
  {
-  "availability": "on_sale",
+  "availability": "unknown",
   "categories": [
    "Clubnacht"
   ],
   "city": "Leiden",
-  "description": "Ook tijdens Leidens Ontzet is het weer tijd voor R&B bij RnBorrel! 🔥 De Boilerroom van Nobel wordt omgetoverd tot dé plek voor een avond vol heerlijke R&B, classics en nieuwe sounds, met liveshow van Zefanio.",
+  "description": null,
   "doors": null,
   "end": null,
   "extra": {
-   "age": "23+"
+   "age": "23+",
+   "time_known": false
   },
   "genres": [
    "Hiphop"
   ],
   "image": "https://nobel.nl/sites/default/files/styles/4_3/public/2026-09/RNBorrel%204-3_0.png.webp?itok=zB50yuFB",
   "performers": [],
-  "price": {
-   "max_eur": null,
-   "min_eur": 17.9,
-   "text": "Prijs vanaf: € 17,90"
-  },
-  "room": "Kleine zaal",
+  "price": null,
+  "room": null,
   "source_id": "rnborrel-03-oct-2026",
-  "start": "2026-10-03T22:00:00+02:00",
+  "start": "2026-10-03T00:00:00+02:00",
   "status": "scheduled",
   "subtitle": "De borrel voor R&B-lovers, Leidens Ontzet-editie met liveshow van Zefanio!",
   "support": [],
-  "ticket_url": "https://eventix.shop/6gzcff9n",
+  "ticket_url": null,
   "title": "RnBorrel",
   "url": "https://nobel.nl/agenda/rnborrel-03-oct-2026",
   "venue": "nobel"
  },
  {
-  "availability": "on_sale",
+  "availability": "unknown",
   "categories": [
    "Clubnacht"
   ],
   "city": "Leiden",
-  "description": "Kaboom! Bij deze is je planning voor Leidens Ontzet alweer gemaakt, want Champion Sound is terug met een keiharde fissa tijdens het mooiste Leidse feestje van het jaar.",
+  "description": null,
   "doors": null,
   "end": null,
   "extra": {
-   "age": "18+"
+   "age": "18+",
+   "time_known": false
   },
   "genres": [
    "Drum and Bass"
   ],
   "image": "https://nobel.nl/sites/default/files/styles/4_3/public/2026-08/CS_NOBEL_1600_1200.png.webp?itok=4CEA4DaN",
   "performers": [],
-  "price": {
-   "max_eur": null,
-   "min_eur": 19.95,
-   "text": "Prijs vanaf: € 19,95"
-  },
-  "room": "Grote zaal",
+  "price": null,
+  "room": null,
   "source_id": "champion-sound-03-oct-2026",
-  "start": "2026-10-03T23:00:00+02:00",
+  "start": "2026-10-03T00:00:00+02:00",
   "status": "scheduled",
   "subtitle": "Leidens Ontzet editie van Leids drum and bass-collectief",
   "support": [],
-  "ticket_url": "https://eventix.shop/s2raqxcn",
+  "ticket_url": null,
   "title": "Champion Sound",
   "url": "https://nobel.nl/agenda/champion-sound-03-oct-2026",
   "venue": "nobel"
  },
  {
-  "availability": "on_sale",
+  "availability": "unknown",
   "categories": [
    "Concert"
   ],
   "city": "Leiden",
-  "description": "Bare Jams muziek is tegelijk vertrouwd en veelzijdig, met catchy hooks, uplifting lyrics en warme blazers. Live nemen ze je mee door verschillende emoties, om je uiteindelijk achter te laten met een voldaan gevoel. Pure muzikale ontlading met een optimistische ondertoon.",
+  "description": null,
   "doors": null,
   "end": null,
-  "extra": {},
+  "extra": {
+   "time_known": false
+  },
   "genres": [
    "Pop"
   ],
   "image": "https://nobel.nl/sites/default/files/styles/4_3/public/2026-04/Bare%20Jams%204-3_0.png.webp?itok=vtqQxahB",
   "performers": [],
-  "price": {
-   "max_eur": null,
-   "min_eur": 17.9,
-   "text": "Prijs vanaf: € 17,90"
-  },
-  "room": "Kleine zaal",
+  "price": null,
+  "room": null,
   "source_id": "bare-jams-08-oct-2026",
-  "start": "2026-10-08T19:30:00+02:00",
+  "start": "2026-10-08T00:00:00+02:00",
   "status": "scheduled",
   "subtitle": "Uplifting indiepop met invloeden van jazz, soul, rock en funk",
   "support": [],
-  "ticket_url": "https://eventix.shop/k4nyq4em",
+  "ticket_url": null,
   "title": "Bare Jams",
   "url": "https://nobel.nl/agenda/bare-jams-08-oct-2026",
   "venue": "nobel"
@@ -264,64 +240,58 @@
    "Concert"
   ],
   "city": "Leiden",
-  "description": "Wees een pionier in de muziekwereld en ontdek artiesten voor ze op de grote podia staan. Deze editie maak je kennis met Ronker en Grote Geelstaart; twee noiserockacts die hard aan de weg timmeren.",
+  "description": null,
   "doors": null,
   "end": null,
   "extra": {
    "labels": [
     "Laatste tickets"
-   ]
+   ],
+   "time_known": false
   },
   "genres": [
    "Rock"
   ],
   "image": "https://nobel.nl/sites/default/files/styles/4_3/public/2026-04/Discover%20Ronker%20%2B%20Grote%20Geelstaart%204-3.png.webp?itok=Yoix6HG5",
   "performers": [],
-  "price": {
-   "max_eur": null,
-   "min_eur": 7.9,
-   "text": "Prijs vanaf: € 7,90"
-  },
-  "room": "Kleine zaal",
+  "price": null,
+  "room": null,
   "source_id": "discover-ronker-grote-geelstaart-09-oct-2026",
-  "start": "2026-10-09T19:30:00+02:00",
+  "start": "2026-10-09T00:00:00+02:00",
   "status": "scheduled",
   "subtitle": "Ontdek de headliners van morgen op deze noiserockeditie",
   "support": [],
-  "ticket_url": "https://eventix.shop/vrrv476s",
+  "ticket_url": null,
   "title": "Discover: Ronker + Grote Geelstaart",
   "url": "https://nobel.nl/agenda/discover-ronker-grote-geelstaart-09-oct-2026",
   "venue": "nobel"
  },
  {
-  "availability": "on_sale",
+  "availability": "unknown",
   "categories": [
    "Clubnacht"
   ],
   "city": "Leiden",
-  "description": "BZZZT BZZZZT - Leiden b3n je er n0g?? Heimwee naar de tijd van MSN-chats met je crush, krabbelen met je BFF en bobba's in Habbo? Zer00’s Heroes sleurt je mee in een tijdcapsule terug naar de hoogtijdagen van de jaren 2000 - 2009; vol low rise spijkerbroeken, shutter shades en stoffige Nokia’s.",
+  "description": null,
   "doors": null,
   "end": null,
   "extra": {
-   "age": "18+"
+   "age": "18+",
+   "time_known": false
   },
   "genres": [
    "Hits"
   ],
   "image": "https://nobel.nl/sites/default/files/styles/4_3/public/2026-01/Zer00%27s%20Heroes%204-3.png.webp?itok=1GJkZbWX",
   "performers": [],
-  "price": {
-   "max_eur": null,
-   "min_eur": 15.0,
-   "text": "Prijs vanaf: € 15,00"
-  },
-  "room": "Grote zaal",
+  "price": null,
+  "room": null,
   "source_id": "zer00s-heroes-09-oct-2026",
-  "start": "2026-10-09T23:00:00+02:00",
+  "start": "2026-10-09T00:00:00+02:00",
   "status": "scheduled",
   "subtitle": "We’re bringing sexyback!",
   "support": [],
-  "ticket_url": "https://eventix.shop/vnvxnb62",
+  "ticket_url": null,
   "title": "Zer00's Heroes",
   "url": "https://nobel.nl/agenda/zer00s-heroes-09-oct-2026",
   "venue": "nobel"
@@ -339,7 +309,8 @@
   "extra": {
    "labels": [
     "Festival"
-   ]
+   ],
+   "time_known": false
   },
   "genres": [
    "Metal"
@@ -368,7 +339,8 @@
   "doors": null,
   "end": null,
   "extra": {
-   "age": "18+"
+   "age": "18+",
+   "time_known": false
   },
   "genres": [
    "Indie"
@@ -396,7 +368,9 @@
   "description": null,
   "doors": null,
   "end": null,
-  "extra": {},
+  "extra": {
+   "time_known": false
+  },
   "genres": [
    "Rock"
   ],
@@ -426,7 +400,8 @@
   "extra": {
    "labels": [
     "Gratis"
-   ]
+   ],
+   "time_known": false
   },
   "genres": [
    "Funk"
@@ -454,7 +429,9 @@
   "description": null,
   "doors": null,
   "end": null,
-  "extra": {},
+  "extra": {
+   "time_known": false
+  },
   "genres": [
    "Jazz"
   ],
@@ -484,7 +461,8 @@
   "extra": {
    "labels": [
     "Uitverkocht"
-   ]
+   ],
+   "time_known": false
   },
   "genres": [
    "Pop"
@@ -515,7 +493,8 @@
   "extra": {
    "labels": [
     "Laatste tickets"
-   ]
+   ],
+   "time_known": false
   },
   "genres": [
    "Indie"
@@ -543,7 +522,9 @@
   "description": null,
   "doors": null,
   "end": null,
-  "extra": {},
+  "extra": {
+   "time_known": false
+  },
   "genres": [
    "Tribute"
   ],
@@ -570,7 +551,9 @@
   "description": null,
   "doors": null,
   "end": null,
-  "extra": {},
+  "extra": {
+   "time_known": false
+  },
   "genres": [
    "Metal"
   ],
@@ -600,7 +583,8 @@
   "extra": {
    "labels": [
     "Uitverkocht"
-   ]
+   ],
+   "time_known": false
   },
   "genres": [
    "Pop"
@@ -629,7 +613,8 @@
   "doors": null,
   "end": null,
   "extra": {
-   "age": "18+"
+   "age": "18+",
+   "time_known": false
   },
   "genres": [
    "Hits"
@@ -660,7 +645,8 @@
   "extra": {
    "labels": [
     "Uitverkocht"
-   ]
+   ],
+   "time_known": false
   },
   "genres": [
    "Rock"
@@ -691,7 +677,8 @@
   "extra": {
    "labels": [
     "Nobel X Stadsgehoorzaal"
-   ]
+   ],
+   "time_known": false
   },
   "genres": [
    "Pop"
@@ -719,7 +706,9 @@
   "description": null,
   "doors": null,
   "end": null,
-  "extra": {},
+  "extra": {
+   "time_known": false
+  },
   "genres": [
    "Pop"
   ],
@@ -749,7 +738,8 @@
   "extra": {
    "labels": [
     "Uitverkocht"
-   ]
+   ],
+   "time_known": false
   },
   "genres": [
    "Electronisch Live",
@@ -779,7 +769,9 @@
   "description": null,
   "doors": null,
   "end": null,
-  "extra": {},
+  "extra": {
+   "time_known": false
+  },
   "genres": [
    "Punk"
   ],
@@ -809,7 +801,8 @@
   "extra": {
    "labels": [
     "Uitverkocht"
-   ]
+   ],
+   "time_known": false
   },
   "genres": [
    "Electronisch Live",
@@ -839,7 +832,9 @@
   "description": null,
   "doors": null,
   "end": null,
-  "extra": {},
+  "extra": {
+   "time_known": false
+  },
   "genres": [
    "Punk"
   ],
@@ -867,7 +862,8 @@
   "doors": null,
   "end": null,
   "extra": {
-   "age": "18+"
+   "age": "18+",
+   "time_known": false
   },
   "genres": [
    "Hits"
@@ -895,7 +891,9 @@
   "description": null,
   "doors": null,
   "end": null,
-  "extra": {},
+  "extra": {
+   "time_known": false
+  },
   "genres": [
    "Pop"
   ],
@@ -922,7 +920,9 @@
   "description": null,
   "doors": null,
   "end": null,
-  "extra": {},
+  "extra": {
+   "time_known": false
+  },
   "genres": [
    "(Pop)Cultuur"
   ],
@@ -949,7 +949,9 @@
   "description": null,
   "doors": null,
   "end": null,
-  "extra": {},
+  "extra": {
+   "time_known": false
+  },
   "genres": [
    "Metal"
   ],
@@ -979,7 +981,8 @@
   "extra": {
    "labels": [
     "Laatste tickets"
-   ]
+   ],
+   "time_known": false
   },
   "genres": [
    "Pop"
@@ -1007,7 +1010,9 @@
   "description": null,
   "doors": null,
   "end": null,
-  "extra": {},
+  "extra": {
+   "time_known": false
+  },
   "genres": [
    "Pop"
   ],
@@ -1033,7 +1038,8 @@
   "doors": null,
   "end": null,
   "extra": {
-   "age": "18+"
+   "age": "18+",
+   "time_known": false
   },
   "genres": [
    "Hits"
@@ -1061,7 +1067,9 @@
   "description": null,
   "doors": null,
   "end": null,
-  "extra": {},
+  "extra": {
+   "time_known": false
+  },
   "genres": [
    "Metal"
   ],
@@ -1088,7 +1096,9 @@
   "description": null,
   "doors": null,
   "end": null,
-  "extra": {},
+  "extra": {
+   "time_known": false
+  },
   "genres": [
    "Groove"
   ],
@@ -1116,7 +1126,8 @@
   "doors": null,
   "end": null,
   "extra": {
-   "age": "18+"
+   "age": "18+",
+   "time_known": false
   },
   "genres": [
    "House"
@@ -1145,7 +1156,8 @@
   "doors": null,
   "end": null,
   "extra": {
-   "age": "18+"
+   "age": "18+",
+   "time_known": false
   },
   "genres": [
    "Hits"
@@ -1171,7 +1183,9 @@
   "description": null,
   "doors": null,
   "end": null,
-  "extra": {},
+  "extra": {
+   "time_known": false
+  },
   "genres": [
    "(Pop)Cultuur"
   ],
@@ -1198,7 +1212,9 @@
   "description": null,
   "doors": null,
   "end": null,
-  "extra": {},
+  "extra": {
+   "time_known": false
+  },
   "genres": [
    "Rock"
   ],
@@ -1226,7 +1242,8 @@
   "doors": null,
   "end": null,
   "extra": {
-   "age": "18+"
+   "age": "18+",
+   "time_known": false
   },
   "genres": [
    "Overig"
@@ -1254,7 +1271,9 @@
   "description": null,
   "doors": null,
   "end": null,
-  "extra": {},
+  "extra": {
+   "time_known": false
+  },
   "genres": [
    "Metal"
   ],
@@ -1282,7 +1301,8 @@
   "doors": null,
   "end": null,
   "extra": {
-   "age": "18+"
+   "age": "18+",
+   "time_known": false
   },
   "genres": [
    "House"
@@ -1311,7 +1331,8 @@
   "doors": null,
   "end": null,
   "extra": {
-   "age": "13+"
+   "age": "13+",
+   "time_known": false
   },
   "genres": [
    "Cultuur & Maatschappij"
@@ -1339,7 +1360,9 @@
   "description": null,
   "doors": null,
   "end": null,
-  "extra": {},
+  "extra": {
+   "time_known": false
+  },
   "genres": [
    "Overig"
   ],
@@ -1366,7 +1389,9 @@
   "description": null,
   "doors": null,
   "end": null,
-  "extra": {},
+  "extra": {
+   "time_known": false
+  },
   "genres": [
    "Folk"
   ],
@@ -1392,7 +1417,8 @@
   "doors": null,
   "end": null,
   "extra": {
-   "age": "18+"
+   "age": "18+",
+   "time_known": false
   },
   "genres": [
    "Hits"
@@ -1421,7 +1447,9 @@
   "description": null,
   "doors": null,
   "end": null,
-  "extra": {},
+  "extra": {
+   "time_known": false
+  },
   "genres": [
    "Punk"
   ],
@@ -1448,7 +1476,9 @@
   "description": null,
   "doors": null,
   "end": null,
-  "extra": {},
+  "extra": {
+   "time_known": false
+  },
   "genres": [
    "Hits"
   ],
@@ -1475,7 +1505,9 @@
   "description": null,
   "doors": null,
   "end": null,
-  "extra": {},
+  "extra": {
+   "time_known": false
+  },
   "genres": [
    "Electronisch Live"
   ],
@@ -1503,7 +1535,8 @@
   "doors": null,
   "end": null,
   "extra": {
-   "age": "18+"
+   "age": "18+",
+   "time_known": false
   },
   "genres": [
    "Trance"
@@ -1531,7 +1564,9 @@
   "description": null,
   "doors": null,
   "end": null,
-  "extra": {},
+  "extra": {
+   "time_known": false
+  },
   "genres": [
    "Overig"
   ],
@@ -1561,7 +1596,8 @@
   "extra": {
    "labels": [
     "Gratis"
-   ]
+   ],
+   "time_known": false
   },
   "genres": [
    "Funk"
@@ -1589,7 +1625,9 @@
   "description": null,
   "doors": null,
   "end": null,
-  "extra": {},
+  "extra": {
+   "time_known": false
+  },
   "genres": [
    "Pop"
   ],
@@ -1616,7 +1654,9 @@
   "description": null,
   "doors": null,
   "end": null,
-  "extra": {},
+  "extra": {
+   "time_known": false
+  },
   "genres": [
    "Spoken Word"
   ],
@@ -1643,7 +1683,9 @@
   "description": null,
   "doors": null,
   "end": null,
-  "extra": {},
+  "extra": {
+   "time_known": false
+  },
   "genres": [
    "Folk"
   ],
@@ -1670,7 +1712,9 @@
   "description": null,
   "doors": null,
   "end": null,
-  "extra": {},
+  "extra": {
+   "time_known": false
+  },
   "genres": [
    "Groove"
   ],
@@ -1700,7 +1744,8 @@
   "extra": {
    "labels": [
     "Laatste tickets"
-   ]
+   ],
+   "time_known": false
   },
   "genres": [
    "Rock"
@@ -1729,7 +1774,8 @@
   "doors": null,
   "end": null,
   "extra": {
-   "age": "18+"
+   "age": "18+",
+   "time_known": false
   },
   "genres": [
    "House"
@@ -1757,7 +1803,9 @@
   "description": null,
   "doors": null,
   "end": null,
-  "extra": {},
+  "extra": {
+   "time_known": false
+  },
   "genres": [
    "Hits"
   ],
@@ -1784,7 +1832,9 @@
   "description": null,
   "doors": null,
   "end": null,
-  "extra": {},
+  "extra": {
+   "time_known": false
+  },
   "genres": [
    "Rock"
   ],
@@ -1809,7 +1859,9 @@
   "description": null,
   "doors": null,
   "end": null,
-  "extra": {},
+  "extra": {
+   "time_known": false
+  },
   "genres": [
    "Tribute"
   ],
@@ -1837,7 +1889,8 @@
   "doors": null,
   "end": null,
   "extra": {
-   "age": "18+"
+   "age": "18+",
+   "time_known": false
   },
   "genres": [
    "Latin"
@@ -1865,7 +1918,9 @@
   "description": null,
   "doors": null,
   "end": null,
-  "extra": {},
+  "extra": {
+   "time_known": false
+  },
   "genres": [
    "Hiphop"
   ],
@@ -1892,7 +1947,9 @@
   "description": null,
   "doors": null,
   "end": null,
-  "extra": {},
+  "extra": {
+   "time_known": false
+  },
   "genres": [
    "Pop"
   ],
@@ -1920,7 +1977,8 @@
   "doors": null,
   "end": null,
   "extra": {
-   "age": "18+"
+   "age": "18+",
+   "time_known": false
   },
   "genres": [
    "Hits"
@@ -1948,7 +2006,9 @@
   "description": null,
   "doors": null,
   "end": null,
-  "extra": {},
+  "extra": {
+   "time_known": false
+  },
   "genres": [
    "Punk"
   ],
@@ -1975,7 +2035,9 @@
   "description": null,
   "doors": null,
   "end": null,
-  "extra": {},
+  "extra": {
+   "time_known": false
+  },
   "genres": [
    "Electronisch Live"
   ],
@@ -2003,7 +2065,8 @@
   "doors": null,
   "end": null,
   "extra": {
-   "age": "18+"
+   "age": "18+",
+   "time_known": false
   },
   "genres": [
    "House"
@@ -2031,7 +2094,9 @@
   "description": null,
   "doors": null,
   "end": null,
-  "extra": {},
+  "extra": {
+   "time_known": false
+  },
   "genres": [
    "Rock"
   ],
@@ -2058,7 +2123,9 @@
   "description": null,
   "doors": null,
   "end": null,
-  "extra": {},
+  "extra": {
+   "time_known": false
+  },
   "genres": [
    "Pop"
   ],
@@ -2085,7 +2152,9 @@
   "description": null,
   "doors": null,
   "end": null,
-  "extra": {},
+  "extra": {
+   "time_known": false
+  },
   "genres": [
    "Electronisch Live"
   ],
@@ -2112,7 +2181,9 @@
   "description": null,
   "doors": null,
   "end": null,
-  "extra": {},
+  "extra": {
+   "time_known": false
+  },
   "genres": [
    "Latin"
   ],
@@ -2140,7 +2211,8 @@
   "doors": null,
   "end": null,
   "extra": {
-   "age": "13+"
+   "age": "13+",
+   "time_known": false
   },
   "genres": [
    "House"
@@ -2168,7 +2240,9 @@
   "description": null,
   "doors": null,
   "end": null,
-  "extra": {},
+  "extra": {
+   "time_known": false
+  },
   "genres": [
    "Pop"
   ],
@@ -2195,7 +2269,9 @@
   "description": null,
   "doors": null,
   "end": null,
-  "extra": {},
+  "extra": {
+   "time_known": false
+  },
   "genres": [
    "Pop"
   ],
@@ -2222,7 +2298,9 @@
   "description": null,
   "doors": null,
   "end": null,
-  "extra": {},
+  "extra": {
+   "time_known": false
+  },
   "genres": [
    "Tribute"
   ],
@@ -2252,7 +2330,8 @@
   "extra": {
    "labels": [
     "Laatste tickets"
-   ]
+   ],
+   "time_known": false
   },
   "genres": [
    "Rock"
@@ -2280,7 +2359,9 @@
   "description": null,
   "doors": null,
   "end": null,
-  "extra": {},
+  "extra": {
+   "time_known": false
+  },
   "genres": [
    "Jazz"
   ],
@@ -2307,7 +2388,9 @@
   "description": null,
   "doors": null,
   "end": null,
-  "extra": {},
+  "extra": {
+   "time_known": false
+  },
   "genres": [
    "Tribute"
   ],
@@ -2334,7 +2417,9 @@
   "description": null,
   "doors": null,
   "end": null,
-  "extra": {},
+  "extra": {
+   "time_known": false
+  },
   "genres": [
    "Hiphop"
   ],
@@ -2361,7 +2446,9 @@
   "description": null,
   "doors": null,
   "end": null,
-  "extra": {},
+  "extra": {
+   "time_known": false
+  },
   "genres": [
    "(Pop)Cultuur"
   ],
@@ -2391,7 +2478,8 @@
   "extra": {
    "labels": [
     "Gratis"
-   ]
+   ],
+   "time_known": false
   },
   "genres": [
    "Funk"
@@ -2419,7 +2507,9 @@
   "description": null,
   "doors": null,
   "end": null,
-  "extra": {},
+  "extra": {
+   "time_known": false
+  },
   "genres": [
    "Pop"
   ],
@@ -2446,7 +2536,9 @@
   "description": null,
   "doors": null,
   "end": null,
-  "extra": {},
+  "extra": {
+   "time_known": false
+  },
   "genres": [
    "Folk",
    "Indie",
@@ -2475,7 +2567,9 @@
   "description": null,
   "doors": null,
   "end": null,
-  "extra": {},
+  "extra": {
+   "time_known": false
+  },
   "genres": [
    "Tribute"
   ],
@@ -2502,7 +2596,9 @@
   "description": null,
   "doors": null,
   "end": null,
-  "extra": {},
+  "extra": {
+   "time_known": false
+  },
   "genres": [
    "Tribute"
   ],
@@ -2532,7 +2628,8 @@
   "extra": {
    "labels": [
     "Festival"
-   ]
+   ],
+   "time_known": false
   },
   "genres": [
    "Funk"
@@ -2560,7 +2657,9 @@
   "description": null,
   "doors": null,
   "end": null,
-  "extra": {},
+  "extra": {
+   "time_known": false
+  },
   "genres": [
    "Metal"
   ],
@@ -2587,7 +2686,9 @@
   "description": null,
   "doors": null,
   "end": null,
-  "extra": {},
+  "extra": {
+   "time_known": false
+  },
   "genres": [
    "Funk"
   ],
@@ -2615,7 +2716,8 @@
   "doors": null,
   "end": null,
   "extra": {
-   "age": "18+"
+   "age": "18+",
+   "time_known": false
   },
   "genres": [
    "Trance"
@@ -2643,7 +2745,9 @@
   "description": null,
   "doors": null,
   "end": null,
-  "extra": {},
+  "extra": {
+   "time_known": false
+  },
   "genres": [
    "Tribute"
   ],
@@ -2670,7 +2774,9 @@
   "description": null,
   "doors": null,
   "end": null,
-  "extra": {},
+  "extra": {
+   "time_known": false
+  },
   "genres": [
    "Electronisch Live"
   ],
@@ -2697,7 +2803,9 @@
   "description": null,
   "doors": null,
   "end": null,
-  "extra": {},
+  "extra": {
+   "time_known": false
+  },
   "genres": [
    "Hiphop"
   ],
@@ -2724,7 +2832,9 @@
   "description": null,
   "doors": null,
   "end": null,
-  "extra": {},
+  "extra": {
+   "time_known": false
+  },
   "genres": [
    "Blues"
   ],
@@ -2755,7 +2865,8 @@
   "extra": {
    "labels": [
     "Festival"
-   ]
+   ],
+   "time_known": false
   },
   "genres": [
    "Indie"
@@ -2786,7 +2897,8 @@
   "extra": {
    "labels": [
     "Uitverkocht"
-   ]
+   ],
+   "time_known": false
   },
   "genres": [
    "Rock"
@@ -2814,7 +2926,9 @@
   "description": null,
   "doors": null,
   "end": null,
-  "extra": {},
+  "extra": {
+   "time_known": false
+  },
   "genres": [
    "Tribute"
   ],
@@ -2842,7 +2956,8 @@
   "doors": null,
   "end": null,
   "extra": {
-   "age": "18+"
+   "age": "18+",
+   "time_known": false
   },
   "genres": [
    "House"
@@ -2870,7 +2985,9 @@
   "description": null,
   "doors": null,
   "end": null,
-  "extra": {},
+  "extra": {
+   "time_known": false
+  },
   "genres": [
    "Overig"
   ],
@@ -2897,7 +3014,9 @@
   "description": null,
   "doors": null,
   "end": null,
-  "extra": {},
+  "extra": {
+   "time_known": false
+  },
   "genres": [
    "Pop"
   ],
@@ -2924,7 +3043,9 @@
   "description": null,
   "doors": null,
   "end": null,
-  "extra": {},
+  "extra": {
+   "time_known": false
+  },
   "genres": [
    "Hiphop"
   ],
@@ -2949,7 +3070,9 @@
   "description": null,
   "doors": null,
   "end": null,
-  "extra": {},
+  "extra": {
+   "time_known": false
+  },
   "genres": [
    "Indie"
   ],
@@ -2974,7 +3097,9 @@
   "description": null,
   "doors": null,
   "end": null,
-  "extra": {},
+  "extra": {
+   "time_known": false
+  },
   "genres": [
    "Pop"
   ],
@@ -2999,7 +3124,9 @@
   "description": null,
   "doors": null,
   "end": null,
-  "extra": {},
+  "extra": {
+   "time_known": false
+  },
   "genres": [
    "Tribute"
   ],
@@ -3026,7 +3153,9 @@
   "description": null,
   "doors": null,
   "end": null,
-  "extra": {},
+  "extra": {
+   "time_known": false
+  },
   "genres": [
    "Pop"
   ],
@@ -3053,7 +3182,9 @@
   "description": null,
   "doors": null,
   "end": null,
-  "extra": {},
+  "extra": {
+   "time_known": false
+  },
   "genres": [
    "Electronisch Live"
   ],
@@ -3078,7 +3209,9 @@
   "description": null,
   "doors": null,
   "end": null,
-  "extra": {},
+  "extra": {
+   "time_known": false
+  },
   "genres": [
    "Tribute"
   ],
@@ -3105,7 +3238,9 @@
   "description": null,
   "doors": null,
   "end": null,
-  "extra": {},
+  "extra": {
+   "time_known": false
+  },
   "genres": [
    "Tribute"
   ],
@@ -3132,7 +3267,9 @@
   "description": null,
   "doors": null,
   "end": null,
-  "extra": {},
+  "extra": {
+   "time_known": false
+  },
   "genres": [
    "Pop"
   ],
@@ -3159,7 +3296,9 @@
   "description": null,
   "doors": null,
   "end": null,
-  "extra": {},
+  "extra": {
+   "time_known": false
+  },
   "genres": [
    "Metal"
   ],
@@ -3186,7 +3325,9 @@
   "description": null,
   "doors": null,
   "end": null,
-  "extra": {},
+  "extra": {
+   "time_known": false
+  },
   "genres": [
    "Pop"
   ],

@@ -191,7 +191,7 @@
 </div>
 </form>
 <div class="soon">
-<div class="views-element-container"><div class="view view-events-overview view-id-events_overview view-display-id-overview_block js-view-dom-id-cd171d8c0dfed3aed0ca8a3ff4a63505c3b73c32fcc22be7539eb0d5f81efc0f">
+<div class="views-element-container"><div class="view view-events-overview view-id-events_overview view-display-id-overview_block js-view-dom-id-014b3fa1e9b049e7d973286ce5782a2927b227571d7ff39f41771f82c938dec3">
 <div class="view-content">
 <div class="view-grouping">
 <div class="view-grouping-content"><div class="view-grouping">
