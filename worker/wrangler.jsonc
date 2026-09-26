@@ -1,0 +1,68 @@
+// giggle's Worker: serves the static SPA (web/build) and the per-user API under /api/*.
+//
+// The top level is PRODUCTION. Cloudflare Access protects /api/* on the production hostname;
+// the Worker verifies the Cf-Access-Jwt-Assertion JWT against ACCESS_TEAM_DOMAIN/ACCESS_AUD
+// and refuses to serve /api/* until both are set.
+//
+// `env.dev` is for `wrangler dev --env dev` only (make worker-dev): ENVIRONMENT=dev, no Access
+// config, and a fake identity from the X-Giggle-Dev-User header or giggle_dev_user cookie, honoured
+// only on loopback hostnames. The Worker refuses to serve /api/* if ENVIRONMENT=dev and the
+// Access vars are set at the same time. Never deploy with --env dev.
+{
+	"$schema": "../node_modules/wrangler/config-schema.json",
+	"name": "giggle",
+	"main": "src/index.ts",
+	"compatibility_date": "2026-09-01",
+	"observability": { "enabled": true },
+	"send_metrics": false,
+
+	"assets": {
+		"directory": "../web/build",
+		"binding": "ASSETS",
+		"not_found_handling": "single-page-application",
+		"run_worker_first": ["/api/*"]
+	},
+
+	"vars": {
+		"ENVIRONMENT": "production",
+		// Fill in before deploying: the Zero Trust team domain and the Access application's
+		// AUD tag (Zero Trust → Access → Applications → giggle API → Overview).
+		"ACCESS_TEAM_DOMAIN": "",
+		"ACCESS_AUD": ""
+	},
+
+	"d1_databases": [
+		{
+			"binding": "DB",
+			"database_name": "giggle",
+			// Set to the id printed by `wrangler d1 create giggle` before the first deploy.
+			"database_id": "00000000-0000-0000-0000-000000000000",
+			"migrations_dir": "migrations"
+		}
+	],
+
+	"env": {
+		"dev": {
+			"assets": {
+				"directory": "../web/build",
+				"binding": "ASSETS",
+				"not_found_handling": "single-page-application",
+				"run_worker_first": ["/api/*"]
+			},
+			"vars": {
+				"ENVIRONMENT": "dev",
+				// Must stay empty: the Worker refuses to serve if dev and Access are both configured.
+				"ACCESS_TEAM_DOMAIN": "",
+				"ACCESS_AUD": ""
+			},
+			"d1_databases": [
+				{
+					"binding": "DB",
+					"database_name": "giggle-dev",
+					"database_id": "00000000-0000-0000-0000-00000000de00",
+					"migrations_dir": "migrations"
+				}
+			]
+		}
+	}
+}

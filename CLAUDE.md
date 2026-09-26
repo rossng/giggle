@@ -17,6 +17,10 @@ Upcoming-gig radio for Amsterdam and nearby. Design report: https://claude.ai/ar
 - `packages/radio-core/` — TypeScript radio engine (queue, Mix/Shuffle, session restore, announcer
   text, ducking): framework-free, deterministic, no runtime deps. Web imports it as
   `@giggle/radio-core` via the root pnpm workspace.
+- `worker/` — Cloudflare Worker (wrangler 4, `wrangler.jsonc`): serves `web/build` as static assets
+  and the per-user `/api/*` on D1 (board sync: LWW per artist, tombstones, `since` cursor). Auth is
+  a verified Cloudflare Access JWT in production, a dev identity only with `--env dev` on localhost
+  (`worker/README.md`). The web side is `web/src/lib/sync/` (`SyncClient`, `mergeBoards`).
 
 ## Commands
 Enter the toolchain shell first: `direnv allow` (uses `.envrc`) or `nix develop`. The flake pins
@@ -32,6 +36,8 @@ uv, Node, pnpm and make only; Python is uv-managed (`.python-version`), deps com
 - Web app: `make web-dev` (localhost:5173, serves `data/site` via a Vite plugin), `make web-build`.
 - Inspect it: `make browse` (kept + left-out events with reasons; `data/` is git-ignored).
   Raw adapter output: `make fetch` then `make browse-raw`.
+- Worker: `make worker-dev` (127.0.0.1:8787, local D1, `X-Giggle-Dev-User: alice@example.test`),
+  `make worker-test`. Never `wrangler deploy`/`login` or `--remote` from here.
 - Tests: `cd packages/podia && uv run --group dev pytest -q`
 - Lint: `uv run --group dev ruff check packages && uv run --group dev ruff format packages`
 - Re-record a venue's fixtures: `cd packages/podia && uv run podia record <venue> --max-pages 2`,

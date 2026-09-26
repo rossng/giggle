@@ -1,0 +1,24 @@
+{
+  "name": "@giggle/worker",
+  "version": "0.1.0",
+  "private": true,
+  "description": "giggle's Cloudflare Worker: serves the static SPA and the per-user /api (board sync on D1).",
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev --env dev",
+    "migrate:local": "wrangler d1 migrations apply DB --local --env dev",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "jose": "^6.2.12"
+  },
+  "devDependencies": {
+    "@cloudflare/vitest-plugin": "^1.2.8",
+    "@cloudflare/workers-types": "^5.20260925.2",
+    "typescript": "^6.0.3",
+    "vitest": "^4.1.11",
+    "wrangler": "^4.141.0"
+  }
+}
