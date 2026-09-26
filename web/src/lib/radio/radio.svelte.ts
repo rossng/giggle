@@ -1,5 +1,6 @@
 // The radio: radio-core's engine (queue, order, navigation, sessions, presenter, timing,
-// ducking) driving a YouTube embed and the Web Speech announcer.
+// ducking) driving a YouTube embed and the announcer (pre-rendered Kokoro intros, then
+// Kokoro in the browser for live lines, with Web Speech as the fallback).
 //
 // UI state is in `$state` fields the page reads. The player, the ducking controller, the
 // presenter, the speaker and timers live in private (#) fields: never in `$state`.
@@ -65,16 +66,19 @@ import {
 	saveSaid,
 	saveSession,
 	saveSettings,
+	type LiveVoice,
 	type RadioSettings
 } from './persist';
 import {
 	ClipSpeaker,
+	KokoroSpeaker,
 	WebSpeechSpeaker,
 	watchVoices,
 	type Speaker,
 	type VoiceInfo
 } from './speaker';
 import { squareImage } from './tracks';
+import { sharedKokoro, type KokoroState, type KokoroVoice } from '$lib/voice/kokoro';
 import { YouTubePlayer, type PlaybackState } from './youtube';
 
 /** An artist counts as heard after this much listening. */
@@ -114,6 +118,17 @@ export interface RadioOptions {
 	/** For artwork: the artist's picture. */
 	image?: (entry: QueueEntry) => string | null;
 	speaker?: Speaker;
+	kokoro?: KokoroVoice;
+}
+
+interface Upcoming {
+	artistIndex: number;
+	trackIndex: number;
+	videoId: string;
+	mode: VoiceMode;
+	/** `announcedArtistKey` when it was decided: the line only fits if that still holds. */
+	announced: string | undefined;
+	line: Line | null;
 }
 
 interface BackAnnouncement {
@@ -145,6 +160,10 @@ export class Radio {
 	board = $state.raw<Board>({});
 	settings = $state<RadioSettings>(loadSettings());
 	voices = $state.raw<VoiceInfo[]>([]);
+	/** In-browser Kokoro: loading, ready (on what), failed. */
+	kokoro = $state.raw<KokoroState | null>(null);
+	/** Kokoro rendered far slower than real time here, so the browser voice took over. */
+	liveSlow = $state(false);
 	/** A passing message: a track that wouldn't play, and so on. */
 	notice = $state<string | null>(null);
 	/** Artists on this station without any track to play. */
@@ -162,8 +181,13 @@ export class Radio {
 	#player: YouTubePlayer | null = null;
 	#ducking: DuckingController | null = null;
 	readonly #speaker: Speaker;
-	/** The live voice: says whole lines, or the gig part after a pre-rendered clip. */
+	/** The browser's voice: the fallback for live lines, or the live voice if picked. */
 	readonly #webSpeech: WebSpeechSpeaker;
+	/** The live voice: says whole lines, or the gig part after a pre-rendered clip. */
+	readonly #live: KokoroSpeaker;
+	readonly #kokoro: KokoroVoice;
+	/** The next track's line, decided while this one plays so it can be rendered ahead. */
+	#upcoming: Upcoming | null = null;
 	readonly #presenter: Presenter;
 	readonly #options: RadioOptions;
 	#history: PlayHistory;
@@ -189,7 +213,10 @@ export class Radio {
 		this.board = loadBoard();
 		this.#cleanup.push(onBoardSynced((synced) => (this.board = synced)));
 		this.#webSpeech = new WebSpeechSpeaker(this.settings.voiceName);
-		this.#speaker = options.speaker ?? new ClipSpeaker(this.#webSpeech);
+		this.#kokoro = options.kokoro ?? sharedKokoro();
+		this.#live = new KokoroSpeaker(this.#kokoro, this.#webSpeech);
+		this.#live.enabled = this.settings.liveVoice === 'kokoro';
+		this.#speaker = options.speaker ?? new ClipSpeaker(this.#live);
 		this.#presenter = new Presenter({
 			rng: mulberry32(newSeed()),
 			venues: options.venues,
@@ -216,8 +243,11 @@ export class Radio {
 				pause: () => this.pause(),
 				nexttrack: () => this.next(),
 				previoustrack: () => this.previous()
-			})
+			}),
+			this.#kokoro.subscribe((state) => (this.kokoro = state))
 		);
+		// The model takes a few seconds to load (and downloads once): start before play.
+		if (this.#live.enabled) void this.#kokoro.load().catch(() => {});
 		const ticker = setInterval(() => this.#tick(), 500);
 		this.#cleanup.push(() => clearInterval(ticker));
 		void player.ready.then(() => (this.ready = true));
@@ -409,6 +439,24 @@ export class Radio {
 		this.settings.voiceName = name;
 		saveSettings(this.settings);
 		this.#webSpeech.voiceName = name;
+		this.#sample();
+	}
+
+	setLiveVoice(voice: LiveVoice): void {
+		this.settings.liveVoice = voice;
+		saveSettings(this.settings);
+		this.#live.enabled = voice === 'kokoro';
+		this.#upcoming = null;
+		if (voice === 'kokoro')
+			void this.#kokoro.load().then(
+				() => this.#sample(),
+				() => {}
+			);
+		else this.#sample();
+	}
+
+	/** "This is how I sound.", in the voice live lines use now. */
+	#sample(): void {
 		this.#speaker.unlock?.();
 		const text = 'This is how I sound.';
 		const line = {
@@ -547,14 +595,25 @@ export class Radio {
 		this.duration = 0;
 
 		const voice = this.settings.voiceMode;
-		const line = this.#presenter.forTrack({
-			entry,
-			trackIndex: target.trackIndex,
-			mode: voice,
-			now: new Date(),
-			announcedArtistKey: this.#announced,
-			clip: this.#clipFor(entry.artistKey)
-		});
+		const ahead = this.#upcoming;
+		this.#upcoming = null;
+		const planned =
+			ahead &&
+			ahead.artistIndex === target.artistIndex &&
+			ahead.trackIndex === target.trackIndex &&
+			ahead.videoId === track.videoId &&
+			ahead.mode === voice &&
+			ahead.announced === this.#announced;
+		const line = planned
+			? ahead.line
+			: this.#presenter.forTrack({
+					entry,
+					trackIndex: target.trackIndex,
+					mode: voice,
+					now: new Date(),
+					announcedArtistKey: this.#announced,
+					clip: this.#clipFor(entry.artistKey)
+				});
 		if (line?.kind === 'intro') {
 			this.#announcedBefore = this.#announced;
 			this.#announced = entry.artistKey;
@@ -591,6 +650,40 @@ export class Radio {
 			});
 	}
 
+	/**
+	 * Decides what's said before the next track while this one plays, so the live voice
+	 * can render it ahead (Kokoro takes about as long to render a line as to say it).
+	 * `#goTo` uses it if the radio does move on to that track, with nothing else changed.
+	 */
+	#planAhead(): void {
+		const mode = this.settings.voiceMode;
+		if (!this.#live.enabled || mode === 'off' || !this.queue.length) return;
+		const pos = nextPosition(this.queue, this.position);
+		const entry = this.queue[pos.artistIndex];
+		const track = entry?.tracks[pos.trackIndex];
+		if (!entry || !track || track.videoId === this.track?.videoId) return;
+		const up = this.#upcoming;
+		if (up && up.videoId === track.videoId && up.mode === mode && up.announced === this.#announced)
+			return;
+		const line = this.#presenter.forTrack({
+			entry,
+			trackIndex: pos.trackIndex,
+			mode,
+			now: new Date(),
+			announcedArtistKey: this.#announced,
+			clip: this.#clipFor(entry.artistKey)
+		});
+		this.#upcoming = {
+			artistIndex: pos.artistIndex,
+			trackIndex: pos.trackIndex,
+			videoId: track.videoId,
+			mode,
+			announced: this.#announced,
+			line
+		};
+		if (line) this.#speaker.prepare?.(line);
+	}
+
 	/** One of the artist's pre-rendered intros, at random, so repeat plays vary. */
 	#clipFor(artistKey: string): IntroClip | undefined {
 		const clips = this.#station?.clips?.[artistKey];
@@ -609,6 +702,7 @@ export class Radio {
 		} finally {
 			if (token === this.#speechToken) this.speaking = false;
 			this.#lastSpeechEnd = Date.now();
+			this.liveSlow = this.#live.slow;
 		}
 	}
 
@@ -640,6 +734,7 @@ export class Radio {
 				abort: null,
 				done: false
 			};
+			if (this.#back.line) this.#speaker.prepare?.(this.#back.line);
 		}
 		const back = this.#back;
 		if (back.done || !back.line || back.abort) return;
@@ -691,6 +786,7 @@ export class Radio {
 		if (player.videoId === this.#introVideo) this.#introVideo = null;
 		if (this.notice?.startsWith("Couldn't play")) this.notice = null;
 		this.#scheduleBack();
+		this.#planAhead();
 	}
 
 	#onEnded(): void {

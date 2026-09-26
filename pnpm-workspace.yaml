@@ -7,3 +7,8 @@ packages:
 allowBuilds:
   esbuild: true
   workerd: true
+  # kokoro-js (via transformers.js) pulls these in for Node; the browser needs none of their
+  # native builds.
+  onnxruntime-node: false
+  protobufjs: false
+  sharp: false

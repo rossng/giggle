@@ -25,7 +25,7 @@
 		type Filters
 	} from '$lib/data/filters';
 	import { NO_GENRE_COLOUR } from '$lib/data/genres';
-	import { TRACKS_PER_ARTIST } from '$lib/radio/persist';
+	import { TRACKS_PER_ARTIST, type LiveVoice } from '$lib/radio/persist';
 	import { Radio } from '$lib/radio/radio.svelte';
 	import { pickVoice } from '$lib/radio/speaker';
 	import {
@@ -118,6 +118,20 @@
 		{ mode: 'name', label: 'Name' },
 		{ mode: 'short', label: 'Short' }
 	];
+	const LIVE_VOICES: { voice: LiveVoice; label: string }[] = [
+		{ voice: 'kokoro', label: 'Kokoro' },
+		{ voice: 'browser', label: 'Browser voice' }
+	];
+	/** How in-browser Kokoro is doing, when there's something to say about it. */
+	const kokoroNote = $derived.by(() => {
+		const k = radio.kokoro;
+		if (radio.liveSlow) return 'Kokoro is too slow on this device: using the browser voice.';
+		if (!k || k.status === 'off') return null;
+		if (k.status === 'loading')
+			return `Loading Kokoro${k.progress ? ` (${Math.round(k.progress * 100)}%)` : ''}…`;
+		if (k.status === 'failed') return "Kokoro couldn't load: using the browser voice.";
+		return null;
+	});
 	const ORDERS: RadioOrder[] = ['date', 'mix', 'shuffle'];
 
 	function onkeydown(event: KeyboardEvent) {
@@ -235,9 +249,24 @@
 					>
 				{/each}
 			</div>
+			<div class="seg" role="group" aria-label="Live voice">
+				{#each LIVE_VOICES as { voice, label } (voice)}
+					<button
+						type="button"
+						class:on={radio.settings.liveVoice === voice}
+						aria-pressed={radio.settings.liveVoice === voice}
+						onclick={() => radio.setLiveVoice(voice)}>{label}</button
+					>
+				{/each}
+			</div>
+			{#if radio.settings.liveVoice === 'kokoro' && kokoroNote}
+				<p class="stat voice-note" role="status">{kokoroNote}</p>
+			{/if}
 			{#if radio.voices.length}
 				<label class="voice-pick">
-					<span class="visually-hidden">Voice</span>
+					<span class="visually-hidden"
+						>{radio.settings.liveVoice === 'kokoro' ? 'Fallback voice' : 'Voice'}</span
+					>
 					<select value={voiceName} onchange={(e) => radio.setVoiceName(e.currentTarget.value)}>
 						{#each radio.voices as v (v.name)}
 							<option value={v.name}>{v.name} ({v.lang})</option>
@@ -547,6 +576,12 @@
 		background: var(--p3);
 		color: var(--ink);
 		font-weight: 600;
+	}
+	.seg + .seg {
+		margin-top: 8px;
+	}
+	.voice-note {
+		margin: 6px 0 0;
 	}
 	select {
 		width: 100%;

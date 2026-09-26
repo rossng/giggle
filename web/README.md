@@ -46,11 +46,19 @@ Delete that module (and its uses, marked `DEV FALLBACK`) once the pipeline write
     `presenter.forTrack` → `planSegment` → `runSegment`, back-announcements over outros.
   - `youtube.ts`: radio-core's `Player` over the YouTube IFrame API (volume tracked locally;
     the embed must stay visible, ≥ 200 × 200 px). `app.html` sends a referrer (else error 153).
-  - `speaker.ts`: the `Speaker` interface and the Web Speech implementation (British voice,
-    "Daniel" if there), and `ClipSpeaker`, which plays the pipeline's Kokoro intro clip
-    (`/data/voice/*.mp3`) and has Web Speech say the live gig line.
+  - `speaker.ts`: the `Speaker` interface; `ClipSpeaker` plays the pipeline's Kokoro intro
+    clip (`/data/voice/*.mp3`) and hands the rest to the live voice, `KokoroSpeaker` (Kokoro in
+    the browser, sentence by sentence, lines prepared ahead), which falls back to
+    `WebSpeechSpeaker` (British voice, "Daniel" if there) when the model isn't ready, fails,
+    or is too slow on the device.
   - `station.ts` (filters + order + seed ↔ URL), `tracks.ts` (songs → tracks), `persist.ts`
     (session per station, play history, said-memory, settings), `media-session.ts`.
+- `src/lib/voice/` — Kokoro-82M in the browser for the announcer's live lines:
+  `kokoro.worker.ts` (kokoro-js on WebGPU, else WASM; model from Hugging Face, cached by the
+  browser), `kokoro.ts` (the page side: lazy load, render queue with urgent lines first, cache,
+  Web Audio playback), and ports of the pipeline's voice.py (`lexicon.ts`, `phonemes.ts`,
+  `audio.ts`, `announcers.ts`) so live lines match the pre-rendered clips. `/lab/voice` loads
+  the model, times renders and compares a clip with the same text said live.
 - `src/lib/board/board.ts` — the listener's triage (listen more / want to go / got tickets /
   not for me) by artist key, in localStorage (`giggle:board:v1`). The radio writes it; the
   Board page shows it as columns (`columns.ts`, which also works out "Been" from gig dates).

@@ -14,8 +14,10 @@ Upcoming-gig radio for Amsterdam and nearby. Design report: https://claude.ai/ar
   for playable artists. Per-run budgets everywhere; everything cached in `data/cache/`.
 - `web/` — SvelteKit 2 + Svelte 5 static SPA (adapter-static, `ssr = false`). Agenda and Radio work
   (`web/src/lib/radio/`: controller in radio.svelte.ts, YouTube Player, ClipSpeaker playing the
-  pipeline's Kokoro intro clips (`/data/voice/*.mp3`) then Web Speech for the live gig line,
-  per-station session persistence, Media Session) and Board (triage stored by
+  pipeline's Kokoro intro clips (`/data/voice/*.mp3`), then KokoroSpeaker saying live lines with
+  Kokoro in the browser (`web/src/lib/voice/`: kokoro-js in a worker, WebGPU, same voices and
+  lexicon, rendered ahead) and Web Speech as its fallback, per-station session persistence,
+  Media Session) and Board (triage stored by
   `web/src/lib/board/board.ts`, columns in `columns.ts`, synced by `web/src/lib/sync/`). One
   filter model (`web/src/lib/data/filters.ts`) lives in the URL.
 - `packages/radio-core/` — TypeScript radio engine (queue, Mix/Shuffle, session restore, announcer
@@ -70,6 +72,11 @@ download on first use to `data/cache/models/`, checksummed; never commit them.
   `data/site/voice/`; the browser says the gig line live. `seconds` is the played length. Capped
   per night, first variants first, soonest gig first. In CI the model is kept by actions/cache
   (key: the pinned checksums) and clips travel with the site-data artifact.
+- Live lines (gig line, track names, "That was…") use the same model in the browser
+  (`web/src/lib/voice/`): phonemes as kokoro-js makes them with the lexicon from
+  `pronunciation.json` spliced in, loudness as `normalise()`, voice by `announcerFor` (TS port).
+  Keep those in step with voice.py. It renders at ~0.5–1× real time on WebGPU in Firefox, so the
+  radio decides the next line while a track plays and renders it ahead; `/lab/voice` measures it.
 
 ## Local stack
 `make dev` runs it all (web on localhost:5173, API on :8787); sign in as a fake user by visiting

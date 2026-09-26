@@ -43,7 +43,7 @@ web-dev: ## run the web app on localhost:5173 against data/site (run `make data-
 web-build: ## build the static web app into web/build, with the current data
 	pnpm --dir web build
 	mkdir -p web/build/data
-	cp data/site/gigs.json data/site/artists.json web/build/data/
+	cp data/site/gigs.json data/site/artists.json data/site/pronunciation.json web/build/data/
 	if [ -d data/site/voice ]; then cp -R data/site/voice web/build/data/; fi
 
 radio: ## rough playback preview of the next 14 days, served on localhost:8765 (Ctrl-C stops)
