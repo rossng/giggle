@@ -12,12 +12,12 @@ test: ## run all tests
 	cd packages/podia && uv run --group dev pytest -q
 
 lint: ## check lint and formatting
-	uv run --group dev ruff check packages
-	uv run --group dev ruff format --check packages
+	uv run --group dev ruff check packages scripts
+	uv run --group dev ruff format --check packages scripts
 
 format: ## fix lint and formatting
-	uv run --group dev ruff check --fix packages
-	uv run --group dev ruff format packages
+	uv run --group dev ruff check --fix packages scripts
+	uv run --group dev ruff format packages scripts
 
 fetch: ## fetch live events from every venue into data/events/<venue>.jsonl (~10 min)
 	mkdir -p data/events

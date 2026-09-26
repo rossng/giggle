@@ -1,8 +1,8 @@
 """Checks every venue's parsed fixtures must pass, whatever the source."""
 
 import pytest
-from conftest import replay_events
 
+from conftest import replay_events
 from podia import all_venues
 
 
