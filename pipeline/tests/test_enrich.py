@@ -35,3 +35,30 @@ def test_artists_are_keyed_by_mbid_or_name_and_collect_their_gigs():
         {"key": "mb:mbid-ronker", "name": "Ronker", "role": "headliner"},
         {"key": "name:grotegeelstaart", "name": "Grote Geelstaart", "role": "support"},
     ]
+
+
+def test_namesake_bios_are_recognised():
+    from giggle_pipeline.enrich import NAMESAKE_BIO
+
+    assert NAMESAKE_BIO.match("There are multiple artists with this name: 1) a Dutch band")
+    assert NAMESAKE_BIO.match("At least three different groups have performed under the name")
+    assert not NAMESAKE_BIO.match("Nouvelle Vague is a French band led by Marc Collin")
+
+
+def test_youtube_songs_only_for_artists_playing_soon(tmp_path):
+    from giggle_pipeline.ytmusic import ArtistLookup
+
+    class Lookup(ArtistLookup):
+        def _lookup(self, name, key):
+            return {"name": name, "browseId": key, "songs": [{"videoId": key}]}
+
+    records = [
+        gig("paradiso:1", "2026-10-01T20:00", ["Nouvelle Vague"]),
+        gig("paradiso:2", "2027-03-01T20:00", ["Grote Geelstaart"]),
+    ]
+    youtube = Lookup(tmp_path / "yt.json", delay=0)
+    artists = enrich_artists(
+        records, FakeMusicBrainz(), youtube=youtube, youtube_until="2026-11-30"
+    )
+    assert artists["mb:mbid-nv"]["youtube"]["browseId"] == "nouvellevague"
+    assert artists["name:grotegeelstaart"]["youtube"] is None

@@ -19,6 +19,9 @@ import httpx
 MODELS = {
     "lineup": "@cf/qwen/qwen3-30b-a3b-fp8",
 }
+# Tasks that don't benefit from Qwen3's reasoning pass: /no_think makes line-ups ~4x faster
+# (5 s instead of 22 s per batch of 12) with the same answers on our listings.
+NO_THINK = {"lineup"}
 
 _THINK = re.compile(r"<think>.*?</think>", re.S)
 
@@ -55,6 +58,8 @@ class WorkersAI:
 
     def json(self, task, system, user, schema):
         model = MODELS[task]
+        if task in NO_THINK and "qwen3" in model:
+            system += "\n/no_think"
         body = {
             "messages": [{"role": "system", "content": system}, {"role": "user", "content": user}],
             "response_format": {"type": "json_schema", "json_schema": schema},

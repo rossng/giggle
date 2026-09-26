@@ -18,7 +18,7 @@ import json
 import os
 import sys
 from dataclasses import asdict
-from datetime import date, datetime
+from datetime import date, datetime, timedelta
 from pathlib import Path
 from typing import Any
 
@@ -33,6 +33,7 @@ from giggle_pipeline.llm import LLM, FakeLLM, LLMError, WorkersAI
 from giggle_pipeline.musicbrainz import MusicBrainz
 from giggle_pipeline.scope import exclusion_reason, load_rules
 from giggle_pipeline.wikipedia import Wikipedia
+from giggle_pipeline.ytmusic import ArtistLookup
 from podia import Event, all_venues
 
 # Line-ups the model classes as these aren't what giggle is for.
@@ -91,6 +92,13 @@ def main(argv: list[str] | None = None) -> int:
         default=600,
         help="MusicBrainz requests per run (1/s); the rest wait for the next run",
     )
+    parser.add_argument(
+        "--youtube-days",
+        type=int,
+        default=60,
+        help="look up YouTube Music songs for artists playing within this many days",
+    )
+    parser.add_argument("--youtube-max-lookups", type=int, default=400)
     parser.add_argument("--cache", type=Path, default=Path("data/cache/pipeline.sqlite"))
     args = parser.parse_args(argv)
     load_dotenv()
@@ -134,7 +142,15 @@ def main(argv: list[str] | None = None) -> int:
     lastfm_key = os.environ.get("LASTFM_API_KEY") or None  # CI passes unset secrets as ""
     lastfm = LastFM(cache, lastfm_key, max_requests=0 if offline else 1500)
     wikipedia = Wikipedia(cache, max_requests=0 if offline else 1000)
-    artists = enrich_artists(kept_records, mb, lastfm, wikipedia)
+    youtube = ArtistLookup(
+        args.cache.parent / "ytmusic.json",
+        max_lookups=0 if offline else args.youtube_max_lookups,
+    )
+    until = (args.since + timedelta(days=args.youtube_days)).isoformat()
+    try:
+        artists = enrich_artists(kept_records, mb, lastfm, wikipedia, youtube, until)
+    finally:
+        youtube.save()
     cache.close()
 
     history: list[dict] = []
@@ -181,9 +197,11 @@ def main(argv: list[str] | None = None) -> int:
     matched = sum(1 for a in artists.values() if a["match"])
     with_lastfm = sum(1 for a in artists.values() if a["lastfm"])
     with_wiki = sum(1 for a in artists.values() if a["wikipedia"])
+    with_songs = sum(1 for a in artists.values() if (a.get("youtube") or {}).get("songs"))
     print(
         f"artists: {len(artists)}; {matched} matched on MusicBrainz, {with_lastfm} on Last.fm, "
-        f"{with_wiki} with a Wikipedia summary ({mb.requests} MusicBrainz requests)"
+        f"{with_wiki} with a Wikipedia summary, {with_songs} with YouTube Music songs "
+        f"({mb.requests} MusicBrainz requests, {youtube.lookups} YouTube Music lookups)"
     )
     if mb.outages:
         state = "gave up for this run" if mb.unavailable else "recovered"

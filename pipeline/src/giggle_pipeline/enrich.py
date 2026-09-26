@@ -7,11 +7,22 @@ runs out it's next week's artists that got looked up, not next year's.
 
 from __future__ import annotations
 
+import re
+import sys
 from typing import Any
 
 from giggle_pipeline.lastfm import LastFM
 from giggle_pipeline.musicbrainz import MusicBrainz, normalise
 from giggle_pipeline.wikipedia import Wikipedia
+from giggle_pipeline.ytmusic import ArtistLookup
+
+# Last.fm bios for names shared by several acts open like "There are multiple artists…"
+# or "At least three different groups have performed under the name…".
+NAMESAKE_BIO = re.compile(
+    r"^(there (are|is|have been)|at least|this name|several|multiple)\b.{0,60}"
+    r"\b(artists|bands|groups|acts|musicians|projects)\b",
+    re.I,
+)
 
 
 def artist_key(name: str, match: dict[str, Any] | None) -> str:
@@ -23,10 +34,13 @@ def enrich_artists(
     mb: MusicBrainz,
     lastfm: LastFM | None = None,
     wikipedia: Wikipedia | None = None,
+    youtube: ArtistLookup | None = None,
+    youtube_until: str | None = None,
 ) -> dict[str, dict[str, Any]]:
     """Adds `artists` ([{key, name, role}]) to each gig record, and returns the artist
     records keyed by artist key: MusicBrainz match and details, Last.fm tags,
-    listeners, bio and top tracks, and a Wikipedia summary, where available."""
+    listeners, bio and top tracks, a Wikipedia summary, and YouTube Music songs for
+    artists playing before `youtube_until` (an ISO date), where available."""
     artists: dict[str, dict[str, Any]] = {}
     for record in sorted(records, key=lambda r: r["start"]):
         lineup = record["lineup"]
@@ -39,7 +53,17 @@ def enrich_artists(
             key = artist_key(name, match)
             entry = artists.get(key)
             if entry is None:
-                entry = artists[key] = describe(name, match, mb, lastfm, wikipedia)
+                soon = youtube_until is None or record["start"][:10] < youtube_until
+                entry = artists[key] = describe(
+                    name, match, mb, lastfm, wikipedia, youtube if soon else None
+                )
+                if len(artists) % 100 == 0:
+                    matched = sum(1 for a in artists.values() if a["match"])
+                    print(
+                        f"artists: {len(artists)} so far, {matched} matched, "
+                        f"{mb.requests} MusicBrainz requests",
+                        file=sys.stderr,
+                    )
             if record["id"] not in entry["gigs"]:
                 entry["gigs"].append(record["id"])
             if key not in {r["key"] for r in refs}:
@@ -54,11 +78,12 @@ def describe(
     mb: MusicBrainz,
     lastfm: LastFM | None,
     wikipedia: Wikipedia | None,
+    youtube: ArtistLookup | None = None,
 ) -> dict[str, Any]:
     details = mb.details(match["mbid"]) if match else None
     mbid = match["mbid"] if match else None
     info = lastfm.info(name, mbid) if lastfm else None
-    if info and (info.get("bio") or "").startswith("There are multiple artists"):
+    if info and NAMESAKE_BIO.match(info.get("bio") or ""):
         info = {**info, "bio": None}  # Last.fm merged namesakes: the bio may be anyone's
     return {
         "key": artist_key(name, match),
@@ -68,5 +93,6 @@ def describe(
         "lastfm": info,
         "top_tracks": lastfm.top_tracks(name, mbid) if lastfm else None,
         "wikipedia": wikipedia.summary(details["links"]) if wikipedia and details else None,
+        "youtube": youtube.find(match["name"] if match else name) if youtube else None,
         "gigs": [],
     }

@@ -11,24 +11,30 @@ from __future__ import annotations
 
 import json
 import sys
+import time
 import unicodedata
+from concurrent.futures import ThreadPoolExecutor
 from typing import Any
 
 from giggle_pipeline.artists import names_from_text
 from giggle_pipeline.cache import Cache, key_for
 from giggle_pipeline.llm import LLM, MODELS, LLMError
 
-PROMPT_VERSION = 1
+PROMPT_VERSION = 2
 BATCH = 12
+PARALLEL = 4  # concurrent requests; Workers AI allows 300 per minute
 KINDS = ["concert", "festival", "club", "tribute", "not_music"]
 
 SYSTEM = """You read Dutch and English music venue listings and say who is performing.
 
 For each listing, return:
 - kind: "concert" (one or a few acts), "festival" (a multi-act day or series with a
-  line-up), "club" (DJ or dance night), "tribute" (tribute or cover act, or a show
-  playing another artist's music), or "not_music" (talk, film, workshop, exhibition,
-  rehearsal, jam session, open stage, quiz…).
+  line-up), "club" (DJ or dance night), "tribute" (a tribute act or show devoted to
+  another artist, e.g. "A Tribute to Queen", "The Music of ABBA", or a band named after
+  the artist it imitates), or "not_music" (talk, film, workshop, exhibition, rehearsal,
+  jam session, open stage, quiz…). A band with its own name and identity that plays
+  covers or reinterprets other music (e.g. Nouvelle Vague, Postmodern Jukebox) is a
+  "concert", not a tribute.
 - headliners: the main act or acts, exactly as spelled in the listing.
 - support: supporting acts, exactly as spelled. For festivals, put the line-up here
   (at most 12 acts, as listed).
@@ -117,31 +123,47 @@ def parse_lineups(
         else:
             todo.append(gig["id"])
 
-    calls = 0
-    for start in range(0, len(todo), BATCH):
-        if llm is None or calls >= max_calls:
-            break
-        batch = todo[start : start + BATCH]
-        calls += 1
+    batches = [todo[i : i + BATCH] for i in range(0, len(todo), BATCH)]
+    if llm is None:
+        batches = []
+    batches = batches[:max_calls]
+
+    def ask(batch: list[str]) -> tuple[list[str], dict[str, Any] | None, str | None]:
         user = json.dumps([items[gid] for gid in batch], ensure_ascii=False)
         try:
             answer = llm.json("lineup", SYSTEM, user, SCHEMA)
             rows = {r.get("id"): r for r in answer.get("listings", []) if isinstance(r, dict)}
+            return batch, rows, None
         except (LLMError, AttributeError) as exc:
-            print(f"lineup: batch failed, using title rules: {exc}", file=sys.stderr)
-            continue
-        for gid in batch:
-            row = rows.get(gid)
-            if row is None or row.get("kind") not in KINDS:
-                continue
-            parsed = {
-                "kind": row["kind"],
-                "headliners": grounded(row.get("headliners") or [], items[gid]),
-                "support": grounded(row.get("support") or [], items[gid])[:12],
-                "source": model,
-            }
-            cache.put("lineup", keys[gid], parsed)
-            result[gid] = parsed
+            return batch, None, str(exc)[:200]
+
+    # Requests run in parallel; the cache (SQLite) is only written from this thread.
+    started = time.monotonic()
+    failed = 0
+    with ThreadPoolExecutor(max_workers=PARALLEL) as pool:
+        for done, (batch, rows, error) in enumerate(pool.map(ask, batches), 1):
+            if rows is None:
+                failed += 1
+                print(f"lineup: batch failed, using title rules: {error}", file=sys.stderr)
+            else:
+                for gid in batch:
+                    row = rows.get(gid)
+                    if row is None or row.get("kind") not in KINDS:
+                        continue
+                    parsed = {
+                        "kind": row["kind"],
+                        "headliners": grounded(row.get("headliners") or [], items[gid]),
+                        "support": grounded(row.get("support") or [], items[gid])[:12],
+                        "source": model,
+                    }
+                    cache.put("lineup", keys[gid], parsed)
+                    result[gid] = parsed
+            if done % 10 == 0 or done == len(batches):
+                elapsed = time.monotonic() - started
+                print(
+                    f"lineup: {done}/{len(batches)} batches, {failed} failed, {elapsed:.0f}s",
+                    file=sys.stderr,
+                )
 
     for gig in gigs:  # not cached, so the model gets another go on the next run
         result.setdefault(gig["id"], by_rules(gig))

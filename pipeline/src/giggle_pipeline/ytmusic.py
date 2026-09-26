@@ -10,6 +10,7 @@ from __future__ import annotations
 
 import json
 import re
+import sys
 import time
 import unicodedata
 from pathlib import Path
@@ -27,9 +28,12 @@ def normalise(name: str) -> str:
 
 
 class ArtistLookup:
-    def __init__(self, cache_file: Path, delay: float = 0.5) -> None:
+    def __init__(
+        self, cache_file: Path, delay: float = 0.5, max_lookups: int | None = None
+    ) -> None:
         self.cache_file = cache_file
         self.delay = delay
+        self.max_lookups = max_lookups  # None: unlimited; 0: cached answers only
         self._yt: YTMusic | None = None
         self.cache: dict[str, Any] = {}
         if cache_file.exists():
@@ -48,9 +52,16 @@ class ArtistLookup:
         if not key:
             return None
         if key not in self.cache:
-            self.cache[key] = self._lookup(name, key)
-            self.lookups += 1
-            time.sleep(self.delay)
+            if self.max_lookups is not None and self.lookups >= self.max_lookups:
+                return None  # out of budget: not cached, looked up on a later run
+            try:
+                self.cache[key] = self._lookup(name, key)
+            except Exception as exc:  # unofficial API: a failure skips this artist
+                print(f"ytmusic: {name}: {exc!r}", file=sys.stderr)
+                return None
+            finally:
+                self.lookups += 1
+                time.sleep(self.delay)
         return self.cache[key]
 
     def _lookup(self, name: str, key: str) -> dict[str, Any] | None:
