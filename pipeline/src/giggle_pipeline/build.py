@@ -185,6 +185,9 @@ def main(argv: list[str] | None = None) -> int:
         f"artists: {len(artists)}; {matched} matched on MusicBrainz, {with_lastfm} on Last.fm, "
         f"{with_wiki} with a Wikipedia summary ({mb.requests} MusicBrainz requests)"
     )
+    if mb.outages:
+        state = "gave up for this run" if mb.unavailable else "recovered"
+        print(f"musicbrainz: {mb.outages} failed lookups; {state}", file=sys.stderr)
     print(f"{len(kept_records)} gigs kept, {len(excluded)} left out: " + ", ".join(
         f"{n} {reason}" for reason, n in sorted(reasons.items(), key=lambda x: -x[1])))  # fmt: skip
     for p in problems:

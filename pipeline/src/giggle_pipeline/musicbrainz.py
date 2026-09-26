@@ -28,6 +28,8 @@ USER_AGENT = "giggle/0.1 (https://github.com/rossng/giggle)"
 DETAILS_MAX_AGE = 90 * 86400
 INTERVAL = 1.1  # seconds between requests
 BACKOFF = (5, 10, 20)  # seconds to wait before each retry
+COOL_DOWN = (60, 120)  # after a lookup fails all its retries: pause, then carry on
+MAX_OUTAGES = 3  # failed lookups before giving up on MusicBrainz for the run
 LINK_TYPES = {
     "bandcamp": "bandcamp",
     "wikidata": "wikidata",
@@ -81,7 +83,8 @@ class MusicBrainz:
         self.sleep = sleep
         self.max_requests = max_requests
         self.requests = 0  # HTTP requests made, retries included
-        self.unavailable = False  # gave up after retries: no more requests this run
+        self.outages = 0  # lookups that failed all their retries
+        self.unavailable = False  # too many outages: no more requests this run
         self._last = 0.0
 
     @property
@@ -104,7 +107,14 @@ class MusicBrainz:
             if r.status_code < 500:  # 503 is MusicBrainz's rate limit
                 r.raise_for_status()
                 return r.json()
-        self.unavailable = True  # don't spend minutes backing off on every remaining artist
+        # A short network blip shouldn't cost the whole night, but a real outage shouldn't
+        # cost minutes of backoff per remaining artist either: pause and carry on, and
+        # give up only once it keeps happening.
+        self.outages += 1
+        if self.outages >= MAX_OUTAGES:
+            self.unavailable = True
+        else:
+            self.sleep(COOL_DOWN[self.outages - 1])
         raise MusicBrainzUnavailable(f"{path}: still failing after {len(BACKOFF)} retries")
 
     def match(self, name: str, genres: list[str]) -> dict[str, Any] | None:
