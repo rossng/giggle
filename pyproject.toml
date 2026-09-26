@@ -15,7 +15,7 @@ podia = { workspace = true }
 giggle-pipeline = { workspace = true }
 
 [tool.uv.workspace]
-members = ["packages/*", "pipeline"]
+members = ["packages/podia", "pipeline"]  # packages/radio-core is TypeScript
 
 [dependency-groups]
 dev = ["pytest>=8", "ruff>=0.6"]
