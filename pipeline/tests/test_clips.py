@@ -1,0 +1,121 @@
+import numpy as np
+
+from giggle_pipeline.clips import clip_text, render_intros
+from giggle_pipeline.voice import (
+    ANNOUNCERS,
+    Lexicon,
+    Voice,
+    VoiceError,
+    announcer_for,
+    encode_mp3,
+    mp3_seconds,
+)
+
+RATE = 24_000
+
+
+class FakeSynth:
+    name = "fake-tts"
+    sample_rate = RATE
+
+    def __init__(self, seconds=0.5):
+        self.seconds = seconds
+        self.calls = []
+
+    def synthesize(self, text, voice, speed):
+        self.calls.append((text, voice))
+        t = np.arange(int(RATE * self.seconds)) / RATE
+        return (0.5 * np.sin(2 * np.pi * 220 * t)).astype(np.float32)
+
+
+class BrokenSynth(FakeSynth):
+    def synthesize(self, text, voice, speed):
+        raise VoiceError("kokoro-onnx isn't installed")
+
+
+ARTISTS = {f"k{i}": {"name": f"Band {i}"} for i in range(4)}
+BLURBS = {
+    "k0": ["a Glasgow band", "a shoegaze band"],
+    "k1": ["a Lisbon singer"],
+    "k2": [],
+    "k3": ["a Norwegian rock band", "a Bergen band", "a band singing in Norwegian"],
+}
+ORDER = ["k3", "k0", "k1", "k2"]
+
+
+def render(tmp_path, **kw):
+    kw.setdefault("synthesizer", FakeSynth())
+    kw.setdefault("lexicon", Lexicon([]))
+    return render_intros(ARTISTS, BLURBS, ORDER, tmp_path, **kw)
+
+
+def test_clip_text():
+    assert clip_text("Mogwai", "a Glasgow post-rock band.") == "Mogwai, a Glasgow post-rock band."
+
+
+def test_renders_every_variant_in_the_artists_voice(tmp_path):
+    synth = FakeSynth()
+    result = render(tmp_path, synthesizer=synth)
+    assert list(result) == ["k3", "k0", "k1"]  # no blurbs, no clips
+    assert [c["text"] for c in result["k0"]] == [
+        "Band 0, a Glasgow band.",
+        "Band 0, a shoegaze band.",
+    ]
+    for key, clips in result.items():
+        for clip in clips:
+            assert clip["voice"] == announcer_for(key) in ANNOUNCERS
+            assert clip["file"].startswith("voice/") and clip["file"].endswith(".mp3")
+            assert (tmp_path / clip["file"]).exists()
+            assert clip["seconds"] > 0.5
+    assert len(synth.calls) == 6
+
+
+def test_existing_clips_are_never_rendered_again(tmp_path):
+    first = render(tmp_path)
+    synth = FakeSynth()
+    assert render(tmp_path, synthesizer=synth) == first
+    assert synth.calls == []
+
+
+def test_budget_goes_breadth_first_soonest_first(tmp_path):
+    synth = FakeSynth()
+    result = render(tmp_path, synthesizer=synth, max_renders=4)
+    # First variants for k3, k0, k1, then k3's second.
+    assert [t for t, _ in synth.calls] == [
+        "Band 3, a Norwegian rock band.",
+        "Band 0, a Glasgow band.",
+        "Band 1, a Lisbon singer.",
+        "Band 3, a Bergen band.",
+    ]
+    assert {k: len(v) for k, v in result.items()} == {"k3": 2, "k0": 1, "k1": 1}
+    # The next night picks up where this one stopped, and reuse costs nothing.
+    synth = FakeSynth()
+    result = render(tmp_path, synthesizer=synth, max_renders=4)
+    assert len(synth.calls) == 2
+    assert [c["text"] for c in result["k3"]][-1] == "Band 3, a band singing in Norwegian."
+
+
+def test_without_the_model_existing_clips_are_still_used(tmp_path):
+    render(tmp_path, max_renders=1)
+    result = render(tmp_path, synthesizer=BrokenSynth())
+    assert {k: len(v) for k, v in result.items()} == {"k3": 1}
+
+
+def test_clip_names_match_the_voice_module(tmp_path):
+    synth = FakeSynth()
+    result = render(tmp_path, synthesizer=synth)
+    voice = Voice(voice=announcer_for("k1"), lexicon=Lexicon([]), synthesizer=synth)
+    assert (
+        result["k1"][0]["file"]
+        == f"voice/{voice.path_for('Band 1, a Lisbon singer.', tmp_path).name}"
+    )
+
+
+def test_mp3_seconds_is_the_played_length(tmp_path):
+    # 1 s of audio + 2 × 100 ms pads, plus the encoder's lead-in and last partial frame.
+    path = tmp_path / "a.mp3"
+    path.write_bytes(encode_mp3(np.zeros(RATE, dtype=np.float32) + 0.1, RATE))
+    frames = path.stat().st_size / 144
+    assert frames == int(frames)
+    assert mp3_seconds(path) == frames * 576 / RATE
+    assert 1.2 < mp3_seconds(path) < 1.2 + 0.1

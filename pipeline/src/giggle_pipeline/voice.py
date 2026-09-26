@@ -269,6 +269,23 @@ class KokoroSynthesizer:
         return np.asarray(audio, dtype=np.float32)
 
 
+class LazyKokoro:
+    """A `KokoroSynthesizer` that loads the model on first use, so several `Voice`s can
+    share one model and a run that renders nothing never loads it. Named like the real
+    one, so clip hashes are the same either way."""
+
+    def __init__(self, model_dir: Path = DEFAULT_MODEL_DIR, variant: str = "fp32") -> None:
+        self.model_dir, self.variant = model_dir, variant
+        self.name = f"kokoro-v1.0-{variant}/{KokoroSynthesizer.lang}"
+        self.sample_rate = SAMPLE_RATE
+        self._tts: KokoroSynthesizer | None = None
+
+    def synthesize(self, text: str, voice: str, speed: float) -> NDArray[np.float32]:
+        if self._tts is None:
+            self._tts = KokoroSynthesizer(self.model_dir, self.variant)
+        return self._tts.synthesize(text, voice, speed)
+
+
 # --- audio -----------------------------------------------------------------------
 
 
@@ -456,7 +473,7 @@ def samples_main(argv: list[str] | None = None) -> int:
         clip = voice.render(text, args.out / "clips")
         took = time.perf_counter() - started
         shutil.copyfile(clip, args.out / f"{name}.mp3")
-        seconds = _mp3_seconds(clip)
+        seconds = mp3_seconds(clip)
         status = "rendered" if voice.rendered else "cached"
         print(f"{name}: {status} {seconds:.1f} s of audio in {took:.1f} s", file=sys.stderr)
         render = took if voice.rendered else None
@@ -467,8 +484,11 @@ def samples_main(argv: list[str] | None = None) -> int:
     return 0
 
 
-def _mp3_seconds(path: Path) -> float:
-    """Duration from the file size, as the encoder writes constant-bitrate frames."""
+def mp3_seconds(path: Path) -> float:
+    """How long a clip plays for, from its size: `encode_mp3` writes constant-bitrate
+    frames (144 bytes = 576 samples at 48 kbps, 24 kHz) and no tags. That includes the
+    100 ms pads and the encoder's ~50 ms of lead-in, which players don't trim without a
+    LAME tag, so it's the length a browser reports."""
     return path.stat().st_size * 8 / (BITRATE_KBPS * 1000)
 
 

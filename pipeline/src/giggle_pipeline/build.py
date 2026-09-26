@@ -22,12 +22,14 @@ from datetime import date, datetime, timedelta
 from pathlib import Path
 from typing import Any
 
+from giggle_pipeline import blurbs as blurbs_mod
 from giggle_pipeline import health
 from giggle_pipeline.cache import Cache
+from giggle_pipeline.clips import render_intros
 from giggle_pipeline.collect import collect_live, collect_replay
 from giggle_pipeline.dedupe import merge_duplicates, place
 from giggle_pipeline.details import fetch_details
-from giggle_pipeline.enrich import enrich_artists
+from giggle_pipeline.enrich import enrich_artists, trusted_identity
 from giggle_pipeline.lastfm import LastFM
 from giggle_pipeline.lineup import fake_answer, parse_lineups
 from giggle_pipeline.llm import LLM, FakeLLM, LLMError, WorkersAI
@@ -163,6 +165,27 @@ def main(argv: list[str] | None = None) -> int:
         artists = enrich_artists(kept_records, mb, lastfm, wikipedia, youtube, until)
     finally:
         youtube.save()
+
+    # Announcer blurbs (LLM, grounded in the facts above) and their voice clips, soonest
+    # gigs first; clips land in <out>/voice/ and are never re-rendered.
+    # Only artists the radio can play get introduced, so only they need blurbs and clips.
+    # enrich_artists adds artists soonest gig first.
+    # Only described when we're sure who they are (see trusted_identity).
+    order = [
+        k
+        for k, a in artists.items()
+        if (a.get("youtube") or {}).get("songs") and trusted_identity(a)
+    ]
+    blurb_llm = FakeLLM(blurbs_mod.fake_answer) if llm and llm.name == "fake" else llm
+    blurbs = blurbs_mod.write_blurbs(artists, blurb_llm, cache, order, max_calls=args.llm_max_calls)
+    fake = offline or blurb_llm is None or blurb_llm.name == "fake"
+    intros = render_intros(artists, blurbs, order, args.out, max_renders=0 if fake else 300)
+    for key, artist in artists.items():
+        artist["blurbs"] = blurbs.get(key, [])
+        artist["announce"] = [
+            {"text": c["text"], "clip": c["file"], "seconds": c["seconds"], "voice": c["voice"]}
+            for c in intros.get(key, [])
+        ]
     cache.close()
 
     history: list[dict] = []
@@ -210,11 +233,14 @@ def main(argv: list[str] | None = None) -> int:
     with_lastfm = sum(1 for a in artists.values() if a["lastfm"])
     with_wiki = sum(1 for a in artists.values() if a["wikipedia"])
     with_songs = sum(1 for a in artists.values() if (a.get("youtube") or {}).get("songs"))
+    with_blurbs = sum(1 for a in artists.values() if a["blurbs"])
+    with_clips = sum(1 for a in artists.values() if a["announce"])
     print(
         f"artists: {len(artists)}; {matched} matched on MusicBrainz, {with_lastfm} on Last.fm, "
         f"{with_wiki} with a Wikipedia summary, {with_songs} with YouTube Music songs "
         f"({mb.requests} MusicBrainz requests, {youtube.lookups} YouTube Music lookups)"
     )
+    print(f"announcer: {with_blurbs} artists with blurbs, {with_clips} with voice clips")
     if mb.sheds:
         print(f"musicbrainz: {mb.sheds} busy (shed) search responses retried", file=sys.stderr)
     if mb.outages:

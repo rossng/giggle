@@ -9,7 +9,9 @@ Upcoming-gig radio for Amsterdam and nearby. Design report: https://claude.ai/ar
   new/soon events (`details.py`), drop out-of-scope
   events by the rules in `scope.toml` (each with a reason), merge cross-venue duplicates, check
   venue health against recent runs. `giggle-issues` opens/closes one GitHub issue per broken
-  venue. Artist matching, enrichment, blurbs and TTS come next.
+  venue. Then LLM line-ups (`lineup.py`), artists (`enrich.py`: MusicBrainz, Last.fm, Wikipedia,
+  YouTube Music songs within 60 days), announcer blurbs (`blurbs.py`) and Kokoro clips (`clips.py`)
+  for playable artists. Per-run budgets everywhere; everything cached in `data/cache/`.
 - `web/` — SvelteKit 2 + Svelte 5 static SPA (adapter-static, `ssr = false`). Agenda works; Radio,
   Board are placeholders. One filter model (`web/src/lib/data/filters.ts`) lives in the URL.
 - `packages/radio-core/` — TypeScript radio engine (queue, Mix/Shuffle, session restore, announcer
@@ -49,6 +51,15 @@ download on first use to `data/cache/models/`, checksummed; never commit them.
 - Mispronounced names go in `pronunciation.toml` (anglicised IPA in espeak's en-gb symbols;
   `giggle-voice-samples --phonemes "text"` shows espeak's version), not in the blurb text.
 - Tests use a fake `Synthesizer`; never download the model in tests.
+- Blurbs (`blurbs.py`): 2–3 short descriptors per artist ("a Glasgow band pouring shoegaze…",
+  ≤ 18 words) written by the LLM from the enrichment facts only. `problems()` rejects variants
+  whose numbers, count words, capitalised names, hype or style words aren't in the facts, and
+  gig details; raw answers are cached and re-checked each build, so tighten checks there rather
+  than in the prompt where you can (prompt changes: bump `PROMPT_VERSION`).
+- Intros (`clips.py`): "<name>, <blurb>." in `announcer_for(key)`'s voice, to
+  `data/site/voice/`; the browser says the gig line live. `seconds` is the played length. Capped
+  per night, first variants first, soonest gig first. In CI the model is kept by actions/cache
+  (key: the pinned checksums) and clips travel with the site-data artifact.
 
 ## Local stack
 Everything must run locally: `make dev` (fixtures → data, `wrangler dev` with local D1/R2,
