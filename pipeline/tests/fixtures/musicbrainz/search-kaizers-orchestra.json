@@ -1,0 +1,28 @@
+{
+ "count": 1,
+ "artists": [
+  {
+   "id": "2c3bac0a-5158-442f-b50b-056aae52138c",
+   "score": 100,
+   "name": "Kaizers Orchestra",
+   "tags": [
+    {
+     "count": 2,
+     "name": "rock"
+    },
+    {
+     "count": 2,
+     "name": "alternative rock"
+    },
+    {
+     "count": 1,
+     "name": "norwegian"
+    },
+    {
+     "count": 0,
+     "name": "alternative"
+    }
+   ]
+  }
+ ]
+}

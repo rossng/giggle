@@ -1,0 +1,84 @@
+{
+ "count": 4,
+ "artists": [
+  {
+   "id": "2a85ecff-41e9-4be1-aca6-c87054a4c334",
+   "score": 100,
+   "name": "Buena Vista Social Club",
+   "tags": [
+    {
+     "count": 3,
+     "name": "jazz"
+    },
+    {
+     "count": 2,
+     "name": "folk"
+    },
+    {
+     "count": 5,
+     "name": "afro-cuban jazz"
+    },
+    {
+     "count": 2,
+     "name": "latin"
+    },
+    {
+     "count": 2,
+     "name": "rock and indie"
+    },
+    {
+     "count": 5,
+     "name": "son cubano"
+    },
+    {
+     "count": 2,
+     "name": "bolero son"
+    },
+    {
+     "count": 2,
+     "name": "pilón"
+    }
+   ]
+  },
+  {
+   "id": "7270fff5-a1f8-4e63-9b43-c62aab32c754",
+   "score": 79,
+   "name": "Buena Vista Social Club Alumni"
+  },
+  {
+   "id": "9bf5116f-104e-4383-a103-4dc86d07c621",
+   "score": 79,
+   "name": "Orquesta Buena Vista Social Club",
+   "tags": [
+    {
+     "count": 1,
+     "name": "son"
+    },
+    {
+     "count": 1,
+     "name": "bolero"
+    },
+    {
+     "count": 1,
+     "name": "guajira"
+    },
+    {
+     "count": 1,
+     "name": "danzón"
+    }
+   ]
+  },
+  {
+   "id": "7b71ee93-d78c-4809-b821-4499e091a08f",
+   "score": 69,
+   "name": "Original Broadway Cast of Buena Vista Social Club",
+   "disambiguation": "Original Broadway Cast of Buena Vista Social Club",
+   "tags": [
+    {
+     "count": 1,
+     "name": "cast"
+    }
+   ]
+  }
+ ]
+}

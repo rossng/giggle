@@ -8,7 +8,7 @@ on:
 permissions:
   contents: read
   issues: write # open and close venue-health issues
-  actions: write # read the last run's data, and re-enable this schedule
+  actions: write # read the last run's data and cache, and re-enable this schedule
 
 concurrency:
   group: nightly
@@ -17,7 +17,9 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    # A normal night takes minutes. Cold caches take longer, but the build's per-run budgets
+    # (LLM calls, MusicBrainz/Last.fm/Wikipedia requests) cap each night's share of the work.
+    timeout-minutes: 45
     env:
       GH_TOKEN: ${{ github.token }}
       GH_REPO: ${{ github.repository }}
@@ -38,13 +40,57 @@ jobs:
             gh run download "$run" --name site-data --dir data/site || true
           fi
 
+      # data/cache holds LLM line-ups, MusicBrainz, Last.fm and Wikipedia lookups
+      # (pipeline.sqlite) and YouTube Music lookups (ytmusic.json). Each night adds to it, so
+      # lookups spread over nights instead of repeating. It travels as an artifact, not via
+      # actions/cache: cache entries are immutable per key (a growing cache needs a new key
+      # every night plus restore-keys) and are evicted after 7 days unused, sharing the 10 GB
+      # repo quota with the uv cache. An artifact is simply "the latest copy", kept 30 days
+      # and downloadable for debugging. Entries are keyed on their inputs, so a copy from a
+      # failed or timed-out run is still valid: take the newest, whatever the run's outcome.
+      - name: Restore the pipeline cache
+        env:
+          BRANCH: ${{ github.ref_name }} # the default branch for scheduled runs
+        run: |
+          # shellcheck disable=SC2016 # $ENV.BRANCH is jq's, not the shell's
+          run=$(gh api "repos/$GH_REPO/actions/artifacts?name=pipeline-cache&per_page=20" \
+            -q '[.artifacts[] | select((.expired | not) and .workflow_run.head_branch == $ENV.BRANCH)]
+                | .[0].workflow_run.id // empty')
+          if [ -z "$run" ]; then
+            echo "No pipeline cache yet: starting cold."
+          elif ! gh run download "$run" --name pipeline-cache --dir data/cache; then
+            echo "::warning::Couldn't restore the pipeline cache from run $run; starting cold."
+          fi
+          ls -la data/cache 2>/dev/null || true
+
       - name: Build
-        run: nix develop -c make data
+        env:
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          LASTFM_API_KEY: ${{ secrets.LASTFM_API_KEY }}
+        run: |
+          # An unset secret arrives as "". Unset it so the build sees it as missing and
+          # falls back (title rules instead of Workers AI; no Last.fm).
+          for name in CLOUDFLARE_ACCOUNT_ID CLOUDFLARE_API_TOKEN LASTFM_API_KEY; do
+            if [ -z "${!name}" ]; then
+              echo "::notice::$name is not set; the build will do without it."
+              unset "$name"
+            fi
+          done
+          nix develop -c make data
 
       - uses: actions/upload-artifact@v4
         with:
           name: site-data
           path: data/site
+          retention-days: 30
+
+      # Also after a failed or timed-out build: whatever it looked up is worth keeping.
+      - uses: actions/upload-artifact@v4
+        if: always() && hashFiles('data/cache/**') != ''
+        with:
+          name: pipeline-cache
+          path: data/cache
           retention-days: 30
 
       - name: Open or close venue-health issues

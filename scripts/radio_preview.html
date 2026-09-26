@@ -331,7 +331,8 @@ function ticketNote(g) {
   const min = g.price?.min_eur;
   if (min === 0) return pick("free", ["And it's free.", "Entry is free."]);
   if (!min || Math.random() < 0.35) return "";  // prices don't need saying every time
-  const eur = Number.isInteger(min) ? String(min) : min.toFixed(2);
+  // Spoken prices are whole euros: "about 24 euros", never "twenty-three point five zero".
+  const eur = Math.round(min) === min ? String(min) : `about ${Math.round(min)}`;
   return pick("price", [`Tickets from ${eur} euros.`, `It's ${eur} euros to get in.`, `Tickets start at ${eur} euros.`]);
 }
 function announcement(p) {
@@ -413,6 +414,8 @@ window.onYouTubeIframeAPIReady = () => {
           }
         }
         if (e.data === YT.PlayerState.PAUSED) $("play").firstChild.textContent = "Play ";
+        if ("mediaSession" in navigator && (e.data === YT.PlayerState.PLAYING || e.data === YT.PlayerState.PAUSED))
+          navigator.mediaSession.playbackState = e.data === YT.PlayerState.PLAYING ? "playing" : "paused";
       },
       onError: () => next(),  // e.g. the uploader disabled embedding
     },
@@ -483,10 +486,32 @@ function render() {
   $("tags").replaceChildren(...[...g.genres, ...g.categories].slice(0, 8).map((t) => el("span", {textContent: t})));
   $("desc").textContent = a.description || "";
   $("desc").classList.remove("open");
+  updateMediaSession(p, track);
   $("debug").textContent = `listing: “${g.title}” → parsed “${p.parsed}” → matched “${a.name}”`;
   document.querySelectorAll("[data-sort]").forEach((b) => b.classList.toggle("on", triage[a.browseId] === b.dataset.sort));
   renderQueue();
 }
+// ---------- system media controls (Now Playing, media keys, headphones) ----------
+function updateMediaSession(p, track) {
+  if (!("mediaSession" in navigator)) return;
+  const g = p.gig;
+  navigator.mediaSession.metadata = new MediaMetadata({
+    title: songTitle(track.title),
+    artist: p.artist.name,
+    album: `${venueName(g)} · ${fmtWhen(g.start, {weekday: "short", day: "numeric", month: "short"})}`,
+    artwork: p.artist.image ? [{src: p.artist.image, sizes: "512x512"}] : [],
+  });
+}
+if ("mediaSession" in navigator) {
+  const handlers = {
+    play: () => player?.playVideo(), pause: () => player?.pauseVideo(),
+    nexttrack: () => next(), previoustrack: () => prev(),
+  };
+  for (const [action, handler] of Object.entries(handlers)) {
+    try { navigator.mediaSession.setActionHandler(action, handler); } catch {}
+  }
+}
+
 const STATE = {maybe: "listen more", go: "want to go", tix: "got tickets", nope: "not for me"};
 function renderQueue() {
   const items = playlist.map((p, i) => {

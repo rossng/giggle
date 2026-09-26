@@ -1,0 +1,21 @@
+{
+  "entities": {
+    "Q3043285": {
+      "type": "item",
+      "id": "Q3043285",
+      "sitelinks": {
+        "enwiki": {
+          "site": "enwiki",
+          "title": "Blaudzun",
+          "badges": []
+        },
+        "nlwiki": {
+          "site": "nlwiki",
+          "title": "Blaudzun",
+          "badges": []
+        }
+      }
+    }
+  },
+  "success": 1
+}

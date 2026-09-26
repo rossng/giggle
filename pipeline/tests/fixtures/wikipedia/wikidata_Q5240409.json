@@ -1,0 +1,16 @@
+{
+  "entities": {
+    "Q5240409": {
+      "type": "item",
+      "id": "Q5240409",
+      "sitelinks": {
+        "nlwiki": {
+          "site": "nlwiki",
+          "title": "De Kast",
+          "badges": []
+        }
+      }
+    }
+  },
+  "success": 1
+}
