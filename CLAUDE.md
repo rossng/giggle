@@ -29,6 +29,19 @@ uv, Node, pnpm and make only; Python is uv-managed (`.python-version`), deps com
 - Re-record a venue's fixtures: `cd packages/podia && uv run podia record <venue> --max-pages 2`,
   then `PODIA_UPDATE_GOLDEN=1 uv run --group dev pytest -q tests/test_<venue>.py`
 
+## Voices
+Announcer clips (`pipeline/src/giggle_pipeline/voice.py`) use Kokoro-82M v1.0 via kokoro-onnx
+(ONNX Runtime on CPU, espeak-ng from a wheel), British voices only (`bf_*`, `bm_*`, `lang="en-gb"`).
+It's the `voice` extra: `uv run --package giggle-pipeline --extra voice giggle-voice-samples`
+renders sample clips per voice to `data/voice-samples/index.html`. Model files (~350 MB, fp32)
+download on first use to `data/cache/models/`, checksummed; never commit them.
+- Clips are `voice/<hash>.mp3`, the hash covering spoken text, lexicon entries used, voice, model,
+  speed and `RENDER_VERSION`. Existing files are never re-rendered; bump `RENDER_VERSION` when the
+  audio processing changes. `test_hash_is_stable` pins the hash scheme.
+- Mispronounced names go in `pronunciation.toml` (anglicised IPA in espeak's en-gb symbols;
+  `giggle-voice-samples --phonemes "text"` shows espeak's version), not in the blurb text.
+- Tests use a fake `Synthesizer`; never download the model in tests.
+
 ## Local stack
 Everything must run locally: `make dev` (fixtures → data, `wrangler dev` with local D1/R2,
 `vite dev` proxying `/api`), with a dev identity replacing Cloudflare Access only when
