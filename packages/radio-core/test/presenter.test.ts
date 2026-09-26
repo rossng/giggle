@@ -321,3 +321,37 @@ describe("presenter output over the sample data", () => {
     expect(counts.inTarget / counts.short).toBeGreaterThan(0.6);
   });
 });
+
+
+describe("tidy", () => {
+  it("doesn't double the full stop after names that end in one", async () => {
+    const { tidy } = await import("../src/announcer");
+    expect(tidy("This is M.I.K.E.. They play Paradiso tonight.")).toBe("This is M.I.K.E. They play Paradiso tonight.");
+    expect(tidy("mike.. Melkweg, tonight.")).toBe("mike. Melkweg, tonight.");
+    expect(tidy("Here's Oh Wonder!. They play  Paradiso.")).toBe("Here's Oh Wonder! They play Paradiso.");
+    expect(tidy("Nobu. Paradiso, tonight.")).toBe("Nobu. Paradiso, tonight.");
+  });
+});
+
+describe("clip intros", () => {
+  const clip = { url: "/data/voice/abc.mp3", text: "Djavan, a Brazilian singer-songwriter fusing samba with pop.", seconds: 5.5 };
+
+  it("plays the clip, then says only the gig line", () => {
+    for (let seed = 1; seed <= 200; seed++) {
+      const line = presenter(seed).forTrack({ entry: rich(), trackIndex: 0, mode: "short", now: NOW, clip });
+      expect(line?.clip?.url).toBe(clip.url);
+      expect(line?.clip?.spoken).toBeTruthy();
+      expect(line?.clip?.spoken).not.toContain(rich().name);
+      expect(line!.text.startsWith(clip.text)).toBe(true);
+      expect(line!.seconds).toBeGreaterThan(clip.seconds);
+      expect(line!.seconds).toBeLessThanOrEqual(DEFAULT_BUDGETS.introCap + 0.01);
+    }
+  });
+
+  it("isn't used in name mode or for the same artist's next track", () => {
+    const e = rich();
+    expect(presenter().forTrack({ entry: e, trackIndex: 0, mode: "name", now: NOW, clip })?.clip).toBeUndefined();
+    const next = presenter().forTrack({ entry: e, trackIndex: 1, mode: "short", now: NOW, clip, announcedArtistKey: e.artistKey });
+    expect(next?.clip).toBeUndefined();
+  });
+});

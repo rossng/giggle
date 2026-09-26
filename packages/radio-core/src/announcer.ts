@@ -155,10 +155,15 @@ const MICRO: Template<MicroCtx>[] = [
 ];
 
 /** Collapses stray spacing and never returns leftover template debris. */
+/**
+ * Final spacing and punctuation pass. Names can end in their own punctuation ("mike.",
+ * "M.I.K.E.", "Oh Wonder!"), so a template's full stop or comma after one is dropped.
+ */
 export function tidy(text: string): string {
   return text
     .replace(/\s+/g, " ")
     .replace(/\s+([.,:])/g, "$1")
+    .replace(/([.!?])[.,](?=\s|$)/g, "$1")
     .trim();
 }
 

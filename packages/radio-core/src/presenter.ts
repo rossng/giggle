@@ -51,6 +51,16 @@ export interface Line {
   artistKey: string;
   /** The voice mode it was written for. */
   mode: "name" | "short";
+  /** A pre-rendered clip to play first ("Djavan, a Brazilian singer-songwriter…");
+   * `spoken` is then the only part to synthesise live. `seconds` covers both. */
+  clip?: { url: string; text: string; seconds: number; spoken: string };
+}
+
+/** A pre-rendered artist intro from the pipeline: "<name>, <descriptor>." */
+export interface IntroClip {
+  url: string;
+  text: string;
+  seconds: number;
 }
 
 /** Spoken-length budgets, in seconds. */
@@ -114,6 +124,9 @@ export interface PresenterTrackInput {
   now: Date;
   /** The artist the listener last heard an intro for (undefined at the start). */
   announcedArtistKey?: string | undefined;
+  /** A pre-rendered intro for this artist, if the pipeline made one. Used in "short"
+   * mode: the clip introduces the artist, and only the gig line is said live. */
+  clip?: IntroClip | undefined;
 }
 
 // ---------- phrase contexts ----------
@@ -375,6 +388,7 @@ export class Presenter {
   }
 
   #line(kind: LineKind, text: string, entry: QueueEntry, facts: FactKind[], mode: "name" | "short"): Line {
+    text = tidy(text);
     return { kind, text, seconds: this.estimate(text), facts, artistKey: entry.artistKey, mode };
   }
 
@@ -547,7 +561,33 @@ export class Presenter {
       this.#said = recordSaid(this.#said, entry.artistKey, [chosen.fact.kind], now);
       if (chosen.fact.kind === "track") this.#rememberNamed(entry, trackIndex);
     }
-    return { kind: "intro", text: chosen.text, seconds: chosen.seconds, facts, artistKey: entry.artistKey, mode };
+    const text = tidy(chosen.text);
+    return { kind: "intro", text, seconds: this.estimate(text), facts, artistKey: entry.artistKey, mode };
+  }
+
+  /** A new-artist intro that starts with the pipeline's clip and follows it with a short
+   * live gig line ("They play Paradiso tonight."). The clip already names the artist, so
+   * the gig line doesn't; the pair stays within the intro cap. */
+  clipIntro(entry: QueueEntry, clip: IntroClip, now: Date): Line {
+    const b = this.budgets;
+    let spoken = "";
+    for (let level = 0; level <= 2; level++) {
+      const ctx = this.#gigCtx(entry, now, level, level === 0 && this.#chance(0.4));
+      spoken = tidy(this.announcer.picker.render("p.gig", GIG, ctx));
+      if (clip.seconds + this.estimate(spoken) <= b.introCap) break;
+    }
+    const sold = entry.gig.availability === "sold_out" ? " It's sold out." : "";
+    if (sold && clip.seconds + this.estimate(spoken + sold) <= b.introCap) spoken += sold;
+    const seconds = clip.seconds + this.estimate(spoken);
+    return {
+      kind: "intro",
+      text: tidy(`${clip.text} ${spoken}`),
+      seconds,
+      facts: ["gig"],
+      artistKey: entry.artistKey,
+      mode: "short",
+      clip: { url: clip.url, text: clip.text, seconds: clip.seconds, spoken },
+    };
   }
 
   #nameIntro(entry: QueueEntry, now: Date): Line {
@@ -630,7 +670,10 @@ export class Presenter {
   forTrack(input: PresenterTrackInput): Line | null {
     const { entry, trackIndex, mode, now } = input;
     if (mode === "off") return null;
-    if (entry.artistKey !== input.announcedArtistKey) return this.intro(entry, mode, now, trackIndex);
+    if (entry.artistKey !== input.announcedArtistKey) {
+      if (input.clip && mode === "short") return this.clipIntro(entry, input.clip, now);
+      return this.intro(entry, mode, now, trackIndex);
+    }
     return mode === "short" ? this.micro(entry, trackIndex) : null;
   }
 }
