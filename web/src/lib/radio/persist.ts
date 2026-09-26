@@ -1,0 +1,126 @@
+// What the radio keeps in this browser: the listening session per station (to resume where
+// you were), the play history, what the presenter has said, and the listener's settings.
+// All in localStorage via $lib/storage, so a blocked or full storage just means no memory.
+
+import {
+	parseHistory,
+	parseSaid,
+	parseSession,
+	pruneHistory,
+	pruneSaid,
+	type PlayHistory,
+	type RadioSession,
+	type SaidMemory,
+	type VoiceMode
+} from '@giggle/radio-core';
+import { browserStorage, readJson, writeJson, type KeyValueStorage } from '$lib/storage';
+
+export const KEYS = {
+	sessions: 'giggle:radio:sessions:v1',
+	history: 'giggle:radio:history:v1',
+	said: 'giggle:radio:said:v1',
+	settings: 'giggle:radio:settings:v1'
+} as const;
+
+/** Sessions kept, newest first; older stations are forgotten. */
+export const MAX_SESSIONS = 8;
+
+export type Sessions = Record<string, RadioSession>;
+
+export function parseSessions(value: unknown): Sessions {
+	if (!value || typeof value !== 'object' || Array.isArray(value)) return {};
+	const out: Sessions = {};
+	for (const [key, raw] of Object.entries(value as Record<string, unknown>)) {
+		const session = parseSession(raw);
+		if (session && session.filtersKey === key) out[key] = session;
+	}
+	return out;
+}
+
+/** `sessions` with `session` stored under its station, keeping the newest `max`. */
+export function putSession(
+	sessions: Sessions,
+	session: RadioSession,
+	max = MAX_SESSIONS
+): Sessions {
+	const all = { ...sessions, [session.filtersKey]: session };
+	const newest = Object.values(all)
+		.sort((a, b) => Date.parse(b.savedAt) - Date.parse(a.savedAt))
+		.slice(0, max);
+	return Object.fromEntries(newest.map((s) => [s.filtersKey, s]));
+}
+
+export function loadSession(
+	key: string,
+	storage: KeyValueStorage | null = browserStorage()
+): RadioSession | null {
+	return parseSessions(readJson(KEYS.sessions, storage))[key] ?? null;
+}
+
+export function saveSession(
+	session: RadioSession,
+	storage: KeyValueStorage | null = browserStorage()
+): boolean {
+	const sessions = parseSessions(readJson(KEYS.sessions, storage));
+	return writeJson(KEYS.sessions, putSession(sessions, session), storage);
+}
+
+export function loadHistory(now: Date, storage = browserStorage()): PlayHistory {
+	return pruneHistory(parseHistory(readJson(KEYS.history, storage)), now);
+}
+
+export function saveHistory(history: PlayHistory, storage = browserStorage()): boolean {
+	return writeJson(KEYS.history, history, storage);
+}
+
+export function loadSaid(now: Date, storage = browserStorage()): SaidMemory {
+	return pruneSaid(parseSaid(readJson(KEYS.said, storage)), now);
+}
+
+export function saveSaid(said: SaidMemory, storage = browserStorage()): boolean {
+	return writeJson(KEYS.said, said, storage);
+}
+
+export interface RadioSettings {
+	voiceMode: VoiceMode;
+	/** A Web Speech voice name; null picks a British default. */
+	voiceName: string | null;
+	tracksPerArtist: number;
+	/** Listener's music volume, 0–100. */
+	volume: number;
+}
+
+export const DEFAULT_SETTINGS: Readonly<RadioSettings> = Object.freeze({
+	voiceMode: 'short',
+	voiceName: null,
+	tracksPerArtist: 2,
+	volume: 100
+});
+
+export const TRACKS_PER_ARTIST = [1, 2, 3] as const;
+
+export function parseSettings(value: unknown): RadioSettings {
+	const v = (value && typeof value === 'object' ? value : {}) as Partial<RadioSettings>;
+	return {
+		voiceMode:
+			v.voiceMode === 'off' || v.voiceMode === 'name' || v.voiceMode === 'short'
+				? v.voiceMode
+				: DEFAULT_SETTINGS.voiceMode,
+		voiceName: typeof v.voiceName === 'string' && v.voiceName ? v.voiceName : null,
+		tracksPerArtist: (TRACKS_PER_ARTIST as readonly unknown[]).includes(v.tracksPerArtist)
+			? (v.tracksPerArtist as number)
+			: DEFAULT_SETTINGS.tracksPerArtist,
+		volume:
+			typeof v.volume === 'number' && Number.isFinite(v.volume)
+				? Math.min(100, Math.max(0, Math.round(v.volume)))
+				: DEFAULT_SETTINGS.volume
+	};
+}
+
+export function loadSettings(storage = browserStorage()): RadioSettings {
+	return parseSettings(readJson(KEYS.settings, storage));
+}
+
+export function saveSettings(settings: RadioSettings, storage = browserStorage()): boolean {
+	return writeJson(KEYS.settings, settings, storage);
+}

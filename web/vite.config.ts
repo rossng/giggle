@@ -5,16 +5,30 @@ import { defineConfig } from 'vitest/config';
 import adapter from '@sveltejs/adapter-static';
 import { sveltekit } from '@sveltejs/kit/vite';
 
-/** Serves the pipeline's output (../data/site, or $GIGGLE_DATA) at /data/*.json for
+/** Serves the pipeline's output (../data/site, or $GIGGLE_DATA) at /data/*.json (and its
+ * announcer clips at /data/voice/*.mp3) for
  * `vite dev` and `vite preview`, so nothing is copied into the source tree. Production
  * builds get the files from the deploy step, which copies them into build/data/. */
 function siteData(): Plugin {
 	const dir = resolve(process.env.GIGGLE_DATA ?? resolve(import.meta.dirname, '../data/site'));
 	const middleware: Connect.NextHandleFunction = (req, res, next) => {
 		const path = (req.url ?? '').split('?')[0];
+		// Announcer clips: /data/voice/<hash>.mp3, named by content, so cacheable forever.
+		const clip = /^\/data\/voice\/([0-9a-f]+\.mp3)$/.exec(path);
+		if (clip) {
+			const file = resolve(dir, 'voice', clip[1]);
+			if (!existsSync(file)) return next();
+			res.setHeader('Content-Type', 'audio/mpeg');
+			res.setHeader('Cache-Control', 'public, max-age=31536000, immutable');
+			createReadStream(file).pipe(res);
+			return;
+		}
 		const match = /^\/data\/([a-z0-9_-]+\.json)$/.exec(path);
 		if (!match) return next();
-		const file = resolve(dir, match[1]);
+		// DEV FALLBACK (delete with src/lib/radio/dev-ytmusic-fallback.ts): until artists.json
+		// carries `youtube`, serve the pipeline's YouTube Music cache next to the site data.
+		const file =
+			match[1] === 'ytmusic.json' ? resolve(dir, '../cache/ytmusic.json') : resolve(dir, match[1]);
 		if (!existsSync(file)) {
 			res.statusCode = 404;
 			res.setHeader('Content-Type', 'text/plain');
@@ -33,6 +47,8 @@ function siteData(): Plugin {
 }
 
 export default defineConfig({
+	// `make dev`: the API runs in `wrangler dev` (dev identity, local D1) next to Vite.
+	server: { proxy: { '/api': 'http://127.0.0.1:8787' } },
 	plugins: [
 		siteData(),
 		sveltekit({

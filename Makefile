@@ -1,6 +1,6 @@
 # Local development. `make help` lists targets.
 
-.PHONY: help sync test lint format data data-offline browse radio fetch browse-raw web-dev web-build \
+.PHONY: help sync test lint format data data-offline browse radio fetch browse-raw web-dev web-build dev \
 	worker-migrate worker-dev worker-test
 
 help:
@@ -44,6 +44,7 @@ web-build: ## build the static web app into web/build, with the current data
 	pnpm --dir web build
 	mkdir -p web/build/data
 	cp data/site/gigs.json data/site/artists.json web/build/data/
+	if [ -d data/site/voice ]; then cp -R data/site/voice web/build/data/; fi
 
 radio: ## rough playback preview of the next 14 days, served on localhost:8765 (Ctrl-C stops)
 	uv run python scripts/radio_preview.py --days 14
@@ -70,4 +71,6 @@ worker-dev: worker-migrate ## run the Worker on 127.0.0.1:8787: dev identity, lo
 worker-test: ## run the Worker's tests (workerd + local D1)
 	pnpm --dir worker test
 
-# To come: `make dev` (wrangler dev + vite dev).
+dev: ## whole stack: web :5173 + API (wrangler dev :8787); sign in via /api/dev/login?as=alice
+	@[ -f data/site/gigs.json ] || $(MAKE) data-offline
+	$(MAKE) -j2 worker-dev web-dev
