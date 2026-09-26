@@ -1,16 +1,21 @@
-"""Nobel, Leiden. Reads the Drupal agenda page, its event-type filters and detail pages.
+"""Nobel, Leiden. Reads the Drupal agenda page and its event-type filters and, through
+`details()`, each event's own page.
 
 The agenda lists every event on one page with title, subtitle, genre tags, an age limit
 and labels such as "Uitverkocht", "Laatste tickets" or "Gratis". Its `<time datetime>`
 is when the page was created, not the event date; the date is read from the URL slug
-(`/agenda/audrey-horne-13-oct-2026`) instead. Event types (Concert, Clubnacht, Festival,
-Overig) are not on the cards but the agenda can be filtered by them, which costs one
-request per type. Start time, room, "Prijs vanaf" and the ticket link are only on the
-detail page, fetched per event (bounded by `max_pages`).
+(`/agenda/audrey-horne-13-oct-2026`) instead. The cards have no time, so a listed
+event's `start` is its date at 00:00 Amsterdam time and `extra["time_known"]` is False.
+Event types (Concert, Clubnacht, Festival, Overig) are not on the cards but the agenda
+can be filtered by them, which costs one request per type (about five requests in all).
+
+`details()` reads the event page for the start time (then `time_known` is True), room,
+"Prijs vanaf", the ticket link, support acts and the intro.
 """
 
 from __future__ import annotations
 
+import copy
 import re
 from collections.abc import Iterator
 from datetime import date
@@ -25,8 +30,6 @@ from podia.venue import FetchOptions, Venue, register
 
 BASE = "https://nobel.nl"
 AGENDA = f"{BASE}/agenda"
-# Detail pages fetched per unit of `max_pages`; the agenda itself is a single page.
-DETAILS_PER_PAGE = 5
 _SLUG_DATE = re.compile(r"-(\d{1,2})-([a-z]+)-(\d{4})$")
 _CARD_DATE = re.compile(r"(\d{1,2})\s+([a-z]+)")
 _CLOCK = re.compile(r"^\d{1,2}[:.]\d{2}")
@@ -41,6 +44,7 @@ _STATUSES = {"geannuleerd": Status.CANCELLED, "afgelast": Status.CANCELLED}
 @register
 class Nobel(Venue):
     info = VenueInfo(slug="nobel", name="Nobel", city="Leiden", website=BASE)
+    has_details = True
 
     def events(self, fetch: Fetcher, options: FetchOptions | None = None) -> Iterator[Event]:
         options = options or FetchOptions()
@@ -48,19 +52,21 @@ class Nobel(Venue):
         r.raise_for_status()
         page = HTMLParser(r.text)
         types = _event_types(fetch, page)
-        budget = None if options.max_pages is None else options.max_pages * DETAILS_PER_PAGE
         for card in page.css('a.event[href^="/agenda/"]'):
             event = self._card(card, options.since)
             if event is None:
                 continue
             event.categories = types.get(event.source_id, [])
-            if budget is None or budget > 0:
-                if budget is not None:
-                    budget -= 1
-                detail = fetch.get(event.url or "")
-                if detail.status < 400:
-                    _add_detail(event, HTMLParser(detail.text))
             yield event
+
+    def details(self, fetch: Fetcher, event: Event) -> Event:
+        if not event.url:
+            return event
+        r = fetch.get(event.url)
+        r.raise_for_status()
+        e = copy.deepcopy(event)
+        _add_detail(e, HTMLParser(r.text))
+        return e
 
     def _card(self, card: Node, since: date) -> Event | None:
         href = card.attributes.get("href") or ""
@@ -70,7 +76,7 @@ class Nobel(Venue):
         if not title or day is None:
             return None
         labels = list(dict.fromkeys(t for n in card.css(".special-label") if (t := _text(n))))
-        extra: dict[str, object] = {}
+        extra: dict[str, object] = {"time_known": False}
         if labels:
             extra["labels"] = labels
         if age := _text(card.css_first(".age")):
@@ -158,7 +164,8 @@ def _event_types(fetch: Fetcher, page: HTMLParser) -> dict[str, list[str]]:
 
 
 def _add_detail(event: Event, tree: HTMLParser) -> None:
-    """Start time, room, price, ticket link, support act and intro from a detail page.
+    """Start time, room, price, ticket link, support act and intro from a detail page,
+    into `event` (a copy of the listed one).
 
     The info block is a row of unlabelled spans: time, room, age (`.age`), then the genre
     tags already known from the card. The room is the one that is neither.
@@ -173,24 +180,27 @@ def _add_detail(event: Event, tree: HTMLParser) -> None:
             continue
         if _CLOCK.match(text):
             event.start = combine(event.start.date(), text)
+            event.extra["time_known"] = True
         elif event.room is None and text != genres:
             event.room = text
     tickets = tree.css_first("section.event-page .tickets")
-    if tickets is not None:
-        event.price = _price(tickets)
-        if event.price is not None and event.price.max_eur == 0:
+    if tickets is not None and (price := _price(tickets)) is not None:
+        event.price = price
+        if price.max_eur == 0 and event.availability is not Availability.SOLD_OUT:
             event.availability = Availability.FREE
     link = tree.css_first("section.event-page .info a[href^='http']")
     if link is not None:
-        event.ticket_url = re.sub(r"&_gl=[^&#]*", "", link.attributes.get("href") or "") or None
+        href = re.sub(r"&_gl=[^&#]*", "", link.attributes.get("href") or "")
+        event.ticket_url = href or event.ticket_url
     if event.availability is Availability.UNKNOWN and event.ticket_url:
         event.availability = Availability.ON_SALE
     for heading in tree.css("section.event-content h3"):
         text = _text(heading) or ""
         if text.lower().startswith("support:"):
-            event.support += [s.strip() for s in text.split(":", 1)[1].split(" + ") if s.strip()]
-    intro = tree.css_first("section.event-content p.event-intro")
-    event.description = _text(intro)
+            names = [s.strip() for s in text.split(":", 1)[1].split(" + ") if s.strip()]
+            event.support += [n for n in names if n not in event.support]
+    if intro := _text(tree.css_first("section.event-content p.event-intro")):
+        event.description = intro
 
 
 def _price(tickets: Node) -> Price | None:

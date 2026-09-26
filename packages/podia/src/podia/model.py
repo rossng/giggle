@@ -53,6 +53,10 @@ class Event:
     doesn't say something, the field stays empty. `title` is the listing's own
     headline; `performers` and `support` are only filled when the venue states them.
     `source_id` is unique per venue and stable across runs for the same dated event.
+
+    When an adapter's listing gives only the day (Cinetol, Nobel), `start` is that day at
+    00:00 Europe/Amsterdam and `extra["time_known"]` is False; its `details()` fills in the
+    time and sets it True.
     """
 
     venue: str

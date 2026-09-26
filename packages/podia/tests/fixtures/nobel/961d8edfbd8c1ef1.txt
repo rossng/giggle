@@ -61,7 +61,7 @@ Sinds 1985 staat Coroner bekend als één van de meest vooruitstrevende en invlo
 <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/artist/7lfdXL6PuTM5iWJNvI7PPV?utm_source=generator" width="100%" height="152" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
 </div>
 <div class="column paragraph paragraph--video paragraph--video--default video is-8-widescreen is-10-desktop is-12">
-<div class="media media--type-video embedded-video video-d3a1fbc6 media--view-mode-">
+<div class="media media--type-video embedded-video video-f4ee765d media--view-mode-">
 <button aria-label="Speel video af" class="play_button"><i class="fa-solid fa-play"></i></button>
 <iframe src="https://nobel.nl/media/oembed?url=https%3A//www.youtube.com/watch%3Fv%3DN2-6Krl9lSc%26list%3DRDN2-6Krl9lSc%26start_radio%3D1&amp;max_width=0&amp;max_height=0&amp;hash=F4ZzMq65_Z5phTw1uJ62nLFGgRhk3c5lGtsqw6t_Zew" width="200" height="113" class="media-oembed-content" loading="eager" title="Coroner live | Rockpalast | 2018"></iframe>
 <div class="cookie-alert">

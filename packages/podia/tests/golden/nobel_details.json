@@ -1,0 +1,139 @@
+[
+ {
+  "availability": "on_sale",
+  "categories": [
+   "Concert"
+  ],
+  "city": "Leiden",
+  "description": "ALL HANDS ON DECK! Een nieuw album doemt op aan de horizon: Captain Kelphair & the Salty Seamen zijn klaar om te enteren. Met snoeiharde riffs, middeleeuwse instrumenten en folk gedreven melodieën sleuren ze je mee in hun piratenepos The Rise of Dreadmaw.",
+  "doors": null,
+  "end": null,
+  "extra": {
+   "time_known": true
+  },
+  "genres": [
+   "Folk"
+  ],
+  "image": "https://nobel.nl/sites/default/files/styles/4_3/public/2026-05/CK%26SS%204-3.png.webp?itok=BgD5Sux1",
+  "performers": [],
+  "price": {
+   "max_eur": null,
+   "min_eur": 17.9,
+   "text": "Prijs vanaf: € 17,90"
+  },
+  "room": "Kleine zaal",
+  "source_id": "captain-kelphair-salty-seamen-26-sep-2026",
+  "start": "2026-09-26T19:00:00+02:00",
+  "status": "scheduled",
+  "subtitle": "Pirate Plunder Party met Black Powder Parlay",
+  "support": [
+   "Black Powder Parlay"
+  ],
+  "ticket_url": "https://eventix.shop/52zsuzc2",
+  "title": "Captain Kelphair & The Salty Seamen",
+  "url": "https://nobel.nl/agenda/captain-kelphair-salty-seamen-26-sep-2026",
+  "venue": "nobel"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [
+   "Clubnacht"
+  ],
+  "city": "Leiden",
+  "description": "Veel feesten verdwijnen, uitgaan wordt duurder en steeds vaker blijft de groepschat stil. Maar Leiden krijgt er een clubnacht bij! Want de mooiste herinneringen maak je niet thuis op de bank, maar samen met je vrienden op de dansvloer. Daarom is er nu Het FOMO Huis.",
+  "doors": null,
+  "end": null,
+  "extra": {
+   "time_known": true
+  },
+  "genres": [
+   "Hits"
+  ],
+  "image": "https://nobel.nl/sites/default/files/styles/4_3/public/2026-07/Het%20FOMO%20Huis%204-3.png.webp?itok=v_VoRN6h",
+  "performers": [],
+  "price": {
+   "max_eur": null,
+   "min_eur": 12.9,
+   "text": "Prijs vanaf: € 12,90"
+  },
+  "room": "Grote zaal",
+  "source_id": "het-fomo-huis-26-sep-2026",
+  "start": "2026-09-26T23:00:00+02:00",
+  "status": "scheduled",
+  "subtitle": "Knalfeest vol hits, house en Hollandse bangers",
+  "support": [],
+  "ticket_url": "https://eventix.shop/t6rq4mtt",
+  "title": "Het FOMO Huis",
+  "url": "https://nobel.nl/agenda/het-fomo-huis-26-sep-2026",
+  "venue": "nobel"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [
+   "Concert"
+  ],
+  "city": "Leiden",
+  "description": "Een halve eeuw geleden stonden the Dubliners voor het eerst op Nederlandse bodem voor een serie optredens. Ruim 50 jaar later komen the Dublin Legends, de fakkeldragers van deze legendarische Ierse folkgroep, terug naar de Lage Landen. Met in hun gelederen zanger/gitarist Sean Cannon, de man die van 1982 tot 2020 deel uitmaakte van the Dubliners.",
+  "doors": null,
+  "end": null,
+  "extra": {
+   "time_known": true
+  },
+  "genres": [
+   "Folk"
+  ],
+  "image": "https://nobel.nl/sites/default/files/styles/4_3/public/2025-12/The%20Dublin%20Legends%20-%204-3.jpg.webp?itok=Z3VweBzx",
+  "performers": [],
+  "price": {
+   "max_eur": null,
+   "min_eur": 36.9,
+   "text": "Prijs vanaf: € 36,90"
+  },
+  "room": "Grote zaal",
+  "source_id": "dublin-legends-27-sep-2026",
+  "start": "2026-09-27T19:00:00+02:00",
+  "status": "scheduled",
+  "subtitle": "Formerly The Dubliners - Further Along the Road Tour",
+  "support": [],
+  "ticket_url": "https://eventix.shop/gazuc4fg",
+  "title": "The Dublin Legends",
+  "url": "https://nobel.nl/agenda/dublin-legends-27-sep-2026",
+  "venue": "nobel"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [
+   "Concert"
+  ],
+  "city": "Leiden",
+  "description": "Sinds 1985 staat Coroner bekend als één van de meest vooruitstrevende en invloedrijke bands binnen de (progressieve) thrash metal. Met baanbrekende albums, een cultstatus in de underground en een veelgeprezen nieuw hoofdstuk via Century Media bewijzen de Zwitsers dat hun sound nog altijd even scherp en relevant is.",
+  "doors": null,
+  "end": null,
+  "extra": {
+   "time_known": true
+  },
+  "genres": [
+   "Metal"
+  ],
+  "image": "https://nobel.nl/sites/default/files/styles/4_3/public/2026-05/CORONER%204-3.png.webp?itok=mXPNU4QM",
+  "performers": [],
+  "price": {
+   "max_eur": null,
+   "min_eur": 29.9,
+   "text": "Prijs vanaf: € 29,90"
+  },
+  "room": "Grote zaal",
+  "source_id": "coroner-01-oct-2026",
+  "start": "2026-10-01T19:30:00+02:00",
+  "status": "scheduled",
+  "subtitle": "Progressieve thrash-legendes terug op het podium",
+  "support": [
+   "Tar Pond",
+   "Schizophrenia"
+  ],
+  "ticket_url": "https://eventix.shop/guqrsk4c",
+  "title": "Coroner",
+  "url": "https://nobel.nl/agenda/coroner-01-oct-2026",
+  "venue": "nobel"
+ }
+]

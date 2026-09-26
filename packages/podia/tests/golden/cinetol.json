@@ -1,12 +1,14 @@
 [
  {
-  "availability": "on_sale",
+  "availability": "unknown",
   "categories": [],
   "city": "Amsterdam",
-  "description": "Shadowfall Festival keert terug naar Cinetol voor zijn derde editie. Voortbouwend op twee succesvolle eerdere edities zet dit DIY-gothfestival zijn missie voort om artiesten uit de underground post-punk-, darkwave-, EBM- en synthpunkscene in de schijnwerpers te zetten. Met een line-up van zowel lokale als internationale artiesten biedt Shadowfall een platform voor onafhankelijke muzikanten en creëert het een betaalbare en inclusieve plek waar liefhebbers van donkere alternatieve cultuur samen kunnen komen. ‍ LINE UP: RUHR + Camy Huot + SNAKEATSNAKE + Vonder + Witmist + DVPLVX + CVPID + Hollow Reflection + DJ sets: Zonvloed + Marquis de Sade ‍ ‍ BLIJF OP DE HOOGTE",
-  "doors": "2026-09-26T19:30:00+02:00",
+  "description": null,
+  "doors": null,
   "end": null,
-  "extra": {},
+  "extra": {
+   "time_known": false
+  },
   "genres": [
    "Wave",
    "Postpunk",
@@ -14,30 +16,28 @@
   ],
   "image": "https://cdn.prod.website-files.com/67fe307c83a73740dc48b1f0/6a8ee945b6521e1866a090d5_shadowfall-web-2.jpg",
   "performers": [],
-  "price": {
-   "max_eur": 22.0,
-   "min_eur": 17.0,
-   "text": "ticket vanaf: €17.00; DOORSALE: €22.00"
-  },
-  "room": "Zaal, Etage",
+  "price": null,
+  "room": null,
   "source_id": "shadowfall-festival",
-  "start": "2026-09-26T20:00:00+02:00",
+  "start": "2026-09-26T00:00:00+02:00",
   "status": "scheduled",
   "subtitle": "ruhr + camy huot + snakeatsnake + vonder + witmist + dvplvx + cvpid + hollow reflection",
   "support": [],
-  "ticket_url": "https://cinetol.stager.co/shop/cinetol-tickets/events/111671358",
+  "ticket_url": null,
   "title": "Shadowfall Festival",
   "url": "https://www.cinetol.nl/events/shadowfall-festival",
   "venue": "cinetol"
  },
  {
-  "availability": "on_sale",
+  "availability": "unknown",
   "categories": [],
   "city": "Amsterdam",
-  "description": "Dood, liefde, God, seks, schoonheid, val en wederopstanding. Dat zijn enkele kenmerkende woorden om Skinflower te beschrijven. De muziekstijl is moeilijk te definiëren - vaak heavy, dat is zeker. Metal en punk (Melvins, Neurosis) worden afgewisseld met pop noir (Nick Cave, Tindersticks) en new wave (The Cure, Joy Division). Zolang het maar episch is, is dat misschien wel de beste omschrijving. Skinflower is een trio: drummer Eric van de Pas, bassist en zanger Mark Deuze en gitarist/zanger Leon Heuts. Na een periode eind jaren 80, verloren ze elkaar bijna twintig jaar uit het oog. Vlak voor de pandemie herenigde de band zich. Ouder en gerijpt door de spirituele fasen van het leven, getekend door verlies, geluk, liefde en verdriet, begon de band aan een reis om nieuwe muziek te maken - en bovenal: een ervaring, want wat is muziek anders dan een existentieel ritueel om het leven te vieren en de dood nog een dag op afstand te houden? Hoewel de band ooit in Eindhoven werd opgericht en de leden verspreid over Nederland wonen, is hun huidige thuisbasis Nijmegen, waar Eric de studio van Skinflower van de eerste schroef tot het laatste drumvel eigenhandig bouwde. ‍",
-  "doors": "2026-09-27T19:30:00+02:00",
+  "description": null,
+  "doors": null,
   "end": null,
-  "extra": {},
+  "extra": {
+   "time_known": false
+  },
   "genres": [
    "Metal",
    "Punk",
@@ -45,65 +45,60 @@
   ],
   "image": "https://cdn.prod.website-files.com/67fe307c83a73740dc48b1f0/6a059ab3c4d0b6061b39dbd5_skinflower-web.jpg",
   "performers": [],
-  "price": {
-   "max_eur": 10.75,
-   "min_eur": 10.75,
-   "text": "TICKET: €10.75"
-  },
-  "room": "Zaal",
+  "price": null,
+  "room": null,
   "source_id": "skinflower",
-  "start": "2026-09-27T20:00:00+02:00",
+  "start": "2026-09-27T00:00:00+02:00",
   "status": "scheduled",
   "subtitle": "album release + support: stuzzy pink",
   "support": [
    "stuzzy pink"
   ],
-  "ticket_url": "https://cinetol.stager.co/shop/cinetol-tickets/events/111658333",
+  "ticket_url": null,
   "title": "Skinflower",
   "url": "https://www.cinetol.nl/events/skinflower",
   "venue": "cinetol"
  },
  {
-  "availability": "on_sale",
+  "availability": "unknown",
   "categories": [],
   "city": "Amsterdam",
-  "description": "Psychedelische Krautwave, gehuld in de warmte van analoge synths, rauwe gitaaruitbarstingen en een machinaal aangedreven puls, gedragen door een hypnotiserende stem. Het in Berlijn gevestigde duo AFAR beweegt zich in hun geluid tussen Grunge, Trip-hop en elektronisch-technoïde werelden. Hun concerten zijn altijd een reis, versterkt door hun magnetische aanwezigheid en een performance die zowel intiem als immens aanvoelt. ‍ Changing Rules is het derde studioalbum – een sonisch manifest van aanwezigheid, eruptie en verzet. Een romantische revolte tegen de ruis en de slop, voor degenen die nog steeds verlangen naar het verlangen en hunkeren naar het echte. ‍ INSTAGRAM",
-  "doors": "2026-09-30T20:00:00+02:00",
+  "description": null,
+  "doors": null,
   "end": null,
-  "extra": {},
+  "extra": {
+   "time_known": false
+  },
   "genres": [
    "Psychedelisch",
    "Wave"
   ],
   "image": "https://cdn.prod.website-files.com/67fe307c83a73740dc48b1f0/6a1ecf34f787a44e74a76222_afar-web-1.jpg",
   "performers": [],
-  "price": {
-   "max_eur": 20.0,
-   "min_eur": 18.0,
-   "text": "TICKET: €18.00; DOORSALE: €20.00"
-  },
-  "room": "Zaal",
+  "price": null,
+  "room": null,
   "source_id": "afar",
-  "start": "2026-09-30T20:30:00+02:00",
+  "start": "2026-09-30T00:00:00+02:00",
   "status": "scheduled",
   "subtitle": "support: løu",
   "support": [
    "løu"
   ],
-  "ticket_url": "https://cinetol.stager.co/shop/cinetol-tickets/events/111661570",
+  "ticket_url": null,
   "title": "AFAR",
   "url": "https://www.cinetol.nl/events/afar",
   "venue": "cinetol"
  },
  {
-  "availability": "on_sale",
+  "availability": "unknown",
   "categories": [],
   "city": "Amsterdam",
-  "description": "Dormsessions is TERUG, en hopelijk voel je de grond al trillen! 💥 ‍ Kom naar een avond vol livemuziek, volledig samengesteld en georganiseerd door studenten die ervan houden om nieuwe sounds te ontdekken en te delen. Verwacht een diverse line-up van lokale bands die verschillende genres combineren, van rock en indie tot funk! Eén ding is zeker: je zult springen en grooven! ‍ Wat maakt Dormsessions bijzonder? Het draait niet alleen om de muziek, maar ook om de community. Deze avonden worden door studenten, voor studenten georganiseerd: om opkomende bands een podium te geven, ruimte te creëren om te bewegen en ons eraan te herinneren waarom livemuziek ertoe doet. Het gaat minder om wie er al op je playlist staat en meer om wie daar straks op komt te staan. ‍ Dus trommel je vrienden op, trek je dansschoenen aan, ga lekker zweten en voel samen met ons de grond trillen! 🥾👟🥿 ‍ INSTAGRAM",
-  "doors": "2026-10-01T19:30:00+02:00",
+  "description": null,
+  "doors": null,
   "end": null,
   "extra": {
-   "just_added": true
+   "just_added": true,
+   "time_known": false
   },
   "genres": [
    "Indie",
@@ -111,104 +106,94 @@
   ],
   "image": "https://cdn.prod.website-files.com/67fe307c83a73740dc48b1f0/6ab10693184ebe8b44bf844e_dormsessions-web.jpg",
   "performers": [],
-  "price": {
-   "max_eur": 13.75,
-   "min_eur": 11.75,
-   "text": "TICKET: €11.75; DOORSALE: €13.75"
-  },
-  "room": "Zaal",
+  "price": null,
+  "room": null,
   "source_id": "dormsessions-2",
-  "start": "2026-10-01T20:15:00+02:00",
+  "start": "2026-10-01T00:00:00+02:00",
   "status": "scheduled",
   "subtitle": "feel the ground shake",
   "support": [],
-  "ticket_url": "https://cinetol.stager.co/shop/cinetol-tickets/events/111698620",
+  "ticket_url": null,
   "title": "Dormsessions",
   "url": "https://www.cinetol.nl/events/dormsessions-2",
   "venue": "cinetol"
  },
  {
-  "availability": "on_sale",
+  "availability": "unknown",
   "categories": [],
   "city": "Amsterdam",
-  "description": "Alex Apolline is een singer-songwriter uit een klein stadje nabij Glasgow, Schotland. Geworteld in een achtergrond van theater en verhalen vertellen, stond ze al op jonge leeftijd op het podium voordat ze zich op songwriting richtte – een natuurlijke verlenging van haar passie voor levendige, emotioneel geladen verhalen. Haar nummers bieden een inkijk in haar wereld en combineren persoonlijke ervaringen met weelderige arrangementen en een filmische gevoel voor drama. ‍ Haar debuut-EP, Tales of an Eldest Daughter (geproduceerd door Oscar Lang – Beabadoobee, awfultune, Flyte), verscheen in mei 2025 via Young Poet en introduceerde Alex’ spookachtig etherische geluid en lyrische diepgang. Op de EP verkent ze thema’s als liefdesverdriet, jeugdtrauma en de complexiteit van identiteit. ‍ In november 2025 bracht Alex Apolline haar nieuwe single HIT ME WHERE IT HURTS . uit, een filmisch en aanstekelijk nummer dat haar positie als echte muzikale verhalenverteller verder bevestigde. De track verzamelde meer dan 1 miljoen streams en kreeg steun van BBC Radio 1, BBC Radio Scotland en Spotify (New Music Friday UK). ‍ Nu haar tweede EP eraan komt, markeert Alex een gedurfde muzikale en visuele evolutie. Ze treedt uit de mist van de adolescentie en beweegt zich richting iets scherpers, sensuelers en zelfverzekerders. Dit tweede hoofdstuk vangt de opwinding en grilligheid van het toegeven aan verlangen en het leven in zijn volle intensiteit ervaren. Met een rijpere stem en onbevreesde storytelling is The Sun From Both Sides niet alleen een voortzetting, maar ook een verklaring van groei, vrijheid en het volledig omarmen van haar eigen kracht. ‍ INSTAGRAM",
-  "doors": "2026-10-02T20:00:00+02:00",
+  "description": null,
+  "doors": null,
   "end": null,
-  "extra": {},
+  "extra": {
+   "time_known": false
+  },
   "genres": [
    "Indie",
    "Pop"
   ],
   "image": "https://cdn.prod.website-files.com/67fe307c83a73740dc48b1f0/6a8db63a69eb6d5e94a8a67f_alex-web.jpg",
   "performers": [],
-  "price": {
-   "max_eur": 20.0,
-   "min_eur": 18.0,
-   "text": "TICKET: €18.00; DOORSALE: €20.00"
-  },
-  "room": "Zaal",
+  "price": null,
+  "room": null,
   "source_id": "alex-apolline",
-  "start": "2026-10-02T20:30:00+02:00",
+  "start": "2026-10-02T00:00:00+02:00",
   "status": "scheduled",
   "subtitle": "support: maryn charlie",
   "support": [
    "maryn charlie"
   ],
-  "ticket_url": "https://cinetol.stager.co/shop/cinetol-tickets/events/111644817",
+  "ticket_url": null,
   "title": "Alex Apolline",
   "url": "https://www.cinetol.nl/events/alex-apolline",
   "venue": "cinetol"
  },
  {
-  "availability": "on_sale",
+  "availability": "unknown",
   "categories": [],
   "city": "Amsterdam",
-  "description": "We brengen de koele bries van de Bosporus en de iconische Turkse popsfeer op 3 oktober naar Cinetol. Sluit je bij ons aan voor een speciale nacht vol ritme, meezingen en verrassingen! ‍ INSTAGRAM",
-  "doors": "2026-10-03T20:00:00+02:00",
+  "description": null,
+  "doors": null,
   "end": null,
-  "extra": {},
+  "extra": {
+   "time_known": false
+  },
   "genres": [
    "Pop"
   ],
   "image": "https://cdn.prod.website-files.com/67fe307c83a73740dc48b1f0/6a79c74368c1f9a181f6a231_furya-web.jpg",
   "performers": [],
-  "price": {
-   "max_eur": 16.75,
-   "min_eur": 16.75,
-   "text": "ticket vanaf: €16.75"
-  },
-  "room": "Zaal",
+  "price": null,
+  "room": null,
   "source_id": "furya-2",
-  "start": "2026-10-03T20:30:00+02:00",
+  "start": "2026-10-03T00:00:00+02:00",
   "status": "scheduled",
   "subtitle": "sounds of istanbul",
   "support": [],
-  "ticket_url": "https://cinetol.stager.co/shop/cinetol-tickets/events/111686815",
+  "ticket_url": null,
   "title": "Furya",
   "url": "https://www.cinetol.nl/events/furya-2",
   "venue": "cinetol"
  },
  {
-  "availability": "free",
+  "availability": "unknown",
   "categories": [],
   "city": "Amsterdam",
-  "description": "Café Palestina is een informele bijeenkomst waar we samenkomen voor thematische discussies en lezingen over de aanhoudende genocide en bezetting in Palestina. We bieden ruimte voor informatie, uitwisseling en solidariteit. ‍ Apartheid & Structurele Ongelijkheid: Zorgverleners Onder Bezetting in Palestina en Systeembarrières in Nederland ‍ Hoe beïnvloeden bezetting, racisme en politieke machtsstructuren het werk van zorgverleners in Palestina? En welke parallellen zien we met de positie van zorgverleners en systeembarrières in Nederland? ‍ Gratis entree, taal: NL/ENG ‍ ‍ Sprekers ‍ Sara Galli – Artsen voor Gaza / Medische Apartheid in Palestina Lianne Mulder, PhD (Health Equity Research) – Socioloog / Structurele kansenongelijkheid in de Nederlandse gezondheidszorg ‍ Moderator ‍ Juliette Mattijsen – Arts/onderzoeker in de psychiatrie, onder deel van People’s Health Movement / Moderator ‍ Programma ‍ 12:30 | Inloop met thee en muziek 13:00 | Presentatie door Sara Galli 13:20 | Presentatie door Lianne Mulder 13:40 | Panelgesprek met Sara Galli, Lianne Mulder & Juliette Mattijsen + Q&A 14:30 | Samenkomst en informele discussie 15:00 | Einde ‍ ‍",
+  "description": null,
   "doors": null,
   "end": null,
-  "extra": {},
+  "extra": {
+   "time_known": false
+  },
   "genres": [
    "Multidisciplinair"
   ],
   "image": "https://cdn.prod.website-files.com/67fe307c83a73740dc48b1f0/6aa0027ebe84e350f94e237d_Cafe-palestina-web.jpg",
   "performers": [],
-  "price": {
-   "max_eur": 0.0,
-   "min_eur": 0.0,
-   "text": "TICKET: gratis"
-  },
-  "room": "Zaal",
+  "price": null,
+  "room": null,
   "source_id": "cafe-palestina-6",
-  "start": "2026-10-04T12:30:00+02:00",
+  "start": "2026-10-04T00:00:00+02:00",
   "status": "scheduled",
   "subtitle": "apartheid & structurele ongelijkheid",
   "support": [],
@@ -218,60 +203,56 @@
   "venue": "cinetol"
  },
  {
-  "availability": "on_sale",
+  "availability": "unknown",
   "categories": [],
   "city": "Amsterdam",
-  "description": "Tommy Lyon is een opkomende Britse singer-songwriter die al vanaf jongs af aan muziek maakt. Hij begon zijn carrière als lid van de boyband Here At Last, voordat hij in 2025 doorbrak als solo-artiest met kwetsbare popnummers over liefde, zelfontdekking en de emotionele achtbaan van het dagelijks leven. Zijn nummer ‘All That I’ve Known’ ging viraal op TikTok en leverde hem in korte tijd een trouwe fanbase op, goed voor miljoenen streams. Na tours met Only The Poets en dearALICE maakt hij zich klaar voor zijn allereerste headlinertour, met een stop in Cinetol dit najaar. ‍ INSTAGRAM",
-  "doors": "2026-10-05T20:00:00+02:00",
+  "description": null,
+  "doors": null,
   "end": null,
-  "extra": {},
+  "extra": {
+   "time_known": false
+  },
   "genres": [
    "Pop"
   ],
   "image": "https://cdn.prod.website-files.com/67fe307c83a73740dc48b1f0/6a68b404d20a44f1a4295bef_tommy-web.jpg",
   "performers": [],
-  "price": {
-   "max_eur": 19.7,
-   "min_eur": 19.7,
-   "text": "TICKET: €19.70"
-  },
-  "room": "Zaal",
+  "price": null,
+  "room": null,
   "source_id": "tommy-lyon",
-  "start": "2026-10-05T20:30:00+02:00",
+  "start": "2026-10-05T00:00:00+02:00",
   "status": "scheduled",
   "subtitle": "i.s.m. paradiso",
   "support": [],
-  "ticket_url": "https://tickets.paradiso.nl/b9d5eee05acb4214bd71482709cf6609",
+  "ticket_url": null,
   "title": "Tommy Lyon",
   "url": "https://www.cinetol.nl/events/tommy-lyon",
   "venue": "cinetol"
  },
  {
-  "availability": "on_sale",
+  "availability": "unknown",
   "categories": [],
   "city": "Amsterdam",
-  "description": "Het verhaal van Deep Forest begon begin jaren ’90 in Noord-Frankrijk met de intentie om etnische muziek te combineren met hun eigen elektronische en jazzgeluiden. Hun debuutalbum, dat de naam van de band droeg, bevatte de hit ‘Sweet Lullaby’ en maakte hen in één klap wereldwijd bekend. Met dit album en de daaropvolgende releases verkochten ze in totaal 10 miljoen albums. De band werd genomineerd voor een Grammy in de categorie Best World Music Album en won deze prijs later met het album ‘Boheme’. Samenwerkingen met onder anderen Peter Gabriel, Herbie Hancock en Aluna Wade, plus composities voor verschillende films en remixes voor artiesten als Youssou N’Dour, tonen hun constante productiviteit. In 2005 verliet Michel Sanchez de groep om een solocarrière te starten, waarna Eric Mouquet onder de naam Deep Forest verder ging en onder meer de albums Deep Africa en Deep India uitbracht, naast vele andere producties. De live-set van Deep Forest van vandaag is veelzijdig: ze schakelen moeiteloos tussen uptempo elektronische muziek en jazz waarop het publiek kan dansen, en meer ambient en ontspannende passages, terwijl ze altijd hun kenmerkende Deep Forest-geluid behouden. 2024 markeert de 30e verjaardag van de Grammy Award voor Best World Music Album, en 2025 de 30e verjaardag van het winnen van deze prestigieuze prijs. ‍ INSTAGRAM",
-  "doors": "2026-10-06T19:30:00+02:00",
+  "description": null,
+  "doors": null,
   "end": null,
-  "extra": {},
+  "extra": {
+   "time_known": false
+  },
   "genres": [
    "Elektronisch",
    "Jazz"
   ],
   "image": "https://cdn.prod.website-files.com/67fe307c83a73740dc48b1f0/6a05dd52429906768a883a79_Deep-forest-web.jpg",
   "performers": [],
-  "price": {
-   "max_eur": 35.75,
-   "min_eur": 35.75,
-   "text": "TICKET: €35.75"
-  },
-  "room": "Zaal",
+  "price": null,
+  "room": null,
   "source_id": "deep-forest",
-  "start": "2026-10-06T20:00:00+02:00",
+  "start": "2026-10-06T00:00:00+02:00",
   "status": "scheduled",
   "subtitle": null,
   "support": [],
-  "ticket_url": "https://cinetol.stager.co/shop/cinetol-tickets/events/111661635",
+  "ticket_url": null,
   "title": "Deep Forest",
   "url": "https://www.cinetol.nl/events/deep-forest",
   "venue": "cinetol"
@@ -280,10 +261,12 @@
   "availability": "sold_out",
   "categories": [],
   "city": "Amsterdam",
-  "description": "LET OP: Wegens grote vraag is dit concert verplaatst naar locatie Plantage Dok ‍ My New Band Believe is het nieuwe project van Cameron Picton, voormalig bassist en incidenteel frontman van black midi, en markeert een frisse artistieke koers na het uiteenvallen van de band in 2023. Vanuit een positie tussen bandlid en bandleider in, begon Picton zonder vaste verwachtingen aan nieuw materiaal, waaruit geleidelijk de basis voor dit debuut ontstond. Het resultaat is een groots en hallucinerend album dat moeiteloos schakelt tussen uiteenlopende emotionele en thematische werelden, terwijl een intrigerende, dromerige logica als rode draad door de muziek loopt. Samen met een gezelschap aan gerenommeerde muzikanten, waaronder Kiran Leonard, Caius Williams, Steve Noble en Andrew Cheetham, creëert Picton een rijk en voortdurend transformerend muzikaal universum. ‍ De eerste single “Love Story” vormt een van de opvallende momenten van het album en vertelt, op het eerste gezicht eenvoudig, het verhaal van een alledaagse relatie — van samenleven tot uiteenvallen in een oogwenk. De ogenschijnlijke lichtheid van het nummer krijgt extra lading door een onderliggende dreiging van verlies. Picton put uit en verwijst soms direct naar klassieke liefdesliedjes, en schreef het nummer in een vluchtig moment begin 2024. Met dit project probeert hij een nieuwe invulling te geven aan het moderne singer-songwriteralbum, waarbij juist de kleine, intieme details gewicht krijgen om het grotere geheel geloofwaardig en voelbaar te maken. ‍ INSTAGRAM ‍ LOCATIE PLANTAGE DOK ‍ Deze show vindt plaats in Plantage Dok, gevestigd aan de Plantage Doklaan 8 te Amsterdam. Plantage Dok is een ontmoetingsplek, kunst community, gemeenschapskeuken en concertzaal in het centrum van Amsterdam. De Dokzaal is een voormalige kerk, gebouwd in 1872, en heeft sindsdien functies van drukwerkplaats tot technische school gehad. Lees hieronder meer over de locatie. ‍ PLANTAGE DOK ‍",
-  "doors": "2026-10-07T19:30:00+02:00",
+  "description": null,
+  "doors": null,
   "end": null,
-  "extra": {},
+  "extra": {
+   "time_known": false
+  },
   "genres": [
    "Indie",
    "Rock"
@@ -291,9 +274,9 @@
   "image": "https://cdn.prod.website-files.com/67fe307c83a73740dc48b1f0/6a0c8251ee4cae4a1446d879_belive-web.jpg",
   "performers": [],
   "price": null,
-  "room": "Plantage Dok",
+  "room": null,
   "source_id": "my-new-band-believe",
-  "start": "2026-10-07T20:00:00+02:00",
+  "start": "2026-10-07T00:00:00+02:00",
   "status": "scheduled",
   "subtitle": "support: geo",
   "support": [
@@ -311,7 +294,9 @@
   "description": null,
   "doors": null,
   "end": null,
-  "extra": {},
+  "extra": {
+   "time_known": false
+  },
   "genres": [
    "Afrobeats"
   ],
@@ -336,7 +321,9 @@
   "description": null,
   "doors": null,
   "end": null,
-  "extra": {},
+  "extra": {
+   "time_known": false
+  },
   "genres": [
    "Wave"
   ],
@@ -361,7 +348,9 @@
   "description": null,
   "doors": null,
   "end": null,
-  "extra": {},
+  "extra": {
+   "time_known": false
+  },
   "genres": [
    "Indie",
    "Rock",
@@ -388,7 +377,9 @@
   "description": null,
   "doors": null,
   "end": null,
-  "extra": {},
+  "extra": {
+   "time_known": false
+  },
   "genres": [
    "Rock"
   ],
@@ -415,7 +406,9 @@
   "description": null,
   "doors": null,
   "end": null,
-  "extra": {},
+  "extra": {
+   "time_known": false
+  },
   "genres": [
    "Multidisciplinair"
   ],
@@ -440,7 +433,9 @@
   "description": null,
   "doors": null,
   "end": null,
-  "extra": {},
+  "extra": {
+   "time_known": false
+  },
   "genres": [
    "Folk",
    "Rock",
@@ -469,7 +464,9 @@
   "description": null,
   "doors": null,
   "end": null,
-  "extra": {},
+  "extra": {
+   "time_known": false
+  },
   "genres": [
    "R&B",
    "Soul"
@@ -495,7 +492,9 @@
   "description": null,
   "doors": null,
   "end": null,
-  "extra": {},
+  "extra": {
+   "time_known": false
+  },
   "genres": [
    "R&B",
    "Soul"
@@ -521,7 +520,9 @@
   "description": null,
   "doors": null,
   "end": null,
-  "extra": {},
+  "extra": {
+   "time_known": false
+  },
   "genres": [
    "Experimental",
    "Rock"
@@ -547,7 +548,9 @@
   "description": null,
   "doors": null,
   "end": null,
-  "extra": {},
+  "extra": {
+   "time_known": false
+  },
   "genres": [
    "Ververs",
    "Multidisciplinair"
@@ -573,7 +576,9 @@
   "description": null,
   "doors": null,
   "end": null,
-  "extra": {},
+  "extra": {
+   "time_known": false
+  },
   "genres": [
    "Experimental",
    "Pop",
@@ -600,7 +605,9 @@
   "description": null,
   "doors": null,
   "end": null,
-  "extra": {},
+  "extra": {
+   "time_known": false
+  },
   "genres": [
    "Rock",
    "Postpunk"
@@ -628,7 +635,9 @@
   "description": null,
   "doors": null,
   "end": null,
-  "extra": {},
+  "extra": {
+   "time_known": false
+  },
   "genres": [
    "Elektronisch",
    "Experimental",
@@ -655,7 +664,9 @@
   "description": null,
   "doors": null,
   "end": null,
-  "extra": {},
+  "extra": {
+   "time_known": false
+  },
   "genres": [
    "Indie",
    "Pop",
@@ -684,7 +695,9 @@
   "description": null,
   "doors": null,
   "end": null,
-  "extra": {},
+  "extra": {
+   "time_known": false
+  },
   "genres": [
    "Postpunk"
   ],
@@ -711,7 +724,9 @@
   "description": null,
   "doors": null,
   "end": null,
-  "extra": {},
+  "extra": {
+   "time_known": false
+  },
   "genres": [
    "Elektronisch"
   ],
@@ -739,7 +754,8 @@
   "doors": null,
   "end": null,
   "extra": {
-   "just_added": true
+   "just_added": true,
+   "time_known": false
   },
   "genres": [
    "Elektronisch"
@@ -765,7 +781,9 @@
   "description": null,
   "doors": null,
   "end": null,
-  "extra": {},
+  "extra": {
+   "time_known": false
+  },
   "genres": [
    "Elektronisch",
    "Jazz"
@@ -791,7 +809,9 @@
   "description": null,
   "doors": null,
   "end": null,
-  "extra": {},
+  "extra": {
+   "time_known": false
+  },
   "genres": [
    "R&B",
    "Soul",
@@ -818,7 +838,9 @@
   "description": null,
   "doors": null,
   "end": null,
-  "extra": {},
+  "extra": {
+   "time_known": false
+  },
   "genres": [
    "Indie",
    "Rock",
@@ -845,7 +867,9 @@
   "description": null,
   "doors": null,
   "end": null,
-  "extra": {},
+  "extra": {
+   "time_known": false
+  },
   "genres": [
    "Soul",
    "R&B"
@@ -871,7 +895,9 @@
   "description": null,
   "doors": null,
   "end": null,
-  "extra": {},
+  "extra": {
+   "time_known": false
+  },
   "genres": [
    "Elektronisch",
    "Rock"
@@ -897,7 +923,9 @@
   "description": null,
   "doors": null,
   "end": null,
-  "extra": {},
+  "extra": {
+   "time_known": false
+  },
   "genres": [
    "Funk",
    "Soul",
@@ -925,7 +953,8 @@
   "doors": null,
   "end": null,
   "extra": {
-   "just_added": true
+   "just_added": true,
+   "time_known": false
   },
   "genres": [
    "Ververs",
@@ -952,7 +981,9 @@
   "description": null,
   "doors": null,
   "end": null,
-  "extra": {},
+  "extra": {
+   "time_known": false
+  },
   "genres": [
    "Indie",
    "Rock",
@@ -979,7 +1010,9 @@
   "description": null,
   "doors": null,
   "end": null,
-  "extra": {},
+  "extra": {
+   "time_known": false
+  },
   "genres": [
    "Experimental",
    "Folk",
@@ -1006,7 +1039,9 @@
   "description": null,
   "doors": null,
   "end": null,
-  "extra": {},
+  "extra": {
+   "time_known": false
+  },
   "genres": [
    "Elektronisch",
    "Experimental",
@@ -1033,7 +1068,9 @@
   "description": null,
   "doors": null,
   "end": null,
-  "extra": {},
+  "extra": {
+   "time_known": false
+  },
   "genres": [
    "Pop",
    "Queer",
@@ -1060,7 +1097,9 @@
   "description": null,
   "doors": null,
   "end": null,
-  "extra": {},
+  "extra": {
+   "time_known": false
+  },
   "genres": [
    "Experimental",
    "Pop"
@@ -1086,7 +1125,9 @@
   "description": null,
   "doors": null,
   "end": null,
-  "extra": {},
+  "extra": {
+   "time_known": false
+  },
   "genres": [
    "Pop",
    "Punk"
@@ -1114,7 +1155,9 @@
   "description": null,
   "doors": null,
   "end": null,
-  "extra": {},
+  "extra": {
+   "time_known": false
+  },
   "genres": [
    "Country",
    "Folk",
@@ -1142,7 +1185,9 @@
   "description": null,
   "doors": null,
   "end": null,
-  "extra": {},
+  "extra": {
+   "time_known": false
+  },
   "genres": [
    "Reggae"
   ],
@@ -1169,7 +1214,9 @@
   "description": null,
   "doors": null,
   "end": null,
-  "extra": {},
+  "extra": {
+   "time_known": false
+  },
   "genres": [
    "Postpunk",
    "Wave",
@@ -1196,7 +1243,9 @@
   "description": null,
   "doors": null,
   "end": null,
-  "extra": {},
+  "extra": {
+   "time_known": false
+  },
   "genres": [
    "Folk",
    "Experimental",
@@ -1223,7 +1272,9 @@
   "description": null,
   "doors": null,
   "end": null,
-  "extra": {},
+  "extra": {
+   "time_known": false
+  },
   "genres": [
    "Indie",
    "Rock"
@@ -1249,7 +1300,9 @@
   "description": null,
   "doors": null,
   "end": null,
-  "extra": {},
+  "extra": {
+   "time_known": false
+  },
   "genres": [
    "Postpunk"
   ],
@@ -1276,7 +1329,9 @@
   "description": null,
   "doors": null,
   "end": null,
-  "extra": {},
+  "extra": {
+   "time_known": false
+  },
   "genres": [
    "Indie",
    "Folk"
@@ -1302,7 +1357,9 @@
   "description": null,
   "doors": null,
   "end": null,
-  "extra": {},
+  "extra": {
+   "time_known": false
+  },
   "genres": [
    "Experimental",
    "Jazz",
@@ -1331,7 +1388,8 @@
   "doors": null,
   "end": null,
   "extra": {
-   "just_added": true
+   "just_added": true,
+   "time_known": false
   },
   "genres": [
    "Afrobeats",
@@ -1358,7 +1416,9 @@
   "description": null,
   "doors": null,
   "end": null,
-  "extra": {},
+  "extra": {
+   "time_known": false
+  },
   "genres": [
    "Elektronisch"
   ],
@@ -1383,7 +1443,9 @@
   "description": null,
   "doors": null,
   "end": null,
-  "extra": {},
+  "extra": {
+   "time_known": false
+  },
   "genres": [
    "Elektronisch"
   ],
@@ -1408,7 +1470,9 @@
   "description": null,
   "doors": null,
   "end": null,
-  "extra": {},
+  "extra": {
+   "time_known": false
+  },
   "genres": [
    "Pop",
    "Rock"
@@ -1434,7 +1498,9 @@
   "description": null,
   "doors": null,
   "end": null,
-  "extra": {},
+  "extra": {
+   "time_known": false
+  },
   "genres": [
    "Elektronisch",
    "Pop"
@@ -1460,7 +1526,9 @@
   "description": null,
   "doors": null,
   "end": null,
-  "extra": {},
+  "extra": {
+   "time_known": false
+  },
   "genres": [
    "Experimental",
    "Indie",
@@ -1487,7 +1555,9 @@
   "description": null,
   "doors": null,
   "end": null,
-  "extra": {},
+  "extra": {
+   "time_known": false
+  },
   "genres": [
    "Multidisciplinair"
   ],
@@ -1512,7 +1582,9 @@
   "description": null,
   "doors": null,
   "end": null,
-  "extra": {},
+  "extra": {
+   "time_known": false
+  },
   "genres": [
    "Metal",
    "Experimental"
@@ -1538,7 +1610,9 @@
   "description": null,
   "doors": null,
   "end": null,
-  "extra": {},
+  "extra": {
+   "time_known": false
+  },
   "genres": [
    "Indie",
    "Rock"
@@ -1564,7 +1638,9 @@
   "description": null,
   "doors": null,
   "end": null,
-  "extra": {},
+  "extra": {
+   "time_known": false
+  },
   "genres": [
    "Rock"
   ],
@@ -1589,7 +1665,9 @@
   "description": null,
   "doors": null,
   "end": null,
-  "extra": {},
+  "extra": {
+   "time_known": false
+  },
   "genres": [
    "Elektronisch",
    "Punk",
@@ -1620,7 +1698,8 @@
   "doors": null,
   "end": null,
   "extra": {
-   "just_added": true
+   "just_added": true,
+   "time_known": false
   },
   "genres": [
    "Elektronisch",
@@ -1649,7 +1728,9 @@
   "description": null,
   "doors": null,
   "end": null,
-  "extra": {},
+  "extra": {
+   "time_known": false
+  },
   "genres": [
    "Experimental",
    "Jazz",
@@ -1676,7 +1757,9 @@
   "description": null,
   "doors": null,
   "end": null,
-  "extra": {},
+  "extra": {
+   "time_known": false
+  },
   "genres": [
    "Multidisciplinair"
   ],
@@ -1701,7 +1784,9 @@
   "description": null,
   "doors": null,
   "end": null,
-  "extra": {},
+  "extra": {
+   "time_known": false
+  },
   "genres": [
    "Indie",
    "Pop",
@@ -1728,7 +1813,9 @@
   "description": null,
   "doors": null,
   "end": null,
-  "extra": {},
+  "extra": {
+   "time_known": false
+  },
   "genres": [
    "Indie",
    "Folk"
@@ -1754,7 +1841,9 @@
   "description": null,
   "doors": null,
   "end": null,
-  "extra": {},
+  "extra": {
+   "time_known": false
+  },
   "genres": [
    "Multidisciplinair",
    "Indie",
@@ -1781,7 +1870,9 @@
   "description": null,
   "doors": null,
   "end": null,
-  "extra": {},
+  "extra": {
+   "time_known": false
+  },
   "genres": [
    "Elektronisch",
    "Pop",
@@ -1809,7 +1900,8 @@
   "doors": null,
   "end": null,
   "extra": {
-   "just_added": true
+   "just_added": true,
+   "time_known": false
   },
   "genres": [
    "Pop"
@@ -1835,7 +1927,9 @@
   "description": null,
   "doors": null,
   "end": null,
-  "extra": {},
+  "extra": {
+   "time_known": false
+  },
   "genres": [
    "Elektronisch",
    "Folk"
@@ -1862,7 +1956,8 @@
   "doors": null,
   "end": null,
   "extra": {
-   "just_added": true
+   "just_added": true,
+   "time_known": false
   },
   "genres": [
    "Experimental"
@@ -1888,7 +1983,9 @@
   "description": null,
   "doors": null,
   "end": null,
-  "extra": {},
+  "extra": {
+   "time_known": false
+  },
   "genres": [
    "Funk",
    "Pop",
@@ -1916,7 +2013,8 @@
   "doors": null,
   "end": null,
   "extra": {
-   "just_added": true
+   "just_added": true,
+   "time_known": false
   },
   "genres": [
    "Wave",

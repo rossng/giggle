@@ -83,7 +83,7 @@ class Client:
     def __init__(
         self,
         user_agent: str = DEFAULT_USER_AGENT,
-        timeout: float = 30.0,
+        timeout: float = 60.0,  # Patronaat serves ~1 MB of XML slowly
         retries: int = 2,
         min_delay: float = MIN_DELAY_SECONDS,
     ) -> None:

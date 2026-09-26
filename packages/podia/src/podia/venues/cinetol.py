@@ -1,14 +1,20 @@
-"""Cinetol, Amsterdam. Reads the Webflow programme page, then each event's detail page.
+"""Cinetol, Amsterdam. Reads the Webflow programme page and, through `details()`, each
+event's own page.
 
-The programme lists every event on one page. Its cards carry Finsweet list hooks
-(`fs-list-field="name|support|genre"`) for the title, a subtitle line and up to a few
-genre tags, plus the day, month and year and an UITVERKOCHT marker. Times, room, price
-and the ticket link only appear on the detail page, so those are fetched too; without
-`max_pages` that is one request per event (~70, about a minute at the default delay).
+The programme lists every event on one page (one request). Its cards carry Finsweet list
+hooks (`fs-list-field="name|support|genre"`) for the title, a subtitle line and up to a
+few genre tags, plus the day, month and year and an UITVERKOCHT marker. They have no
+time, so a listed event's `start` is its date at 00:00 Amsterdam time and
+`extra["time_known"]` is False.
+
+`details()` reads the event page for the doors and show times (the show time becomes
+`start`, and `time_known` True), the room(s), ticket prices and link, and the
+description.
 """
 
 from __future__ import annotations
 
+import copy
 import re
 from collections.abc import Iterator
 from datetime import date
@@ -22,32 +28,33 @@ from podia.venue import FetchOptions, Venue, register
 
 BASE = "https://www.cinetol.nl"
 PROGRAMME = f"{BASE}/programma"
-# Detail pages fetched per unit of `max_pages`; the programme itself is a single page.
-DETAILS_PER_PAGE = 5
 # "support: løu", "album release + support: stuzzy pink", "supports: eigen risico + feral"
 _SUPPORT = re.compile(r"\bsupports?:\s*(.+)$", re.IGNORECASE)
+_CLOCK = re.compile(r"\d{1,2}[:.]\d{2}")
 
 
 @register
 class Cinetol(Venue):
     info = VenueInfo(slug="cinetol", name="Cinetol", city="Amsterdam", website=BASE)
+    has_details = True
 
     def events(self, fetch: Fetcher, options: FetchOptions | None = None) -> Iterator[Event]:
         options = options or FetchOptions()
         r = fetch.get(PROGRAMME)
         r.raise_for_status()
-        budget = None if options.max_pages is None else options.max_pages * DETAILS_PER_PAGE
         for item in HTMLParser(r.text).css('[fs-list-element="list"] > [role="listitem"]'):
             event = self._card(item, options.since)
-            if event is None:
-                continue
-            if event.url and (budget is None or budget > 0):
-                if budget is not None:
-                    budget -= 1
-                detail = fetch.get(event.url)
-                if detail.status < 400:
-                    _add_detail(event, HTMLParser(detail.text))
-            yield event
+            if event is not None:
+                yield event
+
+    def details(self, fetch: Fetcher, event: Event) -> Event:
+        if not event.url:
+            return event
+        r = fetch.get(event.url)
+        r.raise_for_status()
+        e = copy.deepcopy(event)
+        _add_detail(e, HTMLParser(r.text))
+        return e
 
     def _card(self, item: Node, since: date) -> Event | None:
         title = _text(item.css_first('[fs-list-field="name"]'))
@@ -60,6 +67,9 @@ class Cinetol(Venue):
         support = _SUPPORT.search(subtitle or "")
         image = item.css_first(".card_image_wrapper img")
         sold_out = item.css_first(".sold-out") is not None
+        extra: dict[str, object] = {"time_known": False}
+        if item.css_first('[fs-list-field="new"]'):
+            extra["just_added"] = True
         return Event(
             venue=self.info.slug,
             source_id=href.rsplit("/", 1)[-1],
@@ -72,7 +82,7 @@ class Cinetol(Venue):
             genres=[t for n in item.css('[fs-list-field="genre"]') if (t := _text(n))],
             availability=Availability.SOLD_OUT if sold_out else Availability.UNKNOWN,
             image=image.attributes.get("src") if image is not None else None,
-            extra={"just_added": True} if item.css_first('[fs-list-field="new"]') else {},
+            extra=extra,
         )
 
     def redact(self, url: str, text: str) -> str:
@@ -106,7 +116,8 @@ def _day(item: Node, since: date) -> date | None:
 
 
 def _add_detail(event: Event, tree: HTMLParser) -> None:
-    """Room, doors and show time, prices, ticket link and description from a detail page.
+    """Room, doors and show time, prices, ticket link and description from a detail page,
+    into `event` (a copy of the listed one).
 
     Webflow renders unused conditional blocks with `w-condition-invisible`; they are
     dropped first so a hidden "UITVERKOCHT" or TicketSwap link is not read as real.
@@ -125,16 +136,19 @@ def _add_detail(event: Event, tree: HTMLParser) -> None:
         label = cells[0].rstrip(":").strip().lower()
         if label == "location":
             rooms = [t for n in row.css('[role="listitem"]') if (t := _text(n))]
-            event.room = ", ".join(rooms) or None
-        elif label == "doors" and len(cells) > 1:
+            if rooms:
+                event.room = ", ".join(rooms)
+        elif label == "doors" and len(cells) > 1 and _CLOCK.search(cells[1]):
             event.doors = combine(day, cells[1])
-        elif label == "show" and len(cells) > 1:
+        elif label == "show" and len(cells) > 1 and _CLOCK.search(cells[1]):
             event.start = combine(day, cells[1])
+            event.extra["time_known"] = True
         elif len(cells) > 1:  # "ticket", "ticket vanaf", "doorsale"…
             prices.append(f"{cells[0]} {' '.join(cells[1:])}")
     if prices:
         event.price = _price(prices)
-        if event.price and event.price.min_eur == 0 and event.price.max_eur == 0:
+        free = event.price and event.price.min_eur == 0 and event.price.max_eur == 0
+        if free and event.availability is not Availability.SOLD_OUT:
             event.availability = Availability.FREE
     if info.css_first(".sold-out") is not None:
         event.availability = Availability.SOLD_OUT
@@ -145,7 +159,8 @@ def _add_detail(event: Event, tree: HTMLParser) -> None:
     if href and href.startswith("http"):
         event.ticket_url = href
     body = tree.css_first('[fs-richtext-element="rich-text"]')
-    event.description = clean(body.text(separator=" ")) if body is not None else None
+    if body is not None and (description := clean(body.text(separator=" "))):
+        event.description = description
 
 
 def _price(rows: list[str]) -> Price | None:

@@ -38,6 +38,14 @@ with Client() as client:
 
 `podia fetch melkweg --details 5` does the same for the first five events.
 
+Venues with details today: Melkweg (room, prices, ticket link, doors and show time from the
+timetable), Cinetol and Nobel (time, room, price, ticket link, description; Nobel also the
+support acts). Cinetol's and Nobel's agendas give only the date, so until `details()` has
+run their events start at 00:00 Amsterdam time on the right day and carry
+`extra["time_known"] = False`; `details()` sets the real time and `time_known = True`
+(it stays False if the event page has no time either). Treat `start` as a date whenever
+`event.extra.get("time_known", True)` is False.
+
 The client is polite by default: it honours robots.txt and crawl-delay, waits at least a
 second between requests to the same host, and identifies itself with a clear User-Agent.
 

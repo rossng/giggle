@@ -67,7 +67,7 @@ ALL HANDS ON DECK! Een nieuw album doemt op aan de horizon: Captain Kelphair &am
 <p>Black Powder Parlay is een Nederlandse folkmetalband die in 2025 het anker lichtte. Wat begon als een eenmansproject voor een muziekopleiding groeide razendsnel uit tot een volwaardige metalband, met leden uit onder andere Epistulum, Mourning Wood en Super Star Gods. Samen brengen ze een energieke liveshow die staat als een schip in volle vaart.</p><p>Geïnspireerd door de gouden eeuw van de piraterij duikt de band in de rauwe realiteit van het leven op zee, ver weg van geromantiseerde zeemansverhalen. Verwacht technische riffs die inslaan als kanonschoten, grootse arrangementen die aanzwellen als een storm en refreinen die je moeiteloos meebrult.</p><p>Black Powder Parlay staat garant voor een avond vol energie, kruitdamp en epische verhalen.&nbsp;</p><p>&nbsp;</p>
 </div>
 <div class="column paragraph paragraph--video paragraph--video--default video is-8-widescreen is-10-desktop is-12">
-<div class="media media--type-video embedded-video video-e73f9823 media--view-mode-">
+<div class="media media--type-video embedded-video video-c8253974 media--view-mode-">
 <button aria-label="Speel video af" class="play_button"><i class="fa-solid fa-play"></i></button>
 <iframe src="https://nobel.nl/media/oembed?url=https%3A//www.youtube.com/watch%3Fv%3D5SddKAgXRbg%26list%3DRD5SddKAgXRbg%26start_radio%3D1&amp;max_width=0&amp;max_height=0&amp;hash=BzCXJHJXeTJeJLn0gklpTTqCtlvSzxEKwSBCGeOmmus" width="200" height="113" class="media-oembed-content" loading="eager" title="Captain Kelphair &amp; the Salty Seamen - Rebel's Shanty - Official music video"></iframe>
 <div class="cookie-alert">
