@@ -1,0 +1,24 @@
+{
+  "8aa6c29da58645fb": {
+    "body": null,
+    "content_type": "application/rss+xml; charset=UTF-8",
+    "file": "8aa6c29da58645fb.txt",
+    "method": "GET",
+    "params": {
+      "paged": 1
+    },
+    "status": 200,
+    "url": "https://www.tivolivredenburg.nl/agenda/feed/"
+  },
+  "bc3455f619c772d4": {
+    "body": null,
+    "content_type": "application/rss+xml; charset=UTF-8",
+    "file": "bc3455f619c772d4.txt",
+    "method": "GET",
+    "params": {
+      "paged": 2
+    },
+    "status": 200,
+    "url": "https://www.tivolivredenburg.nl/agenda/feed/"
+  }
+}

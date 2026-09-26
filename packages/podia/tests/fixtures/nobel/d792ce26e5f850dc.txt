@@ -1,0 +1,3852 @@
+<form action="/agenda" method="get" id="views-exposed-form-events-overview-overview-block" accept-charset="UTF-8">
+<div class="form--inline clearfix">
+<fieldset data-drupal-selector="edit-type" id="edit-type--9--wrapper" class="fieldgroup form-composite js-form-item form-item js-form-wrapper form-wrapper">
+<legend>
+<span class="fieldset-legend">Soort</span>
+</legend>
+<div class="fieldset-wrapper">
+<div id="edit-type--9" class="form-checkboxes"><div class="form-checkboxes bef-checkboxes">
+<div class="js-form-item form-item js-form-type-checkbox form-type-checkbox js-form-item-type-25 form-item-type-25">
+<input data-drupal-selector="edit-type-25" type="checkbox" id="edit-type-25--9" name="type[25]" value="25" class="form-checkbox">
+<label for="edit-type-25--9" class="option">Concert</label>
+</div>
+<div class="js-form-item form-item js-form-type-checkbox form-type-checkbox js-form-item-type-28 form-item-type-28">
+<input data-drupal-selector="edit-type-28" type="checkbox" id="edit-type-28--9" name="type[28]" value="28" class="form-checkbox">
+<label for="edit-type-28--9" class="option">Clubnacht</label>
+</div>
+<div class="js-form-item form-item js-form-type-checkbox form-type-checkbox js-form-item-type-44 form-item-type-44">
+<input data-drupal-selector="edit-type-44" type="checkbox" id="edit-type-44--9" name="type[44]" value="44" class="form-checkbox">
+<label for="edit-type-44--9" class="option">Festival</label>
+</div>
+<div class="js-form-item form-item js-form-type-checkbox form-type-checkbox js-form-item-type-37 form-item-type-37">
+<input data-drupal-selector="edit-type-37" type="checkbox" id="edit-type-37--9" name="type[37]" value="37" class="form-checkbox">
+<label for="edit-type-37--9" class="option">Overig</label>
+</div>
+</div>
+</div>
+</div>
+</fieldset>
+<fieldset data-drupal-selector="edit-field-genre-target-id" id="edit-field-genre-target-id--9--wrapper" class="fieldgroup form-composite js-form-item form-item js-form-wrapper form-wrapper">
+<legend>
+<span class="fieldset-legend">Genre</span>
+</legend>
+<div class="fieldset-wrapper">
+<div id="edit-field-genre-target-id--9" class="form-checkboxes"><div class="form-checkboxes bef-checkboxes">
+<div class="js-form-item form-item js-form-type-checkbox form-type-checkbox js-form-item-field-genre-target-id-38 form-item-field-genre-target-id-38">
+<input data-drupal-selector="edit-field-genre-target-id-38" type="checkbox" id="edit-field-genre-target-id-38--9" name="field_genre_target_id[38]" value="38" class="form-checkbox">
+<label for="edit-field-genre-target-id-38--9" class="option">(Pop)Cultuur</label>
+</div>
+<div class="js-form-item form-item js-form-type-checkbox form-type-checkbox js-form-item-field-genre-target-id-97 form-item-field-genre-target-id-97">
+<input data-drupal-selector="edit-field-genre-target-id-97" type="checkbox" id="edit-field-genre-target-id-97--9" name="field_genre_target_id[97]" value="97" class="form-checkbox">
+<label for="edit-field-genre-target-id-97--9" class="option">Blues</label>
+</div>
+<div class="js-form-item form-item js-form-type-checkbox form-type-checkbox js-form-item-field-genre-target-id-65 form-item-field-genre-target-id-65">
+<input data-drupal-selector="edit-field-genre-target-id-65" type="checkbox" id="edit-field-genre-target-id-65--9" name="field_genre_target_id[65]" value="65" class="form-checkbox">
+<label for="edit-field-genre-target-id-65--9" class="option">Cultuur &amp; Maatschappij</label>
+</div>
+<div class="js-form-item form-item js-form-type-checkbox form-type-checkbox js-form-item-field-genre-target-id-66 form-item-field-genre-target-id-66">
+<input data-drupal-selector="edit-field-genre-target-id-66" type="checkbox" id="edit-field-genre-target-id-66--9" name="field_genre_target_id[66]" value="66" class="form-checkbox">
+<label for="edit-field-genre-target-id-66--9" class="option">Drum and Bass</label>
+</div>
+<div class="js-form-item form-item js-form-type-checkbox form-type-checkbox js-form-item-field-genre-target-id-39 form-item-field-genre-target-id-39">
+<input data-drupal-selector="edit-field-genre-target-id-39" type="checkbox" id="edit-field-genre-target-id-39--9" name="field_genre_target_id[39]" value="39" class="form-checkbox">
+<label for="edit-field-genre-target-id-39--9" class="option">Electronisch Live</label>
+</div>
+<div class="js-form-item form-item js-form-type-checkbox form-type-checkbox js-form-item-field-genre-target-id-52 form-item-field-genre-target-id-52">
+<input data-drupal-selector="edit-field-genre-target-id-52" type="checkbox" id="edit-field-genre-target-id-52--9" name="field_genre_target_id[52]" value="52" class="form-checkbox">
+<label for="edit-field-genre-target-id-52--9" class="option">Folk</label>
+</div>
+<div class="js-form-item form-item js-form-type-checkbox form-type-checkbox js-form-item-field-genre-target-id-42 form-item-field-genre-target-id-42">
+<input data-drupal-selector="edit-field-genre-target-id-42" type="checkbox" id="edit-field-genre-target-id-42--9" name="field_genre_target_id[42]" value="42" class="form-checkbox">
+<label for="edit-field-genre-target-id-42--9" class="option">Funk</label>
+</div>
+<div class="js-form-item form-item js-form-type-checkbox form-type-checkbox js-form-item-field-genre-target-id-56 form-item-field-genre-target-id-56">
+<input data-drupal-selector="edit-field-genre-target-id-56" type="checkbox" id="edit-field-genre-target-id-56--9" name="field_genre_target_id[56]" value="56" class="form-checkbox">
+<label for="edit-field-genre-target-id-56--9" class="option">Groove</label>
+</div>
+<div class="js-form-item form-item js-form-type-checkbox form-type-checkbox js-form-item-field-genre-target-id-53 form-item-field-genre-target-id-53">
+<input data-drupal-selector="edit-field-genre-target-id-53" type="checkbox" id="edit-field-genre-target-id-53--9" name="field_genre_target_id[53]" value="53" class="form-checkbox">
+<label for="edit-field-genre-target-id-53--9" class="option">Hiphop</label>
+</div>
+<div class="js-form-item form-item js-form-type-checkbox form-type-checkbox js-form-item-field-genre-target-id-47 form-item-field-genre-target-id-47">
+<input data-drupal-selector="edit-field-genre-target-id-47" type="checkbox" id="edit-field-genre-target-id-47--9" name="field_genre_target_id[47]" value="47" class="form-checkbox">
+<label for="edit-field-genre-target-id-47--9" class="option">Hits</label>
+</div>
+<div class="js-form-item form-item js-form-type-checkbox form-type-checkbox js-form-item-field-genre-target-id-57 form-item-field-genre-target-id-57">
+<input data-drupal-selector="edit-field-genre-target-id-57" type="checkbox" id="edit-field-genre-target-id-57--9" name="field_genre_target_id[57]" value="57" class="form-checkbox">
+<label for="edit-field-genre-target-id-57--9" class="option">House</label>
+</div>
+<div class="js-form-item form-item js-form-type-checkbox form-type-checkbox js-form-item-field-genre-target-id-41 form-item-field-genre-target-id-41">
+<input data-drupal-selector="edit-field-genre-target-id-41" type="checkbox" id="edit-field-genre-target-id-41--9" name="field_genre_target_id[41]" value="41" class="form-checkbox">
+<label for="edit-field-genre-target-id-41--9" class="option">Indie</label>
+</div>
+<div class="js-form-item form-item js-form-type-checkbox form-type-checkbox js-form-item-field-genre-target-id-1 form-item-field-genre-target-id-1">
+<input data-drupal-selector="edit-field-genre-target-id-1" type="checkbox" id="edit-field-genre-target-id-1--9" name="field_genre_target_id[1]" value="1" class="form-checkbox">
+<label for="edit-field-genre-target-id-1--9" class="option">Jazz</label>
+</div>
+<div class="js-form-item form-item js-form-type-checkbox form-type-checkbox js-form-item-field-genre-target-id-63 form-item-field-genre-target-id-63">
+<input data-drupal-selector="edit-field-genre-target-id-63" type="checkbox" id="edit-field-genre-target-id-63--9" name="field_genre_target_id[63]" value="63" class="form-checkbox">
+<label for="edit-field-genre-target-id-63--9" class="option">Latin</label>
+</div>
+<div class="js-form-item form-item js-form-type-checkbox form-type-checkbox js-form-item-field-genre-target-id-54 form-item-field-genre-target-id-54">
+<input data-drupal-selector="edit-field-genre-target-id-54" type="checkbox" id="edit-field-genre-target-id-54--9" name="field_genre_target_id[54]" value="54" class="form-checkbox">
+<label for="edit-field-genre-target-id-54--9" class="option">Metal</label>
+</div>
+<div class="js-form-item form-item js-form-type-checkbox form-type-checkbox js-form-item-field-genre-target-id-51 form-item-field-genre-target-id-51">
+<input data-drupal-selector="edit-field-genre-target-id-51" type="checkbox" id="edit-field-genre-target-id-51--9" name="field_genre_target_id[51]" value="51" class="form-checkbox">
+<label for="edit-field-genre-target-id-51--9" class="option">Overig</label>
+</div>
+<div class="js-form-item form-item js-form-type-checkbox form-type-checkbox js-form-item-field-genre-target-id-2 form-item-field-genre-target-id-2">
+<input data-drupal-selector="edit-field-genre-target-id-2" type="checkbox" id="edit-field-genre-target-id-2--9" name="field_genre_target_id[2]" value="2" class="form-checkbox">
+<label for="edit-field-genre-target-id-2--9" class="option">Pop</label>
+</div>
+<div class="js-form-item form-item js-form-type-checkbox form-type-checkbox js-form-item-field-genre-target-id-3 form-item-field-genre-target-id-3">
+<input data-drupal-selector="edit-field-genre-target-id-3" type="checkbox" id="edit-field-genre-target-id-3--9" name="field_genre_target_id[3]" value="3" class="form-checkbox">
+<label for="edit-field-genre-target-id-3--9" class="option">Punk</label>
+</div>
+<div class="js-form-item form-item js-form-type-checkbox form-type-checkbox js-form-item-field-genre-target-id-49 form-item-field-genre-target-id-49">
+<input data-drupal-selector="edit-field-genre-target-id-49" type="checkbox" id="edit-field-genre-target-id-49--9" name="field_genre_target_id[49]" value="49" class="form-checkbox">
+<label for="edit-field-genre-target-id-49--9" class="option">Rock</label>
+</div>
+<div class="js-form-item form-item js-form-type-checkbox form-type-checkbox js-form-item-field-genre-target-id-45 form-item-field-genre-target-id-45">
+<input data-drupal-selector="edit-field-genre-target-id-45" type="checkbox" id="edit-field-genre-target-id-45--9" name="field_genre_target_id[45]" value="45" class="form-checkbox">
+<label for="edit-field-genre-target-id-45--9" class="option">Singer-Songwriter</label>
+</div>
+<div class="js-form-item form-item js-form-type-checkbox form-type-checkbox js-form-item-field-genre-target-id-59 form-item-field-genre-target-id-59">
+<input data-drupal-selector="edit-field-genre-target-id-59" type="checkbox" id="edit-field-genre-target-id-59--9" name="field_genre_target_id[59]" value="59" class="form-checkbox">
+<label for="edit-field-genre-target-id-59--9" class="option">Spoken Word</label>
+</div>
+<div class="js-form-item form-item js-form-type-checkbox form-type-checkbox js-form-item-field-genre-target-id-81 form-item-field-genre-target-id-81">
+<input data-drupal-selector="edit-field-genre-target-id-81" type="checkbox" id="edit-field-genre-target-id-81--9" name="field_genre_target_id[81]" value="81" class="form-checkbox">
+<label for="edit-field-genre-target-id-81--9" class="option">Trance</label>
+</div>
+<div class="js-form-item form-item js-form-type-checkbox form-type-checkbox js-form-item-field-genre-target-id-64 form-item-field-genre-target-id-64">
+<input data-drupal-selector="edit-field-genre-target-id-64" type="checkbox" id="edit-field-genre-target-id-64--9" name="field_genre_target_id[64]" value="64" class="form-checkbox">
+<label for="edit-field-genre-target-id-64--9" class="option">Tribute</label>
+</div>
+</div>
+</div>
+</div>
+</fieldset>
+<fieldset data-drupal-selector="edit-month" id="edit-month--9--wrapper" class="fieldgroup form-composite js-form-item form-item js-form-wrapper form-wrapper">
+<legend>
+<span class="fieldset-legend">Maand</span>
+</legend>
+<div class="fieldset-wrapper">
+<div id="edit-month--9" class="form-checkboxes"><div class="form-checkboxes bef-checkboxes">
+<div class="js-form-item form-item js-form-type-checkbox form-type-checkbox js-form-item-month-1 form-item-month-1">
+<input data-drupal-selector="edit-month-1" type="checkbox" id="edit-month-1--9" name="month[1]" value="1" class="form-checkbox">
+<label for="edit-month-1--9" class="option">januari</label>
+</div>
+<div class="js-form-item form-item js-form-type-checkbox form-type-checkbox js-form-item-month-2 form-item-month-2">
+<input data-drupal-selector="edit-month-2" type="checkbox" id="edit-month-2--9" name="month[2]" value="2" class="form-checkbox">
+<label for="edit-month-2--9" class="option">februari</label>
+</div>
+<div class="js-form-item form-item js-form-type-checkbox form-type-checkbox js-form-item-month-3 form-item-month-3">
+<input data-drupal-selector="edit-month-3" type="checkbox" id="edit-month-3--9" name="month[3]" value="3" class="form-checkbox">
+<label for="edit-month-3--9" class="option">maart</label>
+</div>
+<div class="js-form-item form-item js-form-type-checkbox form-type-checkbox js-form-item-month-4 form-item-month-4">
+<input data-drupal-selector="edit-month-4" type="checkbox" id="edit-month-4--9" name="month[4]" value="4" class="form-checkbox">
+<label for="edit-month-4--9" class="option">april</label>
+</div>
+<div class="js-form-item form-item js-form-type-checkbox form-type-checkbox js-form-item-month-5 form-item-month-5">
+<input data-drupal-selector="edit-month-5" type="checkbox" id="edit-month-5--9" name="month[5]" value="5" class="form-checkbox">
+<label for="edit-month-5--9" class="option">mei</label>
+</div>
+<div class="js-form-item form-item js-form-type-checkbox form-type-checkbox js-form-item-month-6 form-item-month-6">
+<input data-drupal-selector="edit-month-6" type="checkbox" id="edit-month-6--9" name="month[6]" value="6" class="form-checkbox">
+<label for="edit-month-6--9" class="option">juni</label>
+</div>
+<div class="js-form-item form-item js-form-type-checkbox form-type-checkbox js-form-item-month-7 form-item-month-7">
+<input data-drupal-selector="edit-month-7" type="checkbox" id="edit-month-7--9" name="month[7]" value="7" class="form-checkbox">
+<label for="edit-month-7--9" class="option">juli</label>
+</div>
+<div class="js-form-item form-item js-form-type-checkbox form-type-checkbox js-form-item-month-8 form-item-month-8">
+<input data-drupal-selector="edit-month-8" type="checkbox" id="edit-month-8--9" name="month[8]" value="8" class="form-checkbox">
+<label for="edit-month-8--9" class="option">augustus</label>
+</div>
+<div class="js-form-item form-item js-form-type-checkbox form-type-checkbox js-form-item-month-9 form-item-month-9">
+<input data-drupal-selector="edit-month-9" type="checkbox" id="edit-month-9--9" name="month[9]" value="9" class="form-checkbox">
+<label for="edit-month-9--9" class="option">september</label>
+</div>
+<div class="js-form-item form-item js-form-type-checkbox form-type-checkbox js-form-item-month-10 form-item-month-10">
+<input data-drupal-selector="edit-month-10" type="checkbox" id="edit-month-10--9" name="month[10]" value="10" class="form-checkbox">
+<label for="edit-month-10--9" class="option">oktober</label>
+</div>
+<div class="js-form-item form-item js-form-type-checkbox form-type-checkbox js-form-item-month-11 form-item-month-11">
+<input data-drupal-selector="edit-month-11" type="checkbox" id="edit-month-11--9" name="month[11]" value="11" class="form-checkbox">
+<label for="edit-month-11--9" class="option">november</label>
+</div>
+<div class="js-form-item form-item js-form-type-checkbox form-type-checkbox js-form-item-month-12 form-item-month-12">
+<input data-drupal-selector="edit-month-12" type="checkbox" id="edit-month-12--9" name="month[12]" value="12" class="form-checkbox">
+<label for="edit-month-12--9" class="option">december</label>
+</div>
+</div>
+</div>
+</div>
+</fieldset>
+<div data-drupal-selector="edit-actions" class="form-actions js-form-wrapper form-wrapper" id="edit-actions--9"><input data-drupal-selector="edit-submit-events-overview-7" type="submit" id="edit-submit-events-overview--7" value="Toon resultaten" class="button js-form-submit form-submit">
+</div>
+</div>
+</form>
+<div class="soon">
+<div class="views-element-container"><div class="view view-events-overview view-id-events_overview view-display-id-overview_block js-view-dom-id-cd171d8c0dfed3aed0ca8a3ff4a63505c3b73c32fcc22be7539eb0d5f81efc0f">
+<div class="view-content">
+<div class="view-grouping">
+<div class="view-grouping-content"><div class="view-grouping">
+<h2 class="view-grouping-header animation animation-fade-in">september</h2>
+<div class="view-grouping-content"><div id="event-teaser" class="event-teaser">
+<div class="event-teaser--heading">
+<h3>za. 26 sept.</h3>
+</div>
+<div class="event-teaser--row">
+<div class="views-row">
+<div class="event-teaser--row">
+<div class="event-time">
+<h3>za. 26 sept.</h3>
+</div>
+<div class="event-component">
+<a href="/agenda/captain-kelphair-salty-seamen-26-sep-2026" class="event ">
+<div class="content">
+<div class="time">
+<time datetime="2026-05-04T09:45:01+0200">za. 26 sept.</time>
+</div>
+<h3>  Captain Kelphair &amp; The Salty Seamen
+</h3>
+<p>  Pirate Plunder Party met Black Powder Parlay
+</p>
+<span class="genre">Folk</span>
+</div>
+<div class="image">
+<figure>
+<img loading="lazy" class="img-responsive image-style-_-3" src="/sites/default/files/styles/4_3/public/2026-05/CK%26SS%204-3.png.webp?itok=BgD5Sux1" width="1600" height="1200" alt="Captain Kelphair &amp; The Salty Seamen | 26 september in nobel" typeof="foaf:Image">
+</figure>
+</div>
+</a>
+</div>
+</div>
+</div>
+<div class="views-row">
+<div class="event-teaser--row">
+<div class="event-time">
+<h3>za. 26 sept.</h3>
+</div>
+<div class="event-component">
+<a href="/agenda/het-fomo-huis-26-sep-2026" class="event ">
+<div class="content">
+<div class="time">
+<time datetime="2026-07-07T10:00:01+0200">za. 26 sept.</time>
+</div>
+<h3>  Het FOMO Huis
+</h3>
+<p>  Knalfeest vol hits, house en Hollandse bangers
+</p>
+<span class="genre">Hits</span>
+</div>
+<div class="image">
+<figure>
+<img loading="lazy" class="img-responsive image-style-_-3" src="/sites/default/files/styles/4_3/public/2026-07/Het%20FOMO%20Huis%204-3.png.webp?itok=v_VoRN6h" width="1600" height="1200" alt="Het FOMO Huis hits uitgaan club dance Nobel Leiden" typeof="foaf:Image">
+</figure>
+</div>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="event-teaser" class="event-teaser">
+<div class="event-teaser--heading">
+<h3>zo. 27 sept.</h3>
+</div>
+<div class="event-teaser--row">
+<div class="views-row">
+<div class="event-teaser--row">
+<div class="event-time">
+<h3>zo. 27 sept.</h3>
+</div>
+<div class="event-component">
+<a href="/agenda/dublin-legends-27-sep-2026" class="event ">
+<div class="content">
+<div class="time">
+<time datetime="2025-11-29T16:00:02+0100">zo. 27 sept.</time>
+</div>
+<h3>  The Dublin Legends
+</h3>
+<p>  Formerly The Dubliners - Further Along the Road Tour
+</p>
+<span class="genre">Folk</span>
+</div>
+<div class="image">
+<figure>
+<img loading="lazy" class="img-responsive image-style-_-3" src="/sites/default/files/styles/4_3/public/2025-12/The%20Dublin%20Legends%20-%204-3.jpg.webp?itok=Z3VweBzx" width="1600" height="1200" alt="The Dublin Legends - Dubliners in Nobel Leiden" typeof="foaf:Image">
+</figure>
+</div>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="view-grouping">
+<h2 class="view-grouping-header animation animation-fade-in">oktober</h2>
+<div class="view-grouping-content"><div id="event-teaser" class="event-teaser">
+<div class="event-teaser--heading">
+<h3>do. 01 okt.</h3>
+</div>
+<div class="event-teaser--row">
+<div class="views-row">
+<div class="event-teaser--row">
+<div class="event-time">
+<h3>do. 01 okt.</h3>
+</div>
+<div class="event-component">
+<a href="/agenda/coroner-01-oct-2026" class="event ">
+<div class="content">
+<div class="time">
+<time datetime="2026-03-24T14:30:01+0100">do. 01 okt.</time>
+</div>
+<h3>  Coroner
+</h3>
+<p>  Progressieve thrash-legendes terug op het podium
+</p>
+<span class="genre">Metal</span>
+</div>
+<div class="image">
+<figure>
+<img loading="lazy" class="img-responsive image-style-_-3" src="/sites/default/files/styles/4_3/public/2026-05/CORONER%204-3.png.webp?itok=mXPNU4QM" width="1600" height="1200" alt="CORONER live concert in Nobel Leiden" typeof="foaf:Image">
+</figure>
+</div>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="event-teaser" class="event-teaser">
+<div class="event-teaser--heading">
+<h3>vr. 02 okt.</h3>
+</div>
+<div class="event-teaser--row">
+<div class="views-row">
+<div class="event-teaser--row">
+<div class="event-time">
+<h3>vr. 02 okt.</h3>
+</div>
+<div class="event-component">
+<a href="/agenda/funky-fabrique-leidens-ontzet-02-oct-2026" class="event ">
+<div class="content">
+<div class="time">
+<time datetime="2026-06-03T11:30:01+0200">vr. 02 okt.</time>
+</div>
+<h3>  Funky Fabrique - Leidens Ontzet
+</h3>
+<p>  Start jouw Leidens Ontzet met de dikste house bangers van o.a. NewTone!
+</p>
+<span class="genre">House</span>
+<span class="age">
+18+
+</span>
+</div>
+<div class="image">
+<figure>
+<img loading="lazy" class="img-responsive image-style-_-3" src="/sites/default/files/styles/4_3/public/2026-08/FF%20-%201920x1080%20-%20By%20SOLO_0.png.webp?itok=HzMBMQq1" width="1600" height="1200" alt="Funky Fabrique Daniq Nina Malay Thalia Nobel Leiden" typeof="foaf:Image">
+</figure>
+</div>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="event-teaser" class="event-teaser">
+<div class="event-teaser--heading">
+<h3>za. 03 okt.</h3>
+</div>
+<div class="event-teaser--row">
+<div class="views-row">
+<div class="event-teaser--row">
+<div class="event-time">
+<h3>za. 03 okt.</h3>
+</div>
+<div class="event-component">
+<a href="/agenda/rnborrel-03-oct-2026" class="event ">
+<div class="content">
+<div class="time">
+<time datetime="2026-07-22T12:00:02+0200">za. 03 okt.</time>
+</div>
+<h3>  RnBorrel
+</h3>
+<p>  De borrel voor R&amp;B-lovers, Leidens Ontzet-editie met liveshow van Zefanio!
+</p>
+<span class="genre">Hiphop</span>
+<span class="age">
+23+
+</span>
+</div>
+<div class="image">
+<figure>
+<img loading="lazy" class="img-responsive image-style-_-3" src="/sites/default/files/styles/4_3/public/2026-09/RNBorrel%204-3_0.png.webp?itok=zB50yuFB" width="1600" height="1200" alt="RNBorrel R&amp;B hiphop urban dance danshall afro vibes uitgaan Nobel Leiden" typeof="foaf:Image">
+</figure>
+</div>
+</a>
+</div>
+</div>
+</div>
+<div class="views-row">
+<div class="event-teaser--row">
+<div class="event-time">
+<h3>za. 03 okt.</h3>
+</div>
+<div class="event-component">
+<a href="/agenda/champion-sound-03-oct-2026" class="event ">
+<div class="content">
+<div class="time">
+<time datetime="2026-08-18T09:30:02+0200">za. 03 okt.</time>
+</div>
+<h3>  Champion Sound
+</h3>
+<p>  Leidens Ontzet editie van Leids drum and bass-collectief
+</p>
+<span class="genre">Drum and Bass</span>
+<span class="age">
+18+
+</span>
+</div>
+<div class="image">
+<figure>
+<img loading="lazy" class="img-responsive image-style-_-3" src="/sites/default/files/styles/4_3/public/2026-08/CS_NOBEL_1600_1200.png.webp?itok=4CEA4DaN" width="1600" height="1200" alt="Champion Sound - Drum &amp; Bass tijdens Leidens ontzet op 3 oktober in Nobel." typeof="foaf:Image">
+</figure>
+</div>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="event-teaser" class="event-teaser">
+<div class="event-teaser--heading">
+<h3>do. 08 okt.</h3>
+</div>
+<div class="event-teaser--row">
+<div class="views-row">
+<div class="event-teaser--row">
+<div class="event-time">
+<h3>do. 08 okt.</h3>
+</div>
+<div class="event-component">
+<a href="/agenda/bare-jams-08-oct-2026" class="event ">
+<div class="content">
+<div class="time">
+<time datetime="2026-02-24T07:45:01+0100">do. 08 okt.</time>
+</div>
+<h3>  Bare Jams
+</h3>
+<p>  Uplifting indiepop met invloeden van jazz, soul, rock en funk
+</p>
+<span class="genre">Pop</span>
+</div>
+<div class="image">
+<figure>
+<img loading="lazy" class="img-responsive image-style-_-3" src="/sites/default/files/styles/4_3/public/2026-04/Bare%20Jams%204-3_0.png.webp?itok=vtqQxahB" width="1600" height="1200" alt="bare jams funk pop rock soul jazz live trumpet band " typeof="foaf:Image">
+</figure>
+</div>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="event-teaser" class="event-teaser">
+<div class="event-teaser--heading">
+<h3>vr. 09 okt.</h3>
+</div>
+<div class="event-teaser--row">
+<div class="views-row">
+<div class="event-teaser--row">
+<div class="event-time">
+<h3>vr. 09 okt.</h3>
+</div>
+<div class="event-component">
+<a href="/agenda/discover-ronker-grote-geelstaart-09-oct-2026" class="event ">
+<span class="special-label">  Laatste tickets
+</span>
+<div class="content">
+<div class="time">
+<time datetime="2025-12-08T08:45:01+0100">vr. 09 okt.</time>
+</div>
+<h3>  Discover: Ronker + Grote Geelstaart
+</h3>
+<p>  Ontdek de headliners van morgen op deze noiserockeditie
+</p>
+<span class="genre">Rock</span>
+</div>
+<div class="image">
+<figure>
+<img loading="lazy" class="img-responsive image-style-_-3" src="/sites/default/files/styles/4_3/public/2026-04/Discover%20Ronker%20%2B%20Grote%20Geelstaart%204-3.png.webp?itok=Yoix6HG5" width="1600" height="1200" alt="Discover Ronker Grote Geelstaart showcase concerten live Nobel Leiden" typeof="foaf:Image">
+</figure>
+<span class="special-label mobile">  Laatste tickets
+</span>
+</div>
+</a>
+</div>
+</div>
+</div>
+<div class="views-row">
+<div class="event-teaser--row">
+<div class="event-time">
+<h3>vr. 09 okt.</h3>
+</div>
+<div class="event-component">
+<a href="/agenda/zer00s-heroes-09-oct-2026" class="event ">
+<div class="content">
+<div class="time">
+<time datetime="2026-07-27T10:13:38+0200">vr. 09 okt.</time>
+</div>
+<h3>  Zer00's Heroes
+</h3>
+<p>  We’re bringing sexyback!
+</p>
+<span class="genre">Hits</span>
+<span class="age">
+18+
+</span>
+</div>
+<div class="image">
+<figure>
+<img loading="lazy" class="img-responsive image-style-_-3" src="/sites/default/files/styles/4_3/public/2026-01/Zer00%27s%20Heroes%204-3.png.webp?itok=1GJkZbWX" width="1600" height="1200" alt="Zer00's Heroes Nobel Leiden 00's hits zeroes " typeof="foaf:Image">
+</figure>
+</div>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="event-teaser" class="event-teaser">
+<div class="event-teaser--heading">
+<h3>za. 10 okt.</h3>
+</div>
+<div class="event-teaser--row">
+<div class="views-row">
+<div class="event-teaser--row">
+<div class="event-time">
+<h3>za. 10 okt.</h3>
+</div>
+<div class="event-component">
+<a href="/agenda/metal-experience-fest-10-oct-2026" class="event ">
+<span class="special-label">  Festival
+</span>
+<div class="content">
+<div class="time">
+<time datetime="2026-04-13T11:45:01+0200">za. 10 okt.</time>
+</div>
+<h3>  Metal Experience Fest
+</h3>
+<p>  Heavy, thrash en speed metal met onmiskenbare Metal Experience‑sfeer
+</p>
+<span class="genre">Metal</span>
+</div>
+<div class="image">
+<figure>
+<img loading="lazy" class="img-responsive image-style-_-3" src="/sites/default/files/styles/4_3/public/2026-04/MEF_26_1600x1200pix.jpg.webp?itok=nlkal34M" width="1600" height="1200" alt="Metal Experience Fest in Nobel Leiden" typeof="foaf:Image">
+</figure>
+<span class="special-label mobile">  Festival
+</span>
+</div>
+</a>
+</div>
+</div>
+</div>
+<div class="views-row">
+<div class="event-teaser--row">
+<div class="event-time">
+<h3>za. 10 okt.</h3>
+</div>
+<div class="event-component">
+<a href="/agenda/girl-so-confusing-10-oct-2026" class="event ">
+<div class="content">
+<div class="time">
+<time datetime="2026-08-17T16:45:01+0200">za. 10 okt.</time>
+</div>
+<h3>  girl, so confusing
+</h3>
+<p>  De leukste pop, R&amp;B en indie-anthems van Female DJ-collectief
+</p>
+<span class="genre">Indie</span>
+<span class="age">
+18+
+</span>
+</div>
+<div class="image">
+<figure>
+<img loading="lazy" class="img-responsive image-style-_-3" src="/sites/default/files/styles/4_3/public/2026-08/Ontwerp%20zonder%20titel%20%281%29.png.webp?itok=Xi-s8J-o" width="1600" height="1200" alt="Girl so confusing pop r&amp;b indie femme dj" typeof="foaf:Image">
+</figure>
+</div>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="event-teaser" class="event-teaser">
+<div class="event-teaser--heading">
+<h3>di. 13 okt.</h3>
+</div>
+<div class="event-teaser--row">
+<div class="views-row">
+<div class="event-teaser--row">
+<div class="event-time">
+<h3>di. 13 okt.</h3>
+</div>
+<div class="event-component">
+<a href="/agenda/audrey-horne-13-oct-2026" class="event ">
+<div class="content">
+<div class="time">
+<time datetime="2026-02-11T13:15:02+0100">di. 13 okt.</time>
+</div>
+<h3>  Audrey Horne
+</h3>
+<p>  Onvervalste Noorse hardrock
+</p>
+<span class="genre">Rock</span>
+</div>
+<div class="image">
+<figure>
+<img loading="lazy" class="img-responsive image-style-_-3" src="/sites/default/files/styles/4_3/public/2026-02/Audrey%20Horne%204-3.png.webp?itok=hp7WxCkF" width="1600" height="1200" alt="Audrey Horne hard rock 70s 80s live concert Nobel Leiden" typeof="foaf:Image">
+</figure>
+</div>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="event-teaser" class="event-teaser">
+<div class="event-teaser--heading">
+<h3>wo. 14 okt.</h3>
+</div>
+<div class="event-teaser--row">
+<div class="views-row">
+<div class="event-teaser--row">
+<div class="event-time">
+<h3>wo. 14 okt.</h3>
+</div>
+<div class="event-component">
+<a href="/agenda/nobel-sessions-14-oct-2026" class="event ">
+<span class="special-label">  Gratis
+</span>
+<div class="content">
+<div class="time">
+<time datetime="2026-06-22T07:30:01+0200">wo. 14 okt.</time>
+</div>
+<h3>  Nobel Sessions
+</h3>
+<p>  Maandelijkse jamsessie met jazz, funk, spoken word en nog veel meer!
+</p>
+<span class="genre">Funk</span>
+</div>
+<div class="image">
+<figure>
+<img loading="lazy" class="img-responsive image-style-_-3" src="/sites/default/files/styles/4_3/public/2026-06/Nobel%20Sessions%20-%204-3.jpg.webp?itok=cDPwe1xR" width="1600" height="1200" alt="nobel sessions gratis jam jamsessie jamsession funk groove gitaar spoken word" typeof="foaf:Image">
+</figure>
+<span class="special-label mobile">  Gratis
+</span>
+</div>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="event-teaser" class="event-teaser">
+<div class="event-teaser--heading">
+<h3>do. 15 okt.</h3>
+</div>
+<div class="event-teaser--row">
+<div class="views-row">
+<div class="event-teaser--row">
+<div class="event-time">
+<h3>do. 15 okt.</h3>
+</div>
+<div class="event-component">
+<a href="/agenda/cato-van-dyck-anton-goudsmit-15-oct-2026" class="event ">
+<div class="content">
+<div class="time">
+<time datetime="2026-03-16T10:30:01+0100">do. 15 okt.</time>
+</div>
+<h3>  Cato van Dyck &amp; Anton Goudsmit
+</h3>
+<p>  Hypnotiserend live-duo met groove en psychedelische invloeden
+</p>
+<span class="genre">Jazz</span>
+</div>
+<div class="image">
+<figure>
+<img loading="lazy" class="img-responsive image-style-_-3" src="/sites/default/files/styles/4_3/public/2026-03/Cato%20%28MyBaby%29%20%26%20Anton%20Goudsmit%204-3.png.webp?itok=ei51GGW8" width="1600" height="1200" alt="concert live cato mybaby anton goudsmit duo muziek optreden tour" typeof="foaf:Image">
+</figure>
+</div>
+</a>
+</div>
+</div>
+</div>
+<div class="views-row">
+<div class="event-teaser--row">
+<div class="event-time">
+<h3>do. 15 okt.</h3>
+</div>
+<div class="event-component">
+<a href="/agenda/shary-15-oct-2026" class="event ">
+<span class="special-label">  Uitverkocht
+</span>
+<div class="content">
+<div class="time">
+<time datetime="2026-03-04T11:15:01+0100">do. 15 okt.</time>
+</div>
+<h3>  Shary-An
+</h3>
+<p>  Nederlandstalige soulpop over veerkracht, liefde en het volgen van je eigen tempo
+</p>
+<span class="genre">Pop</span>
+</div>
+<div class="image">
+<figure>
+<img loading="lazy" class="img-responsive image-style-_-3" src="/sites/default/files/styles/4_3/public/2026-03/Shary-An%204-3.png.webp?itok=QzbeIdJB" width="1600" height="1200" alt="pop, souls, rnb, voice, lust for life, concert, zangeres, live" typeof="foaf:Image">
+</figure>
+<span class="special-label mobile">  Uitverkocht
+</span>
+</div>
+</a>
+</div>
+</div>
+</div>
+<div class="views-row">
+<div class="event-teaser--row">
+<div class="event-time">
+<h3>do. 15 okt.</h3>
+</div>
+<div class="event-component">
+<a href="/agenda/eloi-youssef-15-oct-2026" class="event ">
+<span class="special-label">  Laatste tickets
+</span>
+<div class="content">
+<div class="time">
+<time datetime="2026-03-11T14:45:01+0100">do. 15 okt.</time>
+</div>
+<h3>  Eloi Youssef
+</h3>
+<p>  Voormalig Kensington frontman brengt intieme, akoestische songs
+</p>
+<span class="genre">Indie</span>
+</div>
+<div class="image">
+<figure>
+<img loading="lazy" class="img-responsive image-style-_-3" src="/sites/default/files/styles/4_3/public/2026-04/Eloi%20Youssef%204-3.JPG.webp?itok=-Ia0PU4u" width="1600" height="1200" alt="Eloi Youssef - Nobel x Stadsgehoorzaal" typeof="foaf:Image">
+</figure>
+<span class="special-label mobile">  Laatste tickets
+</span>
+</div>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="event-teaser" class="event-teaser">
+<div class="event-teaser--heading">
+<h3>vr. 16 okt.</h3>
+</div>
+<div class="event-teaser--row">
+<div class="views-row">
+<div class="event-teaser--row">
+<div class="event-time">
+<h3>vr. 16 okt.</h3>
+</div>
+<div class="event-component">
+<a href="/agenda/metal-heads-geannuleerd-16-okt-2026" class="event ">
+<div class="content">
+<div class="time">
+<time datetime="2024-10-21T07:45:01+0200">vr. 16 okt.</time>
+</div>
+<h3>  Metal Heads - Geannuleerd
+</h3>
+<p>  Heavy tribute party: Iron Maiden, Metallica en Megadeth!
+</p>
+<span class="genre">Tribute</span>
+</div>
+<div class="image">
+<figure>
+<img loading="lazy" class="img-responsive image-style-_-3" src="/sites/default/files/styles/4_3/public/2024-12/MH_2025_Press_1600x1200.jpg.webp?itok=ILReQfLk" width="1600" height="1200" alt="Metal Heads - Metallica Iron Maiden en Megatdeth tribute in de Nobel" typeof="foaf:Image">
+</figure>
+</div>
+</a>
+</div>
+</div>
+</div>
+<div class="views-row">
+<div class="event-teaser--row">
+<div class="event-time">
+<h3>vr. 16 okt.</h3>
+</div>
+<div class="event-component">
+<a href="/agenda/voltbeat-volbeat-tribute-16-oct-2026" class="event ">
+<div class="content">
+<div class="time">
+<time datetime="2026-08-24T13:30:01+0200">vr. 16 okt.</time>
+</div>
+<h3>  Voltbeat: The Volbeat tribute
+</h3>
+<p>  Aanstekelijke mix van heavy metal, hardrock en rockabilly
+</p>
+<span class="genre">Metal</span>
+</div>
+<div class="image">
+<figure>
+<img loading="lazy" class="img-responsive image-style-_-3" src="/sites/default/files/styles/4_3/public/2026-08/Voltbeat%204-3.png.webp?itok=NBD9A_Sx" width="1600" height="1200" alt="Voltbeat - The Volbeat tribute in Nobel Leiden" typeof="foaf:Image">
+</figure>
+</div>
+</a>
+</div>
+</div>
+</div>
+<div class="views-row">
+<div class="event-teaser--row">
+<div class="event-time">
+<h3>vr. 16 okt.</h3>
+</div>
+<div class="event-component">
+<a href="/agenda/edwin-evers-band-16-oct-2026" class="event ">
+<span class="special-label">  Uitverkocht
+</span>
+<div class="content">
+<div class="time">
+<time datetime="2026-02-23T15:27:41+0100">vr. 16 okt.</time>
+</div>
+<h3>  Edwin Evers Band
+</h3>
+<p>  De grootste hits van de jaren 80 tot nu in de Stadsgehoorzaal
+</p>
+<span class="genre">Pop</span>
+</div>
+<div class="image">
+<figure>
+<img loading="lazy" class="img-responsive image-style-_-3" src="/sites/default/files/styles/4_3/public/2026-02/Edwin%20Evers%20Band%204-3.jpg.webp?itok=RPGbuQOL" width="1600" height="1200" alt="Edwin Evers Band - Nobel x Stadsgehoorzaal Leiden" typeof="foaf:Image">
+</figure>
+<span class="special-label mobile">  Uitverkocht
+</span>
+</div>
+</a>
+</div>
+</div>
+</div>
+<div class="views-row">
+<div class="event-teaser--row">
+<div class="event-time">
+<h3>vr. 16 okt.</h3>
+</div>
+<div class="event-component">
+<a href="/agenda/welcome-guilty-pleasure-dome-16-oct-2026" class="event ">
+<div class="content">
+<div class="time">
+<time datetime="2026-09-03T08:45:01+0200">vr. 16 okt.</time>
+</div>
+<h3>  Welcome to the Guilty Pleasure Dome
+</h3>
+<p>  Hét feest om ongegeneerd uit je dak te gaan!
+</p>
+<span class="genre">Hits</span>
+<span class="age">
+18+
+</span>
+</div>
+<div class="image">
+<figure>
+<img loading="lazy" class="img-responsive image-style-_-3" src="/sites/default/files/styles/4_3/public/2026-09/WTTGPD%201600%20x%201200%20zonder%20tekst.jpg.webp?itok=8PaRpgt4" width="1600" height="1200" alt="Welcome To The Guilty Pleasure Dome in Nobel Leiden" typeof="foaf:Image">
+</figure>
+</div>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="event-teaser" class="event-teaser">
+<div class="event-teaser--heading">
+<h3>za. 17 okt.</h3>
+</div>
+<div class="event-teaser--row">
+<div class="views-row">
+<div class="event-teaser--row">
+<div class="event-time">
+<h3>za. 17 okt.</h3>
+</div>
+<div class="event-component">
+<a href="/agenda/rowwen-heze-17-oct-2026" class="event ">
+<span class="special-label">  Uitverkocht
+</span>
+<div class="content">
+<div class="time">
+<time datetime="2026-02-09T07:45:01+0100">za. 17 okt.</time>
+</div>
+<h3>  Rowwen Hèze
+</h3>
+<p>  Limburgse folkrockers op 'Vechte, Valle en Opstoan'-tour
+</p>
+<span class="genre">Rock</span>
+</div>
+<div class="image">
+<figure>
+<img loading="lazy" class="img-responsive image-style-_-3" src="/sites/default/files/styles/4_3/public/2026-03/Rowwen%20H%C3%A8ze%204-3.png.webp?itok=8XmxT8TP" width="1600" height="1200" alt="Rowwen Hèze in Nobel Leiden" typeof="foaf:Image">
+</figure>
+<span class="special-label mobile">  Uitverkocht
+</span>
+</div>
+</a>
+</div>
+</div>
+</div>
+<div class="views-row">
+<div class="event-teaser--row">
+<div class="event-time">
+<h3>za. 17 okt.</h3>
+</div>
+<div class="event-component">
+<a href="/agenda/edwin-evers-band-17-oct-2026" class="event ">
+<span class="special-label">  Nobel X Stadsgehoorzaal
+</span>
+<div class="content">
+<div class="time">
+<time datetime="2026-05-05T11:00:02+0200">za. 17 okt.</time>
+</div>
+<h3>  Edwin Evers Band
+</h3>
+<p>  De grootste hits van de jaren 80 tot nu in de Stadsgehoorzaal
+</p>
+<span class="genre">Pop</span>
+</div>
+<div class="image">
+<figure>
+<img loading="lazy" class="img-responsive image-style-_-3" src="/sites/default/files/styles/4_3/public/2026-05/Edwin%20Evers%20Band%204-3.jpg.webp?itok=PFFNUOZ3" width="1600" height="1200" alt="Edwin Evers Band - Nobel x Stadsgehoorzaal Leiden" typeof="foaf:Image">
+</figure>
+<span class="special-label mobile">  Nobel X Stadsgehoorzaal
+</span>
+</div>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="event-teaser" class="event-teaser">
+<div class="event-teaser--heading">
+<h3>wo. 21 okt.</h3>
+</div>
+<div class="event-teaser--row">
+<div class="views-row">
+<div class="event-teaser--row">
+<div class="event-time">
+<h3>wo. 21 okt.</h3>
+</div>
+<div class="event-component">
+<a href="/agenda/wouter-maas-21-oct-2026" class="event ">
+<div class="content">
+<div class="time">
+<time datetime="2026-09-15T14:00:01+0200">wo. 21 okt.</time>
+</div>
+<h3>  Wouter Maas
+</h3>
+<p>  Better late than never
+</p>
+<span class="genre">Pop</span>
+</div>
+<div class="image">
+<figure>
+<img loading="lazy" class="img-responsive image-style-_-3" src="/sites/default/files/styles/4_3/public/2026-09/Wouter%20Maas%204-3.jpg.webp?itok=uRpKzCQ8" width="1600" height="1200" alt="Wouter Maas - Better late than never - Afstudeerconcert in Nobel Leiden" typeof="foaf:Image">
+</figure>
+</div>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="event-teaser" class="event-teaser">
+<div class="event-teaser--heading">
+<h3>do. 22 okt.</h3>
+</div>
+<div class="event-teaser--row">
+<div class="views-row">
+<div class="event-teaser--row">
+<div class="event-time">
+<h3>do. 22 okt.</h3>
+</div>
+<div class="event-component">
+<a href="/agenda/wende-22-oct-2026" class="event ">
+<span class="special-label">  Uitverkocht
+</span>
+<div class="content">
+<div class="time">
+<time datetime="2026-04-21T07:15:01+0200">do. 22 okt.</time>
+</div>
+<h3>  Wende
+</h3>
+<p>  Experiment #2-tour: dag 1 (donderdag)
+</p>
+<span class="genre">Electronisch Live</span>
+<span class="genre">Jazz</span>
+<span class="genre">Pop</span>
+</div>
+<div class="image">
+<figure>
+<img loading="lazy" class="img-responsive image-style-_-3" src="/sites/default/files/styles/4_3/public/2026-06/Wende%204-3.png.webp?itok=WZ_G-v2r" width="1600" height="1200" alt="Wende pop elektronisch jazz klassiek live concert Nobel Leiden" typeof="foaf:Image">
+</figure>
+<span class="special-label mobile">  Uitverkocht
+</span>
+</div>
+</a>
+</div>
+</div>
+</div>
+<div class="views-row">
+<div class="event-teaser--row">
+<div class="event-time">
+<h3>do. 22 okt.</h3>
+</div>
+<div class="event-component">
+<a href="/agenda/bureau-de-change-22-oct-2026" class="event ">
+<div class="content">
+<div class="time">
+<time datetime="2026-06-22T07:45:01+0200">do. 22 okt.</time>
+</div>
+<h3>  Bureau de Change
+</h3>
+<p>  Feministische postpunk met een cynisch randje
+</p>
+<span class="genre">Punk</span>
+</div>
+<div class="image">
+<figure>
+<img loading="lazy" class="img-responsive image-style-_-3" src="/sites/default/files/styles/4_3/public/2026-07/Bureau%20De%20Change%204-3_0.png.webp?itok=US0GkSuV" width="1600" height="1200" alt="bureau de change postpunk" typeof="foaf:Image">
+</figure>
+</div>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="event-teaser" class="event-teaser">
+<div class="event-teaser--heading">
+<h3>vr. 23 okt.</h3>
+</div>
+<div class="event-teaser--row">
+<div class="views-row">
+<div class="event-teaser--row">
+<div class="event-time">
+<h3>vr. 23 okt.</h3>
+</div>
+<div class="event-component">
+<a href="/agenda/wende-23-oct-2026" class="event ">
+<span class="special-label">  Uitverkocht
+</span>
+<div class="content">
+<div class="time">
+<time datetime="2026-04-15T08:45:01+0200">vr. 23 okt.</time>
+</div>
+<h3>  Wende
+</h3>
+<p>  Experiment #2-tour: dag 2 (vrijdag)
+</p>
+<span class="genre">Electronisch Live</span>
+<span class="genre">Jazz</span>
+<span class="genre">Pop</span>
+</div>
+<div class="image">
+<figure>
+<img loading="lazy" class="img-responsive image-style-_-3" src="/sites/default/files/styles/4_3/public/2026-06/Wende%204-3.png.webp?itok=WZ_G-v2r" width="1600" height="1200" alt="Wende pop elektronisch jazz klassiek live concert Nobel Leiden" typeof="foaf:Image">
+</figure>
+<span class="special-label mobile">  Uitverkocht
+</span>
+</div>
+</a>
+</div>
+</div>
+</div>
+<div class="views-row">
+<div class="event-teaser--row">
+<div class="event-time">
+<h3>vr. 23 okt.</h3>
+</div>
+<div class="event-component">
+<a href="/agenda/etters-dolly-min-23-oct-2026" class="event ">
+<div class="content">
+<div class="time">
+<time datetime="2026-07-02T16:30:02+0200">vr. 23 okt.</time>
+</div>
+<h3>  The ETTERS + Dolly Min
+</h3>
+<p>  Ongefilterde punk vol humor en een duidelijke boodschap
+</p>
+<span class="genre">Punk</span>
+</div>
+<div class="image">
+<figure>
+<img loading="lazy" class="img-responsive image-style-_-3" src="/sites/default/files/styles/4_3/public/2026-08/The%20ETTERS%20%2B%20Dolly%20Min%204-3.png.webp?itok=blLOA-9Y" width="1600" height="1200" alt="The ETTERS + Dolly Min double bill concert live punk Nobel Leiden" typeof="foaf:Image">
+</figure>
+</div>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="event-teaser" class="event-teaser">
+<div class="event-teaser--heading">
+<h3>za. 24 okt.</h3>
+</div>
+<div class="event-teaser--row">
+<div class="views-row">
+<div class="event-teaser--row">
+<div class="event-time">
+<h3>za. 24 okt.</h3>
+</div>
+<div class="event-component">
+<a href="/agenda/new-wave-generation-24-oct-2026" class="event ">
+<div class="content">
+<div class="time">
+<time datetime="2026-09-02T16:30:02+0200">za. 24 okt.</time>
+</div>
+<h3>  New Wave Generation
+</h3>
+<p>  Dansavond met de grootste new wave-klassiekers uit de jaren 80
+</p>
+<span class="genre">Hits</span>
+<span class="age">
+18+
+</span>
+</div>
+<div class="image">
+<figure>
+<img loading="lazy" class="img-responsive image-style-_-3" src="/sites/default/files/styles/4_3/public/2026-09/New%20Wave%20Generation%20-%201600x1200.jpg.webp?itok=_gVNyxDd" width="1600" height="1200" alt="New Wave Generation in Nobel Leiden" typeof="foaf:Image">
+</figure>
+</div>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="event-teaser" class="event-teaser">
+<div class="event-teaser--heading">
+<h3>zo. 25 okt.</h3>
+</div>
+<div class="event-teaser--row">
+<div class="views-row">
+<div class="event-teaser--row">
+<div class="event-time">
+<h3>zo. 25 okt.</h3>
+</div>
+<div class="event-component">
+<a href="/agenda/popz-friends-25-oct-2026" class="event ">
+<div class="content">
+<div class="time">
+<time datetime="2025-09-23T10:45:02+0200">zo. 25 okt.</time>
+</div>
+<h3>  POPZ &amp; Friends
+</h3>
+<p>  Tienerband brengt een middag vol energie, zang en dans
+</p>
+<span class="genre">Pop</span>
+</div>
+<div class="image">
+<figure>
+<img loading="lazy" class="img-responsive image-style-_-3" src="/sites/default/files/styles/4_3/public/2026-03/POPZ%203-2.jpg.webp?itok=M8j_0G-K" width="1600" height="1200" alt="POPZ kinderen concert Nobel Leiden" typeof="foaf:Image">
+</figure>
+</div>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="event-teaser" class="event-teaser">
+<div class="event-teaser--heading">
+<h3>wo. 28 okt.</h3>
+</div>
+<div class="event-teaser--row">
+<div class="views-row">
+<div class="event-teaser--row">
+<div class="event-time">
+<h3>wo. 28 okt.</h3>
+</div>
+<div class="event-component">
+<a href="/agenda/outsiders-popquiz-xl-28-oct-2026" class="event ">
+<div class="content">
+<div class="time">
+<time datetime="2025-12-03T09:15:01+0100">wo. 28 okt.</time>
+</div>
+<h3>  Outsiders Popquiz XL
+</h3>
+<p>  Test jouw muziekkennis!
+</p>
+<span class="genre">(Pop)Cultuur</span>
+</div>
+<div class="image">
+<figure>
+<img loading="lazy" class="img-responsive image-style-_-3" src="/sites/default/files/styles/4_3/public/2025-06/Outsiders%20Popquiz%20XXL%204-3.png.webp?itok=7PhKRbjT" width="1600" height="1200" alt="Outsiders Popquiz XXL pubquiz Nobel Leiden" typeof="foaf:Image">
+</figure>
+</div>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="event-teaser" class="event-teaser">
+<div class="event-teaser--heading">
+<h3>do. 29 okt.</h3>
+</div>
+<div class="event-teaser--row">
+<div class="views-row">
+<div class="event-teaser--row">
+<div class="event-time">
+<h3>do. 29 okt.</h3>
+</div>
+<div class="event-component">
+<a href="/agenda/browning-29-oct-2026" class="event ">
+<div class="content">
+<div class="time">
+<time datetime="2026-05-19T07:30:02+0200">do. 29 okt.</time>
+</div>
+<h3>  The Browning
+</h3>
+<p>  Metalcore, deathcore en elektronische beats smelten samen tot rave metal
+</p>
+<span class="genre">Metal</span>
+</div>
+<div class="image">
+<figure>
+<img loading="lazy" class="img-responsive image-style-_-3" src="/sites/default/files/styles/4_3/public/2026-06/The%20Browning%204-3.png.webp?itok=qrdhAlhB" width="1600" height="1200" alt="The Browning - metalcore in Nobel Leiden" typeof="foaf:Image">
+</figure>
+</div>
+</a>
+</div>
+</div>
+</div>
+<div class="views-row">
+<div class="event-teaser--row">
+<div class="event-time">
+<h3>do. 29 okt.</h3>
+</div>
+<div class="event-component">
+<a href="/agenda/diggy-dex-29-oct-2026" class="event ">
+<span class="special-label">  Laatste tickets
+</span>
+<div class="content">
+<div class="time">
+<time datetime="2026-03-03T15:30:02+0100">do. 29 okt.</time>
+</div>
+<h3>  Diggy Dex
+</h3>
+<p>  Verhalende Nederlandstalige hiphop vol warmte en herkenning
+</p>
+<span class="genre">Pop</span>
+</div>
+<div class="image">
+<figure>
+<img loading="lazy" class="img-responsive image-style-_-3" src="/sites/default/files/styles/4_3/public/2026-03/Diggy%20Dex%204-3.png.webp?itok=NE4V17yE" width="1600" height="1200" alt="Diggy Dex - Nobel x Stadsgehoorzaal Leiden" typeof="foaf:Image">
+</figure>
+<span class="special-label mobile">  Laatste tickets
+</span>
+</div>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="event-teaser" class="event-teaser">
+<div class="event-teaser--heading">
+<h3>vr. 30 okt.</h3>
+</div>
+<div class="event-teaser--row">
+<div class="views-row">
+<div class="event-teaser--row">
+<div class="event-time">
+<h3>vr. 30 okt.</h3>
+</div>
+<div class="event-component">
+<a href="/agenda/lois-lane-30-oct-2026" class="event ">
+<div class="content">
+<div class="time">
+<time datetime="2026-02-09T07:45:01+0100">vr. 30 okt.</time>
+</div>
+<h3>  Loïs Lane
+</h3>
+<p>  Vier decennia aan tijdloze pophits
+</p>
+<span class="genre">Pop</span>
+</div>
+<div class="image">
+<figure>
+<img loading="lazy" class="img-responsive image-style-_-3" src="/sites/default/files/styles/4_3/public/2026-03/Lois%20Lane%20%204-3.png.webp?itok=3eKsV2XX" width="1600" height="1200" alt="lois lane rock funk pop amsterdamned hit nederlands iconisch" typeof="foaf:Image">
+</figure>
+</div>
+</a>
+</div>
+</div>
+</div>
+<div class="views-row">
+<div class="event-teaser--row">
+<div class="event-time">
+<h3>vr. 30 okt.</h3>
+</div>
+<div class="event-component">
+<a href="/agenda/halloween-party-leiden-30-oct-2026" class="event ">
+<div class="content">
+<div class="time">
+<time datetime="2026-08-27T13:45:01+0200">vr. 30 okt.</time>
+</div>
+<h3>  Halloween Party Leiden
+</h3>
+<p>  Het langstlopende Halloweenevent van Nederland komt terug naar Leiden!
+</p>
+<span class="genre">Hits</span>
+<span class="age">
+18+
+</span>
+</div>
+<div class="image">
+<figure>
+<img loading="lazy" class="img-responsive image-style-_-3" src="/sites/default/files/styles/4_3/public/2026-09/leiden2.jpg.webp?itok=mVlQNn7l" width="1600" height="1200" alt="Halloween party in Nobel Leiden" typeof="foaf:Image">
+</figure>
+</div>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="event-teaser" class="event-teaser">
+<div class="event-teaser--heading">
+<h3>za. 31 okt.</h3>
+</div>
+<div class="event-teaser--row">
+<div class="views-row">
+<div class="event-teaser--row">
+<div class="event-time">
+<h3>za. 31 okt.</h3>
+</div>
+<div class="event-component">
+<a href="/agenda/hemelbestormer-31-oct-2026" class="event ">
+<div class="content">
+<div class="time">
+<time datetime="2026-04-15T10:15:01+0200">za. 31 okt.</time>
+</div>
+<h3>  Hemelbestormer
+</h3>
+<p>  Instrumentale postmetal die de grenzen tussen licht en duister verkent
+</p>
+<span class="genre">Metal</span>
+</div>
+<div class="image">
+<figure>
+<img loading="lazy" class="img-responsive image-style-_-3" src="/sites/default/files/styles/4_3/public/2026-04/HEMELBESTORMER%204-3.png.webp?itok=719lgnAV" width="1600" height="1200" alt="postmetal metal guitar gitaar hemelbestormer gavran live concert heavy" typeof="foaf:Image">
+</figure>
+</div>
+</a>
+</div>
+</div>
+</div>
+<div class="views-row">
+<div class="event-teaser--row">
+<div class="event-time">
+<h3>za. 31 okt.</h3>
+</div>
+<div class="event-component">
+<a href="/agenda/gallowstreet-31-oct-2026" class="event ">
+<div class="content">
+<div class="time">
+<time datetime="2026-04-08T11:16:13+0200">za. 31 okt.</time>
+</div>
+<h3>  Gallowstreet
+</h3>
+<p>  Achtkoppige instrumentale futurebrassmachine
+</p>
+<span class="genre">Groove</span>
+</div>
+<div class="image">
+<figure>
+<img loading="lazy" class="img-responsive image-style-_-3" src="/sites/default/files/styles/4_3/public/2026-04/Gallowstreet%204-3.png.webp?itok=m17WUCt1" width="1600" height="1200" alt="Gallowstreet elektro brass band jazz house livemuziek Nobel Leiden" typeof="foaf:Image">
+</figure>
+</div>
+</a>
+</div>
+</div>
+</div>
+<div class="views-row">
+<div class="event-teaser--row">
+<div class="event-time">
+<h3>za. 31 okt.</h3>
+</div>
+<div class="event-component">
+<a href="/agenda/her-31-oct-2026" class="event ">
+<div class="content">
+<div class="time">
+<time datetime="2026-08-21T14:08:06+0200">za. 31 okt.</time>
+</div>
+<h3>  H.E.R.
+</h3>
+<p>  House. Energy. Rhythm.
+</p>
+<span class="genre">House</span>
+<span class="age">
+18+
+</span>
+</div>
+<div class="image">
+<figure>
+<img loading="lazy" class="img-responsive image-style-_-3" src="/sites/default/files/styles/4_3/public/2026-08/Brandbook%20H.E.R.%20%281600%20x%201200%20px%29.png.webp?itok=0hLNqhXY" width="1600" height="1200" alt="H.E.R. in Nobel Leiden" typeof="foaf:Image">
+</figure>
+</div>
+</a>
+</div>
+</div>
+</div>
+<div class="views-row">
+<div class="event-teaser--row">
+<div class="event-time">
+<h3>za. 31 okt.</h3>
+</div>
+<div class="event-component">
+<a href="/agenda/4am-31-oct-2026" class="event ">
+<div class="content">
+<div class="time">
+<time datetime="2026-08-06T14:27:08+0200">za. 31 okt.</time>
+</div>
+<h3>  4AM
+</h3>
+<p>  Halloween-avond vol energie &amp; nostalgie, met hits van o.a. New Wave &amp; 77 nachten
+</p>
+<span class="genre">Hits</span>
+<span class="age">
+18+
+</span>
+</div>
+<div class="image">
+<figure>
+<img loading="lazy" class="img-responsive image-style-_-3" src="/sites/default/files/styles/4_3/public/2026-09/banner%202%20breder.jpg.webp?itok=9XksQoVU" width="1600" height="1200" alt="4AM nostalgisch feest Leiden" typeof="foaf:Image">
+</figure>
+</div>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="view-grouping">
+<h2 class="view-grouping-header animation animation-fade-in">november</h2>
+<div class="view-grouping-content"><div id="event-teaser" class="event-teaser">
+<div class="event-teaser--heading">
+<h3>zo. 01 nov.</h3>
+</div>
+<div class="event-teaser--row">
+<div class="views-row">
+<div class="event-teaser--row">
+<div class="event-time">
+<h3>zo. 01 nov.</h3>
+</div>
+<div class="event-component">
+<a href="/agenda/bezerkus-bingo-halloween-01-nov-2026" class="event ">
+<div class="content">
+<div class="time">
+<time datetime="2025-11-03T05:45:01+0100">zo. 01 nov.</time>
+</div>
+<h3>  Bezerkus Bingo: Halloween
+</h3>
+<p>  De wildste drag-disco-bingo en het gezelligste dansspektakel van Nederland
+</p>
+<span class="genre">(Pop)Cultuur</span>
+</div>
+<div class="image">
+<figure>
+<img loading="lazy" class="img-responsive image-style-_-3" src="/sites/default/files/styles/4_3/public/2026-05/Bezerkus%20Bingo%204-3.png.webp?itok=lp1rbSk1" width="1600" height="1200" alt="Bezerkus Bingo dragqueens lgbtqia uitgaan feest party drag queer disco bingo Nobel Leiden" typeof="foaf:Image">
+</figure>
+</div>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="event-teaser" class="event-teaser">
+<div class="event-teaser--heading">
+<h3>vr. 06 nov.</h3>
+</div>
+<div class="event-teaser--row">
+<div class="views-row">
+<div class="event-teaser--row">
+<div class="event-time">
+<h3>vr. 06 nov.</h3>
+</div>
+<div class="event-component">
+<a href="/agenda/bokkers-06-nov-2026" class="event ">
+<div class="content">
+<div class="time">
+<time datetime="2025-11-20T09:45:01+0100">vr. 06 nov.</time>
+</div>
+<h3>  Bökkers
+</h3>
+<p>  Nooit Meer Noar Huus-tour vol ongetemde Nedersaksische rock-'n-roll
+</p>
+<span class="genre">Rock</span>
+</div>
+<div class="image">
+<figure>
+<img loading="lazy" class="img-responsive image-style-_-3" src="/sites/default/files/styles/4_3/public/2026-02/B%C3%B6kkers%204-3.png.webp?itok=myypUX-w" width="1600" height="1200" alt="Bökkers rock-'n-roll Nooit Meer Noar Huus live concert Nobel" typeof="foaf:Image">
+</figure>
+</div>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="event-teaser" class="event-teaser">
+<div class="event-teaser--heading">
+<h3>za. 07 nov.</h3>
+</div>
+<div class="event-teaser--row">
+<div class="views-row">
+<div class="event-teaser--row">
+<div class="event-time">
+<h3>za. 07 nov.</h3>
+</div>
+<div class="event-component">
+<a href="/agenda/striptopia-07-nov-2026" class="event ">
+<div class="content">
+<div class="time">
+<time datetime="2026-03-09T15:30:01+0100">za. 07 nov.</time>
+</div>
+<h3>  Striptopia
+</h3>
+<p>  Inclusieve stripclub vol paaldansen, drag en performances
+</p>
+<span class="genre">Overig</span>
+<span class="age">
+18+
+</span>
+</div>
+<div class="image">
+<figure>
+<img loading="lazy" class="img-responsive image-style-_-3" src="/sites/default/files/styles/4_3/public/2026-03/Striptopia4-3.png.webp?itok=4HvWutTU" width="1600" height="1200" alt="Striptopia - Stripshow in Nobel Leiden" typeof="foaf:Image">
+</figure>
+</div>
+</a>
+</div>
+</div>
+</div>
+<div class="views-row">
+<div class="event-teaser--row">
+<div class="event-time">
+<h3>za. 07 nov.</h3>
+</div>
+<div class="event-component">
+<a href="/agenda/doodswens-07-nov-2026" class="event ">
+<div class="content">
+<div class="time">
+<time datetime="2026-05-19T09:30:02+0200">za. 07 nov.</time>
+</div>
+<h3>  Doodswens
+</h3>
+<p>  Ritualistische Nederlandse black metal vol duisternis
+</p>
+<span class="genre">Metal</span>
+</div>
+<div class="image">
+<figure>
+<img loading="lazy" class="img-responsive image-style-_-3" src="/sites/default/files/styles/4_3/public/2026-05/Doodswens%204-3.png.webp?itok=zPiZXuvG" width="1600" height="1200" alt="Doodswens live in Nobel Leiden" typeof="foaf:Image">
+</figure>
+</div>
+</a>
+</div>
+</div>
+</div>
+<div class="views-row">
+<div class="event-teaser--row">
+<div class="event-time">
+<h3>za. 07 nov.</h3>
+</div>
+<div class="event-component">
+<a href="/agenda/lekker-dansen-w-sam-hofman-07-nov-2026" class="event ">
+<div class="content">
+<div class="time">
+<time datetime="2026-08-06T13:30:01+0200">za. 07 nov.</time>
+</div>
+<h3>  Lekker Dansen w/ Sam Hofman
+</h3>
+<p>  Een hele avond in het teken van house!
+</p>
+<span class="genre">House</span>
+<span class="age">
+18+
+</span>
+</div>
+<div class="image">
+<figure>
+<img loading="lazy" class="img-responsive image-style-_-3" src="/sites/default/files/styles/4_3/public/2026-08/Lekker%20Dansen%204-3.png.webp?itok=FkvmyNQF" width="1600" height="1200" alt="Lekker Dansen Sam Hofman boilerroom house uitgaan club Nobel Leiden" typeof="foaf:Image">
+</figure>
+</div>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="event-teaser" class="event-teaser">
+<div class="event-teaser--heading">
+<h3>zo. 08 nov.</h3>
+</div>
+<div class="event-teaser--row">
+<div class="views-row">
+<div class="event-teaser--row">
+<div class="event-time">
+<h3>zo. 08 nov.</h3>
+</div>
+<div class="event-component">
+<a href="/agenda/lost-medina-08-nov-2026" class="event ">
+<div class="content">
+<div class="time">
+<time datetime="2026-07-29T07:15:01+0200">zo. 08 nov.</time>
+</div>
+<h3>  Lost in Medina
+</h3>
+<p>  Multicultureel festival (met o.a. Dilay Mariah)
+</p>
+<span class="genre">Cultuur &amp; Maatschappij</span>
+<span class="age">
+13+
+</span>
+</div>
+<div class="image">
+<figure>
+<img loading="lazy" class="img-responsive image-style-_-3" src="/sites/default/files/styles/4_3/public/2026-08/Lost%20in%20Medina.png.webp?itok=EKpagHpi" width="1600" height="1200" alt="Lost in Medina multicultureel festival in Leiden" typeof="foaf:Image">
+</figure>
+</div>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="event-teaser" class="event-teaser">
+<div class="event-teaser--heading">
+<h3>wo. 11 nov.</h3>
+</div>
+<div class="event-teaser--row">
+<div class="views-row">
+<div class="event-teaser--row">
+<div class="event-time">
+<h3>wo. 11 nov.</h3>
+</div>
+<div class="event-component">
+<a href="/agenda/vreemdeling-de-stad-11-nov-2026" class="event ">
+<div class="content">
+<div class="time">
+<time datetime="2026-06-22T07:30:01+0200">wo. 11 nov.</time>
+</div>
+<h3>  Vreemdeling in de Stad
+</h3>
+<p>  Psychose als ervaring, kunst en gesprek
+</p>
+<span class="genre">Overig</span>
+</div>
+<div class="image">
+<figure>
+<img loading="lazy" class="img-responsive image-style-_-3" src="/sites/default/files/styles/4_3/public/2026-08/Vreemdeling%20in%20de%20Stad%204-3.png.webp?itok=CcrjlQ5_" width="1600" height="1200" alt="Vreemdeling in de Stad Paul Bastiaans psychose lichtkunstinstallatie filosoof wetenschap begrip Nobel Leiden" typeof="foaf:Image">
+</figure>
+</div>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="event-teaser" class="event-teaser">
+<div class="event-teaser--heading">
+<h3>do. 12 nov.</h3>
+</div>
+<div class="event-teaser--row">
+<div class="views-row">
+<div class="event-teaser--row">
+<div class="event-time">
+<h3>do. 12 nov.</h3>
+</div>
+<div class="event-component">
+<a href="/agenda/church-cash-12-nov-2026" class="event ">
+<div class="content">
+<div class="time">
+<time datetime="2025-12-03T10:45:02+0100">do. 12 nov.</time>
+</div>
+<h3>  Church of Cash
+</h3>
+<p>  Johnny Cash tribute van wereldklasse
+</p>
+<span class="genre">Folk</span>
+</div>
+<div class="image">
+<figure>
+<img loading="lazy" class="img-responsive image-style-_-3" src="/sites/default/files/styles/4_3/public/2025-12/Church%20of%20Cash%204-3.jpg.webp?itok=zlQmBLp3" width="1600" height="1200" alt="Church of Cash - Johnny Cash tribute in Nobel Leiden" typeof="foaf:Image">
+</figure>
+</div>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="event-teaser" class="event-teaser">
+<div class="event-teaser--heading">
+<h3>vr. 13 nov.</h3>
+</div>
+<div class="event-teaser--row">
+<div class="views-row">
+<div class="event-teaser--row">
+<div class="event-time">
+<h3>vr. 13 nov.</h3>
+</div>
+<div class="event-component">
+<a href="/agenda/80s-verantwoord-13-nov-2026" class="event ">
+<div class="content">
+<div class="time">
+<time datetime="2026-09-08T09:30:01+0200">vr. 13 nov.</time>
+</div>
+<h3>  80's Verantwoord
+</h3>
+<p>  De grootste credible hits en vergeten parels uit de jaren 80
+</p>
+<span class="genre">Hits</span>
+<span class="age">
+18+
+</span>
+</div>
+<div class="image">
+<figure>
+<img loading="lazy" class="img-responsive image-style-_-3" src="/sites/default/files/styles/4_3/public/2026-05/80%27s%20Verantwoord%204-3%20foto.png.webp?itok=XgpQ3ewV" width="1600" height="1200" alt="80's Verantwoord uitgaan club hits jaren 80 Nobel Leiden" typeof="foaf:Image">
+</figure>
+</div>
+</a>
+</div>
+</div>
+</div>
+<div class="views-row">
+<div class="event-teaser--row">
+<div class="event-time">
+<h3>vr. 13 nov.</h3>
+</div>
+<div class="event-component">
+<a href="/agenda/no-barrier-13-nov-2026" class="event ">
+<div class="content">
+<div class="time">
+<time datetime="2026-06-01T10:45:01+0200">vr. 13 nov.</time>
+</div>
+<h3>  NO BARRIER
+</h3>
+<p>  Punk, Emo, Rock &amp; Metalcore Party
+</p>
+<span class="genre">Punk</span>
+</div>
+<div class="image">
+<figure>
+<img loading="lazy" class="img-responsive image-style-_-3" src="/sites/default/files/styles/4_3/public/2025-05/No%20Barrier_4-3.jpg.webp?itok=uzvtmOcf" width="1600" height="1200" alt="NO BARRIER - Punk Rock Metalcore en Emo in de Nobel Leiden" typeof="foaf:Image">
+</figure>
+</div>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="event-teaser" class="event-teaser">
+<div class="event-teaser--heading">
+<h3>za. 14 nov.</h3>
+</div>
+<div class="event-teaser--row">
+<div class="views-row">
+<div class="event-teaser--row">
+<div class="event-time">
+<h3>za. 14 nov.</h3>
+</div>
+<div class="event-component">
+<a href="/agenda/de-special-social-club-14-nov-2026" class="event ">
+<div class="content">
+<div class="time">
+<time datetime="2025-12-11T12:00:01+0100">za. 14 nov.</time>
+</div>
+<h3>  De Special Social Club
+</h3>
+<p>  Het leukste toegankelijke feest!
+</p>
+<span class="genre">Hits</span>
+</div>
+<div class="image">
+<figure>
+<img loading="lazy" class="img-responsive image-style-_-3" src="/sites/default/files/styles/4_3/public/2026-07/special%20social%20club%204-3.png.webp?itok=ZXKJVHEt" width="1600" height="1200" alt="special social club inclusief toegankelijk dansfeest" typeof="foaf:Image">
+</figure>
+</div>
+</a>
+</div>
+</div>
+</div>
+<div class="views-row">
+<div class="event-teaser--row">
+<div class="event-time">
+<h3>za. 14 nov.</h3>
+</div>
+<div class="event-component">
+<a href="/agenda/kraak-smaak-live-14-nov-2026" class="event ">
+<div class="content">
+<div class="time">
+<time datetime="2025-10-30T12:00:01+0100">za. 14 nov.</time>
+</div>
+<h3>  Kraak &amp; Smaak (live)
+</h3>
+<p>  Elektronische disco, funk en indie van eigen bodem
+</p>
+<span class="genre">Electronisch Live</span>
+</div>
+<div class="image">
+<figure>
+<img loading="lazy" class="img-responsive image-style-_-3" src="/sites/default/files/styles/4_3/public/2026-02/1%20crop%20kopie.jpg.webp?itok=xpUWYyrz" width="1600" height="1200" alt="Kraak &amp; Smaak in Nobel Leiden" typeof="foaf:Image">
+</figure>
+</div>
+</a>
+</div>
+</div>
+</div>
+<div class="views-row">
+<div class="event-teaser--row">
+<div class="event-time">
+<h3>za. 14 nov.</h3>
+</div>
+<div class="event-component">
+<a href="/agenda/supertrance-14-nov-2026" class="event ">
+<div class="content">
+<div class="time">
+<time datetime="2026-09-03T15:30:01+0200">za. 14 nov.</time>
+</div>
+<h3>  SUPERTRANCE
+</h3>
+<p>  All-time trance favorites!
+</p>
+<span class="genre">Trance</span>
+<span class="age">
+18+
+</span>
+</div>
+<div class="image">
+<figure>
+<img loading="lazy" class="img-responsive image-style-_-3" src="/sites/default/files/styles/4_3/public/2026-09/Supertrance-Square%20-%204-3.png.webp?itok=BRuw3HNT" width="1600" height="1200" alt="Super trance Nobel Leiden all time favorites" typeof="foaf:Image">
+</figure>
+</div>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="event-teaser" class="event-teaser">
+<div class="event-teaser--heading">
+<h3>zo. 15 nov.</h3>
+</div>
+<div class="event-teaser--row">
+<div class="views-row">
+<div class="event-teaser--row">
+<div class="event-time">
+<h3>zo. 15 nov.</h3>
+</div>
+<div class="event-component">
+<a href="/agenda/bonkers-bingo-15-nov-2026" class="event ">
+<div class="content">
+<div class="time">
+<time datetime="2026-03-02T08:00:02+0100">zo. 15 nov.</time>
+</div>
+<h3>  Bonkers Bingo
+</h3>
+<p>  De explosieve party bingo vol hits, dans en prijzen
+</p>
+<span class="genre">Overig</span>
+</div>
+<div class="image">
+<figure>
+<img loading="lazy" class="img-responsive image-style-_-3" src="/sites/default/files/styles/4_3/public/2026-03/Bonkers%20Bingo%20incl.%20logo%204-3.jpg.webp?itok=F4Uu9ZF2" width="1600" height="1200" alt="bonkers bingo win game spel muziek prijs dansen zingen nobel leiden" typeof="foaf:Image">
+</figure>
+</div>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="event-teaser" class="event-teaser">
+<div class="event-teaser--heading">
+<h3>wo. 18 nov.</h3>
+</div>
+<div class="event-teaser--row">
+<div class="views-row">
+<div class="event-teaser--row">
+<div class="event-time">
+<h3>wo. 18 nov.</h3>
+</div>
+<div class="event-component">
+<a href="/agenda/nobel-sessions-18-nov-2026" class="event ">
+<span class="special-label">  Gratis
+</span>
+<div class="content">
+<div class="time">
+<time datetime="2026-06-22T07:45:01+0200">wo. 18 nov.</time>
+</div>
+<h3>  Nobel Sessions
+</h3>
+<p>  Maandelijkse jamsessie met jazz, funk, spoken word en nog veel meer!
+</p>
+<span class="genre">Funk</span>
+</div>
+<div class="image">
+<figure>
+<img loading="lazy" class="img-responsive image-style-_-3" src="/sites/default/files/styles/4_3/public/2026-06/Nobel%20Sessions%20-%204-3.jpg.webp?itok=cDPwe1xR" width="1600" height="1200" alt="nobel sessions gratis jam jamsessie jamsession funk groove gitaar spoken word" typeof="foaf:Image">
+</figure>
+<span class="special-label mobile">  Gratis
+</span>
+</div>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="event-teaser" class="event-teaser">
+<div class="event-teaser--heading">
+<h3>do. 19 nov.</h3>
+</div>
+<div class="event-teaser--row">
+<div class="views-row">
+<div class="event-teaser--row">
+<div class="event-time">
+<h3>do. 19 nov.</h3>
+</div>
+<div class="event-component">
+<a href="/agenda/wies-19-nov-2026" class="event ">
+<div class="content">
+<div class="time">
+<time datetime="2026-02-16T06:15:01+0100">do. 19 nov.</time>
+</div>
+<h3>  WIES
+</h3>
+<p>  Muzikale indiepoptoverbal op 'AH'-albumtour
+</p>
+<span class="genre">Pop</span>
+</div>
+<div class="image">
+<figure>
+<img loading="lazy" class="img-responsive image-style-_-3" src="/sites/default/files/styles/4_3/public/2026-04/WIES%204-3.png.webp?itok=xJf1OE-U" width="1600" height="1200" alt="WIES indie pop rock elektro levenslied live Nobel Leiden " typeof="foaf:Image">
+</figure>
+</div>
+</a>
+</div>
+</div>
+</div>
+<div class="views-row">
+<div class="event-teaser--row">
+<div class="event-time">
+<h3>do. 19 nov.</h3>
+</div>
+<div class="event-component">
+<a href="/agenda/mensen-zeggen-dingen-19-nov-2026" class="event ">
+<div class="content">
+<div class="time">
+<time datetime="2025-12-10T13:00:01+0100">do. 19 nov.</time>
+</div>
+<h3>  Mensen Zeggen Dingen
+</h3>
+<p>  Spoken word, poëzie, proza en punchlines
+</p>
+<span class="genre">Spoken Word</span>
+</div>
+<div class="image">
+<figure>
+<img loading="lazy" class="img-responsive image-style-_-3" src="/sites/default/files/styles/4_3/public/2026-09/20241218%20-%20Nobel%20-%20Mensen%20zeggen%20dingen%20-%20001%20-%20byCoenB%20-%2020241218T193320-NZ7_9423.jpg.webp?itok=PDJvZ5Ue" width="1600" height="1200" alt="Mensen zeggen dingen spoken word in Nobel Leiden" typeof="foaf:Image">
+</figure>
+</div>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="event-teaser" class="event-teaser">
+<div class="event-teaser--heading">
+<h3>vr. 20 nov.</h3>
+</div>
+<div class="event-teaser--row">
+<div class="views-row">
+<div class="event-teaser--row">
+<div class="event-time">
+<h3>vr. 20 nov.</h3>
+</div>
+<div class="event-component">
+<a href="/agenda/hillbilly-moonshiners-20-nov-2026" class="event ">
+<div class="content">
+<div class="time">
+<time datetime="2026-02-17T14:00:01+0100">vr. 20 nov.</time>
+</div>
+<h3>  The Hillbilly Moonshiners
+</h3>
+<p>  Knallende covers in een dikke country, bluegrass en rock 'n roll jas
+</p>
+<span class="genre">Folk</span>
+</div>
+<div class="image">
+<figure>
+<img loading="lazy" class="img-responsive image-style-_-3" src="/sites/default/files/styles/4_3/public/2026-02/The%20Hillbilly%20Moonshiners%204-3.png.webp?itok=DP2gGKAj" width="1600" height="1200" alt="The Hillbilly Moonshiners in Nobel Leiden" typeof="foaf:Image">
+</figure>
+</div>
+</a>
+</div>
+</div>
+</div>
+<div class="views-row">
+<div class="event-teaser--row">
+<div class="event-time">
+<h3>vr. 20 nov.</h3>
+</div>
+<div class="event-component">
+<a href="/agenda/yoran-vrooms-group-friends-20-nov-2026" class="event ">
+<div class="content">
+<div class="time">
+<time datetime="2026-02-17T14:00:01+0100">vr. 20 nov.</time>
+</div>
+<h3>  Yoràn Vroom’s Group of Friends
+</h3>
+<p>  Master of Drums brengt een energieke, eigentijdse jazzsound
+</p>
+<span class="genre">Groove</span>
+</div>
+<div class="image">
+<figure>
+<img loading="lazy" class="img-responsive image-style-_-3" src="/sites/default/files/styles/4_3/public/2026-02/Yor%C3%A0n%20Vroom%20Event%204-3.png.webp?itok=kqI7QU0v" width="1600" height="1200" alt="Yoràn Vroom live concert funk soul jazz Nobel Leiden" typeof="foaf:Image">
+</figure>
+</div>
+</a>
+</div>
+</div>
+</div>
+<div class="views-row">
+<div class="event-teaser--row">
+<div class="event-time">
+<h3>vr. 20 nov.</h3>
+</div>
+<div class="event-component">
+<a href="/agenda/dewolff-20-nov-2026" class="event ">
+<span class="special-label">  Laatste tickets
+</span>
+<div class="content">
+<div class="time">
+<time datetime="2026-02-10T07:15:02+0100">vr. 20 nov.</time>
+</div>
+<h3>  DeWolff
+</h3>
+<p>  Full Moon Ritual – 20-jarig jubileum van Limburgse bluesrocksensatie
+</p>
+<span class="genre">Rock</span>
+</div>
+<div class="image">
+<figure>
+<img loading="lazy" class="img-responsive image-style-_-3" src="/sites/default/files/styles/4_3/public/2026-03/DeWolff%204-3.jpg.webp?itok=v6A1QnEi" width="1600" height="1200" alt="DeWolff - Nobel x Stadsgehoorzaal DeWolff in Leiden" typeof="foaf:Image">
+</figure>
+<span class="special-label mobile">  Laatste tickets
+</span>
+</div>
+</a>
+</div>
+</div>
+</div>
+<div class="views-row">
+<div class="event-teaser--row">
+<div class="event-time">
+<h3>vr. 20 nov.</h3>
+</div>
+<div class="event-component">
+<a href="/agenda/indruipen-presents-behind-closed-doors-20-nov-2026" class="event ">
+<div class="content">
+<div class="time">
+<time datetime="2026-09-17T11:30:01+0200">vr. 20 nov.</time>
+</div>
+<h3>  INDRUIPEN presents: Behind Closed Doors
+</h3>
+<p>  De meest intieme en exclusieve INDRUIPEN-ervaring die je tot nu toe hebt meegemaakt
+</p>
+<span class="genre">House</span>
+<span class="age">
+18+
+</span>
+</div>
+<div class="image">
+<figure>
+<img loading="lazy" class="img-responsive image-style-_-3" src="/sites/default/files/styles/4_3/public/2026-09/Behind%20Closed%20Doors%20Leiden%20_%20Artwork%20%281600%20x%201200%20px%29.png.webp?itok=Md6zIa2-" width="1600" height="1200" alt="Indruipen - Behind Closed Doors in Nobel Leiden" typeof="foaf:Image">
+</figure>
+</div>
+</a>
+</div>
+</div>
+</div>
+<div class="views-row">
+<div class="event-teaser--row">
+<div class="event-time">
+<h3>vr. 20 nov.</h3>
+</div>
+<div class="event-component">
+<a href="/agenda/only-10s-20-nov-2026" class="event ">
+<div class="content">
+<div class="time">
+<time datetime="2026-07-27T10:13:38+0200">vr. 20 nov.</time>
+</div>
+<h3>  Only 10's
+</h3>
+<p>  Terug naar de jaren 10 met de leukste hits! YEET!
+</p>
+<span class="genre">Hits</span>
+</div>
+<div class="image">
+<figure>
+<img loading="lazy" class="img-responsive image-style-_-3" src="/sites/default/files/styles/4_3/public/2026-08/only10s-FB-1.png.webp?itok=nj5hW5cv" width="1600" height="1200" alt="Only 10's jaren 10 2010 Triomf uitgaan Nobel Leiden" typeof="foaf:Image">
+</figure>
+</div>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="event-teaser" class="event-teaser">
+<div class="event-teaser--heading">
+<h3>za. 21 nov.</h3>
+</div>
+<div class="event-teaser--row">
+<div class="views-row">
+<div class="event-teaser--row">
+<div class="event-time">
+<h3>za. 21 nov.</h3>
+</div>
+<div class="event-component">
+<a href="/agenda/sing-loud-play-hard-21-nov-2026" class="event ">
+<div class="content">
+<div class="time">
+<time datetime="2026-02-17T10:15:01+0100">za. 21 nov.</time>
+</div>
+<h3>  Sing Loud, Play Hard!
+</h3>
+<p>  Drie acts, één podium en maar één missie: het dak eraf!
+</p>
+<span class="genre">Rock</span>
+</div>
+<div class="image">
+<figure>
+<img loading="lazy" class="img-responsive image-style-_-3" src="/sites/default/files/styles/4_3/public/2026-03/Sing%20Loud%2C%20Play%20Hard%21%204-3.png.webp?itok=N8AFEy-P" width="1600" height="1200" alt="20 Jaar Pop4Shore: Sing Loud, Play Hard" typeof="foaf:Image">
+</figure>
+</div>
+</a>
+</div>
+</div>
+</div>
+<div class="views-row">
+<div class="event-teaser--row">
+<div class="event-time">
+<h3>za. 21 nov.</h3>
+</div>
+<div class="event-component">
+<a href="/agenda/zeppelin-affair-21-nov-2026" class="event ">
+<div class="content">
+<div class="time">
+<time datetime="2026-07-20T07:00:02+0200">za. 21 nov.</time>
+</div>
+<h3>  The Zeppelin Affair
+</h3>
+<p>  Led Zeppelin tribute van Leidse bodem
+</p>
+<span class="genre">Tribute</span>
+</div>
+<div class="image">
+<figure>
+<img loading="lazy" class="img-responsive image-style-_-3" src="/sites/default/files/styles/4_3/public/2026-08/The%20Zeppelin%20Affair%20web%204-3.jpg.webp?itok=bBLdYxiN" width="1600" height="1200" alt="The Zeppelin Affair - Led Zeppelin tribute in Nobel Leiden" typeof="foaf:Image">
+</figure>
+</div>
+</a>
+</div>
+</div>
+</div>
+<div class="views-row">
+<div class="event-teaser--row">
+<div class="event-time">
+<h3>za. 21 nov.</h3>
+</div>
+<div class="event-component">
+<a href="/agenda/fiesta-macumba-21-nov-2026" class="event ">
+<div class="content">
+<div class="time">
+<time datetime="2026-07-22T14:45:02+0200">za. 21 nov.</time>
+</div>
+<h3>  Fiesta Macumba
+</h3>
+<p>  Party Latino style!
+</p>
+<span class="genre">Latin</span>
+<span class="age">
+18+
+</span>
+</div>
+<div class="image">
+<figure>
+<img loading="lazy" class="img-responsive image-style-_-3" src="/sites/default/files/styles/4_3/public/2026-07/Fiesta%20Macumba%204-3.png.webp?itok=IIaj_3fq" width="1600" height="1200" alt="Fiesta Macumba R&amp;B Latin Latino feest party urban hiphop club clubbing uitgaan Nobel Leiden" typeof="foaf:Image">
+</figure>
+</div>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="event-teaser" class="event-teaser">
+<div class="event-teaser--heading">
+<h3>do. 26 nov.</h3>
+</div>
+<div class="event-teaser--row">
+<div class="views-row">
+<div class="event-teaser--row">
+<div class="event-time">
+<h3>do. 26 nov.</h3>
+</div>
+<div class="event-component">
+<a href="/agenda/gotu-jim-26-nov-2026" class="event ">
+<div class="content">
+<div class="time">
+<time datetime="2026-03-16T07:45:02+0100">do. 26 nov.</time>
+</div>
+<h3>  Gotu Jim
+</h3>
+<p>  Hyperpop &amp; house-sensatie brengt show vol raps, stijl en energie
+</p>
+<span class="genre">Hiphop</span>
+</div>
+<div class="image">
+<figure>
+<img loading="lazy" class="img-responsive image-style-_-3" src="/sites/default/files/styles/4_3/public/2026-05/Gotu%20Jim%204-3.png.webp?itok=7pQlZrWB" width="1600" height="1200" alt="Gotu Jim hiphop house hyperpop Nobel Leiden live uitgaan" typeof="foaf:Image">
+</figure>
+</div>
+</a>
+</div>
+</div>
+</div>
+<div class="views-row">
+<div class="event-teaser--row">
+<div class="event-time">
+<h3>do. 26 nov.</h3>
+</div>
+<div class="event-component">
+<a href="/agenda/antje-krook-26-nov-2026" class="event ">
+<div class="content">
+<div class="time">
+<time datetime="2026-08-17T10:45:02+0200">do. 26 nov.</time>
+</div>
+<h3>  Antje Krook
+</h3>
+<p>  EP release met aanstekelijke ska, reggae en nederpop nummers
+</p>
+<span class="genre">Pop</span>
+</div>
+<div class="image">
+<figure>
+<img loading="lazy" class="img-responsive image-style-_-3" src="/sites/default/files/styles/4_3/public/2026-08/Antje%20Krook%20%204-3.png.webp?itok=Ju0X1Ic8" width="1600" height="1200" alt="Antje Krook EP release Ska Nederpop Nobel " typeof="foaf:Image">
+</figure>
+</div>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="event-teaser" class="event-teaser">
+<div class="event-teaser--heading">
+<h3>vr. 27 nov.</h3>
+</div>
+<div class="event-teaser--row">
+<div class="views-row">
+<div class="event-teaser--row">
+<div class="event-time">
+<h3>vr. 27 nov.</h3>
+</div>
+<div class="event-component">
+<a href="/agenda/vroegzat-27-nov-2026" class="event ">
+<div class="content">
+<div class="time">
+<time datetime="2026-09-09T15:42:59+0200">vr. 27 nov.</time>
+</div>
+<h3>  VroegZat
+</h3>
+<p>  Vroeg feesten, lang slapen
+</p>
+<span class="genre">Hits</span>
+<span class="age">
+18+
+</span>
+</div>
+<div class="image">
+<figure>
+<img loading="lazy" class="img-responsive image-style-_-3" src="/sites/default/files/styles/4_3/public/2026-09/VroegZat%2016-9.png.webp?itok=EU7KzH6m" width="1600" height="1200" alt="VroegZat vroeg feesten slapen uitgaan clubben nachtclub hits Nobel Leiden" typeof="foaf:Image">
+</figure>
+</div>
+</a>
+</div>
+</div>
+</div>
+<div class="views-row">
+<div class="event-teaser--row">
+<div class="event-time">
+<h3>vr. 27 nov.</h3>
+</div>
+<div class="event-component">
+<a href="/agenda/discover-ontaard-lorne-27-nov-2026" class="event ">
+<div class="content">
+<div class="time">
+<time datetime="2026-03-04T16:30:02+0100">vr. 27 nov.</time>
+</div>
+<h3>  Discover: Ontaard + L'orne
+</h3>
+<p>  Ontdek de headliners van morgen op deze postrockeditie
+</p>
+<span class="genre">Punk</span>
+</div>
+<div class="image">
+<figure>
+<img loading="lazy" class="img-responsive image-style-_-3" src="/sites/default/files/styles/4_3/public/2026-03/Discover%20Ontaard%20%2B%20L%27Orne%204-3.png.webp?itok=wy87ypVx" width="1600" height="1200" alt="Discover Ontaard L'orne metal alternatief indie showcase Nobel Leiden" typeof="foaf:Image">
+</figure>
+</div>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="event-teaser" class="event-teaser">
+<div class="event-teaser--heading">
+<h3>za. 28 nov.</h3>
+</div>
+<div class="event-teaser--row">
+<div class="views-row">
+<div class="event-teaser--row">
+<div class="event-time">
+<h3>za. 28 nov.</h3>
+</div>
+<div class="event-component">
+<a href="/agenda/waan-28-nov-2026" class="event ">
+<div class="content">
+<div class="time">
+<time datetime="2026-04-13T18:15:01+0200">za. 28 nov.</time>
+</div>
+<h3>  WAAN
+</h3>
+<p>  Avontuurlijke jazz met elektronische drive
+</p>
+<span class="genre">Electronisch Live</span>
+</div>
+<div class="image">
+<figure>
+<img loading="lazy" class="img-responsive image-style-_-3" src="/sites/default/files/styles/4_3/public/2026-04/Waan%204-3.jpg.webp?itok=koeg7cTv" width="1600" height="1200" alt="WAAN - Nobel" typeof="foaf:Image">
+</figure>
+</div>
+</a>
+</div>
+</div>
+</div>
+<div class="views-row">
+<div class="event-teaser--row">
+<div class="event-time">
+<h3>za. 28 nov.</h3>
+</div>
+<div class="event-component">
+<a href="/agenda/loket-140-28-nov-2026" class="event ">
+<div class="content">
+<div class="time">
+<time datetime="2026-09-03T15:00:01+0200">za. 28 nov.</time>
+</div>
+<h3>  Loket 140
+</h3>
+<p>  Energieke dansnacht met hardhouse en trance
+</p>
+<span class="genre">House</span>
+<span class="age">
+18+
+</span>
+</div>
+<div class="image">
+<figure>
+<img loading="lazy" class="img-responsive image-style-_-3" src="/sites/default/files/styles/4_3/public/2026-09/Basic%20image%201600%20x%201200.png.webp?itok=a0m8WhXL" width="1600" height="1200" alt="Loket 140 hardhouse trance Nobel Leiden" typeof="foaf:Image">
+</figure>
+</div>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="view-grouping">
+<h2 class="view-grouping-header animation animation-fade-in">december</h2>
+<div class="view-grouping-content"><div id="event-teaser" class="event-teaser">
+<div class="event-teaser--heading">
+<h3>wo. 02 dec.</h3>
+</div>
+<div class="event-teaser--row">
+<div class="views-row">
+<div class="event-teaser--row">
+<div class="event-time">
+<h3>wo. 02 dec.</h3>
+</div>
+<div class="event-component">
+<a href="/agenda/john-corabi-friends-02-dec-2026" class="event ">
+<div class="content">
+<div class="time">
+<time datetime="2026-06-22T05:45:01+0200">wo. 02 dec.</time>
+</div>
+<h3>  John Corabi + friends
+</h3>
+<p>  Hardrockklassiekers van Mötley Crüe tot The Dead Daisies
+</p>
+<span class="genre">Rock</span>
+</div>
+<div class="image">
+<figure>
+<img loading="lazy" class="img-responsive image-style-_-3" src="/sites/default/files/styles/4_3/public/2026-06/John%20Corabi%204-3.png.webp?itok=K54FD1Xf" width="1600" height="1200" alt="John Corabi Friends Rock Metal Hardrock guitar gitaar drums" typeof="foaf:Image">
+</figure>
+</div>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="event-teaser" class="event-teaser">
+<div class="event-teaser--heading">
+<h3>do. 03 dec.</h3>
+</div>
+<div class="event-teaser--row">
+<div class="views-row">
+<div class="event-teaser--row">
+<div class="event-time">
+<h3>do. 03 dec.</h3>
+</div>
+<div class="event-component">
+<a href="/agenda/scene-03-dec-2026" class="event ">
+<div class="content">
+<div class="time">
+<time datetime="2025-11-05T09:30:01+0100">do. 03 dec.</time>
+</div>
+<h3>  The Scene
+</h3>
+<p>  De tijdloze ziel van The Scene, opnieuw ontbrand
+</p>
+<span class="genre">Pop</span>
+</div>
+<div class="image">
+<figure>
+<img loading="lazy" class="img-responsive image-style-_-3" src="/sites/default/files/styles/4_3/public/2025-11/The%20Scene%204-3.png.webp?itok=xmdnraDy" width="1600" height="1200" alt="The Scene, Pop, nobel" typeof="foaf:Image">
+</figure>
+</div>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="event-teaser" class="event-teaser">
+<div class="event-teaser--heading">
+<h3>vr. 04 dec.</h3>
+</div>
+<div class="event-teaser--row">
+<div class="views-row">
+<div class="event-teaser--row">
+<div class="event-time">
+<h3>vr. 04 dec.</h3>
+</div>
+<div class="event-component">
+<a href="/agenda/prins-s-en-de-geit-04-dec-2026" class="event ">
+<div class="content">
+<div class="time">
+<time datetime="2026-05-24T10:30:01+0200">vr. 04 dec.</time>
+</div>
+<h3>  Prins S. en De Geit
+</h3>
+<p>  Haagse beestenboel laat de hoefjes trappelen met dansbare beats en theatrale flair
+</p>
+<span class="genre">Electronisch Live</span>
+</div>
+<div class="image">
+<figure>
+<img loading="lazy" class="img-responsive image-style-_-3" src="/sites/default/files/styles/4_3/public/2026-05/Prins%20S.%20en%20De%20Geit%204-3.png.webp?itok=XSU-yoa6" width="1600" height="1200" alt="Prins S. en De Geit Kinderboerderij elektro pop live Nobel Leiden" typeof="foaf:Image">
+</figure>
+</div>
+</a>
+</div>
+</div>
+</div>
+<div class="views-row">
+<div class="event-teaser--row">
+<div class="event-time">
+<h3>vr. 04 dec.</h3>
+</div>
+<div class="event-component">
+<a href="/agenda/banda-carumba-04-dec-2026" class="event ">
+<div class="content">
+<div class="time">
+<time datetime="2026-08-11T07:30:01+0200">vr. 04 dec.</time>
+</div>
+<h3>  Banda ¡Carumba!
+</h3>
+<p>  Draai je heupen op een mix van cumbia, rumba catalana en latin
+</p>
+<span class="genre">Latin</span>
+</div>
+<div class="image">
+<figure>
+<img loading="lazy" class="img-responsive image-style-_-3" src="/sites/default/files/styles/4_3/public/2026-08/Banda%20Carumba%204-3.png.webp?itok=TzTWV02A" width="1600" height="1200" alt="Banda Carumba latin concert Nobel Leiden" typeof="foaf:Image">
+</figure>
+</div>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="event-teaser" class="event-teaser">
+<div class="event-teaser--heading">
+<h3>zo. 06 dec.</h3>
+</div>
+<div class="event-teaser--row">
+<div class="views-row">
+<div class="event-teaser--row">
+<div class="event-time">
+<h3>zo. 06 dec.</h3>
+</div>
+<div class="event-component">
+<a href="/agenda/club-movement-fest-06-dec-2026" class="event ">
+<div class="content">
+<div class="time">
+<time datetime="2026-07-15T15:08:39+0200">zo. 06 dec.</time>
+</div>
+<h3>  Club Movement Fest
+</h3>
+<p>  Where clubdance styles began
+</p>
+<span class="genre">House</span>
+<span class="age">
+13+
+</span>
+</div>
+<div class="image">
+<figure>
+<img loading="lazy" class="img-responsive image-style-_-3" src="/sites/default/files/styles/4_3/public/2026-08/Club%20Movement%20Fest.png.webp?itok=ABg_xiIE" width="1600" height="1200" alt="Club Movement Fest early clubnacht bij Nobel in Leiden" typeof="foaf:Image">
+</figure>
+</div>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="event-teaser" class="event-teaser">
+<div class="event-teaser--heading">
+<h3>di. 08 dec.</h3>
+</div>
+<div class="event-teaser--row">
+<div class="views-row">
+<div class="event-teaser--row">
+<div class="event-time">
+<h3>di. 08 dec.</h3>
+</div>
+<div class="event-component">
+<a href="/agenda/veronica-fusaro-08-dec-2026" class="event ">
+<div class="content">
+<div class="time">
+<time datetime="2026-05-05T07:30:02+0200">di. 08 dec.</time>
+</div>
+<h3>  Veronica Fusaro
+</h3>
+<p>  Alternatieve pop met soul- en rockinvloeden van Eurovisie Songfestival deelnemer
+</p>
+<span class="genre">Pop</span>
+</div>
+<div class="image">
+<figure>
+<img loading="lazy" class="img-responsive image-style-_-3" src="/sites/default/files/styles/4_3/public/2026-05/Veronica%20Fusaro%204-3.png.webp?itok=31FCV2y-" width="1600" height="1200" alt="Veronica Fusaro - Nobel" typeof="foaf:Image">
+</figure>
+</div>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="event-teaser" class="event-teaser">
+<div class="event-teaser--heading">
+<h3>wo. 09 dec.</h3>
+</div>
+<div class="event-teaser--row">
+<div class="views-row">
+<div class="event-teaser--row">
+<div class="event-time">
+<h3>wo. 09 dec.</h3>
+</div>
+<div class="event-component">
+<a href="/agenda/popup-choir-09-dec-2026" class="event ">
+<div class="content">
+<div class="time">
+<time datetime="2026-05-13T16:45:01+0200">wo. 09 dec.</time>
+</div>
+<h3>  Popup Choir
+</h3>
+<p>  Singalong | Zij spelen, jij zingt
+</p>
+<span class="genre">Pop</span>
+</div>
+<div class="image">
+<figure>
+<img loading="lazy" class="img-responsive image-style-_-3" src="/sites/default/files/styles/4_3/public/2026-05/Popup%20Choir%204-3.jpg.webp?itok=f6bsfCtF" width="1600" height="1200" alt="Popup Choir - Nobel Leiden" typeof="foaf:Image">
+</figure>
+</div>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="event-teaser" class="event-teaser">
+<div class="event-teaser--heading">
+<h3>do. 10 dec.</h3>
+</div>
+<div class="event-teaser--row">
+<div class="views-row">
+<div class="event-teaser--row">
+<div class="event-time">
+<h3>do. 10 dec.</h3>
+</div>
+<div class="event-component">
+<a href="/agenda/smiths-presumably-10-dec-2026" class="event ">
+<div class="content">
+<div class="time">
+<time datetime="2025-08-25T11:45:01+0200">do. 10 dec.</time>
+</div>
+<h3>  The Smiths Presumably
+</h3>
+<p>  Ode aan The Smiths en Morrissey
+</p>
+<span class="genre">Tribute</span>
+</div>
+<div class="image">
+<figure>
+<img loading="lazy" class="img-responsive image-style-_-3" src="/sites/default/files/styles/4_3/public/2025-09/The%20Smiths%20Presumably%204-3.jpg.webp?itok=0pmSNyb7" width="1600" height="1200" alt="The Smiths Presumably in Nobel Leiden" typeof="foaf:Image">
+</figure>
+</div>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="event-teaser" class="event-teaser">
+<div class="event-teaser--heading">
+<h3>vr. 11 dec.</h3>
+</div>
+<div class="event-teaser--row">
+<div class="views-row">
+<div class="event-teaser--row">
+<div class="event-time">
+<h3>vr. 11 dec.</h3>
+</div>
+<div class="event-component">
+<a href="/agenda/last-waltz-11-dec-2026" class="event ">
+<span class="special-label">  Laatste tickets
+</span>
+<div class="content">
+<div class="time">
+<time datetime="2026-02-03T05:45:01+0100">vr. 11 dec.</time>
+</div>
+<h3>  The Last Waltz
+</h3>
+<p>  Eerbetoon aan legendarisch afscheid The Band door Dawn Brothers &amp; Friends
+</p>
+<span class="genre">Rock</span>
+</div>
+<div class="image">
+<figure>
+<img loading="lazy" class="img-responsive image-style-_-3" src="/sites/default/files/styles/4_3/public/2026-02/The%20Last%20Waltz%204-3.jpg.webp?itok=nKqg6qY8" width="1600" height="1200" alt="The Last Waltz - Dawn Brothers &amp; Friends - Nobel x Stadsgehoorzaal Leiden" typeof="foaf:Image">
+</figure>
+<span class="special-label mobile">  Laatste tickets
+</span>
+</div>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="event-teaser" class="event-teaser">
+<div class="event-teaser--heading">
+<h3>za. 12 dec.</h3>
+</div>
+<div class="event-teaser--row">
+<div class="views-row">
+<div class="event-teaser--row">
+<div class="event-time">
+<h3>za. 12 dec.</h3>
+</div>
+<div class="event-component">
+<a href="/agenda/licks-brains-12-dec-2026" class="event ">
+<div class="content">
+<div class="time">
+<time datetime="2026-08-17T10:30:02+0200">za. 12 dec.</time>
+</div>
+<h3>  Licks &amp; Brains
+</h3>
+<p>  Bigband geeft 20 jaar jubileumconcert
+</p>
+<span class="genre">Jazz</span>
+</div>
+<div class="image">
+<figure>
+<img loading="lazy" class="img-responsive image-style-_-3" src="/sites/default/files/styles/4_3/public/2026-08/Licks%20%26%20Brains%204-3.png.webp?itok=hMBj1SWC" width="1600" height="1200" alt="Licks &amp; Brains bigband jazz funk soul groove Nobel Leiden 20 jaar jubileum" typeof="foaf:Image">
+</figure>
+</div>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="event-teaser" class="event-teaser">
+<div class="event-teaser--heading">
+<h3>zo. 13 dec.</h3>
+</div>
+<div class="event-teaser--row">
+<div class="views-row">
+<div class="event-teaser--row">
+<div class="event-time">
+<h3>zo. 13 dec.</h3>
+</div>
+<div class="event-component">
+<a href="/agenda/treasure-13-dec-2026" class="event ">
+<div class="content">
+<div class="time">
+<time datetime="2026-02-27T11:15:01+0100">zo. 13 dec.</time>
+</div>
+<h3>  Treasure
+</h3>
+<p>  "We just might" Club Tour - ode aan Bruno Mars
+</p>
+<span class="genre">Tribute</span>
+</div>
+<div class="image">
+<figure>
+<img loading="lazy" class="img-responsive image-style-_-3" src="/sites/default/files/styles/4_3/public/2026-03/Treasure%204-3.png.webp?itok=LcGVo8Qt" width="1600" height="1200" alt="Treasure - Bruno Mars tribute in Nobel Leiden" typeof="foaf:Image">
+</figure>
+</div>
+</a>
+</div>
+</div>
+</div>
+<div class="views-row">
+<div class="event-teaser--row">
+<div class="event-time">
+<h3>zo. 13 dec.</h3>
+</div>
+<div class="event-component">
+<a href="/agenda/ares-13-dec-2026" class="event ">
+<div class="content">
+<div class="time">
+<time datetime="2026-05-26T14:30:02+0200">zo. 13 dec.</time>
+</div>
+<h3>  Ares
+</h3>
+<p>  Andere Man Tour
+</p>
+<span class="genre">Hiphop</span>
+</div>
+<div class="image">
+<figure>
+<img loading="lazy" class="img-responsive image-style-_-3" src="/sites/default/files/styles/4_3/public/2026-05/Ares%204-3.png.webp?itok=EkTmTWIW" width="1600" height="1200" alt="Ares - New Wave hiphop in Nobel Leiden" typeof="foaf:Image">
+</figure>
+</div>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="event-teaser" class="event-teaser">
+<div class="event-teaser--heading">
+<h3>wo. 16 dec.</h3>
+</div>
+<div class="event-teaser--row">
+<div class="views-row">
+<div class="event-teaser--row">
+<div class="event-time">
+<h3>wo. 16 dec.</h3>
+</div>
+<div class="event-component">
+<a href="/agenda/outsiders-popquiz-xl-16-dec-2026" class="event ">
+<div class="content">
+<div class="time">
+<time datetime="2025-12-03T09:15:01+0100">wo. 16 dec.</time>
+</div>
+<h3>  Outsiders Popquiz XL
+</h3>
+<p>  Test jouw muziekkennis!
+</p>
+<span class="genre">(Pop)Cultuur</span>
+</div>
+<div class="image">
+<figure>
+<img loading="lazy" class="img-responsive image-style-_-3" src="/sites/default/files/styles/4_3/public/2025-06/Outsiders%20Popquiz%20XXL%204-3.png.webp?itok=7PhKRbjT" width="1600" height="1200" alt="Outsiders Popquiz XXL pubquiz Nobel Leiden" typeof="foaf:Image">
+</figure>
+</div>
+</a>
+</div>
+</div>
+</div>
+<div class="views-row">
+<div class="event-teaser--row">
+<div class="event-time">
+<h3>wo. 16 dec.</h3>
+</div>
+<div class="event-component">
+<a href="/agenda/nobel-sessions-16-dec-2026" class="event ">
+<span class="special-label">  Gratis
+</span>
+<div class="content">
+<div class="time">
+<time datetime="2026-06-22T07:45:01+0200">wo. 16 dec.</time>
+</div>
+<h3>  Nobel Sessions
+</h3>
+<p>  Maandelijkse jamsessie met jazz, funk, spoken word en nog veel meer!
+</p>
+<span class="genre">Funk</span>
+</div>
+<div class="image">
+<figure>
+<img loading="lazy" class="img-responsive image-style-_-3" src="/sites/default/files/styles/4_3/public/2026-06/Nobel%20Sessions%20-%204-3.jpg.webp?itok=cDPwe1xR" width="1600" height="1200" alt="nobel sessions gratis jam jamsessie jamsession funk groove gitaar spoken word" typeof="foaf:Image">
+</figure>
+<span class="special-label mobile">  Gratis
+</span>
+</div>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="event-teaser" class="event-teaser">
+<div class="event-teaser--heading">
+<h3>vr. 18 dec.</h3>
+</div>
+<div class="event-teaser--row">
+<div class="views-row">
+<div class="event-teaser--row">
+<div class="event-time">
+<h3>vr. 18 dec.</h3>
+</div>
+<div class="event-component">
+<a href="/agenda/van-dik-hout-18-dec-2026" class="event ">
+<div class="content">
+<div class="time">
+<time datetime="2025-12-18T07:45:02+0100">vr. 18 dec.</time>
+</div>
+<h3>  Van Dik Hout
+</h3>
+<p>  Tijdloze Nederpop met een ongeëvenaarde live‑reputatie
+</p>
+<span class="genre">Pop</span>
+</div>
+<div class="image">
+<figure>
+<img loading="lazy" class="img-responsive image-style-_-3" src="/sites/default/files/styles/4_3/public/2026-05/Van%20Dik%20Hout%204-3.jpg.webp?itok=wjAV1L5g" width="1600" height="1200" alt="Van Dik Hout in Nobel Leiden" typeof="foaf:Image">
+</figure>
+</div>
+</a>
+</div>
+</div>
+</div>
+<div class="views-row">
+<div class="event-teaser--row">
+<div class="event-time">
+<h3>vr. 18 dec.</h3>
+</div>
+<div class="event-component">
+<a href="/agenda/discover-kaya-romy-liz-rose-18-dec-2026" class="event ">
+<div class="content">
+<div class="time">
+<time datetime="2026-03-19T11:47:25+0100">vr. 18 dec.</time>
+</div>
+<h3>  Discover: Kaya + Romy Liz Rose
+</h3>
+<p>  Ontdek de headliners van morgen op deze indiefolkeditie
+</p>
+<span class="genre">Folk</span>
+<span class="genre">Indie</span>
+<span class="genre">Singer-Songwriter</span>
+</div>
+<div class="image">
+<figure>
+<img loading="lazy" class="img-responsive image-style-_-3" src="/sites/default/files/styles/4_3/public/2026-03/Discover%20Kaya%20%2B%20Romy%20Liz%20Rose%204-3.png.webp?itok=3T6phaZx" width="1600" height="1200" alt="Discover Kaya Romy Liz Rose alternatief indie showcase Nobel Leiden" typeof="foaf:Image">
+</figure>
+</div>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="event-teaser" class="event-teaser">
+<div class="event-teaser--heading">
+<h3>za. 19 dec.</h3>
+</div>
+<div class="event-teaser--row">
+<div class="views-row">
+<div class="event-teaser--row">
+<div class="event-time">
+<h3>za. 19 dec.</h3>
+</div>
+<div class="event-component">
+<a href="/agenda/fortunate-sons-19-dec-2026" class="event ">
+<div class="content">
+<div class="time">
+<time datetime="2025-09-03T13:00:01+0200">za. 19 dec.</time>
+</div>
+<h3>  The Fortunate Sons
+</h3>
+<p>  Eerbetoon aan Creedence Clearwater Revival
+</p>
+<span class="genre">Tribute</span>
+</div>
+<div class="image">
+<figure>
+<img loading="lazy" class="img-responsive image-style-_-3" src="/sites/default/files/styles/4_3/public/2024-10/The%20Fortunate%20Sons%204-3.png.webp?itok=w1swnJvt" width="1600" height="1200" alt="The Fortunate Sons - Creedence Clearwater Revival tribute CCR Nobel Leiden" typeof="foaf:Image">
+</figure>
+</div>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="event-teaser" class="event-teaser">
+<div class="event-teaser--heading">
+<h3>zo. 27 dec.</h3>
+</div>
+<div class="event-teaser--row">
+<div class="views-row">
+<div class="event-teaser--row">
+<div class="event-time">
+<h3>zo. 27 dec.</h3>
+</div>
+<div class="event-component">
+<a href="/agenda/abba-gold-christmas-special-27-dec-2026" class="event ">
+<div class="content">
+<div class="time">
+<time datetime="2026-01-19T09:56:47+0100">zo. 27 dec.</time>
+</div>
+<h3>  ABBA Gold Christmas Special
+</h3>
+<p>  De grootste hits en kerstsongs van ABBA
+</p>
+<span class="genre">Tribute</span>
+</div>
+<div class="image">
+<figure>
+<img loading="lazy" class="img-responsive image-style-_-3" src="/sites/default/files/styles/4_3/public/2026-01/ABBA%20Gold%20Christmas%20Special%204-3.png.webp?itok=38fpvM9M" width="1600" height="1200" alt="ABBA Gold Christmas Special pop tribute concert Nobel Leiden" typeof="foaf:Image">
+</figure>
+</div>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="event-teaser" class="event-teaser">
+<div class="event-teaser--heading">
+<h3>ma. 28 dec.</h3>
+</div>
+<div class="event-teaser--row">
+<div class="views-row">
+<div class="event-teaser--row">
+<div class="event-time">
+<h3>ma. 28 dec.</h3>
+</div>
+<div class="event-component">
+<a href="/agenda/funked-28-dec-2026" class="event ">
+<span class="special-label">  Festival
+</span>
+<div class="content">
+<div class="time">
+<time datetime="2026-04-07T15:15:02+0200">ma. 28 dec.</time>
+</div>
+<h3>  Funked Up
+</h3>
+<p>  Festival met o.a. Funky Times en PARRA.DICE
+</p>
+<span class="genre">Funk</span>
+</div>
+<div class="image">
+<figure>
+<img loading="lazy" class="img-responsive image-style-_-3" src="/sites/default/files/styles/4_3/public/2026-04/Funked%20Up%204-3%20.png.webp?itok=5qgcQswS" width="1600" height="1200" alt="Funked Up jazz funk groove blues soul Nobel Leiden festival" typeof="foaf:Image">
+</figure>
+<span class="special-label mobile">  Festival
+</span>
+</div>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="view-grouping">
+<div class="view-grouping-content"><div class="view-grouping">
+<h2 class="view-grouping-header animation animation-fade-in">januari</h2>
+<div class="view-grouping-content"><div id="event-teaser" class="event-teaser">
+<div class="event-teaser--heading">
+<h3>za. 09 jan.</h3>
+</div>
+<div class="event-teaser--row">
+<div class="views-row">
+<div class="event-teaser--row">
+<div class="event-time">
+<h3>za. 09 jan.</h3>
+</div>
+<div class="event-component">
+<a href="/agenda/sinister90-09-jan-2027" class="event ">
+<div class="content">
+<div class="time">
+<time datetime="2026-08-26T10:21:18+0200">za. 09 jan.</time>
+</div>
+<h3>  Sinister90
+</h3>
+<p>  Terug naar de gouden jaren van Nederlandse death metal
+</p>
+<span class="genre">Metal</span>
+</div>
+<div class="image">
+<figure>
+<img loading="lazy" class="img-responsive image-style-_-3" src="/sites/default/files/styles/4_3/public/2026-09/Sinister90%204-3.png.webp?itok=ituIz2Xy" width="1600" height="1200" alt="Sinister in Nobel Leiden " typeof="foaf:Image">
+</figure>
+</div>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="event-teaser" class="event-teaser">
+<div class="event-teaser--heading">
+<h3>vr. 15 jan.</h3>
+</div>
+<div class="event-teaser--row">
+<div class="views-row">
+<div class="event-teaser--row">
+<div class="event-time">
+<h3>vr. 15 jan.</h3>
+</div>
+<div class="event-component">
+<a href="/agenda/chicago-funk-15-jan-2027" class="event ">
+<div class="content">
+<div class="time">
+<time datetime="2026-05-19T10:00:02+0200">vr. 15 jan.</time>
+</div>
+<h3>  The Chicago Funk
+</h3>
+<p>  De officiële Earth, Wind &amp; Fire tributeband, gesteund door de legendes zelf
+</p>
+<span class="genre">Funk</span>
+</div>
+<div class="image">
+<figure>
+<img loading="lazy" class="img-responsive image-style-_-3" src="/sites/default/files/styles/4_3/public/2026-05/BP7A9859.jpg.webp?itok=42HDFHEe" width="1600" height="1200" alt="The Chicago Funk - Earth Wind &amp; Fire tribute in Nobel Leiden" typeof="foaf:Image">
+</figure>
+</div>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="event-teaser" class="event-teaser">
+<div class="event-teaser--heading">
+<h3>za. 16 jan.</h3>
+</div>
+<div class="event-teaser--row">
+<div class="views-row">
+<div class="event-teaser--row">
+<div class="event-time">
+<h3>za. 16 jan.</h3>
+</div>
+<div class="event-component">
+<a href="/agenda/strictly-ram-16-jan-2027" class="event ">
+<div class="content">
+<div class="time">
+<time datetime="2026-09-25T12:30:01+0200">za. 16 jan.</time>
+</div>
+<h3>  Strictly RAM
+</h3>
+<p>  Trance clubnacht met live opnames
+</p>
+<span class="genre">Trance</span>
+<span class="age">
+18+
+</span>
+</div>
+<div class="image">
+<figure>
+<img loading="lazy" class="img-responsive image-style-_-3" src="/sites/default/files/styles/4_3/public/2026-09/16012026%20-%201600x1200.png.webp?itok=1pzliYhG" width="1600" height="1200" alt="STRICTLY RAM - Trance allnighter in Nobel Leiden" typeof="foaf:Image">
+</figure>
+</div>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="event-teaser" class="event-teaser">
+<div class="event-teaser--heading">
+<h3>do. 21 jan.</h3>
+</div>
+<div class="event-teaser--row">
+<div class="views-row">
+<div class="event-teaser--row">
+<div class="event-time">
+<h3>do. 21 jan.</h3>
+</div>
+<div class="event-component">
+<a href="/agenda/acindc-21-jan-2027" class="event ">
+<div class="content">
+<div class="time">
+<time datetime="2026-07-06T14:45:01+0200">do. 21 jan.</time>
+</div>
+<h3>  ACinDC
+</h3>
+<p>  50 Years of Dirty Deeds-tour!
+</p>
+<span class="genre">Tribute</span>
+</div>
+<div class="image">
+<figure>
+<img loading="lazy" class="img-responsive image-style-_-3" src="/sites/default/files/styles/4_3/public/2026-07/ACinDC%204-3.png.webp?itok=fXpOUW02" width="1600" height="1200" alt="ACinDC ACDC tribute Dirty Deeds rock band live Nobel Leiden" typeof="foaf:Image">
+</figure>
+</div>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="event-teaser" class="event-teaser">
+<div class="event-teaser--heading">
+<h3>za. 23 jan.</h3>
+</div>
+<div class="event-teaser--row">
+<div class="views-row">
+<div class="event-teaser--row">
+<div class="event-time">
+<h3>za. 23 jan.</h3>
+</div>
+<div class="event-component">
+<a href="/agenda/hill-station-23-jan-2027" class="event ">
+<div class="content">
+<div class="time">
+<time datetime="2026-08-26T11:00:01+0200">za. 23 jan.</time>
+</div>
+<h3>  The Hill Station
+</h3>
+<p>  Atmosferische elektronica van Leidse bodem
+</p>
+<span class="genre">Electronisch Live</span>
+</div>
+<div class="image">
+<figure>
+<img loading="lazy" class="img-responsive image-style-_-3" src="/sites/default/files/styles/4_3/public/2026-09/The%20Hill%20Station%204-3.png.webp?itok=YpXmg2dH" width="1600" height="1200" alt="The Hill Station in Nobel Leiden" typeof="foaf:Image">
+</figure>
+</div>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="event-teaser" class="event-teaser">
+<div class="event-teaser--heading">
+<h3>za. 30 jan.</h3>
+</div>
+<div class="event-teaser--row">
+<div class="views-row">
+<div class="event-teaser--row">
+<div class="event-time">
+<h3>za. 30 jan.</h3>
+</div>
+<div class="event-component">
+<a href="/agenda/mick-live-rombe4t-ronde-twee-30-jan-2027" class="event ">
+<div class="content">
+<div class="time">
+<time datetime="2026-04-13T10:00:01+0200">za. 30 jan.</time>
+</div>
+<h3>  Mick Live + Rombe4t: Ronde Twee
+</h3>
+<p>  Avond vol hiphop, house &amp; good vibes
+</p>
+<span class="genre">Hiphop</span>
+</div>
+<div class="image">
+<figure>
+<img loading="lazy" class="img-responsive image-style-_-3" src="/sites/default/files/styles/4_3/public/2026-04/Mick%20Live%20%2B%20Rombe4t%204-3.png.webp?itok=6GZCVYl2" width="1600" height="1200" alt="Mick Live Rombe4t hiphop live concert Nobel Leiden" typeof="foaf:Image">
+</figure>
+</div>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="view-grouping">
+<h2 class="view-grouping-header animation animation-fade-in">februari</h2>
+<div class="view-grouping-content"><div id="event-teaser" class="event-teaser">
+<div class="event-teaser--heading">
+<h3>vr. 05 feb.</h3>
+</div>
+<div class="event-teaser--row">
+<div class="views-row">
+<div class="event-teaser--row">
+<div class="event-time">
+<h3>vr. 05 feb.</h3>
+</div>
+<div class="event-component">
+<a href="/agenda/trenchcoat-05-feb-2027" class="event ">
+<div class="content">
+<div class="time">
+<time datetime="2026-03-16T07:15:02+0100">vr. 05 feb.</time>
+</div>
+<h3>  Trenchcoat
+</h3>
+<p>  Energieke mix van swing, blues en opzwepende polka's
+</p>
+<span class="genre">Blues</span>
+</div>
+<div class="image">
+<figure>
+<img loading="lazy" class="img-responsive image-style-_-3" src="/sites/default/files/styles/4_3/public/2026-03/Trenchcoat%204-3.png.webp?itok=LeUYDnwH" width="1600" height="1200" alt="trenchcoat blues jazz band live groove vibes concert" typeof="foaf:Image">
+</figure>
+</div>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="event-teaser" class="event-teaser">
+<div class="event-teaser--heading">
+<h3>za. 06 feb.</h3>
+</div>
+<div class="event-teaser--row">
+<div class="views-row">
+<div class="event-teaser--row">
+<div class="event-time">
+<h3>za. 06 feb.</h3>
+</div>
+<div class="event-component">
+<a href="/agenda/out-ordinary-06-feb-2027" class="event ">
+<span class="special-label">  Festival
+</span>
+<div class="content">
+<div class="time">
+<time datetime="2026-02-02T08:45:02+0100">za. 06 feb.</time>
+</div>
+<h3>  Out Of The Ordinary
+</h3>
+<p>  Hét alternatieve festival van Leiden met o.a. Tramhaus en meer TBA!
+</p>
+<span class="genre">Indie</span>
+</div>
+<div class="image">
+<figure>
+<img loading="lazy" class="img-responsive image-style-_-3" src="/sites/default/files/styles/4_3/public/2025-07/Out%20Of%20The%20Ordinary%204-3.png.webp?itok=VKZy5V4f" width="1600" height="1200" alt="Out Of The Ordinary (OOTO) festival Leiden Nobel Scheltema alternatief indie punk rock" typeof="foaf:Image">
+</figure>
+<span class="special-label mobile">  Festival
+</span>
+</div>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="event-teaser" class="event-teaser">
+<div class="event-teaser--heading">
+<h3>vr. 12 feb.</h3>
+</div>
+<div class="event-teaser--row">
+<div class="views-row">
+<div class="event-teaser--row">
+<div class="event-time">
+<h3>vr. 12 feb.</h3>
+</div>
+<div class="event-component">
+<a href="/agenda/dirty-daddies-12-feb-2027" class="event ">
+<span class="special-label">  Uitverkocht
+</span>
+<div class="content">
+<div class="time">
+<time datetime="2026-01-13T12:15:01+0100">vr. 12 feb.</time>
+</div>
+<h3>  The Dirty Daddies
+</h3>
+<p>  LET THE GOOD TIMES ROLL!
+</p>
+<span class="genre">Rock</span>
+</div>
+<div class="image">
+<figure>
+<img loading="lazy" class="img-responsive image-style-_-3" src="/sites/default/files/styles/4_3/public/2026-01/thedirtydaddies_letthegoodtimesroll_1600x1200.jpg.webp?itok=_KQjAOj9" width="1600" height="1200" alt="The Dirty Daddies in Nobel Leiden" typeof="foaf:Image">
+</figure>
+<span class="special-label mobile">  Uitverkocht
+</span>
+</div>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="event-teaser" class="event-teaser">
+<div class="event-teaser--heading">
+<h3>vr. 19 feb.</h3>
+</div>
+<div class="event-teaser--row">
+<div class="views-row">
+<div class="event-teaser--row">
+<div class="event-time">
+<h3>vr. 19 feb.</h3>
+</div>
+<div class="event-component">
+<a href="/agenda/fuzz-top-19-feb-2027" class="event ">
+<div class="content">
+<div class="time">
+<time datetime="2026-07-09T08:15:02+0200">vr. 19 feb.</time>
+</div>
+<h3>  Fuzz Top
+</h3>
+<p>  Tribute aan ZZ Top met scheurende gitaarriffs, Texas blues en boogie-energie
+</p>
+<span class="genre">Tribute</span>
+</div>
+<div class="image">
+<figure>
+<img loading="lazy" class="img-responsive image-style-_-3" src="/sites/default/files/styles/4_3/public/2026-08/Fuzz%20Top%204-3.png.webp?itok=dMApUxjx" width="1600" height="1200" alt="Fuzz Top" typeof="foaf:Image">
+</figure>
+</div>
+</a>
+</div>
+</div>
+</div>
+<div class="views-row">
+<div class="event-teaser--row">
+<div class="event-time">
+<h3>vr. 19 feb.</h3>
+</div>
+<div class="event-component">
+<a href="/agenda/erick-e-all-night-19-feb-2027" class="event ">
+<div class="content">
+<div class="time">
+<time datetime="2026-09-09T13:45:01+0200">vr. 19 feb.</time>
+</div>
+<h3>  Erick E - All Night
+</h3>
+<p>  House-icoon brengt pulserende beats
+</p>
+<span class="genre">House</span>
+<span class="age">
+18+
+</span>
+</div>
+<div class="image">
+<figure>
+<img loading="lazy" class="img-responsive image-style-_-3" src="/sites/default/files/styles/4_3/public/2026-09/Ontwerp%20zonder%20titel%20%284%29.png.webp?itok=6_mXVOOt" width="1600" height="1200" alt="Erick E All Night house dansnacht" typeof="foaf:Image">
+</figure>
+</div>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="event-teaser" class="event-teaser">
+<div class="event-teaser--heading">
+<h3>za. 20 feb.</h3>
+</div>
+<div class="event-teaser--row">
+<div class="views-row">
+<div class="event-teaser--row">
+<div class="event-time">
+<h3>za. 20 feb.</h3>
+</div>
+<div class="event-component">
+<a href="/agenda/klezmagic-20-feb-2027" class="event ">
+<div class="content">
+<div class="time">
+<time datetime="2026-08-17T07:15:01+0200">za. 20 feb.</time>
+</div>
+<h3>  Klezmagic
+</h3>
+<p>  Explosieve mix van balkan en klezmer
+</p>
+<span class="genre">Overig</span>
+</div>
+<div class="image">
+<figure>
+<img loading="lazy" class="img-responsive image-style-_-3" src="/sites/default/files/styles/4_3/public/2026-09/Klezmagic%204-3.png.webp?itok=UpBbj4HN" width="1600" height="1200" alt="Klezmagic live balkan concert in Nobel Leiden" typeof="foaf:Image">
+</figure>
+</div>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="event-teaser" class="event-teaser">
+<div class="event-teaser--heading">
+<h3>do. 25 feb.</h3>
+</div>
+<div class="event-teaser--row">
+<div class="views-row">
+<div class="event-teaser--row">
+<div class="event-time">
+<h3>do. 25 feb.</h3>
+</div>
+<div class="event-component">
+<a href="/agenda/nashvilles-country-cafe-25-feb-2027" class="event ">
+<div class="content">
+<div class="time">
+<time datetime="2026-04-30T13:30:01+0200">do. 25 feb.</time>
+</div>
+<h3>  Nashville's Country Café
+</h3>
+<p>  De sound van Nashville: van countryklassiekers tot moderne hits
+</p>
+<span class="genre">Pop</span>
+</div>
+<div class="image">
+<figure>
+<img loading="lazy" class="img-responsive image-style-_-3" src="/sites/default/files/styles/4_3/public/2026-05/NCC%201600x800.png.webp?itok=Lxcrof21" width="1600" height="1200" alt="Nashville's country café Nashville western Amerika " typeof="foaf:Image">
+</figure>
+</div>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="event-teaser" class="event-teaser">
+<div class="event-teaser--heading">
+<h3>za. 27 feb.</h3>
+</div>
+<div class="event-teaser--row">
+<div class="views-row">
+<div class="event-teaser--row">
+<div class="event-time">
+<h3>za. 27 feb.</h3>
+</div>
+<div class="event-component">
+<a href="/agenda/extince-27-feb-2027" class="event ">
+<div class="content">
+<div class="time">
+<time datetime="2026-07-23T08:30:01+0200">za. 27 feb.</time>
+</div>
+<h3>  Extince
+</h3>
+<p>  Bruisend eerbetoon aan 30 jaar Nederlandse hiphopgeschiedenis met dj DNS
+</p>
+<span class="genre">Hiphop</span>
+</div>
+<div class="image">
+<figure>
+<img loading="lazy" class="img-responsive image-style-_-3" src="/sites/default/files/styles/4_3/public/2026-08/Extince%204-3.png.webp?itok=8FNTvEeT" width="1600" height="1200" alt="Extince DJ DNS Spraakwater Nobel Leiden" typeof="foaf:Image">
+</figure>
+</div>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="view-grouping">
+<h2 class="view-grouping-header animation animation-fade-in">maart</h2>
+<div class="view-grouping-content"><div id="event-teaser" class="event-teaser">
+<div class="event-teaser--heading">
+<h3>vr. 12 mrt.</h3>
+</div>
+<div class="event-teaser--row">
+<div class="views-row">
+<div class="event-teaser--row">
+<div class="event-time">
+<h3>vr. 12 mrt.</h3>
+</div>
+<div class="event-component">
+<a href="/agenda/wegsfeer-12-mar-2027" class="event ">
+<div class="content">
+<div class="time">
+<time datetime="2025-07-21T10:00:01+0200">vr. 12 mrt.</time>
+</div>
+<h3>  WEGSFEER
+</h3>
+<p>  Belgisch eerbetoon aan de grootste new-wave hits
+</p>
+<span class="genre">Indie</span>
+</div>
+<div class="image">
+<figure>
+<img loading="lazy" class="img-responsive image-style-_-3" src="/sites/default/files/styles/4_3/public/2026-05/WEGSFEER%204-3.png.webp?itok=WX23Wnas" width="1600" height="1200" alt="WEGSFEER - New Wave tribute in Nobel Leiden" typeof="foaf:Image">
+</figure>
+</div>
+</a>
+</div>
+</div>
+</div>
+<div class="views-row">
+<div class="event-teaser--row">
+<div class="event-time">
+<h3>vr. 12 mrt.</h3>
+</div>
+<div class="event-component">
+<a href="/agenda/dyde-12-mar-2027" class="event ">
+<div class="content">
+<div class="time">
+<time datetime="2026-08-13T08:00:01+0200">vr. 12 mrt.</time>
+</div>
+<h3>  Dyde
+</h3>
+<p>  Nederlandstalige popmuziek met een frisse en eigentijdse sound
+</p>
+<span class="genre">Pop</span>
+</div>
+<div class="image">
+<figure>
+<img loading="lazy" class="img-responsive image-style-_-3" src="/sites/default/files/styles/4_3/public/2026-09/Dyde%204-3.png.webp?itok=ytx80a9-" width="1600" height="1200" alt="DYDE Nederlandstalige popmuziek Nobel Leiden" typeof="foaf:Image">
+</figure>
+</div>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="event-teaser" class="event-teaser">
+<div class="event-teaser--heading">
+<h3>vr. 19 mrt.</h3>
+</div>
+<div class="event-teaser--row">
+<div class="views-row">
+<div class="event-teaser--row">
+<div class="event-time">
+<h3>vr. 19 mrt.</h3>
+</div>
+<div class="event-component">
+<a href="/agenda/bouke-elvismatters-band-19-mar-2027" class="event ">
+<div class="content">
+<div class="time">
+<time datetime="2026-02-03T08:00:01+0100">vr. 19 mrt.</time>
+</div>
+<h3>  Bouke &amp; The ElvisMatters Band
+</h3>
+<p>  'The Tribute'-winnaar brengt ultiem eerbetoon aan Elvis Presley
+</p>
+<span class="genre">Tribute</span>
+</div>
+<div class="image">
+<figure>
+<img loading="lazy" class="img-responsive image-style-_-3" src="/sites/default/files/styles/4_3/public/2024-12/Bouke_4-3.jpg.webp?itok=WNtccJPp" width="1600" height="1200" alt="Bouke &amp; The ElvisMatters Band - live in de Nobel in Leiden" typeof="foaf:Image">
+</figure>
+</div>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="event-teaser" class="event-teaser">
+<div class="event-teaser--heading">
+<h3>za. 20 mrt.</h3>
+</div>
+<div class="event-teaser--row">
+<div class="views-row">
+<div class="event-teaser--row">
+<div class="event-time">
+<h3>za. 20 mrt.</h3>
+</div>
+<div class="event-component">
+<a href="/agenda/roosbeef-20-mar-2027" class="event ">
+<div class="content">
+<div class="time">
+<time datetime="2026-08-25T17:00:02+0200">za. 20 mrt.</time>
+</div>
+<h3>  Roosbeef
+</h3>
+<p>  Poëtische popliedjes vol humor, weemoed en scherpe observaties
+</p>
+<span class="genre">Pop</span>
+</div>
+<div class="image">
+<figure>
+<img loading="lazy" class="img-responsive image-style-_-3" src="/sites/default/files/styles/4_3/public/2026-08/Roosbeef%204-3.png.webp?itok=uAuT7Ukd" width="1600" height="1200" alt="Roosbeef in Nobel Leiden" typeof="foaf:Image">
+</figure>
+</div>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="event-teaser" class="event-teaser">
+<div class="event-teaser--heading">
+<h3>za. 27 mrt.</h3>
+</div>
+<div class="event-teaser--row">
+<div class="views-row">
+<div class="event-teaser--row">
+<div class="event-time">
+<h3>za. 27 mrt.</h3>
+</div>
+<div class="event-component">
+<a href="/agenda/pussy-riots-diana-burkot-27-mar-2027" class="event ">
+<div class="content">
+<div class="time">
+<time datetime="2026-08-26T11:00:01+0200">za. 27 mrt.</time>
+</div>
+<h3>  Pussy Riot's Diana Burkot
+</h3>
+<p>  Confronterende elektropop vol emotionele kwetsbaarheid
+</p>
+<span class="genre">Electronisch Live</span>
+</div>
+<div class="image">
+<figure>
+<img loading="lazy" class="img-responsive image-style-_-3" src="/sites/default/files/styles/4_3/public/2026-09/Diana%20Burkot%204-3.png.webp?itok=mN2ff3sv" width="1600" height="1200" alt="Diana Burkot Pussy Riot Elektronisch" typeof="foaf:Image">
+</figure>
+</div>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="view-grouping">
+<h2 class="view-grouping-header animation animation-fade-in">april</h2>
+<div class="view-grouping-content"><div id="event-teaser" class="event-teaser">
+<div class="event-teaser--heading">
+<h3>do. 01 apr.</h3>
+</div>
+<div class="event-teaser--row">
+<div class="views-row">
+<div class="event-teaser--row">
+<div class="event-time">
+<h3>do. 01 apr.</h3>
+</div>
+<div class="event-component">
+<a href="/agenda/forever-nu-01-apr-2027" class="event ">
+<div class="content">
+<div class="time">
+<time datetime="2026-08-17T07:45:01+0200">do. 01 apr.</time>
+</div>
+<h3>  Forever Nu!
+</h3>
+<p>  Nu-metal tribute met muziek van System Of A Down, Slipknot, Linkin Park en Limp Bizkit
+</p>
+<span class="genre">Tribute</span>
+</div>
+<div class="image">
+<figure>
+<img loading="lazy" class="img-responsive image-style-_-3" src="/sites/default/files/styles/4_3/public/2026-08/Forever%20Nu%21%204-3_0.png.webp?itok=Zovwz1lC" width="1600" height="1200" alt="Forever Nu! Nu metal tribute night met Slipknot, System Of A Down, Limp Bizkit en Linkin Park tributes" typeof="foaf:Image">
+</figure>
+</div>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="event-teaser" class="event-teaser">
+<div class="event-teaser--heading">
+<h3>za. 10 apr.</h3>
+</div>
+<div class="event-teaser--row">
+<div class="views-row">
+<div class="event-teaser--row">
+<div class="event-time">
+<h3>za. 10 apr.</h3>
+</div>
+<div class="event-component">
+<a href="/agenda/beatles-complete-10-apr-2027" class="event ">
+<div class="content">
+<div class="time">
+<time datetime="2025-12-16T10:45:01+0100">za. 10 apr.</time>
+</div>
+<h3>  Beatles Complete
+</h3>
+<p>  Ultiem Beatles eerbetoon uit de legendarische Cavern Club
+</p>
+<span class="genre">Tribute</span>
+</div>
+<div class="image">
+<figure>
+<img loading="lazy" class="img-responsive image-style-_-3" src="/sites/default/files/styles/4_3/public/2025-12/Beatles%20Complete%204-3.png.webp?itok=jt6-BwlP" width="1600" height="1200" alt="beatles, tribute, battle of the bands" typeof="foaf:Image">
+</figure>
+</div>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="view-grouping">
+<h2 class="view-grouping-header animation animation-fade-in">mei</h2>
+<div class="view-grouping-content"><div id="event-teaser" class="event-teaser">
+<div class="event-teaser--heading">
+<h3>vr. 07 mei</h3>
+</div>
+<div class="event-teaser--row">
+<div class="views-row">
+<div class="event-teaser--row">
+<div class="event-time">
+<h3>vr. 07 mei</h3>
+</div>
+<div class="event-component">
+<a href="/agenda/het-goede-doel-07-may-2027" class="event ">
+<div class="content">
+<div class="time">
+<time datetime="2026-08-30T09:15:01+0200">vr. 07 mei</time>
+</div>
+<h3>  Het Goede Doel
+</h3>
+<p>  Meeslepende revival van Nederlands poperfgoed
+</p>
+<span class="genre">Pop</span>
+</div>
+<div class="image">
+<figure>
+<img loading="lazy" class="img-responsive image-style-_-3" src="/sites/default/files/styles/4_3/public/2026-01/Het%20Goede%20Doel%204-3.jpg.webp?itok=Lb6dpumo" width="1600" height="1200" alt="het goede doel" typeof="foaf:Image">
+</figure>
+</div>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="view-grouping">
+<h2 class="view-grouping-header animation animation-fade-in">september</h2>
+<div class="view-grouping-content"><div id="event-teaser" class="event-teaser">
+<div class="event-teaser--heading">
+<h3>za. 18 sept.</h3>
+</div>
+<div class="event-teaser--row">
+<div class="views-row">
+<div class="event-teaser--row">
+<div class="event-time">
+<h3>za. 18 sept.</h3>
+</div>
+<div class="event-component">
+<a href="/agenda/tankard-18-sep-2027" class="event ">
+<div class="content">
+<div class="time">
+<time datetime="2026-03-19T08:00:03+0100">za. 18 sept.</time>
+</div>
+<h3>  Tankard
+</h3>
+<p>  40 years of raising hell and raising glasses
+</p>
+<span class="genre">Metal</span>
+</div>
+<div class="image">
+<figure>
+<img loading="lazy" class="img-responsive image-style-_-3" src="/sites/default/files/styles/4_3/public/2026-03/tankard_20_07_2024_photosession_0052-1.jpeg.webp?itok=w23rE7pZ" width="1600" height="1200" alt="tankard heavy metal thrashmetal live concert hard headbang" typeof="foaf:Image">
+</figure>
+</div>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="event-teaser" class="event-teaser">
+<div class="event-teaser--heading">
+<h3>za. 25 sept.</h3>
+</div>
+<div class="event-teaser--row">
+<div class="views-row">
+<div class="event-teaser--row">
+<div class="event-time">
+<h3>za. 25 sept.</h3>
+</div>
+<div class="event-component">
+<a href="/agenda/drukwerk-25-sep-2027" class="event ">
+<div class="content">
+<div class="time">
+<time datetime="2026-03-23T16:00:02+0100">za. 25 sept.</time>
+</div>
+<h3>  Drukwerk
+</h3>
+<p>  Nederlandse pop waarvan elke generatie uit zijn bol gaat!
+</p>
+<span class="genre">Pop</span>
+</div>
+<div class="image">
+<figure>
+<img loading="lazy" class="img-responsive image-style-_-3" src="/sites/default/files/styles/4_3/public/2026-03/Drukwerk%204-3.png.webp?itok=G1wXCv7b" width="1600" height="1200" alt="Drukwerk Nederlandse pop generaties live concert schijn een lichtje je loog ten mij Nobel leiden " typeof="foaf:Image">
+</figure>
+</div>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>

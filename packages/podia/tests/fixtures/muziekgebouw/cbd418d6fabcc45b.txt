@@ -1,0 +1,32 @@
+<li class="eventCard" data-entry-id="15476"></li>
+<li class="eventCard" data-entry-id="15727"></li>
+<li class="eventCard" data-entry-id="15671"></li>
+<li class="eventCard" data-entry-id="15670"></li>
+<li class="eventCard" data-entry-id="15669"></li>
+<li class="eventCard" data-entry-id="15674"></li>
+<li class="eventCard" data-entry-id="15673"></li>
+<li class="eventCard" data-entry-id="15672"></li>
+<li class="eventCard" data-entry-id="15824"></li>
+<li class="eventCard" data-entry-id="15825"></li>
+<li class="eventCard" data-entry-id="15826"></li>
+<li class="eventCard" data-entry-id="15827"></li>
+<li class="eventCard" data-entry-id="15784"></li>
+<li class="eventCard" data-entry-id="15715"></li>
+<li class="eventCard" data-entry-id="15828"></li>
+<li class="eventCard" data-entry-id="15594"></li>
+<li class="eventCard" data-entry-id="15593"></li>
+<li class="eventCard" data-entry-id="15592"></li>
+<li class="eventCard" data-entry-id="15830"></li>
+<li class="eventCard" data-entry-id="15829"></li>
+<a class="hidden" href="/nl/agenda/familieconcert?p54_page=2" translate="no" aria-label="Deze pagina in het Nederlands" lang="nl">
+                nl
+            </a>
+<a href="/en/agenda/familieconcert?p54_page=2" translate="no" aria-label="This page in English" lang="en">
+                en
+            </a>
+<a href="/nl/agenda/familieconcert?p54_page=1#page_part_54" class="btn btn-default prev" rel="prev">
+                Vorige
+            </a>
+<a href="/nl/agenda/familieconcert?p54_page=3#page_part_54" class="btn btn-default next" rel="next">
+                Volgende
+            </a>

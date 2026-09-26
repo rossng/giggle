@@ -1,0 +1,27 @@
+[project]
+name = "giggle"
+version = "0.1.0"
+description = "Upcoming-gig radio for Amsterdam and nearby: data pipeline"
+readme = "README.md"
+license = "BlueOak-1.0.0"
+requires-python = ">=3.12"
+dependencies = ["podia"]
+
+[tool.uv]
+package = false
+
+[tool.uv.sources]
+podia = { workspace = true }
+
+[tool.uv.workspace]
+members = ["packages/*"]
+
+[dependency-groups]
+dev = ["pytest>=8", "ruff>=0.6"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]

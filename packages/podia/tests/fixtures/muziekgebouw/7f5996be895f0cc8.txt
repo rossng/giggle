@@ -1,0 +1,1465 @@
+<li data-entry-id="15433" class=" eventCard STYLE_VVK2020 context-default production-type-default variant-normal topdate " data-controller="genres">
+<div class="listItemWrapper ">
+<div class="thumb xl">
+<a class="image" href="/nl/agenda/wolf-en-schubert-7dpg" tabindex="-1">
+<picture class="responsive-image">
+<img src="https://img.muziekgebouw.nl/mCJLhLAjZ7RnUl671eYEyIFBSMeGmJ3s1xtMfpkDHuE/c:2300:1300:fp:0.5:0.33/s:690:390:1/aHR0cHM6Ly93d3cubXV6aWVrZ2Vib3V3Lm5sLy9jbXNfZmlsZXMvc3lzdGVtL2ltYWdlcy9pbWc4NDEwN19vcmlnLkpQRw" alt="Ian Bostridge ©Foppe Schut ">
+</picture>
+</a>
+</div>
+<div class="inner">
+<div class="descMetaContainer">
+<a class="desc" href="/nl/agenda/wolf-en-schubert-7dpg">
+<h3 class="title">Wolf en Schubert</h3>
+<div class="subtitle">Ian Bostridge + Julius Drake</div>
+<div class="top-date">
+<span class="start">
+za 26 sep 2026
+</span>
+<span class="time">
+20:15
+</span>
+</div>
+<div class="tagline"><p>Het lied in de 19e eeuw: twee tegenpolen</p></div>
+<div class="venue">
+Grote Zaal
+</div>
+</a>
+<div class="meta">
+<div class="meta-group" data-genres-target="genresContainer">
+</div>
+<div class="meta-group">
+<div class="wishlist">
+</div>
+<div class="price">
+<div hidden="" class="item-prices popover bottom" id="popover-prices-16465" aria-role="tooltip">
+<div class="arrow"></div>
+<div class="popover-content">
+<table>
+<tbody><tr class="rank">
+<td class="tickettype" colspan="2">
+<span class="rank-name">1</span>
+</td>
+</tr>
+<tr class="">
+<td><span class="pricetype">Normaal</span></td>
+<td class="price">€&nbsp;55,00</td>
+</tr>
+<tr class="">
+<td><span class="pricetype">CJP</span></td>
+<td class="price">€&nbsp;44,00</td>
+</tr>
+<tr class="">
+<td><span class="pricetype">Stadspas</span></td>
+<td class="price">€&nbsp;44,00</td>
+</tr>
+<tr class="">
+<td><span class="pricetype">Sprintplaats</span></td>
+<td class="price">€&nbsp;12,50</td>
+</tr>
+<tr class="rank">
+<td class="tickettype" colspan="2">
+<span class="rank-name">2</span>
+</td>
+</tr>
+<tr class="">
+<td><span class="pricetype">Normaal</span></td>
+<td class="price">€&nbsp;44,00</td>
+</tr>
+<tr class="">
+<td><span class="pricetype">CJP</span></td>
+<td class="price">€&nbsp;44,00</td>
+</tr>
+<tr class="">
+<td><span class="pricetype">Stadspas</span></td>
+<td class="price">€&nbsp;44,00</td>
+</tr>
+<tr class="">
+<td><span class="pricetype">Sprintplaats</span></td>
+<td class="price">€&nbsp;12,50</td>
+</tr>
+</tbody></table>
+</div>
+</div>
+<button type="button" data-controller="popover" class="pricePopoverBtn" aria-describedby="popover-prices-16465">
+€&nbsp;12,50–€&nbsp;55,00
+<i class="fa fa-angle-down" aria-hidden="true"></i>
+</button>
+</div>
+</div>
+<div class="meta-group button">
+<a class="btn btn-active btn-order status-normaal" href="https://tickets.muziekgebouw.nl/nl/buyingflow/tickets/54490/114533" rel="external">
+<span class="peppered-icon icon-cart" aria-hidden="true"></span>
+<span class="label"><span class="label">In winkelmandje</span></span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</li>
+<li data-entry-id="15696" class=" eventCard STYLE_VVK2020 context-default production-type-default variant-normal topdate " data-controller="genres">
+<div class="listItemWrapper ">
+<div class="thumb xl">
+<a class="image" href="/nl/agenda/ode-aan-de-klassieken-bz41" tabindex="-1">
+<picture class="responsive-image">
+<img src="https://img.muziekgebouw.nl/8lHRhFpt5SSgX-WaPUB0oMIJL6nUJa9dT2LkRX74brU/c:2300:1300:fp:0.5:0.33/s:690:390:1/aHR0cHM6Ly93d3cubXV6aWVrZ2Vib3V3Lm5sLy9jbXNfZmlsZXMvc3lzdGVtL2ltYWdlcy9pbWc4NDExOF9vcmlnLmpwZw" alt="Ere Lievonen ©Françoise Bolechowski">
+</picture>
+</a>
+</div>
+<div class="inner">
+<div class="descMetaContainer">
+<a class="desc" href="/nl/agenda/ode-aan-de-klassieken-bz41">
+<h3 class="title">Ode aan de klassieken</h3>
+<div class="subtitle">Ere Lievonen + Raymond Honing</div>
+<div class="top-date">
+<span class="start">
+zo 27 sep 2026
+</span>
+<span class="time">
+11:00
+</span>
+</div>
+<div class="tagline"><p>De ideale kennismaking met het Fokker-orgel</p></div>
+<div class="venue">
+Kleine Zaal
+</div>
+</a>
+<div class="meta">
+<div class="meta-group" data-genres-target="genresContainer">
+</div>
+<div class="meta-group">
+<div class="wishlist">
+</div>
+</div>
+<div class="meta-group button">
+<a href="/nl/agenda/ode-aan-de-klassieken-bz41" class="status-info status-uitverkocht"><span class="peppered-icon icon-info" aria-hidden="true"></span><span class="label">Uitverkocht</span></a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</li>
+<li data-entry-id="15732" class=" eventCard context-default production-type-default variant-normal topdate " data-controller="genres">
+<div class="listItemWrapper ">
+<div class="thumb xl">
+<a class="image" href="/nl/agenda/rondleiding-yqc9" tabindex="-1">
+<picture class="responsive-image">
+<img src="https://img.muziekgebouw.nl/k_Wj3IZeJBONHyFayItz7PwyH9UrsLMNcWjAztphe0o/c:2000:1130:fp:0.5:0.33/s:690:390:1/aHR0cHM6Ly93d3cubXV6aWVrZ2Vib3V3Lm5sLy9jbXNfZmlsZXMvc3lzdGVtL2ltYWdlcy9pbWc4MzkwNF9vcmlnLmpwZw" alt="Foyerdeck © Thiemi Higashi">
+</picture>
+</a>
+</div>
+<div class="inner">
+<div class="descMetaContainer">
+<a class="desc" href="/nl/agenda/rondleiding-yqc9">
+<h3 class="title">Rondleiding</h3>
+<div class="subtitle"></div>
+<div class="top-date">
+<span class="start">
+zo 27 sep 2026
+</span>
+<span class="time">
+13:00
+</span>
+</div>
+<div class="tagline"><p>Een unieke kans om voor én achter de schermen te kijken</p></div>
+<div class="venue">
+Rondleiding
+</div>
+</a>
+<div class="meta">
+<div class="meta-group" data-genres-target="genresContainer">
+</div>
+<div class="meta-group">
+<div class="wishlist">
+</div>
+<div class="price">
+<div hidden="" class="item-prices popover bottom" id="popover-prices-16764" aria-role="tooltip">
+<div class="arrow"></div>
+<div class="popover-content">
+<table>
+<tbody><tr class="rank">
+<td class="tickettype" colspan="2">
+<span class="rank-name">Ongeplaceerd</span>
+</td>
+</tr>
+<tr class="">
+<td><span class="pricetype">Normaal</span></td>
+<td class="price">€&nbsp;12,50</td>
+</tr>
+<tr class="">
+<td><span class="pricetype">CJP</span></td>
+<td class="price">€&nbsp;10,00</td>
+</tr>
+<tr class="">
+<td><span class="pricetype">Stadspas</span></td>
+<td class="price">€&nbsp;10,00</td>
+</tr>
+</tbody></table>
+</div>
+</div>
+<button type="button" data-controller="popover" class="pricePopoverBtn" aria-describedby="popover-prices-16764">
+€&nbsp;10,00–€&nbsp;12,50
+<i class="fa fa-angle-down" aria-hidden="true"></i>
+</button>
+</div>
+</div>
+<div class="meta-group button">
+<a class="btn btn-active btn-order status-" href="https://tickets.muziekgebouw.nl/nl/buyingflow/tickets/56779/117844" rel="external">
+<span class="peppered-icon icon-cart" aria-hidden="true"></span>
+<span class="label"><span class="label">Laatste kaarten</span></span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</li>
+<li data-entry-id="15819" class=" eventCard context-default production-type-default variant-normal topdate " data-controller="genres">
+<div class="listItemWrapper ">
+<div class="thumb xl">
+<a class="image" href="/nl/agenda/soundlab-workshop-tm9p" tabindex="-1">
+<picture class="responsive-image">
+<img src="https://img.muziekgebouw.nl/RQcsBC7VLnDnAVvVORn7IdtL9kNB8spC1oXXdbF5Y4M/c:1350:763:fp:0.5:0.33/s:690:390:1/aHR0cHM6Ly93d3cubXV6aWVrZ2Vib3V3Lm5sLy9jbXNfZmlsZXMvc3lzdGVtL2ltYWdlcy9pbWc4NTQyMF9vcmlnLmpwZw" alt="SoundLAB (©Maarten Nauw)">
+</picture>
+</a>
+</div>
+<div class="inner">
+<div class="descMetaContainer">
+<a class="desc" href="/nl/agenda/soundlab-workshop-tm9p">
+<h3 class="title">SoundLAB workshop</h3>
+<div class="subtitle">Voor kinderen (7+) met volwassenen</div>
+<div class="top-date">
+<span class="start">
+zo 27 sep 2026
+</span>
+<span class="time">
+13:00
+</span>
+</div>
+<div class="tagline"><p>Unieke workshop met wonderlijke instrumenten</p></div>
+<div class="venue">
+Atriumzaal
+</div>
+</a>
+<div class="meta">
+<div class="meta-group" data-genres-target="genresContainer">
+</div>
+<div class="meta-group">
+<div class="wishlist">
+</div>
+<div class="price">
+<div hidden="" class="item-prices popover bottom" id="popover-prices-16851" aria-role="tooltip">
+<div class="arrow"></div>
+<div class="popover-content">
+<table>
+<tbody><tr class="rank">
+<td class="tickettype" colspan="2">
+<span class="rank-name">Ongeplaceerd</span>
+</td>
+</tr>
+<tr class="">
+<td><span class="pricetype">Normaal</span></td>
+<td class="price">€&nbsp;13,50</td>
+</tr>
+<tr class="">
+<td><span class="pricetype">Kind</span></td>
+<td class="price">€&nbsp;10,00</td>
+</tr>
+</tbody></table>
+</div>
+</div>
+<button type="button" data-controller="popover" class="pricePopoverBtn" aria-describedby="popover-prices-16851">
+€&nbsp;10,00–€&nbsp;13,50
+<i class="fa fa-angle-down" aria-hidden="true"></i>
+</button>
+</div>
+</div>
+<div class="meta-group button">
+<a class="btn btn-active btn-order status-" href="https://tickets.muziekgebouw.nl/nl/buyingflow/tickets/58947/120780" rel="external">
+<span class="peppered-icon icon-cart" aria-hidden="true"></span>
+<span class="label"><span class="label">Laatste kaarten</span></span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</li>
+<li data-entry-id="15434" class=" eventCard STYLE_VVK2020 context-default production-type-default variant-normal topdate " data-controller="genres">
+<div class="listItemWrapper ">
+<div class="thumb xl">
+<a class="image" href="/nl/agenda/de-schoonheid-van-het-verschil-xgrq" tabindex="-1">
+<picture class="responsive-image">
+<img src="https://img.muziekgebouw.nl/hSXsuIgo6FJeDqJO5406BD8kAzgO2HUepKqKOXhKcd0/c:2300:1300:fp:0.5:0.33/s:690:390:1/aHR0cHM6Ly93d3cubXV6aWVrZ2Vib3V3Lm5sLy9jbXNfZmlsZXMvc3lzdGVtL2ltYWdlcy9pbWc4NDI3N19vcmlnLmpwZw" alt="">
+</picture>
+</a>
+</div>
+<div class="inner">
+<div class="descMetaContainer">
+<a class="desc" href="/nl/agenda/de-schoonheid-van-het-verschil-xgrq">
+<h3 class="title">De schoonheid van het verschil</h3>
+<div class="subtitle">Nederlandse Bachvereniging</div>
+<div class="top-date">
+<span class="start">
+zo 27 sep 2026
+</span>
+<span class="time">
+15:00
+</span>
+</div>
+<div class="tagline"><p>Van Bach tot Pärt</p></div>
+<div class="venue">
+Grote Zaal
+</div>
+</a>
+<div class="meta">
+<div class="meta-group" data-genres-target="genresContainer">
+</div>
+<div class="meta-group">
+<div class="wishlist">
+</div>
+<div class="price">
+<div hidden="" class="item-prices popover bottom" id="popover-prices-16466" aria-role="tooltip">
+<div class="arrow"></div>
+<div class="popover-content">
+<table>
+<tbody><tr class="rank">
+<td class="tickettype" colspan="2">
+<span class="rank-name">1</span>
+</td>
+</tr>
+<tr class="">
+<td><span class="pricetype">Normaal</span></td>
+<td class="price">€&nbsp;49,00</td>
+</tr>
+<tr class="">
+<td><span class="pricetype">CJP</span></td>
+<td class="price">€&nbsp;39,00</td>
+</tr>
+<tr class="">
+<td><span class="pricetype">Stadspas</span></td>
+<td class="price">€&nbsp;39,00</td>
+</tr>
+<tr class="rank">
+<td class="tickettype" colspan="2">
+<span class="rank-name">2</span>
+</td>
+</tr>
+<tr class="">
+<td><span class="pricetype">Normaal</span></td>
+<td class="price">€&nbsp;39,00</td>
+</tr>
+<tr class="">
+<td><span class="pricetype">CJP</span></td>
+<td class="price">€&nbsp;39,00</td>
+</tr>
+<tr class="">
+<td><span class="pricetype">Stadspas</span></td>
+<td class="price">€&nbsp;39,00</td>
+</tr>
+</tbody></table>
+</div>
+</div>
+<button type="button" data-controller="popover" class="pricePopoverBtn" aria-describedby="popover-prices-16466">
+€&nbsp;39,00–€&nbsp;49,00
+<i class="fa fa-angle-down" aria-hidden="true"></i>
+</button>
+</div>
+</div>
+<div class="meta-group button">
+<a class="btn btn-active btn-order status-normaal" href="https://tickets.muziekgebouw.nl/nl/buyingflow/tickets/54821/115011" rel="external">
+<span class="peppered-icon icon-cart" aria-hidden="true"></span>
+<span class="label"><span class="label">In winkelmandje</span></span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</li>
+<li data-entry-id="15820" class=" eventCard context-default production-type-default variant-normal topdate " data-controller="genres">
+<div class="listItemWrapper ">
+<div class="thumb xl">
+<a class="image" href="/nl/agenda/soundlab-workshop-ml32" tabindex="-1">
+<picture class="responsive-image">
+<img src="https://img.muziekgebouw.nl/cpDkjwEkDsi6iXbOEkJ7WCbGyWlftlqesgDSAItTxps/c:5551:3138:fp:0.5:0.33/s:690:390:1/aHR0cHM6Ly93d3cubXV6aWVrZ2Vib3V3Lm5sLy9jbXNfZmlsZXMvc3lzdGVtL2ltYWdlcy9pbWc4NTQzMF9vcmlnLmpwZw" alt="SoundLAB (©Mirte Slaats)">
+</picture>
+</a>
+</div>
+<div class="inner">
+<div class="descMetaContainer">
+<a class="desc" href="/nl/agenda/soundlab-workshop-ml32">
+<h3 class="title">SoundLAB workshop</h3>
+<div class="subtitle">Voor volwassenen</div>
+<div class="top-date">
+<span class="start">
+zo 27 sep 2026
+</span>
+<span class="time">
+15:00
+</span>
+</div>
+<div class="tagline"><p>Unieke workshop met wonderlijke instrumenten</p></div>
+<div class="venue">
+Atriumzaal
+</div>
+</a>
+<div class="meta">
+<div class="meta-group" data-genres-target="genresContainer">
+</div>
+<div class="meta-group">
+<div class="wishlist">
+</div>
+</div>
+<div class="meta-group button">
+<a href="/nl/agenda/soundlab-workshop-ml32" class="status-info status-uitverkocht"><span class="peppered-icon icon-info" aria-hidden="true"></span><span class="label">Uitverkocht</span></a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</li>
+<li data-entry-id="15757" class=" eventCard STYLE_VVK2020 context-default production-type-default variant-normal topdate " data-controller="genres">
+<div class="listItemWrapper ">
+<div class="thumb xl">
+<a class="image" href="/nl/agenda/l-histoire-du-soldat-tmbh" tabindex="-1">
+<picture class="responsive-image">
+<img src="https://img.muziekgebouw.nl/MIYZWAm2GbyumLZI7QrQhrqDbkRMaF1ikEY6CPJ9Sf8/c:2300:1300:fp:0.5:0.33/s:690:390:1/aHR0cHM6Ly93d3cubXV6aWVrZ2Vib3V3Lm5sLy9jbXNfZmlsZXMvc3lzdGVtL2ltYWdlcy9pbWc4NDI5Ml9vcmlnLmpwZw" alt="Salzburger Marionetten Theater ©Bernhard Mueller">
+</picture>
+</a>
+</div>
+<div class="inner">
+<div class="descMetaContainer">
+<a class="desc" href="/nl/agenda/l-histoire-du-soldat-tmbh">
+<h3 class="title">L’histoire du soldat</h3>
+<div class="subtitle">Salzburger Marionettentheater, Dominique Horwitz + Isabelle Faust</div>
+<div class="top-date">
+<span class="start">
+di 29 sep 2026
+</span>
+<span class="time">
+20:15
+</span>
+</div>
+<div class="tagline"><p>Stravinsky’s parabel met marionetten van Georg Baselitz</p></div>
+<div class="venue">
+Grote Zaal
+</div>
+</a>
+<div class="meta">
+<div class="meta-group" data-genres-target="genresContainer">
+</div>
+<div class="meta-group">
+<div class="wishlist">
+</div>
+</div>
+<div class="meta-group button">
+<a href="/nl/agenda/l-histoire-du-soldat-tmbh" class="status-info status-uitverkocht"><span class="peppered-icon icon-info" aria-hidden="true"></span><span class="label">Uitverkocht</span></a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</li>
+<li data-entry-id="15435" class=" eventCard STYLE_VVK2020 context-default production-type-default variant-normal topdate " data-controller="genres">
+<div class="listItemWrapper ">
+<div class="thumb xl">
+<a class="image" href="/nl/agenda/menu-de-saison-s5k3" tabindex="-1">
+<picture class="responsive-image">
+<img src="https://img.muziekgebouw.nl/ObgWrVfvbqsyGMxIdc8Fzem23k6XonxFUzsxhmgP008/c:2300:1300:fp:0.5:0.33/s:690:390:1/aHR0cHM6Ly93d3cubXV6aWVrZ2Vib3V3Lm5sLy9jbXNfZmlsZXMvc3lzdGVtL2ltYWdlcy9pbWc4NDI5OV9vcmlnLmpwZw" alt="Calefax ©Jouk Oosterhof">
+</picture>
+</a>
+</div>
+<div class="inner">
+<div class="descMetaContainer">
+<a class="desc" href="/nl/agenda/menu-de-saison-s5k3">
+<h3 class="title">Menu de Saison</h3>
+<div class="subtitle">Calefax</div>
+<div class="top-date">
+<span class="start">
+wo 30 sep 2026
+</span>
+<span class="time">
+20:15
+</span>
+</div>
+<div class="tagline"><p>Vertrouwde en nieuwe arrangementen voor rietkwintet</p></div>
+<div class="venue">
+Grote Zaal
+</div>
+</a>
+<div class="meta">
+<div class="meta-group" data-genres-target="genresContainer">
+</div>
+<div class="meta-group">
+<div class="wishlist">
+</div>
+<div class="price">
+<div hidden="" class="item-prices popover bottom" id="popover-prices-16467" aria-role="tooltip">
+<div class="arrow"></div>
+<div class="popover-content">
+<table>
+<tbody><tr class="rank">
+<td class="tickettype" colspan="2">
+<span class="rank-name">Ongeplaceerd</span>
+</td>
+</tr>
+<tr class="">
+<td><span class="pricetype">Normaal</span></td>
+<td class="price">€&nbsp;39,00</td>
+</tr>
+<tr class="">
+<td><span class="pricetype">CJP</span></td>
+<td class="price">€&nbsp;31,00</td>
+</tr>
+<tr class="">
+<td><span class="pricetype">Stadspas</span></td>
+<td class="price">€&nbsp;31,00</td>
+</tr>
+</tbody></table>
+</div>
+</div>
+<button type="button" data-controller="popover" class="pricePopoverBtn" aria-describedby="popover-prices-16467">
+€&nbsp;31,00–€&nbsp;39,00
+<i class="fa fa-angle-down" aria-hidden="true"></i>
+</button>
+</div>
+</div>
+<div class="meta-group button">
+<a class="btn btn-active btn-order status-normaal" href="https://tickets.muziekgebouw.nl/nl/buyingflow/tickets/55210/115770" rel="external">
+<span class="peppered-icon icon-cart" aria-hidden="true"></span>
+<span class="label"><span class="label">In winkelmandje</span></span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</li>
+<li data-entry-id="15436" class=" eventCard STYLE_VVK2020 context-default production-type-default variant-normal topdate " data-controller="genres">
+<div class="listItemWrapper ">
+<div class="thumb xl">
+<a class="image" href="/nl/agenda/cantique-des-cantiques-164h" tabindex="-1">
+<picture class="responsive-image">
+<img src="https://img.muziekgebouw.nl/d_HRJ3Ncq3669fG3Cv2ofONJSY1jwlyf0_v0PKo1wbg/c:1400:791:fp:0.5:0.33/s:690:390:1/aHR0cHM6Ly93d3cubXV6aWVrZ2Vib3V3Lm5sLy9jbXNfZmlsZXMvc3lzdGVtL2ltYWdlcy9pbWc4MzU0M19vcmlnLmpwZw" alt="Nederlands Kamerkoor (©Philippe Vogelenzang)">
+</picture>
+</a>
+</div>
+<div class="inner">
+<div class="descMetaContainer">
+<a class="desc" href="/nl/agenda/cantique-des-cantiques-164h">
+<h3 class="title">Cantique des cantiques</h3>
+<div class="subtitle">Nederlands Kamerkoor</div>
+<div class="top-date">
+<span class="start">
+do 1 okt 2026
+</span>
+<span class="time">
+20:15
+</span>
+</div>
+<div class="tagline"><p>Van eenzaamheid naar symbiotische liefde</p></div>
+<div class="venue">
+Grote Zaal
+</div>
+</a>
+<div class="meta">
+<div class="meta-group" data-genres-target="genresContainer">
+</div>
+<div class="meta-group">
+<div class="wishlist">
+</div>
+<div class="price">
+<div hidden="" class="item-prices popover bottom" id="popover-prices-16468" aria-role="tooltip">
+<div class="arrow"></div>
+<div class="popover-content">
+<table>
+<tbody><tr class="rank">
+<td class="tickettype" colspan="2">
+<span class="rank-name">1</span>
+</td>
+</tr>
+<tr class="">
+<td><span class="pricetype">Normaal</span></td>
+<td class="price">€&nbsp;45,00</td>
+</tr>
+<tr class="">
+<td><span class="pricetype">CJP</span></td>
+<td class="price">€&nbsp;36,00</td>
+</tr>
+<tr class="">
+<td><span class="pricetype">Stadspas</span></td>
+<td class="price">€&nbsp;36,00</td>
+</tr>
+<tr class="rank">
+<td class="tickettype" colspan="2">
+<span class="rank-name">2</span>
+</td>
+</tr>
+<tr class="">
+<td><span class="pricetype">Normaal</span></td>
+<td class="price">€&nbsp;36,00</td>
+</tr>
+<tr class="">
+<td><span class="pricetype">CJP</span></td>
+<td class="price">€&nbsp;36,00</td>
+</tr>
+<tr class="">
+<td><span class="pricetype">Stadspas</span></td>
+<td class="price">€&nbsp;36,00</td>
+</tr>
+</tbody></table>
+</div>
+</div>
+<button type="button" data-controller="popover" class="pricePopoverBtn" aria-describedby="popover-prices-16468">
+€&nbsp;36,00–€&nbsp;45,00
+<i class="fa fa-angle-down" aria-hidden="true"></i>
+</button>
+</div>
+</div>
+<div class="meta-group button">
+<a class="btn btn-active btn-order status-normaal" href="https://tickets.muziekgebouw.nl/nl/buyingflow/tickets/54922/115134" rel="external">
+<span class="peppered-icon icon-cart" aria-hidden="true"></span>
+<span class="label"><span class="label">In winkelmandje</span></span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</li>
+<li data-entry-id="15733" class=" eventCard context-default production-type-default variant-normal topdate " data-controller="genres">
+<div class="listItemWrapper ">
+<div class="thumb xl">
+<a class="image" href="/nl/agenda/rondleiding-7d5x" tabindex="-1">
+<picture class="responsive-image">
+<img src="https://img.muziekgebouw.nl/WMb5_02N2NYZEXsPgRgAmxumtbluCkdxjGyB62Se10c/c:2000:1130:fp:0.5:0.33/s:690:390:1/aHR0cHM6Ly93d3cubXV6aWVrZ2Vib3V3Lm5sLy9jbXNfZmlsZXMvc3lzdGVtL2ltYWdlcy9pbWc4MzkwOF9vcmlnLmpwZw" alt="Foyerdeck © Thiemi Higashi">
+</picture>
+</a>
+</div>
+<div class="inner">
+<div class="descMetaContainer">
+<a class="desc" href="/nl/agenda/rondleiding-7d5x">
+<h3 class="title">Rondleiding</h3>
+<div class="subtitle">+ gratis lunchconcert</div>
+<div class="top-date">
+<span class="start">
+vr 2 okt 2026
+</span>
+<span class="time">
+10:45
+</span>
+</div>
+<div class="tagline"><p>Een unieke kans om voor én achter de schermen te kijken</p></div>
+<div class="venue">
+Rondleiding
+</div>
+</a>
+<div class="meta">
+<div class="meta-group" data-genres-target="genresContainer">
+</div>
+<div class="meta-group">
+<div class="wishlist">
+</div>
+<div class="price">
+<div hidden="" class="item-prices popover bottom" id="popover-prices-16765" aria-role="tooltip">
+<div class="arrow"></div>
+<div class="popover-content">
+<table>
+<tbody><tr class="rank">
+<td class="tickettype" colspan="2">
+<span class="rank-name">Ongeplaceerd</span>
+</td>
+</tr>
+<tr class="">
+<td><span class="pricetype">Normaal</span></td>
+<td class="price">€&nbsp;12,50</td>
+</tr>
+<tr class="">
+<td><span class="pricetype">CJP</span></td>
+<td class="price">€&nbsp;10,00</td>
+</tr>
+<tr class="">
+<td><span class="pricetype">Stadspas</span></td>
+<td class="price">€&nbsp;10,00</td>
+</tr>
+</tbody></table>
+</div>
+</div>
+<button type="button" data-controller="popover" class="pricePopoverBtn" aria-describedby="popover-prices-16765">
+€&nbsp;10,00–€&nbsp;12,50
+<i class="fa fa-angle-down" aria-hidden="true"></i>
+</button>
+</div>
+</div>
+<div class="meta-group button">
+<a class="btn btn-active btn-order status-" href="https://tickets.muziekgebouw.nl/nl/buyingflow/tickets/56776/117841" rel="external">
+<span class="peppered-icon icon-cart" aria-hidden="true"></span>
+<span class="label"><span class="label">Laatste kaarten</span></span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</li>
+<li data-entry-id="15706" class=" eventCard context-default production-type-default variant-normal topdate " data-controller="genres">
+<div class="listItemWrapper ">
+<div class="thumb xl">
+<a class="image" href="/nl/agenda/elizabeth-goh-16bx" tabindex="-1">
+<picture class="responsive-image">
+<img src="https://img.muziekgebouw.nl/rSx6we6wAhhO89eQGwkQYsh1toMtV3siKXUbXCihzck/c:5246:2963:nowe:0:1761/s:690:390:1/aHR0cHM6Ly93d3cubXV6aWVrZ2Vib3V3Lm5sLy9jbXNfZmlsZXMvc3lzdGVtL2ltYWdlcy9pbWc4MzYzM19vcmlnLmpwZw" alt="Elizabeth Goh (©Merlijn Doomernik)">
+</picture>
+</a>
+</div>
+<div class="inner">
+<div class="descMetaContainer">
+<a class="desc" href="/nl/agenda/elizabeth-goh-16bx">
+<h3 class="title">Elizabeth Goh</h3>
+<div class="subtitle">Lunchconcert Dutch Classical Talent</div>
+<div class="top-date">
+<span class="start">
+vr 2 okt 2026
+</span>
+<span class="time">
+12:30
+</span>
+</div>
+<div class="tagline"><p>Vernieuwend programma rondom de speelgoedpiano</p></div>
+<div class="venue">
+Grote Zaal
+</div>
+</a>
+<div class="meta">
+<div class="meta-group" data-genres-target="genresContainer">
+</div>
+<div class="meta-group">
+<div class="wishlist">
+</div>
+<div class="price">
+<div hidden="" class="item-prices popover bottom" id="popover-prices-16738" aria-role="tooltip">
+<div class="arrow"></div>
+<div class="popover-content">
+<table>
+<tbody><tr class="rank">
+<td class="tickettype" colspan="2">
+<span class="rank-name">Ongeplaceerd</span>
+</td>
+</tr>
+<tr class="">
+<td><span class="pricetype">Normaal</span></td>
+<td class="price">€&nbsp;6,50</td>
+</tr>
+</tbody></table>
+</div>
+</div>
+<button type="button" data-controller="popover" class="pricePopoverBtn" aria-describedby="popover-prices-16738">
+€&nbsp;6,50
+<i class="fa fa-angle-down" aria-hidden="true"></i>
+</button>
+</div>
+</div>
+<div class="meta-group button">
+<a class="btn btn-active btn-order status-normaal" href="https://tickets.muziekgebouw.nl/nl/buyingflow/tickets/54740/114905" rel="external">
+<span class="peppered-icon icon-cart" aria-hidden="true"></span>
+<span class="label"><span class="label">In winkelmandje</span></span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</li>
+<li data-entry-id="15437" class=" eventCard STYLE_VVK2020 context-default production-type-default variant-normal topdate " data-controller="genres">
+<div class="listItemWrapper ">
+<div class="thumb xl">
+<a class="image" href="/nl/agenda/dowland-400-nwyj" tabindex="-1">
+<picture class="responsive-image">
+<img src="https://img.muziekgebouw.nl/3qDSoeEVhBIwpqPJS4zFCL5mskjl38RbC1kwvISOu6A/c:4372:2471:nowe:0:804/s:690:390:1/aHR0cHM6Ly93d3cubXV6aWVrZ2Vib3V3Lm5sLy9jbXNfZmlsZXMvc3lzdGVtL2ltYWdlcy9pbWc4MzU1MV9vcmlnLmpwZw" alt="Thomas Dunford ©Julien Benhamou">
+</picture>
+</a>
+</div>
+<div class="inner">
+<div class="descMetaContainer">
+<a class="desc" href="/nl/agenda/dowland-400-nwyj">
+<h3 class="title">Dowland 400</h3>
+<div class="subtitle">Thomas Dunford + Jupiter</div>
+<div class="top-date">
+<span class="start">
+vr 2 okt 2026
+</span>
+<span class="time">
+20:15
+</span>
+</div>
+<div class="tagline"><p>De John Lennon van de 16e eeuw</p></div>
+<div class="venue">
+Grote Zaal
+</div>
+</a>
+<div class="meta">
+<div class="meta-group" data-genres-target="genresContainer">
+</div>
+<div class="meta-group">
+<div class="wishlist">
+</div>
+<div class="price">
+<div hidden="" class="item-prices popover bottom" id="popover-prices-16469" aria-role="tooltip">
+<div class="arrow"></div>
+<div class="popover-content">
+<table>
+<tbody><tr class="rank">
+<td class="tickettype" colspan="2">
+<span class="rank-name">1</span>
+</td>
+</tr>
+<tr class="">
+<td><span class="pricetype">Normaal</span></td>
+<td class="price">€&nbsp;39,00</td>
+</tr>
+<tr class="">
+<td><span class="pricetype">CJP</span></td>
+<td class="price">€&nbsp;31,00</td>
+</tr>
+<tr class="">
+<td><span class="pricetype">Stadspas</span></td>
+<td class="price">€&nbsp;31,00</td>
+</tr>
+<tr class="rank">
+<td class="tickettype" colspan="2">
+<span class="rank-name">2</span>
+</td>
+</tr>
+<tr class="">
+<td><span class="pricetype">Normaal</span></td>
+<td class="price">€&nbsp;31,00</td>
+</tr>
+<tr class="">
+<td><span class="pricetype">CJP</span></td>
+<td class="price">€&nbsp;31,00</td>
+</tr>
+<tr class="">
+<td><span class="pricetype">Stadspas</span></td>
+<td class="price">€&nbsp;31,00</td>
+</tr>
+</tbody></table>
+</div>
+</div>
+<button type="button" data-controller="popover" class="pricePopoverBtn" aria-describedby="popover-prices-16469">
+€&nbsp;31,00–€&nbsp;39,00
+<i class="fa fa-angle-down" aria-hidden="true"></i>
+</button>
+</div>
+</div>
+<div class="meta-group button">
+<a class="btn btn-active btn-order status-normaal" href="https://tickets.muziekgebouw.nl/nl/buyingflow/tickets/54739/114904" rel="external">
+<span class="peppered-icon icon-cart" aria-hidden="true"></span>
+<span class="label"><span class="label">In winkelmandje</span></span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</li>
+<li data-entry-id="15438" class=" eventCard STYLE_VVK2020 context-default production-type-default variant-normal topdate " data-controller="genres">
+<div class="listItemWrapper ">
+<div class="thumb xl">
+<a class="image" href="/nl/agenda/the-desert-music-van-steve-reich-5pjj" tabindex="-1">
+<picture class="responsive-image">
+<img src="https://img.muziekgebouw.nl/wp0o7xs6PrLxhnvTgS9jrOCvivZysdmHbJPjMBzhcDo/c:3582:2025/s:690:390:1/aHR0cHM6Ly93d3cubXV6aWVrZ2Vib3V3Lm5sLy9jbXNfZmlsZXMvc3lzdGVtL2ltYWdlcy9pbWc4MzU2NV9vcmlnLmpwZw" alt="The Desert Music">
+</picture>
+</a>
+</div>
+<div class="inner">
+<div class="descMetaContainer">
+<a class="desc" href="/nl/agenda/the-desert-music-van-steve-reich-5pjj">
+<h3 class="title">The Desert Music van Steve Reich</h3>
+<div class="subtitle">Het Muziek, Nederlands Kamerkoor, HIIIT, Ensemble Klang + New European Ensemble</div>
+<div class="top-date">
+<span class="start">
+za 3 okt 2026
+</span>
+<span class="time">
+20:15
+</span>
+</div>
+<div class="tagline"><p>Monumentale cantate door groots ensemble</p></div>
+<div class="venue">
+Grote Zaal
+</div>
+</a>
+<div class="meta">
+<div class="meta-group" data-genres-target="genresContainer">
+</div>
+<div class="meta-group">
+<div class="wishlist">
+</div>
+</div>
+<div class="meta-group button">
+<a class="btn btn-active btn-order status-" href="https://tickets.muziekgebouw.nl/nl/buyingflow/tickets/55027/115364" rel="external">
+<span class="peppered-icon icon-cart" aria-hidden="true"></span>
+<span class="label"><span class="label">Laatste kaarten</span></span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</li>
+<li data-entry-id="15887" class=" eventCard context-default production-type-default variant-normal topdate " data-controller="genres">
+<div class="listItemWrapper ">
+<div class="thumb xl">
+<a class="image" href="/nl/agenda/wendy-eisenberg-nwdb" tabindex="-1">
+<picture class="responsive-image">
+<img src="https://img.muziekgebouw.nl/FSoRqyDGLWXsTA2-9nbrNqlOQDJjkfO_fpKx3aUYTp4/c:1000:565:nowe:0:184/s:690:390:1/aHR0cHM6Ly93d3cubXV6aWVrZ2Vib3V3Lm5sLy9jbXNfZmlsZXMvc3lzdGVtL2ltYWdlcy9pbWc4NTg4NV9vcmlnLndlYnA" alt="Wendy Eisenberg ©Eleanor Petry">
+</picture>
+</a>
+</div>
+<div class="inner">
+<div class="descMetaContainer">
+<a class="desc" href="/nl/agenda/wendy-eisenberg-nwdb">
+<h3 class="title">Wendy Eisenberg</h3>
+<div class="subtitle"></div>
+<div class="top-date">
+<span class="start">
+za 3 okt 2026
+</span>
+<span class="time">
+20:30
+</span>
+</div>
+<div class="tagline"><p>Poëtische, gedurfde folk</p></div>
+<div class="venue">
+Bimhuis
+</div>
+</a>
+<div class="meta">
+<div class="meta-group" data-genres-target="genresContainer">
+</div>
+<div class="meta-group">
+<div class="wishlist">
+</div>
+</div>
+<div class="meta-group button">
+<a class="btn btn-active btn-order status-" href="https://www.bimhuis.nl/agenda/wendy-eisenberg" rel="external">
+<span class="peppered-icon icon-cart" aria-hidden="true"></span>
+<span class="label"><span class="label">Bestel via Bimhuis</span></span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</li>
+<li data-entry-id="15885" class=" eventCard context-default production-type-default variant-normal topdate " data-controller="genres">
+<div class="listItemWrapper ">
+<div class="thumb xl">
+<a class="image" href="/nl/agenda/forced-to-be-the-clown-s5rt" tabindex="-1">
+<picture class="responsive-image">
+<img src="https://img.muziekgebouw.nl/dwfTc3eiw7AldjS3HUiVmrlDS3y9_77BRvU7Dz3R1o8/c:3435:1942/s:690:390:1/format:png/aHR0cHM6Ly93d3cubXV6aWVrZ2Vib3V3Lm5sLy9jbXNfZmlsZXMvc3lzdGVtL2ltYWdlcy9pbWc4NTkyMl9vcmlnLnBuZw" alt="Forced to be the Clown">
+</picture>
+</a>
+</div>
+<div class="inner">
+<div class="descMetaContainer">
+<a class="desc" href="/nl/agenda/forced-to-be-the-clown-s5rt">
+<h3 class="title">Forced to be the Clown</h3>
+<div class="subtitle">Pensive Vivifier, Human Observer + Burchhhha</div>
+<div class="top-date">
+<span class="start">
+za 3 okt 2026
+</span>
+<span class="time">
+22:30
+</span>
+</div>
+<div class="tagline"><p>Hyperpop en clowncore visuals</p></div>
+<div class="venue">
+Kleine Zaal
+</div>
+</a>
+<div class="meta">
+<div class="meta-group" data-genres-target="genresContainer">
+</div>
+<div class="meta-group">
+<div class="wishlist">
+</div>
+<div class="price">
+<div hidden="" class="item-prices popover bottom" id="popover-prices-16917" aria-role="tooltip">
+<div class="arrow"></div>
+<div class="popover-content">
+<table>
+<tbody><tr class="rank">
+<td class="tickettype" colspan="2">
+<span class="rank-name">Ongeplaceerd</span>
+</td>
+</tr>
+<tr class="">
+<td><span class="pricetype">Normaal</span></td>
+<td class="price">€&nbsp;6,50</td>
+</tr>
+</tbody></table>
+</div>
+</div>
+<button type="button" data-controller="popover" class="pricePopoverBtn" aria-describedby="popover-prices-16917">
+€&nbsp;6,50
+<i class="fa fa-angle-down" aria-hidden="true"></i>
+</button>
+</div>
+</div>
+<div class="meta-group button">
+<a class="btn btn-active btn-order status-normaal" href="https://tickets.muziekgebouw.nl/nl/buyingflow/tickets/60343/122929" rel="external">
+<span class="peppered-icon icon-cart" aria-hidden="true"></span>
+<span class="label"><span class="label">In winkelmandje</span></span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</li>
+<li data-entry-id="15663" class=" eventCard context-default production-type-default variant-normal topdate " data-controller="genres">
+<div class="listItemWrapper ">
+<div class="thumb xl">
+<a class="image" href="/nl/agenda/todesfuge-rbbj" tabindex="-1">
+<picture class="responsive-image">
+<img src="https://img.muziekgebouw.nl/qrY20bKHYc6gJW1D3swXQldrg6IZQwXGPbhupsmgJio/c:4872:2753:fp:0.5:0.33/s:690:390:1/aHR0cHM6Ly93d3cubXV6aWVrZ2Vib3V3Lm5sLy9jbXNfZmlsZXMvc3lzdGVtL2ltYWdlcy9pbWc4MzE2Ml9vcmlnLmpwZw" alt="Boudewijn Tarenskeen (foto Annaleen Louwes)">
+</picture>
+</a>
+</div>
+<div class="inner">
+<div class="descMetaContainer">
+<a class="desc" href="/nl/agenda/todesfuge-rbbj">
+<h3 class="title">TODESFUGE</h3>
+<div class="subtitle">Nieuw Amsterdams Peil</div>
+<div class="top-date">
+<span class="start">
+zo 4 okt 2026
+</span>
+<span class="time">
+16:00
+</span>
+</div>
+<div class="tagline"><p>Monument van de dichtkunst onder de loep <br><small><span style="color: black;">Tarenskeen</span></small></p></div>
+<div class="venue">
+Kleine Zaal
+</div>
+</a>
+<div class="meta">
+<div class="meta-group" data-genres-target="genresContainer">
+</div>
+<div class="meta-group">
+<div class="wishlist">
+</div>
+</div>
+<div class="meta-group button">
+<a href="/nl/agenda/todesfuge-rbbj" class="status-info status-uitverkocht"><span class="peppered-icon icon-info" aria-hidden="true"></span><span class="label">Uitverkocht</span></a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</li>
+<li data-entry-id="15875" class=" eventCard STYLE_VVK2020 context-default production-type-default variant-normal topdate " data-controller="genres">
+<div class="listItemWrapper ">
+<div class="thumb xl">
+<a class="image" href="/nl/agenda/rafet-el-roman-891v" tabindex="-1">
+<picture class="responsive-image">
+<img src="https://img.muziekgebouw.nl/3nbd6lxJIaU47Sy8ckWeZI-81rKvu8G8h4TGpFzRShE/c:3456:1953:fp:0.5:0.33/s:690:390:1/aHR0cHM6Ly93d3cubXV6aWVrZ2Vib3V3Lm5sLy9jbXNfZmlsZXMvc3lzdGVtL2ltYWdlcy9pbWc4NTc4OF9vcmlnLkpQRUc" alt="Rafet El Roman">
+</picture>
+</a>
+</div>
+<div class="inner">
+<div class="descMetaContainer">
+<a class="desc" href="/nl/agenda/rafet-el-roman-891v">
+<h3 class="title">Rafet El Roman</h3>
+<div class="subtitle"></div>
+<div class="top-date">
+<span class="start">
+zo 4 okt 2026
+</span>
+<span class="time">
+20:15
+</span>
+</div>
+<div class="tagline"><p>Turkse sterzanger die generaties overbrugt&nbsp;</p></div>
+<div class="venue">
+Grote Zaal
+</div>
+</a>
+<div class="meta">
+<div class="meta-group" data-genres-target="genresContainer">
+</div>
+<div class="meta-group">
+<div class="wishlist">
+</div>
+<div class="price">
+<div hidden="" class="item-prices popover bottom" id="popover-prices-16907" aria-role="tooltip">
+<div class="arrow"></div>
+<div class="popover-content">
+<table>
+<tbody><tr class="rank">
+<td class="tickettype" colspan="2">
+<span class="rank-name">1</span>
+</td>
+</tr>
+<tr class="">
+<td><span class="pricetype">Normaal</span></td>
+<td class="price">€&nbsp;55,00</td>
+</tr>
+<tr class="">
+<td><span class="pricetype">CJP</span></td>
+<td class="price">€&nbsp;44,00</td>
+</tr>
+<tr class="">
+<td><span class="pricetype">Stadspas</span></td>
+<td class="price">€&nbsp;44,00</td>
+</tr>
+<tr class="rank">
+<td class="tickettype" colspan="2">
+<span class="rank-name">2</span>
+</td>
+</tr>
+<tr class="">
+<td><span class="pricetype">Normaal</span></td>
+<td class="price">€&nbsp;44,00</td>
+</tr>
+<tr class="">
+<td><span class="pricetype">CJP</span></td>
+<td class="price">€&nbsp;44,00</td>
+</tr>
+<tr class="">
+<td><span class="pricetype">Stadspas</span></td>
+<td class="price">€&nbsp;44,00</td>
+</tr>
+</tbody></table>
+</div>
+</div>
+<button type="button" data-controller="popover" class="pricePopoverBtn" aria-describedby="popover-prices-16907">
+€&nbsp;44,00–€&nbsp;55,00
+<i class="fa fa-angle-down" aria-hidden="true"></i>
+</button>
+</div>
+</div>
+<div class="meta-group button">
+<a class="btn btn-active btn-order status-" href="https://tickets.muziekgebouw.nl/nl/buyingflow/tickets/60137/122580" rel="external">
+<span class="peppered-icon icon-cart" aria-hidden="true"></span>
+<span class="label"><span class="label">Laatste kaarten</span></span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</li>
+<li data-entry-id="15439" class=" eventCard STYLE_VVK2020 context-default production-type-default variant-normal topdate " data-controller="genres">
+<div class="listItemWrapper ">
+<div class="thumb xl">
+<a class="image" href="/nl/agenda/intieme-brieven-nwyl" tabindex="-1">
+<picture class="responsive-image">
+<img src="https://img.muziekgebouw.nl/9f-g60Lh0g9H12H_-ps-bXJsyBrXjAyyQ3BkT5ZFky8/c:5000:2826:fp:0.5:0.33/s:690:390:1/aHR0cHM6Ly93d3cubXV6aWVrZ2Vib3V3Lm5sLy9jbXNfZmlsZXMvc3lzdGVtL2ltYWdlcy9pbWc4MzU4OV9vcmlnLmpwZw" alt="Amsterdam Sinfonietta">
+</picture>
+</a>
+</div>
+<div class="inner">
+<div class="descMetaContainer">
+<a class="desc" href="/nl/agenda/intieme-brieven-nwyl">
+<h3 class="title">Intieme brieven</h3>
+<div class="subtitle">Amsterdam Sinfonietta + Liza Ferschtman</div>
+<div class="top-date">
+<span class="start">
+wo 7 okt 2026
+</span>
+<span class="time">
+20:15
+</span>
+</div>
+<div class="tagline"><p>Rauwe emotie, levendige contrasten en expressieve melodieën</p></div>
+<div class="venue">
+Grote Zaal
+</div>
+</a>
+<div class="meta">
+<div class="meta-group" data-genres-target="genresContainer">
+</div>
+<div class="meta-group">
+<div class="wishlist">
+</div>
+<div class="price">
+<div hidden="" class="item-prices popover bottom" id="popover-prices-16471" aria-role="tooltip">
+<div class="arrow"></div>
+<div class="popover-content">
+<table>
+<tbody><tr class="rank">
+<td class="tickettype" colspan="2">
+<span class="rank-name">1</span>
+</td>
+</tr>
+<tr class="">
+<td><span class="pricetype">Normaal</span></td>
+<td class="price">€&nbsp;49,00</td>
+</tr>
+<tr class="">
+<td><span class="pricetype">CJP</span></td>
+<td class="price">€&nbsp;39,00</td>
+</tr>
+<tr class="">
+<td><span class="pricetype">Stadspas</span></td>
+<td class="price">€&nbsp;39,00</td>
+</tr>
+<tr class="">
+<td><span class="pricetype">Early Bird (13-30jr)</span></td>
+<td class="price">€&nbsp;12,50</td>
+</tr>
+<tr class="rank">
+<td class="tickettype" colspan="2">
+<span class="rank-name">2</span>
+</td>
+</tr>
+<tr class="">
+<td><span class="pricetype">Normaal</span></td>
+<td class="price">€&nbsp;39,00</td>
+</tr>
+<tr class="">
+<td><span class="pricetype">CJP</span></td>
+<td class="price">€&nbsp;39,00</td>
+</tr>
+<tr class="">
+<td><span class="pricetype">Stadspas</span></td>
+<td class="price">€&nbsp;39,00</td>
+</tr>
+<tr class="">
+<td><span class="pricetype">Early Bird (13-30jr)</span></td>
+<td class="price">€&nbsp;12,50</td>
+</tr>
+</tbody></table>
+</div>
+</div>
+<button type="button" data-controller="popover" class="pricePopoverBtn" aria-describedby="popover-prices-16471">
+€&nbsp;12,50–€&nbsp;49,00
+<i class="fa fa-angle-down" aria-hidden="true"></i>
+</button>
+</div>
+</div>
+<div class="meta-group button">
+<a class="btn btn-active btn-order status-normaal" href="https://tickets.muziekgebouw.nl/nl/buyingflow/tickets/55028/115367" rel="external">
+<span class="peppered-icon icon-cart" aria-hidden="true"></span>
+<span class="label"><span class="label">In winkelmandje</span></span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</li>
+<li data-entry-id="15440" class=" eventCard STYLE_VVK2020 context-default production-type-default variant-normal topdate " data-controller="genres">
+<div class="listItemWrapper ">
+<div class="thumb xl">
+<a class="image" href="/nl/agenda/franse-lijnen-fklh" tabindex="-1">
+<picture class="responsive-image">
+<img src="https://img.muziekgebouw.nl/O9XdLYh3NszCr0uQxggmC0FyqubIA3yr5EEiINhBf6A/c:5616:3177:nowe:0:562/s:690:390:1/aHR0cHM6Ly93d3cubXV6aWVrZ2Vib3V3Lm5sLy9jbXNfZmlsZXMvc3lzdGVtL2ltYWdlcy9pbWc4MzU5M19vcmlnLmpwZWc" alt="George Benjamin (©Matthew Lloyd)">
+</picture>
+</a>
+</div>
+<div class="inner">
+<div class="descMetaContainer">
+<a class="desc" href="/nl/agenda/franse-lijnen-fklh">
+<h3 class="title">Franse lijnen</h3>
+<div class="subtitle">Pierre-Laurent Aimard + George Benjamin</div>
+<div class="top-date">
+<span class="start">
+do 8 okt 2026
+</span>
+<span class="time">
+20:15
+</span>
+</div>
+<div class="tagline"><p>Bevriende componist en meesterpianist in een visionair programma</p></div>
+<div class="venue">
+Grote Zaal
+</div>
+</a>
+<div class="meta">
+<div class="meta-group" data-genres-target="genresContainer">
+</div>
+<div class="meta-group">
+<div class="wishlist">
+</div>
+<div class="price">
+<div hidden="" class="item-prices popover bottom" id="popover-prices-16472" aria-role="tooltip">
+<div class="arrow"></div>
+<div class="popover-content">
+<table>
+<tbody><tr class="rank">
+<td class="tickettype" colspan="2">
+<span class="rank-name">1</span>
+</td>
+</tr>
+<tr class="">
+<td><span class="pricetype">Normaal</span></td>
+<td class="price">€&nbsp;49,00</td>
+</tr>
+<tr class="">
+<td><span class="pricetype">CJP</span></td>
+<td class="price">€&nbsp;39,00</td>
+</tr>
+<tr class="">
+<td><span class="pricetype">Stadspas</span></td>
+<td class="price">€&nbsp;39,00</td>
+</tr>
+<tr class="">
+<td><span class="pricetype">Early Bird (13-30jr)</span></td>
+<td class="price">€&nbsp;12,50</td>
+</tr>
+<tr class="rank">
+<td class="tickettype" colspan="2">
+<span class="rank-name">2</span>
+</td>
+</tr>
+<tr class="">
+<td><span class="pricetype">Normaal</span></td>
+<td class="price">€&nbsp;39,00</td>
+</tr>
+<tr class="">
+<td><span class="pricetype">CJP</span></td>
+<td class="price">€&nbsp;39,00</td>
+</tr>
+<tr class="">
+<td><span class="pricetype">Stadspas</span></td>
+<td class="price">€&nbsp;39,00</td>
+</tr>
+<tr class="">
+<td><span class="pricetype">Early Bird (13-30jr)</span></td>
+<td class="price">€&nbsp;12,50</td>
+</tr>
+</tbody></table>
+</div>
+</div>
+<button type="button" data-controller="popover" class="pricePopoverBtn" aria-describedby="popover-prices-16472">
+€&nbsp;12,50–€&nbsp;49,00
+<i class="fa fa-angle-down" aria-hidden="true"></i>
+</button>
+</div>
+</div>
+<div class="meta-group button">
+<a class="btn btn-active btn-order status-normaal" href="https://tickets.muziekgebouw.nl/nl/buyingflow/tickets/54749/114910" rel="external">
+<span class="peppered-icon icon-cart" aria-hidden="true"></span>
+<span class="label"><span class="label">In winkelmandje</span></span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</li>
+<li data-entry-id="15441" class=" eventCard STYLE_VVK2020 context-default production-type-default variant-normal topdate " data-controller="genres">
+<div class="listItemWrapper ">
+<div class="thumb xl">
+<a class="image" href="/nl/agenda/intieme-brieven-en-suite-italienne-rb3k" tabindex="-1">
+<picture class="responsive-image">
+<img src="https://img.muziekgebouw.nl/CH8GNNEXkhTdO4mcett0GaBrkPSAMzPK1GuOLAmcy3g/c:3333:1884:nowe:0:2293/s:690:390:1/aHR0cHM6Ly93d3cubXV6aWVrZ2Vib3V3Lm5sLy9jbXNfZmlsZXMvc3lzdGVtL2ltYWdlcy9pbWc4MzYwN19vcmlnLmpwZw" alt="Amsterdam Sinfonietta">
+</picture>
+</a>
+</div>
+<div class="inner">
+<div class="descMetaContainer">
+<a class="desc" href="/nl/agenda/intieme-brieven-en-suite-italienne-rb3k">
+<h3 class="title">Intieme brieven en Suite Italienne</h3>
+<div class="subtitle">Amsterdam Sinfonietta, Liza Ferschtman + Rick Stotijn</div>
+<div class="top-date">
+<span class="start">
+vr 9 okt 2026
+</span>
+<span class="time">
+20:15
+</span>
+</div>
+<div class="tagline"><p>Gloednieuwe Stravinsky-bewerking en liefdesmuziek van Janáček</p></div>
+<div class="venue">
+Grote Zaal
+</div>
+</a>
+<div class="meta">
+<div class="meta-group" data-genres-target="genresContainer">
+</div>
+<div class="meta-group">
+<div class="wishlist">
+</div>
+<div class="price">
+<div hidden="" class="item-prices popover bottom" id="popover-prices-16473" aria-role="tooltip">
+<div class="arrow"></div>
+<div class="popover-content">
+<table>
+<tbody><tr class="rank">
+<td class="tickettype" colspan="2">
+<span class="rank-name">1</span>
+</td>
+</tr>
+<tr class="">
+<td><span class="pricetype">Normaal</span></td>
+<td class="price">€&nbsp;49,00</td>
+</tr>
+<tr class="">
+<td><span class="pricetype">CJP</span></td>
+<td class="price">€&nbsp;39,00</td>
+</tr>
+<tr class="">
+<td><span class="pricetype">Stadspas</span></td>
+<td class="price">€&nbsp;39,00</td>
+</tr>
+<tr class="">
+<td><span class="pricetype">Early Bird (13-30jr)</span></td>
+<td class="price">€&nbsp;12,50</td>
+</tr>
+<tr class="rank">
+<td class="tickettype" colspan="2">
+<span class="rank-name">2</span>
+</td>
+</tr>
+<tr class="">
+<td><span class="pricetype">Normaal</span></td>
+<td class="price">€&nbsp;39,00</td>
+</tr>
+<tr class="">
+<td><span class="pricetype">CJP</span></td>
+<td class="price">€&nbsp;39,00</td>
+</tr>
+<tr class="">
+<td><span class="pricetype">Stadspas</span></td>
+<td class="price">€&nbsp;39,00</td>
+</tr>
+<tr class="">
+<td><span class="pricetype">Early Bird (13-30jr)</span></td>
+<td class="price">€&nbsp;12,50</td>
+</tr>
+</tbody></table>
+</div>
+</div>
+<button type="button" data-controller="popover" class="pricePopoverBtn" aria-describedby="popover-prices-16473">
+€&nbsp;12,50–€&nbsp;49,00
+<i class="fa fa-angle-down" aria-hidden="true"></i>
+</button>
+</div>
+</div>
+<div class="meta-group button">
+<a class="btn btn-active btn-order status-normaal" href="https://tickets.muziekgebouw.nl/nl/buyingflow/tickets/55211/115771" rel="external">
+<span class="peppered-icon icon-cart" aria-hidden="true"></span>
+<span class="label"><span class="label">In winkelmandje</span></span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</li>
+<a class="hidden" href="/nl/agenda?p54_page=1" translate="no" aria-label="Deze pagina in het Nederlands" lang="nl">
+                nl
+            </a>
+<a href="/en/agenda?p54_page=1" translate="no" aria-label="This page in English" lang="en">
+                en
+            </a>
+<a href="/nl/agenda?p54_page=2#page_part_54" class="btn btn-default next" rel="next">
+                Volgende
+            </a>

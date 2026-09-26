@@ -1,0 +1,2954 @@
+[
+ {
+  "availability": "on_sale",
+  "categories": [
+   "Albumpresentatie",
+   "Dubbelconcert"
+  ],
+  "city": "Amsterdam",
+  "description": "Twee concerten op een avond met solo-performers die ieder voor zich een wereld aan klanken en verhalen oproepen.",
+  "doors": "2026-09-26T18:30:00+02:00",
+  "end": "2026-09-26T22:45:00+02:00",
+  "extra": {
+   "ticket_id": "54326"
+  },
+  "genres": [
+   "Impro Focus"
+  ],
+  "image": "https://backend.bimhuis.nl/app/uploads/2026/06/260926-Julie-Campiche-Raphael-Vanoli.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 21.0,
+   "min_eur": 18.0,
+   "text": null
+  },
+  "room": "Zaal",
+  "source_id": "148210",
+  "start": "2026-09-26T20:30:00+02:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://activetickets.bimhuis.nl/nl-NL/Show/Details/54326",
+  "title": "Julie Campiche – Unspoken | Raphael Vanoli Solo",
+  "url": "https://www.bimhuis.nl/agenda/julie-campiche-unspoken-raphael-vanoli-solo/",
+  "venue": "bimhuis"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [],
+  "city": "Amsterdam",
+  "description": "Bekroond kwartet uit Kyiv mengt hiphop, jazz, rock en elektronica.",
+  "doors": "2026-09-27T18:30:00+02:00",
+  "end": "2026-09-27T22:00:00+02:00",
+  "extra": {
+   "ticket_id": "54336"
+  },
+  "genres": [],
+  "image": "https://backend.bimhuis.nl/app/uploads/2026/06/270926-Hyphen-Dash.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 21.0,
+   "min_eur": 18.0,
+   "text": null
+  },
+  "room": "Zaal",
+  "source_id": "148495",
+  "start": "2026-09-27T20:30:00+02:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://activetickets.bimhuis.nl/nl-NL/Show/Details/54336",
+  "title": "Hyphen Dash ft. Diana Sidibé",
+  "url": "https://www.bimhuis.nl/agenda/hyphen-dash-ft-diana-sidibe/",
+  "venue": "bimhuis"
+ },
+ {
+  "availability": "free",
+  "categories": [],
+  "city": "Amsterdam",
+  "description": "Jamsessie met internationaal, jong en gevestigd talent in ons café.",
+  "doors": "2026-09-29T21:30:00+02:00",
+  "end": "2026-09-30T00:30:00+02:00",
+  "extra": {
+   "ticket_id": "54419"
+  },
+  "genres": [],
+  "image": "https://backend.bimhuis.nl/app/uploads/2024/06/240312-Supersessie-©Francoise-Bolechwoski-22-scaled.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 0.0,
+   "min_eur": 0.0,
+   "text": null
+  },
+  "room": "Café",
+  "source_id": "149944",
+  "start": "2026-09-29T22:00:00+02:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": null,
+  "title": "Tuesday Jam",
+  "url": "https://www.bimhuis.nl/agenda/tuesday-jam-277/",
+  "venue": "bimhuis"
+ },
+ {
+  "availability": "few_left",
+  "categories": [],
+  "city": "Amsterdam",
+  "description": "Masterclass in straight-ahead jazz door iconische saxofonist met all-starband en Belgische gitaarlegende.",
+  "doors": "2026-09-30T18:30:00+02:00",
+  "end": "2026-09-30T22:30:00+02:00",
+  "extra": {
+   "ticket_id": "54328"
+  },
+  "genres": [
+   "Headliners"
+  ],
+  "image": "https://backend.bimhuis.nl/app/uploads/2026/05/300926-shamilton-1.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 34.0,
+   "min_eur": 29.0,
+   "text": null
+  },
+  "room": "Zaal",
+  "source_id": "148355",
+  "start": "2026-09-30T20:30:00+02:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://activetickets.bimhuis.nl/nl-NL/Show/Details/54328",
+  "title": "Scott Hamilton & Rein de Graaff Trio ft. Philip Catherine",
+  "url": "https://www.bimhuis.nl/agenda/scott-hamilton-rein-de-graaff-trio-ft-philip-catherine/",
+  "venue": "bimhuis"
+ },
+ {
+  "availability": "sold_out",
+  "categories": [
+   "REFLEX"
+  ],
+  "city": "Amsterdam",
+  "description": "Supergroep uit Amsterdam en Chicago rond drummer die avant-jazz mengt met percussie uit onder meer Puerto Rico en Cuba.",
+  "doors": "2026-10-01T18:30:00+02:00",
+  "end": null,
+  "extra": {
+   "ticket_id": "54243"
+  },
+  "genres": [
+   "BIMHUIS Productions"
+  ],
+  "image": "https://backend.bimhuis.nl/app/uploads/2025/12/011026-REFLEX-frank_rosaly_2-c-Geert-Vandepoele.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 21.0,
+   "min_eur": 18.0,
+   "text": null
+  },
+  "room": "Zaal",
+  "source_id": "146182",
+  "start": "2026-10-01T20:30:00+02:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": null,
+  "title": "Frank Rosaly met Jeff Parker, Rob Frye & Ibelisse Guardia Ferragutti",
+  "url": "https://www.bimhuis.nl/agenda/frank-rosaly-met-rob-mazurek-jeff-parker-ibelisse-guardia-ferragutti/",
+  "venue": "bimhuis"
+ },
+ {
+  "availability": "few_left",
+  "categories": [],
+  "city": "Amsterdam",
+  "description": "Ode aan de altsaxofoon, in de geest van Piet Noordijk.",
+  "doors": "2026-10-02T18:30:00+02:00",
+  "end": "2026-10-02T22:00:00+02:00",
+  "extra": {
+   "ticket_id": "54341"
+  },
+  "genres": [],
+  "image": "https://backend.bimhuis.nl/app/uploads/2026/05/Pressphoto-Epic-Rainbow-photo-by-Jonathan-Herman-1.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 26.0,
+   "min_eur": 22.0,
+   "text": null
+  },
+  "room": "Zaal",
+  "source_id": "148525",
+  "start": "2026-10-02T20:30:00+02:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://activetickets.bimhuis.nl/nl-NL/Show/Details/54341",
+  "title": "Benjamin Herman’s European Alto Festival",
+  "url": "https://www.bimhuis.nl/agenda/benjamin-hermans-european-alto-festival-2/",
+  "venue": "bimhuis"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [
+   "& Subbacultcha"
+  ],
+  "city": "Amsterdam",
+  "description": "Singer-songwriter en gitaarvirtuoos presenteert poëtische, gedurfde folk.",
+  "doors": "2026-10-03T17:30:00+02:00",
+  "end": "2026-10-03T22:00:00+02:00",
+  "extra": {
+   "ticket_id": "54439"
+  },
+  "genres": [
+   "BIMHUIS & The Rest is Noise"
+  ],
+  "image": "https://backend.bimhuis.nl/app/uploads/2026/07/031026_wendy_eisenberg_2_by_eleanor_petry-smaller_af5e4c16.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 23.0,
+   "min_eur": 19.0,
+   "text": null
+  },
+  "room": "Zaal",
+  "source_id": "150656",
+  "start": "2026-10-03T20:30:00+02:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://activetickets.bimhuis.nl/nl-NL/Show/Details/54439",
+  "title": "Wendy Eisenberg",
+  "url": "https://www.bimhuis.nl/agenda/wendy-eisenberg/",
+  "venue": "bimhuis"
+ },
+ {
+  "availability": "few_left",
+  "categories": [],
+  "city": "Amsterdam",
+  "description": "Blikvanger van My Baby vormt intens, vrij en speels nieuw duo met eigenzinnige gitarist.",
+  "doors": "2026-10-04T18:30:00+02:00",
+  "end": "2026-10-04T22:00:00+02:00",
+  "extra": {
+   "ticket_id": "54251"
+  },
+  "genres": [
+   "New Dutch Jazz"
+  ],
+  "image": "https://backend.bimhuis.nl/app/uploads/2025/12/261004-Cato-Anton-foto-Arjen-Jan-Stada.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 23.0,
+   "min_eur": 19.0,
+   "text": null
+  },
+  "room": "Zaal",
+  "source_id": "146394",
+  "start": "2026-10-04T20:30:00+02:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://activetickets.bimhuis.nl/nl-NL/Show/Details/54251",
+  "title": "Cato van Dijck & Anton Goudsmit",
+  "url": "https://www.bimhuis.nl/agenda/cato-van-dijck-anton-goudsmit/",
+  "venue": "bimhuis"
+ },
+ {
+  "availability": "free",
+  "categories": [],
+  "city": "Amsterdam",
+  "description": "Jamsessie met internationaal, jong en gevestigd talent in ons café.",
+  "doors": "2026-10-06T21:30:00+02:00",
+  "end": "2026-10-07T00:30:00+02:00",
+  "extra": {
+   "ticket_id": "54420"
+  },
+  "genres": [],
+  "image": "https://backend.bimhuis.nl/app/uploads/2026/06/061026_240312-supersessie-francoise-bolechwoski-74.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 0.0,
+   "min_eur": 0.0,
+   "text": null
+  },
+  "room": "Café",
+  "source_id": "149946",
+  "start": "2026-10-06T22:00:00+02:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": null,
+  "title": "Tuesday Jam",
+  "url": "https://www.bimhuis.nl/agenda/tuesday-jam-280/",
+  "venue": "bimhuis"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [],
+  "city": "Amsterdam",
+  "description": "Familieproject van vocalist en pianist verweeft jazz en soul tot een ode aan zuidelijk Afrika.",
+  "doors": "2026-10-08T18:30:00+02:00",
+  "end": "2026-10-08T22:00:00+02:00",
+  "extra": {
+   "ticket_id": "54370"
+  },
+  "genres": [
+   "Vocal Jazz"
+  ],
+  "image": "https://backend.bimhuis.nl/app/uploads/2026/05/Shishani-en-Ernst.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 21.0,
+   "min_eur": 18.0,
+   "text": null
+  },
+  "room": "Zaal",
+  "source_id": "148772",
+  "start": "2026-10-08T20:30:00+02:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://activetickets.bimhuis.nl/nl-NL/Show/Details/54370",
+  "title": "Shishani & Ernst Vranckx – Family Affair",
+  "url": "https://www.bimhuis.nl/agenda/shishani-ernst-vranckx-family-affair/",
+  "venue": "bimhuis"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [
+   "BIMHUIS & Space is the Place"
+  ],
+  "city": "Amsterdam",
+  "description": "Spectaculaire avond vol bands en musici die al improviserend nieuwe richtingen inslaan.",
+  "doors": "2026-10-09T18:30:00+02:00",
+  "end": null,
+  "extra": {
+   "ticket_id": "54443"
+  },
+  "genres": [
+   "Impro Focus"
+  ],
+  "image": "https://backend.bimhuis.nl/app/uploads/2026/07/261009-Interplanetary-Night-1-3.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 23.0,
+   "min_eur": 19.0,
+   "text": null
+  },
+  "room": "Zaal",
+  "source_id": "150670",
+  "start": "2026-10-09T20:35:00+02:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://activetickets.bimhuis.nl/nl-NL/Show/Details/54443",
+  "title": "An Interplanetary Night: Amirtha Kidambi’s Elder Ones, Ludvig Søndergaard Sekstet, Czajka & Puchacz en Gerri Jäger",
+  "url": "https://www.bimhuis.nl/agenda/an-interplanetary-night-amirtha-kidambis-elder-ones-ludvig-sondergaard-sekstet-czajka-puchacz-en-gerri-jager/",
+  "venue": "bimhuis"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [],
+  "city": "Amsterdam",
+  "description": "Eigenzinnig kwintet speelt Great American Songbook en eigen werk met Nederlandse drumlegende.",
+  "doors": "2026-10-10T18:30:00+02:00",
+  "end": "2026-10-10T22:00:00+02:00",
+  "extra": {
+   "ticket_id": "54406"
+  },
+  "genres": [
+   "Legacy"
+  ],
+  "image": "https://backend.bimhuis.nl/app/uploads/2026/08/101026_tazelaar-artved-moseholm.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 21.0,
+   "min_eur": 18.0,
+   "text": null
+  },
+  "room": "Zaal",
+  "source_id": "149489",
+  "start": "2026-10-10T20:30:00+02:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://activetickets.bimhuis.nl/nl-NL/Show/Details/54406",
+  "title": "Artved / Tazelaar / Moseholm / Romme ft. John Engels",
+  "url": "https://www.bimhuis.nl/agenda/artved-tazelaar-moseholm-romme-ft-john-engels/",
+  "venue": "bimhuis"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [],
+  "city": "Amsterdam",
+  "description": "Energieke band geleid door pianowonder die haar klassieke achtergrond niet verbergt.",
+  "doors": "2026-10-11T18:30:00+02:00",
+  "end": "2026-10-11T22:20:00+02:00",
+  "extra": {
+   "ticket_id": "54319"
+  },
+  "genres": [],
+  "image": "https://backend.bimhuis.nl/app/uploads/2026/03/111026-Shuteen-Erdenebaatar-Quartet_PRINT_©_Uli-Neumann-Cosel6.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 23.0,
+   "min_eur": 19.0,
+   "text": null
+  },
+  "room": "Zaal",
+  "source_id": "147983",
+  "start": "2026-10-11T20:30:00+02:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://activetickets.bimhuis.nl/nl-NL/Show/Details/54319",
+  "title": "Shuteen Erdenebaatar BRIGHT FOLK",
+  "url": "https://www.bimhuis.nl/agenda/shuteen-erdenebaatar-bright-folk/",
+  "venue": "bimhuis"
+ },
+ {
+  "availability": "free",
+  "categories": [],
+  "city": "Amsterdam",
+  "description": "Jamsessie met internationaal, jong en gevestigd talent in ons café.",
+  "doors": "2026-10-13T21:30:00+02:00",
+  "end": "2026-10-14T00:30:00+02:00",
+  "extra": {
+   "ticket_id": "54421"
+  },
+  "genres": [],
+  "image": "https://backend.bimhuis.nl/app/uploads/2026/06/061026_240312-supersessie-francoise-bolechwoski-75.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 0.0,
+   "min_eur": 0.0,
+   "text": null
+  },
+  "room": "Café",
+  "source_id": "149948",
+  "start": "2026-10-13T22:00:00+02:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": null,
+  "title": "Tuesday Jam",
+  "url": "https://www.bimhuis.nl/agenda/tuesday-jam-282/",
+  "venue": "bimhuis"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [
+   "Peter Evans Focus"
+  ],
+  "city": "Amsterdam",
+  "description": "Solotrompet aan de uiterste grenzen van compositie en improvisatie, met solo gitaar vooraf.",
+  "doors": "2026-10-14T18:30:00+02:00",
+  "end": "2026-10-14T22:30:00+02:00",
+  "extra": {
+   "ticket_id": "54369"
+  },
+  "genres": [
+   "Impro Focus"
+  ],
+  "image": "https://backend.bimhuis.nl/app/uploads/2026/05/141026_peter-evans.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 21.0,
+   "min_eur": 18.0,
+   "text": null
+  },
+  "room": "Zaal",
+  "source_id": "148774",
+  "start": "2026-10-14T20:30:00+02:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://activetickets.bimhuis.nl/nl-NL/Show/Details/54369",
+  "title": "Peter Evans solo | Terrie Ex solo",
+  "url": "https://www.bimhuis.nl/agenda/peter-evans-solo-terrie-ex-solo/",
+  "venue": "bimhuis"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [],
+  "city": "Amsterdam",
+  "description": "Bejubelde zangeres uit Los Angeles laat songs horen van haar nieuwe album The Wise Ones.",
+  "doors": "2026-10-15T18:30:00+02:00",
+  "end": "2026-10-15T22:00:00+02:00",
+  "extra": {
+   "ticket_id": "54309"
+  },
+  "genres": [
+   "Headliners",
+   "Vocal Jazz"
+  ],
+  "image": "https://backend.bimhuis.nl/app/uploads/2026/03/261015-_gretchen_Solo_c_LaurenDesberg-1.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 31.0,
+   "min_eur": 26.0,
+   "text": null
+  },
+  "room": "Zaal",
+  "source_id": "147737",
+  "start": "2026-10-15T20:30:00+02:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://activetickets.bimhuis.nl/nl-NL/Show/Details/54309",
+  "title": "Gretchen Parlato Quartet",
+  "url": "https://www.bimhuis.nl/agenda/gretchen-parlato-quartet-3/",
+  "venue": "bimhuis"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [],
+  "city": "Amsterdam",
+  "description": "Muzikanten uit Aleppo en vooraanstaand collectief verbinden eeuwenoude tradities met westers klankbeeld.",
+  "doors": "2026-10-16T18:30:00+02:00",
+  "end": "2026-10-16T22:00:00+02:00",
+  "extra": {
+   "ticket_id": "54343"
+  },
+  "genres": [],
+  "image": "https://backend.bimhuis.nl/app/uploads/2026/06/161026-Orchestre-Partout-A-ticket-to-Aleppo-Nichon-Glerum-liggend.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 21.0,
+   "min_eur": 18.0,
+   "text": null
+  },
+  "room": "Zaal",
+  "source_id": "148530",
+  "start": "2026-10-16T20:30:00+02:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://activetickets.bimhuis.nl/nl-NL/Show/Details/54343",
+  "title": "Orchestre Partout & New European Ensemble – A Ticket to Aleppo",
+  "url": "https://www.bimhuis.nl/agenda/orchestre-partout-new-european-ensemble-a-ticket-to-aleppo/",
+  "venue": "bimhuis"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [],
+  "city": "Amsterdam",
+  "description": "Icoon van de Europese jazz met zijn telepathische trio.",
+  "doors": "2026-10-17T17:30:00+02:00",
+  "end": "2026-10-17T22:00:00+02:00",
+  "extra": {
+   "ticket_id": "54296"
+  },
+  "genres": [
+   "Headliners",
+   "ECM Recordings Artists"
+  ],
+  "image": "https://backend.bimhuis.nl/app/uploads/2026/05/171026-bobo-stenson-1-1.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 33.0,
+   "min_eur": 28.0,
+   "text": null
+  },
+  "room": "Zaal",
+  "source_id": "147480",
+  "start": "2026-10-17T20:30:00+02:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://activetickets.bimhuis.nl/nl-NL/Show/Details/54296",
+  "title": "Bobo Stenson Trio",
+  "url": "https://www.bimhuis.nl/agenda/bobo-stenson-trio-3/",
+  "venue": "bimhuis"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [],
+  "city": "Amsterdam",
+  "description": "Vlammende mix van krautrock, elektronica, avant-jazz en poëzie door zeskoppige sensatie uit Beiroet.",
+  "doors": "2026-10-18T18:30:00+02:00",
+  "end": null,
+  "extra": {
+   "ticket_id": "54346"
+  },
+  "genres": [
+   "BIMHUIS & The Rest is Noise"
+  ],
+  "image": "https://backend.bimhuis.nl/app/uploads/2026/05/181026-SANAM-3-1.jpeg",
+  "performers": [],
+  "price": {
+   "max_eur": 23.0,
+   "min_eur": 19.0,
+   "text": null
+  },
+  "room": "Zaal",
+  "source_id": "148620",
+  "start": "2026-10-18T20:30:00+02:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://activetickets.bimhuis.nl/nl-NL/Show/Details/54346",
+  "title": "SANAM",
+  "url": "https://www.bimhuis.nl/agenda/sanam/",
+  "venue": "bimhuis"
+ },
+ {
+  "availability": "free",
+  "categories": [],
+  "city": "Amsterdam",
+  "description": "Jamsessie met internationaal, jong en gevestigd talent in ons café.",
+  "doors": "2026-10-20T21:30:00+02:00",
+  "end": "2026-10-21T00:30:00+02:00",
+  "extra": {
+   "ticket_id": "54422"
+  },
+  "genres": [],
+  "image": "https://backend.bimhuis.nl/app/uploads/2026/06/061026_240312-supersessie-francoise-bolechwoski-68.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 0.0,
+   "min_eur": 0.0,
+   "text": null
+  },
+  "room": "Café",
+  "source_id": "149950",
+  "start": "2026-10-20T22:00:00+02:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": null,
+  "title": "Tuesday Jam",
+  "url": "https://www.bimhuis.nl/agenda/tuesday-jam-284/",
+  "venue": "bimhuis"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [
+   "Amsterdam Dance Event"
+  ],
+  "city": "Amsterdam",
+  "description": "Bijzondere set van invloedrijke elektronische pionier met live-instrumenten.",
+  "doors": "2026-10-21T19:30:00+02:00",
+  "end": "2026-10-21T22:00:00+02:00",
+  "extra": {
+   "ticket_id": "54448"
+  },
+  "genres": [],
+  "image": "https://backend.bimhuis.nl/app/uploads/2026/07/211026-Martyn-1.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 23.0,
+   "min_eur": 23.0,
+   "text": null
+  },
+  "room": "Zaal",
+  "source_id": "150698",
+  "start": "2026-10-21T20:30:00+02:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://activetickets.bimhuis.nl/nl-NL/Show/Details/54448",
+  "title": "Martyn3024",
+  "url": "https://www.bimhuis.nl/agenda/martyn3024/",
+  "venue": "bimhuis"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [
+   "Amsterdam Dance Event",
+   "Steppin' into Tomorrow"
+  ],
+  "city": "Amsterdam",
+  "description": "ADE-avond met collectieve groove uit Amsterdam en rauwe tenorsaxofoon uit New York.",
+  "doors": "2026-10-22T19:30:00+02:00",
+  "end": "2026-10-22T23:00:00+02:00",
+  "extra": {
+   "ticket_id": "54435"
+  },
+  "genres": [
+   "DATSKAT"
+  ],
+  "image": "https://backend.bimhuis.nl/app/uploads/2026/07/221026_tomoki_color_5k9a9302erik-barden.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 25.0,
+   "min_eur": 25.0,
+   "text": null
+  },
+  "room": "Zaal",
+  "source_id": "150476",
+  "start": "2026-10-22T20:30:00+02:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://activetickets.bimhuis.nl/nl-NL/Show/Details/54435",
+  "title": "RADIOHOP | Tomoki Sanders",
+  "url": "https://www.bimhuis.nl/agenda/radiohop-tomoki-sanders/",
+  "venue": "bimhuis"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [
+   "Amsterdam Dance Event"
+  ],
+  "city": "Amsterdam",
+  "description": "Formatie uit Oeganda vormt een levende drummachine geïnspireerd op de Roland TR-808.",
+  "doors": "2026-10-23T19:30:00+02:00",
+  "end": "2026-10-23T22:00:00+02:00",
+  "extra": {
+   "ticket_id": "54466"
+  },
+  "genres": [],
+  "image": "https://backend.bimhuis.nl/app/uploads/2026/09/231026_arsenal-mikebe-2-tremor-festival-credit-unknown.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 20.0,
+   "min_eur": 20.0,
+   "text": null
+  },
+  "room": "Zaal",
+  "source_id": "151234",
+  "start": "2026-10-23T21:00:00+02:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://activetickets.bimhuis.nl/nl-NL/Show/Details/54466",
+  "title": "Arsenal Mikebe",
+  "url": "https://www.bimhuis.nl/agenda/arsenal-mikebe/",
+  "venue": "bimhuis"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [
+   "Amsterdam Dance Event"
+  ],
+  "city": "Amsterdam",
+  "description": "Clubavond met rave-act uit de Amsterdamse underground die alles letterlijk omverblaast.",
+  "doors": "2026-10-24T19:30:00+02:00",
+  "end": null,
+  "extra": {
+   "ticket_id": "54452"
+  },
+  "genres": [],
+  "image": "https://backend.bimhuis.nl/app/uploads/2026/07/241026-Brass-Rave-Unit.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 25.0,
+   "min_eur": 25.0,
+   "text": null
+  },
+  "room": "Zaal",
+  "source_id": "150881",
+  "start": "2026-10-24T20:30:00+02:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://activetickets.bimhuis.nl/nl-NL/Show/Details/54452",
+  "title": "Brass Rave Unit | MANOLO",
+  "url": "https://www.bimhuis.nl/agenda/brass-rave-unit-manolo/",
+  "venue": "bimhuis"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [],
+  "city": "Amsterdam",
+  "description": "Voor het eerst in Europa: Mediterraanse impro-meesters ontmoeten grootheden uit de New Yorkse underground.",
+  "doors": "2026-10-25T18:30:00+01:00",
+  "end": "2026-10-25T22:00:00+01:00",
+  "extra": {
+   "ticket_id": "54453"
+  },
+  "genres": [
+   "Impro Focus"
+  ],
+  "image": "https://backend.bimhuis.nl/app/uploads/2026/08/251026_koper8-photo4et.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 21.0,
+   "min_eur": 18.0,
+   "text": null
+  },
+  "room": "Zaal",
+  "source_id": "150888",
+  "start": "2026-10-25T20:30:00+01:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://activetickets.bimhuis.nl/nl-NL/Show/Details/54453",
+  "title": "Koper8 ft. Ingrid Laubrock, Giuseppe Doronzo, Jannis Anastasakis, Tom Rainey",
+  "url": "https://www.bimhuis.nl/agenda/koper8-ft-ingrid-laubrock-giuseppe-doronzo-jannis-anastasakis-tom-rainey/",
+  "venue": "bimhuis"
+ },
+ {
+  "availability": "free",
+  "categories": [],
+  "city": "Amsterdam",
+  "description": "Jamsessie met internationaal, jong en gevestigd talent in ons café.",
+  "doors": "2026-10-27T21:30:00+01:00",
+  "end": "2026-10-28T00:30:00+01:00",
+  "extra": {
+   "ticket_id": "54423"
+  },
+  "genres": [],
+  "image": "https://backend.bimhuis.nl/app/uploads/2026/06/061026_2019-0226-supersessie-bart-grietens-13.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 0.0,
+   "min_eur": 0.0,
+   "text": null
+  },
+  "room": "Café",
+  "source_id": "149952",
+  "start": "2026-10-27T22:00:00+01:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": null,
+  "title": "Tuesday Jam",
+  "url": "https://www.bimhuis.nl/agenda/tuesday-jam-286/",
+  "venue": "bimhuis"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [],
+  "city": "Amsterdam",
+  "description": "Vibrafoonvirtuoos presenteert zijn nieuwste Blue Note-album.",
+  "doors": "2026-10-28T18:30:00+01:00",
+  "end": "2026-10-28T22:00:00+01:00",
+  "extra": {
+   "ticket_id": "54371"
+  },
+  "genres": [
+   "Headliners"
+  ],
+  "image": "https://backend.bimhuis.nl/app/uploads/2026/06/04-JoelRoss_2-9_byJatiLindsay.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 29.0,
+   "min_eur": 24.0,
+   "text": null
+  },
+  "room": "Zaal",
+  "source_id": "148848",
+  "start": "2026-10-28T20:30:00+01:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://activetickets.bimhuis.nl/nl-NL/Show/Details/54371",
+  "title": "Joel Ross Good Vibes",
+  "url": "https://www.bimhuis.nl/agenda/joel-ross-good-vibes/",
+  "venue": "bimhuis"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [],
+  "city": "Amsterdam",
+  "description": "Kaleidoscoop aan klanken en ritmes door Amerikaanse multi-instrumentalisten.",
+  "doors": "2026-10-29T18:30:00+01:00",
+  "end": "2026-10-29T22:00:00+01:00",
+  "extra": {
+   "ticket_id": "54340"
+  },
+  "genres": [
+   "Impro Focus"
+  ],
+  "image": "https://backend.bimhuis.nl/app/uploads/2026/05/291026-CUD-photo-by-Mikel-Patrick-Avery-2.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 23.0,
+   "min_eur": 19.0,
+   "text": null
+  },
+  "room": "Zaal",
+  "source_id": "148520",
+  "start": "2026-10-29T20:30:00+01:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://activetickets.bimhuis.nl/nl-NL/Show/Details/54340",
+  "title": "Chicago Underground Duo (Rob Mazurek & Chad Taylor)",
+  "url": "https://www.bimhuis.nl/agenda/chicago-underground-duo-rob-mazurek-chad-taylor/",
+  "venue": "bimhuis"
+ },
+ {
+  "availability": "few_left",
+  "categories": [],
+  "city": "Amsterdam",
+  "description": "Trio van wereldklasse o.l.v. Amerikaanse drummer bekend van samenwerking met John Scofield en Pat Metheny.",
+  "doors": "2026-10-30T18:30:00+01:00",
+  "end": "2026-10-30T22:30:00+01:00",
+  "extra": {
+   "ticket_id": "54241"
+  },
+  "genres": [
+   "Headliners"
+  ],
+  "image": "https://backend.bimhuis.nl/app/uploads/2025/12/261030-Bill-Stewart-trio-cr-William-Brown-1.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 28.0,
+   "min_eur": 23.0,
+   "text": null
+  },
+  "room": "Zaal",
+  "source_id": "146178",
+  "start": "2026-10-30T20:30:00+01:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://activetickets.bimhuis.nl/nl-NL/Show/Details/54241",
+  "title": "Bill Stewart Trio ft. Larry Grenadier & Walter Smith III",
+  "url": "https://www.bimhuis.nl/agenda/bill-stewart-trio-ft-larry-grenadier-walter-smith-iii/",
+  "venue": "bimhuis"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [
+   "Cello Biënnale Amsterdam"
+  ],
+  "city": "Amsterdam",
+  "description": "Een muzikale familievoorstelling over onze meest gevreesde emotie.",
+  "doors": "2026-10-31T11:00:00+01:00",
+  "end": "2026-10-31T12:15:00+01:00",
+  "extra": {
+   "ticket_id": "54378"
+  },
+  "genres": [],
+  "image": "https://backend.bimhuis.nl/app/uploads/2026/05/image_123655411.jpg",
+  "performers": [],
+  "price": null,
+  "room": "Zaal",
+  "source_id": "148996",
+  "start": "2026-10-31T11:30:00+01:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://www.cellobiennale.nl/nl/voorstellingen/rustig-6-15hr",
+  "title": "Familievoorstelling: RUSTIG!!!",
+  "url": "https://www.bimhuis.nl/agenda/familievoorstelling-rustig/",
+  "venue": "bimhuis"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [
+   "Cello Biënnale Amsterdam"
+  ],
+  "city": "Amsterdam",
+  "description": "Een muzikale familievoorstelling over onze meest gevreesde emotie.",
+  "doors": "2026-10-31T11:00:00+01:00",
+  "end": "2026-10-31T14:50:00+01:00",
+  "extra": {
+   "ticket_id": "54379"
+  },
+  "genres": [],
+  "image": "https://backend.bimhuis.nl/app/uploads/2026/05/image_123655411.jpg",
+  "performers": [],
+  "price": null,
+  "room": "Zaal",
+  "source_id": "148998",
+  "start": "2026-10-31T14:00:00+01:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://www.cellobiennale.nl/nl/voorstellingen/rustig-6-cxq1",
+  "title": "Familievoorstelling: RUSTIG!!!",
+  "url": "https://www.bimhuis.nl/agenda/familievoorstelling-rustig-2/",
+  "venue": "bimhuis"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [],
+  "city": "Amsterdam",
+  "description": "Braziliaanse gitaarmeester verbindt samba, klassiek en jazz in eigen compositietaal.",
+  "doors": "2026-10-31T18:30:00+01:00",
+  "end": "2026-10-31T22:00:00+01:00",
+  "extra": {
+   "ticket_id": "54345"
+  },
+  "genres": [
+   "Latin Jazz"
+  ],
+  "image": "https://backend.bimhuis.nl/app/uploads/2026/05/311026-chico-pinheiro.Ze-Gabriel-75-1.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 23.0,
+   "min_eur": 19.0,
+   "text": null
+  },
+  "room": "Zaal",
+  "source_id": "148596",
+  "start": "2026-10-31T20:30:00+01:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://activetickets.bimhuis.nl/nl-NL/Show/Details/54345",
+  "title": "Chico Pinheiro Quartet",
+  "url": "https://www.bimhuis.nl/agenda/chico-pinheiro-quartet/",
+  "venue": "bimhuis"
+ },
+ {
+  "availability": "free",
+  "categories": [
+   "Cello Biënnale Amsterdam"
+  ],
+  "city": "Amsterdam",
+  "description": "Giovanni Gnocchi bespeelt nieuwgebouwde instrumenten.",
+  "doors": "2026-11-01T13:00:00+01:00",
+  "end": "2026-11-01T14:30:00+01:00",
+  "extra": {
+   "ticket_id": "54354"
+  },
+  "genres": [],
+  "image": "https://backend.bimhuis.nl/app/uploads/2026/05/Giovanni-Gnocchi-c-Andrej-Grilc-09056.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 0.0,
+   "min_eur": 0.0,
+   "text": null
+  },
+  "room": "Zaal",
+  "source_id": "148891",
+  "start": "2026-11-01T13:30:00+01:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": null,
+  "title": "De Vergelijking: Giovanni Gnocchi",
+  "url": "https://www.bimhuis.nl/agenda/de-vergelijking-giovanni-gnocchi/",
+  "venue": "bimhuis"
+ },
+ {
+  "availability": "few_left",
+  "categories": [
+   "Cello Biënnale Amsterdam"
+  ],
+  "city": "Amsterdam",
+  "description": "Lyrische jazz ontmoet klassieke verfijning.",
+  "doors": "2026-11-01T18:00:00+01:00",
+  "end": "2026-11-01T21:00:00+01:00",
+  "extra": {
+   "ticket_id": "54355"
+  },
+  "genres": [],
+  "image": "https://backend.bimhuis.nl/app/uploads/2026/05/Hermine-Deurloo-Robert-Elsing-A06-2_11zon-2.jpg",
+  "performers": [],
+  "price": null,
+  "room": "Zaal",
+  "source_id": "148783",
+  "start": "2026-11-01T20:00:00+01:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://www.cellobiennale.nl/nl/voorstellingen/salque-deurloo-simcock-peirani-qm4t",
+  "title": "Cellofest: François Salque, Hermine Deurloo, Gwilym Simcock + Vincent Peirani",
+  "url": "https://www.bimhuis.nl/agenda/cellofest-francois-salque-hermine-deurloo-gwilym-simcock-vincent-peirani/",
+  "venue": "bimhuis"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [
+   "Cello Biënnale Amsterdam"
+  ],
+  "city": "Amsterdam",
+  "description": "Rock, metal en Indonesische krontjong.",
+  "doors": "2026-11-01T18:00:00+01:00",
+  "end": "2026-11-01T23:00:00+01:00",
+  "extra": {
+   "ticket_id": "54356"
+  },
+  "genres": [],
+  "image": "https://backend.bimhuis.nl/app/uploads/2026/05/HOOFDFOTO-Credit-PATRICIA-DE-KONING_2.jpeg",
+  "performers": [],
+  "price": null,
+  "room": "Zaal",
+  "source_id": "148785",
+  "start": "2026-11-01T22:00:00+01:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://www.cellobiennale.nl/nl/voorstellingen/emir-cello-1bvr",
+  "title": "Cellofest: Emir Cello, Kaan Yazici + Sander van Elferen",
+  "url": "https://www.bimhuis.nl/agenda/01-nov-cellofest-emir-cello/",
+  "venue": "bimhuis"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [
+   "Cello Biënnale Amsterdam"
+  ],
+  "city": "Amsterdam",
+  "description": "Grote internationale solisten en pedagogen geven les.",
+  "doors": "2026-11-02T09:45:00+01:00",
+  "end": "2026-11-02T12:00:00+01:00",
+  "extra": {
+   "ticket_id": "54357"
+  },
+  "genres": [],
+  "image": "https://backend.bimhuis.nl/app/uploads/2026/05/Kian-Soltani-4-11-24_HR©SimonVanBoxtel-6057.jpeg",
+  "performers": [],
+  "price": null,
+  "room": "Zaal",
+  "source_id": "148893",
+  "start": "2026-11-02T10:15:00+01:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://www.cellobiennale.nl/nl/voorstellingen/kian-soltani-9p45",
+  "title": "Masterclass: Kian Soltani",
+  "url": "https://www.bimhuis.nl/agenda/masterclass-kian-soltani/",
+  "venue": "bimhuis"
+ },
+ {
+  "availability": "free",
+  "categories": [
+   "Cello Biënnale Amsterdam"
+  ],
+  "city": "Amsterdam",
+  "description": "Concertprogramma door studenten van François Salque, Lausanne.",
+  "doors": "2026-11-02T09:45:00+01:00",
+  "end": "2026-11-02T13:30:00+01:00",
+  "extra": {
+   "ticket_id": "54380"
+  },
+  "genres": [],
+  "image": "https://backend.bimhuis.nl/app/uploads/2026/05/Cello-Biennale-24-_HR_-©-Foppe-Schut-_FS15909.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 0.0,
+   "min_eur": 0.0,
+   "text": null
+  },
+  "room": "Zaal",
+  "source_id": "149008",
+  "start": "2026-11-02T12:30:00+01:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": null,
+  "title": "Students Around The World",
+  "url": "https://www.bimhuis.nl/agenda/students-around-the-world-2/",
+  "venue": "bimhuis"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [
+   "Cello Biënnale Amsterdam"
+  ],
+  "city": "Amsterdam",
+  "description": "Rijke mediterrane en Arabische muziek.",
+  "doors": "2026-11-02T18:00:00+01:00",
+  "end": "2026-11-02T21:00:00+01:00",
+  "extra": {
+   "ticket_id": "54358"
+  },
+  "genres": [],
+  "image": "https://backend.bimhuis.nl/app/uploads/2026/05/Nesrine-MelleMeivogel_CB_261022_lowres-10-1.jpg",
+  "performers": [],
+  "price": null,
+  "room": "Zaal",
+  "source_id": "148787",
+  "start": "2026-11-02T20:00:00+01:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://www.cellobiennale.nl/nl/voorstellingen/nesrine-d3v9",
+  "title": "Cellofest: Nesrine",
+  "url": "https://www.bimhuis.nl/agenda/cellofest-nesrine/",
+  "venue": "bimhuis"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [
+   "Cello Biënnale Amsterdam"
+  ],
+  "city": "Amsterdam",
+  "description": "Dwalen door de unieke wereld van de Japanse schrijver Haruki Murakami.",
+  "doors": "2026-11-02T18:00:00+01:00",
+  "end": "2026-11-02T23:00:00+01:00",
+  "extra": {
+   "ticket_id": "54359"
+  },
+  "genres": [],
+  "image": "https://backend.bimhuis.nl/app/uploads/2026/05/DSCF5921.jpg",
+  "performers": [],
+  "price": null,
+  "room": "Zaal",
+  "source_id": "148789",
+  "start": "2026-11-02T22:00:00+01:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://www.cellobiennale.nl/nl/voorstellingen/the-murakami-songs-b4md",
+  "title": "Cellofest: The Murakami Songs",
+  "url": "https://www.bimhuis.nl/agenda/cellofest-the-murakami-songs/",
+  "venue": "bimhuis"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [
+   "Cello Biënnale Amsterdam"
+  ],
+  "city": "Amsterdam",
+  "description": "Trio uit het legendarische Instant Composers Pool.",
+  "doors": "2026-11-03T18:00:00+01:00",
+  "end": "2026-11-03T21:00:00+01:00",
+  "extra": {
+   "ticket_id": "54360"
+  },
+  "genres": [],
+  "image": "https://backend.bimhuis.nl/app/uploads/2026/05/Harold-Austbo.jpg",
+  "performers": [],
+  "price": null,
+  "room": "Zaal",
+  "source_id": "148791",
+  "start": "2026-11-03T20:00:00+01:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://www.cellobiennale.nl/nl/voorstellingen/harald-austbo-ernst-glerum-han-bennink-sfz2",
+  "title": "Cellofest: Harald Austbø, Ernst Glerum + Han Bennink",
+  "url": "https://www.bimhuis.nl/agenda/cellofest-harald-austbo-ernst-glerum-han-bennink/",
+  "venue": "bimhuis"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [
+   "Cello Biënnale Amsterdam"
+  ],
+  "city": "Amsterdam",
+  "description": "De vier cellisten van het Metropole Orkest.",
+  "doors": "2026-11-03T18:00:00+01:00",
+  "end": "2026-11-03T23:00:00+01:00",
+  "extra": {
+   "ticket_id": "54361"
+  },
+  "genres": [],
+  "image": "https://backend.bimhuis.nl/app/uploads/2026/05/Metrocelli-1024x683-1.jpg",
+  "performers": [],
+  "price": null,
+  "room": "Zaal",
+  "source_id": "148793",
+  "start": "2026-11-03T22:00:00+01:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://www.cellobiennale.nl/nl/voorstellingen/metrocelli-nvsf",
+  "title": "Cellofest: Metrocelli",
+  "url": "https://www.bimhuis.nl/agenda/cellofest-metrocelli/",
+  "venue": "bimhuis"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [
+   "Cello Biënnale Amsterdam"
+  ],
+  "city": "Amsterdam",
+  "description": "Grote internationale solisten en pedagogen geven les.",
+  "doors": "2026-11-05T09:45:00+01:00",
+  "end": "2026-11-05T12:00:00+01:00",
+  "extra": {
+   "ticket_id": "54362"
+  },
+  "genres": [],
+  "image": "https://backend.bimhuis.nl/app/uploads/2026/05/Giovanni-Gnocchi-c-Andrej-Grilc-09056.jpg",
+  "performers": [],
+  "price": null,
+  "room": "Zaal",
+  "source_id": "148982",
+  "start": "2026-11-05T10:15:00+01:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://www.cellobiennale.nl/nl/voorstellingen/giovanni-gnocchi-1dmr",
+  "title": "Masterclass: Giovanni Gnocchi",
+  "url": "https://www.bimhuis.nl/agenda/masterclass-giovanni-gnocchi/",
+  "venue": "bimhuis"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [
+   "Cello Biënnale Amsterdam"
+  ],
+  "city": "Amsterdam",
+  "description": "Een nieuwe sound die culturen verbindt.",
+  "doors": "2026-11-05T18:00:00+01:00",
+  "end": "2026-11-05T21:00:00+01:00",
+  "extra": {
+   "ticket_id": "54363"
+  },
+  "genres": [],
+  "image": "https://backend.bimhuis.nl/app/uploads/2026/05/Cello-Octet-Amsterdam-1-Anisa-Xhomaqi.jpg",
+  "performers": [],
+  "price": null,
+  "room": "Zaal",
+  "source_id": "148795",
+  "start": "2026-11-05T20:00:00+01:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://www.cellobiennale.nl/nl/voorstellingen/common-features-8n1s",
+  "title": "Cellofest: Common Features",
+  "url": "https://www.bimhuis.nl/agenda/05-nov-cellofest-orchestre-partout-cello-octet/",
+  "venue": "bimhuis"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [
+   "Cello Biënnale Amsterdam"
+  ],
+  "city": "Amsterdam",
+  "description": "Grooves and lullabies.",
+  "doors": "2026-11-05T18:00:00+01:00",
+  "end": "2026-11-05T23:00:00+01:00",
+  "extra": {
+   "ticket_id": "54364"
+  },
+  "genres": [],
+  "image": "https://backend.bimhuis.nl/app/uploads/2026/05/HOOFDFOTO-MatthewBarleyCanterbury-200-1.jpg",
+  "performers": [],
+  "price": null,
+  "room": "Zaal",
+  "source_id": "148797",
+  "start": "2026-11-05T22:00:00+01:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://www.cellobiennale.nl/nl/voorstellingen/51-strings-t6qc",
+  "title": "Cellofest: 51 strings ft. Matthew Barley, Hanna Ryynänen, Adriano Adewale + Dawda Jobarteh",
+  "url": "https://www.bimhuis.nl/agenda/cellofest-51-strings-ft-matthew-barley-hanna-ryynanen-adriano-adewale-dawda-jobarteh/",
+  "venue": "bimhuis"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [
+   "Cello Biënnale Amsterdam"
+  ],
+  "city": "Amsterdam",
+  "description": "Grote internationale solisten en pedagogen geven les.",
+  "doors": "2026-11-06T09:45:00+01:00",
+  "end": "2026-11-06T12:00:00+01:00",
+  "extra": {
+   "ticket_id": "54365"
+  },
+  "genres": [],
+  "image": "https://backend.bimhuis.nl/app/uploads/2026/05/Steven-Isserlis-c-Satoshi-Aoyagi_2.jpg",
+  "performers": [],
+  "price": null,
+  "room": "Zaal",
+  "source_id": "148895",
+  "start": "2026-11-06T10:15:00+01:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://www.cellobiennale.nl/nl/voorstellingen/steven-isserlis-tb1c",
+  "title": "Masterclass: Steven Isserlis",
+  "url": "https://www.bimhuis.nl/agenda/masterclass-steven-isserlis/",
+  "venue": "bimhuis"
+ },
+ {
+  "availability": "free",
+  "categories": [
+   "Cello Biënnale Amsterdam"
+  ],
+  "city": "Amsterdam",
+  "description": "Concertprogramma door studenten van Giovanni Gnocchi, Salzburg.",
+  "doors": "2026-11-06T09:45:00+01:00",
+  "end": "2026-11-06T13:30:00+01:00",
+  "extra": {
+   "ticket_id": "54377"
+  },
+  "genres": [],
+  "image": "https://backend.bimhuis.nl/app/uploads/2026/05/Cello-Biennale-24-_HR_-©-Foppe-Schut-_FS15909.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 0.0,
+   "min_eur": 0.0,
+   "text": null
+  },
+  "room": "Zaal",
+  "source_id": "148989",
+  "start": "2026-11-06T12:30:00+01:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": null,
+  "title": "Students Around The World",
+  "url": "https://www.bimhuis.nl/agenda/students-around-the-world-3/",
+  "venue": "bimhuis"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [
+   "Cello Biënnale Amsterdam"
+  ],
+  "city": "Amsterdam",
+  "description": "Een frisse combinatie van Ierse volksmuziek, klassiek en jazz.",
+  "doors": "2026-11-06T18:00:00+01:00",
+  "end": "2026-11-06T21:00:00+01:00",
+  "extra": {
+   "ticket_id": "54366"
+  },
+  "genres": [],
+  "image": "https://backend.bimhuis.nl/app/uploads/2026/05/naomi-berrill-ph-edoardo-de-lille_dsc1838-cut.jpg",
+  "performers": [],
+  "price": null,
+  "room": "Zaal",
+  "source_id": "148799",
+  "start": "2026-11-06T20:00:00+01:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://www.cellobiennale.nl/nl/voorstellingen/naomi-berrill-trio-sq42",
+  "title": "Cellofest: Naomi Berril Trio",
+  "url": "https://www.bimhuis.nl/agenda/cellofest-naomi-berril-trio/",
+  "venue": "bimhuis"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [
+   "Cello Biënnale Amsterdam"
+  ],
+  "city": "Amsterdam",
+  "description": "Groove en swing uit onverwachte hoek.",
+  "doors": "2026-11-06T18:00:00+01:00",
+  "end": "2026-11-06T23:00:00+01:00",
+  "extra": {
+   "ticket_id": "54367"
+  },
+  "genres": [],
+  "image": "https://backend.bimhuis.nl/app/uploads/2026/05/HOOFDFOTO-Fried-Dahn.jpg",
+  "performers": [],
+  "price": null,
+  "room": "Zaal",
+  "source_id": "148801",
+  "start": "2026-11-06T22:00:00+01:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://www.cellobiennale.nl/nl/voorstellingen/friedemann-dahn-trio-nm2f",
+  "title": "Cellofest: Friedemann Dähn Trio",
+  "url": "https://www.bimhuis.nl/agenda/cellofest-friedemann-dahn-trio/",
+  "venue": "bimhuis"
+ },
+ {
+  "availability": "free",
+  "categories": [
+   "Cello Biënnale Amsterdam"
+  ],
+  "city": "Amsterdam",
+  "description": "Victor Julien-Laferrière bespeelt nieuwgebouwde instrumenten.",
+  "doors": "2026-11-07T10:00:00+01:00",
+  "end": "2026-11-07T11:30:00+01:00",
+  "extra": {
+   "ticket_id": "54376"
+  },
+  "genres": [],
+  "image": "https://backend.bimhuis.nl/app/uploads/2026/05/Victor-Julien-Laffiere-©Lyodoh-Kaneko_0.jpeg",
+  "performers": [],
+  "price": {
+   "max_eur": 0.0,
+   "min_eur": 0.0,
+   "text": null
+  },
+  "room": "Zaal",
+  "source_id": "149012",
+  "start": "2026-11-07T10:30:00+01:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": null,
+  "title": "De Vergelijking: Victor Julien-Laferrière",
+  "url": "https://www.bimhuis.nl/agenda/de-vergelijking-victor-julien-laferriere/",
+  "venue": "bimhuis"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [
+   "Cello Biënnale Amsterdam"
+  ],
+  "city": "Amsterdam",
+  "description": "Grote internationale solisten en pedagogen geven les.",
+  "doors": "2026-11-07T10:00:00+01:00",
+  "end": "2026-11-07T15:15:00+01:00",
+  "extra": {
+   "ticket_id": "54382"
+  },
+  "genres": [],
+  "image": "https://backend.bimhuis.nl/app/uploads/2026/05/Leonard-Elschenbroich_©-Felix-Broede.jpg",
+  "performers": [],
+  "price": null,
+  "room": "Zaal",
+  "source_id": "149014",
+  "start": "2026-11-07T13:30:00+01:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://www.cellobiennale.nl/nl/voorstellingen/leonard-elschenbroich-q6pt",
+  "title": "Masterclass: Leonard Elschenbroich",
+  "url": "https://www.bimhuis.nl/agenda/masterclass-leonard-elschenbroich/",
+  "venue": "bimhuis"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [
+   "Curated by Benjamin Herman"
+  ],
+  "city": "Amsterdam",
+  "description": "Japanse meesterpianist combineert klassieke precisie met improvisatorische vrijheid.",
+  "doors": "2026-11-07T18:30:00+01:00",
+  "end": "2026-11-07T22:00:00+01:00",
+  "extra": {
+   "ticket_id": "54292"
+  },
+  "genres": [],
+  "image": "https://backend.bimhuis.nl/app/uploads/2026/04/261107-Makoto-Ozone-Main©️Takumi-Saitoh-1.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 23.0,
+   "min_eur": 19.0,
+   "text": null
+  },
+  "room": "Zaal",
+  "source_id": "147474",
+  "start": "2026-11-07T20:30:00+01:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://activetickets.bimhuis.nl/nl-NL/Show/Details/54292",
+  "title": "Makoto Ozone Trio: TRiNFiNiTY",
+  "url": "https://www.bimhuis.nl/agenda/makoto-ozone-trio-trinfinity/",
+  "venue": "bimhuis"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [],
+  "city": "Amsterdam",
+  "description": "Noorse akoestische formatie haalt inspiratie uit de natuur. ‘Idyllisch en verleidelijk’ (Aftenposten).",
+  "doors": "2026-11-08T13:30:00+01:00",
+  "end": "2026-11-08T16:00:00+01:00",
+  "extra": {
+   "ticket_id": "54271"
+  },
+  "genres": [],
+  "image": "https://backend.bimhuis.nl/app/uploads/2026/03/261108-maridalen.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 21.0,
+   "min_eur": 18.0,
+   "text": null
+  },
+  "room": "Zaal",
+  "source_id": "146921",
+  "start": "2026-11-08T14:30:00+01:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://activetickets.bimhuis.nl/nl-NL/Show/Details/54271",
+  "title": "Maridalen Trio",
+  "url": "https://www.bimhuis.nl/agenda/maridalen-trio/",
+  "venue": "bimhuis"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [],
+  "city": "Amsterdam",
+  "description": "Avant-gardeband ontmoet Europese improvisatoren in een bruisend tienkoppig collectief.",
+  "doors": "2026-11-08T18:30:00+01:00",
+  "end": "2026-11-08T22:00:00+01:00",
+  "extra": {
+   "ticket_id": "54314"
+  },
+  "genres": [
+   "Impro Focus",
+   "BIG"
+  ],
+  "image": "https://backend.bimhuis.nl/app/uploads/2026/03/081126-THE-EX-BRASS-UNBOUND-2026.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 25.0,
+   "min_eur": 21.0,
+   "text": null
+  },
+  "room": "Zaal",
+  "source_id": "147977",
+  "start": "2026-11-08T20:30:00+01:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://activetickets.bimhuis.nl/nl-NL/Show/Details/54314",
+  "title": "The Ex & Brass Unbound",
+  "url": "https://www.bimhuis.nl/agenda/the-ex-brass-unbound/",
+  "venue": "bimhuis"
+ },
+ {
+  "availability": "few_left",
+  "categories": [],
+  "city": "Amsterdam",
+  "description": "Amerikaanse grootheid met aangrijpend geluid op altsax zegeviert op Blue Note Records.",
+  "doors": "2026-11-09T18:30:00+01:00",
+  "end": "2026-11-09T22:00:00+01:00",
+  "extra": {
+   "ticket_id": "54351"
+  },
+  "genres": [
+   "Headliners"
+  ],
+  "image": "https://backend.bimhuis.nl/app/uploads/2026/05/091126-Immanuel-Wilkins-WQuartet_Ming_Smith.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 30.0,
+   "min_eur": 25.0,
+   "text": null
+  },
+  "room": "Zaal",
+  "source_id": "148643",
+  "start": "2026-11-09T20:30:00+01:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://activetickets.bimhuis.nl/nl-NL/Show/Details/54351",
+  "title": "Immanuel Wilkins Quartet",
+  "url": "https://www.bimhuis.nl/agenda/immanuel-wilkins-quartet-6/",
+  "venue": "bimhuis"
+ },
+ {
+  "availability": "free",
+  "categories": [],
+  "city": "Amsterdam",
+  "description": "Jamsessie met internationaal, jong en gevestigd talent in ons café.",
+  "doors": "2026-11-10T21:30:00+01:00",
+  "end": "2026-11-11T00:30:00+01:00",
+  "extra": {
+   "ticket_id": "54424"
+  },
+  "genres": [],
+  "image": "https://backend.bimhuis.nl/app/uploads/2026/06/061026_240312-supersessie-francoise-bolechwoski-8.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 0.0,
+   "min_eur": 0.0,
+   "text": null
+  },
+  "room": "Café",
+  "source_id": "149954",
+  "start": "2026-11-10T22:00:00+01:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": null,
+  "title": "Tuesday Jam",
+  "url": "https://www.bimhuis.nl/agenda/tuesday-jam-287/",
+  "venue": "bimhuis"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [],
+  "city": "Amsterdam",
+  "description": "Rijzende ster uit Washington, gelauwerd door Wynton Marsalis.",
+  "doors": "2026-11-11T18:30:00+01:00",
+  "end": "2026-11-11T22:00:00+01:00",
+  "extra": {
+   "ticket_id": "54393"
+  },
+  "genres": [
+   "Vocal Jazz"
+  ],
+  "image": "https://backend.bimhuis.nl/app/uploads/2026/05/111126_preferred_am_ekep_nov2024_281.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 23.0,
+   "min_eur": 19.0,
+   "text": null
+  },
+  "room": "Zaal",
+  "source_id": "149168",
+  "start": "2026-11-11T20:30:00+01:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://activetickets.bimhuis.nl/nl-NL/Show/Details/54393",
+  "title": "Ekep Nkwelle",
+  "url": "https://www.bimhuis.nl/agenda/ekep-nkwelle/",
+  "venue": "bimhuis"
+ },
+ {
+  "availability": "few_left",
+  "categories": [],
+  "city": "Amsterdam",
+  "description": "Californisch underground-duo van saxofoon en basgitaar hervindt elkaar.",
+  "doors": "2026-11-12T18:30:00+01:00",
+  "end": "2026-11-12T22:00:00+01:00",
+  "extra": {
+   "ticket_id": "54295"
+  },
+  "genres": [],
+  "image": "https://backend.bimhuis.nl/app/uploads/2026/03/261112-Sam-Gendel-Sam-Wilkes-2026.jpeg",
+  "performers": [],
+  "price": {
+   "max_eur": 29.0,
+   "min_eur": 24.0,
+   "text": null
+  },
+  "room": "Zaal",
+  "source_id": "147482",
+  "start": "2026-11-12T20:30:00+01:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://activetickets.bimhuis.nl/nl-NL/Show/Details/54295",
+  "title": "Sam Gendel & Sam Wilkes",
+  "url": "https://www.bimhuis.nl/agenda/sam-gendel-sam-wilkes/",
+  "venue": "bimhuis"
+ },
+ {
+  "availability": "few_left",
+  "categories": [],
+  "city": "Amsterdam",
+  "description": "Weergaloze trompettist keert terug met nieuw album.",
+  "doors": "2026-11-13T18:30:00+01:00",
+  "end": "2026-11-13T22:00:00+01:00",
+  "extra": {
+   "ticket_id": "54230"
+  },
+  "genres": [
+   "Headliners"
+  ],
+  "image": "https://backend.bimhuis.nl/app/uploads/2026/01/261113-Ambrose-Akinmusire-Photo-by-Michael-Wilson_1-1.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 37.0,
+   "min_eur": 31.0,
+   "text": null
+  },
+  "room": "Zaal",
+  "source_id": "145791",
+  "start": "2026-11-13T19:30:00+01:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://activetickets.bimhuis.nl/nl-NL/Show/Details/54230",
+  "title": "Ambrose Akinmusire",
+  "url": "https://www.bimhuis.nl/agenda/ambrose-akinmusire-quintet-5/",
+  "venue": "bimhuis"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [],
+  "city": "Amsterdam",
+  "description": "Franse saxofoonheld gaat nieuwe uitdaging aan met Indiase muziek.",
+  "doors": "2026-11-14T18:30:00+01:00",
+  "end": "2026-11-14T22:00:00+01:00",
+  "extra": {
+   "ticket_id": "54279"
+  },
+  "genres": [],
+  "image": "https://backend.bimhuis.nl/app/uploads/2026/02/261114-Emile-Parisien_MG_5621©-Samuel-Kirszenbaum.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 26.0,
+   "min_eur": 22.0,
+   "text": null
+  },
+  "room": "Zaal",
+  "source_id": "147098",
+  "start": "2026-11-14T20:30:00+01:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://activetickets.bimhuis.nl/nl-NL/Show/Details/54279",
+  "title": "Emile Parisien Floating",
+  "url": "https://www.bimhuis.nl/agenda/emile-parisien-floating/",
+  "venue": "bimhuis"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [],
+  "city": "Amsterdam",
+  "description": "Fenomeen op vibrafoon leidt haar ensemble door rijkgeschakeerde composities. ‘Unusually magical’ (Downbeat, *****).",
+  "doors": "2026-11-15T15:00:00+01:00",
+  "end": "2026-11-15T17:30:00+01:00",
+  "extra": {
+   "ticket_id": "54350"
+  },
+  "genres": [],
+  "image": "https://backend.bimhuis.nl/app/uploads/2026/05/151126-Patricia_Brennan_Septet.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 25.0,
+   "min_eur": 21.0,
+   "text": null
+  },
+  "room": "Zaal",
+  "source_id": "148641",
+  "start": "2026-11-15T16:00:00+01:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://activetickets.bimhuis.nl/nl-NL/Show/Details/54350",
+  "title": "Patricia Brennan Septet",
+  "url": "https://www.bimhuis.nl/agenda/patricia-brennan-septet/",
+  "venue": "bimhuis"
+ },
+ {
+  "availability": "free",
+  "categories": [],
+  "city": "Amsterdam",
+  "description": "Jamsessie met internationaal, jong en gevestigd talent in ons café.",
+  "doors": "2026-11-17T21:30:00+01:00",
+  "end": "2026-11-18T00:30:00+01:00",
+  "extra": {
+   "ticket_id": "54425"
+  },
+  "genres": [],
+  "image": "https://backend.bimhuis.nl/app/uploads/2026/06/061026_240312-supersessie-francoise-bolechwoski-45.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 0.0,
+   "min_eur": 0.0,
+   "text": null
+  },
+  "room": "Café",
+  "source_id": "149956",
+  "start": "2026-11-17T22:00:00+01:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": null,
+  "title": "Tuesday Jam",
+  "url": "https://www.bimhuis.nl/agenda/tuesday-jam-290/",
+  "venue": "bimhuis"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [],
+  "city": "Amsterdam",
+  "description": "Klank en beeld versmelten in orkestraal concert dat het heden linkt met de muzikale overlevering van Andalusië.",
+  "doors": "2026-11-19T18:30:00+01:00",
+  "end": "2026-11-19T22:00:00+01:00",
+  "extra": {
+   "ticket_id": "54347"
+  },
+  "genres": [],
+  "image": "https://backend.bimhuis.nl/app/uploads/2026/03/sexi-firmum-iulium-1920x1080-kaal.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 23.0,
+   "min_eur": 19.0,
+   "text": null
+  },
+  "room": "Zaal",
+  "source_id": "148622",
+  "start": "2026-11-19T20:30:00+01:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://activetickets.bimhuis.nl/nl-NL/Show/Details/54347",
+  "title": "Marmoucha Orchestra & Maripepa Contreras: Sexi Firmum Iulium",
+  "url": "https://www.bimhuis.nl/agenda/marmoucha-orchestra-maripepa-contreras-sexi-firmum-iulium-2/",
+  "venue": "bimhuis"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [
+   "BIMHUIS Compositieopdracht 2026"
+  ],
+  "city": "Amsterdam",
+  "description": "Veelzijdige saxofonist put uit haar Friese achtergrond voor de BIMHUIS Compositeopdracht 2026 met internationaal ensemble en koor.",
+  "doors": "2026-11-20T18:30:00+01:00",
+  "end": null,
+  "extra": {
+   "ticket_id": "54229"
+  },
+  "genres": [
+   "BIMHUIS Productions"
+  ],
+  "image": "https://backend.bimhuis.nl/app/uploads/2025/11/261120-marikevandijk.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 24.0,
+   "min_eur": 20.0,
+   "text": null
+  },
+  "room": "Zaal",
+  "source_id": "145794",
+  "start": "2026-11-20T20:30:00+01:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://activetickets.bimhuis.nl/nl-NL/Show/Details/54229",
+  "title": "Marike van Dijk: Thús",
+  "url": "https://www.bimhuis.nl/agenda/marike-van-dijk-thus/",
+  "venue": "bimhuis"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [],
+  "city": "Amsterdam",
+  "description": "Intiem samenspel door meesters op de West-Afrikaanse harp en accordeon.",
+  "doors": "2026-11-21T18:30:00+01:00",
+  "end": "2026-11-21T22:00:00+01:00",
+  "extra": {
+   "ticket_id": "54242"
+  },
+  "genres": [],
+  "image": "https://backend.bimhuis.nl/app/uploads/2026/01/261121-Ablaye-Cissoko-Cyrille-Brotto-©-Cedrick-Not-HD-13.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 25.0,
+   "min_eur": 21.0,
+   "text": null
+  },
+  "room": "Zaal",
+  "source_id": "146180",
+  "start": "2026-11-21T20:30:00+01:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://activetickets.bimhuis.nl/nl-NL/Show/Details/54242",
+  "title": "Ablaye Cissoko & Cyrille Brotto",
+  "url": "https://www.bimhuis.nl/agenda/ablaye-cissoko-cyrille-brotto/",
+  "venue": "bimhuis"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [
+   "& Subbacultcha"
+  ],
+  "city": "Amsterdam",
+  "description": "Solo-optreden van zangeres uit New York die uniek geluid ontwikkelt met haar minimale pianobegeleiding.",
+  "doors": "2026-11-22T13:30:00+01:00",
+  "end": null,
+  "extra": {
+   "ticket_id": "54433"
+  },
+  "genres": [
+   "BIMHUIS & The Rest is Noise"
+  ],
+  "image": "https://backend.bimhuis.nl/app/uploads/2026/07/elianaglass.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 21.0,
+   "min_eur": 18.0,
+   "text": null
+  },
+  "room": "Zaal",
+  "source_id": "150065",
+  "start": "2026-11-22T14:30:00+01:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://activetickets.bimhuis.nl/nl-NL/Show/Details/54433",
+  "title": "Eliana Glass",
+  "url": "https://www.bimhuis.nl/agenda/eliana-glass/",
+  "venue": "bimhuis"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [],
+  "city": "Amsterdam",
+  "description": "Arabische luit en elektronica ontmoeten een Andalusisch orkest.",
+  "doors": "2026-11-22T18:30:00+01:00",
+  "end": "2026-11-22T22:00:00+01:00",
+  "extra": {
+   "ticket_id": "54444"
+  },
+  "genres": [],
+  "image": "https://backend.bimhuis.nl/app/uploads/2026/09/211126_211126-yad-oud.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 25.0,
+   "min_eur": 21.0,
+   "text": null
+  },
+  "room": "Zaal",
+  "source_id": "150672",
+  "start": "2026-11-22T20:30:00+01:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://activetickets.bimhuis.nl/nl-NL/Show/Details/54444",
+  "title": "Yad Oud & Amsterdams Andalusisch Orkest",
+  "url": "https://www.bimhuis.nl/agenda/yad-oud-amsterdams-andalusisch-orkest/",
+  "venue": "bimhuis"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [],
+  "city": "Amsterdam",
+  "description": "Trio van topkwaliteit geleid door meestersaxofonist.",
+  "doors": "2026-11-23T18:30:00+01:00",
+  "end": "2026-11-23T22:00:00+01:00",
+  "extra": {
+   "ticket_id": "54327"
+  },
+  "genres": [
+   "Headliners"
+  ],
+  "image": "https://backend.bimhuis.nl/app/uploads/2026/04/ChrisPotterTrio08302508L_c_TakhikoTokiwa-1.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 33.0,
+   "min_eur": 28.0,
+   "text": null
+  },
+  "room": "Zaal",
+  "source_id": "148345",
+  "start": "2026-11-23T20:30:00+01:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://activetickets.bimhuis.nl/nl-NL/Show/Details/54327",
+  "title": "Chris Potter Trio ft. Matt Brewer & Kendrick Scott",
+  "url": "https://www.bimhuis.nl/agenda/chris-potter-trio-ft-matt-brewer-kendrick-scott/",
+  "venue": "bimhuis"
+ },
+ {
+  "availability": "free",
+  "categories": [],
+  "city": "Amsterdam",
+  "description": "Jamsessie met internationaal, jong en gevestigd talent in ons café.",
+  "doors": "2026-11-24T21:30:00+01:00",
+  "end": "2026-11-25T00:30:00+01:00",
+  "extra": {
+   "ticket_id": "54426"
+  },
+  "genres": [],
+  "image": "https://backend.bimhuis.nl/app/uploads/2026/06/061026_240312-supersessie-francoise-bolechwoski-60.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 0.0,
+   "min_eur": 0.0,
+   "text": null
+  },
+  "room": "Café",
+  "source_id": "149958",
+  "start": "2026-11-24T22:00:00+01:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": null,
+  "title": "Tuesday Jam",
+  "url": "https://www.bimhuis.nl/agenda/tuesday-jam-292/",
+  "venue": "bimhuis"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [],
+  "city": "Amsterdam",
+  "description": "Brits duo viert tien jaar samenwerking op kruispunt van jazz en clubmuziek.",
+  "doors": "2026-11-25T18:30:00+01:00",
+  "end": "2026-11-25T22:00:00+01:00",
+  "extra": {
+   "ticket_id": "54462"
+  },
+  "genres": [
+   "DATSKAT"
+  ],
+  "image": "https://backend.bimhuis.nl/app/uploads/2026/08/251126_joe-armon-jones-maxwell-owincredit-danny-trachtenberg.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 25.0,
+   "min_eur": 21.0,
+   "text": null
+  },
+  "room": "Zaal",
+  "source_id": "151191",
+  "start": "2026-11-25T20:30:00+01:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://activetickets.bimhuis.nl/nl-NL/Show/Details/54462",
+  "title": "Joe Armon-Jones & Maxwell Owin",
+  "url": "https://www.bimhuis.nl/agenda/joe-armon-jones-maxwell-owin/",
+  "venue": "bimhuis"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [],
+  "city": "Amsterdam",
+  "description": "Kwintet vol energie beweegt tussen free jazz, indiepop en rock.",
+  "doors": "2026-11-26T18:30:00+01:00",
+  "end": "2026-11-26T22:00:00+01:00",
+  "extra": {
+   "ticket_id": "54391"
+  },
+  "genres": [
+   "New Dutch Jazz"
+  ],
+  "image": "https://backend.bimhuis.nl/app/uploads/2026/05/261126_teis-semey-quintet_staircase_color_landscape-bjork-semey.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 21.0,
+   "min_eur": 18.0,
+   "text": null
+  },
+  "room": "Zaal",
+  "source_id": "149060",
+  "start": "2026-11-26T20:30:00+01:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://activetickets.bimhuis.nl/nl-NL/Show/Details/54391",
+  "title": "Teis Semey Quintet",
+  "url": "https://www.bimhuis.nl/agenda/teis-semey-quintet/",
+  "venue": "bimhuis"
+ },
+ {
+  "availability": "few_left",
+  "categories": [],
+  "city": "Amsterdam",
+  "description": "Eigentijdse ode aan John Coltrane door toonaangevende bigband met saxofonist van wereldklasse.",
+  "doors": "2026-11-27T18:30:00+01:00",
+  "end": "2026-11-27T22:00:00+01:00",
+  "extra": {
+   "ticket_id": "54339"
+  },
+  "genres": [
+   "Headliners",
+   "BIG"
+  ],
+  "image": "https://backend.bimhuis.nl/app/uploads/2026/05/261127-James-Carter-by-Vincent-Soyez-2-1.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 29.0,
+   "min_eur": 24.0,
+   "text": null
+  },
+  "room": "Zaal",
+  "source_id": "148513",
+  "start": "2026-11-27T20:30:00+01:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://activetickets.bimhuis.nl/nl-NL/Show/Details/54339",
+  "title": "Paradox Jazz Orchestra ft. James Carter – The Music of John Coltrane",
+  "url": "https://www.bimhuis.nl/agenda/paradox-jazz-orchestra-ft-james-carter-the-music-of-john-coltrane/",
+  "venue": "bimhuis"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [],
+  "city": "Amsterdam",
+  "description": "Bekroond theaterdebuut over de kracht en het falen van taal door woordkunstenaar en liveband.",
+  "doors": "2026-11-28T18:30:00+01:00",
+  "end": "2026-11-28T22:00:00+01:00",
+  "extra": {
+   "ticket_id": "54374"
+  },
+  "genres": [
+   "DATSKAT"
+  ],
+  "image": "https://backend.bimhuis.nl/app/uploads/2026/05/281126-Manu-Fotograaf-Casper-Buijtendijk.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 23.0,
+   "min_eur": 19.0,
+   "text": null
+  },
+  "room": "Zaal",
+  "source_id": "148920",
+  "start": "2026-11-28T20:30:00+01:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://activetickets.bimhuis.nl/nl-NL/Show/Details/54374",
+  "title": "Manu – De Herontdekking van de Hemel",
+  "url": "https://www.bimhuis.nl/agenda/manu-de-herontdekking-van-de-hemel/",
+  "venue": "bimhuis"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [],
+  "city": "Amsterdam",
+  "description": "Hoor hoe hiphop, afrobeat en soul van nu samengaan met oeroude klanken en verhalen.",
+  "doors": "2026-11-29T13:30:00+01:00",
+  "end": "2026-11-29T15:30:00+01:00",
+  "extra": {
+   "ticket_id": "54315"
+  },
+  "genres": [
+   "Familieconcerten"
+  ],
+  "image": "https://backend.bimhuis.nl/app/uploads/2026/04/1.-C_-Roasted-Kweku-1.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 17.0,
+   "min_eur": 17.0,
+   "text": null
+  },
+  "room": "Zaal",
+  "source_id": "147985",
+  "start": "2026-11-29T14:30:00+01:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://activetickets.bimhuis.nl/nl-NL/Show/Details/54315",
+  "title": "Groove Beest Familieconcert: Kay Slice",
+  "url": "https://www.bimhuis.nl/agenda/groove-beest-familieconcert-kay-slice/",
+  "venue": "bimhuis"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [],
+  "city": "Amsterdam",
+  "description": "Drie improvisatoren herontdekken het werk van een van de meest creatieve songwriters aller tijden, Stevie Wonder.",
+  "doors": "2026-11-29T18:30:00+01:00",
+  "end": "2026-11-29T22:00:00+01:00",
+  "extra": {
+   "ticket_id": "54401"
+  },
+  "genres": [
+   "New Dutch Jazz"
+  ],
+  "image": "https://backend.bimhuis.nl/app/uploads/2026/06/291126-Pressphoto-Blom-_-Schlarmann-_-Fasciani-WonderYears-by-louis-charbonnel-horizontal.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 21.0,
+   "min_eur": 18.0,
+   "text": null
+  },
+  "room": "Zaal",
+  "source_id": "149431",
+  "start": "2026-11-29T20:30:00+01:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://activetickets.bimhuis.nl/nl-NL/Show/Details/54401",
+  "title": "Jasper Blom, Felix Schlarmann & Sean Fasciani – WonderYears",
+  "url": "https://www.bimhuis.nl/agenda/jasper-blom-felix-schlarmann-sean-fasciani-wonderyears/",
+  "venue": "bimhuis"
+ },
+ {
+  "availability": "free",
+  "categories": [],
+  "city": "Amsterdam",
+  "description": "Jamsessie met internationaal, jong en gevestigd talent in ons café.",
+  "doors": "2026-12-01T21:30:00+01:00",
+  "end": "2026-12-02T00:30:00+01:00",
+  "extra": {
+   "ticket_id": "54427"
+  },
+  "genres": [],
+  "image": "https://backend.bimhuis.nl/app/uploads/2026/06/061026_240312-supersessie-francoise-bolechwoski-9.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 0.0,
+   "min_eur": 0.0,
+   "text": null
+  },
+  "room": "Café",
+  "source_id": "149960",
+  "start": "2026-12-01T22:00:00+01:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": null,
+  "title": "Tuesday Jam",
+  "url": "https://www.bimhuis.nl/agenda/tuesday-jam-294/",
+  "venue": "bimhuis"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [],
+  "city": "Amsterdam",
+  "description": "Eigenzinnig saxofoonkwartet op audiovisuele trip met nieuw album Four Fathers.",
+  "doors": "2026-12-04T18:30:00+01:00",
+  "end": "2026-12-04T22:00:00+01:00",
+  "extra": {
+   "ticket_id": "54400"
+  },
+  "genres": [
+   "New Dutch Jazz"
+  ],
+  "image": "https://backend.bimhuis.nl/app/uploads/2026/06/041226_four-fathers-release-concert-photo-federico-castelli.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 21.0,
+   "min_eur": 18.0,
+   "text": null
+  },
+  "room": "Zaal",
+  "source_id": "149353",
+  "start": "2026-12-04T20:30:00+01:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://activetickets.bimhuis.nl/nl-NL/Show/Details/54400",
+  "title": "Artvark – Four Fathers",
+  "url": "https://www.bimhuis.nl/agenda/artvark-four-fathers/",
+  "venue": "bimhuis"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [],
+  "city": "Amsterdam",
+  "description": "Nieuw kwartet rond Amerikaanse gigant op trompet, beroemd om samenwerking met Tom Waits, John Zorn en vele anderen.",
+  "doors": "2026-12-05T18:30:00+01:00",
+  "end": "2026-12-05T22:00:00+01:00",
+  "extra": {
+   "ticket_id": "54407"
+  },
+  "genres": [
+   "Impro Focus"
+  ],
+  "image": "https://backend.bimhuis.nl/app/uploads/2026/07/051226_dave-douglas-cesar-merino_dsc0365.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 25.0,
+   "min_eur": 21.0,
+   "text": null
+  },
+  "room": "Zaal",
+  "source_id": "149843",
+  "start": "2026-12-05T20:30:00+01:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://activetickets.bimhuis.nl/nl-NL/Show/Details/54407",
+  "title": "Dave Douglas Quartet – Four Freedoms",
+  "url": "https://www.bimhuis.nl/agenda/dave-douglas-four-freedoms-quartet/",
+  "venue": "bimhuis"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [],
+  "city": "Amsterdam",
+  "description": "Gelauwerde altsaxofonist met internationale topmusici in trio en kwintet.",
+  "doors": "2026-12-06T18:30:00+01:00",
+  "end": "2026-12-06T22:40:00+01:00",
+  "extra": {
+   "ticket_id": "54458"
+  },
+  "genres": [
+   "New Dutch Jazz"
+  ],
+  "image": "https://backend.bimhuis.nl/app/uploads/2026/08/061226_ben-van-gelder-2.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 23.0,
+   "min_eur": 19.0,
+   "text": null
+  },
+  "room": "Zaal",
+  "source_id": "151091",
+  "start": "2026-12-06T20:30:00+01:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://activetickets.bimhuis.nl/nl-NL/Show/Details/54458",
+  "title": "Ben van Gelder Quintet ft. Jeff Ballard",
+  "url": "https://www.bimhuis.nl/agenda/ben-van-gelder-quintet-ft-jeff-ballard/",
+  "venue": "bimhuis"
+ },
+ {
+  "availability": "free",
+  "categories": [],
+  "city": "Amsterdam",
+  "description": "Jamsessie met internationaal, jong en gevestigd talent in ons café.",
+  "doors": "2026-12-08T21:30:00+01:00",
+  "end": "2026-12-09T00:30:00+01:00",
+  "extra": {
+   "ticket_id": "54428"
+  },
+  "genres": [],
+  "image": "https://backend.bimhuis.nl/app/uploads/2026/06/081226_240312-supersessie-francoise-bolechwoski-86.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 0.0,
+   "min_eur": 0.0,
+   "text": null
+  },
+  "room": "Café",
+  "source_id": "149962",
+  "start": "2026-12-08T22:00:00+01:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": null,
+  "title": "Tuesday Jam",
+  "url": "https://www.bimhuis.nl/agenda/tuesday-jam-296/",
+  "venue": "bimhuis"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [],
+  "city": "Amsterdam",
+  "description": "Phronesis-bassist baant zich een eigen weg door de pianotrio-traditie.",
+  "doors": "2026-12-10T18:30:00+01:00",
+  "end": null,
+  "extra": {
+   "ticket_id": "54289"
+  },
+  "genres": [],
+  "image": "https://backend.bimhuis.nl/app/uploads/2026/03/261210-_Jasper-sel2-44no-trees.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 21.0,
+   "min_eur": 18.0,
+   "text": null
+  },
+  "room": "Zaal",
+  "source_id": "147214",
+  "start": "2026-12-10T20:30:00+01:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://activetickets.bimhuis.nl/nl-NL/Show/Details/54289",
+  "title": "Jasper Høiby’s 3Elements ft. Xavi Torres & Naíma Acuña",
+  "url": "https://www.bimhuis.nl/agenda/jasper-hoibys-3elements-ft-xavi-torres-and-naima-acuna/",
+  "venue": "bimhuis"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [],
+  "city": "Amsterdam",
+  "description": "Visionaire Britse saxofonist en haar veelvormige ensemble vieren tienjarig bestaan.",
+  "doors": "2026-12-11T18:30:00+01:00",
+  "end": "2026-12-11T22:00:00+01:00",
+  "extra": {
+   "ticket_id": "54334"
+  },
+  "genres": [
+   "DATSKAT",
+   "BIG"
+  ],
+  "image": "https://backend.bimhuis.nl/app/uploads/2026/05/261211-CASSIE-2022-AURORE-FOUCHEZ-4150-4.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 27.0,
+   "min_eur": 23.0,
+   "text": null
+  },
+  "room": "Zaal",
+  "source_id": "148465",
+  "start": "2026-12-11T20:30:00+01:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://activetickets.bimhuis.nl/nl-NL/Show/Details/54334",
+  "title": "Cassie Kinoshi & seed.",
+  "url": "https://www.bimhuis.nl/agenda/cassie-kinoshi-seed/",
+  "venue": "bimhuis"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [],
+  "city": "Amsterdam",
+  "description": "Avontuurlijke saxofonist verkent nieuwe klanken rond wind, stem en geest.",
+  "doors": "2026-12-12T18:30:00+01:00",
+  "end": "2026-12-12T22:00:00+01:00",
+  "extra": {
+   "ticket_id": "54399"
+  },
+  "genres": [
+   "New Dutch Jazz"
+  ],
+  "image": "https://backend.bimhuis.nl/app/uploads/2026/06/121226_tineke-postma2.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 23.0,
+   "min_eur": 19.0,
+   "text": null
+  },
+  "room": "Zaal",
+  "source_id": "149344",
+  "start": "2026-12-12T20:30:00+01:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://activetickets.bimhuis.nl/nl-NL/Show/Details/54399",
+  "title": "Tineke Postma Group ft. Theo Bleckmann",
+  "url": "https://www.bimhuis.nl/agenda/tineke-postma-group-ft-theo-bleckmann/",
+  "venue": "bimhuis"
+ },
+ {
+  "availability": "free",
+  "categories": [],
+  "city": "Amsterdam",
+  "description": "Jamsessie met internationaal, jong en gevestigd talent in ons café.",
+  "doors": "2026-12-15T21:30:00+01:00",
+  "end": "2026-12-16T00:30:00+01:00",
+  "extra": {
+   "ticket_id": "54429"
+  },
+  "genres": [],
+  "image": "https://backend.bimhuis.nl/app/uploads/2026/06/081226_240312-supersessie-francoise-bolechwoski-51.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 0.0,
+   "min_eur": 0.0,
+   "text": null
+  },
+  "room": "Café",
+  "source_id": "149964",
+  "start": "2026-12-15T22:00:00+01:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": null,
+  "title": "Tuesday Jam",
+  "url": "https://www.bimhuis.nl/agenda/tuesday-jam-298/",
+  "venue": "bimhuis"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [],
+  "city": "Amsterdam",
+  "description": "Expressieve trompettist uit Lissabon ontmoet vrijzinnige spelers uit New York. ‘Freshness through freedom’ (Jazzword).",
+  "doors": "2026-12-17T18:30:00+01:00",
+  "end": "2026-12-17T22:00:00+01:00",
+  "extra": {
+   "ticket_id": "54389"
+  },
+  "genres": [
+   "Impro Focus"
+  ],
+  "image": "https://backend.bimhuis.nl/app/uploads/2026/06/171226_luis-vicente-trio.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 21.0,
+   "min_eur": 18.0,
+   "text": null
+  },
+  "room": "Zaal",
+  "source_id": "149056",
+  "start": "2026-12-17T20:30:00+01:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://activetickets.bimhuis.nl/nl-NL/Show/Details/54389",
+  "title": "Luís Vicente Trio – Expanding Horizons with Leo Genovese & Tony Malaby",
+  "url": "https://www.bimhuis.nl/agenda/luis-vicente-trio-expanding-horizons-with-leo-genovese-tony-malaby/",
+  "venue": "bimhuis"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [],
+  "city": "Amsterdam",
+  "description": "Internationaal topkwintet met wortels in de Amsterdamse jazzscene presenteert vierde album.",
+  "doors": "2026-12-18T18:30:00+01:00",
+  "end": "2026-12-18T22:00:00+01:00",
+  "extra": {
+   "ticket_id": "54342"
+  },
+  "genres": [
+   "New Dutch Jazz"
+  ],
+  "image": "https://backend.bimhuis.nl/app/uploads/2026/05/181226_7-landscapesamnewbouldquintet_photocreditdavidvandartel2026.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 21.0,
+   "min_eur": 18.0,
+   "text": null
+  },
+  "room": "Zaal",
+  "source_id": "148527",
+  "start": "2026-12-18T20:30:00+01:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://activetickets.bimhuis.nl/nl-NL/Show/Details/54342",
+  "title": "Sam Newbould Quintet",
+  "url": "https://www.bimhuis.nl/agenda/sam-newbould-quintet/",
+  "venue": "bimhuis"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [],
+  "city": "Amsterdam",
+  "description": "Pianist en componist verkent de kosmos met intiem trio van piano, cello en drums.",
+  "doors": "2026-12-20T13:30:00+01:00",
+  "end": "2026-12-20T16:00:00+01:00",
+  "extra": {
+   "ticket_id": "54392"
+  },
+  "genres": [
+   "New Dutch Jazz"
+  ],
+  "image": "https://backend.bimhuis.nl/app/uploads/2026/05/201226-Foto-Gemma-Kessels-JazzNU.com_.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 21.0,
+   "min_eur": 18.0,
+   "text": null
+  },
+  "room": "Zaal",
+  "source_id": "149161",
+  "start": "2026-12-20T14:30:00+01:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://activetickets.bimhuis.nl/nl-NL/Show/Details/54392",
+  "title": "Van Eijck / Brinkmann / Vespestad",
+  "url": "https://www.bimhuis.nl/agenda/van-eijck-brinkmann-vespestad/",
+  "venue": "bimhuis"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [],
+  "city": "Amsterdam",
+  "description": "Groovend powertrio brengt explosieve mix van jazz, blues en gospel.",
+  "doors": "2026-12-20T18:30:00+01:00",
+  "end": "2026-12-20T22:30:00+01:00",
+  "extra": {
+   "ticket_id": "54408"
+  },
+  "genres": [
+   "New Dutch Jazz"
+  ],
+  "image": "https://backend.bimhuis.nl/app/uploads/2026/07/060227_preachermen-12-in-colors-promo-foto-allard-willemse.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 21.0,
+   "min_eur": 18.0,
+   "text": null
+  },
+  "room": "Zaal",
+  "source_id": "149845",
+  "start": "2026-12-20T20:30:00+01:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://activetickets.bimhuis.nl/nl-NL/Show/Details/54408",
+  "title": "The Preacher Men",
+  "url": "https://www.bimhuis.nl/agenda/the-preacher-men-3/",
+  "venue": "bimhuis"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [],
+  "city": "Amsterdam",
+  "description": "Verteller en kwintet verbinden absurde literatuur, filosofie en muziek in voorstelling over een God die aan zichzelf twijfelt.",
+  "doors": "2026-12-27T13:30:00+01:00",
+  "end": "2026-12-27T15:15:00+01:00",
+  "extra": {
+   "ticket_id": "54467"
+  },
+  "genres": [
+   "Legacy"
+  ],
+  "image": "https://backend.bimhuis.nl/app/uploads/2026/09/271226_271226-toontellegen-ben-van-duin.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 23.0,
+   "min_eur": 19.0,
+   "text": null
+  },
+  "room": "Zaal",
+  "source_id": "151285",
+  "start": "2026-12-27T14:00:00+01:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://activetickets.bimhuis.nl/nl-NL/Show/Details/54467",
+  "title": "Toon Tellegen & het Wisselend Toonkwintet – God onder de mensen",
+  "url": "https://www.bimhuis.nl/agenda/toon-tellegen-het-wisselend-toonkwintet-god-onder-de-mensen/",
+  "venue": "bimhuis"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [
+   "Salsa Panorama"
+  ],
+  "city": "Amsterdam",
+  "description": "Cubaanse zangeres verbindt Afro-Latijnse traditie met hedendaagse invloeden.",
+  "doors": "2026-12-27T19:00:00+01:00",
+  "end": "2026-12-27T22:30:00+01:00",
+  "extra": {
+   "ticket_id": "54387"
+  },
+  "genres": [
+   "Latin Jazz"
+  ],
+  "image": "https://backend.bimhuis.nl/app/uploads/2026/08/271226_evelyn-dupuy3.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 23.0,
+   "min_eur": 19.0,
+   "text": null
+  },
+  "room": "Zaal",
+  "source_id": "149026",
+  "start": "2026-12-27T21:00:00+01:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://activetickets.bimhuis.nl/nl-NL/Show/Details/54387",
+  "title": "Evelyn Dupuy",
+  "url": "https://www.bimhuis.nl/agenda/evelyn-dupuy/",
+  "venue": "bimhuis"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [],
+  "city": "Amsterdam",
+  "description": "Dubbelconcert van dynamisch duo en meerstemmig collectief rond Molukse zang.",
+  "doors": "2026-12-29T18:30:00+01:00",
+  "end": "2026-12-29T22:30:00+01:00",
+  "extra": {
+   "ticket_id": "54398"
+  },
+  "genres": [
+   "Vocal Jazz"
+  ],
+  "image": "https://backend.bimhuis.nl/app/uploads/2026/06/291226_ba-by-krijn-van-noordwijk3u5a5472bw-2.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 21.0,
+   "min_eur": 18.0,
+   "text": null
+  },
+  "room": "Zaal",
+  "source_id": "149340",
+  "start": "2026-12-29T20:30:00+01:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://activetickets.bimhuis.nl/nl-NL/Show/Details/54398",
+  "title": "Boi Akih Entangled & Voices of the Moluccas",
+  "url": "https://www.bimhuis.nl/agenda/boi-akih-entangled-voices-of-the-moluccas/",
+  "venue": "bimhuis"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [],
+  "city": "Amsterdam",
+  "description": "Amsterdams ensemble geeft eigenzinnige wending aan het Ellington-repertoire.",
+  "doors": "2026-12-30T18:30:00+01:00",
+  "end": "2026-12-30T22:00:00+01:00",
+  "extra": {
+   "ticket_id": "54445"
+  },
+  "genres": [
+   "BIG"
+  ],
+  "image": "https://backend.bimhuis.nl/app/uploads/2026/07/301226_all-ellington-dido-sernesky.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 25.0,
+   "min_eur": 21.0,
+   "text": null
+  },
+  "room": "Zaal",
+  "source_id": "150692",
+  "start": "2026-12-30T20:30:00+01:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://activetickets.bimhuis.nl/nl-NL/Show/Details/54445",
+  "title": "All Ellington",
+  "url": "https://www.bimhuis.nl/agenda/all-ellington-10/",
+  "venue": "bimhuis"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [],
+  "city": "Amsterdam",
+  "description": "Rasimprovisatoren keren terug met gloednieuw album.",
+  "doors": "2027-01-02T18:30:00+01:00",
+  "end": "2027-01-02T22:00:00+01:00",
+  "extra": {
+   "ticket_id": "54323"
+  },
+  "genres": [
+   "Impro Focus",
+   "Legacy"
+  ],
+  "image": "https://backend.bimhuis.nl/app/uploads/2025/06/240104-Han-Bennink.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 25.0,
+   "min_eur": 21.0,
+   "text": null
+  },
+  "room": "Zaal",
+  "source_id": "148177",
+  "start": "2027-01-02T20:30:00+01:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://activetickets.bimhuis.nl/nl-NL/Show/Details/54323",
+  "title": "EHBO ft. Han Bennink, Benjamin Herman, Ernst Glerum & Oscar Jan Hoogland",
+  "url": "https://www.bimhuis.nl/agenda/ehbo-ft-han-bennink-benjamin-herman-ernst-glerum-oscar-jan-hoogland-2/",
+  "venue": "bimhuis"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [],
+  "city": "Amsterdam",
+  "description": "Maatschappijkritisch spoken ontmoet piano, strijkkwintet en live elektronica.",
+  "doors": "2027-01-08T18:30:00+01:00",
+  "end": "2027-01-08T22:00:00+01:00",
+  "extra": {
+   "ticket_id": "54450"
+  },
+  "genres": [
+   "New Dutch Jazz"
+  ],
+  "image": "https://backend.bimhuis.nl/app/uploads/2026/07/080127_wild-card-martin-fondse-x-femi-dawkins_foto-krijn-van-noordwijk-low-res.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 23.0,
+   "min_eur": 19.0,
+   "text": null
+  },
+  "room": "Zaal",
+  "source_id": "150714",
+  "start": "2027-01-08T20:30:00+01:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://activetickets.bimhuis.nl/nl-NL/Show/Details/54450",
+  "title": "Martin Fondse ft. Femi Dawkins & Woodcraft – Wild Card",
+  "url": "https://www.bimhuis.nl/agenda/martin-fondse-ft-femi-dawkins-woodcraft-wild-card/",
+  "venue": "bimhuis"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [],
+  "city": "Amsterdam",
+  "description": "Een theatraal familieconcert voor iedereen van 6 tot 106 jaar.",
+  "doors": "2027-01-10T13:30:00+01:00",
+  "end": "2027-01-10T15:30:00+01:00",
+  "extra": {
+   "ticket_id": "54195"
+  },
+  "genres": [
+   "Familieconcerten"
+  ],
+  "image": "https://backend.bimhuis.nl/app/uploads/2025/10/Campagnebeeld-bijgesneden-Baas-van-Oorkaan-fotograaf-Michiel-Spijkers.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 17.0,
+   "min_eur": 17.0,
+   "text": null
+  },
+  "room": null,
+  "source_id": "144399",
+  "start": "2027-01-10T14:30:00+01:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://activetickets.bimhuis.nl/nl-NL/Show/Details/54195",
+  "title": "Oorkaan familieconcert: BAAS met Guy Salamon Trio",
+  "url": "https://www.bimhuis.nl/agenda/oorkaan-familieconcert-baas-met-guy-salamon-trio/",
+  "venue": "bimhuis"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [],
+  "city": "Amsterdam",
+  "description": "Hedendaagse jazzpianist duikt in de wereld van Erik Satie, van de mysterieuze Gymnopédies naar excentriekere composities.",
+  "doors": "2027-01-17T13:30:00+01:00",
+  "end": "2027-01-17T16:00:00+01:00",
+  "extra": {
+   "ticket_id": "54464"
+  },
+  "genres": [
+   "New Dutch Jazz"
+  ],
+  "image": "https://backend.bimhuis.nl/app/uploads/2026/09/170127_philipp-ruttgers-ft-sun-mi-hong-3.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 19.0,
+   "min_eur": 16.0,
+   "text": null
+  },
+  "room": "Zaal",
+  "source_id": "151226",
+  "start": "2027-01-17T14:30:00+01:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://activetickets.bimhuis.nl/nl-NL/Show/Details/54464",
+  "title": "Philipp Rüttgers Trio – Re: Satie, Picturing the Invisible",
+  "url": "https://www.bimhuis.nl/agenda/philipp-ruttgers-trio-re-satie-picturing-the-invisible/",
+  "venue": "bimhuis"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [],
+  "city": "Amsterdam",
+  "description": "Grammy-genomineerde drummer maakt van hiphopklassiekers akoestische jazzstandards.",
+  "doors": "2027-01-17T18:30:00+01:00",
+  "end": "2027-01-17T22:00:00+01:00",
+  "extra": {
+   "ticket_id": "54475"
+  },
+  "genres": [
+   "DATSKAT"
+  ],
+  "image": "https://backend.bimhuis.nl/app/uploads/2026/09/170127_kassa-overall-1.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 25.0,
+   "min_eur": 21.0,
+   "text": null
+  },
+  "room": "Zaal",
+  "source_id": "151518",
+  "start": "2027-01-17T20:30:00+01:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://activetickets.bimhuis.nl/nl-NL/Show/Details/54475",
+  "title": "Kassa Overall",
+  "url": "https://www.bimhuis.nl/agenda/kassa-overall/",
+  "venue": "bimhuis"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [],
+  "city": "Amsterdam",
+  "description": "Cellist leidt een van de sterkste vaste kwartetten in de hedendaagse jazz.",
+  "doors": "2027-01-21T18:30:00+01:00",
+  "end": "2027-01-21T22:00:00+01:00",
+  "extra": {
+   "ticket_id": "54434"
+  },
+  "genres": [
+   "Impro Focus"
+  ],
+  "image": "https://backend.bimhuis.nl/app/uploads/2026/07/210127_tomeka-reid-1-by-jasmine-kwang.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 25.0,
+   "min_eur": 21.0,
+   "text": null
+  },
+  "room": "Zaal",
+  "source_id": "150405",
+  "start": "2027-01-21T20:30:00+01:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://activetickets.bimhuis.nl/nl-NL/Show/Details/54434",
+  "title": "Tomeka Reid Quartet",
+  "url": "https://www.bimhuis.nl/agenda/tomeka-reid-quartet/",
+  "venue": "bimhuis"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [],
+  "city": "Amsterdam",
+  "description": "Pakkende grooves en groepsimprovisaties vol melodie door rijzende sterren van de Britse jazz.",
+  "doors": "2027-01-28T18:30:00+01:00",
+  "end": "2027-01-28T22:30:00+01:00",
+  "extra": {
+   "ticket_id": "54331"
+  },
+  "genres": [],
+  "image": "https://backend.bimhuis.nl/app/uploads/2026/06/280127-Emma-Rawicz-Act8023-1-Gregor-Hohenberg-1.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 25.0,
+   "min_eur": 21.0,
+   "text": null
+  },
+  "room": "Zaal",
+  "source_id": "148424",
+  "start": "2027-01-28T21:00:00+01:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://activetickets.bimhuis.nl/nl-NL/Show/Details/54331",
+  "title": "Emma Rawicz INKYRA",
+  "url": "https://www.bimhuis.nl/agenda/emma-rawicz-inkyra/",
+  "venue": "bimhuis"
+ }
+]
