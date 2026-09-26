@@ -9,6 +9,7 @@ Writes to --out:
   excluded.json        everything left out, each with its reason
   health.json          per-venue counts, timings, errors and problems
   health-history.json  recent nightly counts, the baseline for spotting broken venues
+  pronunciation.json   the announcers' lexicon (pronunciation.toml), for voices in the browser
 """
 
 from __future__ import annotations
@@ -35,6 +36,7 @@ from giggle_pipeline.lineup import fake_answer, parse_lineups
 from giggle_pipeline.llm import LLM, FakeLLM, LLMError, WorkersAI
 from giggle_pipeline.musicbrainz import MusicBrainz
 from giggle_pipeline.scope import exclusion_reason, load_rules
+from giggle_pipeline.voice import Lexicon
 from giggle_pipeline.wikipedia import Wikipedia
 from giggle_pipeline.ytmusic import ArtistLookup
 from podia import Client, Event, all_venues
@@ -208,6 +210,10 @@ def main(argv: list[str] | None = None) -> int:
     write_json(args.out / "artists.json", {"artists": artists})
     write_json(args.out / "excluded.json", sorted(excluded, key=lambda e: e["start"]))
     write_json(args.out / "health.json", health.report(results, problems, today))
+    # The browser's Kokoro says the live lines (gig, track names), so it needs the same
+    # pronunciations as the pre-rendered clips.
+    lexicon = [asdict(e) for e in Lexicon.load().entries]
+    write_json(args.out / "pronunciation.json", {"names": lexicon})
     if not args.replay:  # replayed fixtures would pollute the baseline
         runs = health.updated_history(history, results, today)
         write_json(args.out / "health-history.json", runs)

@@ -63,10 +63,22 @@ describe('settings', () => {
 	it('fills in defaults and rejects bad values', () => {
 		expect(parseSettings(undefined)).toEqual(DEFAULT_SETTINGS);
 		expect(
-			parseSettings({ voiceMode: 'name', voiceName: 'Daniel', tracksPerArtist: 3, volume: 140 })
-		).toEqual({ voiceMode: 'name', voiceName: 'Daniel', tracksPerArtist: 3, volume: 100 });
-		expect(parseSettings({ voiceMode: 'loud', tracksPerArtist: 9, volume: 'x' })).toEqual(
-			DEFAULT_SETTINGS
-		);
+			parseSettings({
+				voiceMode: 'name',
+				voiceName: 'Daniel',
+				liveVoice: 'browser',
+				tracksPerArtist: 3,
+				volume: 140
+			})
+		).toEqual({
+			voiceMode: 'name',
+			voiceName: 'Daniel',
+			liveVoice: 'browser',
+			tracksPerArtist: 3,
+			volume: 100
+		});
+		expect(
+			parseSettings({ voiceMode: 'loud', liveVoice: 'robot', tracksPerArtist: 9, volume: 'x' })
+		).toEqual(DEFAULT_SETTINGS);
 	});
 });

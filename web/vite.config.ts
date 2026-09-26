@@ -49,6 +49,8 @@ function siteData(): Plugin {
 export default defineConfig({
 	// `make dev`: the API runs in `wrangler dev` (dev identity, local D1) next to Vite.
 	server: { proxy: { '/api': 'http://127.0.0.1:8787' } },
+	// The Kokoro worker (src/lib/voice) is a module worker; kokoro-js uses import.meta.
+	worker: { format: 'es' },
 	plugins: [
 		siteData(),
 		sveltekit({

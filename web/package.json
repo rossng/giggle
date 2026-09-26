@@ -29,6 +29,8 @@
 		"vitest": "^4.1.8"
 	},
 	"dependencies": {
-		"@giggle/radio-core": "workspace:*"
+		"@giggle/radio-core": "workspace:*",
+		"kokoro-js": "1.2.1",
+		"phonemizer": "1.2.1"
 	}
 }

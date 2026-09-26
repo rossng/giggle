@@ -83,16 +83,21 @@ export function saveSaid(said: SaidMemory, storage = browserStorage()): boolean 
 
 export interface RadioSettings {
 	voiceMode: VoiceMode;
-	/** A Web Speech voice name; null picks a British default. */
+	/** A Web Speech voice name (the fallback voice); null picks a British default. */
 	voiceName: string | null;
+	/** Who says the live lines: Kokoro in the browser, or the browser's own voice. */
+	liveVoice: LiveVoice;
 	tracksPerArtist: number;
 	/** Listener's music volume, 0–100. */
 	volume: number;
 }
 
+export type LiveVoice = 'kokoro' | 'browser';
+
 export const DEFAULT_SETTINGS: Readonly<RadioSettings> = Object.freeze({
 	voiceMode: 'short',
 	voiceName: null,
+	liveVoice: 'kokoro',
 	tracksPerArtist: 2,
 	volume: 100
 });
@@ -107,6 +112,10 @@ export function parseSettings(value: unknown): RadioSettings {
 				? v.voiceMode
 				: DEFAULT_SETTINGS.voiceMode,
 		voiceName: typeof v.voiceName === 'string' && v.voiceName ? v.voiceName : null,
+		liveVoice:
+			v.liveVoice === 'kokoro' || v.liveVoice === 'browser'
+				? v.liveVoice
+				: DEFAULT_SETTINGS.liveVoice,
 		tracksPerArtist: (TRACKS_PER_ARTIST as readonly unknown[]).includes(v.tracksPerArtist)
 			? (v.tracksPerArtist as number)
 			: DEFAULT_SETTINGS.tracksPerArtist,
