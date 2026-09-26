@@ -22,6 +22,7 @@ dev = ["pytest>=8", "ruff>=0.6"]
 [tool.ruff]
 line-length = 100
 target-version = "py312"
+src = ["packages/podia/src", "packages/podia/tests", "scripts"]
 
 [tool.ruff.lint]
 select = ["E", "F", "I", "UP", "B", "SIM"]

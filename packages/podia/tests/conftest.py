@@ -13,6 +13,7 @@ from datetime import date
 from pathlib import Path
 
 import pytest
+
 from podia import FetchOptions, Replay, get_venue
 
 HERE = Path(__file__).parent
