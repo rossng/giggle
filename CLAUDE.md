@@ -12,8 +12,12 @@ Upcoming-gig radio for Amsterdam and nearby. Design report: https://claude.ai/ar
   venue. Then LLM line-ups (`lineup.py`), artists (`enrich.py`: MusicBrainz, Last.fm, Wikipedia,
   YouTube Music songs within 60 days), announcer blurbs (`blurbs.py`) and Kokoro clips (`clips.py`)
   for playable artists. Per-run budgets everywhere; everything cached in `data/cache/`.
-- `web/` — SvelteKit 2 + Svelte 5 static SPA (adapter-static, `ssr = false`). Agenda works; Radio,
-  Board are placeholders. One filter model (`web/src/lib/data/filters.ts`) lives in the URL.
+- `web/` — SvelteKit 2 + Svelte 5 static SPA (adapter-static, `ssr = false`). Agenda and Radio work
+  (`web/src/lib/radio/`: controller in radio.svelte.ts, YouTube Player, ClipSpeaker playing the
+  pipeline's Kokoro intro clips (`/data/voice/*.mp3`) then Web Speech for the live gig line,
+  per-station session persistence, Media Session) and Board (triage stored by
+  `web/src/lib/board/board.ts`, columns in `columns.ts`, synced by `web/src/lib/sync/`). One
+  filter model (`web/src/lib/data/filters.ts`) lives in the URL.
 - `packages/radio-core/` — TypeScript radio engine (queue, Mix/Shuffle, session restore, announcer
   text, ducking): framework-free, deterministic, no runtime deps. Web imports it as
   `@giggle/radio-core` via the root pnpm workspace.
@@ -68,6 +72,8 @@ download on first use to `data/cache/models/`, checksummed; never commit them.
   (key: the pinned checksums) and clips travel with the site-data artifact.
 
 ## Local stack
+`make dev` runs it all (web on localhost:5173, API on :8787); sign in as a fake user by visiting
+`http://localhost:5173/api/dev/login?as=alice@example.test` (any email; two browsers = two users).
 Everything must run locally: `make dev` (fixtures → data, `wrangler dev` with local D1/R2,
 `vite dev` proxying `/api`), with a dev identity replacing Cloudflare Access only when
 `ENVIRONMENT=dev` (the Worker must refuse it in production), `--llm fake` for offline pipeline runs,

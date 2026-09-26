@@ -159,6 +159,41 @@ p {
 	border-color: var(--mute);
 }
 
+/* How an artist is sorted on the board (listen more / want to go / got tickets / not for me). */
+.badge {
+	font: 600 9.5px/1 var(--f-mono);
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+	padding: 3px 7px;
+	border-radius: 999px;
+	white-space: nowrap;
+}
+.b-listen {
+	background: rgb(142 163 255 / 0.16);
+	color: #afbdff;
+}
+.b-go {
+	background: rgb(255 181 71 / 0.16);
+	color: var(--amber);
+}
+.b-tickets {
+	background: rgb(127 209 160 / 0.16);
+	color: #8fe0b0;
+}
+.b-nope {
+	background: var(--p2);
+	color: var(--mute);
+}
+
+kbd {
+	font: 600 10px/1 var(--f-mono);
+	background: var(--bg);
+	color: var(--mute);
+	border: 1px solid var(--line);
+	border-radius: 4px;
+	padding: 3px 5px;
+}
+
 @media (prefers-reduced-motion: reduce) {
 	*,
 	*::before,

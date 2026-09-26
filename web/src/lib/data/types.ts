@@ -146,6 +146,24 @@ export interface WikipediaSummary {
 	thumbnail: string | null;
 }
 
+/** One song on the artist's YouTube Music page (pipeline/src/giggle_pipeline/ytmusic.py). */
+export interface YoutubeSong {
+	videoId: string;
+	title: string;
+	album: string | null;
+}
+
+/** The artist's YouTube Music match: `ArtistLookup.find` in ytmusic.py. */
+export interface YoutubeArtist {
+	browseId: string;
+	name: string;
+	/** As YouTube Music words it ("1.2M"); older records may hold a number. */
+	monthlyListeners: string | number | null;
+	image: string | null;
+	songs: YoutubeSong[];
+	description?: string | null;
+}
+
 export interface Artist {
 	key: string;
 	name: string;
@@ -156,6 +174,20 @@ export interface Artist {
 	wikipedia: WikipediaSummary | null;
 	/** Gig IDs, soonest first. */
 	gigs: string[];
+	/** YouTube Music match and songs; null when not found, absent in older output. */
+	youtube?: YoutubeArtist | null;
+	/** Announcer descriptors written by the pipeline ("a Glasgow four-piece…"). */
+	blurbs?: string[];
+	/** Pre-rendered intros, one per descriptor that has a clip. `clip` is relative to
+	 * the data directory ("voice/<hash>.mp3"); `seconds` is the clip's exact length. */
+	announce?: AnnounceClip[];
+}
+
+export interface AnnounceClip {
+	text: string;
+	clip: string;
+	seconds: number;
+	voice: string;
 }
 
 export interface ArtistsFile {
