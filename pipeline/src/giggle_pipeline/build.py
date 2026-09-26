@@ -215,6 +215,8 @@ def main(argv: list[str] | None = None) -> int:
         f"{with_wiki} with a Wikipedia summary, {with_songs} with YouTube Music songs "
         f"({mb.requests} MusicBrainz requests, {youtube.lookups} YouTube Music lookups)"
     )
+    if mb.sheds:
+        print(f"musicbrainz: {mb.sheds} busy (shed) search responses retried", file=sys.stderr)
     if mb.outages:
         state = "gave up for this run" if mb.unavailable else "recovered"
         print(f"musicbrainz: {mb.outages} failed lookups; {state}", file=sys.stderr)

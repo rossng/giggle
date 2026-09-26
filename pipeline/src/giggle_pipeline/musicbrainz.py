@@ -30,6 +30,10 @@ INTERVAL = 1.1  # seconds between requests
 BACKOFF = (5, 10, 20)  # seconds to wait before each retry
 COOL_DOWN = (60, 120)  # after a lookup fails all its retries: pause, then carry on
 MAX_OUTAGES = 3  # failed lookups before giving up on MusicBrainz for the run
+# Under load, MusicBrainz sheds search requests (503 with "x-ratelimit-who: search-shed"
+# and "retry-after: 0"): that's the service being busy, not us being limited, and a retry
+# a moment later usually works. These get short jittered waits and don't count as outages.
+SHED_WAITS = (1.5, 2.0, 2.5, 3.0, 3.5, 3.5)
 LINK_TYPES = {
     "bandcamp": "bandcamp",
     "wikidata": "wikidata",
@@ -84,6 +88,7 @@ class MusicBrainz:
         self.max_requests = max_requests
         self.requests = 0  # HTTP requests made, retries included
         self.outages = 0  # lookups that failed all their retries
+        self.sheds = 0  # search requests MusicBrainz shed under load (retried quickly)
         self.unavailable = False  # too many outages: no more requests this run
         self._last = 0.0
 
@@ -92,10 +97,13 @@ class MusicBrainz:
         return self.requests >= self.max_requests
 
     def _get(self, path: str, params: dict[str, str]) -> dict[str, Any]:
-        for attempt, backoff in enumerate((0, *BACKOFF)):
-            if attempt and self.exhausted:
+        backoffs = list(BACKOFF)
+        sheds = list(SHED_WAITS)
+        wait_next = 0.0
+        while True:
+            if self.exhausted and wait_next:
                 raise MusicBrainzUnavailable(f"{path}: out of requests while retrying")
-            wait = max(backoff, INTERVAL - (time.monotonic() - self._last))
+            wait = max(wait_next, INTERVAL - (time.monotonic() - self._last))
             if wait > 0:
                 self.sleep(wait)
             self._last = time.monotonic()
@@ -103,10 +111,17 @@ class MusicBrainz:
             try:
                 r = self.http.get(f"{API}/{path}", params={**params, "fmt": "json"})
             except httpx.TransportError:
-                continue  # timeout or connection error: back off and retry
-            if r.status_code < 500:  # 503 is MusicBrainz's rate limit
+                r = None  # timeout or connection error: back off and retry
+            if r is not None and r.status_code < 500:
                 r.raise_for_status()
                 return r.json()
+            if r is not None and r.headers.get("x-ratelimit-who", "").endswith("shed") and sheds:
+                wait_next = sheds.pop(0)
+                self.sheds += 1
+                continue
+            if not backoffs:
+                break
+            wait_next = backoffs.pop(0)
         # A short network blip shouldn't cost the whole night, but a real outage shouldn't
         # cost minutes of backoff per remaining artist either: pause and carry on, and
         # give up only once it keeps happening.
@@ -160,6 +175,22 @@ class MusicBrainz:
             }
         self.cache.put("musicbrainz", key, {"match": best})
         return best
+
+    def match_by_id(self, mbid: str, source: str) -> dict[str, Any] | None:
+        """A match from an MBID another source supplied (Last.fm): looked up by ID, which
+        doesn't go through MusicBrainz's search service. "medium" confidence, since the
+        other source doesn't know the gig's genres to tell namesakes apart."""
+        details = self.details(mbid)
+        if details is None or not details.get("name"):
+            return None
+        return {
+            "mbid": mbid,
+            "name": details["name"],
+            "disambiguation": None,
+            "namesakes": None,
+            "confidence": "medium",
+            "source": source,
+        }
 
     def details(self, mbid: str) -> dict[str, Any] | None:
         cached = self.cache.get("musicbrainz", f"details:{mbid}", max_age=DETAILS_MAX_AGE)

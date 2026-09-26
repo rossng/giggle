@@ -27,8 +27,9 @@ def fixture(name):
 class Server:
     """A fake MusicBrainz serving the fixtures; `fail` answers 503 that many times."""
 
-    def __init__(self, fail=0, responses=None):
+    def __init__(self, fail=0, responses=None, shed=False):
         self.fail = fail
+        self.shed = shed  # 503s look like MusicBrainz shedding search load
         self.responses = responses or {}
         self.requests: list[httpx.Request] = []
 
@@ -36,7 +37,8 @@ class Server:
         self.requests.append(request)
         if self.fail:
             self.fail -= 1
-            return httpx.Response(503)
+            headers = {"x-ratelimit-who": "search-shed", "retry-after": "0"} if self.shed else {}
+            return httpx.Response(503, headers=headers)
         path = request.url.path.removeprefix("/ws/2/")
         query = request.url.params.get("query")
         if path == "artist" and query in self.responses:
@@ -238,3 +240,29 @@ def test_unknown_artist_details_are_none_and_not_cached(cache):
 def test_default_client_identifies_itself(cache):
     mb = MusicBrainz(cache)
     assert mb.http.headers["User-Agent"].startswith("giggle/")
+
+
+def test_shed_searches_are_retried_quickly_and_are_not_outages(cache):
+    server = Server(fail=3, shed=True)  # MusicBrainz busy for three requests
+    mb, sleeps = client(cache, server)
+    assert mb.match("Kaizers Orchestra", [])["confidence"] == "high"
+    assert [s for s in sleeps if s > 1.2] == [1.5, 2.0, 2.5], "short waits, no long backoff"
+    assert mb.sheds == 3 and mb.outages == 0 and not mb.unavailable
+
+
+def test_long_shedding_falls_back_to_the_usual_backoff(cache):
+    server = Server(fail=100, shed=True)
+    mb, sleeps = client(cache, server)
+    assert mb.match("Kaizers Orchestra", []) is None
+    assert [s for s in sleeps if s > 1.2] == [1.5, 2.0, 2.5, 3.0, 3.5, 3.5, 5, 10, 20, 60]
+    assert mb.outages == 1
+
+
+def test_match_by_id_uses_the_lookup_not_the_search(cache):
+    server = Server()
+    mb, _ = client(cache, server)
+    match = mb.match_by_id(NOUVELLE_VAGUE, "lastfm")
+    assert match["name"] == "Nouvelle Vague" and match["confidence"] == "medium"
+    assert match["source"] == "lastfm"
+    assert all("query" not in r.url.params for r in server.requests)
+    assert mb.match_by_id("00000000-0000-0000-0000-000000000000", "lastfm") is None
