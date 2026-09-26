@@ -4,7 +4,8 @@
     giggle-build --replay packages/podia/tests/fixtures --out data/site   # offline
 
 Writes to --out:
-  gigs.json            the events giggle keeps, plus venue details
+  gigs.json            the events giggle keeps, with line-ups, plus venue details
+  artists.json         everyone playing, with MusicBrainz details where matched
   excluded.json        everything left out, each with its reason
   health.json          per-venue counts, timings, errors and problems
   health-history.json  recent nightly counts, the baseline for spotting broken venues
@@ -14,6 +15,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import sys
 from dataclasses import asdict
 from datetime import date, datetime
@@ -21,15 +23,48 @@ from pathlib import Path
 from typing import Any
 
 from giggle_pipeline import health
+from giggle_pipeline.cache import Cache
 from giggle_pipeline.collect import collect_live, collect_replay
 from giggle_pipeline.dedupe import merge_duplicates, place
+from giggle_pipeline.enrich import enrich_artists
+from giggle_pipeline.lastfm import LastFM
+from giggle_pipeline.lineup import fake_answer, parse_lineups
+from giggle_pipeline.llm import LLM, FakeLLM, LLMError, WorkersAI
+from giggle_pipeline.musicbrainz import MusicBrainz
 from giggle_pipeline.scope import exclusion_reason, load_rules
+from giggle_pipeline.wikipedia import Wikipedia
 from podia import Event, all_venues
+
+# Line-ups the model classes as these aren't what giggle is for.
+LINEUP_EXCLUDE = {"club": "club night", "tribute": "tribute act", "not_music": "not music"}
 
 
 def gig(event: Event, **extra: Any) -> dict[str, Any]:
     identity = {"id": f"{event.venue}:{event.source_id}", "place": place(event)}
     return {**identity, **event.to_dict(), **extra}
+
+
+def load_dotenv(path: Path = Path(".env")) -> None:
+    """Read KEY=value lines into the environment, without overriding what's set."""
+    if path.exists():
+        for line in path.read_text().splitlines():
+            key, sep, value = line.partition("=")
+            if sep and not key.strip().startswith("#"):
+                os.environ.setdefault(key.strip(), value.strip().strip("\"'"))
+
+
+def make_llm(choice: str) -> LLM | None:
+    if choice == "none":
+        return None
+    if choice == "fake":
+        return FakeLLM(fake_answer)
+    try:
+        return WorkersAI.from_env()
+    except LLMError as exc:
+        if choice == "workers":
+            raise
+        print(f"llm: {exc}; using title rules (fake LLM) instead", file=sys.stderr)
+        return FakeLLM(fake_answer)
 
 
 def write_json(path: Path, data: Any) -> None:
@@ -43,7 +78,22 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--history", type=Path, help="previous health-history.json")
     parser.add_argument("--since", type=date.fromisoformat, default=date.today())
     parser.add_argument("--venues", nargs="*", help="only these venue slugs")
+    parser.add_argument(
+        "--llm",
+        choices=["auto", "workers", "fake", "none"],
+        default="auto",
+        help="auto: Workers AI if credentials are set, else title rules",
+    )
+    parser.add_argument("--llm-max-calls", type=int, default=200)
+    parser.add_argument(
+        "--mb-max-requests",
+        type=int,
+        default=600,
+        help="MusicBrainz requests per run (1/s); the rest wait for the next run",
+    )
+    parser.add_argument("--cache", type=Path, default=Path("data/cache/pipeline.sqlite"))
     args = parser.parse_args(argv)
+    load_dotenv()
 
     if args.replay:
         results = collect_replay(args.replay, args.venues)
@@ -65,6 +115,28 @@ def main(argv: list[str] | None = None) -> int:
     for dropped, twin in merged:
         excluded.append(gig(dropped, reason=f"duplicate of {twin.venue}:{twin.source_id}"))
 
+    cache = Cache(args.cache)
+    llm = make_llm(args.llm)
+    records = [gig(e) for e in gigs]
+    lineups = parse_lineups(records, llm, cache, max_calls=args.llm_max_calls)
+    kept_records = []
+    for record in records:
+        record["lineup"] = lineups[record["id"]]
+        reason = LINEUP_EXCLUDE.get(record["lineup"]["kind"])
+        if reason:
+            excluded.append({**record, "reason": f"{reason} (from line-up)"})
+        else:
+            kept_records.append(record)
+
+    # Replays stay offline: artists come only from what's already cached.
+    offline = bool(args.replay)
+    mb = MusicBrainz(cache, max_requests=0 if offline else args.mb_max_requests)
+    lastfm_key = os.environ.get("LASTFM_API_KEY") or None  # CI passes unset secrets as ""
+    lastfm = LastFM(cache, lastfm_key, max_requests=0 if offline else 1500)
+    wikipedia = Wikipedia(cache, max_requests=0 if offline else 1000)
+    artists = enrich_artists(kept_records, mb, lastfm, wikipedia)
+    cache.close()
+
     history: list[dict] = []
     if args.history and args.history.exists():
         history = json.loads(args.history.read_text())
@@ -79,9 +151,10 @@ def main(argv: list[str] | None = None) -> int:
             "generated": datetime.now().astimezone().isoformat(timespec="seconds"),
             "since": today,
             "venues": venues,
-            "gigs": [gig(e) for e in gigs],
+            "gigs": kept_records,
         },
     )
+    write_json(args.out / "artists.json", {"artists": artists})
     write_json(args.out / "excluded.json", sorted(excluded, key=lambda e: e["start"]))
     write_json(args.out / "health.json", health.report(results, problems, today))
     if not args.replay:  # replayed fixtures would pollute the baseline
@@ -89,7 +162,9 @@ def main(argv: list[str] | None = None) -> int:
         write_json(args.out / "health-history.json", runs)
 
     print(f"{'venue':18}{'events':>7}{'kept':>6}{'secs':>7}  status")
-    kept_per_venue = {r.venue: sum(1 for e in gigs if e.venue == r.venue) for r in results}
+    kept_per_venue = {r.venue: 0 for r in results}
+    for record in kept_records:
+        kept_per_venue[record["venue"]] += 1
     problem_by_venue = {p.venue: p for p in problems}
     for r in results:
         status = problem_by_venue[r.venue].kind if r.venue in problem_by_venue else "ok"
@@ -98,13 +173,25 @@ def main(argv: list[str] | None = None) -> int:
     for e in excluded:
         key = e["reason"].split(" of ")[0]
         reasons[key] = reasons.get(key, 0) + 1
-    print(f"\n{len(gigs)} gigs kept, {len(excluded)} left out: " + ", ".join(
+    sources: dict[str, int] = {}
+    for record in kept_records:
+        sources[record["lineup"]["source"]] = sources.get(record["lineup"]["source"], 0) + 1
+    print("\nline-ups: " + ", ".join(f"{n} from {s}" for s, n in sources.items())
+          + f" ({getattr(llm, 'calls', 0)} LLM calls, {cache.hits} cached)")  # fmt: skip
+    matched = sum(1 for a in artists.values() if a["match"])
+    with_lastfm = sum(1 for a in artists.values() if a["lastfm"])
+    with_wiki = sum(1 for a in artists.values() if a["wikipedia"])
+    print(
+        f"artists: {len(artists)}; {matched} matched on MusicBrainz, {with_lastfm} on Last.fm, "
+        f"{with_wiki} with a Wikipedia summary ({mb.requests} MusicBrainz requests)"
+    )
+    print(f"{len(kept_records)} gigs kept, {len(excluded)} left out: " + ", ".join(
         f"{n} {reason}" for reason, n in sorted(reasons.items(), key=lambda x: -x[1])))  # fmt: skip
     for p in problems:
         print(f"problem: {p.venue}: {p.message}", file=sys.stderr)
 
     # Broken venues are reported via health.json; only fail when nothing usable came out.
-    return 0 if gigs else 1
+    return 0 if kept_records else 1
 
 
 if __name__ == "__main__":

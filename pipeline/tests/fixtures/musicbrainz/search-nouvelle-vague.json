@@ -1,0 +1,53 @@
+{
+ "count": 3,
+ "artists": [
+  {
+   "id": "b017a7ae-e5ee-4675-bb13-c83346134971",
+   "score": 100,
+   "name": "Nouvelle Vague",
+   "disambiguation": "French bossa nova cover band",
+   "tags": [
+    {
+     "count": 1,
+     "name": "jazz"
+    },
+    {
+     "count": 3,
+     "name": "new wave"
+    },
+    {
+     "count": 1,
+     "name": "acoustic"
+    },
+    {
+     "count": 3,
+     "name": "lounge"
+    },
+    {
+     "count": 4,
+     "name": "bossa nova"
+    },
+    {
+     "count": -1,
+     "name": "indie pop"
+    },
+    {
+     "count": 0,
+     "name": "indie folk"
+    }
+   ]
+  },
+  {
+   "id": "77cceea7-91bb-4a4c-ae41-bc9c46c1ccb5",
+   "score": 81,
+   "name": "Nouvelle Vague",
+   "disambiguation": "Japan"
+  },
+  {
+   "id": "98033662-c332-4743-81e4-5908b700cad5",
+   "score": 81,
+   "name": "Nouvelle Vague",
+   "disambiguation": "1980s band"
+  }
+ ]
+}

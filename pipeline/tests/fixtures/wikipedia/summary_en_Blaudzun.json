@@ -1,0 +1,17 @@
+{
+  "type": "standard",
+  "title": "Blaudzun",
+  "lang": "en",
+  "description": "Dutch singer-songwriter",
+  "extract": "Blaudzun is the stage name of the Dutch singer-songwriter Johannes Sigmond who played for years in various bands and projects before pursuing a solo career in 2006.",
+  "thumbnail": {
+    "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a7/Blaudzun_bei_Rocken_am_Brocken_2014_06_%28Yellowcard%29.jpg/330px-Blaudzun_bei_Rocken_am_Brocken_2014_06_%28Yellowcard%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "width": 330,
+    "height": 411
+  },
+  "content_urls": {
+    "desktop": {
+      "page": "https://en.wikipedia.org/wiki/Blaudzun"
+    }
+  }
+}

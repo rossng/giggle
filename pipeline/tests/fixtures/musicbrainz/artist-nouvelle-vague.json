@@ -1,0 +1,120 @@
+{
+ "id": "b017a7ae-e5ee-4675-bb13-c83346134971",
+ "name": "Nouvelle Vague",
+ "type": "Group",
+ "disambiguation": "French bossa nova cover band",
+ "country": "FR",
+ "area": {
+  "name": "France"
+ },
+ "begin-area": {
+  "name": "Paris"
+ },
+ "life-span": {
+  "end": null,
+  "begin": "2003",
+  "ended": false
+ },
+ "genres": [
+  {
+   "count": 4,
+   "name": "bossa nova"
+  },
+  {
+   "count": 1,
+   "name": "jazz"
+  },
+  {
+   "count": 3,
+   "name": "lounge"
+  },
+  {
+   "count": 3,
+   "name": "new wave"
+  }
+ ],
+ "tags": [
+  {
+   "count": 1,
+   "name": "acoustic"
+  },
+  {
+   "count": 4,
+   "name": "bossa nova"
+  },
+  {
+   "count": 1,
+   "name": "jazz"
+  },
+  {
+   "count": 3,
+   "name": "lounge"
+  },
+  {
+   "count": 3,
+   "name": "new wave"
+  }
+ ],
+ "relations": [
+  {
+   "type": "bandcamp",
+   "url": {
+    "resource": "https://nouvellevague.bandcamp.com/"
+   }
+  },
+  {
+   "type": "discogs",
+   "url": {
+    "resource": "https://www.discogs.com/artist/212084"
+   }
+  },
+  {
+   "type": "free streaming",
+   "url": {
+    "resource": "https://open.spotify.com/artist/4h7NLIlg1oYdEtfQJfyto0"
+   }
+  },
+  {
+   "type": "free streaming",
+   "url": {
+    "resource": "https://open.spotify.com/artist/6N0eg8e2YrVbJaV6K6F3A8"
+   }
+  },
+  {
+   "type": "free streaming",
+   "url": {
+    "resource": "https://www.deezer.com/artist/1387"
+   }
+  },
+  {
+   "type": "free streaming",
+   "url": {
+    "resource": "https://www.deezer.com/artist/84532252"
+   }
+  },
+  {
+   "type": "last.fm",
+   "url": {
+    "resource": "https://www.last.fm/music/Nouvelle+Vague"
+   }
+  },
+  {
+   "type": "official homepage",
+   "url": {
+    "resource": "http://www.nouvellevaguemusic.com/"
+   }
+  },
+  {
+   "type": "social network",
+   "url": {
+    "resource": "https://open.spotify.com/user/nouvellevagueofficial"
+   }
+  },
+  {
+   "type": "wikidata",
+   "url": {
+    "resource": "https://www.wikidata.org/wiki/Q831029"
+   }
+  }
+ ]
+}

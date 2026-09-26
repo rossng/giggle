@@ -7,7 +7,8 @@ FIXTURES = Path(__file__).parents[2] / "packages" / "podia" / "tests" / "fixture
 
 
 def test_offline_build_writes_consistent_outputs(tmp_path):
-    assert main(["--replay", str(FIXTURES), "--out", str(tmp_path)]) == 0
+    args = ["--replay", str(FIXTURES), "--out", str(tmp_path), "--llm", "fake"]
+    assert main([*args, "--cache", str(tmp_path / "cache.sqlite")]) == 0
     site = json.loads((tmp_path / "gigs.json").read_text())
     excluded = json.loads((tmp_path / "excluded.json").read_text())
     health = json.loads((tmp_path / "health.json").read_text())
@@ -20,3 +21,4 @@ def test_offline_build_writes_consistent_outputs(tmp_path):
     assert set(site["venues"]) == set(health["venues"])
     assert health["problems"] == []
     assert not (tmp_path / "health-history.json").exists(), "replays don't touch the baseline"
+    assert all(g["lineup"]["headliners"] or g["lineup"]["support"] for g in gigs[:50])

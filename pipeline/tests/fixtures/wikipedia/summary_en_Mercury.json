@@ -1,0 +1,12 @@
+{
+  "type": "disambiguation",
+  "title": "Mercury",
+  "lang": "en",
+  "description": "Topics referred to by the same term",
+  "extract": "Mercury most commonly refers to:Mercury (planet), the closest planet to the Sun\nMercury (element), a chemical element\nMercury (mythology), a Roman deity",
+  "content_urls": {
+    "desktop": {
+      "page": "https://en.wikipedia.org/wiki/Mercury"
+    }
+  }
+}

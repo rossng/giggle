@@ -1,0 +1,12 @@
+{
+  "type": "standard",
+  "title": "De Kast",
+  "lang": "nl",
+  "description": "Nederlandse band",
+  "extract": "De Kast is een Nederlandse popgroep, afkomstig uit Friesland. De groep brengt zowel teksten in het Nederlands als in het Fries en Engels.",
+  "content_urls": {
+    "desktop": {
+      "page": "https://nl.wikipedia.org/wiki/De_Kast"
+    }
+  }
+}
