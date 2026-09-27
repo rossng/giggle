@@ -41,6 +41,20 @@ async function expect(path, check, init) {
 	}
 }
 
+// A first deploy (and a new workers.dev route) takes a moment to answer: wait for the site.
+for (let i = 0; ; i++) {
+	const status = await get('/').then(
+		(r) => r.status,
+		() => 0
+	);
+	if (status === 200) break;
+	if (i === 24) {
+		fail(`/ still answers ${status} after 2 minutes`);
+		break;
+	}
+	await new Promise((resolve) => setTimeout(resolve, 5000));
+}
+
 const html = (res) =>
 	res.status !== 200
 		? `status ${res.status}`
@@ -91,16 +105,21 @@ await expect(`${models}/config.json`, (res) =>
 			? `cache-control ${res.headers.get('cache-control')}`
 			: null
 );
+// Big files: HEAD and the Content-Length. Small ones may come compressed (no length), so they're
+// downloaded and measured.
+const BIG = 1_000_000;
 for (const [path, file] of Object.entries(manifest.files)) {
 	await expect(
 		`${models}/${path}`,
-		(res) =>
-			res.status !== 200
-				? `status ${res.status}`
-				: Number(res.headers.get('content-length')) !== file.size
-					? `size ${res.headers.get('content-length')}, expected ${file.size}`
-					: null,
-		{ method: 'HEAD' }
+		async (res) => {
+			if (res.status !== 200) return `status ${res.status}`;
+			const size =
+				file.size > BIG
+					? Number(res.headers.get('content-length'))
+					: (await res.arrayBuffer()).byteLength;
+			return size === file.size ? null : `size ${size}, expected ${file.size}`;
+		},
+		{ method: file.size > BIG ? 'HEAD' : 'GET' }
 	);
 }
 
