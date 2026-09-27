@@ -129,7 +129,68 @@ def json_ld(page: str) -> Iterator[dict[str, Any]]:
                 yield item
 
 
+_EMAIL = re.compile(r"[\w.%+-]+@[\w-]+(?:\.[\w-]+)*\.[a-z]{2,}", re.I)
+
+
+def mask_emails(text: str) -> str:
+    """Replace email addresses (organisers' contact details in event texts) before a
+    response is saved as a fixture."""
+    return _EMAIL.sub("email@example.invalid", text)
+
+
 def next_data(page: str) -> dict[str, Any] | None:
     """The `__NEXT_DATA__` payload of a Next.js pages-router site."""
     node = HTMLParser(page).css_first("script#__NEXT_DATA__")
     return json.loads(node.text()) if node is not None else None
+
+
+_FLIGHT_PUSH = re.compile(r'self\.__next_f\.push\(\[1,("(?:[^"\\]|\\.)*")\]\)')
+_FLIGHT_TEXT = re.compile(rb"T([0-9a-f]+),")
+
+
+def next_flight(page: str) -> list[Any]:
+    """The JSON rows of a Next.js app-router page's React Server Components payload
+    (the `self.__next_f.push([1, "…"])` scripts), parsed. Other rows (module imports,
+    hints) are skipped.
+
+    The payload is a series of `<id>:<row>` records: most run to the end of the line,
+    but a text row (`T<hex length>,`) is that many bytes and has no line break after it.
+    Long strings are sent as text rows and referenced as "$<id>"; those references are
+    replaced by the text, and "$$…" (an escaped "$") is unescaped.
+    """
+    payload = "".join(json.loads(s) for s in _FLIGHT_PUSH.findall(page)).encode()
+    rows: list[Any] = []
+    texts: dict[str, str] = {}
+    i = 0
+    while i < len(payload):
+        colon = payload.find(b":", i)
+        if colon < 0:
+            break
+        row_id = payload[i:colon].decode(errors="replace").strip()
+        text = _FLIGHT_TEXT.match(payload, colon + 1)
+        if text:
+            i = text.end() + int(text[1], 16)
+            texts[row_id] = payload[text.end() : i].decode(errors="replace")
+            continue
+        end = payload.find(b"\n", colon)
+        end = len(payload) if end < 0 else end
+        row = payload[colon + 1 : end]
+        i = end + 1
+        if row[:1] in (b"[", b"{"):
+            try:
+                rows.append(json.loads(row))
+            except json.JSONDecodeError:
+                continue
+
+    def resolve(value: Any) -> Any:
+        if isinstance(value, str) and value.startswith("$"):
+            if value.startswith("$$"):
+                return value[1:]
+            return texts.get(value[1:], value)
+        if isinstance(value, list):
+            return [resolve(v) for v in value]
+        if isinstance(value, dict):
+            return {k: resolve(v) for k, v in value.items()}
+        return value
+
+    return [resolve(row) for row in rows]

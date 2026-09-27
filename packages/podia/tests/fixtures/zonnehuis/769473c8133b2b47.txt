@@ -1,0 +1,90 @@
+<div data-component-event-detail="">
+  <div class="content-wrapper">
+    <article>
+    <div class="block-inner border">
+      <div class="primary title">
+        <h1 class="heading-01">Paradiso Presenteert: Janne Schra</h1>
+        <h3 class="heading-03">Muziek</h3>
+      </div>
+    </div>
+
+    <div class="block-inner">
+      <div class="primary">
+        <ul class="event-info">
+          
+                      <li>
+              <h4 class="title heading-03">Tijd</h4>
+              <p class="copy copy-03">20:30</p>
+            </li>
+          
+                      <li>
+              <h4 class="title heading-03">Toegangsprijs</h4>
+              <p class="copy copy-03">€ 26,20 incl servicekosten</p>
+            </li>
+          
+          
+                      <li>
+              <h4 class="title heading-03">Meer info</h4>
+              <p class="copy copy-03">Zaal open: 19:30 uur</p>
+            </li>
+          
+          
+          
+                      <li>
+              <h4 class="title heading-03">Website</h4>
+              <p class="copy copy-03">
+                  <a href="https://www.paradiso.nl/programma/janne-schra/2841337" target="_blank" rel="noreferrer noopener">https://www.paradiso.nl/programma/janne-schra/2841337 »</a>
+              </p>
+            </li>
+          
+                      <li>
+              <p>
+                                  <a href="https://www.paradiso.nl/programma/janne-schra/2841337" class="button" target="_blank" rel="noreferrer noopener">Kaartverkoop</a>
+                                              </p>
+            </li>
+                  </ul>
+
+                          <div class="agenda-speellijst">
+                                        <table class="speellijst heading-04" cellpadding="0" cellspacing="0">
+                      <tbody>
+                                                    <tr>
+                                <td class="date">vr  2 okt</td>
+                                <td class="time">
+                                  20:30                                                                  </td>
+                                                                  <td class="tickets">
+                                    <a href="https://www.paradiso.nl/programma/janne-schra/2841337" target="_blank" rel="noreferrer noopener">Tickets</a>
+                                  </td>
+                                                        </tr>
+                                          </tbody>
+                  </table>
+                </div>
+                
+          </div>
+        </div>
+
+
+      <div class="block-inner">
+        <div class="primary">
+                      <div class="excerpt copy-03">
+              Concert van Janne Schra in 't Zonnehuis!            </div>
+                                <div class="main-content rich-text-container">
+              <p>
+                </p><p>Janne Schra keert op vrijdag 2 oktober 2026 terug naar het Zonnehuis voor een intiem concert. Sinds haar tijd bij Room Eleven heeft de Utrechtse zangeres zich ontwikkeld tot een veelzijdige artiest die zich beweegt in de pop en jazz. In de jaren negentig werd de basis gelegd voor haar muzikale pad, waarna ze onder eigen naam succesvolle albums uitbracht. Haar teksten zijn persoonlijk en vaak met een subtiele dosis humor, terwijl haar stemgeluid zowel warm als breekbaar kan klinken.</p>
+<p>Tijdens dit optreden in het Zonnehuis in Amsterdam-Noord presenteert zij een selectie van haar nieuwste werk en bekende nummers. De akoestiek van het karakteristieke pand leent zich uitstekend voor de gelaagde arrangementen waar Schra om bekendstaat. Of ze nu zingt in het Nederlands of Engels, dat dit een speciale avond wordt is zeker.</p>
+              <p></p>
+            </div>
+              
+                  <ul class="event-info">
+            <li>
+              <p>
+                                  <a href="https://www.paradiso.nl/programma/janne-schra/2841337" class="button" target="_blank" rel="noreferrer noopener">Kaartverkoop</a>
+                                              </p>
+            </li>
+          </ul>
+                  </div>        
+      </div>
+
+
+    </article>  
+  </div>
+</div>

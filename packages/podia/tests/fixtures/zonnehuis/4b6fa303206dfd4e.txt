@@ -1,0 +1,152 @@
+<div data-component-event-detail="">
+  <div class="content-wrapper">
+    <article>
+    <div class="block-inner border">
+      <div class="primary title">
+        <h1 class="heading-01">IMPROotje Amsterdam</h1>
+        <h3 class="heading-03">Muziek, Theater</h3>
+      </div>
+    </div>
+
+    <div class="block-inner">
+      <div class="primary">
+        <ul class="event-info">
+          
+          
+                      <li>
+              <h4 class="title heading-03">Toegangsprijs</h4>
+              <p class="copy copy-03">Verschillende prijzen</p>
+            </li>
+          
+          
+          
+          
+          
+                      <li>
+              <h4 class="title heading-03">Website</h4>
+              <p class="copy copy-03">
+                  <a href="https://www.impro-amsterdam.nl/improotje-amsterdam-2026" target="_blank" rel="noreferrer noopener">https://www.impro-amsterdam.nl/improotje-amsterdam-2026 »</a>
+              </p>
+            </li>
+          
+                      <li>
+              <p>
+                                  <a href="https://www.tickettailor.com/events/improamsterdam/2425933" class="button" target="_blank" rel="noreferrer noopener">Kaartverkoop 10 oktober</a>
+                                                  <a href="https://www.tickettailor.com/events/improamsterdam/2425939" class="button" target="_blank" rel="noreferrer noopener">Kaartverkoop 11 oktober</a>
+                              </p>
+            </li>
+                  </ul>
+
+                          <div class="agenda-speellijst">
+                                        <table class="speellijst heading-04" cellpadding="0" cellspacing="0">
+                      <tbody>
+                                                    <tr>
+                                <td class="date">za 10 okt</td>
+                                <td class="time">
+                                  19:30                                                                  </td>
+                                                                  <td class="tickets">
+                                    <a href="https://www.tickettailor.com/events/improamsterdam" target="_blank" rel="noreferrer noopener">Tickets</a>
+                                  </td>
+                                                        </tr>
+                                                    <tr>
+                                <td class="date">zo 11 okt</td>
+                                <td class="time">
+                                  19:30                                                                  </td>
+                                                                  <td class="tickets">
+                                    <a href="https://www.tickettailor.com/events/improamsterdam" target="_blank" rel="noreferrer noopener">Tickets</a>
+                                  </td>
+                                                        </tr>
+                                          </tbody>
+                  </table>
+                </div>
+                
+          </div>
+        </div>
+
+
+      <div class="block-inner">
+        <div class="primary">
+                      <div class="excerpt copy-03">
+              IMPROotje Amsterdam brengt twee dagen lang improvisatietalent uit heel Nederland samen. 48 performers, 6 regisseurs en 6 verschillende voorstellingen vormen samen een mini-festival vol ontmoeting, experiment en natuurlijk improvisatietheater.            </div>
+                                <div class="main-content rich-text-container">
+              <p>
+                </p><p><strong>48 performers</strong><br>
+48 performers uit verschillende Nederlandse improvcommunities worden gekoppeld aan een van de zes gastregisseurs. Samen krijgen zij één dag de tijd om een compleet nieuwe improvisatievorm te ontdekken, te ontwikkelen en in de avond voor publiek op de planken te brengen.</p>
+<p>Voor de performers begint de dag met een intensieve workshop van zes uur onder leiding van een ervaren regisseur van IMPRO Amsterdam. Daarna volgt diezelfde avond de voorstelling. Daarmee ervaren de deelnemers hoe een echte festivaldag van een IMPRO Amsterdam-ensemblelid eruitziet: overdag samen creëren en repeteren, ’s avonds het podium op.</p>
+<p>De verschillende voorstellingen van IMPRO Amsterdam lopen sterk uiteen in stijl en vorm. Daarom worden performers bewust uitgedaagd om buiten hun vertrouwde speelstijl te stappen. Een speler met veel comedy-ervaring kan bijvoorbeeld terechtkomen in een meer ingetogen, dramatische vorm, terwijl iemand die sterk op dialoog leunt juist wordt uitgedaagd met fysieke of woordloze scènes. Juist het experimenteren met nieuwe vormen en samenwerkingen staat tijdens IMPROotje centraal.</p>
+<p>Van de 48 performers worden uiteindelijk 7 spelers geselecteerd voor het Festival Ensemble van IMPRO Amsterdam 2027. Maar IMPROotje draait om meer dan de selectie alleen: nieuwe mensen ontmoeten, van elkaar leren, andere speelstijlen ontdekken en samen een bijzondere voorstelling neerzetten zijn minstens zo belangrijk.</p>
+<p><strong>6 regisseurs</strong><br>
+De 48 performers worden tijdens IMPROotje begeleid door zes gastregisseurs, die ieder met hun eigen groep een unieke voorstelling ontwikkelen.</p>
+<p>De regisseurs van IMPROotje 2026 zijn:</p>
+<p>Salomé Attias (Nederland)<br>
+Jenny Hasenack (Nederland)<br>
+Nardje Trepels (Nederland)<br>
+Emma Wessleus (Nederland)<br>
+Simon Lukacs (Nederland)<br>
+Nora McLeese (Nederland)</p>
+<p><strong>6 voorstellingen</strong><br>
+IMPROotje Amsterdam vindt plaats verspreid over twee dagen, met drie verschillende voorstellingen per avond. Iedere voorstelling heeft een eigen cast, vorm en sfeer. Van komisch tot ontroerend en van fysiek tot experimenteel: de diversiteit laat zien hoe veelzijdig improvisatietheater kan zijn.</p>
+<p>Daarmee is IMPROotje niet alleen een podium voor nieuw en bestaand talent, maar ook een mooie kennismaking met IMPRO Amsterdam en het jaarlijkse hoofdfestival.</p>
+<p><strong>Eén community</strong><br>
+IMPROotje Amsterdam is bovenal een viering van de Nederlandse improvcommunity. Het mini-festival brengt spelers uit verschillende steden en communities bij elkaar die elkaar anders misschien niet snel zouden ontmoeten. Ze delen kennis, ontdekken nieuwe manieren van spelen en krijgen de kans om samen op het podium te staan.</p>
+<p>Tegelijkertijd zet IMPROotje het vele improvisatietalent dat Nederland rijk is in de schijnwerpers. Want hoewel zeven performers doorgaan naar het Festival Ensemble van 2027, draait het weekend vooral om samen spelen, leren, experimenteren en de kracht van de community vieren.</p>
+<p><strong>Het programma overdag</strong></p>
+<p>10.00 – 11.00&nbsp; Start workshops (1 workshop in de Blauwe zaal, de anderen in de Evenaar)</p>
+<p><strong>Zaterdagavond</strong></p>
+<p>19.30&nbsp; &nbsp;Show 1, directed by Nora McLeese</p>
+<p>20:30&nbsp; &nbsp;Show 2,&nbsp;directed by&nbsp;Nardje Trepels</p>
+<p>21:30&nbsp; &nbsp;Show 3,&nbsp;directed by&nbsp;Emma Wessleus</p>
+<p><strong>Zondagavond</strong></p>
+<p>19.30&nbsp; &nbsp;Show 1, directed by Simon Lukacs</p>
+<p>20:30&nbsp; &nbsp;Show 2,&nbsp;directed by&nbsp;Jenny Hasenack</p>
+<p>21:30&nbsp; &nbsp;Show 3,&nbsp;directed by&nbsp;Salomé Attias</p>
+<p>//ENGLISH//</p>
+<p><strong>48 performers</strong><br>
+48 performers from improv communities across the Netherlands will each be matched with one of six guest directors. Together, they have just one day to discover and develop a brand-new improv format before performing it for a live audience that same evening.</p>
+<p>The performers start their day with an intensive six-hour workshop led by an experienced IMPRO Amsterdam director, followed by a public performance in the evening. This gives them the full IMPRO Amsterdam ensemble experience: creating and rehearsing together during the day and bringing that work to the stage at night.</p>
+<p>IMPRO Amsterdam shows are highly diverse in style and format, so performers are deliberately encouraged to step outside their comfort zones. A comedy-focused improviser might find themselves working on a grounded, dramatic piece, while someone who usually relies on dialogue could be challenged to explore physical or silent scenes. Experimenting with new styles, ideas and collaborations is at the heart of IMPROotje.</p>
+<p>Of the 48 performers, 7 will be selected to join the IMPRO Amsterdam 2027 Festival Ensemble. But IMPROotje is about much more than selection: meeting new people, learning from each other, exploring unfamiliar styles and creating a great show together are just as important.</p>
+<p><strong>6 directors</strong><br>
+The 48 performers will be guided by six guest directors, each developing a unique showcase with their group.</p>
+<p>The directors for IMPROotje 2026 are:</p>
+<p>Salomé Attias (Netherlands)<br>
+Jenny Hasenack (Netherlands)<br>
+Nardje Trepels (Netherlands)<br>
+Emma Wessleus (Netherlands)<br>
+Simon Lukacs (Netherlands)<br>
+Nora McLeese (Netherlands)</p>
+<p><strong>6 shows</strong><br>
+IMPROotje Amsterdam takes place over two days, with three different shows each evening. Every show features a different cast, format and atmosphere. From comedy to drama and from physical performance to experimental forms, the programme showcases just how diverse improv can be.</p>
+<p>This makes IMPROotje both a platform for improv talent and a great introduction to IMPRO Amsterdam and its annual festival.</p>
+<p><strong>One community</strong><br>
+Above all, IMPROotje Amsterdam is a celebration of the Dutch improv community. The mini-festival brings together performers from different cities and communities who might not otherwise have the opportunity to meet and play together. It is a space to exchange ideas, learn from one another, explore new approaches and share the stage.</p>
+<p>While seven performers will ultimately be selected for the 2027 Festival Ensemble, the weekend is about much more than the casting outcome. It is about playing, learning, experimenting and celebrating the incredible improv talent found across the Netherlands.</p>
+<p><strong>Day program</strong></p>
+<p>10.00 – 11.00&nbsp; Start workshops (1 workshop in de Blauwe zaal, de anderen in de Evenaar)</p>
+<p><strong>Saturday evening</strong></p>
+<p>19.30&nbsp; &nbsp;Show 1, directed by Nora McLeese</p>
+<p>20:30&nbsp; &nbsp;Show 2,&nbsp;directed by&nbsp;Nardje Trepels</p>
+<p>21:30&nbsp; &nbsp;Show 3,&nbsp;directed by&nbsp;Emma Wessleus</p>
+<p><strong>Sunday evening&nbsp;</strong></p>
+<p>19.30&nbsp; &nbsp;Show 1, directed by Simon Lukacs</p>
+<p>20:30&nbsp; &nbsp;Show 2,&nbsp;directed by&nbsp;Jenny Hasenack</p>
+<p>21:30&nbsp; &nbsp;Show 3,&nbsp;directed by&nbsp;Salomé Attias</p>
+<p><img decoding="async" class="alignnone wp-image-176649" src="https://stadsherstel.nl/wp-content/uploads/2026/09/Agenda_improotje2.png" alt="" width="756" height="945" srcset="https://stadsherstel.nl/wp-content/uploads/2026/09/Agenda_improotje2.png 1080w, https://stadsherstel.nl/wp-content/uploads/2026/09/Agenda_improotje2-640x800.png 640w, https://stadsherstel.nl/wp-content/uploads/2026/09/Agenda_improotje2-320x400.png 320w" sizes="(max-width: 756px) 100vw, 756px"></p>
+              <p></p>
+            </div>
+              
+                  <ul class="event-info">
+            <li>
+              <p>
+                                  <a href="https://www.tickettailor.com/events/improamsterdam/2425933" class="button" target="_blank" rel="noreferrer noopener">Kaartverkoop 10 oktober</a>
+                                                  <a href="https://www.tickettailor.com/events/improamsterdam/2425939" class="button" target="_blank" rel="noreferrer noopener">Kaartverkoop 11 oktober</a>
+                              </p>
+            </li>
+          </ul>
+                  </div>        
+      </div>
+
+
+    </article>  
+  </div>
+</div>

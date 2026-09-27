@@ -1,0 +1,24 @@
+{
+  "02ec44befd8b370c": {
+    "body": null,
+    "content_type": "application/json; charset=UTF-8",
+    "file": "02ec44befd8b370c.json",
+    "method": "GET",
+    "params": {
+      "_fields": "id,title,content",
+      "include": "9373,9437,9335,9514,9532,9492,9399,9374,9454,9455,9554,9476,9499,9057,9059,9375,9545,9539,9410,9516,9546,9376,9547,9548,9440,9518,9377,9523,9457,9330,9378,9517,9468,9379,9528,9387,9380,9381,9458,9505,9438,9382,9337,9383,9543,9384,9542,9536,9538,9447,9389,9534,9489,9391,9393",
+      "per_page": "100"
+    },
+    "status": 200,
+    "url": "https://denieuweanita.nl/wp-json/wp/v2/agenda"
+  },
+  "5a7ccbfdc1c98470": {
+    "body": null,
+    "content_type": "text/html; charset=UTF-8",
+    "file": "5a7ccbfdc1c98470.txt",
+    "method": "GET",
+    "params": null,
+    "status": 200,
+    "url": "https://denieuweanita.nl/"
+  }
+}
