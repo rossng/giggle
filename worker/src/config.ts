@@ -18,12 +18,16 @@ export interface Env {
 	/** Rate limits (limits.ts); a missing one doesn't limit. */
 	RL_PASSKEY?: RateLimit;
 	RL_WRITES?: RateLimit;
+	RL_READS?: RateLimit;
+	RL_API?: RateLimit;
 	RL_MODELS?: RateLimit;
 	ENVIRONMENT?: string;
 	/** The passkeys' relying party: the site's hostname. Passkeys only work on it. */
 	PASSKEY_RP_ID?: string;
 	/** Where sign-in may come from: origins, space-separated ("https://giggle.example"). */
 	SITE_ORIGINS?: string;
+	/** New accounts the whole site takes a day (default NEW_ACCOUNTS_PER_DAY). */
+	NEW_ACCOUNTS_PER_DAY?: string;
 }
 
 export interface Relying {
@@ -33,7 +37,20 @@ export interface Relying {
 	origins: string[];
 }
 
-export type AuthConfig = ({ mode: 'dev' } | { mode: 'passkey' }) & Relying;
+export type AuthConfig = ({ mode: 'dev' } | { mode: 'passkey' }) &
+	Relying & {
+		/** New accounts a day, site-wide: sign-up is open, so this caps what a script can make. */
+		newAccountsPerDay: number;
+	};
+
+export const NEW_ACCOUNTS_PER_DAY = 50;
+
+function newAccountsPerDay(env: Partial<Env>): number {
+	const raw = env.NEW_ACCOUNTS_PER_DAY;
+	if (raw === undefined || raw === '') return NEW_ACCOUNTS_PER_DAY;
+	if (!/^\d{1,6}$/.test(raw)) throw new ConfigError('NEW_ACCOUNTS_PER_DAY must be a whole number');
+	return Number(raw);
+}
 
 export class ConfigError extends Error {}
 
@@ -72,12 +89,22 @@ export function authConfig(env: Partial<Env>): AuthConfig {
 						'on a real hostname'
 				);
 			}
-			return { mode: 'dev', rpID, origins: origins(env, rpID, false) };
+			return {
+				mode: 'dev',
+				rpID,
+				origins: origins(env, rpID, false),
+				newAccountsPerDay: newAccountsPerDay(env)
+			};
 		case 'production':
 			if (!HOSTNAME.test(rpID)) {
 				throw new ConfigError('PASSKEY_RP_ID must be the site hostname (not localhost)');
 			}
-			return { mode: 'passkey', rpID, origins: origins(env, rpID, true) };
+			return {
+				mode: 'passkey',
+				rpID,
+				origins: origins(env, rpID, true),
+				newAccountsPerDay: newAccountsPerDay(env)
+			};
 		default:
 			throw new ConfigError('ENVIRONMENT must be "production" or "dev"');
 	}

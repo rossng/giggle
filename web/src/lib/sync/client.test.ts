@@ -120,7 +120,15 @@ class FakeEvents {
 	}
 }
 
-function device(server: FakeServer, user: string, options: { fetch?: typeof fetch } = {}) {
+/**
+ * A device signed in as `user`. By default it has just made the account, so what it sorts before
+ * its first round is the account's; `newAccount: false` signs in to an existing one instead.
+ */
+function device(
+	server: FakeServer,
+	user: string,
+	options: { fetch?: typeof fetch; newAccount?: boolean; personalKeys?: string[] } = {}
+) {
 	const storage = memoryStorage();
 	const events = new FakeEvents();
 	const online = { value: true };
@@ -136,8 +144,10 @@ function device(server: FakeServer, user: string, options: { fetch?: typeof fetc
 		debounceMs: 1000,
 		pollMs: 60_000,
 		backoffMs: { base: 1000, max: 8000 },
-		onChange: (name, data) => name === 'board' && boards.push(data as Board)
+		onChange: (name, data) => name === 'board' && boards.push(data as Board),
+		personalKeys: options.personalKeys
 	});
+	client.prepareSignIn(options.newAccount === false ? 'existing-account' : 'new-account');
 	client.subscribe((status) => statuses.push(status));
 	return {
 		storage,
@@ -244,12 +254,13 @@ describe('SyncClient: two devices, one account', () => {
 		}
 	});
 
-	it('keeps accounts apart and starts over when the user changes', async () => {
+	it('keeps accounts apart: another account’s data leaves the device', async () => {
 		const server = new FakeServer();
 		const shared = device(server, 'alice@example.test');
 		shared.triage('name:a', 'go');
 		await shared.client.syncNow();
-		// Bob signs in on the same browser: his board is pulled in full, not from alice's cursor.
+		// Bob signs in on the same browser: his board is pulled in full, not from alice's cursor,
+		// and alice's board goes (her account keeps it).
 		server.put('bob@example.test', [
 			{ key: 'name:b', state: 'go', name: 'B', at: '2026-09-26T19:00:00.000Z' }
 		]);
@@ -259,10 +270,92 @@ describe('SyncClient: two devices, one account', () => {
 			storage: shared.storage,
 			events: null
 		});
+		// Even straight after making an account: alice's data isn't "made while signed out".
+		bob.prepareSignIn('new-account');
 		await bob.syncNow();
 		expect(server.requests.at(-1)?.path).toBe('/api/board');
-		expect(Object.keys(loadBoard(shared.storage)).sort()).toEqual(['name:a', 'name:b']);
-		expect(server.board('alice@example.test')['name:b']).toBeUndefined();
+		expect(Object.keys(loadBoard(shared.storage))).toEqual(['name:b']);
+		expect(Object.keys(server.board('bob@example.test'))).toEqual(['name:b']);
+		expect(Object.keys(server.board('alice@example.test'))).toEqual(['name:a']);
+	});
+});
+
+describe('SyncClient: signing in and out', () => {
+	const bobsBoard = (server: FakeServer) =>
+		server.put('bob@example.test', [
+			{ key: 'name:b', state: 'go', name: 'B', at: '2026-09-26T19:00:00.000Z' }
+		]);
+
+	it('signing in to an existing account shows its data, not what was sorted signed out', async () => {
+		const server = new FakeServer();
+		bobsBoard(server);
+		const d = device(server, 'bob@example.test', { newAccount: false });
+		d.triage('name:local', 'go');
+		await d.client.syncNow();
+		expect(Object.keys(d.board)).toEqual(['name:b']);
+		expect(Object.keys(server.board('bob@example.test'))).toEqual(['name:b']);
+		expect(d.boards.at(-1)).toEqual(d.board); // the app was told
+		expect(d.client.status).toMatchObject({ state: 'synced', pending: 0 });
+	});
+
+	it('a new account adopts what was sorted here while signed out', async () => {
+		const server = new FakeServer();
+		const d = device(server, 'carol@example.test');
+		d.triage('name:local', 'go');
+		await d.client.syncNow();
+		expect(Object.keys(server.board('carol@example.test'))).toEqual(['name:local']);
+		expect(Object.keys(d.board)).toEqual(['name:local']);
+		expect(readJson('giggle:sync:adopt:v1', d.storage)).toBeUndefined(); // used up
+	});
+
+	it('only just after making the account', async () => {
+		const server = new FakeServer();
+		bobsBoard(server);
+		const d = device(server, 'bob@example.test');
+		d.triage('name:local', 'go');
+		vi.advanceTimersByTime(11 * 60_000); // the passkey dialog was long ago
+		await d.client.syncNow();
+		expect(Object.keys(d.board)).toEqual(['name:b']);
+		expect(server.board('bob@example.test')['name:local']).toBeUndefined();
+	});
+
+	it('signing out clears this device, and the account keeps its data', async () => {
+		const server = new FakeServer();
+		const d = device(server, 'alice@example.test', { personalKeys: ['giggle:radio:said:v1'] });
+		writeJson('giggle:radio:said:v1', { x: 1 }, d.storage);
+		writeJson('giggle:radio:settings:v1', { voice: 'kokoro' }, d.storage);
+		d.triage('name:a', 'go');
+		await d.client.syncNow();
+
+		d.client.forget();
+		expect(d.board).toEqual({});
+		expect(d.boards.at(-1)).toEqual({});
+		expect(readJson(SYNC_STORAGE_KEY, d.storage)).toMatchObject({ user: null, cursor: null });
+		expect(readJson('giggle:radio:said:v1', d.storage)).toBeUndefined();
+		expect(readJson('giggle:radio:settings:v1', d.storage)).toEqual({ voice: 'kokoro' });
+		expect(d.client.status).toMatchObject({ state: 'signed-out', user: null, pending: 0 });
+		expect(Object.keys(server.board('alice@example.test'))).toEqual(['name:a']);
+
+		// Signing back in brings it back.
+		d.client.prepareSignIn('existing-account');
+		await d.client.signedIn();
+		expect(Object.keys(d.board)).toEqual(['name:a']);
+	});
+
+	it('a round running while signing out saves nothing', async () => {
+		const server = new FakeServer();
+		const d = device(server, 'alice@example.test');
+		d.triage('name:a', 'go');
+		let release!: () => void;
+		server.gate = new Promise((resolve) => (release = resolve));
+		const round = d.client.syncNow();
+		await tick();
+		d.client.forget();
+		release();
+		await round;
+		expect(d.board).toEqual({});
+		expect(readJson(SYNC_STORAGE_KEY, d.storage)).toMatchObject({ user: null, base: {} });
+		expect(d.client.status.state).toBe('signed-out');
 	});
 });
 

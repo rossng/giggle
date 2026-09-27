@@ -40,7 +40,7 @@ describe('rate limits', () => {
 		expect((await post('/api/passkey/login/options', `${net}:1:2:3:4`)).status).toBe(429);
 	});
 
-	it('allows 30 writes a minute per account; reads are not limited', async () => {
+	it('allows 30 writes a minute per account; reads have their own limit', async () => {
 		const alice = newUser('alice');
 		const put = (user: string) =>
 			call('/api/board', {

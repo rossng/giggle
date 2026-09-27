@@ -1,10 +1,14 @@
 <script lang="ts">
 	// Signing in to sync the board, unavailable dates and play history across devices, with
 	// passkeys: no password, no email. Everything works signed out too, on this device only.
+	// Signing out clears this device's copy; signing in shows the account's data; a new account
+	// takes what was made here while signed out (lib/sync/client.ts).
 	import { onMount } from 'svelte';
 	import {
 		browserSupportsWebAuthn,
+		confirmed,
 		createPasskey,
+		deleteAccount,
 		listPasskeys,
 		me,
 		problem,
@@ -34,17 +38,39 @@
 	const day = (iso: string) =>
 		new Date(iso).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
 
+	const SIGNED_OUT =
+		'Signed out. Your board, dates and history are off this device; your account keeps them.';
+
+	/** Signed out: pending changes go up first (best effort), then this device's copy goes. */
+	async function leave(step: () => Promise<void>) {
+		await sync?.syncNow();
+		await step();
+		sync?.forget();
+	}
+
 	function remove(p: PasskeyInfo) {
 		if (!confirm('Remove this passkey? It will no longer sign in to giggle.')) return;
-		void run(
-			() => removePasskey(p.id),
-			'Passkey removed. Also delete it from your password manager or device.'
-		);
+		void run(async () => {
+			const { signedOut } = await confirmed(() => removePasskey(p.id));
+			if (signedOut) sync?.forget();
+		}, 'Passkey removed, and anything it signed in is signed out. Also delete it from your password manager or device.');
 	}
 
 	function everywhere() {
 		if (!confirm('Sign out on every device, this one included?')) return;
-		void run(signOutEverywhere, 'Signed out everywhere. Your data stays on this device.');
+		void run(() => leave(signOutEverywhere), `${SIGNED_OUT} Every other device is signed out too.`);
+	}
+
+	function removeAccount() {
+		const sure = confirm(
+			'Delete your giggle account? Your passkeys stop working, and the board, unavailable dates ' +
+				'and listening history kept for it are deleted, from every device. This can’t be undone.'
+		);
+		if (!sure) return;
+		void run(async () => {
+			await confirmed(deleteAccount);
+			sync?.forget();
+		}, 'Account deleted. You can delete the giggle passkey from your password manager or device too.');
 	}
 
 	onMount(() => {
@@ -52,7 +78,7 @@
 		void refresh();
 	});
 
-	/** Runs a passkey step, then catches the sync up with whoever is signed in now. */
+	/** Runs a passkey step, then shows who is signed in now. */
 	async function run(step: () => Promise<void>, done: string) {
 		busy = true;
 		message = null;
@@ -60,12 +86,26 @@
 			await step();
 			message = done;
 			await refresh();
-			void sync?.syncNow();
 		} catch (e) {
 			message = problem(e);
 		} finally {
 			busy = false;
 		}
+	}
+
+	/** Signing in: to a new account, which keeps what's on this device, or an existing one. */
+	function enter(kind: 'new-account' | 'existing-account') {
+		const step = kind === 'new-account' ? createPasskey : signIn;
+		void run(
+			async () => {
+				sync?.prepareSignIn(kind);
+				await step();
+				void sync?.signedIn();
+			},
+			kind === 'new-account'
+				? 'Passkey made: you’re signed in, and what’s on this device is syncing to your account.'
+				: 'Signed in: bringing your board, dates and history to this device.'
+		);
 	}
 </script>
 
@@ -96,10 +136,7 @@
 				{/if}
 			</p>
 			<div class="actions">
-				<button
-					class="button"
-					disabled={busy}
-					onclick={() => run(signOut, 'Signed out. Your data stays on this device.')}
+				<button class="button" disabled={busy} onclick={() => run(() => leave(signOut), SIGNED_OUT)}
 					>Sign out</button
 				>
 				{#if account.via === 'passkey'}
@@ -134,8 +171,10 @@
 						class="button"
 						disabled={busy}
 						onclick={() =>
-							run(createPasskey, 'Passkey added. You can sign in with it on that device now.')}
-						>Add a passkey</button
+							run(
+								() => confirmed(createPasskey),
+								'Passkey added. You can sign in with it on that device now.'
+							)}>Add a passkey</button
 					>
 				</div>
 			</More>
@@ -163,9 +202,28 @@
 					{/each}
 				</ul>
 				<p class="note">
-					Lost a device? Remove its passkey, then sign out everywhere so its session ends too.
+					Lost a device? Remove the passkey it signed in with, and it's signed out too. Not sure
+					which one? Sign out everywhere.
 				</p>
 			</More>
+			<More label="Delete account">
+				<p>
+					Deleting your account removes it from giggle: its passkeys stop working, and the board,
+					unavailable dates and listening history kept for it are deleted. Every device is signed
+					out and cleared. It can't be undone.
+				</p>
+				<div class="actions">
+					<button class="button danger" disabled={busy} onclick={removeAccount}
+						>Delete my account</button
+					>
+				</div>
+			</More>
+		{/if}
+		{#if account.via === 'passkey'}
+			<p class="note">
+				Adding or removing a passkey, or deleting the account, asks for your passkey first, so
+				nobody can do it from a browser you left signed in.
+			</p>
 		{/if}
 	{:else}
 		<section class="card">
@@ -181,18 +239,17 @@
 				to get a QR code, and scan it with the device that has the passkey.
 			</p>
 			<p>
+				Signing in shows that account's board, dates and history on this device, in place of
+				anything sorted here while signed out.
+			</p>
+			<p>
 				<b>First time?</b> Create a passkey. Whatever you've sorted on this device becomes your account.
 			</p>
 			<div class="actions">
-				<button
-					class="button strong"
-					disabled={busy}
-					onclick={() => run(signIn, 'Signed in: syncing now.')}>Sign in with a passkey</button
+				<button class="button strong" disabled={busy} onclick={() => enter('existing-account')}
+					>Sign in with a passkey</button
 				>
-				<button
-					class="button"
-					disabled={busy}
-					onclick={() => run(createPasskey, 'Passkey made: you’re signed in and syncing.')}
+				<button class="button" disabled={busy} onclick={() => enter('new-account')}
 					>Create a passkey</button
 				>
 			</div>
@@ -260,6 +317,10 @@
 		flex-direction: column;
 		gap: 2px;
 		min-width: 0;
+	}
+	.danger {
+		color: var(--bad);
+		border-color: color-mix(in srgb, var(--bad) 45%, var(--line));
 	}
 	button:disabled {
 		opacity: 0.6;

@@ -1,5 +1,5 @@
 import { describe, expect, it, vi } from 'vitest';
-import { authConfig, ConfigError } from '../src/config';
+import { authConfig, ConfigError, NEW_ACCOUNTS_PER_DAY } from '../src/config';
 import { call, callJson } from './helpers';
 
 describe('dev identity (ENVIRONMENT=dev)', () => {
@@ -67,7 +67,8 @@ describe('authConfig', () => {
 		).toEqual({
 			mode: 'dev',
 			rpID: 'localhost',
-			origins: ['http://localhost:5173', 'http://localhost:8787']
+			origins: ['http://localhost:5173', 'http://localhost:8787'],
+			newAccountsPerDay: NEW_ACCOUNTS_PER_DAY
 		});
 		expect(
 			authConfig({
@@ -75,7 +76,12 @@ describe('authConfig', () => {
 				PASSKEY_RP_ID: 'giggle.rossng.workers.dev',
 				SITE_ORIGINS: site
 			})
-		).toEqual({ mode: 'passkey', rpID: 'giggle.rossng.workers.dev', origins: [site] });
+		).toEqual({
+			mode: 'passkey',
+			rpID: 'giggle.rossng.workers.dev',
+			origins: [site],
+			newAccountsPerDay: NEW_ACCOUNTS_PER_DAY
+		});
 	});
 
 	it.each([

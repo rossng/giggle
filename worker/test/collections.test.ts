@@ -191,7 +191,7 @@ describe('forgetting plays', () => {
 		expect(results.map((r) => r.key.slice(25))).toEqual(['name:new', 'name:newer']);
 	});
 
-	it('keeps the newest plays up to the row limit', async () => {
+	it('past the row limit, keeps the newest 90% of it', async () => {
 		const user = newUser();
 		const small = { ...playsCollection, maxRows: 3 };
 		const first = await putItems(
@@ -201,12 +201,16 @@ describe('forgetting plays', () => {
 			[4, 3, 2, 1].map((d) => play(`name:${d}`, d)),
 			NOW
 		);
-		expect(first.map((i) => i.key).sort()).toEqual(['name:1', 'name:2', 'name:3']);
+		// floor(3 × 0.9) = 2 kept, so the next few writes don't have to forget any.
+		expect(first.map((i) => i.key).sort()).toEqual(['name:1', 'name:2']);
 		const page = await itemsSince(DB, small, user, 0, NOW);
-		expect(page.items.map((i) => i.key).sort()).toEqual(['name:1', 'name:2', 'name:3']);
+		expect(page.items.map((i) => i.key).sort()).toEqual(['name:1', 'name:2']);
+		await putItems(DB, small, user, [play('name:0', 0)], NOW);
+		const again = await itemsSince(DB, small, user, 0, NOW);
+		expect(again.items.map((i) => i.key).sort()).toEqual(['name:0', 'name:1', 'name:2']);
 	});
 
-	it('keeps the row with the highest seq even when it is the oldest (one over the limit)', async () => {
+	it('keeps the row with the highest seq even when it is the oldest', async () => {
 		const user = newUser();
 		const small = { ...playsCollection, maxRows: 3 };
 		await putItems(
@@ -216,11 +220,12 @@ describe('forgetting plays', () => {
 			[1, 2, 3, 4].map((d) => play(`name:${d}`, d)),
 			NOW
 		);
+		// name:4 is the oldest but came last: it stays with the newest two.
 		const page = await itemsSince(DB, small, user, 0, NOW);
-		expect(page.items.map((i) => i.key).sort()).toEqual(['name:1', 'name:2', 'name:3', 'name:4']);
+		expect(page.items.map((i) => i.key).sort()).toEqual(['name:1', 'name:2', 'name:4']);
 		await putItems(DB, small, user, [play('name:0', 0)], NOW);
 		const after = await itemsSince(DB, small, user, 0, NOW);
-		expect(after.items.map((i) => i.key).sort()).toEqual(['name:0', 'name:1', 'name:2']);
+		expect(after.items.map((i) => i.key).sort()).toEqual(['name:0', 'name:1']);
 	});
 
 	it('never lets the cursor go backwards when the newest change is forgotten', async () => {
