@@ -23,8 +23,9 @@ class RadioApp {
 	#catalog: Catalog | null = null;
 	#indexes: { tracks: ReturnType<typeof trackIndex>; clips: ReturnType<typeof introClips> } | null =
 		null;
-	/** An artist to play once the station that has them is tuned in (see playArtist). */
-	#pending: string | null = null;
+	/** To play once the new station is tuned in: an artist on it (playArtist), or from the top
+	 * (playStation). */
+	#pending: { artistKey: string | null } | null = null;
 
 	/** The radio if it exists yet (for tests and debugging). */
 	get current(): Radio | null {
@@ -58,23 +59,37 @@ class RadioApp {
 	tune(catalog: Catalog, isUnavailable: (date: string) => boolean, now: Date): void {
 		const radio = this.radio(catalog);
 		const station = this.station;
-		const shown = apply(station.filters, catalog.gigs, now, isUnavailable);
-		radio.setStation({
-			key: stationKey(station.filters),
-			gigs: shown.map((v) => v.gig),
-			tracks: this.#indexes!.tracks,
-			artists: catalog.artists,
-			clips: this.#indexes!.clips,
-			order: station.order,
-			orderGiven: station.orderGiven,
-			seed: station.seed
-		});
 		const pending = this.#pending;
 		this.#pending = null;
-		if (pending) {
-			const index = radio.queue.findIndex((e) => e.artistKey === pending);
+		const shown = apply(station.filters, catalog.gigs, now, isUnavailable);
+		radio.setStation(
+			{
+				key: stationKey(station.filters),
+				gigs: shown.map((v) => v.gig),
+				tracks: this.#indexes!.tracks,
+				artists: catalog.artists,
+				clips: this.#indexes!.clips,
+				order: station.order,
+				orderGiven: station.orderGiven,
+				seed: station.seed
+			},
+			{ play: pending?.artistKey === null }
+		);
+		if (pending?.artistKey) {
+			const index = radio.queue.findIndex((e) => e.artistKey === pending.artistKey);
 			if (index >= 0) radio.jump(index);
 		}
+	}
+
+	/** Tunes to `station` and plays it ("Play as radio", a user gesture). */
+	playStation(catalog: Catalog, station: Station): void {
+		if (stationKey(station.filters) === stationKey(this.station.filters)) {
+			// Its gigs are on already: just play.
+			this.radio(catalog).play();
+			return;
+		}
+		this.#pending = { artistKey: null };
+		this.station = station;
 	}
 
 	/**
@@ -88,7 +103,7 @@ class RadioApp {
 			radio.jump(index);
 			return;
 		}
-		this.#pending = artistKey;
+		this.#pending = { artistKey };
 		this.station = stationFromParams(new URLSearchParams({ q: name }));
 	}
 }

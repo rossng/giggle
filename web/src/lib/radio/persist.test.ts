@@ -6,11 +6,13 @@ import {
 	KEYS,
 	loadHistory,
 	loadSession,
+	loadUnplayable,
 	parseSessions,
 	parseSettings,
 	putSession,
 	saveHistory,
-	saveSession
+	saveSession,
+	saveUnplayable
 } from './persist';
 
 const session = (key: string, at: string, artistIndex = 0) =>
@@ -80,5 +82,23 @@ describe('settings', () => {
 		expect(
 			parseSettings({ voiceMode: 'loud', liveVoice: 'robot', tracksPerArtist: 9, volume: 'x' })
 		).toEqual(DEFAULT_SETTINGS);
+	});
+});
+
+describe('unplayable songs', () => {
+	it('are remembered for two weeks, then tried again', () => {
+		const storage = memoryStorage();
+		saveUnplayable({ old: '2026-09-01T10:00:00Z', recent: '2026-09-20T10:00:00Z' }, storage);
+		expect(loadUnplayable(new Date('2026-09-27T10:00:00Z'), storage)).toEqual({
+			recent: '2026-09-20T10:00:00Z'
+		});
+	});
+
+	it('ignores anything malformed', () => {
+		const storage = memoryStorage();
+		storage.setItem(KEYS.unplayable, JSON.stringify({ a: 5, b: 'not a date', c: null }));
+		expect(loadUnplayable(new Date('2026-09-27T10:00:00Z'), storage)).toEqual({});
+		storage.setItem(KEYS.unplayable, '[1, 2]');
+		expect(loadUnplayable(new Date('2026-09-27T10:00:00Z'), storage)).toEqual({});
 	});
 });

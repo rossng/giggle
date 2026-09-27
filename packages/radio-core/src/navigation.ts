@@ -62,3 +62,27 @@ export function previousPosition(queue: readonly QueueEntry[], pos: QueuePositio
 export function nextArtistPosition(queue: readonly QueueEntry[], pos: QueuePosition): QueuePosition {
   return { artistIndex: wrap(pos.artistIndex + 1, queue.length), trackIndex: 0, seconds: 0 };
 }
+
+/**
+ * `queue` without the track at `pos` (and without its artist, if it was their last one), and
+ * where to go on: what would have come after it.
+ */
+export function dropTrack(
+  queue: readonly QueueEntry[],
+  pos: QueuePosition,
+): { queue: QueueEntry[]; next: QueuePosition } {
+  const at = clampPosition(queue, pos);
+  const entry = queue[at.artistIndex];
+  if (!entry) return { queue: [...queue], next: { ...START } };
+  const tracks = entry.tracks.filter((_, i) => i !== at.trackIndex);
+  if (tracks.length) {
+    const out = queue.map((e) => (e === entry ? { ...entry, tracks } : e));
+    const next =
+      at.trackIndex < tracks.length
+        ? { artistIndex: at.artistIndex, trackIndex: at.trackIndex, seconds: 0 }
+        : nextArtistPosition(out, at);
+    return { queue: out, next };
+  }
+  const out = queue.filter((e) => e !== entry);
+  return { queue: out, next: { artistIndex: wrap(at.artistIndex, out.length), trackIndex: 0, seconds: 0 } };
+}
