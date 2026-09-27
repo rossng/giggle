@@ -13,6 +13,11 @@ allowBuilds:
   protobufjs: false
   sharp: false
 
+overrides:
+  # transformers.js asks for sharp ^0.34 (Node image decoding, unused here: the voice runs in the
+  # browser); 0.34.x carries libvips/libheif advisories (GHSA-f88m-g3jw-g9cj, GHSA-rgj7-g3m4-5g8c).
+  "@huggingface/transformers>sharp": ^0.35.4
+
 # Don't resolve versions published less than 7 days ago (in minutes), like Renovate's
 # minimumReleaseAge: most compromised releases are caught and pulled within days. This applies
 # when resolving (pnpm add/update, Renovate's lockfile updates). trustLockfile skips re-checking

@@ -4,7 +4,11 @@ __pycache__/
 .pytest_cache/
 .ruff_cache/
 node_modules/
-.env
+# Local secrets and wrangler state, wherever they end up (worker/ and web/ ignore them too).
+.env*
+!.envrc
+.dev.vars*
+.wrangler/
 # Pipeline output and caches (root only: web/src/lib/data/ is source).
 /data/
 .direnv/
