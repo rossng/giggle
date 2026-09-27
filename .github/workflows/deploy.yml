@@ -95,9 +95,17 @@ jobs:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_DEPLOY_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
         working-directory: worker
+        # bash -eo pipefail: a failed `wrangler deploy | tee` must fail the step.
+        shell: bash
         run: |
-          nix develop -c pnpm exec wrangler d1 migrations apply DB --remote
-          nix develop -c pnpm exec wrangler deploy | tee deploy.log
+          nix develop -c pnpm exec wrangler d1 migrations apply DB --remote --env=""
+          # Cloudflare's API sometimes fails an upload with an "unknown error": try again.
+          for attempt in 1 2 3; do
+            if nix develop -c pnpm exec wrangler deploy --env="" | tee deploy.log; then break; fi
+            if [ "$attempt" = 3 ]; then exit 1; fi
+            echo "::warning::wrangler deploy failed (attempt $attempt); retrying in 30 s"
+            sleep 30
+          done
           url=$(grep -oE 'https://[a-z0-9.-]+\.workers\.dev' deploy.log | head -1)
           echo "url=$url" >> "$GITHUB_OUTPUT"
 
