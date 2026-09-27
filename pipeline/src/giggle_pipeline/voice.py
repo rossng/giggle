@@ -190,26 +190,47 @@ def ensure_model(model_dir: Path) -> tuple[Path, Path]:
 
 
 def _fetch(model_dir: Path, spec: ModelFile) -> Path:
+    """`spec`'s file, checked: one already there is hashed again (about a second), since
+    the model directory is restored from a cache, and a download stops at the pinned
+    size."""
     path = model_dir / spec.name
-    if path.exists() and path.stat().st_size == spec.size:
-        return path
+    if path.exists():
+        if path.stat().st_size == spec.size and _sha256(path) == spec.sha256:
+            return path
+        print(f"{spec.name} doesn't match its checksum; downloading it again", file=sys.stderr)
+        path.unlink()
     model_dir.mkdir(parents=True, exist_ok=True)
     partial = path.with_suffix(path.suffix + ".part")
     digest = hashlib.sha256()
+    size = 0
     print(f"downloading {spec.name} ({spec.size / 1e6:.0f} MB)", file=sys.stderr)
-    with (
-        httpx.stream("GET", RELEASE_URL + spec.name, follow_redirects=True, timeout=60) as r,
-        partial.open("wb") as out,
-    ):
-        r.raise_for_status()
-        for chunk in r.iter_bytes(1 << 20):
-            digest.update(chunk)
-            out.write(chunk)
-    if partial.stat().st_size != spec.size or digest.hexdigest() != spec.sha256:
-        partial.unlink()
-        raise VoiceError(f"{spec.name}: download doesn't match the expected size and checksum")
+    try:
+        with (
+            httpx.stream("GET", RELEASE_URL + spec.name, follow_redirects=True, timeout=60) as r,
+            partial.open("wb") as out,
+        ):
+            r.raise_for_status()
+            for chunk in r.iter_bytes(1 << 20):
+                size += len(chunk)
+                if size > spec.size:
+                    raise VoiceError(f"{spec.name}: download is bigger than {spec.size} bytes")
+                digest.update(chunk)
+                out.write(chunk)
+        if size != spec.size or digest.hexdigest() != spec.sha256:
+            raise VoiceError(f"{spec.name}: download doesn't match the expected size and checksum")
+    except BaseException:
+        partial.unlink(missing_ok=True)
+        raise
     partial.replace(path)
     return path
+
+
+def _sha256(path: Path) -> str:
+    digest = hashlib.sha256()
+    with path.open("rb") as f:
+        while chunk := f.read(1 << 20):
+            digest.update(chunk)
+    return digest.hexdigest()
 
 
 LANG = "en-gb"
