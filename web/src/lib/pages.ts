@@ -11,6 +11,7 @@ export const PAGE_PATHS: readonly string[] = [
 	'/radio',
 	'/board',
 	'/account',
+	'/admin',
 	'/artists/_',
 	'/gigs/_/_',
 	'/venues/_'
