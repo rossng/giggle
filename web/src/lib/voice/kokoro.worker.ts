@@ -1,19 +1,38 @@
 // Kokoro-82M in a Web Worker (kokoro-js / transformers.js), so synthesis never blocks the
-// page or the YouTube player. The model and voices download from Hugging Face on first
-// use and stay in the browser's cache. Protocol: see KokoroRequest / KokoroReply.
+// page or the YouTube player. The model and voices download from our own origin
+// (model-source.ts) on first use and stay in the browser's cache. Protocol: see KokoroRequest /
+// KokoroReply.
 
+import { env } from '@huggingface/transformers';
 import { KokoroTTS } from 'kokoro-js';
 import { phonemize } from 'phonemizer';
 import { normalise } from './audio';
 import { Lexicon } from './lexicon';
-import { toPhonemes } from './phonemes';
 import {
+	MODEL_FILES,
 	MODEL_ID,
-	type Device,
-	type Dtype,
-	type KokoroReply,
-	type KokoroRequest
-} from './protocol';
+	MODEL_PATH,
+	modelFetch,
+	pruneStaleModelFiles
+} from './model-source';
+import { toPhonemes } from './phonemes';
+import type { Device, Dtype, KokoroReply, KokoroRequest } from './protocol';
+
+// transformers.js builds `${remoteHost}${remotePathTemplate}${file}`; kokoro-js never passes a
+// revision, so the pinned one is part of the template (and of the URL, which is what lets the
+// Worker cache the files forever). vite.config.ts dedupes the package, so this is kokoro-js's
+// copy of `env`.
+const MODEL_BASE = new URL(MODEL_PATH, self.location.origin).href;
+env.allowLocalModels = false;
+env.remoteHost = new URL('/models/', self.location.origin).href;
+env.remotePathTemplate = `${MODEL_FILES.name}/${MODEL_FILES.revision}/`;
+// transformers.js points ONNX Runtime at its wasm on cdn.jsdelivr.net; without that, ORT uses
+// the copy Vite bundles (`new URL(…wasm, import.meta.url)`), served from our origin.
+if (env.backends.onnx.wasm) env.backends.onnx.wasm.wasmPaths = undefined;
+globalThis.fetch = modelFetch(globalThis.fetch.bind(globalThis), {
+	base: MODEL_BASE,
+	devFallback: import.meta.env.DEV
+});
 
 let tts: KokoroTTS | null = null;
 let lexicon: Lexicon | null = null;
@@ -46,6 +65,7 @@ async function load(device: Device | 'auto', dtype: Dtype | 'auto'): Promise<voi
 		}
 	});
 	post({ type: 'ready', device: dev, dtype: dt, ms: performance.now() - started });
+	void pruneStaleModelFiles(MODEL_BASE);
 }
 
 async function say(id: number, text: string, voice: string, speed: number): Promise<void> {

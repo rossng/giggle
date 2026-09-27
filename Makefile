@@ -1,7 +1,7 @@
 # Local development. `make help` lists targets.
 
 .PHONY: help sync test lint format data data-offline browse radio fetch browse-raw web-dev web-build dev \
-	worker-migrate worker-dev worker-test
+	worker-migrate worker-dev worker-test models
 
 help:
 	@grep -E "^[a-z-]+:.*## " $(MAKEFILE_LIST) | sed "s/:.*## /\t/"
@@ -37,7 +37,7 @@ browse: ## build data/events.html from data/site (kept and left-out events) and 
 	uv run python scripts/browse_events.py data/site -o data/events.html
 	open data/events.html
 
-web-dev: ## run the web app on localhost:5173 against data/site (run `make data-offline` first if empty)
+web-dev: ## web app on localhost:5173 against data/site (`make data-offline` first); /api, /models → worker-dev
 	pnpm --dir web dev --host 127.0.0.1
 
 web-build: ## build the static web app into web/build, with the current data
@@ -64,13 +64,16 @@ browse-raw: ## build data/raw.html from `make fetch` output and open it
 worker-migrate: ## apply worker/migrations to the local dev D1 (in worker/.wrangler/)
 	pnpm --dir worker exec wrangler d1 migrations apply DB --local --env dev
 
-worker-dev: worker-migrate ## run the Worker on 127.0.0.1:8787: dev identity, local D1, serves web/build
+worker-dev: worker-migrate ## run the Worker on 127.0.0.1:8787: dev identity, local D1 and R2, serves web/build
 	mkdir -p web/build
 	pnpm --dir worker exec wrangler dev --env dev --ip 127.0.0.1 --port 8787
 
-worker-test: ## run the Worker's tests (workerd + local D1)
+worker-test: ## run the Worker's tests (workerd + local D1 and R2)
 	pnpm --dir worker test
 
-dev: ## whole stack: web :5173 + API (wrangler dev :8787); sign in via /api/dev/login?as=alice
+models: ## browser Kokoro files (pinned, SHA-256 checked, ~420 MB) → data/cache/web-models → local R2
+	node worker/scripts/models.mjs put --local
+
+dev: ## whole stack: web :5173 + API and models (wrangler dev :8787); sign in via /api/dev/login?as=alice
 	@[ -f data/site/gigs.json ] || $(MAKE) data-offline
 	$(MAKE) -j2 worker-dev web-dev

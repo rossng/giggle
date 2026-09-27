@@ -1,3 +1,4 @@
+import { createExecutionContext } from 'cloudflare:test';
 import { env } from 'cloudflare:workers';
 import worker from '../src/index';
 import type { Env } from '../src/config';
@@ -37,7 +38,8 @@ export async function call(path: string, options: CallOptions = {}): Promise<Res
 	});
 	return worker.fetch(
 		request as Parameters<typeof worker.fetch>[0],
-		{ ...DEV_ENV, ...options.env } as Env
+		{ ...DEV_ENV, ...options.env } as Env,
+		createExecutionContext()
 	);
 }
 

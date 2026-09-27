@@ -20,7 +20,7 @@
 		"directory": "../web/build",
 		"binding": "ASSETS",
 		"not_found_handling": "single-page-application",
-		"run_worker_first": ["/api/*"]
+		"run_worker_first": ["/api/*", "/models/*"]
 	},
 
 	"vars": {
@@ -41,13 +41,18 @@
 		}
 	],
 
+	// The browser's Kokoro model files, served at /models/* (src/models.ts). Create it once with
+	// `wrangler r2 bucket create giggle-models` and fill it with `node scripts/models.mjs put
+	// --remote` (README.md → Model files).
+	"r2_buckets": [{ "binding": "MODELS", "bucket_name": "giggle-models" }],
+
 	"env": {
 		"dev": {
 			"assets": {
 				"directory": "../web/build",
 				"binding": "ASSETS",
 				"not_found_handling": "single-page-application",
-				"run_worker_first": ["/api/*"]
+				"run_worker_first": ["/api/*", "/models/*"]
 			},
 			"vars": {
 				"ENVIRONMENT": "dev",
@@ -62,7 +67,9 @@
 					"database_id": "00000000-0000-0000-0000-00000000de00",
 					"migrations_dir": "migrations"
 				}
-			]
+			],
+			// Local only (worker/.wrangler/): `make models` fills it.
+			"r2_buckets": [{ "binding": "MODELS", "bucket_name": "giggle-models-dev" }]
 		}
 	}
 }

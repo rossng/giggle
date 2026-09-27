@@ -43,9 +43,14 @@ function siteData(): Plugin {
 	};
 }
 
+// `make dev`: the API and the model files (/models, `make models`) come from `wrangler dev`
+// (dev identity, local D1 and R2) next to Vite. GIGGLE_WORKER points elsewhere.
+const worker = process.env.GIGGLE_WORKER ?? 'http://127.0.0.1:8787';
+
 export default defineConfig({
-	// `make dev`: the API runs in `wrangler dev` (dev identity, local D1) next to Vite.
-	server: { proxy: { '/api': 'http://127.0.0.1:8787' } },
+	server: { proxy: { '/api': worker, '/models': worker } },
+	// kokoro.worker.ts configures transformers.js's `env`: it must be kokoro-js's copy.
+	resolve: { dedupe: ['@huggingface/transformers'] },
 	// The Kokoro worker (src/lib/voice) is a module worker; kokoro-js uses import.meta.
 	worker: { format: 'es' },
 	plugins: [

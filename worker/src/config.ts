@@ -12,6 +12,8 @@
 export interface Env {
 	DB: D1Database;
 	ASSETS: Fetcher;
+	/** The browser's Kokoro model files (see models.ts). */
+	MODELS: R2Bucket;
 	ENVIRONMENT?: string;
 	ACCESS_TEAM_DOMAIN?: string;
 	ACCESS_AUD?: string;

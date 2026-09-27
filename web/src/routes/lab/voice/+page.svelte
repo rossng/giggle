@@ -5,7 +5,8 @@
 	import { onDestroy } from 'svelte';
 	import { ANNOUNCERS } from '$lib/voice/announcers';
 	import { KokoroVoice, type KokoroState, type Rendered } from '$lib/voice/kokoro';
-	import type { Device, Dtype } from '$lib/voice/protocol';
+	import { fileSize, MODEL_FILES } from '$lib/voice/model-source';
+	import { DTYPES, type Device, type Dtype } from '$lib/voice/protocol';
 
 	const SAMPLES = [
 		'They play Paradiso tomorrow night.',
@@ -93,6 +94,7 @@
 	});
 
 	const pct = (x: number) => `${Math.round(x * 100)}%`;
+	const megabytes = (d: Dtype) => Math.round(fileSize(MODEL_FILES.dtypes[d]) / 1e6);
 </script>
 
 <svelte:head><title>Voice lab · giggle</title></svelte:head>
@@ -114,10 +116,9 @@
 			<label
 				>Precision <select bind:value={dtype}>
 					<option value="auto">auto (fp32 on GPU, q8 on CPU)</option>
-					<option value="fp32">fp32 (~330 MB)</option>
-					<option value="fp16">fp16 (~165 MB)</option>
-					<option value="q8">q8 (~90 MB)</option>
-					<option value="q4">q4</option>
+					{#each DTYPES as d (d)}
+						<option value={d}>{d} ({megabytes(d)} MB)</option>
+					{/each}
 				</select></label
 			>
 			<button onclick={start}>{ks ? 'Reload' : 'Load'}</button>

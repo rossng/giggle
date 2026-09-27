@@ -26,7 +26,9 @@ Upcoming-gig radio for Amsterdam and nearby. Design report: https://claude.ai/ar
 - `worker/` — Cloudflare Worker (wrangler 4, `wrangler.jsonc`): serves `web/build` as static assets
   and the per-user `/api/*` on D1 (board sync: LWW per artist, tombstones, `since` cursor). Auth is
   a verified Cloudflare Access JWT in production, a dev identity only with `--env dev` on localhost
-  (`worker/README.md`). The web side is `web/src/lib/sync/` (`SyncClient`, `mergeBoards`).
+  (`worker/README.md`). The web side is `web/src/lib/sync/` (`SyncClient`, `mergeBoards`). It also
+  serves the browser's Kokoro files at `/models/*` from R2 (`MODELS`), public, only those listed in
+  `web/src/lib/voice/model-files.json`.
 
 ## Commands
 Enter the toolchain shell first: `direnv allow` (uses `.envrc`) or `nix develop`. The flake pins
@@ -42,8 +44,9 @@ uv, Node, pnpm and make only; Python is uv-managed (`.python-version`), deps com
 - Web app: `make web-dev` (localhost:5173, serves `data/site` via a Vite plugin), `make web-build`.
 - Inspect it: `make browse` (kept + left-out events with reasons; `data/` is git-ignored).
   Raw adapter output: `make fetch` then `make browse-raw`.
-- Worker: `make worker-dev` (127.0.0.1:8787, local D1, `X-Giggle-Dev-User: alice@example.test`),
-  `make worker-test`. Never `wrangler deploy`/`login` or `--remote` from here.
+- Worker: `make worker-dev` (127.0.0.1:8787, local D1 and R2, `X-Giggle-Dev-User:
+  alice@example.test`), `make worker-test`, `make models` (browser Kokoro files → local R2).
+  Never `wrangler deploy`/`login` or `--remote` (incl. `models.mjs put --remote`) from here.
 - Tests: `cd packages/podia && uv run --group dev pytest -q`
 - Lint: `uv run --group dev ruff check packages && uv run --group dev ruff format packages`
 - Re-record a venue's fixtures: `cd packages/podia && uv run podia record <venue> --max-pages 2`,
@@ -77,12 +80,18 @@ download on first use to `data/cache/models/`, checksummed; never commit them.
   `pronunciation.json` spliced in, loudness as `normalise()`, voice by `announcerFor` (TS port).
   Keep those in step with voice.py. It renders at ~0.5–1× real time on WebGPU in Firefox, so the
   radio decides the next line while a track plays and renders it ahead; `/lab/voice` measures it.
+- The browser's model files come from our origin (`/models/…`, Worker + R2), never Hugging Face
+  at runtime: `model-files.json` pins the HF commit, sizes and SHA-256 (fp32, q8, the two
+  announcer voices); `model-source.ts` points transformers.js there and rewrites kokoro-js's
+  hardcoded voice URL. `make models` downloads them (checked) to `data/cache/web-models/` — not
+  the pipeline's `data/cache/models/` — and loads the local R2; without it, `vite dev` falls back
+  to Hugging Face. The user uploads to the real bucket (`worker/README.md`); never do it here.
 
 ## Local stack
 `make dev` runs it all (web on localhost:5173, API on :8787); sign in as a fake user by visiting
 `http://localhost:5173/api/dev/login?as=alice@example.test` (any email; two browsers = two users).
 Everything must run locally: `make dev` (fixtures → data, `wrangler dev` with local D1/R2,
-`vite dev` proxying `/api`), with a dev identity replacing Cloudflare Access only when
+`vite dev` proxying `/api` and `/models`), with a dev identity replacing Cloudflare Access only when
 `ENVIRONMENT=dev` (the Worker must refuse it in production), `--llm fake` for offline pipeline runs,
 and `--local` writing to `./data/` instead of R2. Keep `make help` accurate.
 
