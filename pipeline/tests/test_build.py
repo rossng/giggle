@@ -21,7 +21,12 @@ def test_offline_build_writes_consistent_outputs(tmp_path):
     assert set(site["venues"]) == set(health["venues"])
     assert health["problems"] == []
     assert not (tmp_path / "health-history.json").exists(), "replays don't touch the baseline"
-    assert all(g["lineup"]["headliners"] or g["lineup"]["support"] for g in gigs[:50])
+    # The fake model names the title's acts; a festival's name isn't one ("KRONKEL FESTIVAL").
+    assert all(
+        g["lineup"]["headliners"] or g["lineup"]["support"]
+        for g in gigs[:50]
+        if "festival" not in g["title"].lower()
+    )
     # The browser's Kokoro says live lines with the clips' pronunciations.
     names = json.loads((tmp_path / "pronunciation.json").read_text())["names"]
     assert {"written": "Paradiso", "ipa": "pˌaɹədˈiːzəʊ", "match_case": False} in names
