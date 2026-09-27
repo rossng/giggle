@@ -20,8 +20,9 @@ pnpm --dir web preview     # serve web/build, with the data
 ## Data
 
 In `dev` and `preview`, a small Vite plugin (`vite.config.ts`) serves `../data/site/*.json` at
-`/data/*.json`; set `GIGGLE_DATA=/some/dir` to use other output. Nothing is copied into the
-source tree. The build doesn't include the data: the deploy step copies
+`/data/*.json`; set `GIGGLE_DATA=/some/dir` to use other output. `/api` and `/models` are
+proxied to the Worker (`make worker-dev`, `http://127.0.0.1:8787`, or `$GIGGLE_WORKER`).
+Nothing is copied into the source tree. The build doesn't include the data: the deploy step copies
 `data/site/gigs.json` and `data/site/artists.json` into `web/build/data/`.
 
 Types for both files are in `src/lib/data/types.ts`, written by hand from the pipeline: keep
@@ -51,11 +52,19 @@ The radio plays each artist's `youtube.songs` (YouTube Music), which the pipelin
   - `station.ts` (filters + order + seed ↔ URL), `tracks.ts` (songs → tracks), `persist.ts`
     (session per station, play history, said-memory, settings), `media-session.ts`.
 - `src/lib/voice/` — Kokoro-82M in the browser for the announcer's live lines:
-  `kokoro.worker.ts` (kokoro-js on WebGPU, else WASM; model from Hugging Face, cached by the
-  browser), `kokoro.ts` (the page side: lazy load, render queue with urgent lines first, cache,
-  Web Audio playback), and ports of the pipeline's voice.py (`lexicon.ts`, `phonemes.ts`,
-  `audio.ts`, `announcers.ts`) so live lines match the pre-rendered clips. `/lab/voice` loads
-  the model, times renders and compares a clip with the same text said live.
+  `kokoro.worker.ts` (kokoro-js on WebGPU with fp32, else WASM with q8; cached by the browser),
+  `kokoro.ts` (the page side: lazy load, render queue with urgent lines first, cache, Web Audio
+  playback), and ports of the pipeline's voice.py (`lexicon.ts`, `phonemes.ts`, `audio.ts`,
+  `announcers.ts`) so live lines match the pre-rendered clips. `/lab/voice` loads the model,
+  times renders and compares a clip with the same text said live.
+  - The model comes from our origin, `/models/<name>/<revision>/…` (the Worker, from R2; see
+    `worker/README.md` → Model files), never from Hugging Face: `model-files.json` lists the
+    mirrored files (pinned commit, sizes, SHA-256; only fp32 and q8, and the two announcer
+    voices), `model-source.ts` points transformers.js there and rewrites kokoro-js's hardcoded
+    voice URL. The ONNX Runtime wasm is the copy Vite bundles, not jsDelivr's.
+  - In `vite dev`, `/models` is proxied to `make worker-dev` (fill its R2 once with
+    `make models`). Without those, dev falls back to Hugging Face at the pinned commit, with a
+    console warning; production builds never do.
 - `src/lib/board/board.ts` — the listener's triage (listen more / want to go / got tickets /
   not for me) by artist key, in localStorage (`giggle:board:v1`). The radio writes it; the
   Board page shows it as columns (`columns.ts`, which also works out "Been" from gig dates).

@@ -1,5 +1,8 @@
 // giggle's Worker. Static files (the SPA and the public gig data) are served by Workers static
-// assets without running this code; only /api/* reaches it (run_worker_first in wrangler.jsonc).
+// assets without running this code; only /api/* and /models/* reach it (run_worker_first in
+// wrangler.jsonc).
+//
+//   GET  /models/<name>/<revision>/<file>  → the browser's Kokoro files from R2 (models.ts)
 //
 //   GET  /api/me                    → {email, via}
 //   GET  /api/board?since=<cursor>  → {items, cursor, more}: changes after `cursor`, tombstones too
@@ -10,6 +13,7 @@
 import { authenticate, DEV_COOKIE, isLoopback, normaliseEmail, type Identity } from './auth';
 import { itemsSince, putItems, TooManyItems } from './board';
 import { authConfig, ConfigError, type AuthConfig, type Env } from './config';
+import { MODELS_PREFIX, serveModel } from './models';
 import { LIMITS, parseBatch, parseSince, ValidationError } from './validate';
 
 const NO_STORE = { 'Cache-Control': 'no-store' };
@@ -114,10 +118,13 @@ export async function handleApi(request: Request, env: Env): Promise<Response> {
 }
 
 export default {
-	async fetch(request, env): Promise<Response> {
+	async fetch(request, env, ctx): Promise<Response> {
 		const url = new URL(request.url);
 		if (url.pathname === '/api' || url.pathname.startsWith('/api/')) {
 			return handleApi(request, env);
+		}
+		if (url.pathname.startsWith(MODELS_PREFIX)) {
+			return serveModel(request, env.MODELS, { ctx });
 		}
 		return env.ASSETS.fetch(request);
 	}
