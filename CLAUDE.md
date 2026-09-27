@@ -128,10 +128,11 @@ checksummed; never commit them. In CI they're kept by actions/cache (key: the pi
   (the presenter's `quick`).
 - The browser's model files come from our origin (`/models/…`, Worker + R2), never Hugging Face
   at runtime: `model-files.json` pins the HF commit, sizes and SHA-256 (fp32, q8, the two
-  announcer voices); `model-source.ts` points transformers.js there and rewrites kokoro-js's
-  hardcoded voice URL. `make models` downloads them (checked) to `data/cache/web-models/` — not
-  the pipeline's `data/cache/models/` — and loads the local R2; without it, `vite dev` falls back
-  to Hugging Face. The user uploads to the real bucket (`worker/README.md`); never do it here.
+  announcer voices); `model-source.ts` points transformers.js there, rewrites kokoro-js's
+  hardcoded voice URL and checks every download against the pinned size and SHA-256 as it streams
+  (`verified`, `sha256.ts`), so a wrong file is never cached. `make models` downloads them
+  (checked) to `data/cache/web-models/` — not the pipeline's `data/cache/models/` — and loads the
+  local R2; without it, `vite dev` falls back to Hugging Face. The user uploads to the real bucket (`worker/README.md`); never do it here.
 
 ## Local stack
 `make dev` runs it all (web on localhost:5173, API on :8787). Sign in on `/account` with a
@@ -154,8 +155,11 @@ pipeline runs. Keep `make help` accurate.
   Dome). When changing rules, add a case to `pipeline/tests/test_scope.py`.
 - YouTube Music only; Spotify on hold.
 - Svelte: never put player/SDK objects in `$state`; use private fields or `$state.raw`.
-- Links and images from data go through `externalHref` (`web/src/lib/data/slugs.ts`); the pipeline
-  also writes http(s) URLs only.
+- Links from data go through `externalHref` (`web/src/lib/data/slugs.ts`), pictures through
+  `imageSrc` (`web/src/lib/data/image-hosts.ts`), whose host list also makes the CSP's img-src: a
+  new venue's image host goes there. The pipeline also writes http(s) URLs only. Keys from data or
+  the URL index prototype-free objects or go through `own()` (`lib/data/own.ts`).
 - Security headers come from `web/static/_headers` and the page CSP from `kit.csp` in
   `web/vite.config.ts`. When the web app starts using a new outside origin (script, frame, font,
-  fetch, image), add it there and check the browser console for CSP violations.
+  fetch, image), add it there and check the browser console for CSP violations. Fonts are
+  self-hosted (Fontsource, imported in app.css); nothing loads from Google Fonts.

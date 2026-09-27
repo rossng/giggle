@@ -10,6 +10,7 @@
 	import { boardStore } from '$lib/board/board-store.svelte';
 	import { amsterdamDate, dayParts, localTime, relativeDays } from '$lib/data/dates';
 	import { GENRES } from '$lib/data/genres';
+	import { imageSrc } from '$lib/data/image-hosts';
 	import { artistPath, externalHref, venuePath } from '$lib/data/slugs';
 	import type { Availability } from '$lib/data/types';
 
@@ -48,7 +49,7 @@
 	);
 	const tickets = $derived(externalHref(gig.ticket_url) ?? externalHref(gig.url));
 	const listing = $derived(externalHref(gig.url));
-	const image = $derived(externalHref(gig.image));
+	const image = $derived(imageSrc(gig.image));
 	/** The act the big play button plays: the first with songs, headliners first. */
 	const playable = $derived(
 		[...gig.artists]
@@ -91,7 +92,7 @@
 		gig.artists.filter((a, i, all) => all.findIndex((b) => b.key === a.key) === i)
 	);
 	const moreSummary = $derived(
-		[genres.length && 'genre', gig.image && 'picture', gig.url && 'listing', 'details']
+		[genres.length && 'genre', image && 'picture', gig.url && 'listing', 'details']
 			.filter(Boolean)
 			.join(' · ')
 	);

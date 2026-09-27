@@ -5,6 +5,7 @@ import { defineConfig } from 'vitest/config';
 import adapter from '@sveltejs/adapter-static';
 import type { KitConfig } from '@sveltejs/kit';
 import { sveltekit } from '@sveltejs/kit/vite';
+import { IMAGE_SOURCES } from './src/lib/data/image-hosts.ts';
 
 /** Serves the pipeline's output (../data/site, or $GIGGLE_DATA) at /data/*.json (and its
  * announcer clips at /data/voice/*.mp3) for
@@ -54,14 +55,15 @@ const worker = process.env.GIGGLE_WORKER ?? 'http://127.0.0.1:8787';
 // own response's, not this, so the Kokoro worker's WebAssembly needs nothing here.
 const CSP = {
 	'default-src': ['self'],
-	// The YouTube IFrame API: iframe_api from www.youtube.com loads www-widgetapi.js from there
-	// (s.ytimg.com in older versions).
-	'script-src': ['self', 'https://www.youtube.com', 'https://s.ytimg.com'],
+	// The YouTube IFrame API: iframe_api, which loads /s/player/<version>/…/www-widgetapi.js.
+	// Just those paths: the rest of www.youtube.com serves scripts too (JSONP and the like).
+	'script-src': ['self', 'https://www.youtube.com/iframe_api', 'https://www.youtube.com/s/player/'],
 	// Svelte transitions insert <style> elements, and components set style attributes.
-	'style-src': ['self', 'unsafe-inline', 'https://fonts.googleapis.com'],
-	'font-src': ['self', 'https://fonts.gstatic.com'],
-	// Artist images come from Wikimedia, YouTube, Last.fm…
-	'img-src': ['self', 'https:', 'data:', 'blob:'],
+	'style-src': ['self', 'unsafe-inline'],
+	// Fonts are bundled (Fontsource).
+	'font-src': ['self'],
+	// Pictures of artists and gigs, from the hosts in image-hosts.ts only; data: for the favicon.
+	'img-src': ['self', 'data:', ...IMAGE_SOURCES],
 	// Announcer clips (/data/voice) and Kokoro's audio (blob: URLs).
 	'media-src': ['self', 'blob:'],
 	'connect-src': ['self'],
@@ -75,6 +77,8 @@ const CSP = {
 
 export default defineConfig({
 	server: { proxy: { '/api': worker, '/models': worker } },
+	// Fonts stay files, never data: URLs (font-src is 'self' only).
+	build: { assetsInlineLimit: (file) => (/\.woff2?$/.test(file) ? false : undefined) },
 	// kokoro.worker.ts configures transformers.js's `env`: it must be kokoro-js's copy.
 	resolve: { dedupe: ['@huggingface/transformers'] },
 	// The Kokoro worker (src/lib/voice) is a module worker; kokoro-js uses import.meta.
