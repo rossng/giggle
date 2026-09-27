@@ -78,10 +78,10 @@
 	{#if docked && radio.entry && !radio.started}
 		<div class="cue">
 			{#if radio.resumeAt !== null}
-				<button type="button" class="start" onclick={() => radio.start()}>▶ Resume</button>
+				<button type="button" class="start" onclick={() => radio.play()}>▶ Resume</button>
 				<p>Paused where you left off.</p>
 			{:else}
-				<button type="button" class="start" onclick={() => radio.start()}>▶ Start listening</button>
+				<button type="button" class="start" onclick={() => radio.play()}>▶ Start listening</button>
 				<p>
 					{radio.queue.length} artists with gigs coming up, {ORDER_DESCRIPTIONS[radio.order]}.
 				</p>

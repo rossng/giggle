@@ -1,5 +1,6 @@
 // What the radio keeps in this browser: the listening session per station (to resume where
-// you were), the play history, what the presenter has said, and the listener's settings.
+// you were), the play history, what the presenter has said, the songs YouTube wouldn't play
+// here, and the listener's settings.
 // All in localStorage via $lib/storage, so a blocked or full storage just means no memory.
 
 import {
@@ -19,6 +20,7 @@ export const KEYS = {
 	sessions: 'giggle:radio:sessions:v1',
 	history: 'giggle:radio:history:v1',
 	said: 'giggle:radio:said:v1',
+	unplayable: 'giggle:radio:unplayable:v1',
 	settings: 'giggle:radio:settings:v1'
 } as const;
 
@@ -79,6 +81,30 @@ export function loadSaid(now: Date, storage = browserStorage()): SaidMemory {
 
 export function saveSaid(said: SaidMemory, storage = browserStorage()): boolean {
 	return writeJson(KEYS.said, said, storage);
+}
+
+/** Songs YouTube wouldn't play here (gone, or not allowed outside YouTube): video id → when
+ * that was found. The radio leaves them out for a while, then tries again. */
+export type Unplayable = Record<string, string>;
+
+export const UNPLAYABLE_DAYS = 14;
+
+export function parseUnplayable(value: unknown, now: Date): Unplayable {
+	if (!value || typeof value !== 'object' || Array.isArray(value)) return {};
+	const since = now.getTime() - UNPLAYABLE_DAYS * 86_400_000;
+	const out: Unplayable = {};
+	for (const [id, at] of Object.entries(value as Record<string, unknown>)) {
+		if (typeof at === 'string' && Date.parse(at) > since) out[id] = at;
+	}
+	return out;
+}
+
+export function loadUnplayable(now: Date, storage = browserStorage()): Unplayable {
+	return parseUnplayable(readJson(KEYS.unplayable, storage), now);
+}
+
+export function saveUnplayable(unplayable: Unplayable, storage = browserStorage()): boolean {
+	return writeJson(KEYS.unplayable, unplayable, storage);
 }
 
 export interface RadioSettings {

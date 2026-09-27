@@ -63,7 +63,7 @@
 	}
 
 	function playAsRadio() {
-		radioApp.station = stationFromParams(new URLSearchParams(query));
+		radioApp.playStation(catalog, stationFromParams(new URLSearchParams(query)));
 	}
 
 	let sheetOpen = $state(false);

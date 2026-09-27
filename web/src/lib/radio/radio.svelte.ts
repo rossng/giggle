@@ -10,6 +10,7 @@ import {
 	clampPosition,
 	cleanSongTitle,
 	DuckingController,
+	dropTrack,
 	mergeHistory,
 	mulberry32,
 	newSeed,
@@ -36,7 +37,6 @@ import {
 	type QueuePosition,
 	type RadioOrder,
 	type Track,
-	type TrackLookup,
 	type Venue,
 	type VoiceMode
 } from '@giggle/radio-core';
@@ -55,12 +55,15 @@ import {
 	loadSaid,
 	loadSession,
 	loadSettings,
+	loadUnplayable,
 	saveHistory,
 	saveSaid,
 	saveSession,
 	saveSettings,
+	saveUnplayable,
 	type LiveVoice,
-	type RadioSettings
+	type RadioSettings,
+	type Unplayable
 } from './persist';
 import {
 	ClipSpeaker,
@@ -73,7 +76,7 @@ import {
 import { MediaFocus } from './media-focus';
 import { DEFAULT_ANNOUNCER, squareImage } from './tracks';
 import { sharedKokoro, type KokoroState, type KokoroVoice } from '$lib/voice/kokoro';
-import { YouTubePlayer, type PlaybackState } from './youtube';
+import { isUnplayable, YouTubePlayer, type PlaybackState } from './youtube';
 
 /** An artist counts as heard after this much listening. */
 export const HEARD_AFTER_SECONDS = 30;
@@ -83,13 +86,16 @@ const SAVE_EVERY_MS = 5_000;
 const RESTART_AFTER_SECONDS = 5;
 /** Consecutive tracks that fail before the radio stops trying. */
 const MAX_ERRORS_IN_A_ROW = 6;
+/** How long a passing notice (a skipped track, and so on) stays up. */
+const NOTICE_MS = 10_000;
 
 export interface StationInput {
 	/** `stationKey(filters)`: which gigs; sessions are saved under it. */
 	key: string;
 	/** The station's gigs (already filtered, unavailable dates included). */
 	gigs: readonly CoreGig[];
-	tracks: TrackLookup;
+	/** Each artist's tracks, best first (tracks.ts `trackIndex`). */
+	tracks: ReadonlyMap<string, readonly Track[]>;
 	artists: Readonly<Record<string, CoreArtist>>;
 	/** Pre-rendered intro clips by artist key (the pipeline's Kokoro voices). */
 	clips?: Readonly<Record<string, readonly IntroClip[]>>;
@@ -187,7 +193,7 @@ export class Radio {
 	kokoro = $state.raw<KokoroState | null>(null);
 	/** Kokoro rendered far slower than real time here, so the browser voice took over. */
 	liveSlow = $state(false);
-	/** A passing message: a track that wouldn't play, and so on. */
+	/** A message: a passing one (a skipped track, and so on), or why the radio stopped. */
 	notice = $state<string | null>(null);
 	/** Artists on this station without any track to play. */
 	withoutTracks = $state(0);
@@ -227,14 +233,22 @@ export class Radio {
 	readonly #focus = new MediaFocus();
 	readonly #options: RadioOptions;
 	#history: PlayHistory;
+	/** Songs YouTube wouldn't play here lately: left out of the queue. */
+	#unplayable: Unplayable;
+	#noticeTimer: ReturnType<typeof setTimeout> | undefined;
 	#station: StationInput | null = null;
 	#segment: AbortController | null = null;
+	/** What `#segment` says. If it names the song, a track failing under it isn't swapped. */
+	#segmentLine: Line | null = null;
 	#back: BackAnnouncement | null = null;
 	/** Whose intro the listener last heard (radio-core's `announcedArtistKey`). */
 	#announced: string | undefined;
 	#announcedBefore: string | undefined;
 	/** The video an intro was said over, until it plays; if it fails, the intro is redone. */
 	#introVideo: string | null = null;
+	/** The video shown cued (paused, never played): playing it goes through `#goTo`, and an
+	 * error on it just moves the cue on. */
+	#cued: string | null = null;
 	#lastSpeechEnd: number | null = null;
 	#speechToken = 0;
 	#markId = 0;
@@ -249,6 +263,7 @@ export class Radio {
 		const now = new Date();
 		this.#options = options;
 		this.#history = loadHistory(now);
+		this.#unplayable = loadUnplayable(now);
 		// Plays heard on other devices: Mix plays those artists less often from the next reorder.
 		this.#cleanup.push(
 			onSynced('plays', (synced) => {
@@ -283,7 +298,7 @@ export class Radio {
 			player.onError((error) => this.#onError(error)),
 			watchVoices((voices) => (this.voices = voices.map((v) => ({ name: v.name, lang: v.lang })))),
 			bindMediaActions({
-				play: () => (this.started ? this.resume() : this.start()),
+				play: () => this.play(),
 				pause: () => this.pause(),
 				nexttrack: () => this.next(),
 				previoustrack: () => this.previous()
@@ -295,7 +310,7 @@ export class Radio {
 		const ticker = setInterval(() => this.#tick(), 500);
 		this.#cleanup.push(() => clearInterval(ticker));
 		void player.ready.then(() => (this.ready = true));
-		this.#cueIfIdle();
+		this.#cue();
 		return () => this.destroy();
 	}
 
@@ -306,6 +321,7 @@ export class Radio {
 		this.#dropPrepared();
 		this.#ducking?.cancel();
 		this.#speaker.stop();
+		clearTimeout(this.#noticeTimer);
 		for (const fn of this.#cleanup.splice(0)) fn();
 		this.#player?.destroy();
 		this.#player = null;
@@ -316,8 +332,11 @@ export class Radio {
 
 	// ---------- the station ----------
 
-	/** Sets or updates the station. Call outside reactive tracking (`untrack`). */
-	setStation(input: StationInput): void {
+	/**
+	 * Sets or updates the station; with `play` (from a user gesture), it plays too. Call
+	 * outside reactive tracking (`untrack`).
+	 */
+	setStation(input: StationInput, { play = false } = {}): void {
 		const previous = this.#station;
 		if (previous && previous.key === input.key) {
 			this.#station = input;
@@ -327,6 +346,7 @@ export class Radio {
 			if (input.orderGiven && (input.order !== this.order || seed !== this.seed)) {
 				this.#reorder(input.order, seed, false);
 			}
+			if (play && !this.on) this.play();
 			return;
 		}
 		if (previous) this.save();
@@ -339,6 +359,7 @@ export class Radio {
 			(!input.orderGiven || saved.order === input.order) &&
 			(input.seed === null || saved.seed === input.seed);
 
+		const wasVideo = this.track?.videoId;
 		if (saved && usable) {
 			const restored = restoreSession(saved, entries, {
 				now,
@@ -349,14 +370,9 @@ export class Radio {
 			this.seed = saved.seed;
 			this.queue = restored.queue;
 			this.position = { ...restored.position, seconds: 0 };
-			if (this.started) {
-				if (this.on) this.#goTo(this.position);
-			} else if (this.track) {
-				this.resumeAt = restored.position.seconds;
-				this.#announced = this.entry?.artistKey;
-				this.#cueIfIdle();
-			}
-			this.#describe();
+			// Not playing: it waits where it was left, for "play".
+			this.resumeAt = this.on || !this.track ? null : restored.position.seconds;
+			this.#follow(wasVideo, play);
 			return;
 		}
 
@@ -373,27 +389,59 @@ export class Radio {
 			this.queue = ordered;
 			this.position = { ...START };
 			this.resumeAt = null;
-			if (this.started && this.on) this.#goTo(this.position);
 		}
-		this.#cueIfIdle();
+		this.#follow(wasVideo, play);
+	}
+
+	/**
+	 * After the queue changed under the listener (another station, a rebuilt queue): if that
+	 * changed the track, the new one plays (announced) when the radio is on, and is cued
+	 * otherwise, so the video and the scrub bar never show a track the radio has moved off.
+	 * With `play`, it plays either way (not cued first: YouTube drops a play sent mid-cue).
+	 */
+	#follow(wasVideo: string | undefined, play = false): void {
+		const moved = this.track?.videoId !== wasVideo;
+		if (this.on) return moved ? this.#goTo(this.position) : this.#describe();
+		if (moved) {
+			this.#cancelSegment();
+			this.#cancelBack();
+			this.#leaveTrack();
+		}
+		if (play) return this.play();
+		if (moved) this.#cue();
 		this.#describe();
 	}
 
-	/** Before the first play, shows the current track (paused) in the embed. */
-	#cueIfIdle(): void {
+	/** Not playing: shows the current track in the embed, paused (at `resumeAt`, else its start). */
+	#cue(): void {
 		const player = this.#player;
 		const track = this.track;
-		if (this.started || !player || !track || player.videoId === track.videoId) return;
+		if (!player || !track || player.videoId === track.videoId) return;
+		this.#cancelBack();
+		this.#leaveTrack();
+		this.#cued = track.videoId;
 		player.cue(track, this.resumeAt ?? 0);
+	}
+
+	/** Moving to the current track: what the UI showed of the last one (clock, announcements) goes. */
+	#leaveTrack(): void {
+		this.preroll = null;
+		this.#marksFor = this.track?.videoId ?? null;
+		this.marks = [];
+		this.time = 0;
+		this.duration = 0;
+		if (this.caption && this.caption.artistKey !== this.entry?.artistKey) this.caption = null;
 	}
 
 	/** Builds the station's entries (soonest first) with the current settings and board. */
 	#build(): QueueEntry[] {
 		const station = this.#station;
 		if (!station) return [];
+		const unplayable = this.#unplayable;
 		const built = buildQueue({
 			gigs: station.gigs,
-			tracks: station.tracks,
+			tracks: (key) =>
+				station.tracks.get(key)?.filter((t) => !Object.hasOwn(unplayable, t.videoId)),
 			now: new Date(),
 			tracksPerArtist: this.settings.tracksPerArtist,
 			notForMe: keysIn(boardStore.items, ['nope']),
@@ -417,7 +465,6 @@ export class Radio {
 	#rebuild(): void {
 		const station = this.#station;
 		if (!station) return;
-		const wasOn = this.on;
 		const wasVideo = this.track?.videoId;
 		const snapshot = snapshotSession({
 			filtersKey: station.key,
@@ -434,15 +481,8 @@ export class Radio {
 		});
 		this.queue = restored.queue;
 		this.position = { ...restored.position, seconds: 0 };
-		if (this.track?.videoId === wasVideo) return;
-		this.resumeAt = null;
-		if (wasOn) this.#goTo(this.position);
-		else {
-			this.#cancelSegment();
-			this.#player?.pause();
-			this.#cueIfIdle();
-			this.#describe();
-		}
+		if (this.track?.videoId !== wasVideo) this.resumeAt = null;
+		this.#follow(wasVideo);
 	}
 
 	/** Reorders everything after the current artist, which keeps playing. */
@@ -531,27 +571,43 @@ export class Radio {
 
 	// ---------- transport ----------
 
-	/** The first press of play (a user gesture: audio and speech are allowed after it). */
-	start(): void {
+	/**
+	 * Play (a user gesture: audio and speech are allowed after it). Carries on where it was
+	 * paused, or where a restored session left off (without an intro); a track that was only
+	 * cued, or isn't loaded, plays from the top with its announcement.
+	 */
+	play(): void {
 		this.#unlock();
 		const player = this.#player;
-		if (!player || !this.track) return;
-		this.notice = null;
-		if (this.resumeAt !== null && player.videoId === this.track.videoId) {
+		const track = this.track;
+		if (!player || !track) return;
+		this.#notify(null);
+		const loaded = player.videoId === track.videoId;
+		const at = this.resumeAt;
+		if (at !== null) {
+			// Loaded afresh there: YouTube drops a play sent while a cue is still loading.
 			this.started = true;
 			this.resumeAt = null;
+			this.#cued = null;
 			this.#announced = this.entry?.artistKey;
-			player.play();
+			this.#describe();
+			player.load(track, at);
 			return;
 		}
-		this.resumeAt = null;
-		this.#goTo(this.position);
+		if (
+			!loaded ||
+			this.#cued === track.videoId ||
+			player.state === 'ended' ||
+			player.state === 'unstarted'
+		) {
+			return this.#goTo(this.position);
+		}
+		player.play();
 	}
 
 	togglePlay(): void {
-		if (!this.started) this.start();
-		else if (this.on) this.pause();
-		else this.resume();
+		if (this.on) this.pause();
+		else this.play();
 	}
 
 	pause(): void {
@@ -563,16 +619,6 @@ export class Radio {
 		this.#player?.pause();
 		this.#focus.release();
 		this.save();
-	}
-
-	resume(): void {
-		const player = this.#player;
-		if (!player || !this.track) return;
-		if (!this.started) return this.start();
-		this.#unlock();
-		const loaded = player.videoId === this.track.videoId;
-		if (loaded && player.state !== 'ended' && player.state !== 'unstarted') player.play();
-		else this.#goTo(this.position);
 	}
 
 	next(): void {
@@ -624,7 +670,7 @@ export class Radio {
 		});
 		// "Not for me" skips them and takes them off the station.
 		if (boardStore.stateOf(entry.artistKey) === 'nope') {
-			this.notice = `${entry.name}: not for you. Skipped, and they won't come round again.`;
+			this.#notify(`${entry.name}: not for you. Skipped, and they won't come round again.`);
 			this.#rebuild();
 		}
 	}
@@ -643,14 +689,11 @@ export class Radio {
 
 		this.#cancelSegment();
 		this.#cancelBack();
-		this.preroll = null;
-		this.#marksFor = track.videoId;
-		this.marks = [];
 		this.started = true;
 		this.resumeAt = null;
+		this.#cued = null;
 		this.position = { ...target, seconds: 0 };
-		this.time = 0;
-		this.duration = 0;
+		this.#leaveTrack();
 
 		const voice = this.settings.voiceMode;
 		// What was prepared for the old position and hasn't started rendering: dropped.
@@ -676,7 +719,6 @@ export class Radio {
 			this.#introVideo = track.videoId;
 			saveSaid(this.#presenter.said);
 		}
-		if (this.caption && this.caption.artistKey !== entry.artistKey) this.caption = null;
 		const since =
 			this.#lastSpeechEnd === null ? undefined : (Date.now() - this.#lastSpeechEnd) / 1000;
 		const plan = planSegment({ line, voice, sinceLastSpeechSeconds: since });
@@ -685,6 +727,7 @@ export class Radio {
 		if (plan.mode === 'beforeTrack') player.pause();
 		const abort = new AbortController();
 		this.#segment = abort;
+		this.#segmentLine = line;
 		this.talking = plan.mode === 'beforeTrack';
 		void runSegment(plan, {
 			player,
@@ -962,7 +1005,6 @@ export class Radio {
 		if (!player) return;
 		this.#errors = 0;
 		if (player.videoId === this.#introVideo) this.#introVideo = null;
-		if (this.notice?.startsWith("Couldn't play")) this.notice = null;
 		// Each YouTube track makes its iframe the media keys' target: take them back.
 		this.#focus.claim();
 		this.#planAhead(); // first: the next artist's intro is wanted before the outro line
@@ -980,30 +1022,54 @@ export class Radio {
 		const track = this.track;
 		if (!player || !entry || !track || player.videoId !== track.videoId) return;
 		this.#errors++;
-		if (!this.started) {
-			// Found while cueing, before any play: quietly move on to the next track.
-			if (this.#errors >= MAX_ERRORS_IN_A_ROW) return;
-			this.position = clampPosition(this.queue, nextPosition(this.queue, this.position));
-			this.resumeAt = null;
-			this.#cueIfIdle();
-			this.#describe();
-			return;
-		}
-		this.notice = `Couldn't play “${cleanSongTitle(track.title, entry.name)}” (${error.message ?? error.code}), skipping it.`;
-		if (this.#errors >= MAX_ERRORS_IN_A_ROW) {
-			this.#errors = 0;
+		const song = cleanSongTitle(track.title, entry.name) || track.title;
+		// Gone, or not allowed outside YouTube: it leaves the queue (and stays out for a while).
+		const gone = isUnplayable(error);
+		if (gone) this.#markUnplayable(track.videoId);
+		const { queue, next } = gone
+			? dropTrack(this.queue, this.position)
+			: { queue: this.queue, next: nextPosition(this.queue, this.position) };
+		if (queue.length < this.queue.length) this.withoutTracks++;
+		if (!queue.length) {
+			this.queue = queue;
+			this.position = { ...START };
 			this.pause();
-			this.notice =
-				"Several tracks in a row wouldn't play. Check your connection, then press play.";
+			this.#notify("None of this station's songs will play here.", false);
 			return;
 		}
-		const next = nextPosition(this.queue, this.position);
-		const nextTrack = this.queue[next.artistIndex]?.tracks[next.trackIndex];
-		// Mid-intro and the next track is the same artist's: swap it in under the voice.
+		const cueing = this.#cued === track.videoId;
+		if (this.#errors >= MAX_ERRORS_IN_A_ROW && (!cueing || !gone)) {
+			// Stop trying (a gone track is off the queue, so a shrinking queue can't loop).
+			this.#errors = 0;
+			if (!cueing) this.pause();
+			if (gone) this.#showInstead(queue, next);
+			if (!cueing)
+				this.#notify(
+					"Several tracks in a row wouldn't play. Check your connection, then press play.",
+					false
+				);
+			return;
+		}
+		if (cueing) {
+			// Found while cueing, not playing: quietly show the next track instead.
+			this.#showInstead(queue, next);
+			return;
+		}
+		this.#notify(
+			gone
+				? `Skipped “${song}”: ${error.message}.`
+				: `Couldn't play “${song}” (${error.message ?? error.code}), skipping it.`
+		);
+		this.queue = queue;
+		const nextTrack = queue[next.artistIndex]?.tracks[next.trackIndex];
+		const named = this.#segmentLine?.facts.includes('track') ?? false;
+		// Mid-intro and the next track is the same artist's: swap it in under the voice, unless
+		// the voice names the song (then the next track gets its own line).
 		if (
 			this.#segment &&
 			this.speaking &&
-			next.artistIndex === this.position.artistIndex &&
+			!named &&
+			queue[next.artistIndex]?.artistKey === entry.artistKey &&
 			nextTrack
 		) {
 			this.position = { ...next, seconds: 0 };
@@ -1012,20 +1078,47 @@ export class Radio {
 			player.load(nextTrack);
 			return;
 		}
-		// The intro was said over a track nobody heard: say it again for the next one.
-		if (this.#introVideo === track.videoId) {
-			this.#announced = this.#announcedBefore;
-			this.#introVideo = null;
-		}
+		// The intro named a song nobody heard: introduce them again with the next one.
+		if (this.#introVideo === track.videoId && named) this.#announced = this.#announcedBefore;
+		this.#introVideo = null;
 		this.#goTo(next);
+	}
+
+	/** Not playing: moves to `next` in `queue` and shows it, cued. */
+	#showInstead(queue: QueueEntry[], next: QueuePosition): void {
+		this.queue = queue;
+		this.position = clampPosition(queue, next);
+		this.resumeAt = null;
+		this.#cue();
+		this.#describe();
+	}
+
+	/** Remembers a song YouTube won't play here (with other tabs' finds), so it's left out. */
+	#markUnplayable(videoId: string): void {
+		const now = new Date();
+		this.#unplayable = { ...loadUnplayable(now), [videoId]: now.toISOString() };
+		saveUnplayable(this.#unplayable);
+	}
+
+	/**
+	 * Shows `text` (null: nothing). Passing notices go by themselves; `passing: false` stays
+	 * until the listener presses play.
+	 */
+	#notify(text: string | null, passing = true): void {
+		clearTimeout(this.#noticeTimer);
+		this.notice = text;
+		if (text && passing) this.#noticeTimer = setTimeout(() => (this.notice = null), NOTICE_MS);
 	}
 
 	#tick(): void {
 		const player = this.#player;
 		if (!player) return;
 		const state = player.state;
+		// The clock is the current track's only: not a paused one the radio has moved off (while
+		// its next track is announced, say).
 		if (
 			this.resumeAt === null &&
+			player.videoId === this.track?.videoId &&
 			(state === 'playing' || state === 'paused' || state === 'buffering')
 		) {
 			this.time = player.currentTime();

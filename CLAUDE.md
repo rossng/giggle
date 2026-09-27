@@ -36,10 +36,15 @@ https://claude.ai/artifact/6PDPXr3LtbEbPPLUxQPXWR. Architecture diagram: README.
     pauses). The radio is app-wide (`lib/radio/app.svelte.ts`: one Radio in its own
     `$effect.root`; the station is app state that /radio's URL mirrors), so pages never stop
     playback. `lib/radio/media-focus.ts` keeps the laptop's media keys on giggle, not YouTube.
+    Every page's code preloads when idle (`lib/pages.ts`; a new route needs a path there, its
+    test checks), so a deploy mid-visit never forces a reload that would stop the radio.
   - Radio (`lib/radio/`): controller in `radio.svelte.ts`, YouTube Player, ClipSpeaker playing the
     pipeline's intro clips (`/data/voice/*.mp3`), then KokoroSpeaker saying live lines with Kokoro
     in the browser (`lib/voice/`, see Voices) and Web Speech as its fallback; per-station session
-    persistence, Media Session.
+    persistence, Media Session. Whatever changes the queue goes through `#follow` (plays when on,
+    else cues), so the embed, clock and caption never show a track the radio left. Songs YouTube
+    won't embed (errors 100/101/150) are remembered per browser for 14 days and left out; they
+    can't be checked ahead (ytmusicapi, oEmbed and the embed page all say they're fine).
   - Personal data, one reactive store each: the board (`lib/board/board-store.svelte.ts`,
     `boardStore`: the radio and every page read and write it), unavailable dates
     (`lib/data/unavailable-store.svelte.ts`) and play history; synced by `lib/sync/` (`SyncClient`

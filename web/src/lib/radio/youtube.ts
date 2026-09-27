@@ -95,11 +95,17 @@ const STATES: Record<number, PlaybackState> = {
 export const YOUTUBE_ERRORS: Readonly<Record<number, string>> = {
 	2: 'bad video id',
 	5: "the browser can't play it",
-	100: 'video not found or private',
-	101: 'embedding not allowed',
-	150: 'embedding not allowed',
+	100: "it's gone from YouTube, or private",
+	101: 'its owner only allows it on YouTube itself',
+	150: 'its owner only allows it on YouTube itself',
 	153: 'no referrer sent'
 };
+
+/** The video won't play in an embed, however often it's tried: gone (100), or its owner
+ * doesn't allow it outside YouTube (101, 150). Not the player's own trouble (2, 5, 153). */
+export function isUnplayable(error: PlayerError): boolean {
+	return error.code === 100 || error.code === 101 || error.code === 150;
+}
 
 type Listener<T> = (value: T) => void;
 
