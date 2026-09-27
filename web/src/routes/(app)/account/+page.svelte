@@ -75,8 +75,8 @@
 	<header class="head">
 		<h1 class="display page-title">Account</h1>
 		<p class="sub">
-			Your board, unavailable dates and listening history live on this device. Sign in with a
-			passkey to keep them in step on all your devices: no password, no email.
+			Your board, unavailable dates and listening history are saved on this device. Sign in to keep
+			them the same on your phone, your laptop and anywhere else you use giggle.
 		</p>
 	</header>
 
@@ -108,18 +108,34 @@
 			</div>
 		</section>
 		{#if account.via === 'passkey'}
-			<More label="On another device">
+			<More label="Use giggle on another device">
 				<p>
-					If your password manager syncs passkeys (iCloud Keychain, Google, 1Password…), just sign
-					in there. On a device without it, sign in with your phone (the browser offers a QR code),
-					then add a passkey here so it signs in on its own next time.
+					If both devices use the same password manager (say, two Apple devices with iCloud
+					Keychain), your passkey is already there: open giggle on the other device, go to Account
+					and press <b>Sign in with a passkey</b>.
 				</p>
+				<p>Otherwise, give the other device its own passkey:</p>
+				<ol class="steps">
+					<li>Press <b>Add a passkey</b> below.</li>
+					<li>
+						When your browser asks where to save it, choose <b>More options</b> (or "Use a phone or tablet")
+						until you see a QR code.
+					</li>
+					<li>
+						Scan the QR code with the other device's camera and save the passkey there. Both devices
+						need Bluetooth switched on.
+					</li>
+					<li>
+						On the other device, open giggle, go to Account and press <b>Sign in with a passkey</b>.
+					</li>
+				</ol>
 				<div class="actions">
 					<button
 						class="button"
 						disabled={busy}
-						onclick={() => run(createPasskey, 'Added a passkey for this device.')}
-						>Add a passkey on this device</button
+						onclick={() =>
+							run(createPasskey, 'Passkey added. You can sign in with it on that device now.')}
+						>Add a passkey</button
 					>
 				</div>
 			</More>
@@ -155,8 +171,17 @@
 		<section class="card">
 			<h2 class="label">Sign in</h2>
 			<p>
-				Made a giggle passkey before, here or on another device? Your browser offers it. New here?
-				Create one: what's on this device becomes your synced board.
+				giggle uses a <b>passkey</b> instead of a password. A passkey is saved on your device, or in a
+				password manager like iCloud Keychain, Google Password Manager or 1Password, and you unlock it
+				the way you unlock your phone or laptop: fingerprint, face or PIN. No password, no email.
+			</p>
+			<p>
+				<b>Already made one?</b> Sign in and pick it when your device asks. If it's on a different
+				device, like your phone, choose <b>More options</b> (or "Use a phone or tablet") in that window
+				to get a QR code, and scan it with the device that has the passkey.
+			</p>
+			<p>
+				<b>First time?</b> Create a passkey. Whatever you've sorted on this device becomes your account.
 			</p>
 			<div class="actions">
 				<button
@@ -199,6 +224,17 @@
 		display: flex;
 		flex-direction: column;
 		gap: 10px;
+	}
+	.card p,
+	.steps {
+		margin: 0;
+		line-height: 1.5;
+	}
+	.steps {
+		padding-left: 20px;
+		display: flex;
+		flex-direction: column;
+		gap: 4px;
 	}
 	.actions {
 		display: flex;
