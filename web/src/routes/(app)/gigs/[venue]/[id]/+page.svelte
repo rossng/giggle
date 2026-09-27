@@ -71,10 +71,25 @@
 				: JSON.stringify(v)
 		])
 	);
-	const genres = $derived([
-		...view.buckets.map((b) => ({ key: b, label: GENRES[b].label, colour: GENRES[b].colour })),
-		...gig.genres.map((g) => ({ key: g, label: g, colour: null }))
-	]);
+	/** Its buckets, then the venue's own genres, each once whatever the case ("Jazz", "jazz"). */
+	const genres = $derived.by(() => {
+		const out: { label: string; colour: string | null }[] = [];
+		const seen = new Set<string>();
+		for (const tag of [
+			...view.buckets.map((b) => ({ label: GENRES[b].label, colour: GENRES[b].colour })),
+			...gig.genres.map((g) => ({ label: g.trim(), colour: null }))
+		]) {
+			const key = tag.label.toLowerCase();
+			if (!tag.label || seen.has(key)) continue;
+			seen.add(key);
+			out.push(tag);
+		}
+		return out;
+	});
+	/** The line-up, each act once (a venue can list one twice). */
+	const lineup = $derived(
+		gig.artists.filter((a, i, all) => all.findIndex((b) => b.key === a.key) === i)
+	);
 	const moreSummary = $derived(
 		[genres.length && 'genre', gig.image && 'picture', gig.url && 'listing', 'details']
 			.filter(Boolean)
@@ -131,11 +146,11 @@
 		{/if}
 	</div>
 
-	{#if gig.artists.length}
+	{#if lineup.length}
 		<section class="lineup">
 			<h2 class="label">Line-up</h2>
 			<ul>
-				{#each gig.artists as ref (ref.key)}
+				{#each lineup as ref (ref.key)}
 					{@const artist = artists[ref.key]}
 					{@const state = boardStore.stateOf(ref.key)}
 					<li>
@@ -165,7 +180,7 @@
 		<More label="More about this gig" summary={moreSummary}>
 			{#if genres.length}
 				<ul class="tags">
-					{#each genres as g (g.key)}
+					{#each genres as g (g.label.toLowerCase())}
 						<li>
 							{#if g.colour}<span class="dot" style:background={g.colour}></span>{/if}{g.label}
 						</li>

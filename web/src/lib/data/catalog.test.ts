@@ -130,6 +130,25 @@ describe('buildCatalog', () => {
 		expect(names.venue?.('paradiso')).toBe('Paradiso');
 	});
 
+	it('keeps one gig per ID, and answers slugs and keys with its own entries only', () => {
+		const catalog = buildCatalog(
+			{
+				generated: '2026-09-26T05:00:00+02:00',
+				since: '2026-09-26',
+				venues: VENUES,
+				gigs: [gig({ genres: ['constructor', 'toString'] }), gig({ title: 'The same ID again' })]
+			},
+			{ artists: {} }
+		);
+		expect(catalog.gigs.map((v) => v.gig.title)).toEqual([gig().title]);
+		for (const key of ['constructor', '__proto__', 'toString', 'hasOwnProperty']) {
+			expect(catalog.venues[key]).toBeUndefined();
+			expect(catalog.artists[key]).toBeUndefined();
+			expect(filterNames(catalog).venue?.(key)).toBe(key);
+		}
+		expect(catalog.venues['paradiso']?.name).toBe('Paradiso');
+	});
+
 	it('lists specific styles before a bucket name on the row', () => {
 		const v = viewGig(gig({ genres: ['Pop / Rock', 'Dream pop'] }), VENUES, {});
 		expect(v.details).toEqual(['dream pop', 'pop']);

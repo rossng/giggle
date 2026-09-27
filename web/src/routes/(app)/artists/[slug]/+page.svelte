@@ -87,7 +87,9 @@
 		new Map(Object.values(catalog.artists).map((a) => [a.name.toLowerCase(), a]))
 	);
 	const similar = $derived(
-		(artist.lastfm?.similar ?? []).map((name) => ({ name, artist: byName.get(name.toLowerCase()) }))
+		[
+			...new Map((artist.lastfm?.similar ?? []).map((name) => [name.toLowerCase(), name])).values()
+		].map((name) => ({ name, artist: byName.get(name.toLowerCase()) }))
 	);
 	const moreSummary = $derived(
 		[
@@ -194,7 +196,7 @@
 							<section>
 								<h3 class="label">Similar on Last.fm</h3>
 								<ul class="tags">
-									{#each similar as s (s.name)}
+									{#each similar as s (s.name.toLowerCase())}
 										<li>
 											{#if s.artist}<a href={artistPath(s.artist)}>{s.name}</a>{:else}{s.name}{/if}
 										</li>
