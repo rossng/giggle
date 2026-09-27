@@ -1,0 +1,118 @@
+#!/usr/bin/env node
+// Checks a deployed giggle: the app's pages, the nightly data, an announcer clip, the Kokoro
+// model files, and that the personal API isn't open to anyone. Exits 1 on any failure.
+//
+//   node scripts/smoke-test.mjs https://giggle.<subdomain>.workers.dev
+//   node scripts/smoke-test.mjs http://127.0.0.1:8787    # wrangler dev (the API check differs)
+
+import { readFileSync } from 'node:fs';
+
+const base = (process.argv[2] ?? '').replace(/\/$/, '');
+if (!/^https?:\/\//.test(base)) {
+	console.error('usage: smoke-test.mjs <site URL>');
+	process.exit(2);
+}
+const manifest = JSON.parse(
+	readFileSync(new URL('../web/src/lib/voice/model-files.json', import.meta.url), 'utf8')
+);
+
+let failures = 0;
+const ok = (msg) => console.log(`ok    ${msg}`);
+const fail = (msg) => {
+	failures++;
+	console.log(`FAIL  ${msg}`);
+};
+const warn = (msg) => console.log(`warn  ${msg}`);
+
+async function get(path, init = {}) {
+	return fetch(base + path, { redirect: 'manual', ...init });
+}
+
+async function expect(path, check, init) {
+	try {
+		const res = await get(path, init);
+		const problem = await check(res);
+		if (problem) fail(`${path}: ${problem}`);
+		else ok(path);
+		return res;
+	} catch (e) {
+		fail(`${path}: ${e.message}`);
+		return null;
+	}
+}
+
+const html = (res) =>
+	res.status !== 200
+		? `status ${res.status}`
+		: !(res.headers.get('content-type') ?? '').includes('text/html')
+			? `content-type ${res.headers.get('content-type')}`
+			: null;
+
+// The app, and a deep link the SPA fallback answers.
+await expect('/', html);
+await expect('/radio?days=30', html);
+await expect('/board', html);
+
+// The nightly data.
+let artists = null;
+await expect('/data/gigs.json', async (res) => {
+	if (res.status !== 200) return `status ${res.status}`;
+	const data = await res.json();
+	if (!(data.gigs?.length > 100)) return `only ${data.gigs?.length ?? 0} gigs`;
+	const age = (Date.now() - Date.parse(data.generated)) / 86_400_000;
+	if (!(age < 3)) warn(`gigs.json was generated ${data.generated} (${age.toFixed(1)} days ago)`);
+	return null;
+});
+await expect('/data/artists.json', async (res) => {
+	if (res.status !== 200) return `status ${res.status}`;
+	artists = (await res.json()).artists;
+	return Object.keys(artists ?? {}).length > 100 ? null : 'too few artists';
+});
+await expect('/data/pronunciation.json', (res) =>
+	res.status === 200 ? null : `status ${res.status}`
+);
+const clip = Object.values(artists ?? {}).flatMap((a) => a.announce ?? [])[0]?.clip;
+if (clip) {
+	await expect(`/data/${clip}`, (res) =>
+		res.status !== 200
+			? `status ${res.status}`
+			: res.headers.get('content-type') !== 'audio/mpeg'
+				? `content-type ${res.headers.get('content-type')}`
+				: null
+	);
+} else warn('no announcer clips in artists.json');
+
+// The Kokoro model, from R2 through the Worker.
+const models = `/models/${manifest.name}/${manifest.revision}`;
+await expect(`${models}/config.json`, (res) =>
+	res.status !== 200
+		? `status ${res.status} (is the model uploaded? worker/README.md → Model files)`
+		: !(res.headers.get('cache-control') ?? '').includes('immutable')
+			? `cache-control ${res.headers.get('cache-control')}`
+			: null
+);
+for (const [path, file] of Object.entries(manifest.files)) {
+	await expect(
+		`${models}/${path}`,
+		(res) =>
+			res.status !== 200
+				? `status ${res.status}`
+				: Number(res.headers.get('content-length')) !== file.size
+					? `size ${res.headers.get('content-length')}, expected ${file.size}`
+					: null,
+		{ method: 'HEAD' }
+	);
+}
+
+// The personal API must never answer without a signed-in user.
+await expect('/api/me', (res) => {
+	if (res.status === 200) return 'answered without signing in';
+	if (res.status === 500) {
+		warn("/api/me is 500: Access isn't configured yet (ACCESS_TEAM_DOMAIN / ACCESS_AUD)");
+		return null;
+	}
+	return [302, 401, 403].includes(res.status) ? null : `status ${res.status}`;
+});
+
+console.log(failures ? `\n${failures} check(s) failed` : '\nall checks passed');
+process.exit(failures ? 1 : 0);
