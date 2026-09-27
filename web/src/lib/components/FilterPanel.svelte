@@ -1,7 +1,8 @@
 <script lang="ts">
 	import { untrack } from 'svelte';
+	import UnavailableDates from '$lib/components/UnavailableDates.svelte';
 	import type { Catalog } from '$lib/data/catalog';
-	import { formatRange } from '$lib/data/dates';
+	import { amsterdamDate, formatRange } from '$lib/data/dates';
 	import {
 		DAY_PRESETS,
 		DEFAULT_FILTERS,
@@ -14,6 +15,8 @@
 		type Filters
 	} from '$lib/data/filters';
 	import { GENRES, GENRE_IDS } from '$lib/data/genres';
+	import { upcomingRules } from '$lib/data/unavailable';
+	import { unavailableDates } from '$lib/data/unavailable-store.svelte';
 
 	let {
 		filters,
@@ -56,6 +59,11 @@
 	);
 	const cleared = $derived(isDefault({ ...filters, order: null, seed: null }) && query === '');
 	const soldOutHidden = $derived(filters.hide.includes('soldout'));
+
+	// The listener's unavailable dates are theirs, not the URL's: edited here, stored per user.
+	const today = amsterdamDate(new Date());
+	let editingDates = $state(false);
+	const datesSet = $derived(upcomingRules(unavailableDates.items, today).length);
 
 	function clearAll() {
 		clearTimeout(timer);
@@ -118,12 +126,24 @@
 			class="toggle"
 			role="switch"
 			aria-checked={filters.hide.includes('unavailable')}
-			aria-describedby="unavailable-note"
-			disabled
+			onclick={() => onchange({ hide: toggle(filters.hide, 'unavailable') })}
 		>
 			<span class="tg" aria-hidden="true"></span>Hide my unavailable dates
 		</button>
-		<span class="caption" id="unavailable-note">Unavailable dates come with accounts.</span>
+		<button
+			type="button"
+			class="caption edit"
+			aria-expanded={editingDates}
+			aria-controls="unavailable-dates"
+			onclick={() => (editingDates = !editingDates)}
+		>
+			{datesSet ? `${datesSet} set` : 'None set'} · {editingDates
+				? 'Done'
+				: datesSet
+					? 'Edit'
+					: 'Add dates'}
+		</button>
+		{#if editingDates}<UnavailableDates {today} id="unavailable-dates" />{/if}
 	</div>
 
 	<fieldset class="block">
@@ -263,10 +283,6 @@
 		text-align: left;
 		cursor: pointer;
 	}
-	.toggle:disabled {
-		color: var(--mute);
-		cursor: not-allowed;
-	}
 	.tg {
 		width: 28px;
 		height: 16px;
@@ -293,9 +309,18 @@
 		left: 14px;
 		background: var(--bg);
 	}
-	.toggles .caption {
-		font-family: var(--f-body);
+	.edit {
+		align-self: flex-start;
 		margin: -4px 0 0 37px;
+		border: 0;
+		background: none;
+		padding: 0;
+		cursor: pointer;
+		text-decoration: underline dotted;
+		text-underline-offset: 3px;
+	}
+	.edit:hover {
+		color: var(--ink);
 	}
 
 	.chips {

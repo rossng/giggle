@@ -2,7 +2,7 @@
   "name": "@giggle/worker",
   "version": "0.1.0",
   "private": true,
-  "description": "giggle's Cloudflare Worker: serves the static SPA and the per-user /api (board sync on D1).",
+  "description": "giggle's Cloudflare Worker: serves the static SPA and the per-user /api (board, unavailable dates and play history synced on D1).",
   "type": "module",
   "scripts": {
     "dev": "wrangler dev --env dev",

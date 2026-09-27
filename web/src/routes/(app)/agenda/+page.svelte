@@ -7,6 +7,7 @@
 	import SiteNav from '$lib/components/SiteNav.svelte';
 	import Wordmark from '$lib/components/Wordmark.svelte';
 	import { amsterdamDate } from '$lib/data/dates';
+	import { unavailableDates } from '$lib/data/unavailable-store.svelte';
 	import {
 		apply,
 		dateWindow,
@@ -26,8 +27,8 @@
 
 	const filters = $derived(parse(page.url.searchParams));
 	const query = $derived(toQuery(filters));
-	const shown = $derived(apply(filters, catalog.gigs, now));
-	const counts = $derived(facetCounts(filters, catalog.gigs, now));
+	const shown = $derived(apply(filters, catalog.gigs, now, unavailableDates.test));
+	const counts = $derived(facetCounts(filters, catalog.gigs, now, unavailableDates.test));
 	const range = $derived(dateWindow(filters, now));
 	const venueCount = $derived(new Set(shown.map((v) => v.gig.venue)).size);
 	const active = $derived(

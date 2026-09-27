@@ -35,7 +35,10 @@ The radio plays each artist's `youtube.songs` (YouTube Music), which the pipelin
 
 - `src/lib/data/` — pure TypeScript, unit-tested: `filters.ts` (the filter model and its URL
   form, shared with the radio), `genres.ts` (venue genres and artist tags → coarse buckets),
-  `slugs.ts` (URLs), `dates.ts`, `catalog.ts` (indexes the loaded data).
+  `slugs.ts` (URLs), `dates.ts`, `catalog.ts` (indexes the loaded data), `unavailable.ts` (the
+  listener's unavailable dates: days, ranges and weekdays, as Amsterdam dates, in localStorage
+  `giggle:unavailable:v1`). `unavailable-store.svelte.ts` is their reactive app state (edits,
+  other tabs, sync); `components/UnavailableDates.svelte` edits them, inside the filter panel.
 - `src/lib/components/` — agenda rows, poster tiles, filter panel; `radio/` for the radio.
 - `src/lib/radio/` — the radio around `@giggle/radio-core`:
   - `radio.svelte.ts`: the controller. UI state in `$state` fields; the YouTube player,
@@ -50,7 +53,9 @@ The radio plays each artist's `youtube.songs` (YouTube Music), which the pipelin
     `WebSpeechSpeaker` (British voice, "Daniel" if there) when the model isn't ready, fails,
     or is too slow on the device.
   - `station.ts` (filters + order + seed ↔ URL), `tracks.ts` (songs → tracks), `persist.ts`
-    (session per station, play history, said-memory, settings), `media-session.ts`.
+    (session per station, play history, said-memory, settings), `media-session.ts`. The play
+    history is synced (below): the radio records plays locally and tells the sync client, and
+    merges in plays from other devices when they arrive; it never waits on the network.
 - `src/lib/voice/` — Kokoro-82M in the browser for the announcer's live lines:
   `kokoro.worker.ts` (kokoro-js on WebGPU with fp32, else WASM with q8; cached by the browser),
   `kokoro.ts` (the page side: lazy load, render queue with urgent lines first, cache, Web Audio
@@ -68,8 +73,16 @@ The radio plays each artist's `youtube.songs` (YouTube Music), which the pipelin
 - `src/lib/board/board.ts` — the listener's triage (listen more / want to go / got tickets /
   not for me) by artist key, in localStorage (`giggle:board:v1`). The radio writes it; the
   Board page shows it as columns (`columns.ts`, which also works out "Been" from gig dates).
-- `src/lib/sync/` — board sync with the Worker's `/api/board` (`SyncClient`, `mergeBoards`):
-  last write wins per artist, deletions kept as tombstones. Signed out, the board stays local.
+- `src/lib/sync/` — sync with the Worker's `/api/<collection>` (worker/README.md). One
+  `SyncClient` (`client.ts`, started in the root layout, `app.ts`) runs each round over the
+  collections in `collections.ts`: the board, the unavailable dates and the play history. They
+  share one mechanism (`collection.ts`, `merge.ts`): last write wins per key, deletions kept as
+  tombstones until the server has them, a `since` cursor and a record per collection
+  (`giggle:sync:v1` for the board, `giggle:sync:unavailable:v1`, `giggle:sync:plays:v1`).
+  Plays are items that never change (`"<ms> <artist key>"`), so merging two histories is their
+  union, pruned as the radio prunes (60 days, 20 plays per artist). Code that saves synced data
+  calls `localChanged()`/`boardChanged()`; code that shows it listens with `onSynced(name, …)`.
+  Signed out, everything stays local.
 - `src/routes/(app)/` — pages that need the data; its layout loads it once per visit.
 
 ## Radio
@@ -84,7 +97,8 @@ pagehide; a reload comes back paused at the same track and second, with a Resume
 
 - `/agenda?days=30&from=3&city=amsterdam,utrecht&venue=paradiso&genre=indie,jazz&q=…&hide=soldout`
   (`/` redirects here). `/radio` takes the same filters plus `order=date|mix|shuffle` and `seed`.
-  Defaults are left out; unknown or malformed parameters are ignored. Filter changes replace
+  Defaults are left out; unknown or malformed parameters are ignored. `hide=unavailable` hides
+  gigs on the viewer's own unavailable dates (they aren't in the URL); the Board warns instead. Filter changes replace
   the history entry, page changes push one.
 - `/gigs/<venue>/<venue's event id>-<title slug>`, `/artists/<name slug>--<first 8 of MBID>`
   (or `--x` without a MusicBrainz match), `/venues/<slug>`, `/board`.

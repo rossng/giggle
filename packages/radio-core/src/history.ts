@@ -49,6 +49,23 @@ export function pruneHistory(
   return out;
 }
 
+/**
+ * Two histories as one (say, this device's and another's): the union of their plays, the
+ * same play once, then pruned like `pruneHistory`. The order of the arguments doesn't matter.
+ */
+export function mergeHistory(
+  a: PlayHistory,
+  b: PlayHistory,
+  now: Date,
+  maxAgeDays: number = HISTORY_MAX_AGE_DAYS,
+): PlayHistory {
+  const out: Record<string, number[]> = {};
+  for (const key of new Set([...Object.keys(a), ...Object.keys(b)])) {
+    out[key] = [...new Set([...(a[key] ?? []), ...(b[key] ?? [])])];
+  }
+  return pruneHistory(out, now, maxAgeDays);
+}
+
 /** The most recent play of `artistKey`, or undefined if never heard (or out of range). */
 export function lastHeard(history: PlayHistory | undefined, artistKey: string): number | undefined {
   const plays = history?.[artistKey];

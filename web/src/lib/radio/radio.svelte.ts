@@ -10,6 +10,7 @@ import {
 	clampPosition,
 	cleanSongTitle,
 	DuckingController,
+	mergeHistory,
 	mulberry32,
 	newSeed,
 	nextArtistPosition,
@@ -50,7 +51,7 @@ import {
 	type Triage
 } from '$lib/board/board';
 import { formatDay, localDate } from '$lib/data/dates';
-import { boardChanged, onBoardSynced } from '$lib/sync/app';
+import { boardChanged, localChanged, onBoardSynced, onSynced } from '$lib/sync/app';
 import {
 	bindMediaActions,
 	setNowPlaying,
@@ -93,7 +94,7 @@ const MAX_ERRORS_IN_A_ROW = 6;
 export interface StationInput {
 	/** `stationKey(filters)`: which gigs; sessions are saved under it. */
 	key: string;
-	/** The station's gigs (already filtered). */
+	/** The station's gigs (already filtered, unavailable dates included). */
 	gigs: readonly CoreGig[];
 	tracks: TrackLookup;
 	artists: Readonly<Record<string, CoreArtist>>;
@@ -212,6 +213,12 @@ export class Radio {
 		this.#history = loadHistory(now);
 		this.board = loadBoard();
 		this.#cleanup.push(onBoardSynced((synced) => (this.board = synced)));
+		// Plays heard on other devices: Mix plays those artists less often from the next reorder.
+		this.#cleanup.push(
+			onSynced('plays', (synced) => {
+				this.#history = mergeHistory(this.#history, synced, new Date());
+			})
+		);
 		this.#webSpeech = new WebSpeechSpeaker(this.settings.voiceName);
 		this.#kokoro = options.kokoro ?? sharedKokoro();
 		this.#live = new KokoroSpeaker(this.#kokoro, this.#webSpeech);
@@ -276,6 +283,8 @@ export class Radio {
 		const previous = this.#station;
 		if (previous && previous.key === input.key) {
 			this.#station = input;
+			// Same filters, other gigs: the listener's unavailable dates changed.
+			if (!sameGigs(previous.gigs, input.gigs)) this.#rebuild();
 			const seed = input.seed ?? this.seed;
 			if (input.orderGiven && (input.order !== this.order || seed !== this.seed)) {
 				this.#reorder(input.order, seed, false);
@@ -859,8 +868,11 @@ export class Radio {
 		this.#heard.seconds += 0.5;
 		if (!this.#heard.recorded && this.#heard.seconds >= HEARD_AFTER_SECONDS && key) {
 			this.#heard.recorded = true;
-			this.#history = recordPlay(this.#history, key, new Date());
+			// From storage, not memory: sync or another tab may have added plays since.
+			const now = new Date();
+			this.#history = recordPlay(mergeHistory(this.#history, loadHistory(now), now), key, now);
 			saveHistory(this.#history);
+			localChanged(); // synced in the background; the radio never waits for it
 		}
 		this.#scheduleBack(); // no-op once decided; waits for the duration otherwise
 		setPositionState(this.duration, this.time);
@@ -905,4 +917,8 @@ export class Radio {
 			artwork: squareImage(image)
 		});
 	}
+}
+
+function sameGigs(a: readonly CoreGig[], b: readonly CoreGig[]): boolean {
+	return a.length === b.length && a.every((gig, i) => gig.id === b[i]?.id);
 }
