@@ -8,9 +8,10 @@ writes two or three per artist, each from a different angle, so repeat plays can
 Blurbs must come from the facts we have (MusicBrainz, Last.fm, Wikipedia), never the
 model's memory, which confuses namesakes and invents biographies. Each variant is
 checked against the facts it was given (`problems`): numbers, years, count words,
-capitalised names (places, people, songs) and hype words must all appear in them.
-Variants that fail are dropped, and artists with too little to go on get no blurb at all
-(the app then says just the name and the gig).
+capitalised names (places, people, songs), hype words and every other lower-case word
+beyond the common ones listed in blurbs.toml must all appear in them. Variants that fail
+are dropped, and artists with too little to go on get no blurb at all (the app then says
+just the name and the gig). blurbs.toml also lists artists and blurbs pulled by hand.
 
 The model's raw answers are cached under the prompt version, the model and the facts,
 so new facts or a new prompt mean a new answer, and the checks, which run on every
@@ -22,8 +23,10 @@ from __future__ import annotations
 import json
 import re
 import sys
+import tomllib
 from collections.abc import Iterable, Mapping
 from concurrent.futures import ThreadPoolExecutor, as_completed
+from importlib.resources import files
 from typing import Any
 
 from giggle_pipeline.cache import Cache
@@ -257,6 +260,11 @@ _GIG_WORDS = {
     "november", "december", "weekend",
 }  # fmt: skip
 _MUST_BE_IN_FACTS = _NUMBER_WORDS | _HYPE | _STYLE
+_SETTINGS = tomllib.loads(files("giggle_pipeline").joinpath("blurbs.toml").read_text())
+# Lower-case words allowed without the facts (blurbs.toml); all others must be in them.
+_COMMON = frozenset(_SETTINGS["words"].split()) - _MUST_BE_IN_FACTS - _GIG_WORDS
+BLOCKED_ARTISTS = frozenset(_SETTINGS["blocked"]["artists"])
+BLOCKED_BLURBS = frozenset(plain(t) for t in _SETTINGS["blocked"]["blurbs"])
 _BRITISH = {
     "color": "colour", "colors": "colours", "colorful": "colourful", "favorite": "favourite",
     "favorites": "favourites", "flavor": "flavour", "flavors": "flavours", "honor": "honour",
@@ -343,7 +351,41 @@ def problems(text: str, f: Mapping[str, Any], hay: str | None = None) -> list[st
                 out.append(f"unsupported {part}")
             elif part[0].isupper() and not _has(part, hay):
                 out.append(f"unknown name {part}")
+            elif part[0].islower():
+                out.extend(f"word {w}" for w in re.findall(r"[a-z]{2,}", low) if not _known(w, hay))
     return out
+
+
+def _forms(word: str) -> list[str]:
+    """`word` and the words it may be a form of: "guitars", "blending", "rooted"…"""
+    out = [word, word + "s"]
+    words = [word]
+    if word.endswith("s") and not word.endswith("ss"):  # "recordings" → "recording"…
+        words.append(word[:-1])
+    for w in words:
+        for end, stems in _ENDINGS:
+            if w.endswith(end) and len(w) - len(end) >= 2:
+                base = w[: -len(end)]
+                out += [base + s for s in stems]
+                if len(base) >= 4 and base[-1] == base[-2]:  # "drumming", "mapped"
+                    out.append(base[:-1])
+    return out
+
+
+_ENDINGS = (
+    ("ies", ("y",)),
+    ("es", ("", "e")),
+    ("s", ("",)),
+    ("ing", ("", "e")),
+    ("ed", ("", "e")),
+    ("er", ("", "e")),
+    ("ly", ("",)),
+)
+
+
+def _known(word: str, hay: str) -> bool:
+    """Whether a lower-case word may be said: common (blurbs.toml) or from the facts."""
+    return any(w in _COMMON or f" {w} " in hay for w in _forms(word))
 
 
 def usable(variants: Iterable[Any], f: Mapping[str, Any]) -> list[str]:
@@ -356,6 +398,8 @@ def usable(variants: Iterable[Any], f: Mapping[str, Any]) -> list[str]:
         if not isinstance(raw, str):
             continue
         text = tidy(raw, f.get("name") or "")
+        if plain(text) in BLOCKED_BLURBS:
+            continue
         if text and plain(text) not in seen and not problems(text, f, hay):
             seen.add(plain(text))
             kept.append(text)
@@ -400,7 +444,7 @@ def write_blurbs(
     all_facts: dict[str, dict[str, Any]] = {}
     for key in dict.fromkeys(keys):
         f = all_facts[key] = facts(artists[key])
-        if not enough(f):
+        if not enough(f) or key in BLOCKED_ARTISTS:
             result[key] = []
             continue
         hit = cached_answer(cache, TASK, llm, PROMPT_VERSION, f)
