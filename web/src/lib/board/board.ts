@@ -116,10 +116,6 @@ export function toggleTriage(
 	return setTriage(board, artistKey, board[artistKey]?.state === state ? null : state, meta, now);
 }
 
-export function triageOf(board: Board, artistKey: string): Triage | null {
-	return board[artistKey]?.state ?? null;
-}
-
 /** Artist keys sorted into any of `states`. */
 export function keysIn(board: Board, states: readonly Triage[]): Set<string> {
 	return new Set(
@@ -134,12 +130,6 @@ export function namesIn(board: Board, states: readonly Triage[]): string[] {
 	return Object.values(board)
 		.filter((item) => states.includes(item.state))
 		.map((item) => item.name);
-}
-
-export function countByState(board: Board): Record<Triage, number> {
-	const counts: Record<Triage, number> = { listen: 0, go: 0, tickets: 0, nope: 0 };
-	for (const item of Object.values(board)) counts[item.state]++;
-	return counts;
 }
 
 export function loadBoard(storage: KeyValueStorage | null = browserStorage()): Board {

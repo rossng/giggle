@@ -2,7 +2,8 @@
      position, sorting the artist, and the station & settings drawer. Phones keep the essentials. -->
 <script lang="ts">
 	import PosterTile from '$lib/components/PosterTile.svelte';
-	import { TRIAGES, TRIAGE_KEYS, TRIAGE_LABELS } from '$lib/board/board';
+	import TriageButtons from '$lib/components/TriageButtons.svelte';
+	import { boardStore } from '$lib/board/board-store.svelte';
 	import type { Catalog } from '$lib/data/catalog';
 	import { formatDay } from '$lib/data/dates';
 	import { NO_GENRE_COLOUR } from '$lib/data/genres';
@@ -17,7 +18,7 @@
 	const track = $derived(radio.track);
 	const artist = $derived(entry ? catalog.artists[entry.artistKey] : undefined);
 	const view = $derived(entry ? catalog.byId.get(entry.gig.id) : undefined);
-	const triage = $derived(entry ? (radio.board[entry.artistKey]?.state ?? null) : null);
+	const triage = $derived(entry ? boardStore.stateOf(entry.artistKey) : null);
 	const shownTime = $derived(radio.resumeAt ?? radio.time);
 	const progress = $derived(radio.duration ? Math.min(1, shownTime / radio.duration) : 0);
 	// The announcements on this track, as spans of the bar (the voice's colour, not the fill's).
@@ -66,12 +67,16 @@
 				/>
 			{/key}
 			<span class="text">
-				<b>{entry.name}</b>
-				<span class="sub">{track?.title ?? ''}</span>
-				<span class="sub gig">{gigLine}</span>
+				<b class="ellipsis">{entry.name}</b>
+				<span class="sub ellipsis">{track?.title ?? ''}</span>
+				<span class="sub gig ellipsis">{gigLine}</span>
 			</span>
 		{:else}
-			<span class="text"><b>giggle radio</b><span class="sub">Gigs coming up, as radio</span></span>
+			<span class="text"
+				><b class="ellipsis">giggle radio</b><span class="sub ellipsis"
+					>Gigs coming up, as radio</span
+				></span
+			>
 		{/if}
 	</a>
 
@@ -80,7 +85,7 @@
 			<div class="before">
 				<button
 					type="button"
-					class="icon wide"
+					class="icon tap wide"
 					title="Previous track (←)"
 					onclick={() => radio.previous()}
 					disabled={!radio.started}
@@ -120,7 +125,7 @@
 			<div class="after">
 				<button
 					type="button"
-					class="icon"
+					class="icon tap"
 					title="Next track (→)"
 					onclick={() => radio.next()}
 					disabled={!entry}
@@ -176,23 +181,16 @@
 	</div>
 
 	<div class="right wide">
-		<div class="sort" role="group" aria-label="Sort this artist">
-			{#each TRIAGES as t (t)}
-				<button
-					type="button"
-					class="s-{t}"
-					class:on={triage === t}
-					aria-pressed={triage === t}
-					disabled={!entry}
-					title="{TRIAGE_LABELS[t]} ({TRIAGE_KEYS[t]})"
-					onclick={() => radio.triage(t)}
-					>{TRIAGE_KEYS[t]}<span class="visually-hidden"> {TRIAGE_LABELS[t]}</span></button
-				>
-			{/each}
-		</div>
+		<TriageButtons
+			size="compact"
+			label="Sort this artist"
+			current={triage}
+			disabled={!entry}
+			onpick={(t) => radio.triage(t)}
+		/>
 		<button
 			type="button"
-			class="icon"
+			class="icon tap"
 			title="Station & settings"
 			aria-haspopup="dialog"
 			onclick={() => (radioApp.settingsOpen = true)}
@@ -255,12 +253,6 @@
 		flex-direction: column;
 		min-width: 0;
 		line-height: 1.3;
-	}
-	.text b,
-	.sub {
-		white-space: nowrap;
-		overflow: hidden;
-		text-overflow: ellipsis;
 	}
 	.text b {
 		font-size: 13.5px;
@@ -429,36 +421,6 @@
 		align-items: center;
 		gap: 12px;
 	}
-	.sort {
-		display: flex;
-		gap: 4px;
-	}
-	.sort button {
-		width: 30px;
-		height: 28px;
-		border-radius: 7px;
-		background: var(--p2);
-		color: var(--mute);
-		font: 600 12px var(--f-mono);
-	}
-	.sort button:hover:not(:disabled) {
-		color: var(--ink);
-	}
-	.sort button.on {
-		color: var(--bg);
-	}
-	.sort .s-listen.on {
-		background: #8ea3ff;
-	}
-	.sort .s-go.on {
-		background: var(--amber);
-	}
-	.sort .s-tickets.on {
-		background: #7fd1a0;
-	}
-	.sort .s-nope.on {
-		background: var(--mute);
-	}
 
 	/* Phones: who's on, play and next; the rest is on the Radio page. */
 	@media (max-width: 700px) {
@@ -508,11 +470,7 @@
 			gap: 0;
 		}
 	}
-	@media (hover: none) and (pointer: coarse) {
-		.icon {
-			width: 44px;
-			height: 44px;
-		}
+	@media (pointer: coarse) {
 		.play {
 			width: 46px;
 			height: 46px;

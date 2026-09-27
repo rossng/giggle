@@ -1,5 +1,5 @@
 // Keeps this browser's personal data in step with the accounts API (worker/, `/api/*`): the
-// board, and whatever other collections it's given (collection.ts, collections.ts).
+// collections it's given (collection.ts, collections.ts).
 //
 // Local-first: each collection's data in localStorage is always the source for the UI; the
 // SyncClient pushes local changes and pulls remote ones in the background, merging last write
@@ -13,7 +13,6 @@
 // Integration: call `notifyLocalChange()` after every local save, and adopt the data passed to
 // `onChange` (it has already been saved) — don't write back an older in-memory copy over it.
 
-import type { Board } from '$lib/board/board';
 import { browserStorage, readJson, writeJson, type KeyValueStorage } from '$lib/storage';
 import {
 	applyRound,
@@ -26,7 +25,7 @@ import {
 	type Outgoing,
 	type SyncRecord
 } from './collection';
-import { boardCollection, SYNC_STORAGE_KEY } from './collections';
+import { SYNC_STORAGE_KEY } from './collections';
 import { sameTombstones, type Stamped } from './merge';
 
 export { SYNC_STORAGE_KEY };
@@ -61,8 +60,8 @@ export interface SyncEvents {
 }
 
 export interface SyncClientOptions {
-	/** What to sync, in this order each round (default: just the board). */
-	collections?: readonly AnyCollection[];
+	/** What to sync, in this order each round. */
+	collections: readonly AnyCollection[];
 	/** Prefix for /api (default: same origin). */
 	baseUrl?: string;
 	fetch?: typeof fetch;
@@ -77,8 +76,6 @@ export interface SyncClientOptions {
 	backoffMs?: { base: number; max: number };
 	/** Called with a collection's merged data whenever a sync changed it (it's already saved). */
 	onChange?: (collection: string, data: unknown) => void;
-	/** Called with the merged board whenever a sync changed it (it's already saved). */
-	onBoard?: (board: Board) => void;
 }
 
 export class SyncClient {
@@ -94,7 +91,6 @@ export class SyncClient {
 	readonly #pollMs: number;
 	readonly #backoff: { base: number; max: number };
 	readonly #onChange?: (collection: string, data: unknown) => void;
-	readonly #onBoard?: (board: Board) => void;
 
 	#status: SyncStatus;
 	#listeners = new Set<(status: SyncStatus) => void>();
@@ -106,8 +102,8 @@ export class SyncClient {
 	#checkedUser = false;
 	#detach: (() => void) | null = null;
 
-	constructor(options: SyncClientOptions = {}) {
-		this.#collections = options.collections ?? [boardCollection];
+	constructor(options: SyncClientOptions) {
+		this.#collections = options.collections;
 		this.#fetch = options.fetch ?? ((...args) => globalThis.fetch(...args));
 		this.#storage = options.storage === undefined ? browserStorage() : options.storage;
 		this.#now = options.now ?? (() => new Date());
@@ -125,7 +121,6 @@ export class SyncClient {
 		this.#pollMs = options.pollMs ?? 5 * 60_000;
 		this.#backoff = options.backoffMs ?? { base: 2000, max: 5 * 60_000 };
 		this.#onChange = options.onChange;
-		this.#onBoard = options.onBoard;
 		const records = this.#collections.map((c) => this.#load(c));
 		this.#status = {
 			state: 'offline',
@@ -250,7 +245,6 @@ export class SyncClient {
 		if (result.items) {
 			const data = collection.save(result.items, this.#storage, now);
 			this.#onChange?.(collection.name, data);
-			if (collection.name === boardCollection.name) this.#onBoard?.(data as Board);
 		}
 		this.#save(collection, result.record);
 	}

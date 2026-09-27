@@ -1,22 +1,17 @@
 import { describe, expect, it } from 'vitest';
 import type { Board } from '$lib/board/board';
-import {
-	boardOf,
-	diffBoards,
-	mergeBoards,
-	pick,
-	recordDeletions,
-	sameBoard,
-	toSyncMap,
-	type SyncMap
-} from './merge';
-import { fromWire, isSyncable, toWire } from './wire';
+import { boardOf, sameItem } from './collections';
+import { diffMaps, mergeMaps, pick, recordDeletions, sameMaps } from './merge';
+import { fromWire, isSyncable, toWire, type SyncItem } from './wire';
+
+type SyncMap = Readonly<Record<string, SyncItem>>;
+const diffBoards = (base: Board, current: Board) => diffMaps<SyncItem>(base, current, sameItem);
 
 const T0 = '2026-09-26T20:00:00.000Z';
 const T1 = '2026-09-26T21:00:00.000Z';
 const T2 = '2026-09-26T22:00:00.000Z';
 
-describe('pick / mergeBoards', () => {
+describe('pick / mergeMaps', () => {
 	it('keeps the later change for each key', () => {
 		const local: SyncMap = {
 			a: { state: 'go', name: 'A', at: T1 },
@@ -28,7 +23,7 @@ describe('pick / mergeBoards', () => {
 			b: { state: 'tickets', name: 'B', at: T2 },
 			onlyRemote: { state: 'listen', name: 'R', at: T0 }
 		};
-		expect(mergeBoards(local, remote)).toEqual({
+		expect(mergeMaps(local, remote)).toEqual({
 			a: { state: 'go', name: 'A', at: T1 },
 			b: { state: 'tickets', name: 'B', at: T2 },
 			onlyLocal: { state: 'listen', name: 'L', at: T0 },
@@ -59,7 +54,7 @@ describe('pick / mergeBoards', () => {
 			deletedEarlier: { state: 'go', name: 'Y', at: T1 },
 			removedRemotely: { state: null, name: '', at: T1 }
 		};
-		const merged = mergeBoards(
+		const merged = mergeMaps(
 			{ ...local, removedRemotely: { state: 'go', name: 'Z', at: T0 } },
 			remote
 		);
@@ -73,28 +68,12 @@ describe('pick / mergeBoards', () => {
 		const remote: SyncMap = Object.freeze({
 			a: Object.freeze({ state: 'nope', name: 'A', at: T1 })
 		});
-		expect(() => mergeBoards(local, remote)).not.toThrow();
+		expect(() => mergeMaps(local, remote)).not.toThrow();
 		expect(local.a.state).toBe('go');
 	});
 });
 
-describe('toSyncMap / boardOf', () => {
-	it('round-trips a board and adds tombstones for deleted keys', () => {
-		const board: Board = { a: { state: 'go', name: 'A', gig: 'paradiso:1', at: T0 } };
-		const map = toSyncMap(board, { b: T1 });
-		expect(map).toEqual({
-			a: { state: 'go', name: 'A', gig: 'paradiso:1', at: T0 },
-			b: { state: null, name: '', at: T1 }
-		});
-		expect(boardOf(map)).toEqual(board);
-	});
-
-	it('lets a key on the board override a stale tombstone', () => {
-		expect(toSyncMap({ a: { state: 'go', name: 'A', at: T0 } }, { a: T1 }).a.state).toBe('go');
-	});
-});
-
-describe('diffBoards / recordDeletions', () => {
+describe('diffMaps / recordDeletions', () => {
 	const base: Board = {
 		same: { state: 'go', name: 'S', at: T0 },
 		changed: { state: 'go', name: 'C', at: T0 },
@@ -131,9 +110,9 @@ describe('diffBoards / recordDeletions', () => {
 		);
 	});
 
-	it('sameBoard ignores timestamp spelling', () => {
-		expect(sameBoard({ a: base.same }, { a: current.same })).toBe(true);
-		expect(sameBoard(base, current)).toBe(false);
+	it('sameMaps ignores timestamp spelling', () => {
+		expect(sameMaps<SyncItem>({ a: base.same }, { a: current.same }, sameItem)).toBe(true);
+		expect(sameMaps<SyncItem>(base, current, sameItem)).toBe(false);
 	});
 });
 

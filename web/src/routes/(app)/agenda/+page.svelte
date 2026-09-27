@@ -80,7 +80,7 @@
 				<span class="n">{shown.length} gig{shown.length === 1 ? '' : 's'}</span>
 				<span class="where">coming up {where}</span>
 			</h1>
-			<p class="sub">
+			<p class="sub ellipsis">
 				{venueCount} venue{venueCount === 1 ? '' : 's'} · {formatRange(range.first, range.last)}
 			</p>
 		</div>
@@ -107,7 +107,7 @@
 			</div>
 			<button
 				type="button"
-				class="filters"
+				class="filters tap"
 				class:on={chips.length > 0}
 				aria-haspopup="dialog"
 				aria-controls="agenda-filters"
@@ -186,9 +186,6 @@
 		font-size: 12.5px;
 		color: var(--mute);
 		margin-top: 4px;
-		white-space: nowrap;
-		overflow: hidden;
-		text-overflow: ellipsis;
 	}
 	.radio {
 		flex: none;
@@ -323,12 +320,6 @@
 		}
 		.density {
 			display: none;
-		}
-	}
-	@media (pointer: coarse) {
-		.filters,
-		.radio {
-			height: 44px;
 		}
 	}
 </style>

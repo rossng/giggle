@@ -38,6 +38,7 @@
 		class:button={!compact}
 		class:strong
 		class:compact
+		class:tap={compact}
 		class:playing
 		aria-label={compact ? label : undefined}
 		title={compact ? label : undefined}
@@ -83,11 +84,5 @@
 	}
 	.compact:hover {
 		border-color: var(--mute);
-	}
-	@media (pointer: coarse) {
-		.compact {
-			width: 44px;
-			height: 44px;
-		}
 	}
 </style>

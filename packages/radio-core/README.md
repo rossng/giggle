@@ -14,13 +14,13 @@ pnpm --dir packages/radio-core typecheck   # tsc --noEmit
 
 | Module | What it does |
 | --- | --- |
-| `types` | `Gig`, `Artist`, `GigsFile`, `ArtistsFile` (the pipeline's JSON as-is), `Track` `{videoId, title, album?}` and the `Player` interface (implementations live in the app). |
+| `types` | `Gig`, `Venue`, `Artist`: only the fields of the pipeline's JSON that radio-core reads (so the app's fuller types fit them as they are), `Track` `{videoId, title, album?}` and the `Player` interface (implementations live in the app). |
 | `queue` | `buildQueue({gigs, tracks, now, tracksPerArtist, notForMe, artists})`: one `QueueEntry` per artist at their earliest upcoming gig, N tracks each; reports artists skipped for having no tracks or being "not for me". |
 | `order` | `orderQueue(entries, "date" \| "shuffle" \| "mix", {seed, now, listenMore, history})`. Mix is a seeded Efraimidis–Spirakis weighted shuffle; `mixWeight` and `MIX` hold the weights. |
 | `history` | `PlayHistory` (artistKey → epoch-ms timestamps): `recordPlay`, `pruneHistory` (60 days), `mergeHistory` (union of two devices' plays, pruned), `lastHeard`, `parseHistory`. |
 | `session` | `snapshotSession`, `parseSession`, `restoreSession`, `filtersKey`: save a listening session and resume it against fresh data. |
 | `navigation` | `nextPosition`, `previousPosition`, `nextArtistPosition`, `clampPosition`, `currentTrack` (wrapping). |
-| `announcer` | `Announcer`: the original fixed-shape intros (`name` / `short`), gig lines, ticket notes, micro-announcements. The presenter builds on it (venue naming, song titles, ticket wordings). |
+| `announcer` | What the presenter builds lines from: `VoiceMode`, `spokenWhere` ("Patronaat in Haarlem"), `spokenSong`, the ticket-news wordings and `tidy`. |
 | `presenter` | `Presenter`: what a radio presenter would say — `intro`, `micro`, `backAnnounce`, `forTrack` — each a `Line` `{kind, text, seconds, facts}` inside a length budget. |
 | `facts` | `factPool(...)`: the colour facts available for an artist (origin, formed, genre, similar, support, ticket, track), cleaned for speech; `cleanGenre`, `KnownArtists`. |
 | `said` | `SaidMemory` (artistKey → facts said, with times): `recordSaid`, `pruneSaid`, `parseSaid`. Persist `presenter.said` next to the play history. |
@@ -41,9 +41,9 @@ pnpm --dir packages/radio-core typecheck   # tsc --noEmit
   keeps the current artist current (or moves to the next survivor, track 1), and inserts
   new artists only after the current one: by date in `date` order, at seeded random
   spots in `shuffle`, and at a depth matching their mix rank in `mix`.
-- **Announcements** never contain figures in dates, decimals in prices or "€". Prices are
-  said with probability 0.65, start times with 0.5 (afternoon/evening only, never for a
-  00:00 "unknown" time); sold out / few left / free / not on sale always win over price.
+- **Announcements** never contain figures in dates, decimals in prices or "€". Start times
+  are said with probability 0.35 (afternoon/evening only, never for a 00:00 "unknown" time);
+  sold out / few left / free / not on sale always win over the price.
 - **Ducking** passes an `AbortSignal` to `speak`; a newer announcement aborts the older
   one and only the newest fades back up, to the volume from before the first.
 

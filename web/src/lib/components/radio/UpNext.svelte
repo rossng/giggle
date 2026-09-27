@@ -2,7 +2,8 @@
 <script lang="ts">
 	import type { QueueEntry } from '@giggle/radio-core';
 	import PosterTile from '$lib/components/PosterTile.svelte';
-	import { TRIAGE_LABELS, type Board } from '$lib/board/board';
+	import { TRIAGE_LABELS } from '$lib/board/board';
+	import { boardStore } from '$lib/board/board-store.svelte';
 	import type { Catalog } from '$lib/data/catalog';
 	import { formatDay, localDate } from '$lib/data/dates';
 	import { NO_GENRE_COLOUR } from '$lib/data/genres';
@@ -13,7 +14,6 @@
 		queue,
 		current,
 		started,
-		board,
 		catalog,
 		artists,
 		onjump
@@ -21,7 +21,6 @@
 		queue: readonly QueueEntry[];
 		current: number;
 		started: boolean;
-		board: Board;
 		catalog: Catalog;
 		artists: Readonly<Record<string, Artist>>;
 		onjump: (index: number) => void;
@@ -50,7 +49,7 @@
 
 <ol class="queue" bind:this={list}>
 	{#each queue as entry, i (entry.artistKey)}
-		{@const state = board[entry.artistKey]?.state}
+		{@const state = boardStore.stateOf(entry.artistKey)}
 		{@const view = catalog.byId.get(entry.gig.id)}
 		<li class:current={i === current} class:played={started && i < current}>
 			<button
@@ -66,11 +65,11 @@
 					size={36}
 				/>
 				<span class="text">
-					<b
+					<b class="ellipsis"
 						>{entry.name}{#if state}
 							<span class="badge b-{state}">{TRIAGE_LABELS[state]}</span>{/if}</b
 					>
-					<span class="where">{where(entry)}</span>
+					<span class="where ellipsis">{where(entry)}</span>
 				</span>
 			</button>
 		</li>
@@ -119,9 +118,6 @@
 	b {
 		font-size: 13px;
 		font-weight: 650;
-		white-space: nowrap;
-		overflow: hidden;
-		text-overflow: ellipsis;
 	}
 	.badge {
 		margin-left: 4px;
@@ -130,8 +126,5 @@
 	.where {
 		font-size: 11.5px;
 		color: var(--mute);
-		white-space: nowrap;
-		overflow: hidden;
-		text-overflow: ellipsis;
 	}
 </style>

@@ -66,14 +66,10 @@ export function syntheticArtist(key: string, name: string, seed = 0): Artist {
   const [country, area, beginArea] = pick(AREAS, seed, `${key}:area`);
   const type = pick(TYPES, seed, `${key}:type`);
   return {
-    key,
     name,
-    match: null,
     musicbrainz: sparse
       ? null
       : {
-          mbid: "x",
-          name,
           type,
           country,
           area,
@@ -82,26 +78,14 @@ export function syntheticArtist(key: string, name: string, seed = 0): Artist {
           ended: h("ended") < 0.1,
           genres: pick(GENRES, seed, `${key}:genres`),
           tags: pick(TAGS, seed + 1, `${key}:mbtags`),
-          links: {},
         },
     lastfm:
       h("lastfm") < 0.2
         ? null
         : {
-            name,
-            mbid: null,
-            url: null,
-            listeners: Math.floor(h("listeners") * 100000),
-            playcount: 0,
             tags: pick(TAGS, seed, `${key}:tags`),
             similar: h("similar") < 0.5 ? [name, pick(KNOWN, seed, `${key}:sim`), "Someone Else"] : ["Nobody Known"],
-            bio: null,
           },
-    top_tracks: null,
-    wikipedia:
-      h("wiki") < 0.4
-        ? null
-        : { title: name, lang: "en", description: pick(DESCRIPTIONS, seed, `${key}:desc`), extract: "", url: null, thumbnail: null },
-    gigs: [],
+    wikipedia: h("wiki") < 0.4 ? null : { description: pick(DESCRIPTIONS, seed, `${key}:desc`) },
   };
 }

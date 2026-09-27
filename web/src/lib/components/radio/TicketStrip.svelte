@@ -2,6 +2,7 @@
 <script lang="ts">
 	import type { GigView } from '$lib/data/catalog';
 	import { dayParts, relativeDays } from '$lib/data/dates';
+	import { externalHref } from '$lib/data/slugs';
 	import type { IsoDate } from '$lib/data/types';
 
 	let {
@@ -33,7 +34,7 @@
 			relativeDays(view.date, today)
 		].filter(Boolean)
 	);
-	const tickets = $derived(gig.ticket_url ?? gig.url);
+	const tickets = $derived(externalHref(gig.ticket_url) ?? externalHref(gig.url));
 </script>
 
 <div class="ticket" class:sold={view.soldOut}>
@@ -53,7 +54,10 @@
 				>{view.soldOut ? 'Resale' : 'Tickets'} ↗</a
 			>{/if}
 		<a href={view.href}>Gig page</a>
-		{#if youtubeMusic}<a href={youtubeMusic} target="_blank" rel="noopener noreferrer">YT Music ↗</a
+		{#if externalHref(youtubeMusic)}<a
+				href={externalHref(youtubeMusic)}
+				target="_blank"
+				rel="noopener noreferrer">YT Music ↗</a
 			>{/if}
 	</div>
 </div>

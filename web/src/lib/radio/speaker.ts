@@ -4,7 +4,6 @@
 // (the same model and voices, in the browser), which falls back to Web Speech.
 
 import type { LineKind } from '@giggle/radio-core';
-import { announcerFor } from '$lib/voice/announcers';
 import type { KokoroStatus, Rendered, RenderOptions } from '$lib/voice/kokoro';
 
 export interface SpokenLine {
@@ -290,19 +289,22 @@ export class KokoroSpeaker implements Speaker {
 	enabled = true;
 	/** Rendering can't keep up on this device; the fallback speaks for the rest of the visit. */
 	slow = false;
-	readonly #voiceFor: (artistKey: string) => Promise<string>;
+	readonly #voiceFor: (artistKey: string) => string;
 	readonly #maxWaitSeconds: number;
 	#slowRuns = 0;
-	#lookups: Promise<unknown> = Promise.resolve();
 
 	constructor(
 		voice: LiveVoice,
 		fallback: Speaker,
-		options: { voiceFor?: (artistKey: string) => Promise<string>; maxWaitSeconds?: number } = {}
+		options: {
+			/** The artist's announcer voice ("bf_isabella"; see tracks.ts `announcerOf`). */
+			voiceFor: (artistKey: string) => string;
+			maxWaitSeconds?: number;
+		}
 	) {
 		this.voice = voice;
 		this.fallback = fallback;
-		this.#voiceFor = options.voiceFor ?? announcerFor;
+		this.#voiceFor = options.voiceFor;
 		this.#maxWaitSeconds = options.maxWaitSeconds ?? 5;
 	}
 
@@ -379,18 +381,13 @@ export class KokoroSpeaker implements Speaker {
 		});
 	}
 
-	/**
-	 * Each sentence of `line`, rendered in its artist's voice. The voice lookups run one
-	 * after another, so lines reach the voice's queue in the order they were asked for (a
-	 * line being said before one prepared just after it) and a line's sentences together.
-	 */
+	/** Each sentence of `line`, rendered in its artist's voice, in order. */
 	#renders(
 		line: SpokenLine,
 		options: { urgent: boolean; signal: AbortSignal | undefined }
 	): Promise<Rendered>[] {
-		const voice = this.#lookups.then(() => this.#voiceFor(line.artistKey));
-		this.#lookups = voice.catch(() => {});
-		return sentences(line.text).map((text) => voice.then((v) => this.#render(v, text, options)));
+		const voice = this.#voiceFor(line.artistKey);
+		return sentences(line.text).map((text) => this.#render(voice, text, options));
 	}
 
 	async #render(

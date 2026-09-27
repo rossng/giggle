@@ -2,7 +2,6 @@ import { describe, expect, it } from 'vitest';
 import { memoryStorage } from '$lib/storage';
 import {
 	BOARD_STORAGE_KEY,
-	countByState,
 	keysIn,
 	loadBoard,
 	namesIn,
@@ -10,7 +9,6 @@ import {
 	saveBoard,
 	setTriage,
 	toggleTriage,
-	triageOf,
 	type Board
 } from './board';
 
@@ -31,9 +29,9 @@ describe('setTriage / toggleTriage', () => {
 		expect(board['mb:2']).not.toHaveProperty('gig');
 
 		const replaced = setTriage(board, 'mb:1', 'tickets', { name: 'Mogwai' }, LATER);
-		expect(triageOf(replaced, 'mb:1')).toBe('tickets');
+		expect(replaced['mb:1']?.state).toBe('tickets');
 		expect(replaced['mb:1'].at).toBe(LATER.toISOString());
-		expect(triageOf(board, 'mb:1')).toBe('listen'); // not mutated
+		expect(board['mb:1']?.state).toBe('listen'); // not mutated
 
 		expect(setTriage(board, 'mb:1', null, { name: 'Mogwai' }, NOW)).toEqual({
 			'mb:2': board['mb:2']
@@ -42,9 +40,9 @@ describe('setTriage / toggleTriage', () => {
 
 	it('toggles the same state off and switches to another', () => {
 		const one = toggleTriage({}, 'k', 'nope', { name: 'A' }, NOW);
-		expect(triageOf(one, 'k')).toBe('nope');
-		expect(triageOf(toggleTriage(one, 'k', 'nope', { name: 'A' }, NOW), 'k')).toBeNull();
-		expect(triageOf(toggleTriage(one, 'k', 'go', { name: 'A' }, NOW), 'k')).toBe('go');
+		expect(one['k']?.state).toBe('nope');
+		expect(toggleTriage(one, 'k', 'nope', { name: 'A' }, NOW)['k']).toBeUndefined();
+		expect(toggleTriage(one, 'k', 'go', { name: 'A' }, NOW)['k']?.state).toBe('go');
 	});
 });
 
@@ -59,10 +57,6 @@ describe('queries', () => {
 	it('selects keys and names by state', () => {
 		expect([...keysIn(board, ['listen'])].sort()).toEqual(['a', 'd']);
 		expect(namesIn(board, ['listen', 'go']).sort()).toEqual(['A', 'B', 'D']);
-	});
-
-	it('counts each state', () => {
-		expect(countByState(board)).toEqual({ listen: 2, go: 1, tickets: 0, nope: 1 });
 	});
 });
 

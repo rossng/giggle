@@ -18,7 +18,7 @@
  * `planSegment` (timing.ts) then decides when to say each line relative to the music.
  */
 
-import { Announcer, cap, FEW_LEFT, FREE, NOT_YET, POSTPONED, PRICE, SOLD_OUT, tidy, type VoiceMode } from "./announcer.ts";
+import { cap, FEW_LEFT, FREE, NOT_YET, POSTPONED, PRICE, SOLD_OUT, spokenSong, spokenWhere, tidy, type VoiceMode } from "./announcer.ts";
 import {
   article,
   factPool,
@@ -34,7 +34,7 @@ import {
   type TicketFact,
   type TrackFact,
 } from "./facts.ts";
-import type { Template } from "./picker.ts";
+import { PhrasePicker, type Template } from "./picker.ts";
 import type { QueueEntry } from "./queue.ts";
 import type { Rng } from "./random.ts";
 import { recordSaid, saidOrder, type SaidMemory } from "./said.ts";
@@ -345,11 +345,12 @@ const TICKET_BANKS: Readonly<Record<Exclude<TicketFact["news"], "price">, readon
 };
 
 export class Presenter {
-  readonly announcer: Announcer;
+  readonly #picker: PhrasePicker;
   readonly budgets: Budgets;
   readonly #rng: Rng;
   readonly #timeZone: string;
   readonly #homeCity: string;
+  readonly #venues: Readonly<Record<string, Venue>>;
   readonly #speech: Partial<SpeechRate>;
   readonly #p: PresenterProbabilities;
   #known: KnownArtists;
@@ -361,12 +362,8 @@ export class Presenter {
     this.#rng = options.rng;
     this.#timeZone = options.timeZone ?? DEFAULT_TIME_ZONE;
     this.#homeCity = options.homeCity ?? "Amsterdam";
-    this.announcer = new Announcer({
-      rng: options.rng,
-      venues: options.venues ?? {},
-      homeCity: this.#homeCity,
-      timeZone: this.#timeZone,
-    });
+    this.#picker = new PhrasePicker(options.rng);
+    this.#venues = options.venues ?? {};
     this.budgets = { ...DEFAULT_BUDGETS, ...options.budgets };
     this.#speech = options.speech ?? {};
     this.#p = { ...DEFAULT_PRESENTER_PROBABILITIES, ...options.probabilities };
@@ -406,7 +403,7 @@ export class Presenter {
   facts(entry: QueueEntry, trackIndex: number, now: Date): ColourFact[] {
     return factPool({
       entry,
-      song: this.announcer.song(entry, trackIndex),
+      song: spokenSong(entry, trackIndex),
       now,
       knownArtists: this.#known,
       homeCity: this.#homeCity,
@@ -446,7 +443,7 @@ export class Presenter {
     const time = spokenTime(gig.start, this.#timeZone);
     const afternoonOrLater = zonedParts(new Date(gig.start), this.#timeZone).hour >= 12;
     const at = level === 0 && sayTime && time && afternoonOrLater ? `, at ${time}` : "";
-    return { name: entry.name, where: this.announcer.where(gig), day, at };
+    return { name: entry.name, where: spokenWhere(gig, this.#venues, this.#homeCity), day, at };
   }
 
   #genreCtx(entry: QueueEntry, fact: GenreFact): FactCtx<GenreFact> {
@@ -457,7 +454,7 @@ export class Presenter {
 
   /** The fact as an opening sentence that names the artist; "" if it has none. */
   #opener(entry: QueueEntry, fact: ColourFact): string {
-    const r = this.announcer.picker;
+    const r = this.#picker;
     const name = entry.name;
     switch (fact.kind) {
       case "origin":
@@ -479,7 +476,7 @@ export class Presenter {
 
   /** The fact as a sentence about "them", once they've been named. */
   #sentence(entry: QueueEntry, fact: ColourFact): string {
-    const r = this.announcer.picker;
+    const r = this.#picker;
     const name = entry.name;
     switch (fact.kind) {
       case "origin":
@@ -521,7 +518,7 @@ export class Presenter {
   }
 
   #compose(entry: QueueEntry, fact: ColourFact | null, structure: Structure, gig: GigCtx, quick: boolean): string {
-    const r = this.announcer.picker;
+    const r = this.#picker;
     const name = { name: entry.name };
     const plain = (): string => (quick ? r.render("p.plain.quick", QUICK_PLAIN, name) : r.render("p.plain", PLAIN, name));
     const gigSay = (): string => r.render("p.gig", GIG, gig);
@@ -594,7 +591,7 @@ export class Presenter {
     let spoken = "";
     for (let level = 0; level <= 2; level++) {
       const ctx = this.#gigCtx(entry, now, level, level === 0 && this.#chance(0.4));
-      spoken = tidy(this.announcer.picker.render("p.gig", GIG, ctx));
+      spoken = tidy(this.#picker.render("p.gig", GIG, ctx));
       if (clip.seconds + this.estimate(spoken) <= b.introCap) break;
     }
     const sold = entry.gig.availability === "sold_out" ? " It's sold out." : "";
@@ -614,7 +611,7 @@ export class Presenter {
   #nameIntro(entry: QueueEntry, now: Date): Line {
     const sold = entry.gig.availability === "sold_out" ? " Sold out." : "";
     const limit = this.budgets.nameCap;
-    let text = tidy(this.announcer.picker.render("p.name", NAME_ONLY, this.#gigCtx(entry, now, 1, false)) + sold);
+    let text = tidy(this.#picker.render("p.name", NAME_ONLY, this.#gigCtx(entry, now, 1, false)) + sold);
     if (this.estimate(text) > limit) {
       const short = this.#gigCtx(entry, now, 2, false);
       text = this.#shortest(NAME_ONLY, short, sold);
@@ -651,9 +648,9 @@ export class Presenter {
   micro(entry: QueueEntry, trackIndex: number): Line | null {
     if (trackIndex < 1 || !entry.tracks[trackIndex]) return null;
     if (!this.#chance(this.#p.micro)) return null;
-    const song = this.announcer.song(entry, trackIndex);
+    const song = spokenSong(entry, trackIndex);
     const ctx: MicroCtx = { name: entry.name, song, nth: ordinalWord(trackIndex + 1) ?? null };
-    const r = this.announcer.picker;
+    const r = this.#picker;
     let text = tidy(r.render("p.micro", MICRO, ctx));
     let named = !!song && text.includes(song);
     if (this.estimate(text) > this.budgets.microCap) {
@@ -672,8 +669,8 @@ export class Presenter {
   backAnnounce(entry: QueueEntry, trackIndex: number): Line | null {
     const track = entry.tracks[trackIndex];
     if (!track || !this.#chance(this.#p.back) || this.#named.includes(track.videoId)) return null;
-    const ctx: BackCtx = { name: entry.name, song: this.announcer.song(entry, trackIndex) };
-    const r = this.announcer.picker;
+    const ctx: BackCtx = { name: entry.name, song: spokenSong(entry, trackIndex) };
+    const r = this.#picker;
     let text = tidy(r.render("p.back", BACK, ctx));
     let facts: FactKind[] = ["track"];
     if (!text || this.estimate(text) > this.budgets.backCap) {

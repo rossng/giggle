@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { artist } from '$lib/data/fixtures';
 import type { YoutubeArtist } from '$lib/data/types';
 import {
+	announcerOf,
 	artistImage,
 	introClips,
 	songsToTracks,
@@ -105,5 +106,16 @@ describe('introClips', () => {
 		expect(clips).toEqual({
 			'mb:1': [{ url: '/data/voice/ab.mp3', text: 'Djavan, a singer.', seconds: 4.2 }]
 		});
+	});
+});
+
+describe('announcerOf', () => {
+	const clip = { text: 'Djavan, a singer.', clip: 'voice/ab.mp3', seconds: 4.2, voice: 'bm_fable' };
+	it("uses the pipeline's announcer, else the first clip's voice, else Isabella", () => {
+		expect(announcerOf({ announcer: 'bm_fable' })).toBe('bm_fable');
+		expect(announcerOf({ announcer: 'bf_isabella', announce: [clip] })).toBe('bf_isabella');
+		expect(announcerOf({ announce: [clip] })).toBe('bm_fable');
+		expect(announcerOf({})).toBe('bf_isabella');
+		expect(announcerOf(undefined)).toBe('bf_isabella');
 	});
 });

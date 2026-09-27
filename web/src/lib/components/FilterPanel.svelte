@@ -121,7 +121,7 @@
 							onclick={() => onchange(toggleBucket(filters, b.id))}
 						>
 							<span class="swatch {b.state}" style:--c={b.colour} aria-hidden="true"></span>
-							<span class="name">{b.label}</span>
+							<span class="name ellipsis">{b.label}</span>
 							{#if b.picked}<span class="picked">{b.picked} style{b.picked === 1 ? '' : 's'}</span
 								>{/if}
 							<i>{b.n}</i>
@@ -129,7 +129,7 @@
 						{#if b.styles.length}
 							<button
 								type="button"
-								class="open"
+								class="open tap"
 								aria-expanded={open}
 								aria-controls="{uid}-styles-{b.id}"
 								aria-label="{b.label} styles"
@@ -183,7 +183,7 @@
 	<details class="venues" open={filters.venues.length > 0}>
 		<summary>
 			<span class="label">Venue</span>
-			<span class="value">{venueSummary}</span>
+			<span class="value ellipsis">{venueSummary}</span>
 			<svg viewBox="0 0 10 6" aria-hidden="true"><path d="m1 1 4 4 4-4" /></svg>
 		</summary>
 		<ul>
@@ -195,7 +195,7 @@
 							checked={filters.venues.includes(v.slug)}
 							onchange={() => onchange({ venues: toggle(filters.venues, v.slug) })}
 						/>
-						<span class="name">{v.name}</span>
+						<span class="name ellipsis">{v.name}</span>
 						<i>{v.n}</i>
 					</label>
 				</li>
@@ -310,9 +310,6 @@
 	.name {
 		flex: 1;
 		min-width: 0;
-		overflow: hidden;
-		text-overflow: ellipsis;
-		white-space: nowrap;
 	}
 	.picked {
 		font: 500 10.5px var(--f-mono);
@@ -422,9 +419,6 @@
 		text-align: right;
 		font-size: 12.5px;
 		color: var(--ink);
-		overflow: hidden;
-		text-overflow: ellipsis;
-		white-space: nowrap;
 	}
 	.venues[open] summary svg {
 		transform: rotate(180deg);
@@ -542,10 +536,6 @@
 		.venues label,
 		.toggle {
 			min-height: 44px;
-		}
-		.open {
-			width: 44px;
-			height: 44px;
 		}
 		.chip {
 			min-height: 40px;

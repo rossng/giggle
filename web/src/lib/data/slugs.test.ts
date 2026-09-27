@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { artist, gig } from './fixtures';
 import {
 	artistPath,
+	externalHref,
 	artistSlug,
 	findArtist,
 	findGig,
@@ -82,5 +83,24 @@ describe('gig slugs', () => {
 		expect(findGig('paradiso', '2900229', gigs)?.title).toBe('Nobu');
 		expect(findGig('melkweg', '2900229-nobu', gigs)).toBeNull();
 		expect(findGig('paradiso', '29002', gigs)).toBeNull();
+	});
+});
+
+describe('externalHref', () => {
+	it('lets http(s) URLs through and nothing else', () => {
+		expect(externalHref('https://paradiso.nl/tickets')).toBe('https://paradiso.nl/tickets');
+		expect(externalHref(' HTTP://example.com ')).toBe('HTTP://example.com');
+		for (const bad of [
+			'javascript:alert(1)',
+			' JavaScript:alert(1)',
+			'data:text/html,<script>alert(1)</script>',
+			'//evil.example',
+			'/relative',
+			'',
+			null,
+			undefined
+		]) {
+			expect(externalHref(bad)).toBeUndefined();
+		}
 	});
 });

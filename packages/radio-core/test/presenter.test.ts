@@ -1,4 +1,5 @@
 import { describe, expect, it } from "vitest";
+import { spokenWhere, tidy } from "../src/announcer.ts";
 import { COLOUR_FACT_KINDS, type FactKind } from "../src/facts.ts";
 import { DEFAULT_BUDGETS, Presenter, type Line, type PresenterOptions } from "../src/presenter.ts";
 import { buildQueue, type QueueEntry } from "../src/queue.ts";
@@ -11,8 +12,9 @@ import { BOARD, syntheticArtist } from "./artists.ts";
 import { entry, gig, NOW, SAMPLE, track } from "./helpers.ts";
 
 const VENUES: Record<string, Venue> = {
-  paradiso: { slug: "paradiso", name: "Paradiso", city: "Amsterdam", website: "", country: "NL" },
-  patronaat: { slug: "patronaat", name: "Patronaat", city: "Haarlem", website: "", country: "NL" },
+  paradiso: { name: "Paradiso", city: "Amsterdam" },
+  patronaat: { name: "Patronaat", city: "Haarlem" },
+  leidsegroot: { name: "Groot Leiden Hall", city: "Leiden" },
 };
 
 function presenter(seed = 1, options: Partial<PresenterOptions> = {}): Presenter {
@@ -20,12 +22,8 @@ function presenter(seed = 1, options: Partial<PresenterOptions> = {}): Presenter
 }
 
 const RICH: Artist = {
-  key: "mb:mogwai",
   name: "Mogwai",
-  match: null,
   musicbrainz: {
-    mbid: "m",
-    name: "Mogwai",
     type: "Group",
     country: "GB",
     area: "Scotland",
@@ -34,12 +32,9 @@ const RICH: Artist = {
     ended: false,
     genres: ["post-rock"],
     tags: [],
-    links: {},
   },
-  lastfm: { name: null, mbid: null, url: null, listeners: 1, playcount: 1, tags: ["seen live", "instrumental"], similar: ["Slowdive"], bio: null },
-  top_tracks: null,
+  lastfm: { tags: ["seen live", "instrumental"], similar: ["Slowdive"] },
   wikipedia: null,
-  gigs: [],
 };
 
 /** Mogwai at Paradiso, sold out, supported by Small Band, with a song title. */
@@ -270,7 +265,7 @@ describe("Presenter.micro and backAnnounce", () => {
     }
   });
 
-  it("forTrack picks intro or micro like the Announcer", () => {
+  it("forTrack picks an intro or a micro-announcement", () => {
     const p = presenter(4, { probabilities: { micro: 1 } });
     const e = rich();
     expect(p.forTrack({ entry: e, trackIndex: 0, mode: "off", now: NOW })).toBeNull();
@@ -351,9 +346,58 @@ describe("presenter output over the sample data", () => {
 });
 
 
+describe("spokenWhere", () => {
+  it("names the venue, and the city outside the home city", () => {
+    expect(spokenWhere(gig({ venue: "paradiso", city: "Amsterdam" }), VENUES, "Amsterdam")).toBe("Paradiso");
+    expect(spokenWhere(gig({ venue: "patronaat", city: "Haarlem" }), VENUES, "Amsterdam")).toBe("Patronaat in Haarlem");
+    expect(spokenWhere(gig({ venue: "paradiso", city: "Amsterdam" }), VENUES, "Utrecht")).toBe("Paradiso in Amsterdam");
+  });
+
+  it("falls back to the venue's city, and doesn't repeat a city in the name", () => {
+    expect(spokenWhere(gig({ venue: "patronaat", city: null }), VENUES, "Amsterdam")).toBe("Patronaat in Haarlem");
+    expect(spokenWhere(gig({ venue: "leidsegroot", city: "Leiden" }), VENUES, "Amsterdam")).toBe("Groot Leiden Hall");
+  });
+
+  it("uses the slug for unknown venues", () => {
+    expect(spokenWhere(gig({ venue: "occii", city: "Amsterdam" }), VENUES, "Amsterdam")).toBe("Occii");
+    expect(spokenWhere(gig({ venue: "occii", city: null }), VENUES, "Amsterdam")).toBe("Occii");
+  });
+});
+
+describe("ticket news", () => {
+  /** Intros for Mike with only ticket news to add. */
+  const intros = (overrides: Partial<Gig>, seed = 3): string[] => {
+    const p = presenter(seed, { probabilities: { colour: 1 } });
+    return Array.from({ length: 20 }, () => {
+      const e = bare();
+      return p.intro({ ...e, gig: { ...e.gig, ...overrides } }, "short", NOW).text;
+    });
+  };
+
+  it.each([
+    ["sold_out", /sold out|gone/i],
+    ["few_left", /few tickets|nearly gone|almost sold out|running low/i],
+    ["free", /free/i],
+    ["not_yet_on_sale", /aren't on sale/i],
+  ] as const)("covers %s", (availability, pattern) => {
+    for (const text of intros({ availability })) expect(text).toMatch(pattern);
+  });
+
+  it("treats a zero price as free, and mentions a postponement", () => {
+    for (const text of intros({ price: { min_eur: 0, max_eur: 0 } })) expect(text).toMatch(/free/i);
+    for (const text of intros({ status: "postponed" })) expect(text).toMatch(/postponed/);
+  });
+
+  it("says whole euros, 'from' for a range, and never decimals", () => {
+    const texts = [...intros({ price: { min_eur: 17, max_eur: 22 } }), ...intros({ price: { min_eur: 23.5, max_eur: null } }, 4)];
+    expect(texts.join("\n")).toMatch(/Tickets (from|start at) 17 euros\./);
+    expect(texts.join("\n")).toMatch(/about 24 euros( to get in)?\./);
+    for (const text of texts) expectClean(text);
+  });
+});
+
 describe("tidy", () => {
-  it("doesn't double the full stop after names that end in one", async () => {
-    const { tidy } = await import("../src/announcer");
+  it("doesn't double the full stop after names that end in one", () => {
     expect(tidy("This is M.I.K.E.. They play Paradiso tonight.")).toBe("This is M.I.K.E. They play Paradiso tonight.");
     expect(tidy("mike.. Melkweg, tonight.")).toBe("mike. Melkweg, tonight.");
     expect(tidy("Here's Oh Wonder!. They play  Paradiso.")).toBe("Here's Oh Wonder! They play Paradiso.");

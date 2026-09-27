@@ -40,18 +40,10 @@ import {
 	type Venue,
 	type VoiceMode
 } from '@giggle/radio-core';
-import {
-	keysIn,
-	loadBoard,
-	namesIn,
-	POSITIVE,
-	saveBoard,
-	toggleTriage,
-	type Board,
-	type Triage
-} from '$lib/board/board';
+import { keysIn, namesIn, POSITIVE, type Board, type Triage } from '$lib/board/board';
+import { boardStore } from '$lib/board/board-store.svelte';
 import { formatDay, localDate } from '$lib/data/dates';
-import { boardChanged, localChanged, onBoardSynced, onSynced } from '$lib/sync/app';
+import { localChanged, onSynced } from '$lib/sync/app';
 import {
 	bindMediaActions,
 	setNowPlaying,
@@ -79,7 +71,7 @@ import {
 	type VoiceInfo
 } from './speaker';
 import { MediaFocus } from './media-focus';
-import { squareImage } from './tracks';
+import { DEFAULT_ANNOUNCER, squareImage } from './tracks';
 import { sharedKokoro, type KokoroState, type KokoroVoice } from '$lib/voice/kokoro';
 import { YouTubePlayer, type PlaybackState } from './youtube';
 
@@ -119,6 +111,8 @@ export interface RadioOptions {
 	onOrderChange?: (order: RadioOrder, seed: number) => void;
 	/** For artwork: the artist's picture. */
 	image?: (entry: QueueEntry) => string | null;
+	/** The artist's announcer voice, for live lines in Kokoro (tracks.ts `announcerOf`). */
+	voiceFor?: (artistKey: string) => string;
 	speaker?: Speaker;
 	kokoro?: KokoroVoice;
 }
@@ -187,7 +181,6 @@ export class Radio {
 	talking = $state(false);
 	order = $state<RadioOrder>('mix');
 	seed = $state(0);
-	board = $state.raw<Board>({});
 	settings = $state<RadioSettings>(loadSettings());
 	voices = $state.raw<VoiceInfo[]>([]);
 	/** In-browser Kokoro: loading, ready (on what), failed. */
@@ -228,6 +221,8 @@ export class Radio {
 	 * started on are dropped (what's still wanted is prepared again). */
 	#prepared = new AbortController();
 	readonly #presenter: Presenter;
+	/** The board the presenter's "if you like …" names came from. */
+	#knownFrom: Board | null = null;
 	/** Keeps the laptop's media keys on giggle rather than the YouTube iframe (media-focus.ts). */
 	readonly #focus = new MediaFocus();
 	readonly #options: RadioOptions;
@@ -254,8 +249,6 @@ export class Radio {
 		const now = new Date();
 		this.#options = options;
 		this.#history = loadHistory(now);
-		this.board = loadBoard();
-		this.#cleanup.push(onBoardSynced((synced) => (this.board = synced)));
 		// Plays heard on other devices: Mix plays those artists less often from the next reorder.
 		this.#cleanup.push(
 			onSynced('plays', (synced) => {
@@ -264,14 +257,15 @@ export class Radio {
 		);
 		this.#webSpeech = new WebSpeechSpeaker(this.settings.voiceName);
 		this.#kokoro = options.kokoro ?? sharedKokoro();
-		this.#live = new KokoroSpeaker(this.#kokoro, this.#webSpeech);
+		this.#live = new KokoroSpeaker(this.#kokoro, this.#webSpeech, {
+			voiceFor: options.voiceFor ?? (() => DEFAULT_ANNOUNCER)
+		});
 		this.#live.enabled = this.settings.liveVoice === 'kokoro';
 		this.#speaker = options.speaker ?? new ClipSpeaker(this.#live);
 		this.#presenter = new Presenter({
 			rng: mulberry32(newSeed()),
 			venues: options.venues,
-			said: loadSaid(now),
-			knownArtists: namesIn(this.board, POSITIVE)
+			said: loadSaid(now)
 		});
 	}
 
@@ -349,7 +343,7 @@ export class Radio {
 			const restored = restoreSession(saved, entries, {
 				now,
 				history: this.#history,
-				listenMore: keysIn(this.board, ['listen'])
+				listenMore: keysIn(boardStore.items, ['listen'])
 			});
 			this.order = saved.order;
 			this.seed = saved.seed;
@@ -402,7 +396,7 @@ export class Radio {
 			tracks: station.tracks,
 			now: new Date(),
 			tracksPerArtist: this.settings.tracksPerArtist,
-			notForMe: keysIn(this.board, ['nope']),
+			notForMe: keysIn(boardStore.items, ['nope']),
 			artists: station.artists
 		});
 		this.withoutTracks = built.withoutTracks.length;
@@ -415,7 +409,7 @@ export class Radio {
 			seed,
 			now: new Date(),
 			history: this.#history,
-			listenMore: keysIn(this.board, ['listen'])
+			listenMore: keysIn(boardStore.items, ['listen'])
 		};
 	}
 
@@ -436,7 +430,7 @@ export class Radio {
 		const restored = restoreSession(snapshot, this.#build(), {
 			now: new Date(),
 			history: this.#history,
-			listenMore: keysIn(this.board, ['listen'])
+			listenMore: keysIn(boardStore.items, ['listen'])
 		});
 		this.queue = restored.queue;
 		this.position = { ...restored.position, seconds: 0 };
@@ -623,19 +617,13 @@ export class Radio {
 	triage(state: Triage): void {
 		const entry = this.entry;
 		if (!entry) return;
-		const board = toggleTriage(
-			this.board,
-			entry.artistKey,
-			state,
-			{ name: entry.name, gig: entry.gig.id, when: entry.gig.start },
-			new Date()
-		);
-		this.board = board;
-		saveBoard(board);
-		boardChanged();
-		this.#presenter.setKnownArtists(namesIn(board, POSITIVE));
+		boardStore.toggle(entry.artistKey, state, {
+			name: entry.name,
+			gig: entry.gig.id,
+			when: entry.gig.start
+		});
 		// "Not for me" skips them and takes them off the station.
-		if (board[entry.artistKey]?.state === 'nope') {
+		if (boardStore.stateOf(entry.artistKey) === 'nope') {
 			this.notice = `${entry.name}: not for you. Skipped, and they won't come round again.`;
 			this.#rebuild();
 		}
@@ -672,7 +660,7 @@ export class Radio {
 		this.#plans = this.#plans.filter((p) => p !== planned);
 		const line = planned
 			? planned.line
-			: this.#presenter.forTrack({
+			: this.#presenterNow().forTrack({
 					entry,
 					trackIndex: target.trackIndex,
 					mode: voice,
@@ -764,7 +752,7 @@ export class Radio {
 				videoId: track.videoId,
 				mode,
 				announced: this.#announced,
-				line: this.#presenter.forTrack({
+				line: this.#presenterNow().forTrack({
 					entry,
 					trackIndex: pos.trackIndex,
 					mode,
@@ -779,6 +767,16 @@ export class Radio {
 		this.#plans = plans;
 		const signal = this.#prepared.signal;
 		for (const plan of plans) if (plan.line) this.#speaker.prepare?.(plan.line, { signal });
+	}
+
+	/** The presenter, knowing the listener's board as it is now (for "if you like …"). */
+	#presenterNow(): Presenter {
+		const board = boardStore.items;
+		if (board !== this.#knownFrom) {
+			this.#knownFrom = board;
+			this.#presenter.setKnownArtists(namesIn(board, POSITIVE));
+		}
+		return this.#presenter;
 	}
 
 	/** A plan for this track that still fits, if there is one. */

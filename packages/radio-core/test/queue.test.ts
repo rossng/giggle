@@ -97,16 +97,7 @@ describe("buildQueue", () => {
   });
 
   it("prefers the artists.json name", () => {
-    const artist: Artist = {
-      key: "mb:a",
-      name: "ALPHA (official)",
-      match: null,
-      musicbrainz: null,
-      lastfm: null,
-      top_tracks: null,
-      wikipedia: null,
-      gigs: [],
-    };
+    const artist: Artist = { name: "ALPHA (official)", musicbrainz: null, lastfm: null, wikipedia: null };
     const { entries } = buildQueue({
       gigs: [gig({ artists: [A] })],
       tracks: tracksFor("mb:a"),

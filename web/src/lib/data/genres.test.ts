@@ -1,6 +1,9 @@
 import { describe, expect, it } from 'vitest';
 import { artist, gig } from './fixtures';
-import { GENRES, GENRE_IDS, bucketsFor, bucketsForLabel, gigBuckets } from './genres';
+import { GENRES, GENRE_IDS, bucketsFor, bucketsForLabel, gigLabels } from './genres';
+
+/** A gig's buckets, from its labels. */
+const gigBuckets = (...args: Parameters<typeof gigLabels>) => bucketsFor(gigLabels(...args));
 
 describe('bucketsForLabel', () => {
 	it.each([
@@ -74,7 +77,7 @@ describe('bucketsFor', () => {
 	});
 });
 
-describe('gigBuckets', () => {
+describe('gigLabels', () => {
 	it("uses the venue's labels first, then its headliners' tags", () => {
 		const g = gig({
 			genres: ['Indie'],

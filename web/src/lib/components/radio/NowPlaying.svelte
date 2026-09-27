@@ -71,7 +71,7 @@
 		for (const raw of [
 			...(mb?.genres ?? []),
 			...(artist?.lastfm?.tags ?? []),
-			...(entry.gig.genres ?? [])
+			...(view?.gig.genres ?? [])
 		]) {
 			const tag = raw.toLowerCase().trim();
 			if (!tag || seen.has(tag) || tag === 'seen live' || /^\d{4}s?$/.test(tag)) continue;
@@ -95,7 +95,7 @@
 	<h1 class="artist">
 		{#if artist}<a href={artistPath(artist)}>{entry.name}</a>{:else}{entry.name}{/if}
 	</h1>
-	<p class="track">
+	<p class="track ellipsis">
 		{track.title}{#if track.album && track.album !== track.title}<span class="album"
 				>{' · '}{track.album}</span
 			>{/if}
@@ -166,9 +166,6 @@
 		margin: -4px 0 0;
 		font-size: 16px;
 		color: var(--mute);
-		white-space: nowrap;
-		overflow: hidden;
-		text-overflow: ellipsis;
 	}
 	.album {
 		font-size: 13px;

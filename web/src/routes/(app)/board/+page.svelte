@@ -5,13 +5,9 @@
 	// column shows at a time, picked from the row of column tabs.
 	import { onMount } from 'svelte';
 	import { page } from '$app/state';
-	import {
-		BOARD_STORAGE_KEY,
-		TRIAGE_KEYS,
-		TRIAGE_LABELS,
-		TRIAGES,
-		type Triage
-	} from '$lib/board/board';
+	import TriageButtons from '$lib/components/TriageButtons.svelte';
+	import { TRIAGE_KEYS, TRIAGE_LABELS, TRIAGES, type Triage } from '$lib/board/board';
+	import { boardStore } from '$lib/board/board-store.svelte';
 	import {
 		boardColumns,
 		COLUMNS,
@@ -19,7 +15,6 @@
 		type Card,
 		type ColumnId
 	} from '$lib/board/columns';
-	import { liveBoard, reloadBoard, sortArtist } from '$lib/board/live';
 	import { amsterdamDate, dayParts, localDate, localTime } from '$lib/data/dates';
 	import { unavailableDates } from '$lib/data/unavailable-store.svelte';
 	import { artistPath } from '$lib/data/slugs';
@@ -29,7 +24,7 @@
 	let { data } = $props();
 	const catalog = $derived(data.catalog);
 
-	const board = $derived(liveBoard(catalog));
+	const board = $derived(boardStore.items);
 	const today = amsterdamDate(new Date());
 	const columns = $derived(boardColumns(board, catalog, today, unavailableDates.test));
 	const total = $derived(Object.keys(board).length);
@@ -56,22 +51,11 @@
 	};
 	let dragging: string | null = $state(null);
 
-	onMount(() => {
-		// Another tab (the radio in another window) changed the board.
-		const onStorage = (e: StorageEvent) => {
-			if (e.key === BOARD_STORAGE_KEY) reloadBoard(catalog);
-		};
-		addEventListener('storage', onStorage);
-		const offStatus = syncClient?.subscribe((s) => (sync = s)) ?? (() => {});
-		return () => {
-			removeEventListener('storage', onStorage);
-			offStatus();
-		};
-	});
+	onMount(() => syncClient?.subscribe((s) => (sync = s)));
 
 	function move(card: Card, state: Triage | null) {
 		moving = null;
-		sortArtist(catalog, card.key, state, {
+		boardStore.set(card.key, state, {
 			name: card.name,
 			...(card.item.gig ? { gig: card.item.gig } : {}),
 			...(card.item.when ? { when: card.item.when } : {})
@@ -160,7 +144,7 @@
 					><i class="mark {column.id}" aria-hidden="true"></i><b>{columns[column.id].length}</b
 					></span
 				>
-				<span class="t-label">{column.label}</span>
+				<span class="t-label ellipsis">{column.label}</span>
 			</a>
 		{/each}
 	</nav>
@@ -179,7 +163,7 @@
 			>
 				<header title={column.hint}>
 					<i class="mark {column.id}" aria-hidden="true"></i>
-					<h2 id="col-{column.id}">{column.label}</h2>
+					<h2 id="col-{column.id}" class="ellipsis">{column.label}</h2>
 					<span class="n">{columns[column.id].length}</span>
 				</header>
 				{#if !columns[column.id].length}
@@ -230,7 +214,7 @@
 						</div>
 						{#if line}
 							{@const v = card.next ?? card.sortedFrom}
-							<a class="gig" href={v?.href} draggable="false">{line}</a>
+							<a class="gig ellipsis" href={v?.href} draggable="false">{line}</a>
 						{/if}
 						{#if (when && card.column !== 'been') || card.next?.price || card.warnings.length}
 							<p class="foot">
@@ -249,22 +233,16 @@
 							</p>
 						{/if}
 						{#if moving === card.key}
-							<div class="moves" role="group" aria-label="Move {card.name} to">
-								{#each TRIAGES as t (t)}
-									<button
-										type="button"
-										class="s-{t}"
-										aria-pressed={card.state === t}
-										disabled={card.state === t}
-										onclick={() => move(card, t)}
-										><i class="mark {t}" aria-hidden="true"></i><span>{TRIAGE_LABELS[t]}</span><kbd
-											>{TRIAGE_KEYS[t]}</kbd
-										></button
-									>
-								{/each}
-								<button type="button" class="remove" onclick={() => move(card, null)}
-									>Take off the board</button
-								>
+							<div class="moves">
+								<TriageButtons
+									label="Move {card.name} to"
+									current={card.state}
+									keys
+									dense
+									fixed
+									onpick={(t) => move(card, t)}
+									onclear={() => move(card, null)}
+								/>
 							</div>
 						{/if}
 					</article>
@@ -369,9 +347,6 @@
 		max-width: 100%;
 		font-size: 10.5px;
 		font-weight: 600;
-		white-space: nowrap;
-		overflow: hidden;
-		text-overflow: ellipsis;
 	}
 	.tabs a[aria-current] {
 		background: var(--p3);
@@ -409,9 +384,6 @@
 	}
 	.col h2 {
 		font: 650 13px/1.2 var(--f-body);
-		white-space: nowrap;
-		overflow: hidden;
-		text-overflow: ellipsis;
 	}
 	.col .n {
 		margin-left: auto;
@@ -430,19 +402,19 @@
 		flex: none;
 	}
 	.mark.listen {
-		background: #8ea3ff;
+		background: var(--listen);
 	}
 	.mark.go {
-		background: var(--amber);
+		background: var(--go);
 	}
 	.mark.tickets {
-		background: #7fd1a0;
+		background: var(--tickets);
 	}
 	.mark.been {
 		background: var(--mute);
 	}
 	.mark.nope {
-		border: 1.5px solid var(--mute);
+		border: 1.5px solid var(--nope);
 	}
 
 	.card {
@@ -525,9 +497,6 @@
 		font-size: 12px;
 		color: var(--mute);
 		text-decoration: none;
-		white-space: nowrap;
-		overflow: hidden;
-		text-overflow: ellipsis;
 		font-variant-numeric: tabular-nums;
 	}
 	.gig:hover {
@@ -557,46 +526,7 @@
 		font-style: italic;
 	}
 	.moves {
-		display: grid;
-		grid-template-columns: repeat(2, minmax(0, 1fr));
-		gap: 5px;
 		margin: 8px 8px 0 0;
-	}
-	.moves button {
-		display: flex;
-		align-items: center;
-		gap: 6px;
-		min-width: 0;
-		min-height: 34px;
-		padding: 4px 7px;
-		border: 1px solid var(--line);
-		border-radius: 7px;
-		background: var(--p1);
-		color: var(--ink);
-		font-size: 12px;
-		font-weight: 600;
-		text-align: left;
-		cursor: pointer;
-	}
-	.moves button span {
-		flex: 1;
-		min-width: 0;
-		white-space: nowrap;
-		overflow: hidden;
-		text-overflow: ellipsis;
-	}
-	.moves button:hover:not(:disabled) {
-		border-color: var(--mute);
-	}
-	.moves button:disabled {
-		opacity: 0.45;
-		cursor: default;
-	}
-	.moves .remove {
-		grid-column: 1 / -1;
-		justify-content: center;
-		color: var(--mute);
-		font-weight: 500;
 	}
 
 	/* Narrower windows: the columns scroll sideways, a column at a time. */
@@ -648,10 +578,6 @@
 			width: 44px;
 			height: 40px;
 			margin: -8px -2px -6px 0;
-		}
-		.moves button {
-			min-height: 44px;
-			font-size: 13px;
 		}
 	}
 </style>

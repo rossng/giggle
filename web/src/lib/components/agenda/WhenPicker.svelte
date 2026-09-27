@@ -51,37 +51,8 @@
 		gap: 6px;
 		min-width: 0;
 	}
-	.seg {
-		display: flex;
-		background: var(--p1);
-		border: 1px solid var(--line);
-		border-radius: 999px;
-		padding: 2px;
-		gap: 2px;
-		min-width: 0;
-	}
 	.stretch .seg {
 		flex: 1;
-	}
-	.seg button {
-		flex: 1;
-		border: 0;
-		background: none;
-		height: 30px;
-		padding: 0 10px;
-		border-radius: 999px;
-		font-size: 12.5px;
-		color: var(--mute);
-		white-space: nowrap;
-		cursor: pointer;
-	}
-	.seg button:hover {
-		color: var(--ink);
-	}
-	.seg button[aria-pressed='true'] {
-		background: var(--p3);
-		color: var(--ink);
-		font-weight: 600;
 	}
 	.from {
 		position: relative;
@@ -115,10 +86,6 @@
 		pointer-events: none;
 	}
 	@media (pointer: coarse) {
-		.seg button {
-			height: 40px;
-			padding: 0 6px;
-		}
 		select {
 			height: 44px;
 			font-size: 14px;

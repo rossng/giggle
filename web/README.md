@@ -26,7 +26,8 @@ Nothing is copied into the source tree. The build doesn't include the data: the 
 `data/site/gigs.json` and `data/site/artists.json` into `web/build/data/`.
 
 Types for both files are in `src/lib/data/types.ts`, written by hand from the pipeline: keep
-them in step when its output changes.
+them in step when its output changes. `@giggle/radio-core` declares only the fields it reads, so
+these fit its types as they are (no casts).
 
 The radio plays each artist's `youtube.songs` (YouTube Music), which the pipeline writes into
 `artists.json`.
@@ -40,6 +41,13 @@ The radio plays each artist's `youtube.songs` (YouTube Music), which the pipelin
   `giggle:unavailable:v1`). `unavailable-store.svelte.ts` is their reactive app state (edits,
   other tabs, sync); `components/UnavailableDates.svelte` edits them, inside the filter panel.
 - `src/lib/components/` — agenda rows, poster tiles, filter panel; `radio/` for the radio.
+  Shared pieces: `Sheet.svelte` (every dialog: a drawer from the right that's a bottom sheet on
+  phones, or a centred modal), `TriageButtons.svelte` (sorting an artist, in three sizes). `app.css`
+  has the tokens (colours, the triage colours `--listen`/`--go`/`--tickets`/`--nope`) and the
+  shared utilities: `.seg` (segmented control), `.ellipsis`, `.button`, and `.tap` (a small control
+  that grows to 44 px on touch screens; touch rules use `@media (pointer: coarse)`).
+- Links and images from the data (ticket, venue, listing and artist links, pictures) go through
+  `externalHref` (`slugs.ts`): only http(s) URLs reach an `href` or `src`.
 - `src/lib/radio/` — the radio around `@giggle/radio-core`:
   - `radio.svelte.ts`: the controller. UI state in `$state` fields; the YouTube player,
     `DuckingController`, `Presenter` and speaker in private fields (never in `$state`). Queue
@@ -59,9 +67,9 @@ The radio plays each artist's `youtube.songs` (YouTube Music), which the pipelin
 - `src/lib/voice/` — Kokoro-82M in the browser for the announcer's live lines:
   `kokoro.worker.ts` (kokoro-js on WebGPU with fp32, else WASM with q8; cached by the browser),
   `kokoro.ts` (the page side: lazy load, render queue with urgent lines first, cache, Web Audio
-  playback), and ports of the pipeline's voice.py (`lexicon.ts`, `phonemes.ts`, `audio.ts`,
-  `announcers.ts`) so live lines match the pre-rendered clips. `/lab/voice` loads the model,
-  times renders and compares a clip with the same text said live.
+  playback), and ports of the pipeline's voice.py (`lexicon.ts`, `phonemes.ts`, `audio.ts`)
+  so live lines match the pre-rendered clips. The voice is the artist's announcer from
+  `artists.json` (`announcer`; `tracks.ts` `announcerOf`).
   - The model comes from our origin, `/models/<name>/<revision>/…` (the Worker, from R2; see
     `worker/README.md` → Model files), never from Hugging Face: `model-files.json` lists the
     mirrored files (pinned commit, sizes, SHA-256; only fp32 and q8, and the two announcer
@@ -71,8 +79,11 @@ The radio plays each artist's `youtube.songs` (YouTube Music), which the pipelin
     `make models`). Without those, dev falls back to Hugging Face at the pinned commit, with a
     console warning; production builds never do.
 - `src/lib/board/board.ts` — the listener's triage (listen more / want to go / got tickets /
-  not for me) by artist key, in localStorage (`giggle:board:v1`). The radio writes it; the
-  Board page shows it as columns (`columns.ts`, which also works out "Been" from gig dates).
+  not for me) by artist key, in localStorage (`giggle:board:v1`). `board-store.svelte.ts` is the
+  one reactive copy everything reads and writes (the radio for Mix weighting, skipping and "if
+  you like", the player bar, the Radio, Board, gig and artist pages): other tabs, sync, and
+  `set`/`toggle`, which save and notify sync. The Board page shows it as columns (`columns.ts`,
+  which also works out "Been" from gig dates).
 - `src/lib/sync/` — sync with the Worker's `/api/<collection>` (worker/README.md). One
   `SyncClient` (`client.ts`, started in the root layout, `app.ts`) runs each round over the
   collections in `collections.ts`: the board, the unavailable dates and the play history. They
@@ -81,7 +92,8 @@ The radio plays each artist's `youtube.songs` (YouTube Music), which the pipelin
   (`giggle:sync:v1` for the board, `giggle:sync:unavailable:v1`, `giggle:sync:plays:v1`).
   Plays are items that never change (`"<ms> <artist key>"`), so merging two histories is their
   union, pruned as the radio prunes (60 days, 20 plays per artist). Code that saves synced data
-  calls `localChanged()`/`boardChanged()`; code that shows it listens with `onSynced(name, …)`.
+  calls `localChanged()`; code that shows it listens with `onSynced(name, …)`. The board and the
+  unavailable dates do both in their stores.
   Signed out, everything stays local.
 - `src/routes/(app)/` — pages that need the data; its layout loads it once per visit.
 

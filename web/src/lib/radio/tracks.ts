@@ -2,6 +2,7 @@
 // radio-core Tracks (source-agnostic `{videoId, title, album}`), best first.
 
 import type { IntroClip, Track } from '@giggle/radio-core';
+import { externalHref } from '$lib/data/slugs';
 import type { Artist, YoutubeArtist, YoutubeSong } from '$lib/data/types';
 
 const VIDEO_ID = /^[A-Za-z0-9_-]{6,20}$/;
@@ -41,7 +42,7 @@ export function squareImage(url: string | null | undefined, size = 544): string 
 
 /** The best picture of an artist: YouTube Music, else their Wikipedia thumbnail. */
 export function artistImage(artist: Artist | undefined): string | null {
-	return artist?.youtube?.image ?? artist?.wikipedia?.thumbnail ?? null;
+	return externalHref(artist?.youtube?.image ?? artist?.wikipedia?.thumbnail) ?? null;
 }
 
 export function youtubeMusicUrl(youtube: YoutubeArtist | null | undefined): string | null {
@@ -63,4 +64,16 @@ export function introClips(
 		if (list.length) clips[key] = list;
 	}
 	return clips;
+}
+
+/** The voice for artists the pipeline hasn't given one. */
+export const DEFAULT_ANNOUNCER = 'bf_isabella';
+
+/**
+ * The artist's announcer voice (the one their clips use), so live lines match: the pipeline's
+ * `announcer`. Data from before that field existed: the voice of their first clip, else the
+ * default. (That fallback can go once every artists.json in use has `announcer`.)
+ */
+export function announcerOf(artist: Pick<Artist, 'announcer' | 'announce'> | undefined): string {
+	return artist?.announcer ?? artist?.announce?.[0]?.voice ?? DEFAULT_ANNOUNCER;
 }

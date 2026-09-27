@@ -1,31 +1,26 @@
 import type { QueueEntry } from "../src/queue.ts";
-import type { Gig, GigArtist, GigsFile, Track } from "../src/types.ts";
+import type { Gig, GigArtist, Track, Venue } from "../src/types.ts";
 import sample from "./fixtures/gigs.sample.json" with { type: "json" };
 
 /** Saturday 26 September 2026, noon in Amsterdam (the sample data's build day). */
 export const NOW = new Date("2026-09-26T12:00:00+02:00");
 
-export const SAMPLE = sample as unknown as GigsFile;
+/** A real gigs.json, cut down: `venues` and `gigs` (more fields than radio-core reads). */
+export const SAMPLE = sample as unknown as { venues: Record<string, Venue>; gigs: Gig[] };
 
 let counter = 0;
 
-export function gig(overrides: Partial<Gig> & { artists?: GigArtist[] } = {}): Gig {
+export function gig(overrides: Partial<Gig> & { artists?: readonly GigArtist[] } = {}): Gig {
   counter++;
   const artists = overrides.artists ?? [{ key: `name:artist${counter}`, name: `Artist ${counter}`, role: "headliner" }];
   return {
     id: `paradiso:${counter}`,
     venue: "paradiso",
-    title: artists.map((a) => a.name).join(" + "),
     start: "2026-09-27T20:30:00+02:00",
     city: "Amsterdam",
     status: "scheduled",
     availability: "on_sale",
     price: { min_eur: 20, max_eur: 20 },
-    lineup: {
-      kind: "concert",
-      headliners: artists.filter((a) => a.role === "headliner").map((a) => a.name),
-      support: artists.filter((a) => a.role === "support").map((a) => a.name),
-    },
     ...overrides,
     artists,
   };

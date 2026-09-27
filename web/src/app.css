@@ -14,6 +14,11 @@
 	--line: #2f2840;
 	--amber: #ffb547;
 	--bad: #ff6b80;
+	/* How an artist is sorted on the board (TriageButtons, the Board's columns). */
+	--listen: #8ea3ff;
+	--go: var(--amber);
+	--tickets: #7fd1a0;
+	--nope: var(--mute);
 
 	--f-display: 'Big Shoulders Display', 'Barlow Condensed', 'Arial Narrow', sans-serif;
 	--f-body: 'Hanken Grotesk', system-ui, -apple-system, 'Segoe UI', sans-serif;
@@ -185,6 +190,44 @@ p {
 	border-color: var(--mute);
 }
 
+/* A segmented control: a row of buttons, the picked one (aria-pressed) raised. */
+.seg {
+	display: flex;
+	background: var(--p1);
+	border: 1px solid var(--line);
+	border-radius: 999px;
+	padding: 2px;
+	gap: 2px;
+	min-width: 0;
+}
+.seg button {
+	flex: 1;
+	border: 0;
+	background: none;
+	height: 30px;
+	padding: 0 10px;
+	border-radius: 999px;
+	font-size: 12.5px;
+	color: var(--mute);
+	white-space: nowrap;
+	cursor: pointer;
+}
+.seg button:hover {
+	color: var(--ink);
+}
+.seg button[aria-pressed='true'] {
+	background: var(--p3);
+	color: var(--ink);
+	font-weight: 600;
+}
+
+/* One line of text, cut short with an ellipsis. */
+.ellipsis {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
 /* How an artist is sorted on the board (listen more / want to go / got tickets / not for me). */
 .badge {
 	font: 600 9.5px/1 var(--f-mono);
@@ -230,11 +273,20 @@ kbd {
 		scrollbar-width: none;
 	}
 }
+/* Touch screens: room for a thumb. A small control marked .tap grows to 44px square. */
 @media (pointer: coarse) {
 	.button {
 		min-height: 44px;
 		padding: 10px 16px;
 		justify-content: center;
+	}
+	.tap {
+		min-width: 44px;
+		min-height: 44px;
+	}
+	.seg button {
+		height: 40px;
+		padding: 0 6px;
 	}
 }
 
