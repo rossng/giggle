@@ -6,18 +6,23 @@ https://claude.ai/artifact/6PDPXr3LtbEbPPLUxQPXWR. Architecture diagram: README.
 ## Layout
 - `packages/podia/` — venue agenda library, published separately (Blue Oak 1.0.0). Must stay
   app-agnostic: no artist matching, LLM calls, genre filtering or giggle-specific logic. Its HTTP
-  client is polite (robots.txt, crawl delay), follows http(s) redirects only and caps bodies (20 MB).
-- `pipeline/` — nightly build (`giggle-build`): collect venues in parallel, fetch detail pages for
-  new/soon events (`details.py`), drop out-of-scope events by `scope.toml` (each with a reason),
-  merge cross-venue duplicates, LLM line-ups (`lineup.py`), artists (`enrich.py`: MusicBrainz,
-  Last.fm, Wikipedia, YouTube Music songs within 60 days), announcer blurbs (`blurbs.py`) and
-  Kokoro clips (`clips.py`) for playable artists. Per-run budgets everywhere; everything cached in
-  `data/cache/` (with expiry for "not found" answers). URL fields in the site JSON are http(s) only
-  (`urls.py`); each playable artist gets an `announcer` voice.
+  client is polite (robots.txt, crawl delay; a Crawl-delay over 30 s counts as a refusal), talks
+  to public hosts only, follows http(s) redirects only, caps decoded bodies (20 MB; gzip/deflate,
+  one layer) and time (180 s a request, optional client deadline). Adapters build fetched URLs
+  with `site_url`, which keeps them on the venue's host.
+- `pipeline/` — nightly build (`giggle-build`): collect venues in parallel (10 minutes each), fetch
+  detail pages for new/soon events (`details.py`), drop out-of-scope events by `scope.toml` (each
+  with a reason), merge cross-venue duplicates, LLM line-ups (`lineup.py`), artists (`enrich.py`:
+  MusicBrainz, Last.fm, Wikipedia, YouTube Music songs within 60 days), announcer blurbs
+  (`blurbs.py`) and Kokoro clips (`clips.py`) for playable artists. Per-run budgets everywhere;
+  everything cached in `data/cache/` (with expiry for "not found" answers). URL fields in the site
+  JSON are http(s) only (`urls.py`); each playable artist gets an `announcer` voice. Untrusted
+  text in logs stays on one line (`text.one_line`: `::` lines are workflow commands).
   - Health: `health.json` lists venue problems and `pipeline` problems (llm / ytmusic / voice /
     musicbrainz), printed as `::warning::` lines. `giggle-issues` opens one GitHub issue per venue
     after 2 bad nights in a row (streaks from `health-history.json`, which also tracks in-scope
     counts) and per pipeline problem at once; it comments only when the cause changes, or weekly.
+    Error text goes in unbreakable code blocks (`quoted`); only the bot's own cause markers count.
   - LLM: one Workers AI budget per run (`--llm-max-calls 200`; line-ups ≤ `--llm-lineup-max-calls
     120`, blurbs get the rest; the account's free allowance is ~200 calls a day, shared with any
     local `make data`). A spent daily quota stops the night's LLM work. When a task changes model,
@@ -111,9 +116,12 @@ checksummed; never commit them. In CI they're kept by actions/cache (key: the pi
 - Tests use a fake `Synthesizer`; never download the model in tests.
 - Blurbs (`blurbs.py`): 2–3 short descriptors per artist ("a Glasgow band pouring shoegaze…",
   ≤ 18 words) written by the LLM from the enrichment facts only. `problems()` rejects variants
-  whose numbers, count words, capitalised names, hype or style words aren't in the facts, and
-  gig details; raw answers are cached and re-checked each build, so tighten checks there rather
-  than in the prompt where you can (prompt changes: bump `PROMPT_VERSION`).
+  whose numbers, count words, capitalised names, hype or style words, or other lower-case words
+  (beyond `blurbs.toml`'s neutral list) aren't in the facts, and gig details; raw answers are
+  cached and re-checked each build, so tighten checks there rather than in the prompt where you
+  can (prompt changes: bump `PROMPT_VERSION`). Pull a bad blurb or artist in `blurbs.toml`
+  (`[blocked]`). Line-up names must appear in the listing (letters in any script); batches
+  never mix venues.
 - Intros (`clips.py`): "<name>, <blurb>." in the artist's announcer voice. Clips render into
   `data/cache/voice/` (carried across nights in the pipeline-cache artifact; unused for 60 days →
   deleted, tracked in `referenced.json`) and only those artists.json uses are copied to
