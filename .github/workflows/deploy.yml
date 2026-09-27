@@ -1,0 +1,109 @@
+name: deploy
+
+# Puts the site live on Cloudflare: the web app from a tested commit on main, with the latest
+# nightly site data (gigs, artists, announcer clips), served by the Worker (worker/). Runs after
+# each successful nightly build and after each green test run on main, or by hand.
+on:
+  workflow_run:
+    workflows: [nightly, test]
+    types: [completed]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read # the nightly's site-data artifact, and the test runs' results
+
+concurrency:
+  group: deploy
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    # A nightly that built, or tests that passed on a push to main.
+    if: >-
+      github.event_name == 'workflow_dispatch'
+      || (github.event.workflow_run.conclusion == 'success'
+          && github.event.workflow_run.head_branch == 'main'
+          && (github.event.workflow_run.name == 'nightly'
+              || github.event.workflow_run.event == 'push'))
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+    steps:
+      # The commit the tests passed on; otherwise main as it is now.
+      - uses: actions/checkout@v5
+        with:
+          ref: ${{ github.event.workflow_run.name == 'test' && github.event.workflow_run.head_sha || 'main' }}
+
+      - name: Ready to deploy?
+        id: ready
+        env:
+          DEPLOY_TOKEN: ${{ secrets.CLOUDFLARE_DEPLOY_TOKEN }}
+        run: |
+          ready=true
+          if [ -z "$DEPLOY_TOKEN" ]; then
+            echo "::notice::CLOUDFLARE_DEPLOY_TOKEN is not set: not deploying (worker/README.md)."
+            ready=false
+          fi
+          # The top-level (production) D1 id is still the placeholder until the database exists.
+          if grep -q '"database_id": "00000000-0000-0000-0000-000000000000"' worker/wrangler.jsonc; then
+            echo "::notice::The production D1 database_id isn't set: not deploying (worker/README.md)."
+            ready=false
+          fi
+          # Never ship a commit whose tests didn't pass (a nightly deploys main as it is now).
+          sha=$(git rev-parse HEAD)
+          passed=$(gh run list --workflow test.yml --commit "$sha" --status success --limit 1 \
+            --json databaseId -q 'length')
+          if [ "$passed" != "1" ]; then
+            echo "::warning::Tests haven't passed on $sha: not deploying."
+            ready=false
+          fi
+          echo "ready=$ready" >> "$GITHUB_OUTPUT"
+
+      - name: Fetch the latest nightly site data
+        if: steps.ready.outputs.ready == 'true'
+        run: |
+          run=$(gh run list --workflow nightly.yml --status success --limit 1 \
+            --json databaseId -q '.[0].databaseId')
+          if [ -z "$run" ]; then
+            echo "::error::No successful nightly run to take the site data from."
+            exit 1
+          fi
+          gh run download "$run" --name site-data --dir data/site
+          echo "Site data from nightly run $run: $(jq -r .generated data/site/gigs.json)"
+
+      - uses: cachix/install-nix-action@v31
+        if: steps.ready.outputs.ready == 'true'
+      - uses: actions/cache@v4
+        if: steps.ready.outputs.ready == 'true'
+        with:
+          path: ~/.local/share/pnpm/store
+          key: pnpm-${{ runner.os }}-${{ hashFiles('pnpm-lock.yaml') }}
+
+      - name: Build the site
+        if: steps.ready.outputs.ready == 'true'
+        run: |
+          nix develop -c pnpm install --frozen-lockfile
+          nix develop -c make web-build
+
+      - name: Migrate the database and deploy the Worker
+        if: steps.ready.outputs.ready == 'true'
+        id: deploy
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_DEPLOY_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        working-directory: worker
+        run: |
+          nix develop -c pnpm exec wrangler d1 migrations apply DB --remote
+          nix develop -c pnpm exec wrangler deploy | tee deploy.log
+          url=$(grep -oE 'https://[a-z0-9.-]+\.workers\.dev' deploy.log | head -1)
+          echo "url=$url" >> "$GITHUB_OUTPUT"
+
+      # On the workers.dev URL wrangler printed, or the repo variable SITE_URL if set.
+      - name: Check the live site
+        if: steps.ready.outputs.ready == 'true'
+        env:
+          URL: ${{ vars.SITE_URL || steps.deploy.outputs.url }}
+        run: nix develop -c node scripts/smoke-test.mjs "$URL"

@@ -140,24 +140,44 @@ app with hot reload, `make web-dev` runs `vite dev`, which proxies `/api` and `/
 
 Never run `wrangler deploy --env dev`.
 
+## Deploying
+
+`.github/workflows/deploy.yml` deploys: after every successful nightly (new data) and every green
+test run on `main` (new code), or by hand (`gh workflow run deploy.yml`). It takes a commit whose
+tests passed (a nightly deploys `main` as it is), the latest nightly `site-data` artifact, runs
+`make web-build` (which copies only the announcer clips `artists.json` uses), applies D1
+migrations (`--remote`), `wrangler deploy`s the top-level (production) config, then
+`scripts/smoke-test.mjs` checks the live site: pages, data, a clip, the model files, and that
+`/api/*` doesn't answer without Access. It skips (with a notice) until the D1 id and the deploy
+token below exist. The site's URL is what wrangler prints (`giggle.<subdomain>.workers.dev`), or
+the repo variable `SITE_URL` for a custom domain. Nothing here deploys from a laptop.
+
 ## Setting up Cloudflare (once, by hand)
 
 wrangler is this package's dev dependency, not a global command: run it from `worker/` inside the
 toolchain shell (`direnv allow` or `nix develop`) as `pnpm exec wrangler …`, and sign in once with
 `pnpm exec wrangler login`.
 
-1. `pnpm exec wrangler d1 create giggle`; put the id in `wrangler.jsonc` (`d1_databases[0].database_id`),
-   then `pnpm exec wrangler d1 migrations apply DB --remote`.
-2. Zero Trust → Access → Applications → add a self-hosted app for `<hostname>/api/*` only, with a
-   policy allowing your emails and the One-time PIN login method (free up to 50 users).
-3. Copy the app's AUD tag and your team domain (`<team>.cloudflareaccess.com`) into `vars`
-   (`ACCESS_AUD`, `ACCESS_TEAM_DOMAIN`). Neither is a secret.
-4. The model bucket: `pnpm exec wrangler r2 bucket create giggle-models` (before the first
-   deploy: `wrangler.jsonc` binds it), then `node scripts/models.mjs put --remote`. That
-   downloads the files into `data/cache/web-models/` if needed, checks every SHA-256 and uploads
-   8 objects (~420 MB) with `wrangler r2 object put --remote`, as your `wrangler login`. Run it
-   again whenever `model-files.json` changes, before deploying. Keep the bucket private (no
-   r2.dev URL or custom domain: the Worker serves it) and `/models/*` outside Access.
-5. `make web-build`, then `pnpm exec wrangler deploy` from `worker/`, on the hostname Access protects.
-   Check: `curl -sI https://<hostname>/models/kokoro-82m-v1.0/<revision>/config.json` is 200
-   with `Cache-Control: public, max-age=31536000, immutable`.
+1. The database: `pnpm exec wrangler d1 create giggle`, and put the id it prints in
+   `wrangler.jsonc` (the top-level `d1_databases[0].database_id`; it isn't a secret). The deploy
+   workflow applies the migrations.
+2. The model bucket: `pnpm exec wrangler r2 bucket create giggle-models`, then
+   `node scripts/models.mjs put --remote`. That downloads the files into `data/cache/web-models/`
+   if needed, checks every SHA-256 and uploads 8 objects (~420 MB) with
+   `wrangler r2 object put --remote`, as your `wrangler login`. Run it again whenever
+   `model-files.json` changes, before deploying. Keep the bucket private (no r2.dev URL or custom
+   domain: the Worker serves it) and `/models/*` outside Access.
+3. A deploy token for GitHub Actions: My Profile → API Tokens → Create Token → "Edit Cloudflare
+   Workers" template, plus Account → D1 → Edit; then `gh secret set CLOUDFLARE_DEPLOY_TOKEN`.
+   (`CLOUDFLARE_ACCOUNT_ID` is already a secret; `CLOUDFLARE_API_TOKEN` is the pipeline's Workers
+   AI token and stays as it is.)
+4. The first deploy: `gh workflow run deploy.yml`. The run's log ends with the site's URL. Until
+   step 5, `/api/*` answers 500 and the app stays signed out (everything else works).
+5. Sign-in: Zero Trust → Access → Applications → Add → Self-hosted, domain
+   `giggle.<subdomain>.workers.dev` with path `api/*` (only that: the rest of the site is public),
+   and a policy allowing your emails with the One-time PIN login method (free up to 50 users).
+   Put the app's AUD tag and your team domain (`<team>.cloudflareaccess.com`) in `vars`
+   (`ACCESS_AUD`, `ACCESS_TEAM_DOMAIN`; neither is a secret) and push: the next deploy turns
+   sign-in on. The app's "Sign in" link goes to `/api/login`, which Access guards; "Sign out" is
+   `/cdn-cgi/access/logout`.
+6. Check any time: `node scripts/smoke-test.mjs https://giggle.<subdomain>.workers.dev`.

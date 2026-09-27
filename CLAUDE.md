@@ -50,6 +50,9 @@ uv, Node, pnpm and make only; Python is uv-managed (`.python-version`), deps com
 - Worker: `make worker-dev` (127.0.0.1:8787, local D1 and R2, `X-Giggle-Dev-User:
   alice@example.test`), `make worker-test`, `make models` (browser Kokoro files → local R2).
   Never `wrangler deploy`/`login` or `--remote` (incl. `models.mjs put --remote`) from here.
+- Deploy: only GitHub Actions (`.github/workflows/deploy.yml`, after a green nightly or a green
+  test run on main): latest nightly `site-data` + `make web-build` + D1 migrations + `wrangler
+  deploy`, then `scripts/smoke-test.mjs` (`make smoke URL=…`). Setup steps: `worker/README.md`.
 - Tests: `cd packages/podia && uv run --group dev pytest -q`
 - Lint: `uv run --group dev ruff check packages && uv run --group dev ruff format packages`
 - Re-record a venue's fixtures: `cd packages/podia && uv run podia record <venue> --max-pages 2`,
@@ -94,8 +97,9 @@ download on first use to `data/cache/models/`, checksummed; never commit them.
   to Hugging Face. The user uploads to the real bucket (`worker/README.md`); never do it here.
 
 ## Local stack
-`make dev` runs it all (web on localhost:5173, API on :8787); sign in as a fake user by visiting
-`http://localhost:5173/api/dev/login?as=alice@example.test` (any email; two browsers = two users).
+`make dev` runs it all (web on localhost:5173, API on :8787); the nav's "Sign in" signs in as
+you@example.test, or visit `http://localhost:5173/api/dev/login?as=alice@example.test` (any
+email; two browsers = two users). In production "Sign in" goes through Access (`/api/login`).
 Everything must run locally: `make dev` (fixtures → data, `wrangler dev` with local D1/R2,
 `vite dev` proxying `/api` and `/models`), with a dev identity replacing Cloudflare Access only when
 `ENVIRONMENT=dev` (the Worker must refuse it in production), `--llm fake` for offline pipeline runs,

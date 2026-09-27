@@ -1,6 +1,6 @@
 # Local development. `make help` lists targets.
 
-.PHONY: help sync test lint format data data-offline browse radio fetch browse-raw web-dev web-build dev \
+.PHONY: help sync test lint format data data-offline browse radio fetch browse-raw web-dev web-build smoke dev \
 	worker-migrate worker-dev worker-test models
 
 help:
@@ -40,11 +40,9 @@ browse: ## build data/events.html from data/site (kept and left-out events) and 
 web-dev: ## web app on localhost:5173 against data/site (`make data-offline` first); /api, /models → worker-dev
 	pnpm --dir web dev --host 127.0.0.1
 
-web-build: ## build the static web app into web/build, with the current data
+web-build: ## build the static web app into web/build, with the current data (and the clips it uses)
 	pnpm --dir web build
-	mkdir -p web/build/data
-	cp data/site/gigs.json data/site/artists.json data/site/pronunciation.json web/build/data/
-	if [ -d data/site/voice ]; then cp -R data/site/voice web/build/data/; fi
+	node web/scripts/site-data.mjs data/site web/build/data
 
 radio: ## rough playback preview of the next 14 days, served on localhost:8765 (Ctrl-C stops)
 	uv run python scripts/radio_preview.py --days 14
@@ -73,6 +71,9 @@ worker-test: ## run the Worker's tests (workerd + local D1 and R2)
 
 models: ## browser Kokoro files (pinned, SHA-256 checked, ~420 MB) → data/cache/web-models → local R2
 	node worker/scripts/models.mjs put --local
+
+smoke: ## check a deployed site: make smoke URL=https://giggle.<subdomain>.workers.dev
+	node scripts/smoke-test.mjs $(URL)
 
 dev: ## whole stack: web :5173 + API and models (wrangler dev :8787); sign in via /api/dev/login?as=alice
 	@[ -f data/site/gigs.json ] || $(MAKE) data-offline

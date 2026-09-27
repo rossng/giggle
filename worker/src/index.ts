@@ -5,13 +5,14 @@
 //   GET  /models/<name>/<revision>/<file>  → the browser's Kokoro files from R2 (models.ts)
 //
 //   GET  /api/me                    → {email, via}
+//   GET  /api/login?next=<path>     → 302 to `next` once signed in (Access signs you in on the way)
 //   GET  /api/<collection>?since=<cursor>  → {items, cursor, more}: changes after `cursor`,
 //                                            tombstones too
 //   PUT  /api/<collection>  {items: [...]} → {items}: the stored rows for those keys after
 //                                            last-write-wins
 //        where <collection> is board, unavailable or plays (collections.ts)
-//   GET  /api/dev/login?as=<email>  → (dev only) sets the dev identity cookie
-//   GET  /api/dev/logout            → (dev only) clears it
+//   GET  /api/dev/login?as=<email>  → (dev only) sets the dev identity cookie (302 to `next` if given)
+//   GET  /api/dev/logout            → (dev only) clears it (302 to `next` if given)
 
 import { authenticate, DEV_COOKIE, isLoopback, normaliseEmail, type Identity } from './auth';
 import { COLLECTIONS, type Collection, type CollectionName } from './collections';
@@ -88,6 +89,19 @@ function collectionFor(pathname: string): Collection | null {
 	return Object.hasOwn(COLLECTIONS, name) ? COLLECTIONS[name as CollectionName] : null;
 }
 
+/** Where to send the browser after signing in or out: a path on this site, else the home page. */
+export function safeNext(url: URL): string {
+	const next = url.searchParams.get('next') ?? '/';
+	// A path on this origin only: not "//evil.example" or "/\\evil.example", which browsers
+	// treat as another host.
+	// eslint-disable-next-line no-control-regex
+	return /^\/(?![/\\])/.test(next) && !/[\u0000-\u001f\u007f]/.test(next) ? next : '/';
+}
+
+function redirect(location: string, headers: Record<string, string> = {}): Response {
+	return new Response(null, { status: 302, headers: { Location: location, ...NO_STORE, ...headers } });
+}
+
 /** The dev-only sign-in helper, so a browser on `make dev` can pick a fake user. */
 function devRoute(request: Request, url: URL, config: AuthConfig): Response | null {
 	if (config.mode !== 'dev' || !isLoopback(url)) return null;
@@ -95,14 +109,14 @@ function devRoute(request: Request, url: URL, config: AuthConfig): Response | nu
 	if (url.pathname === '/api/dev/login' && request.method === 'GET') {
 		const email = normaliseEmail(url.searchParams.get('as'));
 		if (!email) return error(400, 'use /api/dev/login?as=<email>');
-		return json({ email, via: 'dev' }, 200, {
-			'Set-Cookie': cookie.replace('%s', encodeURIComponent(email))
-		});
+		const set = { 'Set-Cookie': cookie.replace('%s', encodeURIComponent(email)) };
+		if (url.searchParams.has('next')) return redirect(safeNext(url), set);
+		return json({ email, via: 'dev' }, 200, set);
 	}
 	if (url.pathname === '/api/dev/logout' && request.method === 'GET') {
-		return json({ ok: true }, 200, {
-			'Set-Cookie': cookie.replace('%s', '') + '; Max-Age=0'
-		});
+		const set = { 'Set-Cookie': cookie.replace('%s', '') + '; Max-Age=0' };
+		if (url.searchParams.has('next')) return redirect(safeNext(url), set);
+		return json({ ok: true }, 200, set);
 	}
 	return null;
 }
@@ -128,6 +142,12 @@ export async function handleApi(request: Request, env: Env): Promise<Response> {
 		if (url.pathname === '/api/me') {
 			if (request.method !== 'GET') return error(405, 'method not allowed', { Allow: 'GET' });
 			return json(auth.identity);
+		}
+		// The app's "Sign in" link: a top-level navigation here makes Access sign the browser in
+		// (its cookie then covers /api/*), and we send it back to where it was.
+		if (url.pathname === '/api/login') {
+			if (request.method !== 'GET') return error(405, 'method not allowed', { Allow: 'GET' });
+			return redirect(safeNext(url));
 		}
 		const collection = collectionFor(url.pathname);
 		if (collection) return await sync(request, env, auth.identity, collection);
