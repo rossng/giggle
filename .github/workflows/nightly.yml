@@ -5,10 +5,10 @@ on:
     - cron: "17 3 * * *" # 05:17 in Amsterdam (summer time); off the hour to dodge queueing
   workflow_dispatch:
 
+# Each job asks for what it needs: the build only reads, and never shares a runner with a token
+# that can write.
 permissions:
   contents: read
-  issues: write # open and close venue-health issues
-  actions: write # read the last run's data and cache, and re-enable this schedule
 
 concurrency:
   group: nightly
@@ -21,10 +21,15 @@ jobs:
     # (LLM calls, MusicBrainz/Last.fm/Wikipedia requests, voice clips) cap each night's share
     # of the work, and the Build step's own timeout leaves time to keep what it did.
     timeout-minutes: 60
-    # GH_TOKEN (which can write issues and actions) is set only on the steps that run gh, so
-    # the build, its scrapers and their dependencies never see it.
+    # Read-only: the previous nightlies' artifacts. The build runs scrapers on untrusted pages and
+    # a large dependency tree, so the token that writes issues and actions stays in `report`, on
+    # a runner the build never touched. GH_TOKEN is set only on the steps that run gh.
+    permissions:
+      contents: read
+      actions: read
     env:
       GH_REPO: ${{ github.repository }}
+      UV_LOCKED: "1" # dependencies exactly as uv.lock has them
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
@@ -135,7 +140,7 @@ jobs:
             fi
           done
           # The voice extra (kokoro-onnx) renders announcer clips; `uv run` keeps it installed.
-          nix develop -c uv sync --all-packages --extra voice
+          nix develop -c uv sync --locked --all-packages --extra voice
           nix develop -c make data
 
       # Only after a successful build (the default): deploy.yml takes the newest one.
@@ -170,11 +175,54 @@ jobs:
             !data/cache/models/*.part
           key: ${{ steps.model-key.outputs.key }}
 
-      - name: Open or close venue-health issues
+      # For the report job: health.json alone (also after a failed build, if it got that far).
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         if: always() && hashFiles('data/site/health.json') != ''
+        with:
+          name: health
+          path: data/site/health.json
+          retention-days: 7
+
+  # Opens and closes the health issues and keeps the schedule enabled: the only job that can
+  # write (issues, actions), on a fresh runner with a fresh checkout and dependencies, taking
+  # nothing from the build but this run's health.json (data).
+  report:
+    needs: build
+    if: always()
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      issues: write # open and close health issues
+      actions: write # re-enable this schedule
+    env:
+      GH_REPO: ${{ github.repository }}
+      UV_LOCKED: "1"
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
+        id: health
+        continue-on-error: true # none: the build stopped before writing health.json
+        with:
+          name: health
+          path: ${{ runner.temp }}/health
+      - uses: cachix/install-nix-action@13d8dd58da0234aa297dedd986986ccb8e7f3e24 # v31.11.1
+        if: steps.health.outcome == 'success'
+      # Restore only: the build job saves this cache, with everything it installs.
+      - uses: actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        if: steps.health.outcome == 'success'
+        with:
+          path: ~/.cache/uv
+          key: uv-${{ runner.os }}-${{ hashFiles('uv.lock', '.python-version') }}
+
+      - name: Open or close health issues
+        if: steps.health.outcome == 'success'
         env:
           GH_TOKEN: ${{ github.token }}
-        run: nix develop -c uv run giggle-issues data/site/health.json
+          HEALTH: ${{ runner.temp }}/health/health.json
+        run: nix develop -c uv run --locked giggle-issues "$HEALTH"
 
       # GitHub disables schedules in public repos after 60 days without activity.
       - name: Keep this schedule enabled

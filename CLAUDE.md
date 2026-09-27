@@ -80,19 +80,27 @@ uv, Node, pnpm and make only; Python is uv-managed (`.python-version`), deps com
   then `PODIA_UPDATE_GOLDEN=1 uv run --group dev pytest -q tests/test_<venue>.py`
 
 ## CI and deploys
-- Nightly (`.github/workflows/nightly.yml`): builds the data with caches carried in artifacts,
-  opens/closes health issues, keeps its own schedule enabled. Artifacts (`site-data`,
-  `pipeline-cache`) are only ever taken from this repo's own `schedule`/`workflow_dispatch`
-  nightly runs on main, never by name alone (fork PRs can upload artifacts too); kept 90 days.
+- Nightly (`.github/workflows/nightly.yml`): `build` (read-only token) builds the data with
+  caches carried in artifacts; `report` (a fresh runner, the only job that can write issues and
+  actions, given only this run's `health.json`) opens/closes health issues and keeps the schedule
+  enabled. Artifacts (`site-data`, `pipeline-cache`) are only ever taken from this repo's own
+  `schedule`/`workflow_dispatch` nightly runs on main, never by name alone (fork PRs can upload
+  artifacts too); kept 90 days.
 - Deploy (`deploy.yml`, only from GitHub Actions): after a green nightly or a green test run on
-  main, the newest main commit whose tests passed, the latest nightly `site-data`,
-  `make web-build`, D1 migrations, `wrangler deploy` (retried), then `scripts/smoke-test.mjs`
-  (`make smoke URL=…`: pages, security headers, data no older than 3 days, a clip, model files,
-  the API signed out). Optional dead-man's switch: the `HEALTHCHECK_URL` secret.
+  main. `build` (no secrets): the newest main commit whose tests passed, the latest nightly
+  `site-data`, `make web-build` → a `web-build` artifact. `deploy` (the `production`
+  environment, which holds `CLOUDFLARE_DEPLOY_TOKEN` and `HEALTHCHECK_URL`): installs only the
+  Worker's dependencies with `--ignore-scripts`, D1 migrations, `wrangler deploy` (retried), then
+  `scripts/smoke-test.mjs` (`make smoke URL=…`: pages, security headers, data no older than 3
+  days, a clip, model files, the API signed out). Never give the build job a secret.
 - Actions are pinned to commit SHAs with a `# vX.Y.Z` comment; `GH_TOKEN` only on steps that run
-  `gh`. Renovate automerges non-major updates weekly after 7 days, never the voice or auth stack
-  (review those); Python deps carry upper bounds; pnpm has `minimumReleaseAge` (drop
-  `trustLockfile` from `pnpm-workspace.yaml` from October 2026).
+  `gh`. Nothing younger than 7 days: Renovate's `minimumReleaseAge`, pnpm's `minimumReleaseAge`
+  (drop `trustLockfile` from `pnpm-workspace.yaml` from October 2026) and uv's `exclude-newer`
+  (root `pyproject.toml`), so the lockfile maintenance Renovate automerges is gated too; nixpkgs
+  isn't, so `flake.lock` updates are PRs to review. uv always runs `--locked` (`UV_LOCKED=1` in
+  the Makefile and workflows; after editing a pyproject, `uv lock`). Renovate automerges
+  non-major updates weekly, never the voice or auth stack (review those; `kokoro-onnx` is pinned
+  exactly); Python deps carry upper bounds.
 
 ## Voices
 The announcers are `bf_isabella` and `bm_fable` (`ANNOUNCERS`); `announcer_for(artist_key)` gives
