@@ -17,12 +17,16 @@ export const IMAGE_HOSTS = [
 	'backend.bimhuis.nl',
 	'www.bitterzoet.com',
 	'cdn.prod.website-files.com', // Cinetol (Webflow)
+	'denieuweanita.nl',
+	'ekko.nl',
 	'assets.melkweg.nl',
 	'img.muziekgebouw.nl',
 	'nobel.nl',
 	'assets.paradiso.nl',
 	'patronaat.nl',
-	'media.tivolivredenburg.nl'
+	'a.storyblok.com', // Q-Factory
+	'media.tivolivredenburg.nl',
+	'stadsherstel.nl' // Het Zonnehuis (run by Stadsherstel)
 ] as const;
 
 /** The CSP img-src sources for IMAGE_HOSTS. */

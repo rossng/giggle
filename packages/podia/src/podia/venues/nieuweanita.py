@@ -18,6 +18,7 @@ import json
 import re
 from collections.abc import Iterator
 from datetime import date, timedelta
+from typing import Any
 
 from selectolax.parser import HTMLParser, Node
 
@@ -28,6 +29,7 @@ from podia.extract import (
     mask_emails,
     month_number,
     node_text,
+    site_url,
     strip_tags,
 )
 from podia.http import Fetcher
@@ -69,7 +71,8 @@ class NieuweAnita(Venue):
             params = {
                 "include": ",".join(ids[i : i + PAGE_SIZE]),
                 "per_page": str(PAGE_SIZE),
-                "_fields": "id,title,content",
+                "_fields": "id,title,content,_links,_embedded",
+                "_embed": "wp:featuredmedia",
             }
             r = fetch.get(API, params=params)
             r.raise_for_status()
@@ -81,6 +84,7 @@ class NieuweAnita(Venue):
                 # Line breaks become spaces; inline tags don't ("<b>Trashma</b><b>n</b>").
                 body = re.sub(r"<br\s*/?>", "\n", post["content"]["rendered"])
                 _add_content(event, HTMLParser(body))
+                event.image = _image(post)
             yield event
 
     def _item(self, item: Node, since: date) -> Event | None:
@@ -88,7 +92,7 @@ class NieuweAnita(Venue):
         link = item.css_first("a[href]")
         title = node_text(item.css_first(".entry-title"))
         day = _day(node_text(item.css_first("._space_yearless_date")), since)
-        if not post_id or link is None or not title or day is None:
+        if not post_id or not post_id.isdigit() or link is None or not title or day is None:
             return None
         start_clock = node_text(item.css_first(".agenda_time_start"))
         end_clock = node_text(item.css_first(".agenda_time_end"))
@@ -104,7 +108,7 @@ class NieuweAnita(Venue):
             source_id=post_id,
             title=title,
             start=start,
-            url=link.attributes.get("href"),
+            url=site_url(BASE, link.attributes.get("href")),
             end=end,
             city=self.info.city,
             extra={} if has_time else {"time_known": False},
@@ -131,8 +135,23 @@ class NieuweAnita(Venue):
                     for img in node.css("img"):
                         img.decompose()
                 item["content"]["rendered"] = "\n".join(node.html or "" for node in kept)
+                item.pop("_links", None)
+                if media := item.get("_embedded", {}).get("wp:featuredmedia"):
+                    item["_embedded"] = {"wp:featuredmedia": [{"source_url": _media_url(media[0])}]}
             return json.dumps(items, ensure_ascii=False)
         return text
+
+
+def _image(post: dict[str, Any]) -> str | None:
+    """The featured image (embedded with `_embed=wp:featuredmedia`), on the venue's host."""
+    media = post.get("_embedded", {}).get("wp:featuredmedia") or []
+    return site_url(BASE, _media_url(media[0])) if media else None
+
+
+def _media_url(media: dict[str, Any]) -> str | None:
+    """A WordPress media item's "large" size (~1000 px), else the original."""
+    sizes = (media.get("media_details") or {}).get("sizes") or {}
+    return (sizes.get("large") or {}).get("source_url") or media.get("source_url")
 
 
 def _nested(node: Node) -> bool:
