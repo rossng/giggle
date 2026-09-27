@@ -2,18 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { safeNext } from '../src/index';
 import { call } from './helpers';
 
-describe('signing in and out', () => {
-	it('/api/login sends a signed-in browser back where it came from', async () => {
-		const res = await call('/api/login?next=/board?column=go', { devUser: 'alice@example.test' });
-		expect(res.status).toBe(302);
-		expect(res.headers.get('Location')).toBe('/board?column=go');
-		expect(res.headers.get('Cache-Control')).toBe('no-store');
-	});
-
-	it('/api/login needs a signed-in browser (Access signs it in on the way)', async () => {
-		expect((await call('/api/login?next=/board')).status).toBe(401);
-	});
-
+describe('dev sign-in redirects', () => {
 	it('dev login and logout redirect when given next, and set or clear the cookie', async () => {
 		const login = await call('/api/dev/login?as=bob@example.test&next=/radio');
 		expect(login.status).toBe(302);

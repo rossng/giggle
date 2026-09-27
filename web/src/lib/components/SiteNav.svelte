@@ -13,20 +13,9 @@
 		{ href: '/board', path: '/board', label: 'Board' }
 	]);
 
-	// Signing in syncs the board, unavailable dates and play history across devices. In
-	// production Access signs the browser in on the way to /api/login; `make dev` picks a fake
-	// user instead (worker/README.md).
+	// Signing in (passkeys, on /account) syncs the board, unavailable dates and play history.
 	let status: SyncStatus | null = $state(null);
 	onMount(() => sync?.subscribe((s) => (status = s)));
-	const here = $derived(encodeURIComponent(page.url.pathname + page.url.search));
-	const signIn = $derived(
-		import.meta.env.DEV
-			? `/api/dev/login?as=you@example.test&next=${here}`
-			: `/api/login?next=${here}`
-	);
-	const signOut = $derived(
-		import.meta.env.DEV ? `/api/dev/logout?next=${here}` : '/cdn-cgi/access/logout'
-	);
 </script>
 
 <nav aria-label="Main">
@@ -36,12 +25,17 @@
 		>
 	{/each}
 	{#if status?.state === 'signed-out'}
-		<a class="account" href={signIn} data-sveltekit-reload title="Sync your board across devices"
-			>Sign in</a
+		<a
+			class="account"
+			href="/account"
+			aria-current={page.url.pathname === '/account' ? 'page' : undefined}
+			title="Sync your board across devices">Sign in</a
 		>
 	{:else if status?.user}
-		<a class="account" href={signOut} data-sveltekit-reload title="Signed in as {status.user}"
-			>Sign out</a
+		<a
+			class="account"
+			href="/account"
+			aria-current={page.url.pathname === '/account' ? 'page' : undefined}>Account</a
 		>
 	{/if}
 </nav>

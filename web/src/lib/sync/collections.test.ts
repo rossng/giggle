@@ -70,7 +70,7 @@ class FakeServer {
 			const method = init?.method ?? 'GET';
 			const body = init?.body ? JSON.parse(String(init.body)) : undefined;
 			this.requests.push({ method, path: url.pathname + url.search, body });
-			if (url.pathname === '/api/me') return Response.json({ email: user, via: 'dev' });
+			if (url.pathname === '/api/me') return Response.json({ user, via: 'dev', passkeys: 0 });
 			const name = url.pathname.slice('/api/'.length);
 			if (!['board', 'unavailable', 'plays'].includes(name)) {
 				return Response.json({ error: 'not found' }, { status: 404 });

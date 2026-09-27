@@ -4,8 +4,9 @@
 //
 //   GET  /models/<name>/<revision>/<file>  → the browser's Kokoro files from R2 (models.ts)
 //
-//   GET  /api/me                    → {email, via}
-//   GET  /api/login?next=<path>     → 302 to `next` once signed in (Access signs you in on the way)
+//   GET  /api/me                    → {user, via, passkeys}: who is signed in
+//   POST /api/passkey/…             → signing in and adding passkeys (passkeys.ts)
+//   POST /api/logout                → ends this browser's session
 //   GET  /api/<collection>?since=<cursor>  → {items, cursor, more}: changes after `cursor`,
 //                                            tombstones too
 //   PUT  /api/<collection>  {items: [...]} → {items}: the stored rows for those keys after
@@ -14,10 +15,26 @@
 //   GET  /api/dev/login?as=<email>  → (dev only) sets the dev identity cookie (302 to `next` if given)
 //   GET  /api/dev/logout            → (dev only) clears it (302 to `next` if given)
 
-import { authenticate, DEV_COOKIE, isLoopback, normaliseEmail, type Identity } from './auth';
+import {
+	authenticate,
+	DEV_COOKIE,
+	endSession,
+	isLoopback,
+	normaliseEmail,
+	type Identity
+} from './auth';
 import { COLLECTIONS, type Collection, type CollectionName } from './collections';
 import { authConfig, ConfigError, type AuthConfig, type Env } from './config';
 import { MODELS_PREFIX, serveModel } from './models';
+import {
+	loginOptions,
+	loginVerify,
+	PASSKEY_PREFIX,
+	passkeyCount,
+	PasskeyError,
+	registerOptions,
+	registerVerify
+} from './passkeys';
 import { itemsSince, putItems, TooManyItems } from './store';
 import { LIMITS, parseBatch, parseSince, ValidationError } from './validate';
 
@@ -68,13 +85,13 @@ async function sync(
 	const now = Date.now();
 	if (request.method === 'GET') {
 		const since = parseSince(url.searchParams.get('since'));
-		return json(await itemsSince(env.DB, collection, user.email, since, now));
+		return json(await itemsSince(env.DB, collection, user.user, since, now));
 	}
 	if (request.method === 'PUT') {
 		const items = parseBatch(await readJsonBody(request), (raw) => collection.parseItem(raw, now));
 		try {
 			return json({
-				items: await putItems(env.DB, collection, user.email, items, now)
+				items: await putItems(env.DB, collection, user.user, items, now)
 			});
 		} catch (e) {
 			if (e instanceof TooManyItems) return error(413, collection.fullMessage);
@@ -99,7 +116,10 @@ export function safeNext(url: URL): string {
 }
 
 function redirect(location: string, headers: Record<string, string> = {}): Response {
-	return new Response(null, { status: 302, headers: { Location: location, ...NO_STORE, ...headers } });
+	return new Response(null, {
+		status: 302,
+		headers: { Location: location, ...NO_STORE, ...headers }
+	});
 }
 
 /** The dev-only sign-in helper, so a browser on `make dev` can pick a fake user. */
@@ -121,6 +141,29 @@ function devRoute(request: Request, url: URL, config: AuthConfig): Response | nu
 	return null;
 }
 
+async function passkeyRoute(
+	request: Request,
+	env: Env,
+	url: URL,
+	config: AuthConfig
+): Promise<Response> {
+	if (request.method !== 'POST') return error(405, 'method not allowed', { Allow: 'POST' });
+	const body = await readJsonBody(request);
+	const step = url.pathname.slice(PASSKEY_PREFIX.length);
+	if (step === 'register/options') {
+		// Signed in already: the new passkey joins that account (another device).
+		const auth = await authenticate(request, config, env.DB);
+		return json(await registerOptions(env.DB, config, auth.ok ? auth.identity : null));
+	}
+	if (step === 'register/verify' || step === 'login/verify') {
+		const verify = step === 'register/verify' ? registerVerify : loginVerify;
+		const { identity, cookie } = await verify(env.DB, config, body, url);
+		return json(identity, 200, { 'Set-Cookie': cookie });
+	}
+	if (step === 'login/options') return json(await loginOptions(env.DB, config));
+	return error(404, 'not found');
+}
+
 export async function handleApi(request: Request, env: Env): Promise<Response> {
 	const url = new URL(request.url);
 	let config: AuthConfig;
@@ -135,19 +178,27 @@ export async function handleApi(request: Request, env: Env): Promise<Response> {
 	const dev = devRoute(request, url, config);
 	if (dev) return dev;
 
-	const auth = await authenticate(request, config);
+	try {
+		if (url.pathname.startsWith(PASSKEY_PREFIX))
+			return await passkeyRoute(request, env, url, config);
+		if (url.pathname === '/api/logout') {
+			if (request.method !== 'POST') return error(405, 'method not allowed', { Allow: 'POST' });
+			return json({ ok: true }, 200, { 'Set-Cookie': await endSession(env.DB, request) });
+		}
+	} catch (e) {
+		if (e instanceof PasskeyError || e instanceof HttpError) return error(e.status, e.message);
+		throw e;
+	}
+
+	const auth = await authenticate(request, config, env.DB);
 	if (!auth.ok) return error(auth.status, auth.error);
 
 	try {
 		if (url.pathname === '/api/me') {
 			if (request.method !== 'GET') return error(405, 'method not allowed', { Allow: 'GET' });
-			return json(auth.identity);
-		}
-		// The app's "Sign in" link: a top-level navigation here makes Access sign the browser in
-		// (its cookie then covers /api/*), and we send it back to where it was.
-		if (url.pathname === '/api/login') {
-			if (request.method !== 'GET') return error(405, 'method not allowed', { Allow: 'GET' });
-			return redirect(safeNext(url));
+			const { user, via } = auth.identity;
+			const passkeys = via === 'passkey' ? await passkeyCount(env.DB, user) : 0;
+			return json({ user, via, passkeys });
 		}
 		const collection = collectionFor(url.pathname);
 		if (collection) return await sync(request, env, auth.identity, collection);
