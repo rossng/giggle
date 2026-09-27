@@ -40,6 +40,14 @@
 	const counts = $derived(facetCounts(filters, catalog.gigs, now, unavailableDates.test));
 	const range = $derived(dateWindow(filters, now));
 	const venueCount = $derived(new Set(shown.map((v) => v.gig.venue)).size);
+	/** Where, for the heading: the picked cities, else the whole area. */
+	const where = $derived.by(() => {
+		const names = filters.cities.map(
+			(key) => catalog.cities.find((c) => c.key === key)?.name ?? key
+		);
+		if (!names.length) return 'in and around Amsterdam';
+		return `in ${names.length > 1 ? `${names.slice(0, -1).join(', ')} & ${names.at(-1)}` : names[0]}`;
+	});
 	const chips = $derived(activeFilters(filters, filterNames(catalog)));
 
 	/** Filter changes replace the history entry; links to other pages push one. */
@@ -62,13 +70,16 @@
 </script>
 
 <svelte:head>
-	<title>{shown.length} gigs · giggle</title>
+	<title>{shown.length} gigs coming up {where} · giggle</title>
 </svelte:head>
 
 <div class="agenda">
 	<header class="head">
 		<div class="count">
-			<h1 class="display">{shown.length} gig{shown.length === 1 ? '' : 's'}</h1>
+			<h1 class="display">
+				<span class="n">{shown.length} gig{shown.length === 1 ? '' : 's'}</span>
+				<span class="where">coming up {where}</span>
+			</h1>
 			<p class="sub">
 				{venueCount} venue{venueCount === 1 ? '' : 's'} · {formatRange(range.first, range.last)}
 			</p>
@@ -156,8 +167,20 @@
 		min-width: 0;
 	}
 	h1 {
+		margin: 0;
+		display: flex;
+		flex-wrap: wrap;
+		align-items: baseline;
+		column-gap: 12px;
 		font-size: 44px;
+		line-height: 1;
+	}
+	h1 span {
 		white-space: nowrap;
+	}
+	.where {
+		font-size: 26px;
+		color: var(--mute);
 	}
 	.sub {
 		font-size: 12.5px;
@@ -275,6 +298,13 @@
 		}
 		h1 {
 			font-size: 34px;
+			flex-direction: column;
+			align-items: flex-start;
+			row-gap: 2px;
+		}
+		.where {
+			font-size: 19px;
+			white-space: normal;
 		}
 		.sub {
 			font-size: 12px;

@@ -16,7 +16,7 @@
 			<code>data/site/gigs.json</code> and <code>artists.json</code>, then reload.
 		</p>
 	{/if}
-	<p><a class="button" href="/radio">Back to the radio</a></p>
+	<p><a class="button" href="/agenda">Back to the agenda</a></p>
 </main>
 
 <style>

@@ -12,9 +12,9 @@ Upcoming-gig radio for Amsterdam and nearby. Design report: https://claude.ai/ar
   venue. Then LLM line-ups (`lineup.py`), artists (`enrich.py`: MusicBrainz, Last.fm, Wikipedia,
   YouTube Music songs within 60 days), announcer blurbs (`blurbs.py`) and Kokoro clips (`clips.py`)
   for playable artists. Per-run budgets everywhere; everything cached in `data/cache/`.
-- `web/` — SvelteKit 2 + Svelte 5 static SPA (adapter-static, `ssr = false`). `/` lands on Radio.
+- `web/` — SvelteKit 2 + Svelte 5 static SPA (adapter-static, `ssr = false`). `/` lands on the Agenda (the nav: Agenda · Radio · Board).
   One shell for every page (`routes/(app)/+layout.svelte`, `lib/components/shell/`): TopBar
-  (Radio · Agenda · Board · account; tabs at the bottom on phones), a global PlayerBar, the
+  (Agenda · Radio · Board · account; tabs at the bottom on phones), a global PlayerBar, the
   Station & settings drawer, and VideoDock, the app's only YouTube iframe (never moved in the DOM:
   positioned over the Radio page's slot, else a floating tile ≥200px; tucking it pauses). The radio
   is app-wide (`lib/radio/app.svelte.ts`: one Radio in its own `$effect.root`, the station as app
