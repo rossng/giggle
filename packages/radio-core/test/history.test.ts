@@ -4,6 +4,7 @@ import {
   emptyHistory,
   HISTORY_MAX_PLAYS_PER_ARTIST,
   lastHeard,
+  mergeHistory,
   parseHistory,
   pruneHistory,
   recordPlay,
@@ -78,5 +79,31 @@ describe("parseHistory", () => {
     expect(parseHistory(null)).toEqual({});
     expect(parseHistory([1, 2])).toEqual({});
     expect(parseHistory("{}")).toEqual({});
+  });
+});
+
+describe("mergeHistory", () => {
+  it("unites two devices' plays, each play once, oldest first", () => {
+    const a = { "mb:a": [t - 3000, t - 1000], "mb:b": [t - 500] };
+    const b = { "mb:a": [t - 2000, t - 1000], "mb:c": [t] };
+    const merged = mergeHistory(a, b, NOW);
+    expect(merged).toEqual({
+      "mb:a": [t - 3000, t - 2000, t - 1000],
+      "mb:b": [t - 500],
+      "mb:c": [t],
+    });
+    expect(mergeHistory(b, a, NOW)).toEqual(merged);
+    expect(a["mb:a"]).toEqual([t - 3000, t - 1000]);
+  });
+
+  it("prunes the result like pruneHistory: old plays and the per-artist limit", () => {
+    const n = HISTORY_MAX_PLAYS_PER_ARTIST;
+    const odd = Array.from({ length: n }, (_, i) => t - 2 * i - 1);
+    const even = Array.from({ length: n }, (_, i) => t - 2 * i);
+    const local = { "mb:a": odd, "mb:old": [t - 61 * DAY_MS] };
+    const merged = mergeHistory(local, { "mb:a": even }, NOW);
+    expect(merged["mb:a"]).toHaveLength(n);
+    expect(merged["mb:a"]!.at(-1)).toBe(t);
+    expect(merged["mb:old"]).toBeUndefined();
   });
 });

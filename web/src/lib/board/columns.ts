@@ -4,6 +4,7 @@
 
 import type { Catalog, GigView } from '$lib/data/catalog';
 import { daysBetween, localDate } from '$lib/data/dates';
+import type { DateTest } from '$lib/data/filters';
 import type { IsoDate } from '$lib/data/types';
 import type { Board, BoardItem, Triage } from './board';
 
@@ -17,7 +18,8 @@ export const COLUMNS: readonly { id: ColumnId; label: string; hint: string }[] =
 	{ id: 'nope', label: 'Not for me', hint: 'Kept off the radio' }
 ];
 
-export type Warning = 'sold-out' | 'no-gig';
+/** 'unavailable': their next gig is on one of the listener's unavailable dates. */
+export type Warning = 'sold-out' | 'no-gig' | 'unavailable';
 
 /** Sorts after any real start time. */
 const NO_GIG = '\uffff';
@@ -46,7 +48,13 @@ function upcoming(key: string, catalog: Catalog, today: IsoDate): GigView[] {
 		.sort((a, b) => a.gig.start.localeCompare(b.gig.start));
 }
 
-export function boardCards(board: Board, catalog: Catalog, today: IsoDate): Card[] {
+/** `unavailable`: the listener's unavailable dates (unavailable.ts), for the warning. */
+export function boardCards(
+	board: Board,
+	catalog: Catalog,
+	today: IsoDate,
+	unavailable?: DateTest
+): Card[] {
 	return Object.entries(board).map(([key, item]) => {
 		const next = upcoming(key, catalog, today)[0] ?? null;
 		const sortedFrom = (item.gig && catalog.byId.get(item.gig)) || null;
@@ -59,6 +67,9 @@ export function boardCards(board: Board, catalog: Catalog, today: IsoDate): Card
 		const warnings: Warning[] = [];
 		if (item.state === 'go' && next?.soldOut) warnings.push('sold-out');
 		if (!next && !been && item.state !== 'nope') warnings.push('no-gig');
+		if (next && item.state !== 'nope' && unavailable?.(localDate(next.gig.start))) {
+			warnings.push('unavailable');
+		}
 		return {
 			key,
 			name: catalog.artists[key]?.name ?? item.name,
@@ -77,10 +88,12 @@ export function boardCards(board: Board, catalog: Catalog, today: IsoDate): Card
 export function boardColumns(
 	board: Board,
 	catalog: Catalog,
-	today: IsoDate
+	today: IsoDate,
+	unavailable?: DateTest
 ): Record<ColumnId, Card[]> {
 	const columns: Record<ColumnId, Card[]> = { listen: [], go: [], tickets: [], been: [], nope: [] };
-	for (const card of boardCards(board, catalog, today)) columns[card.column].push(card);
+	for (const card of boardCards(board, catalog, today, unavailable))
+		columns[card.column].push(card);
 	const bySoonest = (a: Card, b: Card) =>
 		(a.next?.gig.start ?? NO_GIG).localeCompare(b.next?.gig.start ?? NO_GIG) ||
 		b.item.at.localeCompare(a.item.at);

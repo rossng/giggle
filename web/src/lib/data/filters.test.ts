@@ -63,7 +63,7 @@ describe('parse', () => {
 		expect(p('q=%20%20nouvelle%20%20%20vague%20').q).toBe('nouvelle vague');
 	});
 
-	it('keeps unavailable as a hide flag even though it filters nothing yet', () => {
+	it('reads both hide flags', () => {
 		expect(p('hide=unavailable,soldout').hide).toEqual(['soldout', 'unavailable']);
 	});
 });
@@ -175,8 +175,15 @@ describe('apply', () => {
 		expect(ids(f({ hide: ['soldout'] }))).toEqual(['1', '3']);
 	});
 
-	it('does nothing yet for unavailable dates', () => {
-		expect(ids(f({ hide: ['unavailable'] }))).toEqual(['1', '2', '3']);
+	it("hides gigs on the listener's unavailable dates, only when asked to", () => {
+		const away = (date: string) => date === '2026-10-01' || date === '2026-10-10';
+		const hide = f({ hide: ['unavailable'] });
+		expect(apply(hide, views, NOW, away).map((v) => v.gig.source_id)).toEqual(['1']);
+		expect(apply(f(), views, NOW, away).map((v) => v.gig.source_id)).toEqual(['1', '2', '3']);
+		// No dates known (signed out, none set): nothing to hide.
+		expect(ids(hide)).toEqual(['1', '2', '3']);
+		const counts = facetCounts(hide, views, NOW, away);
+		expect(counts.city).toEqual(new Map([['amsterdam', 1]]));
 	});
 
 	it('searches titles, artists and venues, ignoring case and accents', () => {
@@ -210,5 +217,8 @@ describe('summarise', () => {
 				}
 			)
 		).toBe('Next month from +3 days · Amsterdam · Jazz · no sold-out gigs');
+		expect(summarise(f({ hide: ['unavailable'] }))).toBe(
+			'Next 3 months · not on my unavailable dates'
+		);
 	});
 });

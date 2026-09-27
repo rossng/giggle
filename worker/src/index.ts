@@ -5,15 +5,19 @@
 //   GET  /models/<name>/<revision>/<file>  → the browser's Kokoro files from R2 (models.ts)
 //
 //   GET  /api/me                    → {email, via}
-//   GET  /api/board?since=<cursor>  → {items, cursor, more}: changes after `cursor`, tombstones too
-//   PUT  /api/board  {items: [...]} → {items}: the stored rows for those keys after last-write-wins
+//   GET  /api/<collection>?since=<cursor>  → {items, cursor, more}: changes after `cursor`,
+//                                            tombstones too
+//   PUT  /api/<collection>  {items: [...]} → {items}: the stored rows for those keys after
+//                                            last-write-wins
+//        where <collection> is board, unavailable or plays (collections.ts)
 //   GET  /api/dev/login?as=<email>  → (dev only) sets the dev identity cookie
 //   GET  /api/dev/logout            → (dev only) clears it
 
 import { authenticate, DEV_COOKIE, isLoopback, normaliseEmail, type Identity } from './auth';
-import { itemsSince, putItems, TooManyItems } from './board';
+import { COLLECTIONS, type Collection, type CollectionName } from './collections';
 import { authConfig, ConfigError, type AuthConfig, type Env } from './config';
 import { MODELS_PREFIX, serveModel } from './models';
+import { itemsSince, putItems, TooManyItems } from './store';
 import { LIMITS, parseBatch, parseSince, ValidationError } from './validate';
 
 const NO_STORE = { 'Cache-Control': 'no-store' };
@@ -53,16 +57,35 @@ class HttpError extends Error {
 	}
 }
 
-async function board(request: Request, env: Env, user: Identity): Promise<Response> {
+async function sync(
+	request: Request,
+	env: Env,
+	user: Identity,
+	collection: Collection
+): Promise<Response> {
 	const url = new URL(request.url);
+	const now = Date.now();
 	if (request.method === 'GET') {
-		return json(await itemsSince(env.DB, user.email, parseSince(url.searchParams.get('since'))));
+		const since = parseSince(url.searchParams.get('since'));
+		return json(await itemsSince(env.DB, collection, user.email, since, now));
 	}
 	if (request.method === 'PUT') {
-		const items = parseBatch(await readJsonBody(request), Date.now());
-		return json({ items: await putItems(env.DB, user.email, items) });
+		const items = parseBatch(await readJsonBody(request), (raw) => collection.parseItem(raw, now));
+		try {
+			return json({
+				items: await putItems(env.DB, collection, user.email, items, now)
+			});
+		} catch (e) {
+			if (e instanceof TooManyItems) return error(413, collection.fullMessage);
+			throw e;
+		}
 	}
 	return error(405, 'method not allowed', { Allow: 'GET, PUT' });
+}
+
+function collectionFor(pathname: string): Collection | null {
+	const name = pathname.slice('/api/'.length);
+	return Object.hasOwn(COLLECTIONS, name) ? COLLECTIONS[name as CollectionName] : null;
 }
 
 /** The dev-only sign-in helper, so a browser on `make dev` can pick a fake user. */
@@ -77,7 +100,9 @@ function devRoute(request: Request, url: URL, config: AuthConfig): Response | nu
 		});
 	}
 	if (url.pathname === '/api/dev/logout' && request.method === 'GET') {
-		return json({ ok: true }, 200, { 'Set-Cookie': cookie.replace('%s', '') + '; Max-Age=0' });
+		return json({ ok: true }, 200, {
+			'Set-Cookie': cookie.replace('%s', '') + '; Max-Age=0'
+		});
 	}
 	return null;
 }
@@ -100,19 +125,16 @@ export async function handleApi(request: Request, env: Env): Promise<Response> {
 	if (!auth.ok) return error(auth.status, auth.error);
 
 	try {
-		switch (url.pathname) {
-			case '/api/me':
-				if (request.method !== 'GET') return error(405, 'method not allowed', { Allow: 'GET' });
-				return json(auth.identity);
-			case '/api/board':
-				return await board(request, env, auth.identity);
-			default:
-				return error(404, 'not found');
+		if (url.pathname === '/api/me') {
+			if (request.method !== 'GET') return error(405, 'method not allowed', { Allow: 'GET' });
+			return json(auth.identity);
 		}
+		const collection = collectionFor(url.pathname);
+		if (collection) return await sync(request, env, auth.identity, collection);
+		return error(404, 'not found');
 	} catch (e) {
 		if (e instanceof ValidationError) return error(400, e.message);
 		if (e instanceof HttpError) return error(e.status, e.message);
-		if (e instanceof TooManyItems) return error(413, 'board is full');
 		throw e;
 	}
 }

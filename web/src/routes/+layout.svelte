@@ -2,14 +2,15 @@
 	import '../app.css';
 	import { onMount } from 'svelte';
 	import favicon from '$lib/assets/favicon.svg';
-	import { boardSync } from '$lib/sync/app';
+	import { sync } from '$lib/sync/app';
 
 	let { children } = $props();
 
-	// Board sync runs for the whole visit; signed out (or no API) it just stays local.
+	// Sync (board, unavailable dates, play history) runs for the whole visit; signed out (or
+	// with no API) everything just stays on this device.
 	onMount(() => {
-		boardSync?.start();
-		return () => boardSync?.stop();
+		sync?.start();
+		return () => sync?.stop();
 	});
 </script>
 

@@ -1,32 +1,35 @@
-// Keeps this browser's board in step with the accounts API (worker/, `/api/board`).
+// Keeps this browser's personal data in step with the accounts API (worker/, `/api/*`): the
+// board, and whatever other collections it's given (collection.ts, collections.ts).
 //
-// Local-first: the board in localStorage (board.ts) is always the source for the UI; the
+// Local-first: each collection's data in localStorage is always the source for the UI; the
 // SyncClient pushes local changes and pulls remote ones in the background, merging last write
-// wins per artist. It runs a round on start, shortly after `notifyLocalChange()` (debounced), when
+// wins per key. It runs a round on start, shortly after `notifyLocalChange()` (debounced), when
 // the window regains focus or the network comes back, and every few minutes; failures back off.
+// A round checks who is signed in, then pushes and pulls each collection in turn.
 //
-// Its own record lives under SYNC_STORAGE_KEY: the pull cursor, the board as last in step with the
-// server (`base`, to find local changes and deletions by diffing), and pending tombstones.
+// Each collection keeps its own record (`recordKey`): the pull cursor, the items as last in step
+// with the server (`base`, to find local changes and deletions by diffing), pending tombstones.
 //
-// Integration: call `notifyLocalChange()` after every saveBoard(), and adopt the board passed to
-// `onBoard` (it has already been saved) — don't write back an older in-memory copy over it.
+// Integration: call `notifyLocalChange()` after every local save, and adopt the data passed to
+// `onChange` (it has already been saved) — don't write back an older in-memory copy over it.
 
-import { BOARD_STORAGE_KEY, loadBoard, parseBoard, saveBoard, type Board } from '$lib/board/board';
+import type { Board } from '$lib/board/board';
 import { browserStorage, readJson, writeJson, type KeyValueStorage } from '$lib/storage';
 import {
-	boardOf,
-	diffBoards,
-	mergeBoards,
-	recordDeletions,
-	sameBoard,
-	sameItem,
-	toSyncMap,
-	type SyncMap,
-	type Tombstones
-} from './merge';
-import { fromWire, isSyncable, LIMITS, toWire, type SyncItem, type WireItem } from './wire';
+	applyRound,
+	emptyRecord,
+	noteDeletions,
+	outgoing,
+	packRecord,
+	parseRecord,
+	type Collection,
+	type Outgoing,
+	type SyncRecord
+} from './collection';
+import { boardCollection, SYNC_STORAGE_KEY } from './collections';
+import { sameTombstones, type Stamped } from './merge';
 
-export const SYNC_STORAGE_KEY = 'giggle:sync:v1';
+export { SYNC_STORAGE_KEY };
 
 export type SyncState = 'synced' | 'syncing' | 'offline' | 'signed-out' | 'error';
 
@@ -36,60 +39,15 @@ export interface SyncStatus {
 	user: string | null;
 	/** When the last round finished cleanly (ISO 8601). */
 	lastSyncedAt: string | null;
-	/** Local changes not yet on the server. */
+	/** Local changes not yet on the server, all collections together. */
 	pending: number;
 	/** Why the last round failed, for a tooltip. */
 	error: string | null;
 }
 
-/** What the sync module keeps in storage. */
-export interface SyncRecord {
-	version: 1;
-	user: string | null;
-	/** From the last pull; null pulls everything. */
-	cursor: string | null;
-	/** The board as last known to match the server. */
-	base: Board;
-	tombstones: Tombstones;
-	lastSyncedAt: string | null;
-}
-
-const EMPTY_RECORD: SyncRecord = {
-	version: 1,
-	user: null,
-	cursor: null,
-	base: {},
-	tombstones: {},
-	lastSyncedAt: null
-};
-
-export function parseRecord(value: unknown): SyncRecord {
-	const v = (value && typeof value === 'object' ? value : {}) as Partial<SyncRecord>;
-	const tombstones: Record<string, string> = {};
-	if (v.tombstones && typeof v.tombstones === 'object') {
-		for (const [key, at] of Object.entries(v.tombstones)) {
-			if (typeof at === 'string' && !Number.isNaN(Date.parse(at))) tombstones[key] = at;
-		}
-	}
-	return {
-		version: 1,
-		user: typeof v.user === 'string' ? v.user : null,
-		cursor: typeof v.cursor === 'string' && /^\d+$/.test(v.cursor) ? v.cursor : null,
-		base: parseBoard({ items: v.base }),
-		tombstones,
-		lastSyncedAt: typeof v.lastSyncedAt === 'string' ? v.lastSyncedAt : null
-	};
-}
-
-/** Local changes waiting to be pushed: changed items plus pending deletions. */
-export function outgoing(record: SyncRecord, board: Board): WireItem[] {
-	const { changed } = diffBoards(record.base, board);
-	const items: WireItem[] = changed.map((key) => toWire(key, board[key]!));
-	for (const [key, at] of Object.entries(record.tombstones)) {
-		items.push(toWire(key, { state: null, name: '', at }));
-	}
-	return items.filter((item) => isSyncable(item.key, item));
-}
+/** Collections of different item types, driven the same way. */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export type AnyCollection = Collection<any, any>;
 
 class SignedOut extends Error {}
 class Offline extends Error {}
@@ -103,6 +61,8 @@ export interface SyncEvents {
 }
 
 export interface SyncClientOptions {
+	/** What to sync, in this order each round (default: just the board). */
+	collections?: readonly AnyCollection[];
 	/** Prefix for /api (default: same origin). */
 	baseUrl?: string;
 	fetch?: typeof fetch;
@@ -115,11 +75,14 @@ export interface SyncClientOptions {
 	debounceMs?: number;
 	pollMs?: number;
 	backoffMs?: { base: number; max: number };
+	/** Called with a collection's merged data whenever a sync changed it (it's already saved). */
+	onChange?: (collection: string, data: unknown) => void;
 	/** Called with the merged board whenever a sync changed it (it's already saved). */
 	onBoard?: (board: Board) => void;
 }
 
 export class SyncClient {
+	readonly #collections: readonly AnyCollection[];
 	readonly #fetch: typeof fetch;
 	readonly #storage: KeyValueStorage | null;
 	readonly #now: () => Date;
@@ -130,6 +93,7 @@ export class SyncClient {
 	readonly #debounceMs: number;
 	readonly #pollMs: number;
 	readonly #backoff: { base: number; max: number };
+	readonly #onChange?: (collection: string, data: unknown) => void;
 	readonly #onBoard?: (board: Board) => void;
 
 	#status: SyncStatus;
@@ -143,6 +107,7 @@ export class SyncClient {
 	#detach: (() => void) | null = null;
 
 	constructor(options: SyncClientOptions = {}) {
+		this.#collections = options.collections ?? [boardCollection];
 		this.#fetch = options.fetch ?? ((...args) => globalThis.fetch(...args));
 		this.#storage = options.storage === undefined ? browserStorage() : options.storage;
 		this.#now = options.now ?? (() => new Date());
@@ -159,13 +124,14 @@ export class SyncClient {
 		this.#debounceMs = options.debounceMs ?? 2000;
 		this.#pollMs = options.pollMs ?? 5 * 60_000;
 		this.#backoff = options.backoffMs ?? { base: 2000, max: 5 * 60_000 };
+		this.#onChange = options.onChange;
 		this.#onBoard = options.onBoard;
-		const record = this.#load();
+		const records = this.#collections.map((c) => this.#load(c));
 		this.#status = {
 			state: 'offline',
-			user: record.user,
-			lastSyncedAt: record.lastSyncedAt,
-			pending: outgoing(record, this.#board()).length,
+			user: records[0]?.user ?? null,
+			lastSyncedAt: latest(records.map((r) => r.lastSyncedAt)),
+			pending: this.#pending(),
 			error: null
 		};
 	}
@@ -190,9 +156,10 @@ export class SyncClient {
 			if (typeof document === 'undefined' || document.visibilityState === 'visible') soon();
 		};
 		const offline = () => this.#setStatus({ state: 'offline', error: null });
-		// Another tab saved the board.
+		// Another tab saved some of the data.
+		const dataKeys = new Set(this.#collections.map((c) => c.dataKey));
 		const storage: Listener = (event) => {
-			if (!event?.key || event.key === BOARD_STORAGE_KEY) this.notifyLocalChange();
+			if (!event?.key || dataKeys.has(event.key)) this.notifyLocalChange();
 		};
 		const events = this.#events;
 		events?.addEventListener('focus', soon);
@@ -217,7 +184,7 @@ export class SyncClient {
 		this.#clearTimer();
 	}
 
-	/** The board was just saved locally: note deletions now, push after a short pause. */
+	/** Some data was just saved locally: note deletions now, push after a short pause. */
 	notifyLocalChange(): void {
 		this.#noteLocalChanges();
 		if (this.#status.state !== 'signed-out') this.#schedule(this.#debounceMs);
@@ -250,17 +217,42 @@ export class SyncClient {
 		this.#setStatus({ state: 'syncing' });
 		try {
 			await this.#checkUser();
-			const pushed = await this.#push();
-			const pulled = await this.#pull();
-			this.#apply(pushed, pulled.items, pulled.cursor);
+			for (const collection of this.#collections) await this.#syncCollection(collection);
 			this.#failures = 0;
-			const record = this.#load();
-			const pending = outgoing(record, this.#board()).length;
-			this.#setStatus({ state: 'synced', lastSyncedAt: record.lastSyncedAt, pending, error: null });
-			this.#schedule(pending ? 0 : this.#pollMs);
+			const records = this.#collections.map((c) => this.#load(c));
+			const pending = this.#pending();
+			this.#setStatus({
+				state: 'synced',
+				lastSyncedAt: latest(records.map((r) => r.lastSyncedAt)),
+				pending,
+				error: null
+			});
+			// Anything still pending changed during the round: push it after the usual pause.
+			this.#schedule(pending ? this.#debounceMs : this.#pollMs);
 		} catch (e) {
 			this.#fail(e);
 		}
+	}
+
+	async #syncCollection<T extends Stamped>(collection: Collection<T>): Promise<void> {
+		const pushed = await this.#push(collection);
+		const pulled = await this.#pull(collection);
+		const now = this.#now();
+		const result = applyRound(collection, {
+			record: this.#load(collection),
+			local: collection.load(this.#storage, now),
+			sent: pushed.sent,
+			stored: pushed.stored,
+			pulled: pulled.items,
+			cursor: pulled.cursor,
+			now
+		});
+		if (result.items) {
+			const data = collection.save(result.items, this.#storage, now);
+			this.#onChange?.(collection.name, data);
+			if (collection.name === boardCollection.name) this.#onBoard?.(data as Board);
+		}
+		this.#save(collection, result.record);
 	}
 
 	#fail(e: unknown): void {
@@ -282,96 +274,51 @@ export class SyncClient {
 		if (this.#checkedUser) return;
 		const me = (await this.#request('GET', '/api/me')) as { email?: unknown };
 		if (typeof me.email !== 'string') throw new Rejected('unexpected /api/me response');
-		const record = this.#load();
-		if (record.user !== me.email) {
-			// Another account's cursor and base mean nothing here: pull everything, push the board.
-			this.#save({ ...EMPTY_RECORD, user: me.email });
+		for (const collection of this.#collections) {
+			// Another account's cursor and base mean nothing here: pull everything, push it all.
+			if (this.#load(collection).user !== me.email) {
+				this.#save(collection, emptyRecord(me.email));
+			}
 		}
 		this.#checkedUser = true;
 		this.#setStatus({ user: me.email });
 	}
 
-	async #push(): Promise<Pushed> {
+	async #push<T extends Stamped>(
+		collection: Collection<T>
+	): Promise<{ sent: Outgoing<T>[]; stored: Outgoing<T>[] }> {
 		this.#noteLocalChanges();
-		const items = outgoing(this.#load(), this.#board());
-		const stored: WireItem[] = [];
-		for (let i = 0; i < items.length; i += LIMITS.batch) {
-			const body = await this.#request('PUT', '/api/board', {
-				items: items.slice(i, i + LIMITS.batch)
+		const now = this.#now();
+		const local = collection.load(this.#storage, now);
+		const items = outgoing(collection, this.#load(collection), local, now);
+		const stored: Outgoing<T>[] = [];
+		for (let i = 0; i < items.length; i += collection.batch) {
+			const batch = items.slice(i, i + collection.batch);
+			const body = await this.#request('PUT', `/api/${collection.name}`, {
+				items: batch.map(({ key, item }) => collection.toWire(key, item))
 			});
-			stored.push(...parseItems(body));
+			stored.push(...parseItems(collection, body));
 		}
 		return { sent: items, stored };
 	}
 
-	async #pull(): Promise<{ items: WireItem[]; cursor: string | null }> {
-		let cursor = this.#load().cursor;
-		const items: WireItem[] = [];
+	async #pull<T extends Stamped>(
+		collection: Collection<T>
+	): Promise<{ items: Outgoing<T>[]; cursor: string | null }> {
+		let cursor = this.#load(collection).cursor;
+		const items: Outgoing<T>[] = [];
 		for (let page = 0; page < 1000; page++) {
 			const query = cursor ? `?since=${encodeURIComponent(cursor)}` : '';
-			const body = (await this.#request('GET', `/api/board${query}`)) as {
+			const body = (await this.#request('GET', `/api/${collection.name}${query}`)) as {
 				cursor?: unknown;
 				more?: unknown;
 			};
-			items.push(...parseItems(body));
+			items.push(...parseItems(collection, body));
 			if (typeof body.cursor !== 'string') throw new Rejected('response without a cursor');
 			cursor = body.cursor;
 			if (body.more !== true) break;
 		}
 		return { items, cursor };
-	}
-
-	/** Merges server rows into the board as it is *now* (it may have changed during the round). */
-	#apply(pushed: Pushed, pulled: WireItem[], cursor: string | null): void {
-		const record = this.#load();
-		const board = this.#board();
-		const tombstones = recordDeletions(
-			record.tombstones,
-			diffBoards(record.base, board),
-			board,
-			this.#now()
-		);
-
-		// Server rows, the pull (later) over the push responses.
-		const remote: Record<string, SyncItem> = {};
-		for (const { key, ...item } of [...pushed.stored, ...pulled]) remote[key] = item;
-
-		// For what we pushed and haven't changed since, the server's answer is final even if it
-		// looks older (it clamps timestamps from clocks running ahead).
-		const local: Record<string, SyncItem> = { ...toSyncMap(board, tombstones) };
-		for (const { key, ...sent } of pushed.sent) {
-			if (remote[key] && sameItem(local[key], sent)) delete local[key];
-		}
-
-		const merged: SyncMap = mergeBoards(local, remote);
-		const nextBoard = boardOf(merged);
-
-		// A deletion stays pending until the server holds it (or something newer).
-		const pending: Record<string, string> = {};
-		for (const [key, at] of Object.entries(tombstones)) {
-			const server = remote[key];
-			const acked = server && Date.parse(server.at) >= Date.parse(at);
-			if (!acked && merged[key]?.state === null) pending[key] = at;
-		}
-
-		// The base now matches the server for every row it sent.
-		const base: Record<string, Board[string]> = { ...record.base };
-		for (const [key, item] of Object.entries(remote)) {
-			if (item.state === null) delete base[key];
-			else base[key] = boardOf({ [key]: item })[key]!;
-		}
-
-		if (!sameBoard(board, nextBoard)) {
-			saveBoard(nextBoard, this.#storage);
-			this.#onBoard?.(nextBoard);
-		}
-		this.#save({
-			...record,
-			cursor,
-			base,
-			tombstones: pending,
-			lastSyncedAt: this.#now().toISOString()
-		});
 	}
 
 	// --- plumbing ----------------------------------------------------------------------------
@@ -414,32 +361,40 @@ export class SyncClient {
 		}
 	}
 
+	/** Records deletions noticed since the last look, and updates the pending count. */
 	#noteLocalChanges(): void {
-		const record = this.#load();
-		const board = this.#board();
-		const tombstones = recordDeletions(
-			record.tombstones,
-			diffBoards(record.base, board),
-			board,
-			this.#now()
-		);
-		const changed =
-			Object.keys(tombstones).length !== Object.keys(record.tombstones).length ||
-			Object.entries(tombstones).some(([key, at]) => record.tombstones[key] !== at);
-		if (changed) this.#save({ ...record, tombstones });
-		this.#setStatus({ pending: outgoing({ ...record, tombstones }, board).length });
+		const now = this.#now();
+		for (const collection of this.#collections) {
+			if (!collection.deletions) continue;
+			const record = this.#load(collection);
+			const local = collection.load(this.#storage, now);
+			const tombstones = noteDeletions(collection, record, local, now);
+			if (!sameTombstones(tombstones, record.tombstones)) {
+				this.#save(collection, { ...record, tombstones });
+			}
+		}
+		this.#setStatus({ pending: this.#pending() });
 	}
 
-	#board(): Board {
-		return loadBoard(this.#storage);
+	/** Local changes not yet on the server, over all collections. */
+	#pending(): number {
+		const now = this.#now();
+		let n = 0;
+		for (const collection of this.#collections) {
+			const record = this.#load(collection);
+			const local = collection.load(this.#storage, now);
+			const tombstones = noteDeletions(collection, record, local, now);
+			n += outgoing(collection, { ...record, tombstones }, local, now).length;
+		}
+		return n;
 	}
 
-	#load(): SyncRecord {
-		return parseRecord(readJson(SYNC_STORAGE_KEY, this.#storage));
+	#load<T extends Stamped>(collection: Collection<T>): SyncRecord<T> {
+		return parseRecord(collection, readJson(collection.recordKey, this.#storage));
 	}
 
-	#save(record: SyncRecord): void {
-		writeJson(SYNC_STORAGE_KEY, record, this.#storage);
+	#save<T extends Stamped>(collection: Collection<T>, record: SyncRecord<T>): void {
+		writeJson(collection.recordKey, packRecord(collection, record), this.#storage);
 	}
 
 	#schedule(ms: number): void {
@@ -464,13 +419,15 @@ export class SyncClient {
 	}
 }
 
-interface Pushed {
-	sent: WireItem[];
-	stored: WireItem[];
-}
-
-function parseItems(body: unknown): WireItem[] {
+function parseItems<T extends Stamped>(collection: Collection<T>, body: unknown): Outgoing<T>[] {
 	const items = (body as { items?: unknown } | null)?.items;
 	if (!Array.isArray(items)) throw new Rejected('response without items');
-	return items.map(fromWire).filter((item): item is WireItem => item !== null);
+	return items
+		.map((raw) => collection.fromWire(raw))
+		.filter((item): item is Outgoing<T> => item !== null);
+}
+
+/** The latest of some ISO times. */
+function latest(times: (string | null)[]): string | null {
+	return times.reduce<string | null>((a, b) => (b !== null && (a === null || b > a) ? b : a), null);
 }

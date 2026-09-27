@@ -72,6 +72,21 @@ describe('boardColumns', () => {
 		expect(columns.nope.map((c) => [c.name, c.warnings])).toEqual([['Meh', []]]);
 	});
 
+	it("warns (without hiding) when the next gig is on one of the listener's unavailable dates", () => {
+		const away = (date: string) => date === '2026-10-03' || date === '2026-10-16';
+		const cols = boardColumns(BOARD, catalogWith(), TODAY, away);
+		expect(cols.listen.map((c) => [c.key, c.next?.id, c.warnings])).toEqual([
+			['mb:nobu', 'paradiso:soon', ['unavailable']]
+		]);
+		expect(cols.go.map((c) => [c.key, c.warnings])).toEqual([
+			['mb:gh', ['sold-out', 'unavailable']],
+			['name:gone', ['no-gig']]
+		]);
+		const nope: Board = { 'mb:nobu': { state: 'nope', name: 'Nobu', at } };
+		expect(boardColumns(nope, catalogWith(), TODAY, away).nope[0].warnings).toEqual([]);
+		expect(boardColumns(BOARD, catalogWith(), TODAY).listen[0].warnings).toEqual([]);
+	});
+
 	it('flags listen-more artists with nothing coming up', () => {
 		const board: Board = { 'mb:old': { state: 'listen', name: 'Old Band', at } };
 		expect(boardColumns(board, catalogWith(), TODAY).listen[0].warnings).toEqual(['no-gig']);

@@ -17,7 +17,7 @@ pnpm --dir packages/radio-core typecheck   # tsc --noEmit
 | `types` | `Gig`, `Artist`, `GigsFile`, `ArtistsFile` (the pipeline's JSON as-is), `Track` `{videoId, title, album?}` and the `Player` interface (implementations live in the app). |
 | `queue` | `buildQueue({gigs, tracks, now, tracksPerArtist, notForMe, artists})`: one `QueueEntry` per artist at their earliest upcoming gig, N tracks each; reports artists skipped for having no tracks or being "not for me". |
 | `order` | `orderQueue(entries, "date" \| "shuffle" \| "mix", {seed, now, listenMore, history})`. Mix is a seeded Efraimidis–Spirakis weighted shuffle; `mixWeight` and `MIX` hold the weights. |
-| `history` | `PlayHistory` (artistKey → epoch-ms timestamps): `recordPlay`, `pruneHistory` (60 days), `lastHeard`, `parseHistory`. |
+| `history` | `PlayHistory` (artistKey → epoch-ms timestamps): `recordPlay`, `pruneHistory` (60 days), `mergeHistory` (union of two devices' plays, pruned), `lastHeard`, `parseHistory`. |
 | `session` | `snapshotSession`, `parseSession`, `restoreSession`, `filtersKey`: save a listening session and resume it against fresh data. |
 | `navigation` | `nextPosition`, `previousPosition`, `nextArtistPosition`, `clampPosition`, `currentTrack` (wrapping). |
 | `announcer` | `Announcer`: the original fixed-shape intros (`name` / `short`), gig lines, ticket notes, micro-announcements. The presenter builds on it (venue naming, song titles, ticket wordings). |

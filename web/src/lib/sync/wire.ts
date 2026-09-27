@@ -1,4 +1,4 @@
-// The board as it travels to and from the accounts API (worker/src/validate.ts). The server
+// The board as it travels to and from the accounts API (worker/src/collections.ts). The server
 // rejects a whole batch if one item breaks its rules, so items it would refuse are kept local
 // only and never pushed; keep these rules in step with the Worker's.
 
@@ -34,9 +34,14 @@ function isText(value: unknown, max: number): value is string {
 	return typeof value === 'string' && value.length <= max && NO_CONTROL.test(value);
 }
 
+/** "mb:<mbid>" or "name:<normalised name>", as the server accepts them. */
+export function isArtistKey(key: string): boolean {
+	return key.length <= LIMITS.keyLength && (MBID.test(key) || NAME_KEY.test(key));
+}
+
 /** Would the server accept this item? */
 export function isSyncable(key: string, item: SyncItem): boolean {
-	if (key.length > LIMITS.keyLength || !(MBID.test(key) || NAME_KEY.test(key))) return false;
+	if (!isArtistKey(key)) return false;
 	const at = Date.parse(item.at);
 	if (Number.isNaN(at) || at < EPOCH) return false;
 	if (item.state === null) return true;

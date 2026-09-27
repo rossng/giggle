@@ -7,6 +7,10 @@
 // link keeps showing "the next month from three days out" as the days pass. Defaults are
 // left out of the URL, and anything unknown or malformed is ignored. Everything here is
 // pure: `parse`, `serialise` and `apply` never read the clock or the page.
+//
+// `hide=unavailable` leaves out gigs on the listener's own unavailable dates (unavailable.ts).
+// Those aren't in the URL: a shared link hides the *viewer's* dates. `apply` and `facetCounts`
+// take them as a date test.
 
 import { addDays, amsterdamDate } from './dates';
 import { GENRES, isGenreId, type GenreId } from './genres';
@@ -31,8 +35,7 @@ export interface Filters {
 	genres: GenreId[];
 	/** Free-text search over titles, artists and venues. */
 	q: string;
-	/** `unavailable` is reserved for per-user unavailable dates, which don't exist yet:
-	 * it round-trips through the URL but filters nothing. */
+	/** `soldout`; `unavailable`: gigs on the listener's unavailable dates (see `apply`). */
 	hide: HideFlag[];
 	/** Radio play order; null means the page's own default. */
 	order: Order | null;
@@ -180,13 +183,22 @@ export function searchText(text: string): string {
 	return text.normalize('NFKD').replace(/[̀-ͯ]/g, '').toLowerCase();
 }
 
-function predicate(filters: Filters, now: Date, skip?: Facet): (item: Filterable) => boolean {
+/** Is the listener unavailable on this (Amsterdam) date? From unavailable.ts. */
+export type DateTest = (date: IsoDate) => boolean;
+
+function predicate(
+	filters: Filters,
+	now: Date,
+	unavailable: DateTest | undefined,
+	skip?: Facet
+): (item: Filterable) => boolean {
 	const { first, last } = dateWindow(filters, now);
 	const cities = skip === 'city' ? null : new Set(filters.cities);
 	const venues = skip === 'venue' ? null : new Set(filters.venues);
 	const genres = skip === 'genre' ? null : new Set(filters.genres);
 	const words = searchText(cleanQuery(filters.q)).split(' ').filter(Boolean);
 	const hideSoldOut = filters.hide.includes('soldout');
+	const away = filters.hide.includes('unavailable') ? unavailable : undefined;
 	return (item) =>
 		item.date >= first &&
 		item.date <= last &&
@@ -194,12 +206,21 @@ function predicate(filters: Filters, now: Date, skip?: Facet): (item: Filterable
 		(!venues?.size || venues.has(item.gig.venue)) &&
 		(!genres?.size || item.buckets.some((b) => genres.has(b))) &&
 		!(hideSoldOut && isSoldOut(item.gig)) &&
+		!away?.(item.date) &&
 		words.every((w) => item.haystack.includes(w));
 }
 
-/** The gigs `filters` let through, in their given order. */
-export function apply<T extends Filterable>(filters: Filters, gigs: readonly T[], now: Date): T[] {
-	return gigs.filter(predicate(filters, now));
+/**
+ * The gigs `filters` let through, in their given order. `unavailable` is the listener's
+ * unavailable dates, used when `filters.hide` has 'unavailable'.
+ */
+export function apply<T extends Filterable>(
+	filters: Filters,
+	gigs: readonly T[],
+	now: Date,
+	unavailable?: DateTest
+): T[] {
+	return gigs.filter(predicate(filters, now, unavailable));
 }
 
 export interface FacetCounts {
@@ -209,12 +230,17 @@ export interface FacetCounts {
 }
 
 /** For each facet, how many gigs each value would show with every other filter applied. */
-export function facetCounts(filters: Filters, gigs: readonly Filterable[], now: Date): FacetCounts {
+export function facetCounts(
+	filters: Filters,
+	gigs: readonly Filterable[],
+	now: Date,
+	unavailable?: DateTest
+): FacetCounts {
 	const counts: FacetCounts = { city: new Map(), venue: new Map(), genre: new Map() };
 	const bump = <K>(map: Map<K, number>, key: K) => map.set(key, (map.get(key) ?? 0) + 1);
-	const byCity = predicate(filters, now, 'city');
-	const byVenue = predicate(filters, now, 'venue');
-	const byGenre = predicate(filters, now, 'genre');
+	const byCity = predicate(filters, now, unavailable, 'city');
+	const byVenue = predicate(filters, now, unavailable, 'venue');
+	const byGenre = predicate(filters, now, unavailable, 'genre');
 	for (const item of gigs) {
 		if (byCity(item)) bump(counts.city, item.city);
 		if (byVenue(item)) bump(counts.venue, item.gig.venue);
@@ -252,6 +278,7 @@ export function summarise(
 	}
 	if (filters.q) parts.push(`“${filters.q}”`);
 	if (filters.hide.includes('soldout')) parts.push('no sold-out gigs');
+	if (filters.hide.includes('unavailable')) parts.push('not on my unavailable dates');
 	if (filters.order) parts.push(`order: ${filters.order}`);
 	return parts.join(' · ');
 }

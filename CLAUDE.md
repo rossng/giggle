@@ -19,16 +19,19 @@ Upcoming-gig radio for Amsterdam and nearby. Design report: https://claude.ai/ar
   lexicon, rendered ahead) and Web Speech as its fallback, per-station session persistence,
   Media Session) and Board (triage stored by
   `web/src/lib/board/board.ts`, columns in `columns.ts`, synced by `web/src/lib/sync/`). One
-  filter model (`web/src/lib/data/filters.ts`) lives in the URL.
+  filter model (`web/src/lib/data/filters.ts`) lives in the URL; `hide=unavailable` uses the
+  listener's own unavailable dates (`web/src/lib/data/unavailable.ts`, edited in the filter panel).
 - `packages/radio-core/` — TypeScript radio engine (queue, Mix/Shuffle, session restore, announcer
   text, ducking): framework-free, deterministic, no runtime deps. Web imports it as
   `@giggle/radio-core` via the root pnpm workspace.
 - `worker/` — Cloudflare Worker (wrangler 4, `wrangler.jsonc`): serves `web/build` as static assets
-  and the per-user `/api/*` on D1 (board sync: LWW per artist, tombstones, `since` cursor). Auth is
-  a verified Cloudflare Access JWT in production, a dev identity only with `--env dev` on localhost
-  (`worker/README.md`). The web side is `web/src/lib/sync/` (`SyncClient`, `mergeBoards`). It also
-  serves the browser's Kokoro files at `/models/*` from R2 (`MODELS`), public, only those listed in
-  `web/src/lib/voice/model-files.json`.
+  and the per-user `/api/<collection>` on D1: board, unavailable dates, play history, one generic
+  mechanism (`src/collections.ts`, `src/store.ts`, table `sync_items`: LWW per key, tombstones,
+  `since` cursor; plays are immutable items, so histories merge as a union). New migrations go in
+  new files. Auth is a verified Cloudflare Access JWT in production, a dev identity only with
+  `--env dev` on localhost (`worker/README.md`). The web side is `web/src/lib/sync/` (`SyncClient`
+  over `collection.ts`/`collections.ts`). It also serves the browser's Kokoro files at `/models/*`
+  from R2 (`MODELS`), public, only those listed in `web/src/lib/voice/model-files.json`.
 
 ## Commands
 Enter the toolchain shell first: `direnv allow` (uses `.envrc`) or `nix develop`. The flake pins

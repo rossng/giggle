@@ -15,16 +15,17 @@
 	} from '$lib/board/board';
 	import { boardColumns, COLUMNS, type Card, type ColumnId } from '$lib/board/columns';
 	import { amsterdamDate, dayParts, localDate, localTime } from '$lib/data/dates';
+	import { unavailableDates } from '$lib/data/unavailable-store.svelte';
 	import { artistPath } from '$lib/data/slugs';
 	import type { SyncStatus } from '$lib/sync/client';
-	import { boardChanged, boardSync, onBoardSynced } from '$lib/sync/app';
+	import { boardChanged, onBoardSynced, sync as syncClient } from '$lib/sync/app';
 
 	let { data } = $props();
 	const catalog = $derived(data.catalog);
 
 	let board: Board = $state({});
 	const today = amsterdamDate(new Date());
-	const columns = $derived(boardColumns(board, catalog, today));
+	const columns = $derived(boardColumns(board, catalog, today, unavailableDates.test));
 	const total = $derived(Object.keys(board).length);
 	// /board?column=go shows one column (the URL shape agreed for deep links).
 	const only = $derived(page.url.searchParams.get('column') as ColumnId | null);
@@ -49,7 +50,7 @@
 		};
 		addEventListener('storage', onStorage);
 		const offSync = onBoardSynced((synced) => (board = synced));
-		const offStatus = boardSync?.subscribe((s) => (sync = s)) ?? (() => {});
+		const offStatus = syncClient?.subscribe((s) => (sync = s)) ?? (() => {});
 		return () => {
 			removeEventListener('storage', onStorage);
 			offSync();
@@ -186,6 +187,10 @@
 								>{/if}
 							{#if card.warnings.includes('no-gig')}<span class="warn mute"
 									>No upcoming gig in the data</span
+								>{/if}
+							{#if card.warnings.includes('unavailable')}<span
+									class="warn"
+									title="On one of your unavailable dates">You're unavailable that day</span
 								>{/if}
 						</div>
 						<div class="moves" aria-label="Move {card.name}">

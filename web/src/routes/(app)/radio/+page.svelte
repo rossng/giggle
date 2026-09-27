@@ -16,6 +16,7 @@
 	import UpNext from '$lib/components/radio/UpNext.svelte';
 	import { TRIAGES, TRIAGE_KEYS, TRIAGE_LABELS, countByState, type Triage } from '$lib/board/board';
 	import { amsterdamDate } from '$lib/data/dates';
+	import { unavailableDates } from '$lib/data/unavailable-store.svelte';
 	import {
 		apply,
 		dateWindow,
@@ -46,10 +47,10 @@
 	const today = amsterdamDate(now);
 
 	const station = $derived(stationFromParams(page.url.searchParams));
-	const shown = $derived(apply(station.filters, catalog.gigs, now));
+	const shown = $derived(apply(station.filters, catalog.gigs, now, unavailableDates.test));
 	const tracks = $derived(trackIndex(artists));
 	const clips = $derived(introClips(artists));
-	const counts = $derived(facetCounts(station.filters, catalog.gigs, now));
+	const counts = $derived(facetCounts(station.filters, catalog.gigs, now, unavailableDates.test));
 	const range = $derived(dateWindow(station.filters, now));
 	const summary = $derived(
 		summarise(station.filters, {

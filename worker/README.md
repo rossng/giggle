@@ -5,8 +5,8 @@ One Cloudflare Worker serves the whole site:
 - **Static files** (the SPA in `web/build`, gig data under `/data/`) come from Workers static
   assets, with `not_found_handling = "single-page-application"`. The Worker code doesn't run
   for them.
-- **`/api/*`** (`run_worker_first`) is personal data, stored per user in D1 (`DB`). Today that's
-  the board; unavailable dates, play history and settings come later.
+- **`/api/*`** (`run_worker_first`) is personal data, stored per user in D1 (`DB`): the board,
+  unavailable dates and the radio's play history. Settings may come later.
 - **`/models/*`** (`run_worker_first`) is the browser's Kokoro model, from R2 (`MODELS`): public,
   no auth. See [Model files](#model-files).
 
@@ -17,22 +17,37 @@ All JSON, all `Cache-Control: no-store`. Errors are `{"error": "..."}`.
 | Request | Response |
 | --- | --- |
 | `GET /api/me` | `{email, via: "access" \| "dev"}` |
-| `GET /api/board?since=<cursor>` | `{items, cursor, more}`: rows changed after `cursor` (omit for all), tombstones included, at most 1000 per page; ask again with `cursor` while `more` |
-| `PUT /api/board` `{items: [...]}` | `{items}`: the stored rows for those keys after last-write-wins |
+| `GET /api/<collection>?since=<cursor>` | `{items, cursor, more}`: rows changed after `cursor` (omit for all), tombstones included, at most 1000 per page; ask again with `cursor` while `more` |
+| `PUT /api/<collection>` `{items: [...]}` | `{items}`: the stored rows for those keys after last-write-wins |
 
-An item is `{key, state, name, gig?, at}`: `key` is `mb:<mbid>` or `name:<normalised name>`,
-`state` is `listen`/`go`/`tickets`/`nope`, or `null` for a deletion (tombstone), `at` is when the
-client made the change (ISO 8601). Per key the later `at` wins; on a tie the stored row stays.
-`at` more than 10 minutes ahead of the server is clamped to the server's clock.
+`<collection>` is one of three, all synced the same way (`src/collections.ts`, `src/store.ts`):
 
-The `since` cursor is a per-user change counter, not a time: every accepted write gets a higher
-one, so no change is missed because of clock differences between devices or Cloudflare locations.
+| Collection | Item | Deletion | Limit |
+| --- | --- | --- | --- |
+| `board` | `{key, state, name, gig?, at}`: `key` is `mb:<mbid>` or `name:<normalised name>`, `state` `listen`/`go`/`tickets`/`nope` | `state: null` | 20 000 rows (413) |
+| `unavailable` | `{key, label?, at}`: `key` is a day `2026-10-03`, a range `2026-10-10/2026-10-17` (both ends included, in order, at most 366 days, one day written as the day) or a weekday `weekly:mon` … `weekly:sun`; dates are Amsterdam dates; `label` ≤ 100 characters | `{key, deleted: true, at}` | 2 000 rows (413) |
+| `plays` | `{key: artist key, at: when it was heard}`; a play is its artist and time together, so the same play sent twice is stored once | none | 60 days, 10 000 rows |
+
+Per key the later `at` wins; on a tie the stored row stays. `at` more than 10 minutes ahead of the
+server is clamped to the server's clock. Plays are never changed, only added: two devices' histories
+merge into the union. Plays more than 10 minutes in the future or older than 60 days are dropped
+(left out of the response, the batch still succeeds), and when writing, plays older than 60 days
+and the oldest past 10 000 are forgotten (never the row with the highest `seq`, so cursors stay
+valid; there may be one extra).
+
+The `since` cursor is a per-user, per-collection change counter, not a time: every accepted write
+gets a higher one, so no change is missed because of clock differences between devices or
+Cloudflare locations.
 
 Validation is strict and whole-batch: `Content-Type: application/json` (else 415), body ≤ 256 KB
 and ≤ 500 items (else 413/400), no unknown fields, no duplicate keys, names ≤ 300 characters, no
-control characters; at most 20 000 rows per user (413). See `src/validate.ts`.
+control characters. See `src/validate.ts` and `src/collections.ts`.
 
-The web client is `web/src/lib/sync/` (`SyncClient`, `mergeBoards`, `diffBoards`).
+Storage: one table, `sync_items (user, collection, key, data, at, seq)`, `data` being the item's
+JSON or NULL for a tombstone (`migrations/0002_sync_items.sql`, which moved the board's rows over
+from 0001's `board_items` with their keys, times and seqs, so existing cursors stay valid).
+
+The web client is `web/src/lib/sync/` (`SyncClient` over `collection.ts`/`collections.ts`).
 
 ## Who is asking
 
@@ -104,12 +119,19 @@ curl -X PUT -H 'X-Giggle-Dev-User: alice@example.test' -H 'Content-Type: applica
   -d '{"items":[{"key":"name:mogwai","state":"go","name":"Mogwai","at":"2026-09-26T19:00:00Z"}]}' \
   http://127.0.0.1:8787/api/board
 curl -H 'X-Giggle-Dev-User: bob@example.test' http://127.0.0.1:8787/api/board   # bob sees nothing
+curl -X PUT -H 'X-Giggle-Dev-User: alice@example.test' -H 'Content-Type: application/json' \
+  -d '{"items":[{"key":"weekly:mon","at":"2026-09-26T19:00:00Z"},{"key":"2026-10-10/2026-10-17","label":"Lisbon","at":"2026-09-26T19:00:00Z"}]}' \
+  http://127.0.0.1:8787/api/unavailable
+curl -H 'X-Giggle-Dev-User: alice@example.test' http://127.0.0.1:8787/api/plays
 ```
 
 ```sh
 make models            # once, ~420 MB: the browser's Kokoro files into the local R2
 curl -I http://127.0.0.1:8787/models/kokoro-82m-v1.0/1939ad2a8e416c0acfeecc08a694d14ef25f2231/onnx/model.onnx
 ```
+
+If `:8787` is taken (say by `make dev` in another checkout), pass wrangler another port:
+`pnpm --dir worker exec wrangler dev --env dev --ip 127.0.0.1 --port 8797 --inspector-port 9239`.
 
 Local D1 and R2 data live in `worker/.wrangler/` (git-ignored); delete it to start over (then
 `make models` again). `worker-dev` serves whatever is in `web/build` (`make web-build`); for the
