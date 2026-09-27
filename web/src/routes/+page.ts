@@ -1,7 +1,7 @@
 import { redirect } from '@sveltejs/kit';
 import type { PageLoad } from './$types';
 
-// People land on the radio: it's what giggle is for (the agenda and board are a tap away).
+// People land on the agenda: it says what giggle is (gigs coming up), and the radio is a tap away.
 export const load: PageLoad = ({ url }) => {
-	redirect(307, `/radio${url.search}`);
+	redirect(307, `/agenda${url.search}`);
 };

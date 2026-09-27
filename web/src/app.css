@@ -3,7 +3,7 @@
 :root {
 	/* The app shell (routes/(app)/+layout.svelte): top bar, player bar, and tabs on phones. */
 	--top-h: 56px;
-	--player-h: 72px;
+	--player-h: 80px;
 	--tabs-h: 0px;
 	--bg: #15111c;
 	--p1: #1d1827;

@@ -62,20 +62,22 @@
 
 	<div class="controls">
 		<div class="buttons">
-			<button
-				type="button"
-				class="icon wide"
-				title="Previous track (←)"
-				onclick={() => radio.previous()}
-				disabled={!radio.started}
-			>
-				<svg viewBox="0 0 20 20" aria-hidden="true"
-					><path d="M5 4v12" stroke="currentColor" stroke-width="1.8" /><path
-						d="M16 4 7 10l9 6z"
-						fill="currentColor"
-					/></svg
-				><span class="visually-hidden">Previous track</span>
-			</button>
+			<div class="before">
+				<button
+					type="button"
+					class="icon wide"
+					title="Previous track (←)"
+					onclick={() => radio.previous()}
+					disabled={!radio.started}
+				>
+					<svg viewBox="0 0 20 20" aria-hidden="true"
+						><path d="M5 4v12" stroke="currentColor" stroke-width="1.8" /><path
+							d="M16 4 7 10l9 6z"
+							fill="currentColor"
+						/></svg
+					><span class="visually-hidden">Previous track</span>
+				</button>
+			</div>
 			<button
 				type="button"
 				class="play"
@@ -100,27 +102,29 @@
 					><span class="visually-hidden">Play</span>
 				{/if}
 			</button>
-			<button
-				type="button"
-				class="icon"
-				title="Next track (→)"
-				onclick={() => radio.next()}
-				disabled={!entry}
-			>
-				<svg viewBox="0 0 20 20" aria-hidden="true"
-					><path d="M15 4v12" stroke="currentColor" stroke-width="1.8" /><path
-						d="M4 4l9 6-9 6z"
-						fill="currentColor"
-					/></svg
-				><span class="visually-hidden">Next track</span>
-			</button>
-			<button
-				type="button"
-				class="skip wide"
-				onclick={() => radio.nextArtist()}
-				disabled={!entry}
-				title="Next artist (N)">Next artist</button
-			>
+			<div class="after">
+				<button
+					type="button"
+					class="icon"
+					title="Next track (→)"
+					onclick={() => radio.next()}
+					disabled={!entry}
+				>
+					<svg viewBox="0 0 20 20" aria-hidden="true"
+						><path d="M15 4v12" stroke="currentColor" stroke-width="1.8" /><path
+							d="M4 4l9 6-9 6z"
+							fill="currentColor"
+						/></svg
+					><span class="visually-hidden">Next track</span>
+				</button>
+				<button
+					type="button"
+					class="skip wide"
+					onclick={() => radio.nextArtist()}
+					disabled={!entry}
+					title="Next artist (N)">Next artist</button
+				>
+			</div>
 		</div>
 		<div class="progress wide">
 			<span>{clock(shownTime)}</span>
@@ -231,13 +235,25 @@
 	.controls {
 		display: flex;
 		flex-direction: column;
-		gap: 4px;
-		align-items: center;
+		gap: 6px;
+		align-items: stretch;
+		padding-top: 4px;
 	}
+	/* Play sits in the middle, over the progress bar; the rest goes either side of it. */
 	.buttons {
-		display: flex;
-		gap: 14px;
+		display: grid;
+		grid-template-columns: 1fr auto 1fr;
 		align-items: center;
+		gap: 14px;
+	}
+	.before,
+	.after {
+		display: flex;
+		align-items: center;
+		gap: 14px;
+	}
+	.before {
+		justify-content: flex-end;
 	}
 	button {
 		border: 0;
@@ -289,6 +305,7 @@
 		color: var(--ink);
 	}
 	.progress {
+		align-self: center;
 		display: flex;
 		align-items: center;
 		gap: 10px;
