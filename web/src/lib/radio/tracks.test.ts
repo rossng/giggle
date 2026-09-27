@@ -3,7 +3,6 @@ import { artist } from '$lib/data/fixtures';
 import type { YoutubeArtist } from '$lib/data/types';
 import {
 	artistImage,
-	hasYoutubeField,
 	introClips,
 	songsToTracks,
 	squareImage,
@@ -62,11 +61,6 @@ describe('trackIndex', () => {
 });
 
 describe('helpers', () => {
-	it('tells whether the data has YouTube fields', () => {
-		expect(hasYoutubeField({ a: artist() })).toBe(false);
-		expect(hasYoutubeField({ a: artist(), b: artist({ youtube: null }) })).toBe(true);
-	});
-
 	it('squares YouTube banner images and leaves other URLs alone', () => {
 		expect(squareImage(yt().image)).toBe(
 			'https://yt3.googleusercontent.com/abc=w544-h544-p-l90-rj'

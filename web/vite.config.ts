@@ -25,10 +25,7 @@ function siteData(): Plugin {
 		}
 		const match = /^\/data\/([a-z0-9_-]+\.json)$/.exec(path);
 		if (!match) return next();
-		// DEV FALLBACK (delete with src/lib/radio/dev-ytmusic-fallback.ts): until artists.json
-		// carries `youtube`, serve the pipeline's YouTube Music cache next to the site data.
-		const file =
-			match[1] === 'ytmusic.json' ? resolve(dir, '../cache/ytmusic.json') : resolve(dir, match[1]);
+		const file = resolve(dir, match[1]);
 		if (!existsSync(file)) {
 			res.statusCode = 404;
 			res.setHeader('Content-Type', 'text/plain');

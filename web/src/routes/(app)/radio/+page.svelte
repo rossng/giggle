@@ -39,7 +39,7 @@
 
 	let { data } = $props();
 	const catalog = $derived(data.catalog);
-	const artists = $derived(data.artists);
+	const artists = $derived(catalog.artists);
 
 	// Read once per visit, like the agenda: the window is relative to today.
 	const now = new Date();
@@ -73,7 +73,7 @@
 		() =>
 			new Radio({
 				venues: catalog.venues,
-				image: (entry) => artistImage(data.artists[entry.artistKey]),
+				image: (entry) => artistImage(data.catalog.artists[entry.artistKey]),
 				onOrderChange: (order: RadioOrder, seed: number) =>
 					go(stationQuery({ filters: station.filters, order, seed }))
 			})
@@ -306,7 +306,7 @@
 				{#if noTracksAtAll}
 					<p>
 						No songs found for any artist yet: the data has no YouTube Music matches. Run the
-						pipeline (or, in development, check <code>data/cache/ytmusic.json</code>).
+						pipeline.
 					</p>
 				{:else}
 					<p>
