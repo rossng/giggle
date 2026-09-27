@@ -1,5 +1,5 @@
 <script lang="ts">
-	let { href = '/agenda' }: { href?: string } = $props();
+	let { href = '/radio' }: { href?: string } = $props();
 </script>
 
 <a class="wordmark" {href} aria-label="giggle, Amsterdam: home"

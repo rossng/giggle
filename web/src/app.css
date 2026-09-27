@@ -1,6 +1,10 @@
 /* giggle: a dark, poster-inspired look (see the design report's mockups). */
 
 :root {
+	/* The app shell (routes/(app)/+layout.svelte): top bar, player bar, and tabs on phones. */
+	--top-h: 56px;
+	--player-h: 72px;
+	--tabs-h: 0px;
 	--bg: #15111c;
 	--p1: #1d1827;
 	--p2: #272036;
@@ -106,10 +110,32 @@ p {
 .page {
 	max-width: 960px;
 	margin: 0 auto;
-	padding: 20px 16px 80px;
+	padding: 20px 16px 48px;
 	display: flex;
 	flex-direction: column;
 	gap: 20px;
+}
+
+/* A page's title (Board, Account, an artist, a venue): the Agenda's size, smaller on phones. */
+.page-title {
+	font-size: 44px;
+	overflow-wrap: break-word;
+}
+
+/* A row of chips that scrolls sideways instead of wrapping onto a ragged second line. */
+.chip-row {
+	display: flex;
+	gap: 6px;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	overflow-x: auto;
+	scrollbar-width: thin;
+	padding-bottom: 2px;
+}
+.chip-row > * {
+	flex: none;
+	white-space: nowrap;
 }
 
 .tags {
@@ -194,6 +220,24 @@ kbd {
 	padding: 3px 5px;
 }
 
+/* Touch screens: no keyboard hints (mark a whole phrase with .kbd-hint), and room for a thumb. */
+@media (hover: none) and (pointer: coarse) {
+	kbd,
+	.kbd-hint {
+		display: none !important;
+	}
+	.chip-row {
+		scrollbar-width: none;
+	}
+}
+@media (pointer: coarse) {
+	.button {
+		min-height: 44px;
+		padding: 10px 16px;
+		justify-content: center;
+	}
+}
+
 @media (prefers-reduced-motion: reduce) {
 	*,
 	*::before,
@@ -202,5 +246,16 @@ kbd {
 		animation-iteration-count: 1 !important;
 		transition-duration: 0.01ms !important;
 		scroll-behavior: auto !important;
+	}
+}
+
+@media (max-width: 700px) {
+	:root {
+		--top-h: 52px;
+		--player-h: 60px;
+		--tabs-h: calc(56px + env(safe-area-inset-bottom));
+	}
+	.page-title {
+		font-size: 36px;
 	}
 }

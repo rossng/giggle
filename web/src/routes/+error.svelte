@@ -1,11 +1,11 @@
 <script lang="ts">
 	import { page } from '$app/state';
-	import SiteHeader from '$lib/components/SiteHeader.svelte';
+	import TopBar from '$lib/components/shell/TopBar.svelte';
 </script>
 
 <svelte:head><title>{page.status} · giggle</title></svelte:head>
 
-<SiteHeader />
+<TopBar />
 <main class="page">
 	<p class="label">Error {page.status}</p>
 	<h1 class="display big">{page.status === 404 ? 'Not found' : 'Something broke'}</h1>
@@ -16,7 +16,7 @@
 			<code>data/site/gigs.json</code> and <code>artists.json</code>, then reload.
 		</p>
 	{/if}
-	<p><a class="button" href="/agenda">Back to the agenda</a></p>
+	<p><a class="button" href="/radio">Back to the radio</a></p>
 </main>
 
 <style>

@@ -1,22 +1,31 @@
+<!--
+	The agenda. Up front: how many gigs, a way to play them, search and the time window, and the
+	list. Everything else (genre and style, city, venue, what to hide) is behind Filters, and
+	whatever of that is active shows as removable chips above the list.
+-->
 <script lang="ts">
 	import { goto } from '$app/navigation';
 	import { page } from '$app/state';
 	import DensityStrip from '$lib/components/DensityStrip.svelte';
-	import FilterPanel from '$lib/components/FilterPanel.svelte';
 	import GigList from '$lib/components/GigList.svelte';
-	import SiteNav from '$lib/components/SiteNav.svelte';
-	import Wordmark from '$lib/components/Wordmark.svelte';
-	import { amsterdamDate } from '$lib/data/dates';
+	import ActiveChips from '$lib/components/agenda/ActiveChips.svelte';
+	import FiltersSheet from '$lib/components/agenda/FiltersSheet.svelte';
+	import SearchBox from '$lib/components/agenda/SearchBox.svelte';
+	import WhenPicker from '$lib/components/agenda/WhenPicker.svelte';
+	import { filterNames } from '$lib/data/catalog';
+	import { amsterdamDate, formatRange } from '$lib/data/dates';
 	import { unavailableDates } from '$lib/data/unavailable-store.svelte';
 	import {
+		activeFilters,
 		apply,
 		dateWindow,
 		facetCounts,
-		isDefault,
 		parse,
 		toQuery,
 		type Filters
 	} from '$lib/data/filters';
+	import { radioApp } from '$lib/radio/app.svelte';
+	import { stationFromParams } from '$lib/radio/station';
 
 	let { data } = $props();
 	const catalog = $derived(data.catalog);
@@ -31,19 +40,22 @@
 	const counts = $derived(facetCounts(filters, catalog.gigs, now, unavailableDates.test));
 	const range = $derived(dateWindow(filters, now));
 	const venueCount = $derived(new Set(shown.map((v) => v.gig.venue)).size);
-	const active = $derived(
-		filters.cities.length +
-			filters.venues.length +
-			filters.genres.length +
-			(filters.q ? 1 : 0) +
-			filters.hide.length
-	);
+	const chips = $derived(activeFilters(filters, filterNames(catalog)));
 
 	/** Filter changes replace the history entry; links to other pages push one. */
 	function update(next: Partial<Filters>) {
 		const target = `${page.url.pathname}${toQuery({ ...filters, ...next })}`;
 		if (target === `${page.url.pathname}${page.url.search}`) return;
 		goto(target, { replaceState: true, keepFocus: true, noScroll: true });
+	}
+
+	/** Clears the secondary filters, keeping search and the time window. */
+	function clearFilters() {
+		update({ cities: [], venues: [], genres: [], styles: [], hide: [] });
+	}
+
+	function playAsRadio() {
+		radioApp.station = stationFromParams(new URLSearchParams(query));
 	}
 
 	let sheetOpen = $state(false);
@@ -53,103 +65,86 @@
 	<title>{shown.length} gigs · giggle</title>
 </svelte:head>
 
-<svelte:window onkeydown={(e) => e.key === 'Escape' && sheetOpen && (sheetOpen = false)} />
-
 <div class="agenda">
-	<header class="topbar">
-		<Wordmark />
-		<button
-			type="button"
-			class="button"
-			aria-expanded={sheetOpen}
-			aria-controls="filters"
-			onclick={() => (sheetOpen = !sheetOpen)}
-		>
-			Filters{#if active}<span class="count">{active}</span>{/if}
-		</button>
-	</header>
-
-	<aside id="filters" class="side" class:open={sheetOpen} aria-label="Filters">
-		<div class="brand">
-			<Wordmark />
-			<SiteNav {query} />
+	<header class="head">
+		<div class="count">
+			<h1 class="display">{shown.length} gig{shown.length === 1 ? '' : 's'}</h1>
+			<p class="sub">
+				{venueCount} venue{venueCount === 1 ? '' : 's'} · {formatRange(range.first, range.last)}
+			</p>
 		</div>
-		<FilterPanel {filters} {catalog} {counts} {range} onchange={update} />
-		<p class="updated">Updated {catalog.generated.slice(0, 10)}</p>
-	</aside>
-
-	<main class="main">
-		<div class="head">
-			<div>
-				<h1 class="display title">{shown.length} gig{shown.length === 1 ? '' : 's'}</h1>
-				<p class="sub">
-					{#if isDefault({ ...filters, order: null, seed: null })}at {venueCount} venues in the next 3
-						months{:else}matching · {venueCount} venue{venueCount === 1 ? '' : 's'}{/if}
-				</p>
-			</div>
-			<a class="button strong" href="/radio{query}">
+		{#if shown.length}
+			<a
+				class="button strong radio"
+				href="/radio{query}"
+				onclick={playAsRadio}
+				title="Play the artists of these gigs as a radio station"
+			>
 				<svg viewBox="0 0 12 12" width="10" height="10" aria-hidden="true"
 					><path d="M3 1.8v8.4L10 6z" fill="currentColor" /></svg
 				>
-				Play these as radio
+				Play as radio
 			</a>
+		{/if}
+	</header>
+
+	<div class="bar">
+		<div class="controls">
+			<div class="search"><SearchBox value={filters.q} onchange={(q) => update({ q })} /></div>
+			<div class="when">
+				<WhenPicker days={filters.days} from={filters.from} onchange={update} />
+			</div>
+			<button
+				type="button"
+				class="filters"
+				class:on={chips.length > 0}
+				aria-haspopup="dialog"
+				aria-controls="agenda-filters"
+				aria-expanded={sheetOpen}
+				onclick={() => (sheetOpen = true)}
+			>
+				<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 4h12M4.5 8h7M7 12h2" /></svg>
+				Filters{#if chips.length}<span class="badge-count">{chips.length}</span>{/if}
+			</button>
 		</div>
 
-		<DensityStrip views={shown} {range} {today} />
-
-		{#if shown.length}
-			<GigList views={shown} {today} />
-		{:else}
-			<div class="empty">
-				<p>No gigs match these filters.</p>
-				<a class="button" href={page.url.pathname}>Clear all filters</a>
-			</div>
+		{#if chips.length}
+			<ActiveChips {chips} onchange={update} onclear={clearFilters} />
 		{/if}
-	</main>
+	</div>
+
+	{#if shown.length}
+		<div class="density"><DensityStrip views={shown} {range} {today} /></div>
+		<GigList views={shown} {today} />
+		<p class="updated">Listings updated {catalog.generated.slice(0, 10)}</p>
+	{:else}
+		<div class="empty">
+			<p>No gigs match.</p>
+			<a class="button" href={page.url.pathname}>Show all gigs</a>
+		</div>
+	{/if}
 </div>
+
+<FiltersSheet
+	bind:open={sheetOpen}
+	{filters}
+	{catalog}
+	{counts}
+	{range}
+	shown={shown.length}
+	active={chips.length}
+	onchange={update}
+	onclear={clearFilters}
+/>
 
 <style>
 	.agenda {
-		display: grid;
-		grid-template-columns: 250px minmax(0, 1fr);
-		min-height: 100vh;
-	}
-	.topbar {
-		display: none;
-	}
-	.side {
-		background: var(--p1);
-		border-right: 1px solid var(--line);
-		padding: 18px 16px 32px;
-		display: flex;
-		flex-direction: column;
-		gap: 22px;
-		position: sticky;
-		top: 0;
-		height: 100vh;
-		overflow-y: auto;
-		scrollbar-width: thin;
-	}
-	.brand {
+		max-width: 1080px;
+		margin: 0 auto;
+		padding: 20px 28px 40px;
 		display: flex;
 		flex-direction: column;
 		gap: 14px;
-	}
-	.brand :global(nav) {
-		margin-left: -9px;
-	}
-	.updated {
-		margin-top: auto;
-		font: 500 10.5px var(--f-mono);
-		color: var(--mute);
-	}
-	.main {
-		padding: 18px 28px 80px;
-		display: flex;
-		flex-direction: column;
-		gap: 14px;
-		min-width: 0;
-		max-width: 1100px;
 	}
 	.head {
 		display: flex;
@@ -157,20 +152,97 @@
 		align-items: flex-end;
 		gap: 12px;
 	}
-	.title {
+	.count {
+		min-width: 0;
+	}
+	h1 {
 		font-size: 44px;
+		white-space: nowrap;
 	}
 	.sub {
-		font-size: 12px;
+		font-size: 12.5px;
 		color: var(--mute);
 		margin-top: 4px;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
 	}
-	.count {
-		font: 600 10px/1 var(--f-mono);
+	.radio {
+		flex: none;
+		height: 36px;
+		padding: 0 16px;
+	}
+
+	/* Search, the window and Filters on one line, and the active filters, kept in view while the
+	   list scrolls. */
+	.bar {
+		position: sticky;
+		top: var(--top-h);
+		z-index: 4;
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
+		margin: 0 -28px;
+		padding: 8px 28px;
+		background: var(--bg);
+	}
+	.controls {
+		display: flex;
+		align-items: center;
+		gap: 8px;
+	}
+	.search {
+		flex: 1;
+		min-width: 160px;
+	}
+	.when {
+		flex: none;
+	}
+	.filters {
+		flex: none;
+		display: inline-flex;
+		align-items: center;
+		gap: 7px;
+		height: 36px;
+		padding: 0 14px 0 12px;
+		border-radius: 999px;
+		border: 1px solid var(--line);
+		background: var(--p1);
+		font-size: 13px;
+		font-weight: 600;
+		white-space: nowrap;
+		cursor: pointer;
+	}
+	.filters:hover {
+		border-color: var(--mute);
+	}
+	.filters.on {
+		border-color: var(--amber);
+	}
+	.filters svg {
+		width: 15px;
+		height: 15px;
+		fill: none;
+		stroke: currentColor;
+		stroke-width: 1.7;
+		stroke-linecap: round;
+	}
+	.badge-count {
+		font: 600 10.5px/1 var(--f-mono);
 		background: var(--amber);
 		color: var(--bg);
 		border-radius: 999px;
-		padding: 3px 6px;
+		min-width: 18px;
+		padding: 4px 5px;
+		text-align: center;
+	}
+	.density {
+		margin-top: 2px;
+	}
+	.updated {
+		margin-top: 18px;
+		font: 500 10.5px var(--f-mono);
+		color: var(--mute);
 	}
 	.empty {
 		padding: 40px 0;
@@ -181,42 +253,52 @@
 		color: var(--mute);
 	}
 
-	/* Phones and narrow windows: the sidebar becomes a sheet under a top bar. */
-	@media (max-width: 860px) {
+	/* Mid widths: the window goes under search and Filters. */
+	@media (max-width: 900px) {
+		.controls {
+			flex-wrap: wrap;
+		}
+		.search {
+			flex-basis: 0;
+		}
+		.when {
+			order: 3;
+			flex: 1 1 100%;
+		}
+	}
+
+	/* Phones: tighter, and the controls scroll away with the page (the list needs the room). */
+	@media (max-width: 700px) {
 		.agenda {
-			grid-template-columns: minmax(0, 1fr);
-			grid-template-rows: auto auto 1fr;
-		}
-		.topbar {
-			display: flex;
-			align-items: center;
-			justify-content: space-between;
+			padding: 14px 16px 24px;
 			gap: 12px;
-			padding: 12px 16px;
-			background: var(--p1);
-			border-bottom: 1px solid var(--line);
-			position: sticky;
-			top: 0;
-			z-index: 5;
 		}
-		.side {
-			display: none;
-			position: static;
-			height: auto;
-			border-right: 0;
-			border-bottom: 1px solid var(--line);
-		}
-		.side.open {
-			display: flex;
-		}
-		.brand :global(.wordmark) {
-			display: none;
-		}
-		.main {
-			padding: 14px 16px 60px;
-		}
-		.title {
+		h1 {
 			font-size: 34px;
+		}
+		.sub {
+			font-size: 12px;
+		}
+		.bar {
+			position: static;
+			margin: 0;
+			padding: 0;
+			gap: 12px;
+		}
+		.search {
+			min-width: 0;
+		}
+		.when :global(.seg) {
+			flex: 1;
+		}
+		.density {
+			display: none;
+		}
+	}
+	@media (pointer: coarse) {
+		.filters,
+		.radio {
+			height: 44px;
 		}
 	}
 </style>

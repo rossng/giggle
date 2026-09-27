@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { buildCatalog, formatPrice, viewGig } from './catalog';
+import { buildCatalog, filterNames, formatPrice, viewGig } from './catalog';
 import { VENUES, artist, gig } from './fixtures';
 
 describe('formatPrice', () => {
@@ -73,7 +73,8 @@ describe('viewGig', () => {
 			support: ['Velvet Tram'],
 			buckets: ['rock'],
 			primary: 'rock',
-			details: ['post-punk', 'Glasgow', '2019'],
+			styles: ['postpunk'],
+			details: ['post-punk', 'Glasgow'],
 			thumb: 'https://upload.wikimedia.org/x.jpg',
 			soldOut: true
 		});
@@ -102,5 +103,35 @@ describe('buildCatalog', () => {
 		]);
 		expect(catalog.venueList.map((v) => v.slug)).toEqual(['paradiso', 'tivolivredenburg']);
 		expect(catalog.byId.get('paradiso:3')?.gig.source_id).toBe('3');
+	});
+
+	it('offers the styles on enough gigs, with names for chips', () => {
+		const labelled = (id: string, genres: string[]) => gig({ source_id: id, genres });
+		const catalog = buildCatalog(
+			{
+				generated: '2026-09-26T05:00:00+02:00',
+				since: '2026-09-26',
+				venues: VENUES,
+				gigs: [
+					labelled('1', ['Indie - Shoegaze/Postpunk']),
+					labelled('2', ['Post Punk', 'post-punk']),
+					labelled('3', ['Postpunk / Shoegaze']),
+					labelled('4', ['Rock'])
+				]
+			},
+			{ artists: {} }
+		);
+		// Shoegaze is on two gigs only; "rock" names a whole bucket.
+		expect(catalog.styles.map((s) => [s.slug, s.n])).toEqual([['post-punk', 3]]);
+		expect(catalog.byId.get('paradiso:1')?.details).toEqual(['shoegaze', 'post-punk']);
+		const names = filterNames(catalog);
+		expect(names.style?.('postpunk')).toBe('post-punk');
+		expect(names.style?.('nope')).toBe('nope');
+		expect(names.venue?.('paradiso')).toBe('Paradiso');
+	});
+
+	it('lists specific styles before a bucket name on the row', () => {
+		const v = viewGig(gig({ genres: ['Pop / Rock', 'Dream pop'] }), VENUES, {});
+		expect(v.details).toEqual(['dream pop', 'pop']);
 	});
 });
