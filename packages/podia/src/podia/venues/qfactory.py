@@ -17,7 +17,7 @@ from collections.abc import Iterator
 from datetime import datetime, timedelta
 from typing import Any
 
-from podia.extract import clean, local, mask_emails, next_flight, parse_price
+from podia.extract import clean, local, mask_emails, next_flight, parse_price, site_url
 from podia.http import Fetcher
 from podia.model import Availability, Event, Status, VenueInfo
 from podia.venue import FetchOptions, Venue, register
@@ -66,7 +66,7 @@ class QFactory(Venue):
             source_id=story["slug"],
             title=title,
             start=start,
-            url=f"{BASE}/{story['full_slug']}",
+            url=site_url(BASE, "/" + story["full_slug"]),
             doors=doors if doors and doors.date() == start.date() and doors <= start else None,
             end=end if end and start < end < start + timedelta(days=4) else None,
             room=", ".join(_names(content.get("location"))) or None,

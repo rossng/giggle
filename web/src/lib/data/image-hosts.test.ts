@@ -8,7 +8,11 @@ describe('imageSrc', () => {
 			'https://lh3.googleusercontent.com/abc',
 			'https://yt3.ggpht.com/abc',
 			'https://upload.wikimedia.org/wikipedia/commons/5/54/X.jpg',
-			'https://assets.paradiso.nl/a.jpg?w=400'
+			'https://assets.paradiso.nl/a.jpg?w=400',
+			'https://a.storyblok.com/f/287632/950x713/4224334426/new-show-confirmed-2027.jpg',
+			'https://ekko.nl/wp-content/uploads/2026/09/moodboard-683x1024.png',
+			'https://denieuweanita.nl/wp-content/uploads/2026/09/poster-819x1024.jpg',
+			'https://stadsherstel.nl/wp-content/uploads/2026/03/Agenda_janneschra-400x300.jpg'
 		]) {
 			expect(imageSrc(url)).toBe(url);
 		}

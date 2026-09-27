@@ -8,6 +8,34 @@
     "status": 200,
     "url": "https://ekko.nl/agenda/"
   },
+  "2f960e51ac043550": {
+    "body": null,
+    "content_type": "application/json; charset=UTF-8",
+    "file": "2f960e51ac043550.json",
+    "method": "GET",
+    "params": {
+      "_embed": "wp:term,wp:featuredmedia",
+      "lang": "nl",
+      "per_page": "100",
+      "slug": "mustbejohn,diep-in-de-groef-236,kaat-van-stralen,iron-jinn-temple-fang,sarah-julia-1,klezmagic,curselifter,ebbb,high-hi,library-card,sons,class-of-2026-2,alice-olsthoorn-1,gilla-band-1,true-mountain-laurel,charlie-cunningham,kytes,echoes-from-the-dungeon-fest-iii,echoes-from-the-dungeon-fest-iii-2,mood-bored"
+    },
+    "status": 200,
+    "url": "https://ekko.nl/wp-json/wp/v2/event"
+  },
+  "3d5718cddfbf423c": {
+    "body": null,
+    "content_type": "application/json; charset=UTF-8",
+    "file": "3d5718cddfbf423c.json",
+    "method": "GET",
+    "params": {
+      "_embed": "wp:term,wp:featuredmedia",
+      "lang": "nl",
+      "per_page": "100",
+      "slug": "ekko-hoorcollege-rekordbox,bus-12-206,multibeat-1,diep-in-de-groef-229,vrienden-van-ekko-live,dmtg-keephush,josie-edwards,john-coffey-1,bus-12-208,diep-in-de-groef-231,neomi-1,weval-presents-club-chorophobia,uncloud-bnnt-radwan-ghazi-moumneh,alex-cameron,coaster,karaekko-2,de-gestampte-meisjes-strot,wildgroei,fenne,zora-2-year-anniversary,is-this-it-de-popquiz-18okt-middag,is-this-it-de-popquiz-18okt-avond,panicbaby,dutch-criminal-record-hotel-mira,ontaard,diep-in-de-groef-233,static-dress,club-fataal,nectar-woode,bby,the-guest-list,nervous-breakdown-2,my-first-time,clubnacht-met-punk-x-girls-to-the-front,the-cat-eye-cabaret-hex-appeal,antony-szmierek-1,flawed-mangoes,lots-of-hands-sundots,the-clockworks,good-health-good-wealth,le-guess-who-2026,le-guess-who-2026-1,martin-luke-brown,dry-cleaning-1,diep-in-de-groep,blue-saturday-2,holy-fawn,flora-hibberd,lezard,grace-cummings"
+    },
+    "status": 200,
+    "url": "https://ekko.nl/wp-json/wp/v2/event"
+  },
   "76c35568b6eb8c0f": {
     "body": null,
     "content_type": "application/json; charset=UTF-8",
@@ -19,33 +47,5 @@
     },
     "status": 200,
     "url": "https://ekko.nl/wp-json/wp/v2/location"
-  },
-  "a0e4322b4688bd80": {
-    "body": null,
-    "content_type": "application/json; charset=UTF-8",
-    "file": "a0e4322b4688bd80.json",
-    "method": "GET",
-    "params": {
-      "_embed": "wp:term",
-      "lang": "nl",
-      "per_page": "100",
-      "slug": "mustbejohn,diep-in-de-groef-236,kaat-van-stralen,iron-jinn-temple-fang,sarah-julia-1,klezmagic,curselifter,ebbb,high-hi,library-card,sons,class-of-2026-2,alice-olsthoorn-1,gilla-band-1,true-mountain-laurel,charlie-cunningham,kytes,echoes-from-the-dungeon-fest-iii,echoes-from-the-dungeon-fest-iii-2,mood-bored"
-    },
-    "status": 200,
-    "url": "https://ekko.nl/wp-json/wp/v2/event"
-  },
-  "ee8f37bab5b0025a": {
-    "body": null,
-    "content_type": "application/json; charset=UTF-8",
-    "file": "ee8f37bab5b0025a.json",
-    "method": "GET",
-    "params": {
-      "_embed": "wp:term",
-      "lang": "nl",
-      "per_page": "100",
-      "slug": "ekko-hoorcollege-rekordbox,bus-12-206,multibeat-1,diep-in-de-groef-229,vrienden-van-ekko-live,dmtg-keephush,josie-edwards,john-coffey-1,bus-12-208,diep-in-de-groef-231,neomi-1,weval-presents-club-chorophobia,uncloud-bnnt-radwan-ghazi-moumneh,alex-cameron,coaster,karaekko-2,de-gestampte-meisjes-strot,wildgroei,fenne,zora-2-year-anniversary,is-this-it-de-popquiz-18okt-middag,is-this-it-de-popquiz-18okt-avond,panicbaby,dutch-criminal-record-hotel-mira,ontaard,diep-in-de-groef-233,static-dress,club-fataal,nectar-woode,bby,the-guest-list,nervous-breakdown-2,my-first-time,clubnacht-met-punk-x-girls-to-the-front,the-cat-eye-cabaret-hex-appeal,antony-szmierek-1,flawed-mangoes,lots-of-hands-sundots,the-clockworks,good-health-good-wealth,le-guess-who-2026,le-guess-who-2026-1,martin-luke-brown,dry-cleaning-1,diep-in-de-groep,blue-saturday-2,holy-fawn,flora-hibberd,lezard,grace-cummings"
-    },
-    "status": 200,
-    "url": "https://ekko.nl/wp-json/wp/v2/event"
   }
 }

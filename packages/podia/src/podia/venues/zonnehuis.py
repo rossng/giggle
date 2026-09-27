@@ -31,6 +31,7 @@ from podia.extract import (
     month_number,
     node_text,
     parse_price,
+    site_url,
 )
 from podia.http import Fetcher
 from podia.model import Availability, Event, Price, VenueInfo
@@ -67,7 +68,9 @@ class Zonnehuis(Venue):
                 if budget <= 0:
                     continue
                 budget -= 1
-            page = fetch.get(event.url or "")
+            if not event.url:
+                continue
+            page = fetch.get(event.url)
             if page.status >= 400:
                 continue
             tree = HTMLParser(page.text)
@@ -91,7 +94,7 @@ class Zonnehuis(Venue):
         return e
 
     def _item(self, link: Node) -> Event | None:
-        href = link.attributes.get("href") or ""
+        href = site_url(BASE, link.attributes.get("href")) or ""
         card = link.css_first(".event")
         title = node_text(link.css_first("h2"))
         m = re.search(r"/voorstelling/[^/]+/(\d+)/?$", href)

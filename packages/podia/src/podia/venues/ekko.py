@@ -21,7 +21,7 @@ from typing import Any
 
 from selectolax.parser import HTMLParser
 
-from podia.extract import clean, combine, local, strip_tags
+from podia.extract import clean, combine, local, site_url, strip_tags
 from podia.http import Fetcher
 from podia.model import Availability, Event, Price, Status, VenueInfo
 from podia.venue import FetchOptions, Venue, register
@@ -53,7 +53,7 @@ class Ekko(Venue):
                 "slug": ",".join(slugs[i : i + PAGE_SIZE]),
                 "lang": "nl",
                 "per_page": "100",
-                "_embed": "wp:term",
+                "_embed": "wp:term,wp:featuredmedia",
             }
             r = fetch.get(EVENTS, params=params)
             r.raise_for_status()
@@ -101,7 +101,7 @@ class Ekko(Venue):
             source_id=item["slug"],
             title=title,
             start=start,
-            url=item["link"],
+            url=site_url(BASE, item["link"]),
             subtitle=subtitle or None,
             doors=doors if doors and doors <= start else None,
             end=end if end and end > start else None,
@@ -114,6 +114,7 @@ class Ekko(Venue):
             price=price,
             ticket_url=acf.get("ticket_link") or None,
             description=strip_tags(item["content"]["rendered"]),
+            image=_image(item),
             extra=extra,
         )
 
@@ -129,7 +130,10 @@ class Ekko(Venue):
             items = [{k: item[k] for k in keep if k in item} for item in json.loads(text)]
             for item in items:
                 item["acf"].pop("playlist_embed", None)
-                for group in item.get("_embedded", {}).get("wp:term", []):
+                embedded = item.get("_embedded", {})
+                if media := embedded.get("wp:featuredmedia"):
+                    embedded["wp:featuredmedia"] = [{"source_url": _media_url(media[0])}]
+                for group in embedded.get("wp:term", []):
                     for term in group:
                         for k in list(term):
                             if k not in ("taxonomy", "name"):
@@ -145,6 +149,18 @@ def _agenda_slugs(page: str) -> list[str]:
         if href.startswith(f"{BASE}/event/"):
             slugs.append(href.rsplit("/", 1)[-1])
     return list(dict.fromkeys(slugs))
+
+
+def _image(item: dict[str, Any]) -> str | None:
+    """The featured image (embedded with `_embed=wp:featuredmedia`), on EKKO's own host."""
+    media = item.get("_embedded", {}).get("wp:featuredmedia") or []
+    return site_url(BASE, _media_url(media[0])) if media else None
+
+
+def _media_url(media: dict[str, Any]) -> str | None:
+    """A WordPress media item's "large" size (~1000 px), else the original."""
+    sizes = (media.get("media_details") or {}).get("sizes") or {}
+    return (sizes.get("large") or {}).get("source_url") or media.get("source_url")
 
 
 def _locations(fetch: Fetcher) -> dict[int, str]:
