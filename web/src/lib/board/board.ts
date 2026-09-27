@@ -16,6 +16,14 @@ export const TRIAGE_LABELS: Readonly<Record<Triage, string>> = {
 	nope: 'Not for me'
 };
 
+/** One-word labels, for where the full ones don't fit (the player bar on narrower screens). */
+export const TRIAGE_SHORT: Readonly<Record<Triage, string>> = {
+	listen: 'Listen',
+	go: 'Go',
+	tickets: 'Tickets',
+	nope: 'Nope'
+};
+
 /** The keyboard shortcut for each state on the radio. */
 export const TRIAGE_KEYS: Readonly<Record<Triage, string>> = {
 	listen: '1',
