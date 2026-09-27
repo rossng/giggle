@@ -35,6 +35,7 @@ import {
 	type Identity
 } from './auth';
 import type { AuthConfig } from './config';
+import { bump, noteSignupRefused } from './stats';
 import { dayOf, forgetUser } from './store';
 
 export const PASSKEY_PREFIX = '/api/passkey/';
@@ -169,7 +170,13 @@ async function takeNewAccount(db: D1Database, config: AuthConfig, now: number): 
 	const taken =
 		config.newAccountsPerDay > 0 &&
 		(await db.prepare(TAKE_QUOTA).bind(NEW_ACCOUNTS, dayOf(now), config.newAccountsPerDay).first());
-	if (!taken) throw new PasskeyError(429, FULL_TODAY);
+	if (!taken) await fullToday(db, now);
+}
+
+/** Refuses a sign-up: today's new accounts are gone (counted in daily_stats once a day). */
+async function fullToday(db: D1Database, now: number): Promise<never> {
+	await noteSignupRefused(db, dayOf(now));
+	throw new PasskeyError(429, FULL_TODAY);
 }
 
 export async function registerOptions(
@@ -181,7 +188,7 @@ export async function registerOptions(
 	// A passkey user adding a device joins their account; anyone else starts a new one.
 	const existing = signedIn?.via === 'passkey';
 	if (existing) requireFresh(signedIn, now);
-	else if (!(await newAccountsLeft(db, config, now))) throw new PasskeyError(429, FULL_TODAY);
+	else if (!(await newAccountsLeft(db, config, now))) await fullToday(db, now);
 	const account = existing ? signedIn.user : `u_${crypto.randomUUID()}`;
 	const current = existing ? await passkeysOf(db, account) : [];
 	if (current.length >= MAX_PASSKEYS) {
@@ -249,7 +256,8 @@ export async function registerVerify(
 	if (!existing) {
 		await takeNewAccount(db, config, now);
 		statements.push(
-			db.prepare('INSERT INTO accounts (id, created) VALUES (?, ?)').bind(account, created)
+			db.prepare('INSERT INTO accounts (id, created) VALUES (?, ?)').bind(account, created),
+			bump(db, 'new_accounts', dayOf(now))
 		);
 	}
 	// MAX_PASSKEYS again, in the same statement as the insert: several tickets issued while the

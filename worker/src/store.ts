@@ -5,9 +5,11 @@
 // `seq`, which is what `since` cursors page by.
 //
 // Writes also keep each collection's row count (sync_counts) and spend the account's daily row
-// budget (usage), so neither has to be found by counting rows (migrations/0005).
+// budget (usage), so neither has to be found by counting rows (migrations/0005), and add to the
+// day's site-wide rows_written (stats.ts).
 
 import type { Collection, Parsed, Row } from './collections';
+import { bump, noteOverBudget } from './stats';
 import { LIMITS } from './validate';
 
 const DAY_MS = 86_400_000;
@@ -65,10 +67,12 @@ SELECT
      AND key IN (SELECT value FROM json_each(?3))) AS existing`;
 
 // Spends ?3 rows of today's budget, unless that would take it past ?4 (then no row comes back).
+// A new day starts with the whole budget and nothing refused.
 const SPEND = `
 INSERT INTO usage (user, day, rows) VALUES (?1, ?2, ?3)
 ON CONFLICT (user) DO UPDATE SET
   rows = CASE WHEN usage.day = excluded.day THEN usage.rows + excluded.rows ELSE excluded.rows END,
+  refused = CASE WHEN usage.day = excluded.day THEN usage.refused ELSE 0 END,
   day = excluded.day
 WHERE usage.day <> excluded.day OR usage.rows + excluded.rows <= ?4
 RETURNING rows`;
@@ -109,7 +113,10 @@ export async function putItems(
 		db.prepare(SPEND).bind(user, day, items.length, DAILY_ROWS),
 		db.prepare(STATE).bind(user, collection.name, keys)
 	]);
-	if (!spent?.results.length) throw new OverBudget();
+	if (!spent?.results.length) {
+		await noteOverBudget(db, user, day);
+		throw new OverBudget();
+	}
 	const { rows, pruned, existing } = state!.results[0] as {
 		rows: number;
 		pruned: string;
@@ -125,7 +132,8 @@ export async function putItems(
 	}));
 	const statements = [
 		db.prepare(COUNT_NEW).bind(user, collection.name, keys),
-		db.prepare(UPSERT).bind(user, collection.name, JSON.stringify(wire))
+		db.prepare(UPSERT).bind(user, collection.name, JSON.stringify(wire)),
+		bump(db, 'rows_written', day, items.length)
 	];
 	const forgetOld = collection.maxAgeDays !== undefined && pruned !== day;
 	const forgetOverflow = collection.overflow === 'forget-oldest' && after > collection.maxRows;

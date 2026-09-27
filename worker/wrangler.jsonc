@@ -27,6 +27,8 @@
 		// Passkeys only work on this hostname: moving the site means registering them again.
 		"PASSKEY_RP_ID": "giggle.rossng.workers.dev",
 		"SITE_ORIGINS": "https://giggle.rossng.workers.dev"
+		// ADMIN_ACCOUNTS (who may use /admin) is a Worker secret, not a var: it belongs to this
+		// instance, not the repo (README.md → Admin panel). Unset, the panel is off.
 	},
 
 	"d1_databases": [
@@ -45,13 +47,14 @@
 	"r2_buckets": [{ "binding": "MODELS", "bucket_name": "giggle-models" }],
 
 	// Rate limits (src/limits.ts): per client IP for all of /api, sign-in and model files, per
-	// account for reads and writes. Period must be 10 or 60 seconds; namespace_id is any number unique in the account.
+	// account for reads, writes and the admin panel. Period must be 10 or 60 seconds; namespace_id is any number unique in the account.
 	"ratelimits": [
 		{ "name": "RL_PASSKEY", "namespace_id": "4101", "simple": { "limit": 10, "period": 60 } },
 		{ "name": "RL_WRITES", "namespace_id": "4102", "simple": { "limit": 30, "period": 60 } },
 		{ "name": "RL_MODELS", "namespace_id": "4103", "simple": { "limit": 60, "period": 60 } },
 		{ "name": "RL_READS", "namespace_id": "4104", "simple": { "limit": 120, "period": 60 } },
-		{ "name": "RL_API", "namespace_id": "4105", "simple": { "limit": 300, "period": 60 } }
+		{ "name": "RL_API", "namespace_id": "4105", "simple": { "limit": 300, "period": 60 } },
+		{ "name": "RL_ADMIN", "namespace_id": "4106", "simple": { "limit": 10, "period": 60 } }
 	],
 
 	"env": {
@@ -68,7 +71,9 @@
 				"PASSKEY_RP_ID": "localhost",
 				"SITE_ORIGINS": "http://localhost:5173 http://localhost:8787",
 				// Sign-ups a day (production: src/config.ts's NEW_ACCOUNTS_PER_DAY): tests make many.
-				"NEW_ACCOUNTS_PER_DAY": "1000"
+				"NEW_ACCOUNTS_PER_DAY": "1000",
+				// The dev identity (/api/dev/login?as=alice@example.test) sees the admin panel.
+				"ADMIN_ACCOUNTS": "alice@example.test"
 			},
 			"d1_databases": [
 				{
@@ -86,7 +91,8 @@
 				{ "name": "RL_WRITES", "namespace_id": "4102", "simple": { "limit": 30, "period": 60 } },
 				{ "name": "RL_MODELS", "namespace_id": "4103", "simple": { "limit": 60, "period": 60 } },
 				{ "name": "RL_READS", "namespace_id": "4104", "simple": { "limit": 120, "period": 60 } },
-				{ "name": "RL_API", "namespace_id": "4105", "simple": { "limit": 300, "period": 60 } }
+				{ "name": "RL_API", "namespace_id": "4105", "simple": { "limit": 300, "period": 60 } },
+				{ "name": "RL_ADMIN", "namespace_id": "4106", "simple": { "limit": 10, "period": 60 } }
 			]
 		}
 	}

@@ -22,15 +22,19 @@
 //        where <collection> is board, unavailable or plays (collections.ts)
 //   GET  /api/dev/login?as=<email>  → (dev only) sets the dev identity cookie (302 to `next` if given)
 //   GET  /api/dev/logout            → (dev only) clears it (302 to `next` if given)
+//   GET  /api/admin/overview        → (admins only) usage numbers for the admin panel (admin.ts)
 //
-// Removing a passkey and deleting the account need the session confirmed by a passkey in the
-// last few minutes, and so does adding a passkey (register/options while signed in). Otherwise
-// they answer 403 {error, reauth: true}: the client confirms with /api/passkey/reauth/… and
-// tries again.
+// Removing a passkey, deleting the account and the admin panel need the session confirmed by a
+// passkey in the last few minutes, and so does adding a passkey (register/options while signed
+// in). Otherwise they answer 403 {error, reauth: true}: the client confirms with
+// /api/passkey/reauth/… and tries again.
 //
 // Rate limits (limits.ts) answer 429 with Retry-After, as does a write past the account's daily
 // row budget (store.ts). A POST, PUT or DELETE whose Origin header isn't the site's is refused
 // (403); cross-site pages can't send JSON or these methods without CORS anyway.
+//
+// Auth comes before routing: signed out, every path is 401, a real one or not. Signed in, the
+// account's last active day moves to today (once a day, after the response: stats.ts).
 
 import {
 	authenticate,
@@ -42,6 +46,7 @@ import {
 	normaliseEmail,
 	type Identity
 } from './auth';
+import { ADMIN_PREFIX, isAdmin, overview } from './admin';
 import { COLLECTIONS, type Collection, type CollectionName } from './collections';
 import { authConfig, ConfigError, type AuthConfig, type Env } from './config';
 import { allowed, clientKey, LIMIT_PERIOD_S, type LimiterName } from './limits';
@@ -62,7 +67,8 @@ import {
 	registerVerify,
 	requireFresh
 } from './passkeys';
-import { itemsSince, OverBudget, putItems, TooManyItems } from './store';
+import { markSeen } from './stats';
+import { dayOf, itemsSince, OverBudget, putItems, TooManyItems } from './store';
 import { LIMITS, parseBatch, parseSince, ValidationError } from './validate';
 
 const NO_STORE = { 'Cache-Control': 'no-store', 'X-Content-Type-Options': 'nosniff' };
@@ -258,7 +264,40 @@ async function passkeyRoute(
 	return error(404, 'not found');
 }
 
-export async function handleApi(request: Request, env: Env): Promise<Response> {
+/**
+ * The admin panel's routes (admin.ts). Anyone but an admin gets the 404 of an unknown path; an
+ * admin needs a fresh passkey confirmation (403 {reauth: true} otherwise).
+ */
+async function adminRoute(
+	request: Request,
+	env: Env,
+	url: URL,
+	config: AuthConfig,
+	identity: Identity
+): Promise<Response> {
+	if (!isAdmin(env, identity)) return error(404, 'not found');
+	if (url.pathname !== `${ADMIN_PREFIX}overview`) return error(404, 'not found');
+	if (request.method !== 'GET') return error(405, 'method not allowed', { Allow: 'GET' });
+	const over = await limited(env, 'RL_ADMIN', `account:${identity.user}`, tooMany);
+	if (over) return over;
+	requireFresh(identity);
+	return json(await overview(env.DB, config, identity));
+}
+
+/** Moves a passkey account's last_seen to today, after the response, if it isn't already. */
+function noteSeen(ctx: ExecutionContext, db: D1Database, identity: Identity): void {
+	const today = dayOf(Date.now());
+	if (identity.via !== 'passkey' || (identity.lastSeen ?? '') >= today) return;
+	ctx.waitUntil(
+		markSeen(db, identity.user, today).catch((e) => console.error(`last_seen not saved: ${e}`))
+	);
+}
+
+export async function handleApi(
+	request: Request,
+	env: Env,
+	ctx: ExecutionContext
+): Promise<Response> {
 	const url = new URL(request.url);
 	let config: AuthConfig;
 	try {
@@ -304,6 +343,7 @@ export async function handleApi(request: Request, env: Env): Promise<Response> {
 	const auth = await authenticate(request, config, env.DB);
 	if (!auth.ok) return error(auth.status, auth.error);
 	const { user, via } = auth.identity;
+	noteSeen(ctx, env.DB, auth.identity);
 
 	const reading = request.method === 'GET' || request.method === 'HEAD';
 	const over = await limited(env, reading ? 'RL_READS' : 'RL_WRITES', `account:${user}`, tooMany);
@@ -348,6 +388,9 @@ export async function handleApi(request: Request, env: Env): Promise<Response> {
 		}
 		const collection = collectionFor(url.pathname);
 		if (collection) return await sync(request, env, auth.identity, collection);
+		if (url.pathname.startsWith(ADMIN_PREFIX)) {
+			return await adminRoute(request, env, url, config, auth.identity);
+		}
 		return error(404, 'not found');
 	} catch (e) {
 		if (e instanceof ValidationError) return error(400, e.message);
@@ -360,7 +403,7 @@ export default {
 	async fetch(request, env, ctx): Promise<Response> {
 		const url = new URL(request.url);
 		if (url.pathname === '/api' || url.pathname.startsWith('/api/')) {
-			return handleApi(request, env);
+			return handleApi(request, env, ctx);
 		}
 		if (url.pathname.startsWith(MODELS_PREFIX)) {
 			const over = await limited(
