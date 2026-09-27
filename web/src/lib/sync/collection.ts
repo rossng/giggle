@@ -32,7 +32,7 @@ export interface Collection<T extends Stamped = Stamped, Data = unknown> {
 	readonly dataKey: string;
 	/** Where this collection's sync record is stored. */
 	readonly recordKey: string;
-	/** Items per PUT (the server allows 500, but the body must stay under 256 KB too). */
+	/** Items per PUT (the server allows 400, and the body must stay under 256 KB too). */
 	readonly batch: number;
 	/**
 	 * Whether a key that disappears locally is a deletion to sync (board, unavailable dates) or

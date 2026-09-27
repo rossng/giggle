@@ -100,6 +100,9 @@ function device(server: FakeServer, user = 'alice@example.test') {
 		isOnline: () => true,
 		onChange: (name, data) => changes.push({ name, data })
 	});
+	// Each device has just made (or joined) the account: what it has before the first round is
+	// the account's (client.test.ts covers signing in and out).
+	client.prepareSignIn('new-account');
 	return {
 		storage,
 		client,
