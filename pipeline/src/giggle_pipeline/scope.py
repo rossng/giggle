@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import re
 import tomllib
 from dataclasses import dataclass
 from importlib.resources import files
@@ -12,6 +13,7 @@ LIST_KEYS = (
     "status",
     "venue",
     "category",
+    "category_word",
     "genre",
     "genre_prefix",
     "unless_category",
@@ -25,6 +27,7 @@ class Rule:
     status: frozenset[str] = frozenset()
     venue: frozenset[str] = frozenset()
     category: frozenset[str] = frozenset()
+    category_word: re.Pattern[str] | None = None
     genre: frozenset[str] = frozenset()
     genre_prefix: tuple[str, ...] = ()
     no_genres: bool = False
@@ -37,10 +40,12 @@ class Rule:
         if unknown:
             raise ValueError(f"unknown keys in scope rule {raw.get('reason')!r}: {unknown}")
         values = {k: [v.lower() for v in raw.get(k, [])] for k in LIST_KEYS}
+        words = values.pop("category_word")
         return cls(
             reason=raw["reason"],
             no_genres=raw.get("no_genres", False),
             genre_prefix=tuple(values.pop("genre_prefix")),
+            category_word=_whole_words(words) if words else None,
             **{k: frozenset(v) for k, v in values.items()},
         )
 
@@ -56,6 +61,8 @@ class Rule:
             checks.append(event.venue in self.venue)
         if self.category:
             checks.append(bool(categories & self.category))
+        if self.category_word:
+            checks.append(any(self.category_word.search(c) for c in categories))
         if self.genre or self.genre_prefix:
             checks.append(
                 bool(genres & self.genre)
@@ -64,6 +71,12 @@ class Rule:
         if self.no_genres:
             checks.append(not genres)
         return bool(checks) and all(checks)
+
+
+def _whole_words(words: list[str]) -> re.Pattern[str]:
+    """Any of `words` (or phrases) as whole words: "comedy" in "Comedy!", not in "Comedyclub"."""
+    alternatives = "|".join(re.escape(w) for w in sorted(words, key=len, reverse=True))
+    return re.compile(rf"(?<!\w)(?:{alternatives})(?!\w)")
 
 
 def load_rules(text: str | None = None) -> list[Rule]:

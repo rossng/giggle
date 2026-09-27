@@ -7,6 +7,7 @@
 #   status        event status (cancelled, postponed, moved)
 #   venue         venue slug
 #   category      any of the event's categories (event type: Concert, Clubnacht, Film…)
+#   category_word a whole word or phrase anywhere in a category ("comedy" in "Comedy!")
 #   genre         any of the event's genres
 #   genre_prefix  any genre starting with this text
 #   no_genres     true: the event has no genres at all
@@ -25,9 +26,22 @@ category = ["clubnacht", "club", "dance", "dance/nacht", "party"]
 reason = "club night"
 genre = [
     "clubnacht", "nachtleven", "dance / by night", "techno", "house", "house/techno",
-    "rave", "edm", "trance", "club3",
+    "rave", "edm", "trance", "club3", "club",
 ]
 unless_category = ["concert", "muziek", "music", "pop", "jazz", "global"]
+
+# Q-Factory files everything as a concert, its ADE techno and rave nights included; those
+# carry "Dance" and no pop genre (Jacek Stachursky's show is "Dance, Pop").
+[[rule]]
+reason = "club night"
+venue = ["qfactory"]
+genre = ["dance"]
+unless_genre = ["pop", "rock", "indie", "jazz"]
+
+# DJ nights in a venue's own words (De Nieuwe Anita: "DJ's all night!", "Disco!").
+[[rule]]
+reason = "club night"
+category_word = ["dj's all night", "dj night", "disco"]
 
 [[rule]]
 reason = "club night"
@@ -73,9 +87,36 @@ genre = [
     "educatie", "muziekdocumentaire", "film",
 ]
 
+# Some venues name each event's type in their own words (De Nieuwe Anita: "Comedy!",
+# "Movie screening!", "Popquiz", "Vertelcafé"; Q-Factory: "lezing"). The line-up model
+# would catch most of these too, but a night without its answers keeps everything, so
+# the rules have to.
+[[rule]]
+reason = "not music"
+category_word = [
+    "comedy", "cabaret", "stand-up", "improv", "impro", "burlesque", "theatre",
+    "quiz", "popquiz", "bingo", "movie", "movies", "film", "cinema",
+    "talk", "lecture", "lezing", "workshop", "drawing", "game", "exhibition",
+    "storytelling", "spoken word", "poetry", "vertelcafé", "rondleiding",
+]
+unless_genre = ["pop", "jazz", "rock", "indie", "global", "pop / rock"]
+
+# De Nieuwe Anita's Monday is its film night (Cinemanita), labelled "Anita Monday!".
+[[rule]]
+reason = "not music"
+venue = ["nieuweanita"]
+category_word = ["anita monday"]
+
+# Catch-all types: EKKO's "Overig" (quizzes, cabaret) and Het Zonnehuis's "Divers"
+# (dance afternoons, film festivals), unless also filed as music.
+[[rule]]
+reason = "not music"
+category = ["overig", "divers"]
+unless_category = ["concert", "club", "muziek"]
+
 [[rule]]
 reason = "family / children"
-category = ["family"]
+category = ["family", "kinderen"]
 
 [[rule]]
 reason = "family / children"

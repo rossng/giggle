@@ -90,17 +90,23 @@ class Ekko(Venue):
             extra["series"] = series
         price = _price(acf.get("price"))
         button = (clean(acf.get("ticket_button_text")) or "").lower()
+        # With `support_act_hide_prefix` the field is free text shown as is ("met BOMBSTRAP,
+        # OUST en TRIPWIRE", "spreker: …", "ALL NIGHT LONG DJ-SET"), not a list of acts.
+        support_line = clean(acf.get("support_act"))
+        free_text = bool(acf.get("support_act_hide_prefix"))
+        one_liner = clean(acf.get("one_liner"))
+        subtitle = " · ".join(s for s in (one_liner, support_line if free_text else None) if s)
         return Event(
             venue=self.info.slug,
             source_id=item["slug"],
             title=title,
             start=start,
             url=item["link"],
-            subtitle=clean(acf.get("one_liner")),
+            subtitle=subtitle or None,
             doors=doors if doors and doors <= start else None,
             end=end if end and end > start else None,
             city=self.info.city,
-            support=_support(acf.get("support_act")),
+            support=[] if free_text else _support(support_line),
             genres=[clean(t["name"]) or "" for t in terms if t["taxonomy"] == "genre"],
             categories=[clean(t["name"]) or "" for t in terms if t["taxonomy"] == "category"],
             status=_status(button),
@@ -159,7 +165,7 @@ def _datetime(value: str | None) -> datetime | None:
 
 
 def _support(value: str | None) -> list[str]:
-    """ "Blue Lake" or "Blue Lake, Jonnine"."""
+    """ "Blue Lake", "Soul Blind + Holder" or "Blue Lake, Jonnine"."""
     text = clean(value) or ""
     return [s for s in (clean(p) for p in text.replace(" + ", ",").split(",")) if s]
 
