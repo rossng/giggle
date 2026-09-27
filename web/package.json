@@ -33,6 +33,7 @@
 		"@huggingface/transformers": "3.8.1",
 		"@simplewebauthn/browser": "14.0.0",
 		"kokoro-js": "1.2.1",
-		"phonemizer": "1.2.1"
+		"phonemizer": "1.2.1",
+		"seal-of-slop": "0.1.1"
 	}
 }
