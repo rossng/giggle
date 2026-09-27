@@ -5,7 +5,7 @@
 
 import type { LineKind } from '@giggle/radio-core';
 import { announcerFor } from '$lib/voice/announcers';
-import type { KokoroStatus, Rendered } from '$lib/voice/kokoro';
+import type { KokoroStatus, Rendered, RenderOptions } from '$lib/voice/kokoro';
 
 export interface SpokenLine {
 	text: string;
@@ -17,13 +17,20 @@ export interface SpokenLine {
 	clip?: { url: string; seconds: number; spoken: string } | undefined;
 }
 
+export interface PrepareOptions {
+	/** The line is no longer wanted once this aborts: work not yet started is dropped. */
+	signal?: AbortSignal | undefined;
+	/** It'll be said in a moment (not just maybe, later): get it ready before the rest. */
+	urgent?: boolean;
+}
+
 export interface Speaker {
 	/** Says `line`; resolves when done, or straight away once `signal` aborts. Never rejects. */
 	speak(line: SpokenLine, signal: AbortSignal): Promise<void>;
 	/** Call from a user gesture: some browsers only allow speech after one. */
 	unlock?(): void;
 	/** A hint that `line` will be said soon, so it can be got ready (rendered) ahead. */
-	prepare?(line: SpokenLine): void;
+	prepare?(line: SpokenLine, options?: PrepareOptions): void;
 	/** Stops anything being said. */
 	stop(): void;
 }
@@ -188,9 +195,9 @@ export class ClipSpeaker implements Speaker {
 		this.live.stop();
 	}
 
-	prepare(line: SpokenLine): void {
+	prepare(line: SpokenLine, options?: PrepareOptions): void {
 		const rest = ClipSpeaker.#rest(line);
-		if (rest) this.live.prepare?.(rest);
+		if (rest) this.live.prepare?.(rest, options);
 	}
 
 	/** What the live voice says of `line`: all of it, or the part after the clip. */
@@ -205,7 +212,8 @@ export class ClipSpeaker implements Speaker {
 	async speak(line: SpokenLine, signal: AbortSignal): Promise<void> {
 		const clip = line.clip;
 		if (!clip) return this.live.speak(line, signal);
-		this.prepare(line); // the live part gets ready while the clip plays
+		// The live part gets ready while the clip plays, before anything only prepared ahead.
+		this.prepare(line, { signal, urgent: true });
 		const played = await this.#play(clip.url, clip.seconds, signal);
 		if (signal.aborted) return;
 		if (!played) return this.live.speak({ ...line, clip: undefined }, signal);
@@ -249,7 +257,7 @@ export class ClipSpeaker implements Speaker {
 export interface LiveVoice {
 	readonly state: { readonly status: KokoroStatus };
 	load(): Promise<void>;
-	render(text: string, voice: string, options?: { urgent?: boolean }): Promise<Rendered>;
+	render(text: string, voice: string, options?: RenderOptions): Promise<Rendered>;
 	play(rendered: Rendered, signal: AbortSignal): Promise<boolean>;
 	unlock(): void;
 	stop(): void;
@@ -285,6 +293,7 @@ export class KokoroSpeaker implements Speaker {
 	readonly #voiceFor: (artistKey: string) => Promise<string>;
 	readonly #maxWaitSeconds: number;
 	#slowRuns = 0;
+	#lookups: Promise<unknown> = Promise.resolve();
 
 	constructor(
 		voice: LiveVoice,
@@ -297,7 +306,8 @@ export class KokoroSpeaker implements Speaker {
 		this.#maxWaitSeconds = options.maxWaitSeconds ?? 5;
 	}
 
-	get #wanted(): boolean {
+	/** Live lines are said with Kokoro (not handed to the fallback wholesale). */
+	get active(): boolean {
 		return this.enabled && !this.slow && this.voice.state.status !== 'failed';
 	}
 
@@ -311,31 +321,41 @@ export class KokoroSpeaker implements Speaker {
 		this.fallback.stop();
 	}
 
-	prepare(line: SpokenLine): void {
-		if (!this.#wanted) return;
-		for (const text of sentences(line.text))
-			this.#render(line.artistKey, text, false).catch(() => {});
+	prepare(line: SpokenLine, { signal, urgent = false }: PrepareOptions = {}): void {
+		if (!this.active || signal?.aborted) return;
+		for (const r of this.#renders(line, { urgent, signal })) r.catch(() => {});
 	}
 
 	async speak(line: SpokenLine, signal: AbortSignal): Promise<void> {
-		if (!this.#wanted) return this.fallback.speak(line, signal);
+		if (!this.active) return this.fallback.speak(line, signal);
 		if (this.voice.state.status !== 'ready') {
 			void this.voice.load().catch(() => {}); // for the next lines
 			return this.#fallback(line, signal, 'model not ready');
 		}
-		const parts = sentences(line.text);
-		// All of them now, in order and ahead of anything only prepared.
-		const renders = parts.map((text) => this.#render(line.artistKey, text, true));
-		for (const r of renders) r.catch(() => {});
-		for (let i = 0; i < parts.length; i++) {
-			const rendered = await this.#ready(renders[i]!, signal);
-			if (signal.aborted) return;
-			const played = rendered ? await this.voice.play(rendered, signal) : false;
-			if (signal.aborted) return;
-			if (!played) {
-				const why = rendered ? "couldn't play" : 'not ready in time';
-				return this.#fallback({ ...line, text: parts.slice(i).join(' ') }, signal, why);
+		// Wanted until the line is over, cut short or handed to the fallback: then any
+		// sentence the worker hasn't started on is dropped.
+		const wanted = new AbortController();
+		const onAbort = () => wanted.abort();
+		signal.addEventListener('abort', onAbort, { once: true });
+		try {
+			const parts = sentences(line.text);
+			// All of them now, in order and ahead of anything only prepared.
+			const renders = this.#renders(line, { urgent: true, signal: wanted.signal });
+			for (const r of renders) r.catch(() => {});
+			for (let i = 0; i < parts.length; i++) {
+				const rendered = await this.#ready(renders[i]!, signal);
+				if (signal.aborted) return;
+				const played = rendered ? await this.voice.play(rendered, signal) : false;
+				if (signal.aborted) return;
+				if (!played) {
+					wanted.abort();
+					const why = rendered ? "couldn't play" : 'not ready in time';
+					return await this.#fallback({ ...line, text: parts.slice(i).join(' ') }, signal, why);
+				}
 			}
+		} finally {
+			signal.removeEventListener('abort', onAbort);
+			wanted.abort();
 		}
 	}
 
@@ -359,9 +379,26 @@ export class KokoroSpeaker implements Speaker {
 		});
 	}
 
-	async #render(artistKey: string, text: string, urgent: boolean): Promise<Rendered> {
-		const voice = await this.#voiceFor(artistKey);
-		const rendered = await this.voice.render(text, voice, { urgent });
+	/**
+	 * Each sentence of `line`, rendered in its artist's voice. The voice lookups run one
+	 * after another, so lines reach the voice's queue in the order they were asked for (a
+	 * line being said before one prepared just after it) and a line's sentences together.
+	 */
+	#renders(
+		line: SpokenLine,
+		options: { urgent: boolean; signal: AbortSignal | undefined }
+	): Promise<Rendered>[] {
+		const voice = this.#lookups.then(() => this.#voiceFor(line.artistKey));
+		this.#lookups = voice.catch(() => {});
+		return sentences(line.text).map((text) => voice.then((v) => this.#render(v, text, options)));
+	}
+
+	async #render(
+		voice: string,
+		text: string,
+		options: { urgent: boolean; signal: AbortSignal | undefined }
+	): Promise<Rendered> {
+		const rendered = await this.voice.render(text, voice, options);
 		if (rendered.ms > 0) {
 			this.#slowRuns = rendered.ms / 1000 > rendered.seconds * SLOW_FACTOR ? this.#slowRuns + 1 : 0;
 			if (this.#slowRuns >= SLOW_IN_A_ROW) {

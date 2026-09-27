@@ -200,6 +200,30 @@ describe("Presenter.intro", () => {
     for (let i = 1; i < texts.length; i++) expect(texts[i]).not.toBe(texts[i - 1]);
   });
 
+  it("opens a quick intro with a short naming, keeping the facts, their rotation and the budget", () => {
+    const opening = /^(Here's|This is|On now,) Mogwai\. /;
+    const p = presenter(14, { knownArtists: BOARD, probabilities: { colour: 1 } });
+    const kinds: FactKind[] = [];
+    for (let i = 0; i < 7; i++) {
+      const line = p.intro(rich(), "short", new Date(NOW.getTime() + i * 3_600_000), 0, { quick: true });
+      expect(line.text).toMatch(opening);
+      expect(line.text).toMatch(/Paradiso/);
+      expect(line.seconds).toBeLessThanOrEqual(DEFAULT_BUDGETS.introCap);
+      expect(colourOf(line).length).toBe(1);
+      expectClean(line.text);
+      kinds.push(...colourOf(line));
+    }
+    // Every fact still gets its turn, ticket news included (after the gig line).
+    expect(new Set(kinds).size).toBe(7);
+    const bareLine = p.forTrack({ entry: bare(), trackIndex: 0, mode: "short", now: NOW, quick: true })!;
+    expect(bareLine.text).toMatch(/^(Here's|This is|On now,) Mike\. .*Paradiso/);
+    // Only when asked: most intros open some other way.
+    const usual = Array.from({ length: 50 }, () => p.intro(rich(), "short", NOW).text);
+    expect(usual.filter((t) => opening.test(t)).length).toBeLessThan(40);
+    // Name mode and clip intros already open briefly.
+    expect(p.forTrack({ entry: rich(), trackIndex: 0, mode: "name", now: NOW, quick: true })!.text).toMatch(/^Mogwai[.,:]/);
+  });
+
   it("is deterministic for a seed", () => {
     const run = (seed: number) => {
       const p = presenter(seed, { knownArtists: BOARD });
@@ -298,6 +322,10 @@ describe("presenter output over the sample data", () => {
             if (line.seconds >= 5 && line.seconds <= 9) counts.inTarget++;
           }
         }
+        const quick = p.intro(e, "short", now, 0, { quick: true });
+        expectClean(quick.text);
+        expect(quick.text.split(/(?<=[.!?])\s/)[0]).toContain(e.name.trim());
+        expect(quick.seconds).toBeLessThanOrEqual(DEFAULT_BUDGETS.introCap);
         for (let i = 1; i < e.tracks.length; i++) {
           const m = p.micro(e, i);
           if (m) {
