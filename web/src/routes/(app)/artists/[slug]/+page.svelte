@@ -6,11 +6,12 @@
 	import PosterTile from '$lib/components/PosterTile.svelte';
 	import More from '$lib/components/pages/More.svelte';
 	import PlayArtist from '$lib/components/pages/PlayArtist.svelte';
-	import SortArtist from '$lib/components/pages/SortArtist.svelte';
+	import TriageButtons from '$lib/components/TriageButtons.svelte';
+	import { boardStore } from '$lib/board/board-store.svelte';
 	import { amsterdamDate } from '$lib/data/dates';
 	import { GENRES, NO_GENRE_COLOUR, bucketsFor } from '$lib/data/genres';
 	import type { GigView } from '$lib/data/catalog';
-	import { artistPath } from '$lib/data/slugs';
+	import { artistPath, externalHref } from '$lib/data/slugs';
 	import { youtubeMusicUrl } from '$lib/radio/tracks';
 
 	let { data } = $props();
@@ -66,19 +67,21 @@
 		artist.wikipedia
 			? {
 					text: artist.wikipedia.extract,
-					url: artist.wikipedia.url,
+					url: externalHref(artist.wikipedia.url),
 					source: `Wikipedia${artist.wikipedia.lang !== 'en' ? ` (${artist.wikipedia.lang})` : ''}`
 				}
 			: artist.lastfm?.bio
-				? { text: artist.lastfm.bio, url: artist.lastfm.url, source: 'Last.fm' }
+				? { text: artist.lastfm.bio, url: externalHref(artist.lastfm.url), source: 'Last.fm' }
 				: null
 	);
-	const links = $derived([
-		...Object.entries(mb?.links ?? {}).filter(([k]) => k !== 'wikidata' && k !== 'wikipedia'),
-		...(youtubeMusicUrl(artist.youtube)
-			? [['YouTube Music', youtubeMusicUrl(artist.youtube)!]]
-			: [])
-	]);
+	const links = $derived(
+		[
+			...Object.entries(mb?.links ?? {}).filter(([k]) => k !== 'wikidata' && k !== 'wikipedia'),
+			['YouTube Music', youtubeMusicUrl(artist.youtube)] as const
+		]
+			.map(([kind, url]) => [kind, externalHref(url)] as const)
+			.filter((l): l is readonly [string, string] => !!l[1])
+	);
 	/** Similar artists who are in the data too get a link. */
 	const byName = $derived(
 		new Map(Object.values(catalog.artists).map((a) => [a.name.toLowerCase(), a]))
@@ -120,7 +123,15 @@
 
 	<div class="actions">
 		<PlayArtist {catalog} artistKey={artist.key} name={artist.name} strong />
-		<SortArtist {catalog} artistKey={artist.key} name={artist.name} gig={next} />
+		<TriageButtons
+			label="Sort {artist.name}"
+			current={boardStore.stateOf(artist.key)}
+			onpick={(t) =>
+				boardStore.toggle(artist.key, t, {
+					name: artist.name,
+					...(next ? { gig: next.id, when: next.start } : {})
+				})}
+		/>
 	</div>
 
 	<section>
@@ -238,7 +249,7 @@
 		max-width: 760px;
 	}
 	/* No songs, no play button: the sort buttons take the row. */
-	.actions > :global(.sort:first-child) {
+	.actions > :global(.triage:first-child) {
 		grid-column: 1 / -1;
 	}
 	section {

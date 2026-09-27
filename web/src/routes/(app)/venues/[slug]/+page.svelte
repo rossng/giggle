@@ -3,6 +3,7 @@
 	// and its website sit next to the title.
 	import GigList from '$lib/components/GigList.svelte';
 	import { amsterdamDate, weekStart } from '$lib/data/dates';
+	import { externalHref } from '$lib/data/slugs';
 
 	let { data } = $props();
 	const venue = $derived(data.venue);
@@ -33,7 +34,7 @@
 			<h1 class="display page-title">{venue.name}</h1>
 			<p class="sub">
 				{upcoming.length} upcoming gig{upcoming.length === 1 ? '' : 's'} ·
-				<a href={venue.website} rel="external noopener" target="_blank">{site} ↗</a>
+				<a href={externalHref(venue.website)} rel="external noopener" target="_blank">{site} ↗</a>
 			</p>
 		</div>
 		{#if upcoming.length}

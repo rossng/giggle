@@ -46,18 +46,18 @@
 	<div class="main">
 		<h3><a href={view.href}>{gig.title}</a></h3>
 		{#if view.support.length}
-			<p class="sub">+ {view.support.join(', ')}</p>
+			<p class="sub ellipsis">+ {view.support.join(', ')}</p>
 		{:else if gig.subtitle}
-			<p class="sub">{gig.subtitle}</p>
+			<p class="sub ellipsis">{gig.subtitle}</p>
 		{/if}
 		{#if tagline.length || note}
-			<p class="tagline">
+			<p class="tagline ellipsis">
 				{#if note}<span class="note">{note}</span>{/if}
 				<span class="text">{tagline.join(' · ')}</span>
 			</p>
 		{/if}
 		<!-- Phones: venue, time and price in one line under the title. -->
-		<p class="meta">
+		<p class="meta ellipsis">
 			{#if note}<span class="note">{note}</span>{/if}
 			{#if showVenue}<span class="where">{view.venueName}</span>{/if}
 			<span class="time">{view.time}</span>
@@ -70,20 +70,20 @@
 	</div>
 	{#if showVenue}
 		<div class="venue">
-			<b>{view.venueName}</b>
-			{#if place}<span>{place}</span>{/if}
+			<b class="ellipsis">{view.venueName}</b>
+			{#if place}<span class="ellipsis">{place}</span>{/if}
 		</div>
 	{/if}
 	<div class="when">
-		<b>{view.time}</b>
+		<b class="ellipsis">{view.time}</b>
 		{#if view.soldOut}
-			<span class="soldout">Sold out</span>
+			<span class="soldout ellipsis">Sold out</span>
 		{:else if view.price}
-			<span>{view.price}</span>
+			<span class="ellipsis">{view.price}</span>
 		{/if}
 	</div>
 	<button
-		class="play"
+		class="play tap"
 		type="button"
 		disabled={!playable}
 		title={playable ? `Play ${playable.name}` : 'No songs to play'}
@@ -179,9 +179,6 @@
 	.meta {
 		font-size: 12px;
 		color: var(--mute);
-		overflow: hidden;
-		text-overflow: ellipsis;
-		white-space: nowrap;
 	}
 	.tagline {
 		display: flex;
@@ -220,18 +217,12 @@
 	.venue b,
 	.when b {
 		font-weight: 600;
-		overflow: hidden;
-		text-overflow: ellipsis;
-		white-space: nowrap;
 	}
 	.venue span,
 	.when span {
 		font-size: 11.5px;
 		color: var(--mute);
 		font-variant-numeric: tabular-nums;
-		overflow: hidden;
-		text-overflow: ellipsis;
-		white-space: nowrap;
 	}
 	.when {
 		grid-area: when;
@@ -335,10 +326,6 @@
 		.meta .soldout {
 			flex: none;
 			font-variant-numeric: tabular-nums;
-		}
-		.play {
-			width: 44px;
-			height: 44px;
 		}
 	}
 	@media (pointer: coarse) {

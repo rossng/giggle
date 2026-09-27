@@ -10,6 +10,14 @@
 
 import type { Artist, Gig } from './types';
 
+/**
+ * A scraped or third-party URL, fit for an `href` or `src`: only http(s) URLs pass (a
+ * `javascript:` or `data:` URL would run or smuggle content); anything else is undefined.
+ */
+export function externalHref(url: string | null | undefined): string | undefined {
+	return url && /^https?:\/\//i.test(url.trim()) ? url.trim() : undefined;
+}
+
 /** "Sigur Rós & Friends!" → "sigur-ros-friends". */
 export function slugify(text: string, max = 60): string {
 	const slug = text

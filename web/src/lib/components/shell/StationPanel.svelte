@@ -4,6 +4,7 @@
 <script lang="ts">
 	import type { RadioOrder, VoiceMode } from '@giggle/radio-core';
 	import FilterPanel from '$lib/components/FilterPanel.svelte';
+	import Sheet from '$lib/components/Sheet.svelte';
 	import { unavailableDates } from '$lib/data/unavailable-store.svelte';
 	import { dateWindow, facetCounts, summarise, toQuery, type Filters } from '$lib/data/filters';
 	import { filterNames, type Catalog } from '$lib/data/catalog';
@@ -26,13 +27,6 @@
 		radioApp.station = { ...station, filters: { ...station.filters, ...next } };
 	}
 
-	let dialog: HTMLDialogElement | undefined = $state();
-	$effect(() => {
-		if (!dialog) return;
-		if (radioApp.settingsOpen && !dialog.open) dialog.showModal();
-		if (!radioApp.settingsOpen && dialog.open) dialog.close();
-	});
-
 	const ORDERS: RadioOrder[] = ['date', 'mix', 'shuffle'];
 	const VOICE_MODES: { mode: VoiceMode; label: string }[] = [
 		{ mode: 'off', label: 'Off' },
@@ -54,21 +48,8 @@
 	});
 </script>
 
-<dialog
-	bind:this={dialog}
-	class="drawer"
-	aria-label="Station and settings"
-	onclose={() => (radioApp.settingsOpen = false)}
-	onclick={(e) => e.target === dialog && dialog?.close()}
->
+<Sheet bind:open={radioApp.settingsOpen} title="Station">
 	<div class="inner">
-		<header>
-			<h2 class="display">Station</h2>
-			<button type="button" class="close" onclick={() => dialog?.close()} aria-label="Close"
-				>✕</button
-			>
-		</header>
-
 		<section>
 			<p class="summary">{summary}</p>
 			<p class="stat">
@@ -76,8 +57,10 @@
 					· skipping <b>{radio.skipped}</b> not for me{/if}{#if radio.withoutTracks}
 					· <b>{radio.withoutTracks}</b> without songs{/if}
 			</p>
-			<a class="link" href="/agenda{toQuery(station.filters)}" onclick={() => dialog?.close()}
-				>See these gigs in the agenda →</a
+			<a
+				class="link"
+				href="/agenda{toQuery(station.filters)}"
+				onclick={() => (radioApp.settingsOpen = false)}>See these gigs in the agenda →</a
 			>
 		</section>
 
@@ -92,7 +75,6 @@
 				{#each ORDERS as order (order)}
 					<button
 						type="button"
-						class:on={radio.order === order}
 						aria-pressed={radio.order === order}
 						title={order !== 'date' && radio.order === order
 							? 'Reshuffle'
@@ -113,7 +95,6 @@
 				{#each TRACKS_PER_ARTIST as n (n)}
 					<button
 						type="button"
-						class:on={radio.settings.tracksPerArtist === n}
 						aria-pressed={radio.settings.tracksPerArtist === n}
 						onclick={() => radio.setTracksPerArtist(n)}>{n}</button
 					>
@@ -127,7 +108,6 @@
 				{#each VOICE_MODES as { mode, label } (mode)}
 					<button
 						type="button"
-						class:on={radio.settings.voiceMode === mode}
 						aria-pressed={radio.settings.voiceMode === mode}
 						onclick={() => radio.setVoiceMode(mode)}>{label}</button
 					>
@@ -139,7 +119,6 @@
 					{#each LIVE_VOICES as { voice, label } (voice)}
 						<button
 							type="button"
-							class:on={radio.settings.liveVoice === voice}
 							aria-pressed={radio.settings.liveVoice === voice}
 							onclick={() => radio.setLiveVoice(voice)}>{label}</button
 						>
@@ -171,37 +150,13 @@
 			</p>
 		</section>
 	</div>
-</dialog>
+</Sheet>
 
 <style>
-	.drawer {
-		margin: 0 0 0 auto;
-		height: 100dvh;
-		max-height: none;
-		width: min(400px, 100vw);
-		padding: 0;
-		border: 0;
-		border-left: 1px solid var(--line);
-		background: var(--p1);
-		color: var(--ink);
-	}
-	.drawer::backdrop {
-		background: rgb(0 0 0 / 0.5);
-	}
 	.inner {
 		display: flex;
 		flex-direction: column;
 		gap: 22px;
-		padding: 18px 18px 40px;
-	}
-	header {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-	}
-	h2 {
-		margin: 0;
-		font-size: 36px;
 	}
 	h3 {
 		margin: 0 0 8px;
@@ -211,23 +166,12 @@
 		flex-direction: column;
 		gap: 6px;
 	}
-	.close {
-		border: 0;
-		background: var(--p2);
-		color: var(--ink);
-		width: 32px;
-		height: 32px;
-		border-radius: 50%;
-		cursor: pointer;
-	}
 	.summary {
-		margin: 0;
 		font-weight: 600;
 	}
 	.stat,
 	.hint,
 	.keys {
-		margin: 0;
 		color: var(--mute);
 		font-size: 12.5px;
 	}
@@ -241,41 +185,6 @@
 		color: var(--amber);
 		font-size: 12.5px;
 		text-decoration: none;
-	}
-	.seg {
-		display: flex;
-		background: var(--bg);
-		border: 1px solid var(--line);
-		border-radius: 8px;
-		padding: 3px;
-	}
-	@media (hover: none) and (pointer: coarse) {
-		.kbd-hint {
-			display: none;
-		}
-		.seg button {
-			min-height: 44px;
-		}
-		.close {
-			width: 44px;
-			height: 44px;
-		}
-	}
-	.seg button {
-		flex: 1;
-		border: 0;
-		background: none;
-		color: var(--mute);
-		padding: 6px 4px;
-		border-radius: 6px;
-		font-size: 12.5px;
-		font-weight: 600;
-		white-space: nowrap;
-		cursor: pointer;
-	}
-	.seg button.on {
-		background: var(--p3);
-		color: var(--ink);
 	}
 	.more summary {
 		cursor: pointer;

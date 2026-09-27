@@ -1,6 +1,7 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { loadBoard, saveBoard, setTriage, type Board, type Triage } from '$lib/board/board';
 import { memoryStorage, readJson, writeJson } from '$lib/storage';
+import { boardCollection } from './collections';
 import { SYNC_STORAGE_KEY, SyncClient, type SyncState, type SyncStatus } from './client';
 import type { WireItem } from './wire';
 
@@ -126,6 +127,7 @@ function device(server: FakeServer, user: string, options: { fetch?: typeof fetc
 	const statuses: SyncStatus[] = [];
 	const boards: Board[] = [];
 	const client = new SyncClient({
+		collections: [boardCollection],
 		fetch: options.fetch ?? server.fetchFor(user),
 		storage,
 		events,
@@ -134,7 +136,7 @@ function device(server: FakeServer, user: string, options: { fetch?: typeof fetc
 		debounceMs: 1000,
 		pollMs: 60_000,
 		backoffMs: { base: 1000, max: 8000 },
-		onBoard: (board) => boards.push(board)
+		onChange: (name, data) => name === 'board' && boards.push(data as Board)
 	});
 	client.subscribe((status) => statuses.push(status));
 	return {
@@ -252,6 +254,7 @@ describe('SyncClient: two devices, one account', () => {
 			{ key: 'name:b', state: 'go', name: 'B', at: '2026-09-26T19:00:00.000Z' }
 		]);
 		const bob = new SyncClient({
+			collections: [boardCollection],
 			fetch: server.fetchFor('bob@example.test'),
 			storage: shared.storage,
 			events: null

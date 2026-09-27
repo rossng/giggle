@@ -64,10 +64,10 @@
 			{#each dated as r (r.key)}
 				<li>
 					<span class="what">{describeRule(r.rule, thisYear)}</span>
-					{#if r.label}<span class="note">{r.label}</span>{/if}
+					{#if r.label}<span class="note ellipsis">{r.label}</span>{/if}
 					<button
 						type="button"
-						class="x"
+						class="x tap"
 						aria-label="Remove {describeRule(r.rule, thisYear)}"
 						title="Remove"
 						onclick={() => unavailableDates.remove(r.key)}>×</button
@@ -165,9 +165,6 @@
 	.note {
 		flex: 1;
 		min-width: 0;
-		overflow: hidden;
-		text-overflow: ellipsis;
-		white-space: nowrap;
 		color: var(--mute);
 		font-size: 11px;
 	}
@@ -243,8 +240,6 @@
 			font-size: 13px;
 		}
 		.x {
-			width: 44px;
-			height: 44px;
 			margin-right: -10px;
 			font-size: 18px;
 		}
@@ -254,7 +249,6 @@
 			padding: 6px 8px;
 		}
 		.button {
-			min-height: 44px;
 			padding: 0 16px;
 		}
 	}

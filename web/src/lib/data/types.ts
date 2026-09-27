@@ -178,6 +178,9 @@ export interface Artist {
 	youtube?: YoutubeArtist | null;
 	/** Announcer descriptors written by the pipeline ("a Glasgow four-piece…"). */
 	blurbs?: string[];
+	/** Which announcer introduces them (pipeline `announcer_for`), for playable artists:
+	 * "bf_isabella" or "bm_fable". Absent in older output. */
+	announcer?: string;
 	/** Pre-rendered intros, one per descriptor that has a clip. `clip` is relative to
 	 * the data directory ("voice/<hash>.mp3"); `seconds` is the clip's exact length. */
 	announce?: AnnounceClip[];

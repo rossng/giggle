@@ -14,7 +14,7 @@
 <details class="more" bind:open>
 	<summary>
 		<span class="label">{label}</span>
-		{#if summary}<span class="what">{summary}</span>{/if}
+		{#if summary}<span class="what ellipsis">{summary}</span>{/if}
 		<svg class="chev" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5 6 7.5 9 4.5" /></svg>
 	</summary>
 	<div class="body">
@@ -51,9 +51,6 @@
 		min-width: 0;
 		font-size: 12.5px;
 		color: var(--mute);
-		white-space: nowrap;
-		overflow: hidden;
-		text-overflow: ellipsis;
 	}
 	.chev {
 		flex: none;

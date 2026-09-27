@@ -21,7 +21,7 @@
 <div class="read">
 	<p bind:this={el} class:clamped={!open} style:--lines={lines}>{text}</p>
 	{#if long || open}
-		<button type="button" class="toggle" aria-expanded={open} onclick={() => (open = !open)}
+		<button type="button" class="toggle tap" aria-expanded={open} onclick={() => (open = !open)}
 			>{open ? 'Show less' : 'Read more'}</button
 		>
 	{/if}
@@ -56,10 +56,5 @@
 		font-weight: 600;
 		font-size: 13px;
 		cursor: pointer;
-	}
-	@media (pointer: coarse) {
-		.toggle {
-			min-height: 44px;
-		}
 	}
 </style>

@@ -1,7 +1,7 @@
 /**
- * Data shapes shared with the pipeline (`data/site/gigs.json`, `artists.json`) and the
- * app. Field names follow the pipeline's JSON exactly (snake_case included), so the
- * files can be typed with a plain cast after `JSON.parse`.
+ * What radio-core reads of the pipeline's data (`data/site/gigs.json`, `artists.json`): only
+ * the fields used here, so the app's full types (web/src/lib/data/types.ts) fit these without
+ * casts. Field names follow the JSON (snake_case included).
  */
 
 /** Ticket availability, as podia's `Availability`. */
@@ -16,22 +16,9 @@ export type Availability =
 /** Event status, as podia's `Status`. */
 export type GigStatus = "scheduled" | "cancelled" | "postponed" | "moved";
 
-/** What kind of event the line-up step decided a gig is. */
-export type LineupKind = "concert" | "festival" | "club" | "tribute" | "not_music";
-
 export interface Price {
   min_eur: number | null;
   max_eur: number | null;
-  /** The venue's own wording, when it isn't a plain number. */
-  text?: string | null;
-}
-
-export interface Lineup {
-  kind: LineupKind;
-  headliners: string[];
-  support: string[];
-  /** Which model (or "rules") produced it. */
-  source?: string;
 }
 
 export type ArtistRole = "headliner" | "support";
@@ -46,114 +33,42 @@ export interface GigArtist {
 export interface Gig {
   /** `<venue>:<source_id>`, unique and stable across runs. */
   id: string;
+  /** A key of gigs.json `venues`. */
   venue: string;
-  title: string;
   /** ISO 8601 with offset, e.g. `2026-10-16T20:30:00+02:00`. */
   start: string;
+  end?: string | null;
   city: string | null;
   status: GigStatus;
   availability: Availability;
   price: Price | null;
-  lineup: Lineup;
-  artists: GigArtist[];
-  place?: string;
-  source_id?: string;
-  url?: string | null;
-  subtitle?: string | null;
-  doors?: string | null;
-  end?: string | null;
-  room?: string | null;
-  performers?: string[];
-  support?: string[];
-  genres?: string[];
-  categories?: string[];
-  ticket_url?: string | null;
-  description?: string | null;
-  image?: string | null;
-  extra?: Record<string, unknown>;
+  artists: readonly GigArtist[];
 }
 
+/** gigs.json `venues[slug]`. */
 export interface Venue {
-  slug: string;
   name: string;
   city: string;
-  website: string;
-  country: string;
 }
 
-/** `data/site/gigs.json`. */
-export interface GigsFile {
-  generated: string;
-  since: string;
-  venues: Record<string, Venue>;
-  gigs: Gig[];
-}
-
-export interface MusicBrainzMatch {
-  mbid: string;
-  name: string;
-  disambiguation: string | null;
-  namesakes: number;
-  confidence: "high" | "medium" | "low";
-}
-
-export interface MusicBrainzDetails {
-  mbid: string;
-  name: string | null;
-  type: string | null;
-  country: string | null;
-  area: string | null;
-  begin_area: string | null;
-  begin: string | null;
-  ended: boolean | null;
-  genres: string[];
-  tags: string[];
-  links: Record<string, string>;
-}
-
-export interface LastfmInfo {
-  name: string | null;
-  mbid: string | null;
-  url: string | null;
-  listeners: number;
-  playcount: number;
-  tags: string[];
-  similar: string[];
-  bio: string | null;
-}
-
-export interface LastfmTrack {
-  title: string | null;
-  listeners: number;
-  playcount: number;
-}
-
-export interface WikipediaSummary {
-  title: string | null;
-  lang: string;
-  description: string | null;
-  extract: string;
-  url: string | null;
-  thumbnail: string | null;
-}
-
-/** One record of `data/site/artists.json`. */
+/** One record of `artists.json`: the parts the presenter's facts come from. */
 export interface Artist {
-  /** `mb:<mbid>` when matched on MusicBrainz, otherwise `name:<normalised name>`. */
-  key: string;
   name: string;
-  match: MusicBrainzMatch | null;
-  musicbrainz: MusicBrainzDetails | null;
-  lastfm: LastfmInfo | null;
-  top_tracks: LastfmTrack[] | null;
-  wikipedia: WikipediaSummary | null;
-  /** Gig ids, soonest first. */
-  gigs: string[];
-}
-
-/** `data/site/artists.json`. */
-export interface ArtistsFile {
-  artists: Record<string, Artist>;
+  musicbrainz: {
+    /** "Group", "Person", "Orchestra"… */
+    type: string | null;
+    /** ISO 3166 code, e.g. "GB". */
+    country: string | null;
+    area: string | null;
+    begin_area?: string | null;
+    /** "1995", "1995-04" or "1995-04-01". */
+    begin: string | null;
+    ended?: boolean | null;
+    genres: readonly string[];
+    tags: readonly string[];
+  } | null;
+  lastfm: { tags: readonly string[]; similar: readonly string[] } | null;
+  wikipedia: { description: string | null } | null;
 }
 
 /**

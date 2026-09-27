@@ -3,12 +3,12 @@
 // and hosts its video (VideoDock) and controls (PlayerBar). The station is app state: the Radio
 // page's URL mirrors it (so a station is still a shareable link), and it stays as you browse.
 
-import type { Artist as CoreArtist, Gig as CoreGig, RadioOrder } from '@giggle/radio-core';
+import type { RadioOrder } from '@giggle/radio-core';
 import type { Catalog } from '$lib/data/catalog';
 import { apply } from '$lib/data/filters';
 import { Radio } from './radio.svelte';
 import { stationFromParams, stationKey, type Station } from './station';
-import { artistImage, introClips, trackIndex } from './tracks';
+import { announcerOf, artistImage, introClips, trackIndex } from './tracks';
 
 class RadioApp {
 	/** The current station; the Radio page's URL mirrors it. */
@@ -44,6 +44,7 @@ class RadioApp {
 				this.#radio = new Radio({
 					venues: catalog.venues,
 					image: (entry) => artistImage(this.#catalog?.artists[entry.artistKey]),
+					voiceFor: (key) => announcerOf(this.#catalog?.artists[key]),
 					onOrderChange: (order: RadioOrder, seed: number) => {
 						this.station = { ...this.station, order, orderGiven: true, seed };
 					}
@@ -60,9 +61,9 @@ class RadioApp {
 		const shown = apply(station.filters, catalog.gigs, now, isUnavailable);
 		radio.setStation({
 			key: stationKey(station.filters),
-			gigs: shown.map((v) => v.gig) as unknown as CoreGig[],
+			gigs: shown.map((v) => v.gig),
 			tracks: this.#indexes!.tracks,
-			artists: catalog.artists as unknown as Record<string, CoreArtist>,
+			artists: catalog.artists,
 			clips: this.#indexes!.clips,
 			order: station.order,
 			orderGiven: station.orderGiven,

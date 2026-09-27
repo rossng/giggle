@@ -7,10 +7,10 @@
 	import PlayArtist from '$lib/components/pages/PlayArtist.svelte';
 	import ReadMore from '$lib/components/pages/ReadMore.svelte';
 	import { TRIAGE_LABELS } from '$lib/board/board';
-	import { liveBoard } from '$lib/board/live';
+	import { boardStore } from '$lib/board/board-store.svelte';
 	import { amsterdamDate, dayParts, localTime, relativeDays } from '$lib/data/dates';
 	import { GENRES } from '$lib/data/genres';
-	import { artistPath, venuePath } from '$lib/data/slugs';
+	import { artistPath, externalHref, venuePath } from '$lib/data/slugs';
 	import type { Availability } from '$lib/data/types';
 
 	let { data } = $props();
@@ -18,7 +18,6 @@
 	const view = $derived(data.view);
 	const gig = $derived(view.gig);
 	const artists = $derived(catalog.artists);
-	const board = $derived(liveBoard(catalog));
 	const today = amsterdamDate(new Date());
 	const day = $derived(dayParts(view.date));
 
@@ -47,7 +46,9 @@
 	const availability = $derived(
 		view.soldOut || gig.availability === 'on_sale' ? null : AVAILABILITY[gig.availability]
 	);
-	const tickets = $derived(gig.ticket_url ?? gig.url);
+	const tickets = $derived(externalHref(gig.ticket_url) ?? externalHref(gig.url));
+	const listing = $derived(externalHref(gig.url));
+	const image = $derived(externalHref(gig.image));
 	/** The act the big play button plays: the first with songs, headliners first. */
 	const playable = $derived(
 		[...gig.artists]
@@ -102,13 +103,15 @@
 			<span>{day.weekday}</span><b>{day.day}</b><span>{day.month}</span>
 		</div>
 		<div class="t-body">
-			<a class="t-venue" href={venuePath(gig.venue)}>{view.venueName}</a>
-			{#if where}<span class="t-line">{where}</span>{/if}
-			<span class="t-line">{when}</span>
+			<a class="t-venue ellipsis" href={venuePath(gig.venue)}>{view.venueName}</a>
+			{#if where}<span class="t-line ellipsis">{where}</span>{/if}
+			<span class="t-line ellipsis">{when}</span>
 		</div>
 		<div class="t-side">
 			<b class:warn={view.soldOut}>{view.soldOut ? 'Sold out' : (view.price ?? '')}</b>
-			<span class:note={availability}>{availability ?? relativeDays(view.date, today)}</span>
+			<span class="ellipsis" class:note={availability}
+				>{availability ?? relativeDays(view.date, today)}</span
+			>
 		</div>
 	</div>
 
@@ -134,7 +137,7 @@
 			<ul>
 				{#each gig.artists as ref (ref.key)}
 					{@const artist = artists[ref.key]}
-					{@const state = board[ref.key]?.state}
+					{@const state = boardStore.stateOf(ref.key)}
 					<li>
 						<div class="act">
 							<a href={artistPath(artist ?? ref)}>{artist?.name ?? ref.name}</a>
@@ -169,15 +172,15 @@
 					{/each}
 				</ul>
 			{/if}
-			{#if gig.image}
-				<img class="image" src={gig.image} alt="" loading="lazy" referrerpolicy="no-referrer" />
+			{#if image}
+				<img class="image" src={image} alt="" loading="lazy" referrerpolicy="no-referrer" />
 			{/if}
 			<dl class="details">
-				{#if gig.url}<div>
+				{#if listing}<div>
 						<dt>Listing</dt>
 						<dd>
-							<a href={gig.url} rel="external noopener" target="_blank"
-								>{gig.url.replace(/^https?:\/\/(www\.)?/, '')}</a
+							<a href={listing} rel="external noopener" target="_blank"
+								>{listing.replace(/^https?:\/\/(www\.)?/, '')}</a
 							>
 						</dd>
 					</div>{/if}
@@ -294,9 +297,6 @@
 		font-weight: 650;
 		font-size: 15px;
 		text-decoration: none;
-		white-space: nowrap;
-		overflow: hidden;
-		text-overflow: ellipsis;
 	}
 	.t-venue:hover {
 		text-decoration: underline;
@@ -306,9 +306,6 @@
 		font-size: 12.5px;
 		color: var(--mute);
 		font-variant-numeric: tabular-nums;
-		white-space: nowrap;
-		overflow: hidden;
-		text-overflow: ellipsis;
 	}
 	.t-side {
 		flex: none;

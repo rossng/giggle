@@ -99,7 +99,7 @@
 			display: none;
 		}
 	}
-	@media (hover: none) and (pointer: coarse) {
+	@media (pointer: coarse) {
 		.account,
 		.about {
 			padding: 12px 14px;

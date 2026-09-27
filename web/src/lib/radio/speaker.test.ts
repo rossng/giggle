@@ -167,7 +167,7 @@ describe('KokoroSpeaker', () => {
 			stop: () => {}
 		};
 		const fallback = { speak: async (l: SpokenLine) => void log.push(`web: ${l.text}`), stop() {} };
-		const speaker = new KokoroSpeaker(voice, fallback, { voiceFor: async () => 'bm_fable' });
+		const speaker = new KokoroSpeaker(voice, fallback, { voiceFor: () => 'bm_fable' });
 		return { log, voice, speaker, signals };
 	}
 
@@ -203,21 +203,16 @@ describe('KokoroSpeaker', () => {
 		]);
 	});
 
-	it('asks for a line being said before one prepared just after it', async () => {
+	it("asks for a line being said before one prepared just after it, each in its artist's voice", async () => {
 		const { log, voice } = fakes();
-		// Looking up the first artist's voice takes longer than the second's.
-		const voiceFor = (key: string) =>
-			new Promise<string>((resolve) =>
-				setTimeout(() => resolve('bm_fable'), key === 'mb:1' ? 20 : 0)
-			);
+		const voiceFor = (key: string) => (key === 'mb:2' ? 'bf_isabella' : 'bm_fable');
 		const speaker = new KokoroSpeaker(voice, { speak: async () => {}, stop() {} }, { voiceFor });
 		const said = speaker.speak(line, signal());
 		speaker.prepare({ ...line, artistKey: 'mb:2', text: 'Next up, Nobu.' });
 		await said;
-		await new Promise((resolve) => setTimeout(resolve, 5));
 		expect(log.filter((l) => l.startsWith('render'))).toEqual([
 			'render bm_fable now: They play Paradiso tonight.',
-			'render bm_fable: Next up, Nobu.'
+			'render bf_isabella: Next up, Nobu.'
 		]);
 	});
 

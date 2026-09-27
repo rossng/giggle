@@ -26,12 +26,12 @@ import {
 } from '$lib/data/unavailable';
 import { KEYS as RADIO_KEYS, loadHistory, saveHistory } from '$lib/radio/persist';
 import type { Collection } from './collection';
-import { boardOf, sameItem } from './merge';
 import {
 	fromWire as boardFromWire,
 	isArtistKey,
 	isSyncable as boardSyncable,
 	LIMITS,
+	toBoardItem,
 	toWire as boardToWire,
 	type SyncItem
 } from './wire';
@@ -53,6 +53,24 @@ function validTime(at: unknown): at is string {
 }
 
 // --- the board -------------------------------------------------------------------------------
+
+/** The board part of a synced map: every item that isn't a tombstone. */
+export function boardOf(map: Readonly<Record<string, SyncItem>>): Board {
+	const out: Record<string, BoardItem> = {};
+	for (const [key, item] of Object.entries(map)) {
+		if (item.state !== null) out[key] = toBoardItem({ ...item, state: item.state });
+	}
+	return out;
+}
+
+export function sameItem(a: SyncItem | undefined, b: SyncItem | undefined): boolean {
+	if (!a || !b) return a === b;
+	return (
+		a.state === b.state &&
+		(a.state === null || (a.name === b.name && (a.gig ?? '') === (b.gig ?? ''))) &&
+		Date.parse(a.at) === Date.parse(b.at)
+	);
+}
 
 /** Its record keeps the key it had before other collections synced. */
 export const SYNC_STORAGE_KEY = 'giggle:sync:v1';

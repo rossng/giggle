@@ -1,5 +1,4 @@
 import { describe, expect, it, vi } from 'vitest';
-import { ANNOUNCERS } from './announcers';
 import {
 	fileSize,
 	HF_PINNED,
@@ -29,7 +28,7 @@ describe('model-files.json', () => {
 	it('has a file for every dtype the app can pick and every announcer voice', () => {
 		expect(DTYPES).toEqual(['fp32', 'q8']);
 		for (const d of DTYPES) expect(fileSize(MODEL_FILES.dtypes[d])).toBeGreaterThan(1e6);
-		for (const v of ANNOUNCERS) expect(fileSize(`voices/${v}.bin`)).toBe(522240);
+		for (const v of ['bf_isabella', 'bm_fable']) expect(fileSize(`voices/${v}.bin`)).toBe(522240);
 		for (const f of ['config.json', 'tokenizer.json', 'tokenizer_config.json']) {
 			expect(fileSize(f)).toBeGreaterThan(0);
 		}

@@ -7,7 +7,8 @@
 	import { page } from '$app/state';
 	import NowPlaying from '$lib/components/radio/NowPlaying.svelte';
 	import UpNext from '$lib/components/radio/UpNext.svelte';
-	import { TRIAGES, TRIAGE_KEYS, TRIAGE_LABELS } from '$lib/board/board';
+	import TriageButtons from '$lib/components/TriageButtons.svelte';
+	import { boardStore } from '$lib/board/board-store.svelte';
 	import { amsterdamDate } from '$lib/data/dates';
 	import { summarise } from '$lib/data/filters';
 	import { filterNames } from '$lib/data/catalog';
@@ -52,7 +53,7 @@
 	const track = $derived(radio.track);
 	const artist = $derived(entry ? artists[entry.artistKey] : undefined);
 	const view = $derived(entry ? catalog.byId.get(entry.gig.id) : undefined);
-	const triage = $derived(entry ? (radio.board[entry.artistKey]?.state ?? null) : null);
+	const triage = $derived(entry ? boardStore.stateOf(entry.artistKey) : null);
 	const summary = $derived(summarise(radioApp.station.filters, filterNames(catalog)));
 	let queueOpen = $state(false);
 
@@ -78,18 +79,12 @@
 				{triage}
 			>
 				{#snippet actions()}
-					<div class="sort" role="group" aria-label="Sort this artist">
-						{#each TRIAGES as t (t)}
-							<button
-								type="button"
-								class="s-{t}"
-								class:on={triage === t}
-								aria-pressed={triage === t}
-								onclick={() => radio.triage(t)}
-								><kbd>{TRIAGE_KEYS[t]}</kbd><span>{TRIAGE_LABELS[t]}</span></button
-							>
-						{/each}
-					</div>
+					<TriageButtons
+						size="grid"
+						label="Sort this artist"
+						current={triage}
+						onpick={(t) => radio.triage(t)}
+					/>
 					{#if radio.caption && radio.settings.voiceMode !== 'off' && radio.started}
 						<p class="caption" class:speaking={radio.speaking} aria-live="polite">
 							<span class="label">{radio.speaking ? 'On air' : 'Announcer'}</span>
@@ -138,7 +133,6 @@
 				queue={radio.queue}
 				current={radio.position.artistIndex}
 				started={radio.started}
-				board={radio.board}
 				{catalog}
 				{artists}
 				onjump={(i) => radio.jump(i)}
@@ -180,58 +174,6 @@
 	}
 	.video.empty {
 		display: none;
-	}
-	.sort {
-		display: grid;
-		grid-template-columns: repeat(4, minmax(0, 1fr));
-		gap: 8px;
-	}
-	.sort button {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		gap: 8px;
-		min-width: 0;
-		padding: 10px 8px;
-		border: 1px solid var(--line);
-		border-radius: 10px;
-		background: var(--p1);
-		color: var(--ink);
-		font-weight: 600;
-		font-size: 13.5px;
-		cursor: pointer;
-	}
-	.sort button span {
-		white-space: nowrap;
-		overflow: hidden;
-		text-overflow: ellipsis;
-	}
-	.sort button:hover {
-		border-color: var(--mute);
-	}
-	.sort .s-nope {
-		color: var(--mute);
-	}
-	.sort button.on {
-		border-color: transparent;
-		color: var(--bg);
-	}
-	.sort .s-listen.on {
-		background: #8ea3ff;
-	}
-	.sort .s-go.on {
-		background: var(--amber);
-	}
-	.sort .s-tickets.on {
-		background: #7fd1a0;
-	}
-	.sort .s-nope.on {
-		background: var(--mute);
-	}
-	.sort button.on kbd {
-		background: rgb(0 0 0 / 0.15);
-		color: inherit;
-		border-color: transparent;
 	}
 	.caption {
 		margin: 0;
@@ -346,19 +288,6 @@
 		.now {
 			padding: 12px 12px 28px;
 			gap: 14px;
-		}
-		.sort {
-			grid-template-columns: repeat(2, minmax(0, 1fr));
-		}
-	}
-	/* Touch: big, easy targets (key badges are hidden on touch app-wide). */
-	@media (hover: none) and (pointer: coarse) {
-		.sort button {
-			min-height: 48px;
-			font-size: 14.5px;
-		}
-		.station {
-			min-height: 44px;
 		}
 	}
 </style>

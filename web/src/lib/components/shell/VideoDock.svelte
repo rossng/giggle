@@ -199,7 +199,7 @@
 			width: min(356px, calc(100vw - 24px));
 		}
 	}
-	@media (hover: none) and (pointer: coarse) {
+	@media (pointer: coarse) {
 		.tuck {
 			width: 40px;
 			height: 40px;

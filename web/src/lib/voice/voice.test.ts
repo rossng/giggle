@@ -1,6 +1,5 @@
 import { describe, expect, it } from 'vitest';
 import { phonemize } from 'phonemizer';
-import { announcerFor } from './announcers';
 import { normalise } from './audio';
 import { Lexicon, possessive } from './lexicon';
 import { toPhonemes } from './phonemes';
@@ -64,17 +63,6 @@ describe('toPhonemes', () => {
 		['Catch them at Tolhuistuin tonight!', 'kˈatʃ ðˌɛm at tˈɒlhaʊstˌaʊn tənˈaɪt!']
 	])('%s', async (text, expected) => {
 		expect(await toPhonemes(text, LEXICON, phonemize)).toBe(expected);
-	});
-});
-
-describe('announcerFor (as the pipeline’s announcer_for)', () => {
-	it.each([
-		['mb:abc', 'bf_isabella'],
-		['name:nobu', 'bf_isabella'],
-		['mb:5b11f4ce-a62d-471e-81fc-a69a8278c7da', 'bm_fable'],
-		['x', 'bm_fable']
-	])('%s → %s', async (key, voice) => {
-		expect(await announcerFor(key)).toBe(voice);
 	});
 });
 

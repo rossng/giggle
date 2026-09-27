@@ -9,17 +9,15 @@ import {
   type ColourFactKind,
 } from "../src/facts.ts";
 import type { QueueEntry } from "../src/queue.ts";
-import type { Artist, Gig, MusicBrainzDetails } from "../src/types.ts";
+import type { Artist, Gig } from "../src/types.ts";
 import { entry, gig, NOW, track } from "./helpers.ts";
+
+type MusicBrainzDetails = NonNullable<Artist["musicbrainz"]>;
 
 function artist(mb: Partial<MusicBrainzDetails> | null, extra: Partial<Artist> = {}): Artist {
   return {
-    key: "mb:x",
     name: "Mogwai",
-    match: null,
     musicbrainz: mb && {
-      mbid: "x",
-      name: "Mogwai",
       type: "Group",
       country: null,
       area: null,
@@ -28,13 +26,10 @@ function artist(mb: Partial<MusicBrainzDetails> | null, extra: Partial<Artist> =
       ended: false,
       genres: [],
       tags: [],
-      links: {},
       ...mb,
     },
     lastfm: null,
-    top_tracks: null,
     wikipedia: null,
-    gigs: [],
     ...extra,
   };
 }
@@ -120,14 +115,14 @@ describe("factPool", () => {
   });
 
   it("finds a short genre from MusicBrainz, Last.fm or Wikipedia", () => {
-    const a = artist({ genres: [] }, { lastfm: { name: null, mbid: null, url: null, listeners: 0, playcount: 0, tags: ["seen live", "Shoegaze", "dream pop"], similar: [], bio: null } });
+    const a = artist({ genres: [] }, { lastfm: { tags: ["seen live", "Shoegaze", "dream pop"], similar: [] } });
     expect(find(pool(withArtist(a)), "genre")).toMatchObject({ genres: ["shoegaze", "dream pop"] });
-    const wiki = artist(null, { wikipedia: { title: null, lang: "en", description: "Scottish post-rock band", extract: "", url: null, thumbnail: null } });
+    const wiki = artist(null, { wikipedia: { description: "Scottish post-rock band" } });
     expect(find(pool(withArtist(wiki)), "genre")).toMatchObject({ genres: [], descriptor: "a Scottish post-rock band" });
   });
 
   it("only says 'if you like' for artists the listener knows", () => {
-    const a = artist(null, { lastfm: { name: null, mbid: null, url: null, listeners: 0, playcount: 0, tags: [], similar: ["Mogwai", "Explosions in the Sky", "The Slowdive"], bio: null } });
+    const a = artist(null, { lastfm: { tags: [], similar: ["Mogwai", "Explosions in the Sky", "The Slowdive"] } });
     expect(find(pool(withArtist(a)), "similar")).toBeUndefined();
     expect(find(pool(withArtist(a), ["Mogwai"]), "similar")).toBeUndefined(); // never themselves
     expect(find(pool(withArtist(a), ["slowdive", "Mogwai"]), "similar")).toMatchObject({ like: "The Slowdive" });

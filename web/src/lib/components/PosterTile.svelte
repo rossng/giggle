@@ -5,6 +5,8 @@
 	the --poster-size CSS variable (say, smaller on phones), and the lettering scales with it.
 -->
 <script lang="ts">
+	import { externalHref } from '$lib/data/slugs';
+
 	let {
 		name,
 		colour,
@@ -13,6 +15,7 @@
 	}: { name: string; colour: string; thumb?: string | null; size?: number } = $props();
 
 	let failed = $state(false);
+	const src = $derived(externalHref(thumb));
 
 	const words = $derived(name.toUpperCase().split(/\s+/).filter(Boolean));
 
@@ -36,9 +39,9 @@
 </script>
 
 <div class="poster" aria-hidden="true" style:--c={colour} style:--size="{size}px">
-	{#if thumb && !failed}
+	{#if src && !failed}
 		<img
-			src={thumb}
+			{src}
 			alt=""
 			loading="lazy"
 			decoding="async"

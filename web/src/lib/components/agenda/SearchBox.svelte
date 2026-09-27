@@ -57,7 +57,7 @@
 		onkeydown={(e) => e.key === 'Escape' && text && (e.preventDefault(), clear())}
 	/>
 	{#if text}
-		<button type="button" class="clear" aria-label="Clear search" onclick={clear}>
+		<button type="button" class="clear tap" aria-label="Clear search" onclick={clear}>
 			<svg viewBox="0 0 12 12" aria-hidden="true"><path d="m3 3 6 6M9 3 3 9" /></svg>
 		</button>
 	{/if}
@@ -132,8 +132,6 @@
 			padding-right: 44px;
 		}
 		.clear {
-			width: 44px;
-			height: 44px;
 			right: 0;
 		}
 	}

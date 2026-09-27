@@ -181,10 +181,6 @@ export function gigLabels(gig: Gig, artists: Record<string, Artist>): string[] {
 	return labels;
 }
 
-export function gigBuckets(gig: Gig, artists: Record<string, Artist>): GenreId[] {
-	return bucketsFor(gigLabels(gig, artists));
-}
-
 function unique<T>(items: T[]): T[] {
 	return [...new Set(items)];
 }
