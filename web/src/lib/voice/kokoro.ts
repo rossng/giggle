@@ -35,18 +35,48 @@ export interface KokoroOptions {
 	lexiconUrl: string;
 }
 
+export interface RenderOptions {
+	/** About to be said (not just prepared ahead): goes before everything that isn't. */
+	urgent?: boolean;
+	speed?: number;
+	/**
+	 * Wanted until this aborts. A line still waiting for the worker when everyone who
+	 * asked for it has given up is dropped (its promise rejects with an AbortError) and
+	 * never rendered. Once the worker has it, it's finished and cached as usual.
+	 */
+	signal?: AbortSignal | undefined;
+}
+
 const CACHE_SIZE = 40;
+
+/** Someone who asked for a line: to say now (`urgent`) or ahead, until `signal` aborts. */
+interface Holder {
+	urgent: boolean;
+	signal: AbortSignal | undefined;
+	off: () => void;
+}
 
 interface Job {
 	key: string;
 	text: string;
 	voice: string;
 	speed: number;
-	/** About to be said (not just prepared ahead): goes before everything that isn't. */
+	/** Where it sits in the queue: with the urgent ones (first), or after them. */
 	urgent: boolean;
+	holders: Holder[];
+	promise: Promise<Rendered>;
 	resolve: (r: Rendered) => void;
 	reject: (e: Error) => void;
 }
+
+const live = (h: Holder) => !h.signal?.aborted;
+const notWanted = () => new DOMException('No longer wanted', 'AbortError');
+
+/** Makes the page's Kokoro worker (tests pass a fake). */
+export type WorkerFactory = () => Worker;
+
+const kokoroWorker: WorkerFactory = () =>
+	new Worker(new URL('./kokoro.worker.ts', import.meta.url), { type: 'module' });
 
 export class KokoroVoice {
 	state: KokoroState = {
@@ -70,13 +100,15 @@ export class KokoroVoice {
 	#listeners = new Set<(state: KokoroState) => void>();
 	#ctx: AudioContext | null = null;
 	#source: AudioBufferSourceNode | null = null;
+	readonly #createWorker: WorkerFactory;
 
-	constructor(options: Partial<KokoroOptions> = {}) {
+	constructor(options: Partial<KokoroOptions> & { worker?: WorkerFactory } = {}) {
 		this.options = {
 			device: options.device ?? 'auto',
 			dtype: options.dtype ?? 'auto',
 			lexiconUrl: options.lexiconUrl ?? '/data/pronunciation.json'
 		};
+		this.#createWorker = options.worker ?? kokoroWorker;
 	}
 
 	subscribe(listener: (state: KokoroState) => void): () => void {
@@ -94,9 +126,7 @@ export class KokoroVoice {
 	load(): Promise<void> {
 		this.#loaded ??= new Promise<void>((resolve, reject) => {
 			this.#set({ status: 'loading', progress: 0, error: null });
-			const worker = new Worker(new URL('./kokoro.worker.ts', import.meta.url), {
-				type: 'module'
-			});
+			const worker = this.#createWorker();
 			this.#worker = worker;
 			worker.onmessage = (event: MessageEvent<KokoroReply>) => {
 				const msg = event.data;
@@ -126,22 +156,24 @@ export class KokoroVoice {
 					this.#set({ status: 'failed', error: msg.message });
 					console.error('kokoro: failed to load', msg.message);
 					reject(new Error(msg.message));
-					for (const job of this.#queue.splice(0)) job.reject(new Error(msg.message));
+					for (const job of this.#queue.splice(0)) this.#settle(job, new Error(msg.message));
 				} else if (msg.type === 'audio') {
-					const seconds = msg.samples.length / msg.sampleRate;
-					this.#inFlight.get(msg.id)?.resolve({
-						samples: msg.samples,
-						sampleRate: msg.sampleRate,
-						seconds,
-						ms: msg.ms,
-						phonemeMs: msg.phonemeMs,
-						phonemes: msg.phonemes
-					});
+					const job = this.#inFlight.get(msg.id);
 					this.#inFlight.delete(msg.id);
+					if (job)
+						this.#settle(job, {
+							samples: msg.samples,
+							sampleRate: msg.sampleRate,
+							seconds: msg.samples.length / msg.sampleRate,
+							ms: msg.ms,
+							phonemeMs: msg.phonemeMs,
+							phonemes: msg.phonemes
+						});
 					this.#pump();
 				} else if (msg.type === 'error') {
-					this.#inFlight.get(msg.id)?.reject(new Error(msg.message));
+					const job = this.#inFlight.get(msg.id);
 					this.#inFlight.delete(msg.id);
+					if (job) this.#settle(job, new Error(msg.message));
 					this.#pump();
 				}
 			};
@@ -165,27 +197,34 @@ export class KokoroVoice {
 	/**
 	 * Renders `text` in `voice` (cached; a repeat returns the same audio with ms 0).
 	 * `urgent`: it's about to be said, so it goes before lines only prepared ahead.
+	 * `signal`: see `RenderOptions`; asking again for a waiting line adds to who wants it.
 	 */
 	render(
 		text: string,
 		voice: string,
-		{ urgent = false, speed = 1 }: { urgent?: boolean; speed?: number } = {}
+		{ urgent = false, speed = 1, signal }: RenderOptions = {}
 	): Promise<Rendered> {
 		const key = `${voice}|${speed}|${text}`;
 		const hit = this.#cache.get(key);
 		if (hit) {
 			this.#cache.delete(key); // most recent last
 			this.#cache.set(key, hit);
-			if (urgent) this.#promote(key);
+			const waiting = this.#queue.find((j) => j.promise === hit);
+			if (waiting && !signal?.aborted) {
+				this.#hold(waiting, urgent, signal);
+				this.#place(waiting);
+			}
 			return hit.then((r) => ({ ...r, ms: 0 }));
 		}
+		if (signal?.aborted) return Promise.reject(notWanted());
 		void this.load().catch(() => {});
-		const job = new Promise<Rendered>((resolve, reject) =>
-			this.#enqueue({ key, text, voice, speed, urgent, resolve, reject })
-		);
-		this.#cache.set(key, job);
+		let resolve!: (r: Rendered) => void;
+		let reject!: (e: Error) => void;
+		const promise = new Promise<Rendered>((res, rej) => ((resolve = res), (reject = rej)));
+		const job: Job = { key, text, voice, speed, urgent, holders: [], promise, resolve, reject };
+		this.#cache.set(key, promise);
 		while (this.#cache.size > CACHE_SIZE) this.#cache.delete(this.#cache.keys().next().value!);
-		job.then(
+		promise.then(
 			(r) => {
 				const recent = [{ text, seconds: r.seconds, ms: r.ms }, ...this.state.recent].slice(0, 20);
 				this.#set({ recent });
@@ -194,24 +233,62 @@ export class KokoroVoice {
 						`(${(r.ms / 1000 / r.seconds).toFixed(2)}× real time; phonemes ${r.phonemeMs.toFixed(0)} ms): ${text}`
 				);
 			},
-			() => this.#cache.delete(key)
+			() => this.#forget(job)
 		);
-		return job;
-	}
-
-	#enqueue(job: Job): void {
-		if (this.state.status === 'failed') return job.reject(new Error('Kokoro failed to load'));
-		const at = job.urgent ? this.#queue.findIndex((j) => !j.urgent) : -1;
-		this.#queue.splice(at < 0 ? this.#queue.length : at, 0, job);
+		if (this.state.status === 'failed') {
+			this.#settle(job, new Error('Kokoro failed to load'));
+			return promise;
+		}
+		this.#hold(job, urgent, signal);
+		this.#place(job);
 		this.#pump();
+		return promise;
 	}
 
-	/** A queued line is now about to be said: move it up with the urgent ones. */
-	#promote(key: string): void {
-		const i = this.#queue.findIndex((j) => j.key === key);
-		if (i < 0 || this.#queue[i]!.urgent) return;
-		const [job] = this.#queue.splice(i, 1);
-		this.#enqueue({ ...job!, urgent: true });
+	/** Lines waiting for the worker, first to go first. */
+	get waiting(): readonly string[] {
+		return this.#queue.map((j) => j.text);
+	}
+
+	#hold(job: Job, urgent: boolean, signal: AbortSignal | undefined): void {
+		if (job.holders.some((h) => h.urgent === urgent && h.signal === signal)) return;
+		const onAbort = () => this.#release(job);
+		signal?.addEventListener('abort', onAbort, { once: true });
+		job.holders.push({ urgent, signal, off: () => signal?.removeEventListener('abort', onAbort) });
+	}
+
+	/** Puts a new or waiting job with the urgent ones (first) if anyone wants it now. */
+	#place(job: Job): void {
+		const urgent = job.holders.some((h) => h.urgent && live(h));
+		const i = this.#queue.indexOf(job);
+		if (i >= 0) {
+			if (job.urgent === urgent) return;
+			this.#queue.splice(i, 1);
+		}
+		job.urgent = urgent;
+		const at = urgent ? this.#queue.findIndex((j) => !j.urgent) : -1;
+		this.#queue.splice(at < 0 ? this.#queue.length : at, 0, job);
+	}
+
+	/** Someone gave up on `job`: drop it if it's still waiting and nobody wants it. */
+	#release(job: Job): void {
+		const i = this.#queue.indexOf(job);
+		if (i < 0) return; // with the worker already: it'll be cached
+		if (job.holders.some(live)) return this.#place(job); // maybe no longer urgent
+		this.#queue.splice(i, 1);
+		this.#settle(job, notWanted());
+	}
+
+	#settle(job: Job, result: Rendered | Error): void {
+		for (const h of job.holders) h.off();
+		if (result instanceof Error) {
+			this.#forget(job); // at once, so asking again renders it afresh
+			job.reject(result);
+		} else job.resolve(result);
+	}
+
+	#forget(job: Job): void {
+		if (this.#cache.get(job.key) === job.promise) this.#cache.delete(job.key);
 	}
 
 	#pump(): void {

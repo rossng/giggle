@@ -10,6 +10,11 @@
  * intros aim for 5–9 s and never pass 12 s (the colour fact goes first, then the gig
  * line gets shorter), micro-announcements ≤ 3 s, back-announcements ≤ 6 s.
  *
+ * A "quick" intro is one said at once rather than prepared ahead (the listener skipped
+ * to an artist): it opens with a short naming sentence ("Here's Mogwai."), so a live
+ * voice that renders sentence by sentence can start talking sooner. Same facts, same
+ * rotation, same budgets; only which sentence comes first differs.
+ *
  * `planSegment` (timing.ts) then decides when to say each line relative to the music.
  */
 
@@ -127,6 +132,9 @@ export interface PresenterTrackInput {
   /** A pre-rendered intro for this artist, if the pipeline made one. Used in "short"
    * mode: the clip introduces the artist, and only the gig line is said live. */
   clip?: IntroClip | undefined;
+  /** It's said at once, not prepared ahead: a new-artist link opens with a short
+   * naming sentence (see `intro`). */
+  quick?: boolean | undefined;
 }
 
 // ---------- phrase contexts ----------
@@ -165,6 +173,8 @@ const PLAIN: Template<{ name: string }>[] = [
   (c) => `Next up, ${c.name}.`,
   (c) => `You're listening to ${c.name}.`,
 ];
+/** The shortest namings: how a quick intro opens. */
+const QUICK_PLAIN = PLAIN.slice(0, 3);
 
 const GIG: Template<GigCtx>[] = [
   (c) => `They play ${c.where} ${c.day.phrase}${c.at}.`,
@@ -492,10 +502,15 @@ export class Presenter {
     }
   }
 
-  #structure(fact: ColourFact | null): Structure {
-    if (!fact) return this.#chance(0.25) ? "gig_lead" : "after_gig";
-    // Ticket news only makes sense once the gig's been mentioned.
-    const allowed = STRUCTURES.filter(([s]) => fact.kind !== "ticket" || s === "after_gig" || s === "gig_lead");
+  #structure(fact: ColourFact | null, quick: boolean): Structure {
+    if (!fact) return !quick && this.#chance(0.25) ? "gig_lead" : "after_gig";
+    // Ticket news only makes sense once the gig's been mentioned. A quick intro opens
+    // with a plain naming.
+    const allowed = STRUCTURES.filter(
+      ([s]) =>
+        (fact.kind !== "ticket" || s === "after_gig" || s === "gig_lead") &&
+        (!quick || s === "after_gig" || s === "gig_last"),
+    );
     const total = allowed.reduce((sum, [, w]) => sum + w, 0);
     let r = this.#rng() * total;
     for (const [s, w] of allowed) {
@@ -505,9 +520,10 @@ export class Presenter {
     return "after_gig";
   }
 
-  #compose(entry: QueueEntry, fact: ColourFact | null, structure: Structure, gig: GigCtx): string {
+  #compose(entry: QueueEntry, fact: ColourFact | null, structure: Structure, gig: GigCtx, quick: boolean): string {
     const r = this.announcer.picker;
-    const plain = (): string => r.render("p.plain", PLAIN, { name: entry.name });
+    const name = { name: entry.name };
+    const plain = (): string => (quick ? r.render("p.plain.quick", QUICK_PLAIN, name) : r.render("p.plain", PLAIN, name));
     const gigSay = (): string => r.render("p.gig", GIG, gig);
     const gigLead = (): string => r.render("p.lead", GIG_LEAD, gig);
     if (!fact) return tidy(structure === "gig_lead" ? gigLead() : `${plain()} ${gigSay()}`);
@@ -525,8 +541,11 @@ export class Presenter {
     }
   }
 
-  /** A new-artist link: the gig, plus at most one colour fact, within the budget. */
-  intro(entry: QueueEntry, mode: "name" | "short", now: Date, trackIndex = 0): Line {
+  /**
+   * A new-artist link: the gig, plus at most one colour fact, within the budget.
+   * `quick`: it opens with a short naming sentence ("Here's Mogwai.").
+   */
+  intro(entry: QueueEntry, mode: "name" | "short", now: Date, trackIndex = 0, { quick = false } = {}): Line {
     const b = this.budgets;
     const sayTime = this.#chance(this.#p.time);
     if (mode === "name") return this.#nameIntro(entry, now);
@@ -544,11 +563,13 @@ export class Presenter {
     // lower end are fine: retrying can't add facts that aren't there.
     let done = false;
     for (let level = 0; level < 3 && !done; level++) {
-      done = consider(this.#compose(entry, fact, this.#structure(fact), this.#gigCtx(entry, now, level, sayTime)), fact);
+      const gig = this.#gigCtx(entry, now, level, sayTime);
+      done = consider(this.#compose(entry, fact, this.#structure(fact, quick), gig, quick), fact);
     }
     // Still over the cap: drop the colour fact.
     for (let level = 1; level <= 2 && !best && fact; level++) {
-      consider(this.#compose(entry, null, this.#structure(null), this.#gigCtx(entry, now, level, false)), null);
+      const gig = this.#gigCtx(entry, now, level, false);
+      consider(this.#compose(entry, null, this.#structure(null, quick), gig, quick), null);
     }
     if (!best) {
       const text = this.#shortest(GIG_MINIMAL, this.#gigCtx(entry, now, 2, false));
@@ -672,7 +693,7 @@ export class Presenter {
     if (mode === "off") return null;
     if (entry.artistKey !== input.announcedArtistKey) {
       if (input.clip && mode === "short") return this.clipIntro(entry, input.clip, now);
-      return this.intro(entry, mode, now, trackIndex);
+      return this.intro(entry, mode, now, trackIndex, { quick: !!input.quick });
     }
     return mode === "short" ? this.micro(entry, trackIndex) : null;
   }

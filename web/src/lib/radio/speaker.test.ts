@@ -7,6 +7,7 @@ import {
 	pickVoice,
 	sentences,
 	type LiveVoice,
+	type PrepareOptions,
 	type SpokenLine
 } from './speaker';
 
@@ -63,12 +64,17 @@ describe('ClipSpeaker', () => {
 	function liveVoice() {
 		const said: string[] = [];
 		const prepared: string[] = [];
+		const options: (PrepareOptions | undefined)[] = [];
 		return {
 			said,
 			prepared,
+			options,
 			speaker: {
 				speak: async (line: SpokenLine) => void said.push(line.text),
-				prepare: (line: SpokenLine) => void prepared.push(line.text),
+				prepare: (line: SpokenLine, o?: PrepareOptions) => {
+					prepared.push(line.text);
+					options.push(o);
+				},
 				stop: () => {}
 			}
 		};
@@ -96,6 +102,15 @@ describe('ClipSpeaker', () => {
 		s.prepare(line);
 		s.prepare({ ...line, clip: undefined });
 		expect(live.prepared).toEqual(['They play Paradiso tonight.', line.text]);
+	});
+
+	it('gets the gig line ready before lines only prepared ahead, while it is wanted', async () => {
+		const live = liveVoice();
+		const s = new ClipSpeaker(live.speaker, () => fakeAudio() as unknown as HTMLAudioElement);
+		const abort = new AbortController();
+		await s.speak(line, abort.signal);
+		expect(live.prepared).toEqual(['They play Paradiso tonight.']);
+		expect(live.options).toEqual([{ signal: abort.signal, urgent: true }]);
 	});
 
 	it('says the whole line when the clip fails', async () => {
@@ -128,11 +143,14 @@ describe('KokoroSpeaker', () => {
 		options: { status?: KokoroStatus; ms?: number; fail?: (text: string) => boolean } = {}
 	) {
 		const log: string[] = [];
+		/** Each render's signal, by text. */
+		const signals = new Map<string, AbortSignal | undefined>();
 		const voice: LiveVoice & { state: { status: KokoroStatus } } = {
 			state: { status: options.status ?? 'ready' },
 			load: async () => void log.push('load'),
 			render: async (text, v, o) => {
 				log.push(`render ${v}${o?.urgent ? ' now' : ''}: ${text}`);
+				signals.set(text, o?.signal);
 				if (options.fail?.(text)) throw new Error('no');
 				const r: Rendered = {
 					samples: new Float32Array(1),
@@ -150,7 +168,7 @@ describe('KokoroSpeaker', () => {
 		};
 		const fallback = { speak: async (l: SpokenLine) => void log.push(`web: ${l.text}`), stop() {} };
 		const speaker = new KokoroSpeaker(voice, fallback, { voiceFor: async () => 'bm_fable' });
-		return { log, voice, speaker };
+		return { log, voice, speaker, signals };
 	}
 
 	it("says lines in the artist's announcer voice", async () => {
@@ -183,6 +201,35 @@ describe('KokoroSpeaker', () => {
 			'play Here’s Nobu.',
 			'web: They play Paradiso tonight. It’s free.'
 		]);
+	});
+
+	it('asks for a line being said before one prepared just after it', async () => {
+		const { log, voice } = fakes();
+		// Looking up the first artist's voice takes longer than the second's.
+		const voiceFor = (key: string) =>
+			new Promise<string>((resolve) =>
+				setTimeout(() => resolve('bm_fable'), key === 'mb:1' ? 20 : 0)
+			);
+		const speaker = new KokoroSpeaker(voice, { speak: async () => {}, stop() {} }, { voiceFor });
+		const said = speaker.speak(line, signal());
+		speaker.prepare({ ...line, artistKey: 'mb:2', text: 'Next up, Nobu.' });
+		await said;
+		await new Promise((resolve) => setTimeout(resolve, 5));
+		expect(log.filter((l) => l.startsWith('render'))).toEqual([
+			'render bm_fable now: They play Paradiso tonight.',
+			'render bm_fable: Next up, Nobu.'
+		]);
+	});
+
+	it('lets go of the sentences it hands to the browser voice', async () => {
+		const { signals, speaker } = fakes({ fail: (t) => t.startsWith('They') });
+		const abort = new AbortController();
+		await speaker.speak(
+			{ ...line, text: 'Here’s Nobu. They play Paradiso tonight. It’s free.' },
+			abort.signal
+		);
+		expect(abort.signal.aborted).toBe(false);
+		expect(signals.get('It’s free.')?.aborted).toBe(true);
 	});
 
 	it('splits lines into sentences', () => {
@@ -221,11 +268,16 @@ describe('KokoroSpeaker', () => {
 		expect(log).toEqual(['web: They play Paradiso tonight.']);
 	});
 
-	it('renders prepared lines ahead', async () => {
-		const { log, speaker } = fakes();
-		speaker.prepare(line);
-		await Promise.resolve();
-		await Promise.resolve();
+	it('renders prepared lines ahead, while they are wanted', async () => {
+		const { log, signals, speaker } = fakes();
+		const moved = new AbortController();
+		speaker.prepare(line, { signal: moved.signal });
+		await new Promise((resolve) => setTimeout(resolve));
 		expect(log).toEqual(['render bm_fable: They play Paradiso tonight.']);
+		expect(signals.get(line.text)).toBe(moved.signal);
+		moved.abort();
+		speaker.prepare({ ...line, text: 'Too late.' }, { signal: moved.signal });
+		await new Promise((resolve) => setTimeout(resolve));
+		expect(log).toHaveLength(1);
 	});
 });

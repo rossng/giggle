@@ -122,15 +122,21 @@ export interface RadioOptions {
 	kokoro?: KokoroVoice;
 }
 
-interface Upcoming {
-	artistIndex: number;
+/** What's to be said before a track, decided ahead so the live voice can render it. */
+interface Planned {
+	artistKey: string;
 	trackIndex: number;
 	videoId: string;
 	mode: VoiceMode;
 	/** `announcedArtistKey` when it was decided: the line only fits if that still holds. */
 	announced: string | undefined;
 	line: Line | null;
+	/** When it was decided (Date.now()): "tonight" may not be right for ever. */
+	at: number;
 }
+
+/** A plan older than this is decided again (the day may have turned). */
+const PLAN_MAX_AGE_MS = 15 * 60_000;
 
 interface BackAnnouncement {
 	videoId: string;
@@ -187,8 +193,12 @@ export class Radio {
 	/** The live voice: says whole lines, or the gig part after a pre-rendered clip. */
 	readonly #live: KokoroSpeaker;
 	readonly #kokoro: KokoroVoice;
-	/** The next track's line, decided while this one plays so it can be rendered ahead. */
-	#upcoming: Upcoming | null = null;
+	/** Lines for where the listener may go next (the next track, the next artist), decided
+	 * while this track plays so they can be rendered ahead. */
+	#plans: Planned[] = [];
+	/** Aborts on every move: renders prepared for the old position that the voice hasn't
+	 * started on are dropped (what's still wanted is prepared again). */
+	#prepared = new AbortController();
 	readonly #presenter: Presenter;
 	readonly #options: RadioOptions;
 	#history: PlayHistory;
@@ -266,6 +276,7 @@ export class Radio {
 		this.save();
 		this.#cancelSegment();
 		this.#cancelBack();
+		this.#dropPrepared();
 		this.#ducking?.cancel();
 		this.#speaker.stop();
 		for (const fn of this.#cleanup.splice(0)) fn();
@@ -455,7 +466,9 @@ export class Radio {
 		this.settings.liveVoice = voice;
 		saveSettings(this.settings);
 		this.#live.enabled = voice === 'kokoro';
-		this.#upcoming = null;
+		this.#plans = [];
+		this.#dropPrepared();
+		if (this.on) this.#planAhead();
 		if (voice === 'kokoro')
 			void this.#kokoro.load().then(
 				() => this.#sample(),
@@ -604,24 +617,22 @@ export class Radio {
 		this.duration = 0;
 
 		const voice = this.settings.voiceMode;
-		const ahead = this.#upcoming;
-		this.#upcoming = null;
-		const planned =
-			ahead &&
-			ahead.artistIndex === target.artistIndex &&
-			ahead.trackIndex === target.trackIndex &&
-			ahead.videoId === track.videoId &&
-			ahead.mode === voice &&
-			ahead.announced === this.#announced;
+		// What was prepared for the old position and hasn't started rendering: dropped.
+		// (The line said now is asked for again; plans still wanted are prepared again.)
+		this.#dropPrepared();
+		const planned = this.#planFor(entry, target.trackIndex, track.videoId, voice);
+		this.#plans = this.#plans.filter((p) => p !== planned);
 		const line = planned
-			? ahead.line
+			? planned.line
 			: this.#presenter.forTrack({
 					entry,
 					trackIndex: target.trackIndex,
 					mode: voice,
 					now: new Date(),
 					announcedArtistKey: this.#announced,
-					clip: this.#clipFor(entry.artistKey)
+					clip: this.#clipFor(entry.artistKey),
+					// Not rendered ahead: open with a short sentence, so the voice starts sooner.
+					quick: this.#live.active
 				});
 		if (line?.kind === 'intro') {
 			this.#announcedBefore = this.#announced;
@@ -642,7 +653,13 @@ export class Radio {
 		void runSegment(plan, {
 			player,
 			ducking,
-			speak: (signal) => (line ? this.#say(line, signal) : Promise.resolve()),
+			speak: (signal) => {
+				const said = line ? this.#say(line, signal) : Promise.resolve();
+				// While this line is said, get the next ones ready: the listener may skip on
+				// before the track even starts. (After asking for this line, so it goes first.)
+				this.#planAhead();
+				return said;
+			},
 			startTrack: () => {
 				if (abort.signal.aborted) return;
 				this.talking = false;
@@ -660,37 +677,69 @@ export class Radio {
 	}
 
 	/**
-	 * Decides what's said before the next track while this one plays, so the live voice
-	 * can render it ahead (Kokoro takes about as long to render a line as to say it).
-	 * `#goTo` uses it if the radio does move on to that track, with nothing else changed.
+	 * Decides what's said before the next artist and the next track while this one plays,
+	 * so the live voice can render it ahead (Kokoro in Firefox takes about 1.3 s plus half
+	 * the line's length to render each sentence). The next artist goes first: skipping
+	 * there is the likeliest thing to happen soon. `#goTo` uses a plan if the radio does
+	 * move there with nothing else changed; a plan not used yet is kept while it still
+	 * fits (so the next artist's intro is decided once, however many tracks come first).
 	 */
 	#planAhead(): void {
 		const mode = this.settings.voiceMode;
-		if (!this.#live.enabled || mode === 'off' || !this.queue.length) return;
-		const pos = nextPosition(this.queue, this.position);
-		const entry = this.queue[pos.artistIndex];
-		const track = entry?.tracks[pos.trackIndex];
-		if (!entry || !track || track.videoId === this.track?.videoId) return;
-		const up = this.#upcoming;
-		if (up && up.videoId === track.videoId && up.mode === mode && up.announced === this.#announced)
+		if (!this.#live.enabled || mode === 'off' || !this.queue.length) {
+			this.#plans = [];
 			return;
-		const line = this.#presenter.forTrack({
-			entry,
-			trackIndex: pos.trackIndex,
-			mode,
-			now: new Date(),
-			announcedArtistKey: this.#announced,
-			clip: this.#clipFor(entry.artistKey)
-		});
-		this.#upcoming = {
-			artistIndex: pos.artistIndex,
-			trackIndex: pos.trackIndex,
-			videoId: track.videoId,
-			mode,
-			announced: this.#announced,
-			line
-		};
-		if (line) this.#speaker.prepare?.(line);
+		}
+		const targets = [
+			nextArtistPosition(this.queue, this.position),
+			nextPosition(this.queue, this.position)
+		];
+		const plans: Planned[] = [];
+		for (const pos of targets) {
+			const entry = this.queue[pos.artistIndex];
+			const track = entry?.tracks[pos.trackIndex];
+			if (!entry || !track || track.videoId === this.track?.videoId) continue;
+			if (plans.some((p) => p.videoId === track.videoId)) continue;
+			const plan = this.#planFor(entry, pos.trackIndex, track.videoId, mode) ?? {
+				artistKey: entry.artistKey,
+				trackIndex: pos.trackIndex,
+				videoId: track.videoId,
+				mode,
+				announced: this.#announced,
+				line: this.#presenter.forTrack({
+					entry,
+					trackIndex: pos.trackIndex,
+					mode,
+					now: new Date(),
+					announcedArtistKey: this.#announced,
+					clip: this.#clipFor(entry.artistKey)
+				}),
+				at: Date.now()
+			};
+			plans.push(plan);
+		}
+		this.#plans = plans;
+		const signal = this.#prepared.signal;
+		for (const plan of plans) if (plan.line) this.#speaker.prepare?.(plan.line, { signal });
+	}
+
+	/** A plan for this track that still fits, if there is one. */
+	#planFor(entry: QueueEntry, trackIndex: number, videoId: string, mode: VoiceMode) {
+		const now = Date.now();
+		return this.#plans.find(
+			(p) =>
+				p.artistKey === entry.artistKey &&
+				p.trackIndex === trackIndex &&
+				p.videoId === videoId &&
+				p.mode === mode &&
+				p.announced === this.#announced &&
+				now - p.at < PLAN_MAX_AGE_MS
+		);
+	}
+
+	#dropPrepared(): void {
+		this.#prepared.abort();
+		this.#prepared = new AbortController();
 	}
 
 	/** One of the artist's pre-rendered intros, at random, so repeat plays vary. */
@@ -743,7 +792,8 @@ export class Radio {
 				abort: null,
 				done: false
 			};
-			if (this.#back.line) this.#speaker.prepare?.(this.#back.line);
+			if (this.#back.line)
+				this.#speaker.prepare?.(this.#back.line, { signal: this.#prepared.signal });
 		}
 		const back = this.#back;
 		if (back.done || !back.line || back.abort) return;
@@ -794,8 +844,8 @@ export class Radio {
 		this.#errors = 0;
 		if (player.videoId === this.#introVideo) this.#introVideo = null;
 		if (this.notice?.startsWith("Couldn't play")) this.notice = null;
+		this.#planAhead(); // first: the next artist's intro is wanted before the outro line
 		this.#scheduleBack();
-		this.#planAhead();
 	}
 
 	#onEnded(): void {

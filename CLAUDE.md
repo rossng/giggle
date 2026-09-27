@@ -81,8 +81,11 @@ download on first use to `data/cache/models/`, checksummed; never commit them.
 - Live lines (gig line, track names, "That was…") use the same model in the browser
   (`web/src/lib/voice/`): phonemes as kokoro-js makes them with the lexicon from
   `pronunciation.json` spliced in, loudness as `normalise()`, voice by `announcerFor` (TS port).
-  Keep those in step with voice.py. It renders at ~0.5–1× real time on WebGPU in Firefox, so the
-  radio decides the next line while a track plays and renders it ahead; `/lab/voice` measures it.
+  Keep those in step with voice.py. It renders at ~0.5–1× real time on WebGPU in Firefox (about
+  1.3 s per sentence plus half its length), so the radio decides the next track's and the next
+  artist's lines ahead and renders them (queued renders it no longer needs are dropped on a
+  move); a line it couldn't prepare opens with a short "Here's <name>." (the presenter's
+  `quick`). `/lab/voice` measures it.
 - The browser's model files come from our origin (`/models/…`, Worker + R2), never Hugging Face
   at runtime: `model-files.json` pins the HF commit, sizes and SHA-256 (fp32, q8, the two
   announcer voices); `model-source.ts` points transformers.js there and rewrites kokoro-js's
