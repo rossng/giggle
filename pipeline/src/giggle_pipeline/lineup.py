@@ -15,6 +15,7 @@ import json
 import re
 import sys
 import time
+import unicodedata
 from concurrent.futures import ThreadPoolExecutor
 from typing import Any
 
@@ -145,15 +146,43 @@ def texts(item: dict[str, Any]) -> list[str]:
     return [str(t) for t in out if t]
 
 
+def _letters(text: str) -> str:
+    """`text`'s letters and digits in any script, lower case and without accents, with
+    single spaces for everything between them: "Mélanie & СОЮЗ!" → "melanie союз"."""
+    decomposed = unicodedata.normalize("NFKD", text)
+    kept = "".join(c for c in decomposed if unicodedata.category(c) not in ("Mn", "Cf"))
+    return " ".join("".join(c if c.isalnum() else " " for c in kept.casefold()).split())
+
+
+def clean_name(name: str) -> str:
+    """A name without invisible characters (bidi overrides, zero-width spaces), control
+    characters or line breaks: what's left is what a reader sees."""
+    name = unicodedata.normalize("NFC", name)
+    name = "".join(
+        " " if unicodedata.category(c) == "Cc" else c
+        for c in name
+        if unicodedata.category(c) != "Cf"
+    )
+    return " ".join(name.split())
+
+
 def grounded(names: list[Any], item: dict[str, Any]) -> list[str]:
-    """Keep only names that appear in the listing text, without repeats."""
-    haystack = plain(" | ".join(texts(item)))
+    """Keep only names that appear in the listing text, without repeats. Every letter
+    and digit (in any script) must be there in order, and every other character must
+    occur in the listing too, so the model can't slip in words of its own."""
+    listed = texts(item)
+    haystack = _letters(" | ".join(listed))
+    symbols = set("".join(listed))
     kept, seen = [], set()
     for name in names:
-        words = plain(name) if isinstance(name, str) else ""
-        if words and words in haystack and words not in seen:
-            seen.add(words)
-            kept.append(name.strip())
+        name = clean_name(name) if isinstance(name, str) else ""
+        key = _letters(name)
+        if not plain(name) or not key or key not in haystack or key in seen:
+            continue
+        if any(not c.isalnum() and not c.isspace() and c not in symbols for c in name):
+            continue
+        seen.add(key)
+        kept.append(name)
     return kept
 
 
@@ -288,7 +317,7 @@ def parse_lineups(
         else:
             todo.append(gig["id"])
 
-    batches = [todo[i : i + BATCH] for i in range(0, len(todo), BATCH)]
+    batches = batched_by_venue(todo, {g["id"]: g.get("venue") for g in gigs})
     batches = batches[: llm.remaining(TASK)] if llm is not None else []
     if gigs:
         print(
@@ -349,6 +378,20 @@ def parse_lineups(
     for gig in gigs:  # not cached, so the model gets another go on the next run
         result.setdefault(gig["id"], by_rules(gig))
     return result
+
+
+def batched_by_venue(ids: list[str], venue: dict[str, Any]) -> list[list[str]]:
+    """`ids` in batches of at most BATCH from one venue each, so one listing's text can't
+    steer the answers about another venue's gigs. Batches keep the order of their first
+    listing, so what comes first in `ids` is still asked about first."""
+    by_venue: dict[Any, list[str]] = {}
+    for gid in ids:
+        by_venue.setdefault(venue.get(gid), []).append(gid)
+    batches = [
+        group[i : i + BATCH] for group in by_venue.values() for i in range(0, len(group), BATCH)
+    ]
+    order = {gid: n for n, gid in enumerate(ids)}
+    return sorted(batches, key=lambda batch: order[batch[0]])
 
 
 def _strings(value: Any) -> list[str]:

@@ -1,6 +1,8 @@
 from giggle_pipeline.cache import Cache, key_for
 from giggle_pipeline.lineup import (
+    BATCH,
     PROMPT_VERSION,
+    batched_by_venue,
     checked,
     excerpt,
     grounded,
@@ -30,6 +32,27 @@ def model(answers):
 def test_names_must_appear_in_the_listing():
     item = {"title": "KRONKEL FESTIVAL", "description": "LINE-UP: Deli Girls // synth punk"}
     assert grounded(["Deli Girls", "Made Up Band", "deli girls"], item) == ["Deli Girls"]
+
+
+def test_the_model_cannot_add_words_in_other_scripts_or_symbols():
+    item = {"title": "Foo Fighters live", "description": "Mélanie De Biasio, СОЮЗ (SOYUZ)"}
+    injected = [
+        "Foo Привет, подпишитесь Fighters",  # ASCII folding alone dropped the Cyrillic
+        "Foo 🔥 Fighters",
+        "Foo‮ Fighters",  # a bidi override: dropped, what's left is fine
+        "Foo\nFighters",
+    ]
+    assert grounded(injected, item) == ["Foo Fighters"]
+    assert grounded(["Melanie De Biasio", "Mélanie De Biasio!"], item) == ["Melanie De Biasio"]
+    assert grounded(["СОЮЗ (SOYUZ)", "СОЮЗ"], item) == ["СОЮЗ (SOYUZ)"]  # "СОЮЗ" folds to ""
+
+
+def test_batches_hold_one_venue_each_in_the_order_asked():
+    ids = ["a:1", "b:1", "a:2", "c:1", "a:3"]
+    venue = {gid: gid.split(":")[0] for gid in ids}
+    assert batched_by_venue(ids, venue) == [["a:1", "a:2", "a:3"], ["b:1"], ["c:1"]]
+    many = [f"a:{i}" for i in range(BATCH + 1)]
+    assert [len(b) for b in batched_by_venue(many, dict.fromkeys(many, "a"))] == [BATCH, 1]
 
 
 def test_model_answers_are_used_grounded_and_cached(tmp_path):
