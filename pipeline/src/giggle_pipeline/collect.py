@@ -17,6 +17,10 @@ from pathlib import Path
 
 from podia import Client, Event, FetchOptions, Replay, all_venues, get_venue
 
+# Per venue and phase (agenda, then detail pages). The slowest venues take a few minutes;
+# the Build step's own timeout is 45.
+VENUE_SECONDS = 600.0
+
 
 @dataclass
 class VenueResult:
@@ -26,12 +30,18 @@ class VenueResult:
     seconds: float = 0.0
 
 
+def venue_client(seconds: float = VENUE_SECONDS) -> Client:
+    """A live client for one venue that stops making requests after `seconds`, so a slow
+    or stalling site ends as that venue's error instead of holding up the night."""
+    return Client(deadline=time.monotonic() + seconds)
+
+
 def collect_live(since: date, venues: list[str] | None = None) -> list[VenueResult]:
     def run(slug: str) -> VenueResult:
         started = time.monotonic()
         result = VenueResult(slug)
         try:
-            with Client() as client:
+            with venue_client() as client:
                 result.events = list(get_venue(slug).events(client, FetchOptions(since=since)))
         except Exception:
             result.error = traceback.format_exc(limit=3)

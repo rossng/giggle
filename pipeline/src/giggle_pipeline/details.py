@@ -34,6 +34,7 @@ from typing import Any
 
 from giggle_pipeline.cache import Cache, key_for
 from giggle_pipeline.collect import VenueResult
+from giggle_pipeline.text import one_line
 from podia import AMSTERDAM, Availability, Event, Fetcher, Price, Status, Venue, get_venue
 
 NAMESPACE = "details"
@@ -130,7 +131,10 @@ def fetch_details(
             listed = events[i]
             if isinstance(outcome, Exception):
                 tally.failed += 1
-                print(f"details: {listed.venue}/{listed.source_id}: {outcome!r}", file=sys.stderr)
+                print(
+                    f"details: {listed.venue}/{one_line(listed.source_id)}: {outcome!r}",
+                    file=sys.stderr,
+                )
                 continue
             cache.put(NAMESPACE, cache_key(listed), _entry(listed, outcome, now))
             events[i] = outcome

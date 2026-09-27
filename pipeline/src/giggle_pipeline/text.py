@@ -16,6 +16,12 @@ def plain(text: str) -> str:
     return " ".join("".join(c if c.isalnum() else " " for c in fold(text)).split())
 
 
+def one_line(text: object) -> str:
+    """`text` without line breaks, for logs: a line of untrusted text (a model's answer, a
+    name from a venue) starting with "::" would be a GitHub Actions workflow command."""
+    return " ".join(str(text).splitlines())
+
+
 def normalise(name: str) -> str:
     """An artist's name as a lookup key: folded, no leading "the", letters and digits only."""
     return re.sub(r"[^a-z0-9]+", "", re.sub(r"^the\s+", "", fold(name)))

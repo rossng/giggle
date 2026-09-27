@@ -26,6 +26,7 @@ from typing import Any, Protocol
 import httpx
 
 from giggle_pipeline.cache import Cache, key_for
+from giggle_pipeline.text import one_line
 
 QWEN3 = "@cf/qwen/qwen3-30b-a3b-fp8"
 MODELS = {"lineup": QWEN3, "blurb": QWEN3}
@@ -147,11 +148,11 @@ def _check_shape(value: Any, schema: dict[str, Any]) -> None:
     if schema.get("type") != "object":
         return
     if not isinstance(value, dict):
-        raise LLMError(f"expected a JSON object, got: {str(value)[:200]}")
+        raise LLMError(f"expected a JSON object, got: {one_line(str(value)[:200])}")
     for key in schema.get("required", []):
         wanted = (schema.get("properties") or {}).get(key, {}).get("type")
         if key not in value or (wanted == "array" and not isinstance(value[key], list)):
-            raise LLMError(f"answer lacks {key!r}: {str(value)[:200]}")
+            raise LLMError(f"answer lacks {key!r}: {one_line(str(value)[:200])}")
 
 
 class WorkersAI(Client):
@@ -204,7 +205,7 @@ class WorkersAI(Client):
             else:
                 if r.status_code == 200:
                     return _parse(r.json().get("result"))
-                error = f"{r.status_code}: {r.text[:300]}"
+                error = f"{r.status_code}: {one_line(r.text[:300])}"
                 if _DAILY_QUOTA.search(r.text):
                     self.quota_exhausted = True  # retrying won't help before tomorrow
                     raise QuotaExhausted(f"{model}: {error}")
@@ -223,14 +224,14 @@ def _parse(result: Any) -> Any:
     elif isinstance(result, dict) and result.get("choices"):
         value = result["choices"][0]["message"]["content"]
     else:
-        raise LLMError(f"unexpected response shape: {str(result)[:200]}")
+        raise LLMError(f"unexpected response shape: {one_line(str(result)[:200])}")
     if isinstance(value, str):
         text = _THINK.sub("", value).strip()
         text = re.sub(r"^```(?:json)?|```$", "", text).strip()
         try:
             return json.loads(text)
         except json.JSONDecodeError as exc:
-            raise LLMError(f"not JSON: {text[:200]}") from exc
+            raise LLMError(f"not JSON: {one_line(text[:200])}") from exc
     return value
 
 

@@ -28,7 +28,7 @@ from typing import Any
 
 from giggle_pipeline.cache import Cache
 from giggle_pipeline.llm import LLM, LLMError, cached_answer, store_answer
-from giggle_pipeline.text import plain
+from giggle_pipeline.text import one_line, plain
 
 TASK = "blurb"
 
@@ -424,7 +424,7 @@ def write_blurbs(
             except (LLMError, AttributeError, KeyError, TypeError, ValueError) as exc:
                 failed += 1
                 if failed <= 3:
-                    print(f"blurbs: batch failed: {exc}", file=sys.stderr)
+                    print(f"blurbs: batch failed: {one_line(exc)}", file=sys.stderr)
                 continue
             for key, f in futures[future]:
                 raw = answers.get(key)
