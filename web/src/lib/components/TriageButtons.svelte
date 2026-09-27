@@ -1,9 +1,9 @@
 <!-- Sorting an artist onto the board: listen more, want to go, got tickets, not for me, each in
      its colour (--listen, --go, --tickets, --nope in app.css). Three sizes: `compact` (the player
-     bar: just the keys), `grid` (the Radio page: key and label, filling the width) and `labelled`
+     bar: two by two small pills, the label and key; one-word labels on narrower screens), `grid` (the Radio page: key and label, filling the width) and `labelled`
      (the artist page and the Board's card moves: a colour mark and the label, keys optional). -->
 <script lang="ts">
-	import { TRIAGES, TRIAGE_KEYS, TRIAGE_LABELS, type Triage } from '$lib/board/board';
+	import { TRIAGES, TRIAGE_KEYS, TRIAGE_LABELS, TRIAGE_SHORT, type Triage } from '$lib/board/board';
 
 	let {
 		current,
@@ -53,7 +53,10 @@
 				onclick={() => onpick(t)}
 			>
 				{#if size === 'compact'}
-					{TRIAGE_KEYS[t]}<span class="visually-hidden"> {TRIAGE_LABELS[t]}</span>
+					<i class="mark" aria-hidden="true"></i>
+					<span class="text full">{TRIAGE_LABELS[t]}</span>
+					<span class="text short" aria-hidden="true">{TRIAGE_SHORT[t]}</span>
+					<kbd>{TRIAGE_KEYS[t]}</kbd>
 				{:else}
 					{#if size === 'grid'}<kbd>{TRIAGE_KEYS[t]}</kbd>{:else}<i class="mark" aria-hidden="true"
 						></i>{/if}
@@ -121,19 +124,34 @@
 		min-width: 0;
 	}
 
-	/* The player bar: the keys only. */
+	/* The player bar: two by two small pills (colour, label, key), within the bar's height. */
 	.compact .buttons {
-		display: flex;
+		grid-template-columns: repeat(2, auto);
 		gap: 4px;
 	}
 	.compact button {
-		width: 30px;
-		height: 28px;
+		justify-content: flex-start;
+		gap: 6px;
+		height: 26px;
+		padding: 0 6px 0 8px;
 		border: 0;
 		border-radius: 7px;
 		background: var(--p2);
 		color: var(--mute);
-		font: 600 12px var(--f-mono);
+		font-size: 11.5px;
+		font-weight: 600;
+		white-space: nowrap;
+	}
+	.compact button .text {
+		flex: 1;
+		text-align: left;
+	}
+	.compact .short {
+		display: none;
+	}
+	.compact kbd {
+		font-size: 9.5px;
+		padding: 2px 4px;
 	}
 	.compact button:disabled {
 		opacity: 0.4;
@@ -144,6 +162,18 @@
 	.compact button.on {
 		background: var(--t);
 		color: var(--bg);
+	}
+	/* Narrower screens: one-word labels, so the bar's controls keep their room. */
+	@media (max-width: 920px) {
+		.compact .full {
+			display: none;
+		}
+		.compact .short {
+			display: inline;
+		}
+		.compact kbd {
+			display: none;
+		}
 	}
 
 	/* The Radio page: across the width, two by two on phones. */
