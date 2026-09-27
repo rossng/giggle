@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // Checks a deployed giggle: the app's pages, the nightly data, an announcer clip, the Kokoro
-// model files, and that the personal API isn't open to anyone. Exits 1 on any failure.
+// model files, and that the personal API isn't open to anyone but offers passkeys. Exits 1 on any failure.
 //
 //   node scripts/smoke-test.mjs https://giggle.<subdomain>.workers.dev
 //   node scripts/smoke-test.mjs http://127.0.0.1:8787    # wrangler dev (the API check differs)
@@ -123,15 +123,22 @@ for (const [path, file] of Object.entries(manifest.files)) {
 	);
 }
 
-// The personal API must never answer without a signed-in user.
-await expect('/api/me', (res) => {
-	if (res.status === 200) return 'answered without signing in';
-	if (res.status === 500) {
-		warn("/api/me is 500: Access isn't configured yet (ACCESS_TEAM_DOMAIN / ACCESS_AUD)");
-		return null;
-	}
-	return [302, 401, 403].includes(res.status) ? null : `status ${res.status}`;
-});
+// The personal API must never answer without a signed-in user, and passkeys must be offered for
+// this site's hostname (a PASSKEY_RP_ID that doesn't match can't sign anyone in).
+await expect('/api/me', (res) =>
+	res.status === 401 ? null : `status ${res.status}, expected 401 when signed out`
+);
+await expect(
+	'/api/passkey/login/options',
+	async (res) => {
+		if (res.status !== 200) return `status ${res.status}`;
+		const { ticket, options } = await res.json();
+		if (typeof ticket !== 'string') return 'no ticket';
+		const host = new URL(base).hostname;
+		return options?.rpId === host ? null : `rpId ${options?.rpId}, expected ${host}`;
+	},
+	{ method: 'POST', headers: { 'Content-Type': 'application/json' }, body: '{}' }
+);
 
 console.log(failures ? `\n${failures} check(s) failed` : '\nall checks passed');
 process.exit(failures ? 1 : 0);

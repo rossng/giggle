@@ -16,7 +16,12 @@ All JSON, all `Cache-Control: no-store`. Errors are `{"error": "..."}`.
 
 | Request | Response |
 | --- | --- |
-| `GET /api/me` | `{email, via: "access" \| "dev"}` |
+| `GET /api/me` | `{user, via: "passkey" \| "dev", passkeys}`, or 401 when signed out |
+| `POST /api/passkey/register/options` `{}` | `{ticket, options}`: WebAuthn creation options (signed in: for another device on this account) |
+| `POST /api/passkey/register/verify` `{ticket, response}` | `{user, via}` + session cookie; a new account unless signed in |
+| `POST /api/passkey/login/options` `{}` | `{ticket, options}`: WebAuthn request options (any giggle passkey) |
+| `POST /api/passkey/login/verify` `{ticket, response}` | `{user, via}` + session cookie |
+| `POST /api/logout` `{}` | ends this browser's session |
 | `GET /api/<collection>?since=<cursor>` | `{items, cursor, more}`: rows changed after `cursor` (omit for all), tombstones included, at most 1000 per page; ask again with `cursor` while `more` |
 | `PUT /api/<collection>` `{items: [...]}` | `{items}`: the stored rows for those keys after last-write-wins |
 
@@ -51,21 +56,30 @@ The web client is `web/src/lib/sync/` (`SyncClient` over `collection.ts`/`collec
 
 ## Who is asking
 
+People sign in with **passkeys** (`src/passkeys.ts`, `@simplewebauthn/server`): no password, no
+email. An account is an id (`u_<uuid>`, table `accounts`) with one or more passkeys (`passkeys`:
+credential id, COSE public key, counter, transports). A passkey synced by the listener's password
+manager (iCloud Keychain, Google, 1Password…) signs them in on their other devices; a device
+without it signs in through the browser's "use a phone" QR flow, then can add its own passkey
+(registering while signed in adds to that account, at most 20). Each ceremony's challenge lives
+five minutes under a random ticket and is used once (`challenges`). Signing in sets
+`giggle_session` (random 256-bit token, only its SHA-256 stored in `sessions`; `Path=/api`,
+`HttpOnly`, `SameSite=Lax`, `Secure` on https, 400 days). Synced data is stored under the account
+id. The web side is `/account` (`web/src/lib/account/passkeys.ts`).
+
 Exactly two configurations are accepted (`src/config.ts`); anything else answers 500 on `/api/*`:
 
-- **Production** (top level of `wrangler.jsonc`): `ENVIRONMENT=production` plus
-  `ACCESS_TEAM_DOMAIN` and `ACCESS_AUD`. Cloudflare Access protects `/api/*`; the Worker verifies
-  the `Cf-Access-Jwt-Assertion` JWT (RS256, `aud` = the Access app's AUD tag, `iss` =
-  `https://<team>.cloudflareaccess.com`, keys from `/cdn-cgi/access/certs`) and uses its `email`.
-  The dev header and cookie are never read.
-- **Dev** (`env.dev`, only used by `wrangler dev --env dev`): `ENVIRONMENT=dev` and **no** Access
-  vars (dev plus Access vars is refused). The user is the `X-Giggle-Dev-User: alice@example.test`
-  header or the `giggle_dev_user` cookie (set it in a browser with
-  `/api/dev/login?as=alice@example.test`, clear with `/api/dev/logout`), and only when the request's
-  hostname is `localhost`, `127.0.0.1`, `[::1]` or `*.localhost`.
-
-The SPA sends `X-Requested-With: XMLHttpRequest`, so an expired Access session gets a 401 instead of
-a redirect, and the client shows "signed out".
+- **Production** (top level of `wrangler.jsonc`): `ENVIRONMENT=production`, `PASSKEY_RP_ID` = the
+  site's hostname (passkeys are bound to it: moving the site to another hostname means registering
+  passkeys again) and `SITE_ORIGINS` = its https origin(s). Only sessions count; the dev header and
+  cookie are never read.
+- **Dev** (`env.dev`, only used by `wrangler dev --env dev`): `ENVIRONMENT=dev`,
+  `PASSKEY_RP_ID=localhost` (anything else is refused) and the local origins. Passkeys work on
+  localhost too; so does a fake user from the `X-Giggle-Dev-User: alice@example.test` header or the
+  `giggle_dev_user` cookie (set it in a browser with `/api/dev/login?as=alice@example.test`, clear
+  with `/api/dev/logout`), only when the request's hostname is `localhost`, `127.0.0.1`, `[::1]` or
+  `*.localhost`. Tests sign in with a software authenticator (`test/authenticator.ts`); browser
+  tests can use Chromium's virtual one (CDP `WebAuthn.addVirtualAuthenticator`).
 
 ## Model files
 
@@ -147,8 +161,8 @@ test run on `main` (new code), or by hand (`gh workflow run deploy.yml`). It tak
 tests passed (a nightly deploys `main` as it is), the latest nightly `site-data` artifact, runs
 `make web-build` (which copies only the announcer clips `artists.json` uses), applies D1
 migrations (`--remote`), `wrangler deploy`s the top-level (production) config, then
-`scripts/smoke-test.mjs` checks the live site: pages, data, a clip, the model files, and that
-`/api/*` doesn't answer without Access. It skips (with a notice) until the D1 id and the deploy
+`scripts/smoke-test.mjs` checks the live site: pages, data, a clip, the model files, that
+`/api/me` is 401 signed out, and that passkeys are offered for the site's hostname. It skips (with a notice) until the D1 id and the deploy
 token below exist. The site's URL is what wrangler prints (`giggle.<subdomain>.workers.dev`), or
 the repo variable `SITE_URL` for a custom domain. Nothing here deploys from a laptop.
 
@@ -166,18 +180,12 @@ toolchain shell (`direnv allow` or `nix develop`) as `pnpm exec wrangler …`, a
    if needed, checks every SHA-256 and uploads 8 objects (~420 MB) with
    `wrangler r2 object put --remote`, as your `wrangler login`. Run it again whenever
    `model-files.json` changes, before deploying. Keep the bucket private (no r2.dev URL or custom
-   domain: the Worker serves it) and `/models/*` outside Access.
+   domain: the Worker serves it).
 3. A deploy token for GitHub Actions: My Profile → API Tokens → Create Token → "Edit Cloudflare
    Workers" template, plus Account → D1 → Edit; then `gh secret set CLOUDFLARE_DEPLOY_TOKEN`.
    (`CLOUDFLARE_ACCOUNT_ID` is already a secret; `CLOUDFLARE_API_TOKEN` is the pipeline's Workers
    AI token and stays as it is.)
-4. The first deploy: `gh workflow run deploy.yml`. The run's log ends with the site's URL. Until
-   step 5, `/api/*` answers 500 and the app stays signed out (everything else works).
-5. Sign-in: Zero Trust → Access → Applications → Add → Self-hosted, domain
-   `giggle.<subdomain>.workers.dev` with path `api/*` (only that: the rest of the site is public),
-   and a policy allowing your emails with the One-time PIN login method (free up to 50 users).
-   Put the app's AUD tag and your team domain (`<team>.cloudflareaccess.com`) in `vars`
-   (`ACCESS_AUD`, `ACCESS_TEAM_DOMAIN`; neither is a secret) and push: the next deploy turns
-   sign-in on. The app's "Sign in" link goes to `/api/login`, which Access guards; "Sign out" is
-   `/cdn-cgi/access/logout`.
-6. Check any time: `node scripts/smoke-test.mjs https://giggle.<subdomain>.workers.dev`.
+4. The first deploy: `gh workflow run deploy.yml`. The run's log ends with the site's URL; put
+   its hostname in `PASSKEY_RP_ID` and its origin in `SITE_ORIGINS` (top-level `vars`) if they
+   differ from what's there. Sign-in needs nothing else: no Zero Trust, no email service.
+5. Check any time: `node scripts/smoke-test.mjs https://giggle.<subdomain>.workers.dev`.

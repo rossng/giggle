@@ -35,7 +35,7 @@ export type SyncState = 'synced' | 'syncing' | 'offline' | 'signed-out' | 'error
 
 export interface SyncStatus {
 	state: SyncState;
-	/** The signed-in email, once known. */
+	/** The signed-in account (an id, or the dev identity's email), once known. */
 	user: string | null;
 	/** When the last round finished cleanly (ISO 8601). */
 	lastSyncedAt: string | null;
@@ -272,16 +272,16 @@ export class SyncClient {
 	/** Once per start (and after signing in again): who is this? A different user starts over. */
 	async #checkUser(): Promise<void> {
 		if (this.#checkedUser) return;
-		const me = (await this.#request('GET', '/api/me')) as { email?: unknown };
-		if (typeof me.email !== 'string') throw new Rejected('unexpected /api/me response');
+		const me = (await this.#request('GET', '/api/me')) as { user?: unknown };
+		if (typeof me.user !== 'string') throw new Rejected('unexpected /api/me response');
 		for (const collection of this.#collections) {
 			// Another account's cursor and base mean nothing here: pull everything, push it all.
-			if (this.#load(collection).user !== me.email) {
-				this.#save(collection, emptyRecord(me.email));
+			if (this.#load(collection).user !== me.user) {
+				this.#save(collection, emptyRecord(me.user));
 			}
 		}
 		this.#checkedUser = true;
-		this.#setStatus({ user: me.email });
+		this.#setStatus({ user: me.user });
 	}
 
 	async #push<T extends Stamped>(
@@ -330,8 +330,6 @@ export class SyncClient {
 				method,
 				headers: {
 					Accept: 'application/json',
-					// Makes Cloudflare Access answer 401 instead of redirecting to its login page.
-					'X-Requested-With': 'XMLHttpRequest',
 					...(body === undefined ? {} : { 'Content-Type': 'application/json' })
 				},
 				body: body === undefined ? undefined : JSON.stringify(body),
@@ -342,7 +340,7 @@ export class SyncClient {
 		} catch (e) {
 			throw new Offline(e instanceof Error ? e.message : 'network error');
 		}
-		// A redirect is Access sending us to its login page.
+		// Not signed in (or the session expired): a redirect would be a login page.
 		if (response.type === 'opaqueredirect' || response.status === 401 || response.status === 403) {
 			throw new SignedOut('sign in again');
 		}

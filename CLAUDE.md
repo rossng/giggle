@@ -28,8 +28,10 @@ Upcoming-gig radio for Amsterdam and nearby. Design report: https://claude.ai/ar
   and the per-user `/api/<collection>` on D1: board, unavailable dates, play history, one generic
   mechanism (`src/collections.ts`, `src/store.ts`, table `sync_items`: LWW per key, tombstones,
   `since` cursor; plays are immutable items, so histories merge as a union). New migrations go in
-  new files. Auth is a verified Cloudflare Access JWT in production, a dev identity only with
-  `--env dev` on localhost (`worker/README.md`). The web side is `web/src/lib/sync/` (`SyncClient`
+  new files. Sign-in is passkeys (`src/passkeys.ts`, @simplewebauthn; an account is an id with
+  passkeys, a session cookie on `/api`), bound to `PASSKEY_RP_ID` (the site hostname); plus a dev
+  identity only with `--env dev` on localhost (`worker/README.md`). The web side is
+  `/account` (`web/src/lib/account/passkeys.ts`). The web side is `web/src/lib/sync/` (`SyncClient`
   over `collection.ts`/`collections.ts`). It also serves the browser's Kokoro files at `/models/*`
   from R2 (`MODELS`), public, only those listed in `web/src/lib/voice/model-files.json`.
 
@@ -97,11 +99,12 @@ download on first use to `data/cache/models/`, checksummed; never commit them.
   to Hugging Face. The user uploads to the real bucket (`worker/README.md`); never do it here.
 
 ## Local stack
-`make dev` runs it all (web on localhost:5173, API on :8787); the nav's "Sign in" signs in as
-you@example.test, or visit `http://localhost:5173/api/dev/login?as=alice@example.test` (any
-email; two browsers = two users). In production "Sign in" goes through Access (`/api/login`).
+`make dev` runs it all (web on localhost:5173, API on :8787). Sign in on `/account` with a
+passkey (they work on localhost), or as a fake user by visiting
+`http://localhost:5173/api/dev/login?as=alice@example.test` (any email; two browsers = two users).
+Browser tests can use Chromium's virtual authenticator (CDP `WebAuthn.addVirtualAuthenticator`).
 Everything must run locally: `make dev` (fixtures → data, `wrangler dev` with local D1/R2,
-`vite dev` proxying `/api` and `/models`), with a dev identity replacing Cloudflare Access only when
+`vite dev` proxying `/api` and `/models`), with a dev identity alongside passkeys only when
 `ENVIRONMENT=dev` (the Worker must refuse it in production), `--llm fake` for offline pipeline runs,
 and `--local` writing to `./data/` instead of R2. Keep `make help` accurate.
 

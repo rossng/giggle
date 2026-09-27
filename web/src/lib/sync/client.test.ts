@@ -42,8 +42,6 @@ class FakeServer {
 			const method = init?.method ?? 'GET';
 			this.requests.push({ user, method, path: url.pathname + url.search, body });
 			if (this.gate && method === 'PUT') await this.gate;
-			const headers = init?.headers as Record<string, string>;
-			expect(headers['X-Requested-With']).toBe('XMLHttpRequest');
 			expect(init?.redirect).toBe('manual');
 			switch (this.mode) {
 				case 'down':
@@ -62,7 +60,7 @@ class FakeServer {
 				case 'error500':
 					return Response.json({ error: 'boom' }, { status: 500 });
 			}
-			if (url.pathname === '/api/me') return Response.json({ email: user, via: 'dev' });
+			if (url.pathname === '/api/me') return Response.json({ user, via: 'dev', passkeys: 0 });
 			if (url.pathname !== '/api/board') return Response.json({ error: 'nf' }, { status: 404 });
 			if (method === 'PUT') return Response.json({ items: this.put(user, body.items) });
 			return Response.json(this.get(user, Number(url.searchParams.get('since') ?? 0)));

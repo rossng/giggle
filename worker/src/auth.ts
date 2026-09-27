@@ -1,18 +1,20 @@
-// Who is asking. In production the only source is the Cloudflare Access JWT (Cf-Access-Jwt-Assertion),
-// verified here against the team's JWKS, AUD tag and issuer; the email claim is the user id. In dev
-// (see config.ts) a fake identity comes from a header or cookie, and only on a loopback hostname,
-// so a dev build that somehow ended up on a public hostname still refuses it.
+// Who is asking. Everywhere: a session cookie, set when someone signs in with a passkey
+// (passkeys.ts); the session's account id is the user id for synced data. In dev (see config.ts)
+// also a fake identity from a header or cookie, and only on a loopback hostname, so a dev build
+// that somehow ended up on a public hostname still refuses it.
 
-import { createRemoteJWKSet, jwtVerify, type JWTVerifyGetKey } from 'jose';
 import type { AuthConfig } from './config';
 
 export const DEV_HEADER = 'X-Giggle-Dev-User';
 export const DEV_COOKIE = 'giggle_dev_user';
-export const ACCESS_HEADER = 'Cf-Access-Jwt-Assertion';
+export const SESSION_COOKIE = 'giggle_session';
+/** Sessions last this long from sign-in; then the passkey asks again. */
+export const SESSION_DAYS = 400;
 
 export interface Identity {
-	email: string;
-	via: 'access' | 'dev';
+	/** An account id ("u_<uuid>") for passkey users; the email address for the dev identity. */
+	user: string;
+	via: 'passkey' | 'dev';
 }
 
 export type AuthResult =
@@ -47,37 +49,68 @@ export function readCookie(request: Request, name: string): string | null {
 	return null;
 }
 
-// One JWKS per team domain, per isolate: jose caches the keys and refetches on an unknown `kid`.
-const jwksCache = new Map<string, JWTVerifyGetKey>();
-
-function accessKeys(teamDomain: string): JWTVerifyGetKey {
-	let jwks = jwksCache.get(teamDomain);
-	if (!jwks) {
-		jwks = createRemoteJWKSet(new URL(`https://${teamDomain}/cdn-cgi/access/certs`));
-		jwksCache.set(teamDomain, jwks);
-	}
-	return jwks;
+export function base64url(bytes: Uint8Array): string {
+	let binary = '';
+	for (const b of bytes) binary += String.fromCharCode(b);
+	return btoa(binary).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
 }
 
-async function fromAccess(
-	request: Request,
-	config: Extract<AuthConfig, { mode: 'access' }>
-): Promise<AuthResult> {
-	const token = request.headers.get(ACCESS_HEADER);
-	if (!token) return { ok: false, status: 401, error: 'not signed in' };
-	try {
-		const { payload } = await jwtVerify(token, accessKeys(config.teamDomain), {
-			issuer: `https://${config.teamDomain}`,
-			audience: config.aud,
-			algorithms: ['RS256']
-		});
-		// Service tokens carry no email; they aren't users.
-		const email = normaliseEmail(payload.email);
-		if (!email) return { ok: false, status: 401, error: 'no email in Access token' };
-		return { ok: true, identity: { email, via: 'access' } };
-	} catch {
-		return { ok: false, status: 401, error: 'invalid Access token' };
+/** A random, unguessable token (256 bits). */
+export function newToken(): string {
+	return base64url(crypto.getRandomValues(new Uint8Array(32)));
+}
+
+/** Tokens are stored hashed, so a leaked table doesn't hand out sessions. */
+export async function tokenHash(token: string): Promise<string> {
+	const digest = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(token));
+	return base64url(new Uint8Array(digest));
+}
+
+/** Starts a session for `user`; returns its Set-Cookie header value. */
+export async function startSession(
+	db: D1Database,
+	user: string,
+	url: URL,
+	now = Date.now()
+): Promise<string> {
+	const token = newToken();
+	const expires = new Date(now + SESSION_DAYS * 86_400_000).toISOString();
+	await db
+		.prepare('INSERT INTO sessions (token_hash, user, created, expires) VALUES (?, ?, ?, ?)')
+		.bind(await tokenHash(token), user, new Date(now).toISOString(), expires)
+		.run();
+	return sessionCookie(token, url, SESSION_DAYS * 86_400);
+}
+
+/** The session cookie: only sent to /api, never readable by page scripts. */
+export function sessionCookie(token: string, url: URL, maxAge: number): string {
+	const secure = url.protocol === 'https:' ? '; Secure' : '';
+	return `${SESSION_COOKIE}=${token}; Path=/api; HttpOnly; SameSite=Lax; Max-Age=${maxAge}${secure}`;
+}
+
+/** Ends the request's session (if any); returns the Set-Cookie header value that clears it. */
+export async function endSession(db: D1Database, request: Request): Promise<string> {
+	const token = readCookie(request, SESSION_COOKIE);
+	if (token) {
+		await db
+			.prepare('DELETE FROM sessions WHERE token_hash = ?')
+			.bind(await tokenHash(token))
+			.run();
 	}
+	return sessionCookie('', new URL(request.url), 0);
+}
+
+async function fromSession(request: Request, db: D1Database): Promise<AuthResult | null> {
+	const token = readCookie(request, SESSION_COOKIE);
+	if (!token) return null;
+	const row = await db
+		.prepare('SELECT user, expires FROM sessions WHERE token_hash = ?')
+		.bind(await tokenHash(token))
+		.first<{ user: string; expires: string }>();
+	if (!row || Date.parse(row.expires) <= Date.now()) {
+		return { ok: false, status: 401, error: 'session expired: sign in again' };
+	}
+	return { ok: true, identity: { user: row.user, via: 'passkey' } };
 }
 
 function fromDev(request: Request): AuthResult {
@@ -88,12 +121,19 @@ function fromDev(request: Request): AuthResult {
 	if (raw == null) return { ok: false, status: 401, error: 'not signed in (dev)' };
 	const email = normaliseEmail(raw);
 	if (!email) return { ok: false, status: 401, error: 'dev identity must be an email address' };
-	return { ok: true, identity: { email, via: 'dev' } };
+	return { ok: true, identity: { user: email, via: 'dev' } };
 }
 
-export function authenticate(
+export async function authenticate(
 	request: Request,
-	config: AuthConfig
-): Promise<AuthResult> | AuthResult {
-	return config.mode === 'access' ? fromAccess(request, config) : fromDev(request);
+	config: AuthConfig,
+	db: D1Database
+): Promise<AuthResult> {
+	const session = await fromSession(request, db);
+	if (session?.ok) return session;
+	if (config.mode === 'dev') {
+		const dev = fromDev(request);
+		if (dev.ok || !session) return dev;
+	}
+	return session ?? { ok: false, status: 401, error: 'not signed in' };
 }
