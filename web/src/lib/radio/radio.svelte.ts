@@ -78,6 +78,7 @@ import {
 	type Speaker,
 	type VoiceInfo
 } from './speaker';
+import { MediaFocus } from './media-focus';
 import { squareImage } from './tracks';
 import { sharedKokoro, type KokoroState, type KokoroVoice } from '$lib/voice/kokoro';
 import { YouTubePlayer, type PlaybackState } from './youtube';
@@ -143,6 +144,28 @@ interface BackAnnouncement {
 	line: Line | null;
 	abort: AbortController | null;
 	done: boolean;
+	/** Its mark on the scrub bar, once planned. */
+	mark: number | null;
+}
+
+/** An announcement on the current track's timeline, for the scrub bar (seconds of track time). */
+export interface VoiceMark {
+	id: number;
+	kind: LineKind;
+	text: string;
+	start: number;
+	end: number;
+	/** planned: a back-announcement still to come; speaking: on air now; done: said. */
+	state: 'planned' | 'speaking' | 'done';
+}
+
+/** The announcer talking before a track starts (the music is silent), for the scrub bar. */
+export interface Preroll {
+	text: string;
+	/** Estimated length. */
+	seconds: number;
+	/** When it started (Date.now()). */
+	since: number;
 }
 
 export class Radio {
@@ -184,6 +207,11 @@ export class Radio {
 	/** Playing, or talking a track in: the play button shows "pause". */
 	on = $derived(this.talking || this.playback === 'playing' || this.playback === 'buffering');
 
+	/** The current track's announcements, for the scrub bar. */
+	marks = $state.raw<VoiceMark[]>([]);
+	/** Talking before the track starts, for the scrub bar; null otherwise. */
+	preroll = $state.raw<Preroll | null>(null);
+
 	// ---------- engine objects: never reactive ----------
 	#player: YouTubePlayer | null = null;
 	#ducking: DuckingController | null = null;
@@ -200,6 +228,8 @@ export class Radio {
 	 * started on are dropped (what's still wanted is prepared again). */
 	#prepared = new AbortController();
 	readonly #presenter: Presenter;
+	/** Keeps the laptop's media keys on giggle rather than the YouTube iframe (media-focus.ts). */
+	readonly #focus = new MediaFocus();
 	readonly #options: RadioOptions;
 	#history: PlayHistory;
 	#station: StationInput | null = null;
@@ -212,6 +242,9 @@ export class Radio {
 	#introVideo: string | null = null;
 	#lastSpeechEnd: number | null = null;
 	#speechToken = 0;
+	#markId = 0;
+	/** The video the marks belong to. */
+	#marksFor: string | null = null;
 	#heard = { key: '', seconds: 0, recorded: false };
 	#errors = 0;
 	#lastSave = 0;
@@ -479,7 +512,7 @@ export class Radio {
 
 	/** "This is how I sound.", in the voice live lines use now. */
 	#sample(): void {
-		this.#speaker.unlock?.();
+		this.#unlock();
 		const text = 'This is how I sound.';
 		const line = {
 			kind: 'micro' as const,
@@ -491,11 +524,22 @@ export class Radio {
 		else void this.#say(line, new AbortController().signal);
 	}
 
+	/** Whether giggle holds the media keys now (for tests and debugging). */
+	get holdsMediaKeys(): boolean {
+		return this.#focus.active;
+	}
+
+	/** From a user gesture: lets speech, clips and the media-key loop play later. */
+	#unlock(): void {
+		this.#speaker.unlock?.();
+		this.#focus.unlock();
+	}
+
 	// ---------- transport ----------
 
 	/** The first press of play (a user gesture: audio and speech are allowed after it). */
 	start(): void {
-		this.#speaker.unlock?.();
+		this.#unlock();
 		const player = this.#player;
 		if (!player || !this.track) return;
 		this.notice = null;
@@ -523,6 +567,7 @@ export class Radio {
 		this.#speaker.stop();
 		this.talking = false;
 		this.#player?.pause();
+		this.#focus.release();
 		this.save();
 	}
 
@@ -530,19 +575,19 @@ export class Radio {
 		const player = this.#player;
 		if (!player || !this.track) return;
 		if (!this.started) return this.start();
-		this.#speaker.unlock?.();
+		this.#unlock();
 		const loaded = player.videoId === this.track.videoId;
 		if (loaded && player.state !== 'ended' && player.state !== 'unstarted') player.play();
 		else this.#goTo(this.position);
 	}
 
 	next(): void {
-		this.#speaker.unlock?.();
+		this.#unlock();
 		this.#goTo(nextPosition(this.queue, this.position));
 	}
 
 	previous(): void {
-		this.#speaker.unlock?.();
+		this.#unlock();
 		if (
 			this.started &&
 			this.time > RESTART_AFTER_SECONDS &&
@@ -555,12 +600,12 @@ export class Radio {
 	}
 
 	nextArtist(): void {
-		this.#speaker.unlock?.();
+		this.#unlock();
 		this.#goTo(nextArtistPosition(this.queue, this.position));
 	}
 
 	jump(artistIndex: number): void {
-		this.#speaker.unlock?.();
+		this.#unlock();
 		this.#goTo({ artistIndex, trackIndex: 0, seconds: 0 });
 	}
 
@@ -610,6 +655,9 @@ export class Radio {
 
 		this.#cancelSegment();
 		this.#cancelBack();
+		this.preroll = null;
+		this.#marksFor = track.videoId;
+		this.marks = [];
 		this.started = true;
 		this.resumeAt = null;
 		this.position = { ...target, seconds: 0 };
@@ -654,7 +702,16 @@ export class Radio {
 			player,
 			ducking,
 			speak: (signal) => {
-				const said = line ? this.#say(line, signal) : Promise.resolve();
+				let said: Promise<void> = Promise.resolve();
+				if (line && plan.mode === 'beforeTrack') {
+					const preroll = { text: line.text, seconds: line.seconds, since: Date.now() };
+					this.preroll = preroll;
+					said = this.#say(line, signal).finally(() => {
+						if (this.preroll === preroll) this.preroll = null;
+					});
+				} else if (line) {
+					said = this.#sayOver(line, signal, track.videoId);
+				}
 				// While this line is said, get the next ones ready: the listener may skip on
 				// before the track even starts. (After asking for this line, so it goes first.)
 				this.#planAhead();
@@ -663,6 +720,7 @@ export class Radio {
 			startTrack: () => {
 				if (abort.signal.aborted) return;
 				this.talking = false;
+				this.preroll = null;
 				player.load(track);
 			},
 			signal: abort.signal
@@ -764,6 +822,56 @@ export class Radio {
 		}
 	}
 
+	/** Seconds into `videoId`, if it's the one loaded; else 0 (it's about to start). */
+	#trackTime(videoId: string): number {
+		const player = this.#player;
+		return player && player.videoId === videoId ? player.currentTime() : 0;
+	}
+
+	#addMark(videoId: string, mark: Omit<VoiceMark, 'id'>): number {
+		if (this.#marksFor !== videoId) {
+			this.#marksFor = videoId;
+			this.marks = [];
+		}
+		const id = ++this.#markId;
+		this.marks = [...this.marks, { ...mark, id }];
+		return id;
+	}
+
+	#updateMark(id: number, patch: Partial<VoiceMark>): void {
+		this.marks = this.marks.map((m) => (m.id === id ? { ...m, ...patch } : m));
+	}
+
+	#dropMark(id: number): void {
+		this.marks = this.marks.filter((m) => m.id !== id);
+	}
+
+	/** Says `line` over the track's music, marking where on the track it fell. */
+	#sayOver(
+		line: Pick<Line, 'text' | 'kind' | 'artistKey' | 'seconds' | 'clip'>,
+		signal: AbortSignal,
+		videoId: string,
+		mark?: number
+	): Promise<void> {
+		const start = this.#trackTime(videoId);
+		const id =
+			mark ??
+			this.#addMark(videoId, {
+				kind: line.kind,
+				text: line.text,
+				start,
+				end: start + line.seconds,
+				state: 'speaking'
+			});
+		if (mark !== undefined)
+			this.#updateMark(id, { start, end: start + line.seconds, state: 'speaking' });
+		return this.#say(line, signal).finally(() => {
+			const end = this.#trackTime(videoId);
+			if (signal.aborted && end <= start) this.#dropMark(id);
+			else this.#updateMark(id, { end: Math.max(end, start + 0.5), state: 'done' });
+		});
+	}
+
 	#cancelSegment(): void {
 		this.#segment?.abort();
 		this.#segment = null;
@@ -790,7 +898,8 @@ export class Radio {
 				videoId: track.videoId,
 				line: this.#presenter.backAnnounce(entry, this.position.trackIndex),
 				abort: null,
-				done: false
+				done: false,
+				mark: null
 			};
 			if (this.#back.line)
 				this.#speaker.prepare?.(this.#back.line, { signal: this.#prepared.signal });
@@ -807,15 +916,25 @@ export class Radio {
 		const at = player.currentTime();
 		if (plan.mode !== 'backAnnounce' || at > plan.startAt + 0.5) {
 			back.done = true;
+			if (back.mark !== null) this.#dropMark(back.mark);
 			return;
 		}
+		// Show where it will come in, before it does.
+		back.mark ??= this.#addMark(track.videoId, {
+			kind: back.line.kind,
+			text: back.line.text,
+			start: plan.startAt,
+			end: plan.startAt + plan.speechSeconds,
+			state: 'planned'
+		});
+		const mark = back.mark;
 		const abort = new AbortController();
 		back.abort = abort;
 		const line = back.line;
 		void runSegment(plan, {
 			player,
 			ducking,
-			speak: (signal) => this.#say(line, signal),
+			speak: (signal) => this.#sayOver(line, signal, track.videoId, mark),
 			positionSeconds: at,
 			signal: abort.signal
 		})
@@ -835,6 +954,8 @@ export class Radio {
 		if (state === 'cued') this.#errors = 0;
 		if (state === 'playing') setPlaybackState('playing');
 		else if (state === 'paused' || state === 'cued') setPlaybackState('paused');
+		// Paused (here, or with YouTube's own controls): let the media-key loop rest too.
+		if (state === 'paused') this.#focus.release();
 		if (state !== 'playing') this.#cancelBack();
 	}
 
@@ -844,6 +965,8 @@ export class Radio {
 		this.#errors = 0;
 		if (player.videoId === this.#introVideo) this.#introVideo = null;
 		if (this.notice?.startsWith("Couldn't play")) this.notice = null;
+		// Each YouTube track makes its iframe the media keys' target: take them back.
+		this.#focus.claim();
 		this.#planAhead(); // first: the next artist's intro is wanted before the outro line
 		this.#scheduleBack();
 	}
