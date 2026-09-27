@@ -27,11 +27,8 @@ source tree. The build doesn't include the data: the deploy step copies
 Types for both files are in `src/lib/data/types.ts`, written by hand from the pipeline: keep
 them in step when its output changes.
 
-The radio plays each artist's `youtube.songs` (YouTube Music). **Dev fallback**, until
-`artists.json` has that field: the dev server also serves `../cache/ytmusic.json` (next to the
-site data, i.e. `data/cache/ytmusic.json`) at `/data/ytmusic.json`, and
-`src/lib/radio/dev-ytmusic-fallback.ts` attaches its records to artists by normalised name.
-Delete that module (and its uses, marked `DEV FALLBACK`) once the pipeline writes the field.
+The radio plays each artist's `youtube.songs` (YouTube Music), which the pipeline writes into
+`artists.json`.
 
 ## Layout
 

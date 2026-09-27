@@ -33,11 +33,6 @@ export function trackIndex(artists: Readonly<Record<string, Artist>>): Map<strin
 	return index;
 }
 
-/** Whether artists.json has the `youtube` field at all (newer pipeline output). */
-export function hasYoutubeField(artists: Readonly<Record<string, Artist>>): boolean {
-	return Object.values(artists).some((a) => a && 'youtube' in a);
-}
-
 /** A square version of a YouTube Music image (they come as wide banners), for artwork. */
 export function squareImage(url: string | null | undefined, size = 544): string | null {
 	if (!url) return null;
