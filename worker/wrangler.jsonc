@@ -44,6 +44,14 @@
 	// --remote` (README.md → Model files).
 	"r2_buckets": [{ "binding": "MODELS", "bucket_name": "giggle-models" }],
 
+	// Rate limits (src/limits.ts): per client IP for sign-in and model files, per account for
+	// writes. Period must be 10 or 60 seconds; namespace_id is any number unique in the account.
+	"ratelimits": [
+		{ "name": "RL_PASSKEY", "namespace_id": "4101", "simple": { "limit": 10, "period": 60 } },
+		{ "name": "RL_WRITES", "namespace_id": "4102", "simple": { "limit": 30, "period": 60 } },
+		{ "name": "RL_MODELS", "namespace_id": "4103", "simple": { "limit": 60, "period": 60 } }
+	],
+
 	"env": {
 		"dev": {
 			"assets": {
@@ -67,7 +75,13 @@
 				}
 			],
 			// Local only (worker/.wrangler/): `make models` fills it.
-			"r2_buckets": [{ "binding": "MODELS", "bucket_name": "giggle-models-dev" }]
+			"r2_buckets": [{ "binding": "MODELS", "bucket_name": "giggle-models-dev" }],
+			// Bindings aren't inherited: the same limits as production, so dev sees them too.
+			"ratelimits": [
+				{ "name": "RL_PASSKEY", "namespace_id": "4101", "simple": { "limit": 10, "period": 60 } },
+				{ "name": "RL_WRITES", "namespace_id": "4102", "simple": { "limit": 30, "period": 60 } },
+				{ "name": "RL_MODELS", "namespace_id": "4103", "simple": { "limit": 60, "period": 60 } }
+			]
 		}
 	}
 }

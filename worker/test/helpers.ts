@@ -23,9 +23,18 @@ export interface CallOptions {
 	env?: Partial<Env>;
 }
 
+/** A random address in 10.0.0.0/8. */
+export function randomIp(): string {
+	const [a, b, c] = crypto.getRandomValues(new Uint8Array(3));
+	return `10.${a}.${b}.${c}`;
+}
+
 export async function call(path: string, options: CallOptions = {}): Promise<Response> {
 	const headers = new Headers(options.headers);
 	if (options.devUser) headers.set('X-Giggle-Dev-User', options.devUser);
+	// A client address of its own per call, so the per-IP rate limits (limits.ts) only apply
+	// where a test sets one.
+	if (!headers.has('CF-Connecting-IP')) headers.set('CF-Connecting-IP', randomIp());
 	let body: string | undefined;
 	if (options.body !== undefined) {
 		body = typeof options.body === 'string' ? options.body : JSON.stringify(options.body);

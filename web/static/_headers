@@ -1,0 +1,11 @@
+# Security headers for every static file (Workers static assets apply this file; responses from
+# the Worker's own code, /api/* and /models/*, set theirs in worker/src). What a page may load
+# (script-src, img-src…) is the <meta> CSP SvelteKit writes into each page (kit.csp in
+# vite.config.ts): these are the directives a <meta> can't carry, and none that would restrict
+# scripts, so the Kokoro worker keeps loading its WebAssembly under its own response's CSP.
+/*
+  Content-Security-Policy: frame-ancestors 'none'; base-uri 'none'; object-src 'none'; form-action 'self'
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=()

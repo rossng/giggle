@@ -66,7 +66,13 @@ export async function tokenHash(token: string): Promise<string> {
 	return base64url(new Uint8Array(digest));
 }
 
-/** Starts a session for `user`; returns its Set-Cookie header value. */
+/** Signed-in browsers per account: signing in again past this ends the oldest sessions. */
+export const MAX_SESSIONS = 50;
+
+/**
+ * Starts a session for `user`; returns its Set-Cookie header value. Tidies up as it goes:
+ * expired sessions (anyone's) are deleted, and `user` keeps only their newest MAX_SESSIONS.
+ */
 export async function startSession(
 	db: D1Database,
 	user: string,
@@ -74,12 +80,26 @@ export async function startSession(
 	now = Date.now()
 ): Promise<string> {
 	const token = newToken();
+	const created = new Date(now).toISOString();
 	const expires = new Date(now + SESSION_DAYS * 86_400_000).toISOString();
-	await db
-		.prepare('INSERT INTO sessions (token_hash, user, created, expires) VALUES (?, ?, ?, ?)')
-		.bind(await tokenHash(token), user, new Date(now).toISOString(), expires)
-		.run();
+	await db.batch([
+		db.prepare('DELETE FROM sessions WHERE expires <= ?').bind(created),
+		db
+			.prepare('INSERT INTO sessions (token_hash, user, created, expires) VALUES (?, ?, ?, ?)')
+			.bind(await tokenHash(token), user, created, expires),
+		db
+			.prepare(
+				`DELETE FROM sessions WHERE user = ?1 AND token_hash NOT IN (
+					SELECT token_hash FROM sessions WHERE user = ?1 ORDER BY created DESC LIMIT ?2)`
+			)
+			.bind(user, MAX_SESSIONS)
+	]);
 	return sessionCookie(token, url, SESSION_DAYS * 86_400);
+}
+
+/** Ends every session of `user` (sign out everywhere). */
+export async function endAllSessions(db: D1Database, user: string): Promise<void> {
+	await db.prepare('DELETE FROM sessions WHERE user = ?').bind(user).run();
 }
 
 /** The session cookie: only sent to /api, never readable by page scripts. */

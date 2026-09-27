@@ -70,3 +70,38 @@ export async function signIn(): Promise<void> {
 export async function signOut(): Promise<void> {
 	await post('/api/logout');
 }
+
+/** Ends every signed-in browser of this account, this one included. */
+export async function signOutEverywhere(): Promise<void> {
+	await post('/api/logout-everywhere');
+}
+
+/** One of the account's passkeys, as `GET /api/passkeys` lists it. */
+export interface PasskeyInfo {
+	id: string;
+	created: string;
+	last_used: string | null;
+	/** 'multiDevice': synced by a password manager; 'singleDevice': on one device only. */
+	device_type: string;
+	backed_up: boolean;
+	transports: string[];
+}
+
+export async function listPasskeys(): Promise<PasskeyInfo[]> {
+	const res = await fetch('/api/passkeys', { credentials: 'same-origin' });
+	const data = (await res.json().catch(() => ({}))) as { passkeys?: PasskeyInfo[]; error?: string };
+	if (!res.ok) throw new Error(data.error ?? `/api/passkeys: ${res.status}`);
+	return data.passkeys ?? [];
+}
+
+/** Removes a passkey from the account (the server refuses the last one). */
+export async function removePasskey(id: string): Promise<void> {
+	const res = await fetch(`/api/passkeys/${encodeURIComponent(id)}`, {
+		method: 'DELETE',
+		credentials: 'same-origin'
+	});
+	if (!res.ok) {
+		const data = (await res.json().catch(() => ({}))) as { error?: string };
+		throw new Error(data.error ?? `couldn't remove the passkey (${res.status})`);
+	}
+}

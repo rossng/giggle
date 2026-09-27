@@ -179,11 +179,14 @@ export async function registerVerify(
 			db.prepare('INSERT INTO accounts (id, created) VALUES (?, ?)').bind(account, created)
 		);
 	}
+	// MAX_PASSKEYS again, in the same statement as the insert: several tickets issued while the
+	// account was under the limit must not take it over.
 	statements.push(
 		db
 			.prepare(
 				`INSERT INTO passkeys (id, account, public_key, counter, transports, device_type, backed_up, created)
-				 VALUES (?, ?, ?, ?, ?, ?, ?, ?)`
+				 SELECT ?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8
+				 WHERE (SELECT count(*) FROM passkeys WHERE account = ?2) < ?9`
 			)
 			.bind(
 				credential.id,
@@ -193,16 +196,68 @@ export async function registerVerify(
 				JSON.stringify(credential.transports ?? []),
 				credentialDeviceType,
 				credentialBackedUp ? 1 : 0,
-				created
+				created,
+				MAX_PASSKEYS
 			)
 	);
+	let results;
 	try {
-		await db.batch(statements);
+		results = await db.batch(statements);
 	} catch {
 		throw new PasskeyError(409, 'this passkey is already registered');
 	}
+	if (!results[results.length - 1]!.meta.changes) {
+		throw new PasskeyError(409, `an account can have at most ${MAX_PASSKEYS} passkeys`);
+	}
 	const cookie = await startSession(db, account, url, now);
 	return { identity: { user: account, via: 'passkey' }, cookie };
+}
+
+export interface PasskeyInfo {
+	id: string;
+	created: string;
+	last_used: string | null;
+	/** 'multiDevice' (synced by a password manager) or 'singleDevice'. */
+	device_type: string;
+	backed_up: boolean;
+	/** How the browser reached it: "internal", "hybrid", "usb"… */
+	transports: string[];
+}
+
+/** An account's passkeys, oldest first, without their public keys. */
+export async function listPasskeys(db: D1Database, account: string): Promise<PasskeyInfo[]> {
+	const { results } = await db
+		.prepare(
+			`SELECT id, created, last_used, device_type, backed_up, transports FROM passkeys
+			 WHERE account = ? ORDER BY created, id`
+		)
+		.bind(account)
+		.all<
+			Omit<PasskeyInfo, 'backed_up' | 'transports'> & { backed_up: number; transports: string }
+		>();
+	return results.map((r) => ({
+		...r,
+		backed_up: r.backed_up === 1,
+		transports: JSON.parse(r.transports) as string[]
+	}));
+}
+
+/** Removes one of the account's passkeys, never its last one (that would lock them out). */
+export async function deletePasskey(db: D1Database, account: string, id: string): Promise<void> {
+	const { meta } = await db
+		.prepare(
+			`DELETE FROM passkeys WHERE id = ?1 AND account = ?2
+			 AND (SELECT count(*) FROM passkeys WHERE account = ?2) > 1`
+		)
+		.bind(id, account)
+		.run();
+	if (meta.changes) return;
+	const mine = await db
+		.prepare('SELECT 1 FROM passkeys WHERE id = ? AND account = ?')
+		.bind(id, account)
+		.first();
+	if (!mine) throw new PasskeyError(404, 'no such passkey');
+	throw new PasskeyError(409, "that's your only passkey: add another before removing it");
 }
 
 export async function loginOptions(db: D1Database, config: AuthConfig, now = Date.now()) {
