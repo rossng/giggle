@@ -35,6 +35,7 @@ MAX_OUTAGES = 3  # failed lookups before giving up on MusicBrainz for the run
 # and "retry-after: 0"): that's the service being busy, not us being limited, and a retry
 # a moment later usually works. These get short jittered waits and don't count as outages.
 SHED_WAITS = (1.5, 2.0, 2.5, 3.0, 3.5, 3.5)
+_MBID = re.compile(r"[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}")
 LINK_TYPES = {
     "bandcamp": "bandcamp",
     "wikidata": "wikidata",
@@ -53,6 +54,11 @@ def _words(values: list[str]) -> set[str]:
 def _voted(items: list[dict[str, Any]]) -> list[dict[str, Any]]:
     """Tags or genres by votes, most first, without the ones voted down to zero or below."""
     return sorted((i for i in items if i.get("count", 0) > 0), key=lambda i: -i["count"])
+
+
+def is_mbid(value: Any) -> bool:
+    """Whether `value` is a MusicBrainz id (a UUID), safe in a URL path and a key."""
+    return isinstance(value, str) and _MBID.fullmatch(value) is not None
 
 
 def phrase(value: str) -> str:
@@ -156,7 +162,11 @@ class MusicBrainz:
         except FAILURES:
             return None  # not cached: tried again next run
         wanted = _words(genres)
-        exact = [a for a in data.get("artists", []) if normalise(a["name"]) == normalise(name)]
+        exact = [
+            a
+            for a in data.get("artists", [])
+            if normalise(a["name"]) == normalise(name) and is_mbid(a.get("id"))
+        ]
         best = None
         if exact:
 
@@ -200,6 +210,8 @@ class MusicBrainz:
         }
 
     def details(self, mbid: str) -> dict[str, Any] | None:
+        if not is_mbid(mbid):  # it goes in the URL path and the artist key
+            return None
         cached = self.cache.get("musicbrainz", f"details:{mbid}", max_age=DETAILS_MAX_AGE)
         if cached is not None:
             return cached

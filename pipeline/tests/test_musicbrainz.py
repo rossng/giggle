@@ -278,3 +278,14 @@ def test_match_by_id_uses_the_lookup_not_the_search(cache):
     assert match["source"] == "lastfm"
     assert all("query" not in r.url.params for r in server.requests)
     assert mb.match_by_id("00000000-0000-0000-0000-000000000000", "lastfm") is None
+
+
+@pytest.mark.parametrize(
+    "mbid", ["../../artist", "x", NOUVELLE_VAGUE.upper(), NOUVELLE_VAGUE + "/"]
+)
+def test_ids_from_elsewhere_must_be_mbids(cache, mbid):
+    server = Server()
+    mb, _ = client(cache, server)
+    assert mb.match_by_id(mbid, "lastfm") is None
+    assert server.requests == []
+    assert mb.match_by_id(NOUVELLE_VAGUE, "lastfm")["name"] == "Nouvelle Vague"
