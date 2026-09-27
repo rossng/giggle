@@ -27,6 +27,12 @@ SELECT substr(created, 1, 10), count(*) FROM accounts
 WHERE created >= date('now', '-400 days')
 GROUP BY substr(created, 1, 10);
 
+-- Accounts already seen today won't pass markSeen's once-per-day guard. Count them now,
+-- including older accounts that signed in today, without changing the sign-up count.
+INSERT INTO daily_stats (day, active_users)
+SELECT date('now'), count(*) FROM accounts WHERE last_seen = date('now')
+ON CONFLICT (day) DO UPDATE SET active_users = excluded.active_users;
+
 -- Whether the account's row budget has refused a write today (usage.day): quota_hits counts that
 -- once, so refused writes can't themselves spend D1 writes.
 ALTER TABLE usage ADD COLUMN refused INTEGER NOT NULL DEFAULT 0;

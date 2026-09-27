@@ -10,7 +10,11 @@ export default defineConfig({
 		cloudflareTest({
 			wrangler: { configPath: './wrangler.jsonc', environment: 'dev' },
 			remoteBindings: false,
-			miniflare: { bindings: { TEST_MIGRATIONS: migrations } }
+			miniflare: {
+				bindings: { TEST_MIGRATIONS: migrations },
+				// Starts empty so migration tests can seed accounts under the previous schema.
+				d1Databases: ['MIGRATION_DB']
+			}
 		})
 	],
 	test: {
