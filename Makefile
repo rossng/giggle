@@ -1,5 +1,9 @@
 # Local development. `make help` lists targets.
 
+# Python dependencies come from uv.lock as committed: uv never re-resolves on its own (after
+# editing a pyproject.toml, run `uv lock`).
+export UV_LOCKED = 1
+
 .PHONY: help sync test lint format data data-offline browse fetch browse-raw web-dev web-build smoke dev \
 	worker-migrate worker-dev worker-test models
 
@@ -7,7 +11,7 @@ help:
 	@grep -E "^[a-z-]+:.*## " $(MAKEFILE_LIST) | sed "s/:.*## /\t/"
 
 sync: ## install Python and JavaScript dependencies
-	uv sync --group dev
+	uv sync --locked --group dev
 	pnpm install --frozen-lockfile
 
 test: ## run all tests (Python and TypeScript)
@@ -15,7 +19,8 @@ test: ## run all tests (Python and TypeScript)
 	cd pipeline && uv run --group dev pytest -q
 	pnpm -r test
 
-lint: ## check lint, formatting and types
+lint: ## check lint, formatting, types and that uv.lock is up to date
+	uv lock --check
 	uv run --group dev ruff check packages pipeline scripts
 	uv run --group dev ruff format --check packages pipeline scripts
 	pnpm --dir web check

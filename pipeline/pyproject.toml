@@ -20,8 +20,10 @@ giggle-issues = "giggle_pipeline.issues:main"
 giggle-voice-samples = "giggle_pipeline.voice:samples_main"
 
 [project.optional-dependencies]
+# Pinned exactly, like the browser's voice stack: a new version is a reviewed change (Renovate
+# opens a PR for it, and lockfile maintenance can't move it).
 voice = [
-    "kokoro-onnx>=0.6.1,<0.7",
+    "kokoro-onnx==0.6.1",
 ]
 
 [tool.uv.sources]

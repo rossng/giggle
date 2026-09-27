@@ -1,5 +1,8 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": [
+    "Nothing younger than 7 days gets in, whoever updates: Renovate's minimumReleaseAge gates its own updates (npm, PyPI, GitHub Actions), but not lockfile maintenance, which re-resolves each lockfile with its package manager's own gate: pnpm's minimumReleaseAge (pnpm-workspace.yaml) and uv's exclude-newer (pyproject.toml). flake.lock has no such gate, so its monthly update is a PR to review."
+  ],
   "extends": ["config:recommended", "helpers:pinGitHubActionDigests"],
   "timezone": "Europe/Amsterdam",
   "schedule": ["* 0-5 * * 1"],
@@ -58,6 +61,12 @@
         "seal-of-slop"
       ],
       "groupName": "voice and auth",
+      "automerge": false
+    },
+    {
+      "description": "nixpkgs moves with no age gate (the toolchain: uv, Node, pnpm): a PR to review, not an automerge.",
+      "matchManagers": ["nix"],
+      "matchUpdateTypes": ["lockFileMaintenance"],
       "automerge": false
     }
   ]

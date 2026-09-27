@@ -9,6 +9,10 @@ dependencies = ["podia", "giggle-pipeline"]
 
 [tool.uv]
 package = false
+# Don't resolve releases uploaded in the last 7 days (like pnpm's minimumReleaseAge and
+# Renovate's): most compromised releases are caught and pulled within days. uv records the
+# window in uv.lock and applies it whenever it resolves (uv lock, Renovate's lockfile updates).
+exclude-newer = "7 days"
 
 [tool.uv.sources]
 podia = { workspace = true }
