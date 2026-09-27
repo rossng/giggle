@@ -5,7 +5,7 @@
 export UV_LOCKED = 1
 
 .PHONY: help sync test lint format data data-offline browse fetch browse-raw web-dev web-build smoke dev \
-	worker-migrate worker-dev worker-test models
+	worker-migrate worker-dev worker-test models seed-dev
 
 help:
 	@grep -E "^[a-z-]+:.*## " $(MAKEFILE_LIST) | sed "s/:.*## /\t/"
@@ -65,6 +65,9 @@ worker-migrate: ## apply worker/migrations to the local dev D1 (in worker/.wrang
 worker-dev: worker-migrate ## run the Worker on 127.0.0.1:8787: dev identity, local D1 and R2, serves web/build
 	mkdir -p web/build
 	pnpm --dir worker exec wrangler dev --env dev --ip 127.0.0.1 --port 8787
+
+seed-dev: worker-migrate ## fake accounts and 120 days of stats in the local D1, for /admin (as alice)
+	node worker/scripts/seed-dev.mjs
 
 worker-test: ## run the Worker's tests (workerd + local D1 and R2)
 	pnpm --dir worker test
