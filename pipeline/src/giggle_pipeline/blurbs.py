@@ -22,21 +22,15 @@ from __future__ import annotations
 import json
 import re
 import sys
-import unicodedata
 from collections.abc import Iterable, Mapping
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from typing import Any
 
-from giggle_pipeline import llm as llm_module
-from giggle_pipeline.cache import Cache, key_for
-from giggle_pipeline.llm import LLM, LLMError
+from giggle_pipeline.cache import Cache
+from giggle_pipeline.llm import LLM, LLMError, cached_answer, store_answer
+from giggle_pipeline.text import plain
 
 TASK = "blurb"
-BLURB_MODEL = "@cf/qwen/qwen3-30b-a3b-fp8"
-llm_module.MODELS.setdefault(TASK, BLURB_MODEL)
-_no_think = getattr(llm_module, "NO_THINK", None)
-if isinstance(_no_think, set):
-    _no_think.add(TASK)
 
 PROMPT_VERSION = 3
 BATCH = 8
@@ -275,11 +269,6 @@ _BRITISH = {
 _KEEP_IZE = ("capsiz", "oversiz", "downsiz", "supersiz", "outsiz")  # size, prize: stem too short
 
 
-def plain(text: str) -> str:
-    text = unicodedata.normalize("NFKD", text).encode("ascii", "ignore").decode().lower()
-    return " ".join("".join(c if c.isalnum() else " " for c in text).split())
-
-
 def haystack(f: Mapping[str, Any]) -> str:
     """Every word in the facts, plus other names for their places, space-padded."""
     extra = [_ALIASES.get(p.strip(), "") for p in (f.get("from") or "").split(",")]
@@ -380,7 +369,7 @@ def _ask(llm: LLM, batch: list[tuple[str, dict[str, Any]]]) -> dict[str, list[An
     """Raw variants per artist key for one batch (runs on a worker thread)."""
     ids = {f"a{i + 1}": key for i, (key, _) in enumerate(batch)}
     items = [{"id": f"a{i + 1}", **f} for i, (_, f) in enumerate(batch)]
-    user = json.dumps(items, ensure_ascii=False) + "\n/no_think"
+    user = json.dumps(items, ensure_ascii=False)
     answer = llm.json(TASK, SYSTEM, user, SCHEMA)
     rows = answer.get("artists") if isinstance(answer, dict) else None
     if not isinstance(rows, list):
@@ -397,15 +386,14 @@ def write_blurbs(
     llm: LLM | None,
     cache: Cache,
     order: Iterable[str] | None = None,
-    max_calls: int = 100,
     workers: int = WORKERS,
 ) -> dict[str, list[str]]:
     """Checked descriptor variants per artist key (possibly []), for the artists in
     `order` (default: all, as given; pass soonest gig first so a spent budget leaves
     next year's artists waiting, not next week's). Cached answers are reused; the rest go
-    to the model in batches of `BATCH`, at most `max_calls` requests in this run. Artists
-    the model wasn't asked about this run are left out of the result."""
-    model = llm_module.MODELS[TASK] if llm is not None and llm.name != "fake" else "fake"
+    to the model in batches of `BATCH`, as many as its budget allows
+    (`llm.remaining`). Artists the model wasn't asked about this run are left out of
+    the result."""
     keys = [k for k in (order if order is not None else artists) if k in artists]
     result: dict[str, list[str]] = {}
     todo: list[tuple[str, dict[str, Any]]] = []
@@ -415,14 +403,17 @@ def write_blurbs(
         if not enough(f):
             result[key] = []
             continue
-        cached = cache.get(TASK, key_for(PROMPT_VERSION, model, f))
-        if cached is not None:
-            result[key] = usable(cached, f)
+        hit = cached_answer(cache, TASK, llm, PROMPT_VERSION, f)
+        if hit is not None:
+            result[key] = usable(hit[0], f)
         else:
             todo.append((key, f))
 
-    batches = [todo[i : i + BATCH] for i in range(0, len(todo), BATCH)][: max(0, max_calls)]
-    if llm is None or not batches:
+    batches = [todo[i : i + BATCH] for i in range(0, len(todo), BATCH)]
+    batches = batches[: llm.remaining(TASK)] if llm is not None else []
+    if not batches:
+        if todo and llm is not None:
+            print(f"blurbs: no requests left for {len(todo)} artists this run", file=sys.stderr)
         return result
     failed = rejected = 0
     with ThreadPoolExecutor(max_workers=max(1, workers)) as pool:
@@ -432,14 +423,15 @@ def write_blurbs(
                 answers = future.result()
             except (LLMError, AttributeError, KeyError, TypeError, ValueError) as exc:
                 failed += 1
-                print(f"blurbs: batch failed: {exc}", file=sys.stderr)
+                if failed <= 3:
+                    print(f"blurbs: batch failed: {exc}", file=sys.stderr)
                 continue
             for key, f in futures[future]:
                 raw = answers.get(key)
                 if raw is None:
                     continue  # not answered: ask again next run
                 raw = [v for v in raw if isinstance(v, str)][: MAX_VARIANTS + 2]
-                cache.put(TASK, key_for(PROMPT_VERSION, model, f), raw)
+                store_answer(cache, TASK, llm, PROMPT_VERSION, f, raw)
                 result[key] = usable(raw, f)
                 rejected += len(raw) - len(result[key])
     asked = sum(len(b) for b in batches)
@@ -453,7 +445,7 @@ def write_blurbs(
 
 def fake_answer(task: str, user: str) -> dict[str, Any]:
     """FakeLLM stand-in for offline runs: a descriptor pieced together from the facts."""
-    items = json.loads(user.split("\n/no_think")[0])
+    items = json.loads(user)
     out = []
     for item in items:
         genres = item.get("genres") or []

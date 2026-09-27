@@ -22,7 +22,7 @@ from datetime import date, datetime, timedelta
 
 from selectolax.parser import HTMLParser, Node
 
-from podia.extract import clean, combine, month_number, parse_iso
+from podia.extract import combine, month_number, node_text, parse_iso
 from podia.http import Fetcher, Response
 from podia.model import Availability, Event, Price, Status, VenueInfo
 from podia.venue import FetchOptions, Venue, register
@@ -60,7 +60,7 @@ class Bitterzoet(Venue):
         # Event slug → types, from the agenda's own filter buttons (concert, clubnacht).
         types: dict[str, list[str]] = {}
         for button in page.css(".agenda-page__filters__filter[data-filter]"):
-            label, name = button.attributes.get("data-filter"), _text(button)
+            label, name = button.attributes.get("data-filter"), node_text(button)
             if label and name and label != "all":
                 for item in _items(fetch, nonce, label):
                     types.setdefault(_slug(item) or "", []).append(name)
@@ -80,11 +80,11 @@ class Bitterzoet(Venue):
 
     def _item(self, item: Node, types: dict[str, list[str]]) -> Event | None:
         slug = _slug(item)
-        title = _text(item.css_first(".title-component"))
+        title = node_text(item.css_first(".title-component"))
         if not slug or not title:
             return None
         # "zondag 4 oktober  2026 / 19:30 / €23.70", or "Morgen / 19:30 / …"
-        when = _text(item.css_first(".agenda-item__date-time-price")) or ""
+        when = node_text(item.css_first(".agenda-item__date-time-price")) or ""
         day_text, _, rest = when.partition("/")
         clock = rest.split("/")[0].strip() or None
         m = _DATE.search(day_text.lower())
@@ -93,7 +93,7 @@ class Bitterzoet(Venue):
         if marker := _MARKER.search(title):
             status, availability = _MARKERS[marker[1].lower()]
             title = title[: marker.start()].strip()
-        amount = _text(item.css_first(".agenda-item__price"))
+        amount = node_text(item.css_first(".agenda-item__price"))
         price = None
         if amount and re.fullmatch(r"\d+(?:[.,]\d+)?", amount):
             value = float(amount.replace(",", "."))
@@ -108,7 +108,7 @@ class Bitterzoet(Venue):
         )
         if availability is Availability.UNKNOWN and ticket_url and status is Status.SCHEDULED:
             availability = Availability.ON_SALE
-        line = _text(item.css_first(".agenda-item__subtitle"))
+        line = node_text(item.css_first(".agenda-item__subtitle"))
         image = re.search(r"url\(([^)]+)\)", _style(item.css_first(".agenda-item__image")))
         return Event(
             venue=self.info.slug,
@@ -152,10 +152,6 @@ class Bitterzoet(Venue):
 # Placeholder start for items that only say "Vandaag"/"Morgen"; replaced from the
 # detail page before the event is yielded.
 _UNDATED = parse_iso("1970-01-01T00:00:00+00:00")
-
-
-def _text(node: Node | None) -> str | None:
-    return clean(node.text(separator=" ")) if node is not None else None
 
 
 def _style(node: Node | None) -> str:

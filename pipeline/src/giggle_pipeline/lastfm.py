@@ -20,7 +20,8 @@ from typing import Any
 import httpx
 
 from giggle_pipeline.cache import Cache, key_for
-from giggle_pipeline.musicbrainz import USER_AGENT, normalise
+from giggle_pipeline.musicbrainz import USER_AGENT
+from giggle_pipeline.text import normalise
 
 API = "https://ws.audioscrobbler.com/2.0/"
 INFO_MAX_AGE = 7 * 86400  # listener counts move

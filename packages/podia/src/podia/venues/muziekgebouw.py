@@ -18,7 +18,7 @@ from datetime import date
 
 from selectolax.parser import HTMLParser, Node
 
-from podia.extract import clean, combine, month_number, parse_price
+from podia.extract import combine, month_number, node_text, parse_price
 from podia.http import Fetcher
 from podia.model import Availability, Event, Price, Status, VenueInfo
 from podia.venue import FetchOptions, Venue, register
@@ -70,12 +70,12 @@ class Muziekgebouw(Venue):
 
     def _card(self, card: Node) -> Event | None:
         entry_id = card.attributes.get("data-entry-id") or ""
-        title = _text(card.css_first("h3.title"))
-        m = _DATE.search(_text(card.css_first(".top-date .start")) or "")
+        title = node_text(card.css_first("h3.title"))
+        m = _DATE.search(node_text(card.css_first(".top-date .start")) or "")
         if not entry_id or not title or m is None:
             return None
         day = date(int(m[3]), month_number(m[2]), int(m[1]))
-        clocks = re.findall(r"\d{1,2}[:.]\d{2}", _text(card.css_first(".top-date .time")) or "")
+        clocks = re.findall(r"\d{1,2}[:.]\d{2}", node_text(card.css_first(".top-date .time")) or "")
         link = card.css_first("a.desc")
         image = card.css_first(".thumb img")
         button = card.css_first(".meta-group.button [class*='status-']")
@@ -90,14 +90,14 @@ class Muziekgebouw(Venue):
             start=combine(day, clocks[0] if clocks else None),
             end=combine(day, clocks[1]) if len(clocks) > 1 else None,
             url=BASE + href if link is not None and (href := link.attributes.get("href")) else None,
-            subtitle=_text(card.css_first(".subtitle")),
-            room=_text(card.css_first(".venue")),
+            subtitle=node_text(card.css_first(".subtitle")),
+            room=node_text(card.css_first(".venue")),
             city=self.info.city,
             status=status,
             availability=availability,
             price=_price(card, tariffs),
             ticket_url=ticket_url,
-            description=_text(card.css_first(".tagline")),
+            description=node_text(card.css_first(".tagline")),
             image=image.attributes.get("src") if image is not None else None,
             extra=extra,
         )
@@ -116,10 +116,6 @@ class Muziekgebouw(Venue):
             node.decompose()
         kept = [re.sub(r"\s*\n\s*", "\n", c.html or "") for c in cards]
         return "\n".join(kept + pages)
-
-
-def _text(node: Node | None) -> str | None:
-    return clean(node.text(separator=" ")) if node is not None else None
 
 
 def _cards(fetch: Fetcher, url: str, max_pages: int | None) -> Iterator[Node]:
@@ -145,7 +141,7 @@ def _button(button: Node | None) -> tuple[Availability, Status, str | None, dict
     if button is None:
         return Availability.UNKNOWN, Status.SCHEDULED, None, {}
     classes = button.attributes.get("class") or ""
-    label = _text(button) or ""
+    label = node_text(button) or ""
     states = [c.removeprefix("status-") for c in classes.split() if c.startswith("status-")]
     state = next((s for s in states if s and s != "info"), "")
     extra: dict[str, object] = {"ticket_label": label} if label else {}
@@ -166,9 +162,9 @@ def _tariffs(card: Node) -> list[dict[str, object]]:
     rank = None
     for row in card.css(".item-prices tr"):
         if (name := row.css_first(".rank-name")) is not None:
-            rank = _text(name)
+            rank = node_text(name)
             continue
-        kind, amount = _text(row.css_first(".pricetype")), _text(row.css_first(".price"))
+        kind, amount = node_text(row.css_first(".pricetype")), node_text(row.css_first(".price"))
         parsed = parse_price(amount)
         if kind and parsed is not None and parsed.min_eur is not None:
             tariffs.append({"rank": rank, "type": kind, "eur": parsed.min_eur})
@@ -176,7 +172,7 @@ def _tariffs(card: Node) -> list[dict[str, object]]:
 
 
 def _price(card: Node, tariffs: list[dict[str, object]]) -> Price | None:
-    text = _text(card.css_first(".pricePopoverBtn"))
+    text = node_text(card.css_first(".pricePopoverBtn"))
     amounts = [float(t["eur"]) for t in tariffs]  # type: ignore[arg-type]
     if amounts:
         return Price(min(amounts), max(amounts), text)

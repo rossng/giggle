@@ -12,7 +12,8 @@ import sys
 from typing import Any
 
 from giggle_pipeline.lastfm import LastFM
-from giggle_pipeline.musicbrainz import MusicBrainz, normalise
+from giggle_pipeline.musicbrainz import MusicBrainz
+from giggle_pipeline.text import normalise
 from giggle_pipeline.wikipedia import Wikipedia
 from giggle_pipeline.ytmusic import ArtistLookup
 

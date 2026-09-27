@@ -2,7 +2,8 @@
 
 Every expensive step (LLM calls, lookups) stores its output under the hash of its
 inputs, prompt version and model. Change any of them and the key changes, so exactly
-the affected results are recomputed; nothing needs clearing by hand.
+the affected results are recomputed; nothing needs clearing by hand. (A new model can
+keep its predecessor's answers: see `llm.PREVIOUS_MODELS`.)
 """
 
 from __future__ import annotations
@@ -30,7 +31,6 @@ class Cache:
             "CREATE TABLE IF NOT EXISTS cache "
             "(namespace TEXT, key TEXT, value TEXT, created REAL, PRIMARY KEY (namespace, key))"
         )
-        self.hits = self.misses = 0
 
     def get(self, namespace: str, key: str, max_age: float | None = None) -> Any | None:
         """The stored value, or None if missing or older than `max_age` seconds."""
@@ -38,10 +38,15 @@ class Cache:
             "SELECT value, created FROM cache WHERE namespace = ? AND key = ?", (namespace, key)
         ).fetchone()
         if row is None or (max_age is not None and time.time() - row[1] > max_age):
-            self.misses += 1
             return None
-        self.hits += 1
         return json.loads(row[0])
+
+    def age(self, namespace: str, key: str) -> float | None:
+        """Seconds since the entry was stored, or None if there is none."""
+        row = self.db.execute(
+            "SELECT created FROM cache WHERE namespace = ? AND key = ?", (namespace, key)
+        ).fetchone()
+        return None if row is None else time.time() - row[0]
 
     def put(self, namespace: str, key: str, value: Any) -> None:
         self.db.execute(

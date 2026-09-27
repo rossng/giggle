@@ -69,8 +69,8 @@ def test_failures_fall_back_to_rules_and_are_retried_next_time(tmp_path):
 
 def test_call_budget_limits_requests(tmp_path):
     gigs = [{"id": f"x:{i}", "title": f"Band {i}"} for i in range(30)]
-    llm = model([])
-    result = parse_lineups(gigs, llm, Cache(tmp_path / "c.sqlite"), max_calls=1)
+    llm = FakeLLM(lambda task, user: {"listings": []}, task_max_calls={"lineup": 1})
+    result = parse_lineups(gigs, llm, Cache(tmp_path / "c.sqlite"))
     assert llm.calls == 1
     assert len(result) == 30 and all(r["source"] == "rules" for r in result.values())
 

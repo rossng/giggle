@@ -1,6 +1,6 @@
 # Local development. `make help` lists targets.
 
-.PHONY: help sync test lint format data data-offline browse radio fetch browse-raw web-dev web-build smoke dev \
+.PHONY: help sync test lint format data data-offline browse fetch browse-raw web-dev web-build smoke dev \
 	worker-migrate worker-dev worker-test models
 
 help:
@@ -43,11 +43,6 @@ web-dev: ## web app on localhost:5173 against data/site (`make data-offline` fir
 web-build: ## build the static web app into web/build, with the current data (and the clips it uses)
 	pnpm --dir web build
 	node web/scripts/site-data.mjs data/site web/build/data
-
-radio: ## rough playback preview of the next 14 days, served on localhost:8765 (Ctrl-C stops)
-	uv run python scripts/radio_preview.py --days 14
-	(sleep 1 && open http://localhost:8765/) &
-	uv run python -m http.server 8765 --bind 127.0.0.1 --directory data/radio
 
 fetch: ## raw podia output, unfiltered, into data/events/<venue>.jsonl (~10 min)
 	mkdir -p data/events

@@ -19,10 +19,17 @@ from protego import Protego
 
 DEFAULT_USER_AGENT = "podia/0.1 (+https://pypi.org/project/podia/)"
 MIN_DELAY_SECONDS = 1.0
+MAX_BODY_BYTES = 20_000_000  # the biggest agenda (Patronaat's XML) is ~1 MB
+MAX_REDIRECTS = 10
+WEB_SCHEMES = ("http", "https")
 
 
 class RobotsDisallowed(Exception):
     pass
+
+
+class UnsafeResponse(httpx.HTTPError):
+    """A response podia won't read: too big, or redirecting away from http(s)."""
 
 
 @dataclass(frozen=True, slots=True)
@@ -78,7 +85,8 @@ def request_key(method: str, url: str, params: dict[str, Any] | None, body: Any)
 
 
 class Client:
-    """Live client: follows redirects, keeps cookies, honours robots.txt and crawl-delay."""
+    """Live client: follows http(s) redirects, keeps cookies, honours robots.txt and
+    crawl-delay, and reads at most `max_bytes` of a response body."""
 
     def __init__(
         self,
@@ -86,15 +94,14 @@ class Client:
         timeout: float = 60.0,  # Patronaat serves ~1 MB of XML slowly
         retries: int = 2,
         min_delay: float = MIN_DELAY_SECONDS,
+        max_bytes: int = MAX_BODY_BYTES,
     ) -> None:
         self.user_agent = user_agent
         self.retries = retries
         self.min_delay = min_delay
-        self._http = httpx.Client(
-            headers={"User-Agent": user_agent},
-            timeout=timeout,
-            follow_redirects=True,
-        )
+        self.max_bytes = max_bytes
+        # Redirects are followed by `_send`, which checks where each one goes.
+        self._http = httpx.Client(headers={"User-Agent": user_agent}, timeout=timeout)
         self._robots: dict[str, Protego | None] = {}
         self._last_request: dict[str, float] = {}
 
@@ -118,8 +125,8 @@ class Client:
         origin = f"{parts.scheme}://{parts.netloc}"
         if origin not in self._robots:
             try:
-                r = self._http.get(f"{origin}/robots.txt")
-                self._robots[origin] = Protego.parse(r.text) if r.status_code == 200 else None
+                r = self._send(self._http.build_request("GET", f"{origin}/robots.txt"))
+                self._robots[origin] = Protego.parse(r.text) if r.status == 200 else None
             except httpx.HTTPError:
                 self._robots[origin] = None
         return self._robots[origin]
@@ -145,20 +152,55 @@ class Client:
             raise RobotsDisallowed(full_url)
         for attempt in range(self.retries + 1):
             self._wait_turn(url, robots)
+            request = self._http.build_request(
+                method, url, params=params, headers=headers, json=json_body, data=data
+            )
             try:
-                r = self._http.request(
-                    method, url, params=params, headers=headers, json=json_body, data=data
-                )
+                r = self._send(request)
             except httpx.TransportError:
                 if attempt == self.retries:
                     raise
                 time.sleep(2**attempt)
                 continue
-            if r.status_code >= 500 and attempt < self.retries:
+            if r.status >= 500 and attempt < self.retries:
                 time.sleep(2**attempt)
                 continue
-            return Response(str(r.url), r.status_code, r.text, r.headers.get("content-type", ""))
+            return r
         raise AssertionError("unreachable")
+
+    def _send(self, request: httpx.Request) -> Response:
+        """Send `request`, following redirects to http(s) URLs only, and read at most
+        `max_bytes` of the final body."""
+        for _ in range(MAX_REDIRECTS + 1):
+            try:
+                r = self._http.send(request, stream=True)
+            except httpx.InvalidURL as exc:  # the Location header, e.g. "javascript:…"
+                raise UnsafeResponse(f"{request.url} redirects to an invalid URL: {exc}") from None
+            try:
+                if r.next_request is None:
+                    return Response(
+                        str(r.url),
+                        r.status_code,
+                        self._read(r).decode(r.encoding or "utf-8", errors="replace"),
+                        r.headers.get("content-type", ""),
+                    )
+                request = r.next_request
+            finally:
+                r.close()
+            if request.url.scheme not in WEB_SCHEMES:
+                raise UnsafeResponse(f"{r.url} redirects to a {request.url.scheme}: URL")
+        raise httpx.TooManyRedirects(f"more than {MAX_REDIRECTS} redirects", request=request)
+
+    def _read(self, r: httpx.Response) -> bytes:
+        declared = r.headers.get("content-length", "")
+        if declared.isdigit() and int(declared) > self.max_bytes:
+            raise UnsafeResponse(f"{r.url}: {declared} bytes, over the {self.max_bytes} limit")
+        body = bytearray()
+        for chunk in r.iter_bytes():
+            body += chunk
+            if len(body) > self.max_bytes:
+                raise UnsafeResponse(f"{r.url}: body over the {self.max_bytes} byte limit")
+        return bytes(body)
 
 
 class Recorder:

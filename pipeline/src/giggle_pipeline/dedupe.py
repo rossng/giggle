@@ -8,8 +8,8 @@ when they happen at the same place on the same day with near-identical titles.
 from __future__ import annotations
 
 import re
-import unicodedata
 
+from giggle_pipeline.text import fold
 from podia import Event
 
 # (venue, room) pairs that are really another venue.
@@ -24,8 +24,7 @@ def place(event: Event) -> str:
 
 
 def title_words(title: str) -> frozenset[str]:
-    text = unicodedata.normalize("NFKD", title).encode("ascii", "ignore").decode().lower()
-    return frozenset(w for w in _WORD.findall(text) if w not in _FILLER)
+    return frozenset(w for w in _WORD.findall(fold(title)) if w not in _FILLER)
 
 
 def same_show(a: Event, b: Event) -> bool:
