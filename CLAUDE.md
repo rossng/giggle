@@ -38,7 +38,9 @@ https://claude.ai/artifact/6PDPXr3LtbEbPPLUxQPXWR. Architecture diagram: README.
   - Personal data, one reactive store each: the board (`lib/board/board-store.svelte.ts`,
     `boardStore`: the radio and every page read and write it), unavailable dates
     (`lib/data/unavailable-store.svelte.ts`) and play history; synced by `lib/sync/` (`SyncClient`
-    over generic `collections.ts`).
+    over generic `collections.ts`). Signing out clears the device's copy (`forget()`); signing in
+    shows the account's data; only a brand-new account adopts data made signed out
+    (`prepareSignIn`); another account's data is dropped.
   - One filter model (`lib/data/filters.ts`) lives in the URL; genre buckets expand to specific
     styles (`lib/data/styles.ts`, `style=`); `hide=unavailable` uses the listener's own dates.
   - UI: primary controls up front, the rest behind drawers or "More" disclosures. Shared pieces:
@@ -55,10 +57,12 @@ https://claude.ai/artifact/6PDPXr3LtbEbPPLUxQPXWR. Architecture diagram: README.
   board, unavailable dates and play history (one generic mechanism: `src/collections.ts`,
   `src/store.ts`, table `sync_items`; LWW per key, tombstones, `since` cursor; plays merge as a
   union). Sign-in is passkeys (`src/passkeys.ts`, @simplewebauthn; an account is an id with
-  passkeys; a session cookie on `/api`; list/remove passkeys, sign out everywhere), bound to
-  `PASSKEY_RP_ID` (the site hostname), plus a dev identity only with `--env dev` on localhost.
-  Rate limits (`src/limits.ts`, `ratelimits` bindings): sign-in and models per IP, writes per
-  account. New migrations go in new files. Details: `worker/README.md`.
+  passkeys; a `__Host-giggle_session` cookie; list/add/remove passkeys, sign out everywhere,
+  delete the account; adding or removing a passkey and deleting the account need a passkey
+  confirmation in the last five minutes, `reauth`), bound to `PASSKEY_RP_ID` (the site hostname), plus a dev identity only with
+  `--env dev` on localhost. Rate limits (`src/limits.ts`, `ratelimits` bindings): all of `/api`,
+  sign-in and models per IP, reads and writes per account; in D1, a daily row budget per account
+  and a daily cap on new accounts. New migrations go in new files. Details: `worker/README.md`.
 
 ## Commands
 Enter the toolchain shell first: `direnv allow` (uses `.envrc`) or `nix develop`. The flake pins

@@ -8,6 +8,7 @@ import { browser } from '$app/environment';
 import type { PlayHistory } from '@giggle/radio-core';
 import type { Board } from '$lib/board/board';
 import type { Unavailable } from '$lib/data/unavailable';
+import { KEYS as RADIO_KEYS } from '$lib/radio/persist';
 import { SyncClient } from './client';
 import { ALL_COLLECTIONS } from './collections';
 
@@ -28,6 +29,8 @@ export function syncedEvent(name: SyncedName): string {
 export const sync: SyncClient | null = browser
 	? new SyncClient({
 			collections: ALL_COLLECTIONS,
+			// Where the radio was on each station, and what the presenter has said: personal too.
+			personalKeys: [RADIO_KEYS.sessions, RADIO_KEYS.said],
 			onChange: (name, data) =>
 				window.dispatchEvent(new CustomEvent(syncedEvent(name as SyncedName), { detail: data }))
 		})
