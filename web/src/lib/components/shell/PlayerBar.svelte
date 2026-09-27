@@ -20,6 +20,16 @@
 	const triage = $derived(entry ? (radio.board[entry.artistKey]?.state ?? null) : null);
 	const shownTime = $derived(radio.resumeAt ?? radio.time);
 	const progress = $derived(radio.duration ? Math.min(1, shownTime / radio.duration) : 0);
+	// The announcements on this track, as spans of the bar (the voice's colour, not the fill's).
+	const marks = $derived(
+		radio.duration > 0
+			? radio.marks.map((m) => ({
+					...m,
+					left: Math.min(100, (m.start / radio.duration) * 100),
+					width: Math.max(0.8, Math.min(100, ((m.end - m.start) / radio.duration) * 100))
+				}))
+			: []
+	);
 	const radioHref = $derived(`/radio${stationQuery(radioApp.station)}`);
 	const gigLine = $derived(
 		entry && view ? `${formatDay(entry.gig.start.slice(0, 10))} · ${view.venueName}` : ''
@@ -38,7 +48,12 @@
 </script>
 
 <footer class="player" aria-label="Player">
-	<div class="line" aria-hidden="true"><i style:width="{progress * 100}%"></i></div>
+	<div class="line" class:onair={radio.preroll} aria-hidden="true">
+		<i style:width="{progress * 100}%"></i>
+		{#each marks as m (m.id)}
+			<span class="mark {m.state}" style:left="{m.left}%" style:width="{m.width}%"></span>
+		{/each}
+	</div>
 
 	<a class="now" href={radioHref} title="Open the radio">
 		{#if entry}
@@ -127,11 +142,36 @@
 			</div>
 		</div>
 		<div class="progress wide">
-			<span>{clock(shownTime)}</span>
-			<button type="button" class="bar" aria-label="Seek" onclick={seek} disabled={!radio.duration}>
-				<i style:width="{progress * 100}%"></i>
-			</button>
-			<span>{clock(radio.duration)}</span>
+			{#if radio.preroll}
+				<!-- The announcer before the track: the music hasn't started, so no track time yet. -->
+				<span class="air">On air</span>
+				<div class="bar preroll" title={radio.preroll.text}>
+					{#key radio.preroll.since}
+						<i style:animation-duration="{radio.preroll.seconds}s"></i>
+					{/key}
+				</div>
+				<span class="air-next">then the track</span>
+			{:else}
+				<span>{clock(shownTime)}</span>
+				<button
+					type="button"
+					class="bar"
+					aria-label="Seek"
+					onclick={seek}
+					disabled={!radio.duration}
+				>
+					<i style:width="{progress * 100}%"></i>
+					{#each marks as m (m.id)}
+						<span
+							class="mark {m.state}"
+							style:left="{m.left}%"
+							style:width="{m.width}%"
+							title="{m.state === 'planned' ? 'Coming up: ' : ''}“{m.text}”"
+						></span>
+					{/each}
+				</button>
+				<span>{clock(radio.duration)}</span>
+			{/if}
 		</div>
 	</div>
 
@@ -314,12 +354,59 @@
 		color: var(--mute);
 		font-variant-numeric: tabular-nums;
 	}
+	.player {
+		--voice: #b9a6ff;
+	}
 	.bar {
+		position: relative;
 		flex: 1;
 		height: 14px;
 		padding: 5px 0;
 		background: none;
 		display: block;
+	}
+	/* Announcements: segments of the line in the voice's colour, drawn over the fill. */
+	.mark {
+		position: absolute;
+		top: 5px;
+		height: 4px;
+		min-width: 6px;
+		border-radius: 2px;
+		background: var(--voice);
+	}
+	/* Still to come: an outline where the announcer will come in. */
+	.mark.planned {
+		background: var(--bg);
+		box-shadow: inset 0 0 0 1px var(--voice);
+	}
+	.mark.speaking {
+		box-shadow: 0 0 8px var(--voice);
+		animation: onair 1s ease-in-out infinite alternate;
+	}
+	.air,
+	.air-next {
+		color: var(--voice);
+		white-space: nowrap;
+	}
+	.air-next {
+		color: var(--mute);
+	}
+	.bar.preroll i {
+		width: 0;
+		background: var(--voice);
+		animation-name: preroll;
+		animation-timing-function: linear;
+		animation-fill-mode: forwards;
+	}
+	@keyframes onair {
+		from {
+			opacity: 0.45;
+		}
+	}
+	@keyframes preroll {
+		to {
+			width: 100%;
+		}
 	}
 	.bar::before {
 		content: '';
@@ -391,6 +478,20 @@
 			top: -1px;
 			height: 2px;
 			background: var(--p3);
+		}
+		.line .mark {
+			top: 0;
+			height: 2px;
+			border-radius: 0;
+			opacity: 1;
+		}
+		.line .mark {
+			min-width: 4px;
+		}
+		/* The announcer before the track: the line glows in the voice's colour. */
+		.line.onair {
+			background: var(--voice);
+			animation: onair 1.4s ease-in-out infinite alternate;
 		}
 		.line i {
 			height: 2px;
