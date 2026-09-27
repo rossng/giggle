@@ -1,7 +1,7 @@
 import { redirect } from '@sveltejs/kit';
 import type { PageLoad } from './$types';
 
-// The agenda is the home page until the radio exists.
+// People land on the radio: it's what giggle is for (the agenda and board are a tap away).
 export const load: PageLoad = ({ url }) => {
-	redirect(307, `/agenda${url.search}`);
+	redirect(307, `/radio${url.search}`);
 };

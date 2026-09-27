@@ -102,3 +102,12 @@ export function boardColumns(
 	columns.been.sort((a, b) => seen(b).localeCompare(seen(a)));
 	return columns;
 }
+
+/** How soon a card's gig is, briefly: "today", "tomorrow", "in 5 days", "in 3 wks". */
+export function countdownText(inDays: number | null): string | null {
+	if (inDays === null || inDays < 0) return null;
+	if (inDays === 0) return 'today';
+	if (inDays === 1) return 'tomorrow';
+	if (inDays < 14) return `in ${inDays} days`;
+	return `in ${Math.round(inDays / 7)} wks`;
+}

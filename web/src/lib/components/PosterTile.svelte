@@ -1,7 +1,8 @@
 <!--
 	A square, flyer-like tile: the artist's name in condensed type over a halftone dot pattern
 	in its genre's colour, or their Wikipedia photo tinted in that colour. Decorative: the
-	name is always given in text nearby.
+	name is always given in text nearby. `size` is its width in px; a parent can override it with
+	the --poster-size CSS variable (say, smaller on phones), and the lettering scales with it.
 -->
 <script lang="ts">
 	let {
@@ -21,7 +22,8 @@
 		const inner = size * 0.84;
 		const longest = Math.max(1, ...words.map((w) => w.length));
 		const chars = words.join(' ').length;
-		let font = Math.min(size * 0.3, inner / (0.44 * longest));
+		// The longest word must fit on its own line: wide letters (W, M) run past the average.
+		let font = Math.min(size * 0.3, inner / (0.56 * longest));
 		while (font > size * 0.11) {
 			const lines = Math.max(words.length > 1 ? 2 : 1, Math.ceil((chars * 0.44 * font) / inner));
 			if (lines * font * 0.9 <= inner) break;
@@ -29,16 +31,11 @@
 		}
 		return Math.max(font, size * 0.11);
 	});
+	/** The same, as a share of the tile's width, so it follows --poster-size. */
+	const fontShare = $derived((fontSize / size) * 100);
 </script>
 
-<div
-	class="poster"
-	aria-hidden="true"
-	style:--c={colour}
-	style:width="{size}px"
-	style:height="{size}px"
-	style:border-radius="{Math.round(size / 9)}px"
->
+<div class="poster" aria-hidden="true" style:--c={colour} style:--size="{size}px">
 	{#if thumb && !failed}
 		<img
 			src={thumb}
@@ -49,12 +46,16 @@
 			onerror={() => (failed = true)}
 		/>
 	{:else}
-		<span style:font-size="{fontSize}px" style:padding="{size * 0.08}px">{words.join(' ')}</span>
+		<span style:font-size="{fontShare.toFixed(2)}cqi">{words.join(' ')}</span>
 	{/if}
 </div>
 
 <style>
 	.poster {
+		width: var(--poster-size, var(--size));
+		height: var(--poster-size, var(--size));
+		border-radius: 11%;
+		container-type: inline-size;
 		position: relative;
 		overflow: hidden;
 		flex: none;
@@ -73,6 +74,7 @@
 		overflow-wrap: anywhere;
 		max-height: 100%;
 		overflow: hidden;
+		padding: 8cqi;
 	}
 	img {
 		position: absolute;

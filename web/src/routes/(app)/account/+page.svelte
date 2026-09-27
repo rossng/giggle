@@ -2,7 +2,6 @@
 	// Signing in to sync the board, unavailable dates and play history across devices, with
 	// passkeys: no password, no email. Everything works signed out too, on this device only.
 	import { onMount } from 'svelte';
-	import SiteHeader from '$lib/components/SiteHeader.svelte';
 	import {
 		browserSupportsWebAuthn,
 		createPasskey,
@@ -12,6 +11,7 @@
 		signOut,
 		type Me
 	} from '$lib/account/passkeys';
+	import More from '$lib/components/pages/More.svelte';
 	import { sync } from '$lib/sync/app';
 
 	let account: Me | null = $state(null);
@@ -49,15 +49,12 @@
 
 <svelte:head><title>Account · giggle</title></svelte:head>
 
-<SiteHeader />
 <main class="page account">
-	<header>
-		<p class="label eyebrow">Sync</p>
-		<h1 class="display big">Account</h1>
+	<header class="head">
+		<h1 class="display page-title">Account</h1>
 		<p class="sub">
-			giggle keeps your board, unavailable dates and listening history on this device. Sign in with
-			a passkey to keep them in step on all your devices. There's no password or email: your phone,
-			computer or password manager holds the key.
+			Your board, unavailable dates and listening history live on this device. Sign in with a
+			passkey to keep them in step on all your devices: no password, no email.
 		</p>
 	</header>
 
@@ -66,7 +63,7 @@
 	{:else if !loaded}
 		<p class="note">Checking…</p>
 	{:else if account}
-		<section>
+		<section class="card">
 			<h2 class="label">Signed in</h2>
 			<p>
 				{#if account.via === 'dev'}
@@ -86,8 +83,7 @@
 			</div>
 		</section>
 		{#if account.via === 'passkey'}
-			<section>
-				<h2 class="label">Another device</h2>
+			<More label="On another device">
 				<p>
 					If your password manager syncs passkeys (iCloud Keychain, Google, 1Password…), just sign
 					in there. On a device without it, sign in with your phone (the browser offers a QR code),
@@ -101,27 +97,21 @@
 						>Add a passkey on this device</button
 					>
 				</div>
-			</section>
+			</More>
 		{/if}
 	{:else}
-		<section>
+		<section class="card">
 			<h2 class="label">Sign in</h2>
-			<p>Made a giggle passkey before, here or on another device? Your browser offers it.</p>
+			<p>
+				Made a giggle passkey before, here or on another device? Your browser offers it. New here?
+				Create one: what's on this device becomes your synced board.
+			</p>
 			<div class="actions">
 				<button
 					class="button strong"
 					disabled={busy}
 					onclick={() => run(signIn, 'Signed in: syncing now.')}>Sign in with a passkey</button
 				>
-			</div>
-		</section>
-		<section>
-			<h2 class="label">New here</h2>
-			<p>
-				Make a passkey for giggle. What's on this device becomes your synced board, and your other
-				devices can sign in with the same passkey.
-			</p>
-			<div class="actions">
 				<button
 					class="button"
 					disabled={busy}
@@ -138,29 +128,25 @@
 <style>
 	.account {
 		max-width: 640px;
+		gap: 16px;
 	}
-	.eyebrow {
-		color: var(--amber);
-	}
-	.big {
-		font-size: 64px;
-		margin: 0;
+	.head {
+		display: flex;
+		flex-direction: column;
+		gap: 8px;
 	}
 	.sub,
 	.note {
 		color: var(--mute);
 	}
-	section {
+	.card {
 		padding: 16px;
 		background: var(--p1);
 		border: 1px solid var(--line);
-		border-radius: 10px;
-	}
-	h2 {
-		margin: 0 0 8px;
-	}
-	section p {
-		margin: 0 0 12px;
+		border-radius: 12px;
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
 	}
 	.actions {
 		display: flex;
@@ -170,5 +156,11 @@
 	button:disabled {
 		opacity: 0.6;
 		cursor: default;
+	}
+	@media (max-width: 520px) {
+		.actions > .button {
+			flex: 1 1 100%;
+			justify-content: center;
+		}
 	}
 </style>

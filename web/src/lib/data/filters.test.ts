@@ -3,15 +3,22 @@ import { viewGig } from './catalog';
 import { VENUES, gig } from './fixtures';
 import {
 	DEFAULT_FILTERS,
+	activeFilters,
 	apply,
+	bucketState,
 	dateWindow,
 	facetCounts,
+	genreWords,
+	hasStyle,
 	isDefault,
 	parse,
+	removeStyle,
 	serialise,
 	summarise,
 	toQuery,
 	toggle,
+	toggleBucket,
+	toggleStyle,
 	type Filters
 } from './filters';
 
@@ -29,7 +36,7 @@ describe('parse', () => {
 	it('reads every parameter', () => {
 		expect(
 			p(
-				'days=30&from=3&city=utrecht,amsterdam&venue=paradiso&genre=jazz,indie&q=nobu&hide=soldout&order=mix&seed=k3x9'
+				'days=30&from=3&city=utrecht,amsterdam&venue=paradiso&genre=jazz,indie&style=shoegaze,post-punk&q=nobu&hide=soldout&order=mix&seed=k3x9'
 			)
 		).toEqual({
 			days: 30,
@@ -37,6 +44,7 @@ describe('parse', () => {
 			cities: ['amsterdam', 'utrecht'],
 			venues: ['paradiso'],
 			genres: ['indie', 'jazz'],
+			styles: ['post-punk', 'shoegaze'],
 			q: 'nobu',
 			hide: ['soldout'],
 			order: 'mix',
@@ -63,6 +71,15 @@ describe('parse', () => {
 		expect(p('q=%20%20nouvelle%20%20%20vague%20').q).toBe('nouvelle vague');
 	});
 
+	it('reads styles as slugs, one per style however spelt', () => {
+		expect(p('style=Post-Punk,postpunk,r%26b,rnb,%20dream-pop').styles).toEqual([
+			'dream-pop',
+			'post-punk',
+			'rnb'
+		]);
+		expect(p('style=--,a_b,' + 'x'.repeat(41)).styles).toEqual([]);
+	});
+
 	it('reads both hide flags', () => {
 		expect(p('hide=unavailable,soldout').hide).toEqual(['soldout', 'unavailable']);
 	});
@@ -85,6 +102,7 @@ describe('serialise / toQuery', () => {
 					hide: ['soldout'],
 					q: 'the  cure',
 					genres: ['jazz', 'indie'],
+					styles: ['shoegaze', 'post-punk'],
 					venues: ['paradiso'],
 					cities: ['utrecht', 'amsterdam'],
 					from: 7,
@@ -92,7 +110,7 @@ describe('serialise / toQuery', () => {
 				})
 			)
 		).toBe(
-			'?days=14&from=7&city=amsterdam,utrecht&venue=paradiso&genre=indie,jazz&q=the+cure&hide=soldout&order=shuffle&seed=x1'
+			'?days=14&from=7&city=amsterdam,utrecht&venue=paradiso&genre=indie,jazz&style=post-punk,shoegaze&q=the+cure&hide=soldout&order=shuffle&seed=x1'
 		);
 	});
 
@@ -102,6 +120,7 @@ describe('serialise / toQuery', () => {
 			from: 3,
 			cities: ['haarlem'],
 			genres: ['hiphop'],
+			styles: ['drum-n-bass', 'rnb'],
 			q: 'a&b=c',
 			hide: ['soldout', 'unavailable'],
 			order: 'date'
@@ -220,5 +239,129 @@ describe('summarise', () => {
 		expect(summarise(f({ hide: ['unavailable'] }))).toBe(
 			'Next 3 months · not on my unavailable dates'
 		);
+	});
+});
+
+describe('styles', () => {
+	const views = [
+		gig({ source_id: 'shoegaze', genres: ['Indie - Shoegaze/Dream Pop'] }),
+		gig({ source_id: 'indie', genres: ['Indie'] }),
+		gig({ source_id: 'postpunk', genres: ['Post Punk'] }),
+		gig({ source_id: 'hardbop', genres: ['Jazz / Hard Bop'] }),
+		gig({ source_id: 'jazz', genres: ['Jazz'] }),
+		gig({ source_id: 'folk', genres: ['Indie Folk'] }),
+		gig({ source_id: 'none', genres: [] })
+	].map((g) => viewGig(g, VENUES, {}));
+	const ids = (filters: Partial<Filters>) =>
+		apply(f(filters), views, NOW).map((v) => v.gig.source_id);
+
+	it('a bucket on its own matches all of it', () => {
+		expect(ids({ genres: ['indie'] })).toEqual(['shoegaze', 'indie', 'folk']);
+	});
+
+	it('styles within a bucket narrow it', () => {
+		expect(ids({ genres: ['indie'], styles: ['shoegaze'] })).toEqual(['shoegaze']);
+		expect(ids({ genres: ['indie'], styles: ['shoegaze', 'indie-folk'] })).toEqual([
+			'shoegaze',
+			'folk'
+		]);
+	});
+
+	it('other buckets stay whole, and styles OR with them', () => {
+		expect(ids({ genres: ['indie', 'jazz'], styles: ['shoegaze'] })).toEqual([
+			'shoegaze',
+			'hardbop',
+			'jazz'
+		]);
+	});
+
+	it("a style whose bucket isn't selected adds its gigs", () => {
+		expect(ids({ styles: ['post-punk'] })).toEqual(['postpunk']);
+		expect(ids({ genres: ['jazz'], styles: ['postpunk'] })).toEqual([
+			'postpunk',
+			'hardbop',
+			'jazz'
+		]);
+		expect(ids({ styles: ['hard-bop', 'shoegaze'] })).toEqual(['shoegaze', 'hardbop']);
+	});
+
+	it('matches any spelling of a style', () => {
+		expect(ids({ styles: ['postpunk'] })).toEqual(ids({ styles: ['post-punk'] }));
+	});
+
+	it('counts styles with the genre facet left out', () => {
+		const counts = facetCounts(f({ genres: ['jazz'], styles: ['shoegaze'] }), views, NOW);
+		expect(counts.style.get('shoegaze')).toBe(1);
+		expect(counts.style.get('hardbop')).toBe(1);
+		expect(counts.style.get('postpunk')).toBe(1);
+		expect(counts.genre.get('indie')).toBe(3);
+	});
+
+	it('tracks each bucket as all, some or off', () => {
+		expect(bucketState(f({ genres: ['indie'] }), 'indie')).toBe('all');
+		expect(bucketState(f({ genres: ['indie'], styles: ['shoegaze'] }), 'indie')).toBe('some');
+		expect(bucketState(f({ styles: ['shoegaze'] }), 'indie')).toBe('some');
+		expect(bucketState(f({ styles: ['shoegaze'] }), 'jazz')).toBe('off');
+	});
+
+	it('tapping a bucket goes off → all → off, and some → all', () => {
+		expect(toggleBucket(f(), 'indie')).toEqual({ genres: ['indie'], styles: [] });
+		expect(toggleBucket(f({ genres: ['indie'] }), 'indie')).toEqual({ genres: [], styles: [] });
+		expect(
+			toggleBucket(f({ genres: ['jazz'], styles: ['hard-bop', 'shoegaze'] }), 'indie')
+		).toEqual({ genres: ['indie', 'jazz'], styles: ['hard-bop'] });
+	});
+
+	it('toggles styles by key', () => {
+		expect(toggleStyle(['shoegaze'], 'post-punk')).toEqual(['post-punk', 'shoegaze']);
+		expect(toggleStyle(['postpunk', 'shoegaze'], 'post-punk')).toEqual(['shoegaze']);
+		expect(hasStyle(f({ styles: ['postpunk'] }), 'post-punk')).toBe(true);
+		expect(hasStyle(f({ styles: ['postpunk'] }), 'punk')).toBe(false);
+	});
+
+	it("removing a style's chip drops a bucket it alone narrowed", () => {
+		const both = f({ genres: ['indie', 'jazz'], styles: ['dream-pop', 'shoegaze'] });
+		expect(removeStyle(both, 'shoegaze')).toEqual({
+			genres: ['indie', 'jazz'],
+			styles: ['dream-pop']
+		});
+		expect(removeStyle({ ...both, styles: ['shoegaze'] }, 'shoegaze')).toEqual({
+			genres: ['jazz'],
+			styles: []
+		});
+	});
+
+	it('words the genre facet without the buckets styles narrow', () => {
+		const filters = f({ genres: ['indie', 'jazz'], styles: ['shoegaze'] });
+		expect(genreWords(filters)).toEqual(['Jazz', 'shoegaze']);
+		expect(summarise(filters, { style: (s) => s.toUpperCase() })).toBe(
+			'Next 3 months · Jazz, SHOEGAZE'
+		);
+	});
+});
+
+describe('activeFilters', () => {
+	it('gives a removable chip for each filter beyond search and dates', () => {
+		const filters = f({
+			q: 'nobu',
+			days: 14,
+			genres: ['indie', 'jazz'],
+			styles: ['shoegaze'],
+			cities: ['utrecht'],
+			venues: ['paradiso'],
+			hide: ['soldout']
+		});
+		const chips = activeFilters(filters, { venue: (v) => v.toUpperCase() });
+		expect(chips.map((c) => [c.id, c.label])).toEqual([
+			['genre:jazz', 'Jazz'],
+			['style:shoegaze', 'shoegaze'],
+			['city:utrecht', 'utrecht'],
+			['venue:paradiso', 'PARADISO'],
+			['hide:soldout', 'No sold out']
+		]);
+		expect(chips[0].without).toEqual({ genres: ['indie'] });
+		expect(chips[1].without).toEqual({ genres: ['jazz'], styles: [] });
+		expect(chips[1].colour).toBe('#FF9A5E');
+		expect(activeFilters(f({ q: 'x', days: 30 }))).toEqual([]);
 	});
 });

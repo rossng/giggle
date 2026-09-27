@@ -113,7 +113,8 @@
 		flex-direction: column;
 		gap: 7px;
 		padding: 10px;
-		margin-left: 37px;
+		margin-left: 40px;
+		min-width: 0;
 		background: var(--bg);
 		border: 1px solid var(--line);
 		border-radius: 8px;
@@ -159,6 +160,7 @@
 	}
 	.what {
 		white-space: nowrap;
+		flex: none;
 	}
 	.note {
 		flex: 1;
@@ -171,9 +173,10 @@
 	}
 	.x {
 		margin-left: auto;
+		flex: none;
 		border: 0;
 		background: none;
-		padding: 0 2px;
+		padding: 0 4px;
 		color: var(--mute);
 		font-size: 14px;
 		line-height: 1;
@@ -224,5 +227,42 @@
 	}
 	.bad {
 		color: var(--bad);
+	}
+
+	/* Touch: every control at least ~44px tall, the list's × a full square. */
+	@media (pointer: coarse) {
+		.dates {
+			gap: 10px;
+		}
+		.days button {
+			min-height: 40px;
+			font-size: 12px;
+		}
+		.list li {
+			align-items: center;
+			font-size: 13px;
+		}
+		.x {
+			width: 44px;
+			height: 44px;
+			margin-right: -10px;
+			font-size: 18px;
+		}
+		input {
+			min-height: 44px;
+			font-size: 16px; /* no zoom on focus in iOS */
+			padding: 6px 8px;
+		}
+		.button {
+			min-height: 44px;
+			padding: 0 16px;
+		}
+	}
+
+	/* Narrow screens: use the full width rather than indenting under the switch. */
+	@media (max-width: 380px) {
+		.dates {
+			margin-left: 0;
+		}
 	}
 </style>

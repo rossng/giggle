@@ -108,30 +108,30 @@ const RULES: [RegExp, GenreId][] = [
 		'hiphop'
 	],
 	[
-		/indie|alternati(?:ve|ef|eve)(?! ?(?:r ?& ?b|rnb|hip ?-?hop))|\balt\b(?! ?-?(?:r ?& ?b|rnb|country))|altpop|shoegaze|dream ?pop|dromerig|bedroom ?pop|\blo-?fi\b|slacker|britpop|art ?pop|art ?rock|chamber pop|jangle/,
+		/indie|alternati(?:ve|ef|eve)(?! ?(?:r ?& ?b|rnb|hip ?-?hop))|\balt\b(?! ?-?(?:r ?& ?b|rnb|country))|altpop|shoegaze|dream ?pop|dromerig|bedroom ?pop|\blo-?fi\b|slacker|britpop|art ?pop|art ?rock|chamber pop|jangle|slowcore|sadcore/,
 		'indie'
 	],
 	[
-		/rock|punk|metal|heavy|\bloud\b|grunge|\bwave\b|hardcore|\bemo\b|stoner|(?<!uk )garage|doom|sludge|thrash|psychedel/,
+		/rock|punk|metal|heavy|\bloud\b|grunge|\bwave\b|dark ?wave|cold ?wave|hardcore|core\b|grind|\bemo\b|stoner|(?<!uk )garage|doom|sludge|thrash|psychedel|\bgoth/,
 		'rock'
 	],
-	[/pop(?! ?-?punk)|\bhits\b|eurovisie|\b[5-9]0'?s\b|zeroes|tiktok/, 'pop'],
+	[/pop(?! ?-?punk)|\bhits\b|eurovisi|schlager|boy ?band|\b[5-9]0'?s\b|zeroes|tiktok/, 'pop'],
 	[/soul|funk|(?<!italo ?)disco|groove|gospel|motown/, 'soul'],
-	[/jazz|\bimpro|bebop|\bswing\b|big ?band|\becm\b|\bfusion\b|saxofon/, 'jazz'],
+	[/jazz|\bimpro|bop\b|\bswing\b|big ?band|\becm\b|\bfusion\b|saxofon/, 'jazz'],
 	[
-		/electr|elektr|techno|house|trance|drum ?(?:&|and|n) ?bass|\bdnb\b|jungle|dubstep|\buk bass\b|uk garage|\bedm\b|\brave\b|(?<!line ?)dance(?!hall)|synth|hyperpop|trip ?-?hop|downtempo|\bnrg\b|italo ?disco|\bchill/,
+		/electr|elektr|techno|house|trance|drum ?(?:&|and|n) ?bass|\bdnb\b|jungle|dubstep|\buk bass\b|uk garage|\bedm\b|\brave\b|(?<!line ?)dance(?!hall)|synth|hyperpop|trip ?-?hop|downtempo|\bnrg\b|italo ?disco|\bchill|breakbeat|\bidm\b|\bebm\b|industrial/,
 		'electronic'
 	],
 	[
-		/folk|americana|country|bluegrass|blues|roots|singer ?-?songwriter|akoestisch|acoustic|line ?dance/,
+		/folk|americana|country|bluegrass|blues|roots|singer ?-?songwriter|akoestisch|acoustic|line ?dance|celtic/,
 		'folk'
 	],
 	[
-		/global|\bworld|wereld|afro|latin|latijn|reggae|dancehall|\bska\b|\bdub\b|cumbia|samba|bossa|forro|\bmpb\b|brega|dembow|baile|salsa|balkan|klezmer|\broma\b|gypsy|\bturks|turkish|koerdisch|kurdish|arab|midden.oosten|middle east|noord.afrika|caribbean|braziliaans|brazilian|flamenco|fado|tango|chanson|\bfrans|italiaans|koreaans|jamaica|amapiano|highlife/,
+		/global|\bworld|wereld|afro|afri(?:ca|k)|latin|latijn|reggae|dancehall|\bska\b|\bdub\b|cumbia|samba|bossa|forro|\bmpb\b|brega|dembow|baile|salsa|balkan|klezmer|\broma\b|gypsy|\bturks|turkish|koerdisch|kurdish|arab|midden.oosten|middle east|noord.afrika|caribbean|braziliaans|brazilian|flamenco|fado|tango|chanson|\bfrans|italiaans|koreaans|jamaica|amapiano|highlife/,
 		'global'
 	],
 	[
-		/experiment|avant|hedendaags|\bimpro|noise|drone|ambient|multidisciplin|genre-?bending|eigenzinnig|minimalist|neoklassiek|neo-?classical|modern classical|cinematisch|cinematic|filmmuziek|soundtrack|krautrock|no wave/,
+		/experiment|avant|hedendaags|\bimpro|noise|drone|ambient|multidisciplin|genre-?bending|eigenzinnig|minimalist|neoklassiek|neo-?classical|modern classical|cinematisch|cinematic|filmmuziek|soundtrack|krautrock|no wave|new age/,
 		'experimental'
 	]
 ];

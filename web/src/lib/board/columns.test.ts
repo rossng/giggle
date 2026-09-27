@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { buildCatalog } from '$lib/data/catalog';
 import { artist, gig, VENUES } from '$lib/data/fixtures';
-import { boardColumns } from './columns';
+import { boardColumns, countdownText } from './columns';
 import type { Board } from './board';
 
 const TODAY = '2026-10-01';
@@ -90,5 +90,16 @@ describe('boardColumns', () => {
 	it('flags listen-more artists with nothing coming up', () => {
 		const board: Board = { 'mb:old': { state: 'listen', name: 'Old Band', at } };
 		expect(boardColumns(board, catalogWith(), TODAY).listen[0].warnings).toEqual(['no-gig']);
+	});
+});
+
+describe('countdownText', () => {
+	it('says how soon, briefly', () => {
+		expect(countdownText(null)).toBeNull();
+		expect(countdownText(0)).toBe('today');
+		expect(countdownText(1)).toBe('tomorrow');
+		expect(countdownText(13)).toBe('in 13 days');
+		expect(countdownText(14)).toBe('in 2 wks');
+		expect(countdownText(45)).toBe('in 6 wks');
 	});
 });

@@ -1,19 +1,27 @@
 <script lang="ts">
+	// One artist. Up front: who they are in a line, playing them, sorting them onto the board, and
+	// their upcoming gigs. The bio, facts, tags, links, top tracks and similar artists are under
+	// "More about …".
 	import GigList from '$lib/components/GigList.svelte';
 	import PosterTile from '$lib/components/PosterTile.svelte';
-	import SiteHeader from '$lib/components/SiteHeader.svelte';
+	import More from '$lib/components/pages/More.svelte';
+	import PlayArtist from '$lib/components/pages/PlayArtist.svelte';
+	import SortArtist from '$lib/components/pages/SortArtist.svelte';
 	import { amsterdamDate } from '$lib/data/dates';
 	import { GENRES, NO_GENRE_COLOUR, bucketsFor } from '$lib/data/genres';
 	import type { GigView } from '$lib/data/catalog';
+	import { artistPath } from '$lib/data/slugs';
+	import { youtubeMusicUrl } from '$lib/radio/tracks';
 
 	let { data } = $props();
+	const catalog = $derived(data.catalog);
 	const artist = $derived(data.artist);
 	const mb = $derived(artist.musicbrainz);
 	const today = amsterdamDate(new Date());
 
 	const gigs = $derived(
 		artist.gigs
-			.map((id) => data.catalog.byId.get(id))
+			.map((id) => catalog.byId.get(id))
 			.filter((v): v is GigView => !!v && v.date >= today)
 			.sort((a, b) => a.gig.start.localeCompare(b.gig.start))
 	);
@@ -30,171 +38,289 @@
 		[mb?.begin_area, mb?.area !== mb?.begin_area ? mb?.area : null].filter(Boolean).join(', ') ||
 			mb?.country
 	);
+	const capitalise = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
+	/** Who they are, in a line: the announcer's descriptor, else Wikipedia's, else their tags. */
+	const line = $derived(
+		artist.blurbs?.[0]
+			? capitalise(artist.blurbs[0].replace(/[.…]*$/, ''))
+			: artist.wikipedia?.description
+				? capitalise(artist.wikipedia.description)
+				: tags.length
+					? capitalise(tags.slice(0, 3).join(' · '))
+					: null
+	);
+	const since = $derived(mb?.begin?.slice(0, 4));
 	const facts = $derived(
 		[
-			{ k: mb?.type === 'Person' ? 'Born' : 'Formed', v: mb?.begin?.slice(0, 4) },
+			{ k: mb?.type === 'Person' ? 'Born' : 'Formed', v: since },
 			{ k: 'From', v: origin },
 			{ k: 'Type', v: mb?.type },
-			{ k: 'Listeners', v: artist.lastfm?.listeners?.toLocaleString('en-GB') }
+			{ k: 'Last.fm listeners', v: artist.lastfm?.listeners?.toLocaleString('en-GB') },
+			{
+				k: 'YouTube Music',
+				v: artist.youtube?.monthlyListeners ? `${artist.youtube.monthlyListeners} monthly` : null
+			}
 		].filter((f): f is { k: string; v: string } => !!f.v)
 	);
-	const links = $derived(Object.entries(mb?.links ?? {}).filter(([k]) => k !== 'wikidata'));
+	const bio = $derived(
+		artist.wikipedia
+			? {
+					text: artist.wikipedia.extract,
+					url: artist.wikipedia.url,
+					source: `Wikipedia${artist.wikipedia.lang !== 'en' ? ` (${artist.wikipedia.lang})` : ''}`
+				}
+			: artist.lastfm?.bio
+				? { text: artist.lastfm.bio, url: artist.lastfm.url, source: 'Last.fm' }
+				: null
+	);
+	const links = $derived([
+		...Object.entries(mb?.links ?? {}).filter(([k]) => k !== 'wikidata' && k !== 'wikipedia'),
+		...(youtubeMusicUrl(artist.youtube)
+			? [['YouTube Music', youtubeMusicUrl(artist.youtube)!]]
+			: [])
+	]);
+	/** Similar artists who are in the data too get a link. */
+	const byName = $derived(
+		new Map(Object.values(catalog.artists).map((a) => [a.name.toLowerCase(), a]))
+	);
+	const similar = $derived(
+		(artist.lastfm?.similar ?? []).map((name) => ({ name, artist: byName.get(name.toLowerCase()) }))
+	);
+	const moreSummary = $derived(
+		[
+			bio && 'bio',
+			facts.length && 'facts',
+			tags.length && 'tags',
+			links.length && 'links',
+			artist.top_tracks?.length && 'top tracks',
+			similar.length && 'similar artists'
+		]
+			.filter(Boolean)
+			.join(' · ')
+	);
+	const next = $derived(gigs[0]?.gig ?? null);
 </script>
 
 <svelte:head><title>{artist.name} · giggle</title></svelte:head>
 
-<SiteHeader />
-<main class="page">
+<main class="page artist">
 	<header class="hero">
-		<PosterTile name={artist.name} {colour} thumb={artist.wikipedia?.thumbnail} size={180} />
+		<PosterTile name={artist.name} {colour} thumb={artist.wikipedia?.thumbnail} size={148} />
 		<div class="head">
 			<p class="label">
-				Artist{#if artist.match?.disambiguation}&ensp;·&ensp;{artist.match.disambiguation}{/if}
+				Artist{#if origin}&ensp;·&ensp;{origin}{/if}{#if since}&ensp;·&ensp;{since}{/if}
 				{#if artist.match && artist.match.confidence === 'low'}
 					<span class="unsure" title="The MusicBrainz match is a guess">· match unsure</span>
 				{/if}
 			</p>
-			<h1 class="display big">{artist.name}</h1>
-			{#if facts.length}
-				<dl class="facts">
-					{#each facts as f (f.k)}<div>
-							<dt>{f.k}</dt>
-							<dd>{f.v}</dd>
-						</div>{/each}
-				</dl>
-			{/if}
-			{#if tags.length}
-				<ul class="tags">
-					{#each tags.slice(0, 10) as t (t)}<li>{t}</li>{/each}
-				</ul>
-			{/if}
+			<h1 class="display title">{artist.name}</h1>
+			{#if line}<p class="line">{line}</p>{/if}
 		</div>
 	</header>
 
-	{#if artist.wikipedia}
-		<section class="about">
-			<p>{artist.wikipedia.extract}</p>
-			{#if artist.wikipedia.url}
-				<a class="src" href={artist.wikipedia.url} rel="external noopener" target="_blank"
-					>Wikipedia{artist.wikipedia.lang !== 'en' ? ` (${artist.wikipedia.lang})` : ''} ↗</a
-				>
-			{/if}
-		</section>
-	{:else if artist.lastfm?.bio}
-		<section class="about">
-			<p>{artist.lastfm.bio}</p>
-			{#if artist.lastfm.url}
-				<a class="src" href={artist.lastfm.url} rel="external noopener" target="_blank">Last.fm ↗</a
-				>
-			{/if}
-		</section>
+	<div class="actions">
+		<PlayArtist {catalog} artistKey={artist.key} name={artist.name} strong />
+		<SortArtist {catalog} artistKey={artist.key} name={artist.name} gig={next} />
+	</div>
+
+	<section>
+		<h2 class="label">
+			{gigs.length
+				? `${gigs.length} upcoming gig${gigs.length === 1 ? '' : 's'}`
+				: 'No upcoming gigs'}
+		</h2>
+		{#if gigs.length}
+			<GigList views={gigs} {today} />
+		{:else}
+			<p class="muted">Nothing in the listings right now. Sort them and the Board keeps track.</p>
+		{/if}
+	</section>
+
+	{#if moreSummary}
+		<div>
+			<More label="More about {artist.name}" summary={moreSummary}>
+				{#if bio}
+					<div class="bio">
+						<p>{bio.text}</p>
+						{#if bio.url}
+							<a class="src" href={bio.url} rel="external noopener" target="_blank"
+								>{bio.source} ↗</a
+							>
+						{/if}
+					</div>
+				{/if}
+				{#if facts.length}
+					<dl class="facts">
+						{#each facts as f (f.k)}<div>
+								<dt>{f.k}</dt>
+								<dd>{f.v}</dd>
+							</div>{/each}
+					</dl>
+				{/if}
+				{#if tags.length}
+					<ul class="tags">
+						{#each tags.slice(0, 12) as t (t)}<li>{t}</li>{/each}
+					</ul>
+				{/if}
+				{#if links.length}
+					<p class="links">
+						{#each links as [kind, url] (kind)}
+							<a href={url} rel="external noopener" target="_blank">{kind} ↗</a>
+						{/each}
+					</p>
+				{/if}
+				{#if artist.top_tracks?.length || similar.length}
+					<div class="cols">
+						{#if artist.top_tracks?.length}
+							<section>
+								<h3 class="label">Top tracks on Last.fm</h3>
+								<ol class="tracks">
+									{#each artist.top_tracks.slice(0, 5) as t, i (i)}<li>{t.title}</li>{/each}
+								</ol>
+							</section>
+						{/if}
+						{#if similar.length}
+							<section>
+								<h3 class="label">Similar on Last.fm</h3>
+								<ul class="tags">
+									{#each similar as s (s.name)}
+										<li>
+											{#if s.artist}<a href={artistPath(s.artist)}>{s.name}</a>{:else}{s.name}{/if}
+										</li>
+									{/each}
+								</ul>
+							</section>
+						{/if}
+					</div>
+				{/if}
+			</More>
+		</div>
 	{:else if !artist.match}
 		<p class="muted">
 			Not matched on MusicBrainz yet, so there's nothing more to say about them than the venue does.
 		</p>
 	{/if}
-
-	{#if links.length}
-		<p class="links">
-			{#each links as [kind, url] (kind)}
-				<a href={url} rel="external noopener" target="_blank">{kind} ↗</a>
-			{/each}
-		</p>
-	{/if}
-
-	{#if artist.top_tracks?.length}
-		<section>
-			<h2 class="label">Top tracks on Last.fm</h2>
-			<ol class="tracks">
-				{#each artist.top_tracks.slice(0, 5) as t, i (i)}<li>{t.title}</li>{/each}
-			</ol>
-		</section>
-	{/if}
-
-	<section>
-		<h2 class="label">{gigs.length ? 'Upcoming gigs' : 'No upcoming gigs'}</h2>
-		<GigList views={gigs} {today} />
-	</section>
-
-	{#if artist.lastfm?.similar?.length}
-		<section>
-			<h2 class="label">Similar on Last.fm</h2>
-			<ul class="tags">
-				{#each artist.lastfm.similar as s (s)}<li>{s}</li>{/each}
-			</ul>
-		</section>
-	{/if}
 </main>
 
 <style>
+	.artist {
+		gap: 18px;
+	}
 	.hero {
 		display: flex;
-		gap: 24px;
+		gap: 20px;
 		align-items: flex-end;
-		flex-wrap: wrap;
 	}
 	.head {
 		display: flex;
 		flex-direction: column;
-		gap: 10px;
+		gap: 8px;
 		flex: 1;
-		min-width: 260px;
+		min-width: 0;
 	}
-	.big {
-		font-size: clamp(48px, 9vw, 76px);
-		line-height: 0.86;
+	.title {
+		font-size: clamp(36px, 6vw, 60px);
+		overflow-wrap: break-word;
+	}
+	.line {
+		font-size: 15px;
+		color: var(--mute);
+		max-width: 60ch;
 	}
 	.unsure {
 		color: var(--amber);
 	}
-	.facts {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 16px;
-		margin: 0;
-		font-size: 13px;
+	.actions {
+		display: grid;
+		grid-template-columns: auto minmax(0, 1fr);
+		gap: 8px;
+		align-items: center;
+		max-width: 760px;
 	}
-	.facts div {
-		display: flex;
-		gap: 5px;
-	}
-	dt {
-		color: var(--mute);
-	}
-	dd {
-		margin: 0;
-	}
-	.about {
-		max-width: 68ch;
-		font-size: 15px;
-		line-height: 1.55;
-		display: flex;
-		flex-direction: column;
-		gap: 6px;
-	}
-	.src {
-		font: 500 11px var(--f-mono);
-		color: var(--mute);
-	}
-	.muted {
-		color: var(--mute);
-	}
-	.links {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 14px;
-		text-transform: capitalize;
-	}
-	.links a {
-		color: var(--amber);
-	}
-	.tracks {
-		margin: 8px 0 0;
-		padding-left: 22px;
+	/* No songs, no play button: the sort buttons take the row. */
+	.actions > :global(.sort:first-child) {
+		grid-column: 1 / -1;
 	}
 	section {
 		display: flex;
 		flex-direction: column;
 		gap: 6px;
+	}
+	.muted {
+		color: var(--mute);
+	}
+	.bio {
+		display: flex;
+		flex-direction: column;
+		gap: 6px;
+		max-width: 68ch;
+		font-size: 14.5px;
+		line-height: 1.6;
+	}
+	.src {
+		font: 500 11px var(--f-mono);
+		color: var(--mute);
+	}
+	.facts {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+		gap: 10px 16px;
+		margin: 0;
+		font-size: 13px;
+	}
+	.facts div {
+		display: flex;
+		flex-direction: column;
+		gap: 2px;
+	}
+	dt {
+		color: var(--mute);
+		font-size: 11.5px;
+	}
+	dd {
+		margin: 0;
+	}
+	.links {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 6px 16px;
+		text-transform: capitalize;
+	}
+	.links a {
+		color: var(--amber);
+		white-space: nowrap;
+	}
+	.tags a {
+		color: var(--ink);
+		text-decoration: none;
+	}
+	.tags a:hover {
+		text-decoration: underline;
+	}
+	.cols {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+		gap: 18px 28px;
+	}
+	.tracks {
+		margin: 0;
+		padding-left: 22px;
+	}
+
+	@media (max-width: 700px) {
+		.hero {
+			gap: 14px;
+		}
+		.hero > :global(.poster) {
+			--poster-size: 88px;
+		}
+		.actions {
+			grid-template-columns: minmax(0, 1fr);
+		}
+	}
+	@media (pointer: coarse) {
+		.links a {
+			padding: 10px 0;
+		}
 	}
 </style>
