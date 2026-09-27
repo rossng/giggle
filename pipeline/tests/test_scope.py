@@ -44,6 +44,30 @@ def event(venue="melkweg", categories=(), genres=(), status=Status.SCHEDULED, ro
         (event(venue="muziekgebouw", genres=["familie"]), "family / children"),
         # Untagged events at other venues are kept: many venues don't tag at all.
         (event(venue="occii", categories=["music"]), None),
+        # Types in a venue's own words: whole words inside the label.
+        (event(venue="nieuweanita", categories=["Comedy!"]), "not music"),
+        (event(venue="nieuweanita", categories=["Movie screening!"]), "not music"),
+        (event(venue="nieuweanita", categories=["Popquiz"]), "not music"),
+        (event(venue="nieuweanita", categories=["Anita Monday!"]), "not music"),
+        (event(venue="nieuweanita", categories=["Live!"]), None),
+        (event(venue="nieuweanita", categories=["Listening session"]), None),
+        (event(venue="nieuweanita", categories=["Acoustic café"]), None),
+        (event(venue="nieuweanita", categories=["Gamelan"]), None),  # "game" as a word only
+        (event(venue="qfactory", categories=["lezing"]), "not music"),
+        (event(venue="zonnehuis", categories=["Rondleiding"]), "not music"),
+        (event(venue="zonnehuis", categories=["Kinderen", "Muziek"]), "family / children"),
+        (event(venue="zonnehuis", categories=["Divers"]), "not music"),
+        (event(venue="zonnehuis", categories=["Divers", "Muziek"]), None),
+        (event(venue="ekko", categories=["Overig"]), "not music"),
+        (event(venue="ekko", genres=["club", "Pop"]), "club night"),
+        (
+            event(venue="qfactory", categories=["concert"], genres=["Dance", "Electronic"]),
+            "club night",
+        ),
+        (event(venue="qfactory", categories=["concert"], genres=["Dance", "Pop"]), None),
+        (event(venue="nieuweanita", categories=["DJ's all night!"]), "club night"),
+        (event(venue="nieuweanita", categories=["Live + DJ!"]), None),
+        (event(venue="ekko", categories=["Concert", "Overig"], genres=["rock"]), None),
     ],
 )
 def test_exclusion_reason(e, reason):
