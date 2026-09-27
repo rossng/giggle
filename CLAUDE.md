@@ -79,7 +79,7 @@ download on first use to `data/cache/models/`, checksummed; never commit them.
   than in the prompt where you can (prompt changes: bump `PROMPT_VERSION`).
 - Intros (`clips.py`): "<name>, <blurb>." in `announcer_for(key)`'s voice, to
   `data/site/voice/`; the browser says the gig line live. `seconds` is the played length. Capped
-  per night, first variants first, soonest gig first. In CI the model is kept by actions/cache
+  per night (`--max-clips`, 600), first variants first, soonest gig first. In CI the model is kept by actions/cache
   (key: the pinned checksums) and clips travel with the site-data artifact.
 - Live lines (gig line, track names, "That was…") use the same model in the browser
   (`web/src/lib/voice/`): phonemes as kokoro-js makes them with the lexicon from

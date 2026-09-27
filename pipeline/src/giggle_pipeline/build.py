@@ -105,6 +105,12 @@ def main(argv: list[str] | None = None) -> int:
     )
     parser.add_argument("--youtube-max-lookups", type=int, default=400)
     parser.add_argument(
+        "--max-clips",
+        type=int,
+        default=600,
+        help="announcer clips rendered per run (soonest gigs first; the rest wait for next run)",
+    )
+    parser.add_argument(
         "--details-max-per-venue",
         type=int,
         default=40,
@@ -181,7 +187,8 @@ def main(argv: list[str] | None = None) -> int:
     blurb_llm = FakeLLM(blurbs_mod.fake_answer) if llm and llm.name == "fake" else llm
     blurbs = blurbs_mod.write_blurbs(artists, blurb_llm, cache, order, max_calls=args.llm_max_calls)
     fake = offline or blurb_llm is None or blurb_llm.name == "fake"
-    intros = render_intros(artists, blurbs, order, args.out, max_renders=0 if fake else 300)
+    max_clips = 0 if fake else args.max_clips
+    intros = render_intros(artists, blurbs, order, args.out, max_renders=max_clips)
     for key, artist in artists.items():
         artist["blurbs"] = blurbs.get(key, [])
         artist["announce"] = [
