@@ -189,11 +189,14 @@ Never run `wrangler deploy --env dev`.
 ## Deploying
 
 `.github/workflows/deploy.yml` deploys: after every successful nightly (new data) and every green
-test run on `main` (new code), or by hand (`gh workflow run deploy.yml`). It takes a commit whose
-tests passed (after a nightly or by hand, the newest such commit on `main`) and the latest
-`site-data` artifact from this repo's own scheduled or manual nightlies on `main` (kept 90
-days), runs `make web-build` (which copies only the announcer clips `artists.json` uses),
-applies D1 migrations (`--remote`), `wrangler deploy`s the top-level (production) config, then
+test run on `main` (new code), or by hand (`gh workflow run deploy.yml`). Its `build` job, which
+has no secrets, takes a commit whose tests passed (after a nightly or by hand, the newest such
+commit on `main`) and the latest `site-data` artifact from this repo's own scheduled or manual
+nightlies on `main` (kept 90 days) and runs `make web-build` (which copies only the announcer
+clips `artists.json` uses). Its `deploy` job, in the `production` environment (the only place the
+deploy token is available), installs just the Worker's dependencies without install scripts,
+applies D1 migrations (`--remote`), `wrangler deploy`s the top-level (production) config with
+the built `web/build`, then
 `scripts/smoke-test.mjs` checks the live site: pages, data, a clip, the model files, that
 `/api/me` is 401 signed out, that passkeys are offered for the site's hostname, and that the gig
 data is less than 3 days old. It skips (with a notice) until the D1 id and the deploy token
@@ -202,7 +205,8 @@ the repo variable `SITE_URL` for a custom domain. Nothing here deploys from a la
 
 To hear when it stops, add a dead man's switch: create a check at
 [healthchecks.io](https://healthchecks.io) with a period of 1 day and a grace time of about 18
-hours, and add its ping URL as the `HEALTHCHECK_URL` repo secret (`gh secret set HEALTHCHECK_URL`). Each
+hours, and add its ping URL as a `production` environment secret
+(`gh secret set HEALTHCHECK_URL --env production`). Each
 deploy whose smoke test passes pings it, a failed deploy pings `…/fail`, and a night without a
 deploy (the nightly failed) alerts once the grace time is up. Without the secret nothing is sent.
 
@@ -222,9 +226,15 @@ toolchain shell (`direnv allow` or `nix develop`) as `pnpm exec wrangler …`, a
    `model-files.json` changes, before deploying. Keep the bucket private (no r2.dev URL or custom
    domain: the Worker serves it).
 3. A deploy token for GitHub Actions: My Profile → API Tokens → Create Token → "Edit Cloudflare
-   Workers" template, plus Account → D1 → Edit; then `gh secret set CLOUDFLARE_DEPLOY_TOKEN`.
-   (`CLOUDFLARE_ACCOUNT_ID` is already a secret; `CLOUDFLARE_API_TOKEN` is the pipeline's Workers
-   AI token and stays as it is.)
+   Workers" template, plus Account → D1 → Edit, limited to this account (Account Resources) and
+   no zones unless the site gets a custom domain. It goes in the `production` environment, which
+   only deploys from `main`:
+   `gh api -X PUT repos/{owner}/{repo}/environments/production --input -` with
+   `{"deployment_branch_policy": {"protected_branches": false, "custom_branch_policies": true}}`,
+   then `gh api repos/{owner}/{repo}/environments/production/deployment-branch-policies -f
+   name=main -f type=branch`, then `gh secret set CLOUDFLARE_DEPLOY_TOKEN --env production`.
+   (`CLOUDFLARE_ACCOUNT_ID` is already a repo secret; `CLOUDFLARE_API_TOKEN` is the pipeline's
+   Workers AI token, a repo secret the nightly uses, and should allow Workers AI only.)
 4. The first deploy: `gh workflow run deploy.yml`. The run's log ends with the site's URL; put
    its hostname in `PASSKEY_RP_ID` and its origin in `SITE_ORIGINS` (top-level `vars`) if they
    differ from what's there. Sign-in needs nothing else: no Zero Trust, no email service.

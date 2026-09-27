@@ -3,22 +3,24 @@ name: deploy
 # Puts the site live on Cloudflare: the web app from a tested commit on main, with the latest
 # nightly site data (gigs, artists, announcer clips), served by the Worker (worker/). Runs after
 # each successful nightly build and after each green test run on main, or by hand.
+#
+# Two jobs, so the deploy token never shares a runner with the web toolchain: `build` (no
+# secrets) builds web/build with everything pnpm installs; `deploy` (the `production`
+# environment, which holds the token) installs only the Worker's own dependencies, with no
+# install scripts, and has wrangler bundle the Worker and upload web/build as it is.
 on:
   workflow_run:
     workflows: [nightly, test]
     types: [completed]
+    branches: [main]
   workflow_dispatch:
 
 permissions:
   contents: read
   actions: read # the nightly's site-data artifact, and the test runs' results
 
-concurrency:
-  group: deploy
-  cancel-in-progress: false
-
 jobs:
-  deploy:
+  build:
     # A scheduled or manual nightly that built, or tests that passed on a push to main; always
     # this repo's own runs (a fork's pull request can run edited copies of those workflows, from
     # a head branch it may also call main).
@@ -34,9 +36,16 @@ jobs:
                   && github.event.workflow_run.event == 'push')))
     runs-on: ubuntu-latest
     timeout-minutes: 20
+    # One build at a time (a newer run waiting replaces an older one), so deploys start in order.
+    concurrency:
+      group: deploy-build
+      cancel-in-progress: false
     # GH_TOKEN is set only on the steps that run gh.
     env:
       GH_REPO: ${{ github.repository }}
+    outputs:
+      sha: ${{ steps.commit.outputs.sha }}
+      ready: ${{ steps.ready.outputs.ready }}
     steps:
       # Never ship a commit whose tests didn't pass: the commit the tests just passed on, or
       # (after a nightly, or by hand) the newest commit on main whose tests passed, so a red
@@ -64,17 +73,12 @@ jobs:
           ref: ${{ steps.commit.outputs.sha }}
           persist-credentials: false
 
+      # The top-level (production) D1 id is still the placeholder until the database exists.
+      # (The deploy job checks for the token, which this job can't see.)
       - name: Ready to deploy?
         id: ready
-        env:
-          DEPLOY_TOKEN: ${{ secrets.CLOUDFLARE_DEPLOY_TOKEN }}
         run: |
           ready=true
-          if [ -z "$DEPLOY_TOKEN" ]; then
-            echo "::notice::CLOUDFLARE_DEPLOY_TOKEN is not set: not deploying (worker/README.md)."
-            ready=false
-          fi
-          # The top-level (production) D1 id is still the placeholder until the database exists.
           if grep -q '"database_id": "00000000-0000-0000-0000-000000000000"' worker/wrangler.jsonc; then
             echo "::notice::The production D1 database_id isn't set: not deploying (worker/README.md)."
             ready=false
@@ -121,6 +125,58 @@ jobs:
           nix develop -c pnpm install --frozen-lockfile
           nix develop -c make web-build
 
+      # Static files only: the deploy job uploads them and runs nothing from them.
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        if: steps.ready.outputs.ready == 'true'
+        with:
+          name: web-build
+          path: web/build
+          if-no-files-found: error
+          retention-days: 7
+
+  deploy:
+    needs: build
+    if: needs.build.outputs.ready == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    # Its secrets (CLOUDFLARE_DEPLOY_TOKEN, HEALTHCHECK_URL) are only given to jobs on main.
+    environment: production
+    concurrency:
+      group: deploy
+      cancel-in-progress: false
+    steps:
+      - name: Ready to deploy?
+        id: ready
+        env:
+          DEPLOY_TOKEN: ${{ secrets.CLOUDFLARE_DEPLOY_TOKEN }}
+        run: |
+          if [ -z "$DEPLOY_TOKEN" ]; then
+            echo "::notice::CLOUDFLARE_DEPLOY_TOKEN is not set: not deploying (worker/README.md)."
+            echo "ready=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "ready=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      # The Worker's source, config and migrations: the same tested commit the build used.
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        if: steps.ready.outputs.ready == 'true'
+        with:
+          ref: ${{ needs.build.outputs.sha }}
+          persist-credentials: false
+      - uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
+        if: steps.ready.outputs.ready == 'true'
+        with:
+          name: web-build
+          path: web/build
+
+      - uses: cachix/install-nix-action@13d8dd58da0234aa297dedd986986ccb8e7f3e24 # v31.11.1
+        if: steps.ready.outputs.ready == 'true'
+      # wrangler and the Worker's runtime dependencies only (no web toolchain), and no install
+      # scripts: deploying needs neither workerd's nor esbuild's (the bundle is the same).
+      - name: Install wrangler
+        if: steps.ready.outputs.ready == 'true'
+        run: nix develop -c pnpm install --frozen-lockfile --filter @giggle/worker --ignore-scripts
+
       - name: Migrate the database and deploy the Worker
         if: steps.ready.outputs.ready == 'true'
         id: deploy
@@ -152,8 +208,9 @@ jobs:
         run: nix develop -c node scripts/smoke-test.mjs "$URL"
 
       # A dead man's switch (healthchecks.io conventions), if the HEALTHCHECK_URL secret is set:
-      # a ping when the live site checks out, /fail when this job fails. A night without either
-      # (the nightly failed, so nothing deployed) alerts too, once the check's grace runs out.
+      # a ping when the live site checks out, /fail when this workflow fails. A night without
+      # either (the nightly failed, so nothing deployed) alerts too, once the check's grace runs
+      # out.
       - name: Ping the health check
         if: steps.smoke.outcome == 'success'
         env:
@@ -162,8 +219,16 @@ jobs:
           if [ -n "$HEALTHCHECK_URL" ]; then
             curl -fsS -m 10 --retry 5 -o /dev/null "$HEALTHCHECK_URL"
           fi
+
+  # A failed build or deploy: /fail to the health check (whose URL only production jobs see).
+  report-failure:
+    needs: [build, deploy]
+    if: failure()
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    environment: production
+    steps:
       - name: Report the failure to the health check
-        if: failure()
         env:
           HEALTHCHECK_URL: ${{ secrets.HEALTHCHECK_URL }}
         run: |
