@@ -51,6 +51,9 @@ async function send<T>(method: string, path: string, body?: unknown): Promise<T>
 
 const post = <T>(path: string, body: unknown = {}) => send<T>('POST', path, body);
 
+/** A signed-in GET's JSON; a refusal throws ApiError (`reauth` when a passkey must confirm). */
+export const getJson = <T>(path: string) => send<T>('GET', path);
+
 /** Who is signed in, or null. */
 export async function me(): Promise<Me | null> {
 	const res = await fetch('/api/me', { credentials: 'same-origin', redirect: 'manual' });
