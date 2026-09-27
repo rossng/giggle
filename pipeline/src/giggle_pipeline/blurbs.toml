@@ -1,0 +1,55 @@
+# Blurbs (blurbs.py): what a descriptor may say beyond the artist's facts, and blurbs
+# pulled by hand.
+
+# Lower-case words a descriptor may use though the facts don't: grammar, and neutral
+# words about making music. Every other lower-case word must come from the facts (in
+# any form: "guitars" for "guitar", "blending" for "blend"), so a bio edited to say
+# something about an artist can't be turned into a verdict in the announcer's voice.
+# Keep judgements (good or bad) out of this list; they belong in the facts or nowhere.
+words = """
+a an the and or but nor with without of in on at to into onto from for by as like such
+than that which who whose where when while its it itself their them they his her him
+this these those one both each all some many more most other another own same so also
+still just now once up out over under across through between among around about after
+before behind beyond alongside along toward towards within via plus not no anyone everyone
+together since until back
+
+artist band musician act group singer songwriter performer rapper mc producer composer
+vocalist guitarist bassist drummer pianist keyboardist saxophonist trumpeter trombonist
+violinist cellist harpist percussionist instrumentalist multi organist beatmaker
+ensemble orchestra choir collective project outfit crew combo frontman frontwoman
+front man woman member lineup line solo side
+
+sound soundscape style track song single album ep record release music musical beat
+rhythm section groove melody harmony riff texture tone vocal voice lyric arrangement
+composition piece instrument instrumental guitar bass drum piano keyboard synth
+synthesiser string horn brass sax saxophone trumpet organ electronics sample loop
+production set show performance scene tradition root element influence touch edge
+flair energy vibe feel mood aesthetic sensibility spirit take blend mix fusion hybrid
+crossover genre heritage background career work anthem ballad chant storytelling story
+tale narrative theme fan listener vein comparison project catalogue repertoire
+material output palette approach mixture combination focus technique version
+collaboration era change history experience beginning creator foundation delivery
+transition specialise tinged infused inflected
+
+blend mix fuse merge combine weave craft create make play perform explore draw inspire
+influence known base born raised root link associate compare feature use include
+cover bring build shape span bridge cross layer pair channel deliver capture evoke
+rework reinterpret revive release record write written sing sung produce tour take taken turn lead led front
+found form train study team collaborate embrace celebrate reflect echo push dip drift
+shift emerge rise grow grown call name dub describe add meet marry nod pour stir fold made drawn built brought
+update steep soak lean driven
+
+modern contemporary classic classical traditional experimental alternative independent
+international local global young new former early current original acoustic electric
+electronic analogue heavy dark light bright deep slow fast loud quiet minimal lo fi
+avant garde left field underground mainstream live personal sonic wide broad long short
+self titled year old home grown hometown city town capital north south east west
+northern southern eastern western part half full due coming recent
+"""
+
+# Blurbs pulled from the site without a code change. An artist key (as in artists.json)
+# gets no blurb, and so no intro clip; a blurb text is dropped wherever it comes up.
+[blocked]
+artists = []
+blurbs = []
