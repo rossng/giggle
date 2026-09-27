@@ -8,8 +8,14 @@
 // refuses any other request to huggingface.co, so production never talks to it. In `vite dev`
 // only, a model file our origin can't serve (no `make models`, or no `wrangler dev`) comes from
 // Hugging Face at the pinned commit instead.
+//
+// Every file is checked against its pinned size and SHA-256 as it downloads (`verified`): a
+// wrong or tampered file fails the download, so it's never cached and the radio falls back to
+// Web Speech. What's in Cache Storage already was checked on its way in (transformers.js and
+// kokoro-js cache only a body they read in full), so cache hits aren't hashed again.
 
 import files from './model-files.json';
+import { Sha256 } from './sha256';
 
 export const MODEL_FILES = files;
 const byPath: Record<string, { size: number; sha256: string } | undefined> = files.files;
@@ -73,8 +79,38 @@ export function modelFetch(
 		if (!response!.ok && file.startsWith('voices/')) {
 			throw new Error(`${url}: HTTP ${response!.status}`);
 		}
-		return response!;
+		const spec = byPath[file];
+		return response!.ok && spec ? verified(response!, file, spec) : response!;
 	};
+}
+
+/** `response`, its body checked against the pinned size and SHA-256 while it's read: a
+ * mismatch fails the read at the end (after the last chunk), not with a copy of the file. */
+export function verified(
+	response: Response,
+	file: string,
+	spec: { size: number; sha256: string }
+): Response {
+	if (!response.body) return response;
+	const hash = new Sha256();
+	let bytes = 0;
+	const check = new TransformStream<Uint8Array, Uint8Array>({
+		transform(chunk, controller) {
+			bytes += chunk.byteLength;
+			if (bytes > spec.size) throw new Error(`${file}: over its ${spec.size} bytes`);
+			hash.update(chunk);
+			controller.enqueue(chunk);
+		},
+		flush() {
+			if (bytes !== spec.size) throw new Error(`${file}: ${bytes} bytes, not ${spec.size}`);
+			const sha256 = hash.hex();
+			if (sha256 !== spec.sha256) {
+				throw new Error(`${file}: SHA-256 ${sha256}, not the pinned ${spec.sha256}`);
+			}
+		}
+	});
+	const { status, statusText, headers } = response;
+	return new Response(response.body.pipeThrough(check), { status, statusText, headers });
 }
 
 /** Cache Storage entries of Kokoro files that aren't the current ones: downloads from Hugging

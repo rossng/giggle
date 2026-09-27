@@ -6,7 +6,8 @@ import {
 	KOKORO_VOICES,
 	MODEL_FILES,
 	MODEL_PATH,
-	modelFetch
+	modelFetch,
+	verified
 } from './model-source';
 import { DTYPES } from './protocol';
 
@@ -91,6 +92,56 @@ describe('modelFetch', () => {
 			`${HF_PINNED}voices/bm_fable.bin`
 		]);
 		expect(warn).toHaveBeenCalledOnce();
+	});
+});
+
+describe('verification', () => {
+	// config.json at the pinned commit (44 bytes).
+	const CONFIG = '{\n  "model_type": "style_text_to_speech_2"\n}';
+	const serve = (body: string) =>
+		vi.fn(async () => new Response(body, { status: 200 })) as unknown as typeof fetch;
+
+	it('passes a file that matches its pinned size and SHA-256', async () => {
+		const f = modelFetch(serve(CONFIG), { base: BASE, devFallback: false });
+		expect(await (await f(`${BASE}config.json`)).text()).toBe(CONFIG);
+	});
+
+	it('fails the read of a file that differs, so it is never cached', async () => {
+		const f = modelFetch(serve(CONFIG.replace('2', '3')), { base: BASE, devFallback: false });
+		const res = await f(`${BASE}config.json`);
+		expect(res.status).toBe(200);
+		await expect(res.arrayBuffer()).rejects.toThrow(/SHA-256/);
+	});
+
+	it('fails a file of the wrong size, and stops reading one that runs over', async () => {
+		const f = modelFetch(serve(`${CONFIG} `), { base: BASE, devFallback: false });
+		await expect((await f(`${BASE}config.json`)).text()).rejects.toThrow(/over its 44 bytes/);
+		const g = modelFetch(serve(CONFIG.slice(1)), { base: BASE, devFallback: false });
+		await expect((await g(`${BASE}config.json`)).text()).rejects.toThrow(/43 bytes, not 44/);
+	});
+
+	it('checks a voice too, and leaves files that are not pinned alone', async () => {
+		const f = modelFetch(serve('not a voice'), { base: BASE, devFallback: false });
+		await expect((await f(`${KOKORO_VOICES}bm_fable.bin`)).arrayBuffer()).rejects.toThrow();
+		expect(await (await f(`${BASE}other.json`)).text()).toBe('not a voice');
+	});
+
+	it('hands every chunk on as it arrives', async () => {
+		const chunks = [new Uint8Array([1, 2]), new Uint8Array([3])];
+		const body = new ReadableStream({
+			start(c) {
+				for (const chunk of chunks) c.enqueue(chunk);
+				c.close();
+			}
+		});
+		const spec = {
+			size: 3,
+			sha256: '039058c6f2c0cb492c533b0a4d14ef77cc0f78abccced5287d84a1a2011cfb81'
+		};
+		const reader = verified(new Response(body), 'x', spec).body!.getReader();
+		expect((await reader.read()).value).toEqual(chunks[0]);
+		expect((await reader.read()).value).toEqual(chunks[1]);
+		expect((await reader.read()).done).toBe(true);
 	});
 });
 
