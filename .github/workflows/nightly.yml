@@ -19,15 +19,18 @@ jobs:
     runs-on: ubuntu-latest
     # A normal night takes minutes. Cold caches take longer, but the build's per-run budgets
     # (LLM calls, MusicBrainz/Last.fm/Wikipedia requests, voice clips) cap each night's share
-    # of the work.
+    # of the work, and the Build step's own timeout leaves time to keep what it did.
     timeout-minutes: 60
+    # GH_TOKEN (which can write issues and actions) is set only on the steps that run gh, so
+    # the build, its scrapers and their dependencies never see it.
     env:
-      GH_TOKEN: ${{ github.token }}
       GH_REPO: ${{ github.repository }}
     steps:
-      - uses: actions/checkout@v5
-      - uses: cachix/install-nix-action@v31
-      - uses: actions/cache@v4
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: cachix/install-nix-action@13d8dd58da0234aa297dedd986986ccb8e7f3e24 # v31.11.1
+      - uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
         with:
           path: ~/.cache/uv
           key: uv-${{ runner.os }}-${{ hashFiles('uv.lock', '.python-version') }}
@@ -42,45 +45,82 @@ jobs:
           echo "key=kokoro-v1.0-fp32-${sums:0:16}" >> "$GITHUB_OUTPUT"
       - name: Restore the voice model
         id: model
-        uses: actions/cache/restore@v4
+        uses: actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
         with:
           path: data/cache/models
           key: ${{ steps.model-key.outputs.key }}
 
-      # The previous run's counts are the baseline for spotting broken venues, and its
-      # data/site/voice/ clips are kept, so only new announcements get rendered.
-      - name: Fetch the previous run's health history and voice clips
+      # Artifacts are only ever taken from this repo's own nightlies on main, started by the
+      # schedule or by hand (workflow_dispatch needs write access). Never by artifact name
+      # alone: a fork's pull request can run an edited copy of this workflow that uploads
+      # artifacts with the same names, from a head branch it may also call main.
+      #   site-data: the newest successful such run that still has it.
+      #   pipeline-cache: the newest such run that still has it, whatever the run's outcome.
+      # data/cache holds LLM line-ups, MusicBrainz, Last.fm and Wikipedia lookups
+      # (pipeline.sqlite), YouTube Music lookups (ytmusic.json) and the announcer clips
+      # (voice/). Each night adds to it, so lookups spread over nights instead of repeating and
+      # only new announcements get rendered. It travels as an artifact, not via actions/cache:
+      # cache entries are immutable per key (a growing cache needs a new key every night plus
+      # restore-keys) and are evicted after 7 days unused, sharing the 10 GB repo quota with
+      # the uv cache. An artifact is simply "the latest copy", kept 90 days and downloadable
+      # for debugging. Entries are keyed on their inputs, so a copy from a failed or timed-out
+      # run is still valid.
+      - name: Find the previous nightlies' artifacts
+        id: previous
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
-          run=$(gh run list --workflow nightly.yml --status success --limit 1 \
-            --json databaseId -q '.[0].databaseId')
-          if [ -n "$run" ]; then
-            gh run download "$run" --name site-data --dir data/site || true
+          # latest <artifact> <jq condition on the run>: the newest trusted run with it, or "".
+          latest() {
+            gh run list --workflow nightly.yml --branch main --limit 100 \
+              --json databaseId,event,headBranch,conclusion \
+              -q ".[] | select((.event == \"schedule\" or .event == \"workflow_dispatch\")
+                               and .headBranch == \"main\" and ($2)) | .databaseId" |
+              while read -r id; do
+                if [ -n "$(gh api "repos/$GH_REPO/actions/runs/$id/artifacts?name=$1" \
+                    -q '.artifacts[] | select(.expired | not) | .id')" ]; then
+                  echo "$id"
+                  break
+                fi
+              done
+          }
+          echo "site-data=$(latest site-data '.conclusion == "success"')" >> "$GITHUB_OUTPUT"
+          echo "pipeline-cache=$(latest pipeline-cache true)" >> "$GITHUB_OUTPUT"
+
+      # The previous run's counts are the baseline for spotting broken venues. Its voice clips go
+      # to data/site/voice too: the build moves any the clip cache (data/cache/voice) lacks into
+      # it, so clips survive even if the pipeline-cache artifact is lost.
+      - name: Fetch the previous run's health history and clips
+        if: steps.previous.outputs.site-data != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RUN: ${{ steps.previous.outputs.site-data }}
+        run: |
+          gh run download "$RUN" --name site-data --dir "$RUNNER_TEMP/previous-site" || true
+          if [ -f "$RUNNER_TEMP/previous-site/health-history.json" ]; then
+            mkdir -p data/site
+            cp "$RUNNER_TEMP/previous-site/health-history.json" data/site/
+          fi
+          if [ -d "$RUNNER_TEMP/previous-site/voice" ]; then
+            mkdir -p data/site
+            cp -R "$RUNNER_TEMP/previous-site/voice" data/site/
           fi
 
-      # data/cache holds LLM line-ups, MusicBrainz, Last.fm and Wikipedia lookups
-      # (pipeline.sqlite) and YouTube Music lookups (ytmusic.json). Each night adds to it, so
-      # lookups spread over nights instead of repeating. It travels as an artifact, not via
-      # actions/cache: cache entries are immutable per key (a growing cache needs a new key
-      # every night plus restore-keys) and are evicted after 7 days unused, sharing the 10 GB
-      # repo quota with the uv cache. An artifact is simply "the latest copy", kept 30 days
-      # and downloadable for debugging. Entries are keyed on their inputs, so a copy from a
-      # failed or timed-out run is still valid: take the newest, whatever the run's outcome.
       - name: Restore the pipeline cache
         env:
-          BRANCH: ${{ github.ref_name }} # the default branch for scheduled runs
+          GH_TOKEN: ${{ github.token }}
+          RUN: ${{ steps.previous.outputs.pipeline-cache }}
         run: |
-          # shellcheck disable=SC2016 # $ENV.BRANCH is jq's, not the shell's
-          run=$(gh api "repos/$GH_REPO/actions/artifacts?name=pipeline-cache&per_page=20" \
-            -q '[.artifacts[] | select((.expired | not) and .workflow_run.head_branch == $ENV.BRANCH)]
-                | .[0].workflow_run.id // empty')
-          if [ -z "$run" ]; then
+          if [ -z "$RUN" ]; then
             echo "No pipeline cache yet: starting cold."
-          elif ! gh run download "$run" --name pipeline-cache --dir data/cache; then
-            echo "::warning::Couldn't restore the pipeline cache from run $run; starting cold."
+          elif ! gh run download "$RUN" --name pipeline-cache --dir data/cache; then
+            echo "::warning::Couldn't restore the pipeline cache from run $RUN; starting cold."
           fi
           ls -la data/cache 2>/dev/null || true
 
+      # Its own timeout, under the job's, so the steps below still keep what it did.
       - name: Build
+        timeout-minutes: 45
         env:
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
@@ -98,22 +138,24 @@ jobs:
           nix develop -c uv sync --all-packages --extra voice
           nix develop -c make data
 
-      - uses: actions/upload-artifact@v4
+      # Only after a successful build (the default): deploy.yml takes the newest one.
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
           name: site-data
           path: data/site
-          retention-days: 30
+          retention-days: 90 # the most a public repo allows
 
-      # Also after a failed or timed-out build: whatever it looked up is worth keeping. The
-      # voice model has its own cache (above), so it stays out of this artifact.
-      - uses: actions/upload-artifact@v4
+      # Also after a failed or timed-out build: whatever it looked up or rendered is worth
+      # keeping. That includes the announcer clips (data/cache/voice); the voice model has its
+      # own cache (above), so it stays out of this artifact.
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         if: always() && hashFiles('data/cache/**') != ''
         with:
           name: pipeline-cache
           path: |
             data/cache
             !data/cache/models
-          retention-days: 30
+          retention-days: 90
 
       # Only once both files are complete (an interrupted download leaves just a .part file).
       - name: Save the voice model
@@ -121,7 +163,7 @@ jobs:
           always() && steps.model.outputs.cache-hit != 'true'
           && hashFiles('data/cache/models/kokoro-v1.0.onnx') != ''
           && hashFiles('data/cache/models/voices-v1.0.bin') != ''
-        uses: actions/cache/save@v4
+        uses: actions/cache/save@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
         with:
           path: |
             data/cache/models
@@ -130,9 +172,13 @@ jobs:
 
       - name: Open or close venue-health issues
         if: always() && hashFiles('data/site/health.json') != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: nix develop -c uv run giggle-issues data/site/health.json
 
       # GitHub disables schedules in public repos after 60 days without activity.
       - name: Keep this schedule enabled
         if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: gh api -X PUT "repos/$GH_REPO/actions/workflows/nightly.yml/enable"

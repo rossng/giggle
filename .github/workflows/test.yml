@@ -1,20 +1,30 @@
 name: test
 
+# Pushes to main (deploy.yml deploys what passes here) and pull requests, so a PR's branch isn't
+# tested twice; also Renovate's branches, which it merges without a PR once these tests pass.
 on:
   push:
+    branches: [main, "renovate/**"]
   pull_request:
+
+permissions:
+  contents: read
 
 jobs:
   test:
+    # A Renovate PR's branch is already tested by its push.
+    if: github.event_name == 'push' || !startsWith(github.head_ref, 'renovate/')
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
-      - uses: cachix/install-nix-action@v31
-      - uses: actions/cache@v4
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: cachix/install-nix-action@13d8dd58da0234aa297dedd986986ccb8e7f3e24 # v31.11.1
+      - uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
         with:
           path: ~/.cache/uv
           key: uv-${{ runner.os }}-${{ hashFiles('uv.lock', '.python-version') }}
-      - uses: actions/cache@v4
+      - uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
         with:
           path: ~/.local/share/pnpm/store
           key: pnpm-${{ runner.os }}-${{ hashFiles('pnpm-lock.yaml') }}

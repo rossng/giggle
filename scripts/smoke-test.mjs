@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 // Checks a deployed giggle: the app's pages, the nightly data, an announcer clip, the Kokoro
-// model files, and that the personal API isn't open to anyone but offers passkeys. Exits 1 on any failure.
+// model files, and that the personal API isn't open to anyone but offers passkeys. Exits 1 on any
+// failure, including gig data more than 3 days old.
 //
 //   node scripts/smoke-test.mjs https://giggle.<subdomain>.workers.dev
 //   node scripts/smoke-test.mjs http://127.0.0.1:8787    # wrangler dev (the API check differs)
@@ -63,7 +64,17 @@ const html = (res) =>
 			: null;
 
 // The app, and a deep link the SPA fallback answers.
-await expect('/', html);
+await expect('/', async (res) => {
+	const problem = html(res);
+	if (problem) return problem;
+	// Security headers (web/static/_headers) and the page's CSP (kit.csp in web/vite.config.ts).
+	if (res.headers.get('x-frame-options') !== 'DENY') return 'no X-Frame-Options: DENY';
+	if (!(res.headers.get('content-security-policy') ?? '').includes("frame-ancestors 'none'"))
+		return "no frame-ancestors 'none' CSP";
+	if (res.headers.get('x-content-type-options') !== 'nosniff') return 'no nosniff';
+	const body = await res.text();
+	return body.includes('http-equiv="content-security-policy"') ? null : 'no CSP meta tag';
+});
 await expect('/radio?days=30', html);
 await expect('/board', html);
 
@@ -74,7 +85,8 @@ await expect('/data/gigs.json', async (res) => {
 	const data = await res.json();
 	if (!(data.gigs?.length > 100)) return `only ${data.gigs?.length ?? 0} gigs`;
 	const age = (Date.now() - Date.parse(data.generated)) / 86_400_000;
-	if (!(age < 3)) warn(`gigs.json was generated ${data.generated} (${age.toFixed(1)} days ago)`);
+	// Stale data means the nightly has stopped working: fail, so someone hears about it.
+	if (!(age < 3)) return `generated ${data.generated} (${age.toFixed(1)} days ago)`;
 	return null;
 });
 await expect('/data/artists.json', async (res) => {
@@ -126,7 +138,11 @@ for (const [path, file] of Object.entries(manifest.files)) {
 // The personal API must never answer without a signed-in user, and passkeys must be offered for
 // this site's hostname (a PASSKEY_RP_ID that doesn't match can't sign anyone in).
 await expect('/api/me', (res) =>
-	res.status === 401 ? null : `status ${res.status}, expected 401 when signed out`
+	res.status !== 401
+		? `status ${res.status}, expected 401 when signed out`
+		: res.headers.get('x-content-type-options') !== 'nosniff'
+			? 'no nosniff on the API'
+			: null
 );
 await expect(
 	'/api/passkey/login/options',
