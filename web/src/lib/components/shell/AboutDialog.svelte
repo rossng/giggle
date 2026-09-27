@@ -30,12 +30,31 @@
 			Gig listings come from the venues' own sites; artist details from MusicBrainz, Last.fm and
 			Wikipedia; the music from YouTube.
 		</p>
+		<section class="terms" aria-labelledby="terms-title">
+			<h3 id="terms-title" class="label">Terms</h3>
+			<ul>
+				<li>
+					giggle is free and comes as is. As far as the law allows, I don't promise it works, stays
+					up or keeps your data, and I'm not liable for anything that happens because you used it.
+				</li>
+				<li>
+					Gig details come from the venues' own sites and can be wrong or out of date. Check with
+					the venue before you buy a ticket.
+				</li>
+				<li>The music plays through YouTube, under YouTube's own terms.</li>
+				<li>
+					If you sign in, giggle keeps your board, unavailable dates and listening history so it can
+					sync them between your devices. It has no ads and doesn't track you. Ask me (via
+					rossng.eu) and I'll delete your data.
+				</li>
+			</ul>
+		</section>
 		<div class="seal">
 			{#if sealReady}
 				<seal-of-slop
 					size="96"
 					design="seal"
-					text="Built with Claude Code: I directed and tested it; most of the code is AI-written. A personal project, shared as is."
+					text="This app was entirely vibe-coded, but I thought fairly carefully about the functionality I had and guided Claude. There is no support and it is provided as-is."
 				></seal-of-slop>
 			{/if}
 			<a class="small" href="https://www.rossng.eu/seal-of-slop/" target="_blank" rel="noopener"
@@ -60,6 +79,19 @@
 	}
 	.small {
 		font-size: 12.5px;
+		color: var(--mute);
+	}
+	.terms h3 {
+		margin: 4px 0 6px;
+	}
+	.terms ul {
+		margin: 0;
+		padding-left: 18px;
+		display: flex;
+		flex-direction: column;
+		gap: 5px;
+		font-size: 12.5px;
+		line-height: 1.45;
 		color: var(--mute);
 	}
 	.seal {
