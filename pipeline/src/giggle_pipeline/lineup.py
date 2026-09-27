@@ -28,7 +28,7 @@ from giggle_pipeline.llm import (
     cached_answer,
     store_answer,
 )
-from giggle_pipeline.text import fold, plain
+from giggle_pipeline.text import fold, one_line, plain
 
 TASK = "lineup"
 PROMPT_VERSION = 3
@@ -317,7 +317,10 @@ def parse_lineups(
             if rows is None:
                 failed += 1
                 if not isinstance(error, QuotaExhausted) or not quota_noted:
-                    print(f"lineup: batch failed, using title rules: {error}", file=sys.stderr)
+                    print(
+                        f"lineup: batch failed, using title rules: {one_line(error)}",
+                        file=sys.stderr,
+                    )
                 quota_noted = quota_noted or isinstance(error, QuotaExhausted)
             else:
                 for gid in batch:

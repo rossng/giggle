@@ -147,3 +147,10 @@ def test_a_new_model_keeps_its_predecessors_answers(tmp_path, monkeypatch):
     assert cached_answer(cache, "lineup", real, 3, {"id": "a"}) == ({"kind": "concert"}, llm.QWEN3)
     # The fake model's answers never stand in for a real one's, nor the other way round.
     assert cached_answer(cache, "lineup", FakeLLM(lambda t, u: None), 3, {"id": "a"}) is None
+
+
+def test_errors_quoting_an_answer_stay_on_one_line():
+    # A line of the build's log starting with "::" would be a workflow command.
+    with pytest.raises(LLMError) as caught:
+        llm._parse({"response": "nope\n::error::fake annotation\r\n::add-mask::x"})
+    assert "\n" not in str(caught.value) and "\r" not in str(caught.value)
