@@ -1,6 +1,10 @@
 // Signing in with passkeys, the browser's half (the Worker's is worker/src/passkeys.ts): ask the
 // Worker for options and a ticket, let the browser's passkey dialog do its part, send the result
-// back. A success sets the session cookie, which only /api sees.
+// back. A success sets the session cookie, which page scripts never see.
+//
+// Adding or removing a passkey and deleting the account need the session confirmed with a
+// passkey in the last few minutes: `confirmed(step)` runs a step, and if the Worker asks for that
+// (403 {reauth: true}) shows the passkey dialog once and runs it again.
 
 import {
 	browserSupportsWebAuthn,
@@ -19,17 +23,33 @@ export interface Me {
 	passkeys: number;
 }
 
-async function post<T>(path: string, body: unknown = {}): Promise<T> {
+/** A refused API call, with the Worker's reason. */
+export class ApiError extends Error {
+	constructor(
+		readonly status: number,
+		message: string,
+		/** The session must be confirmed with a passkey first. */
+		readonly reauth = false
+	) {
+		super(message);
+	}
+}
+
+async function send<T>(method: string, path: string, body?: unknown): Promise<T> {
 	const res = await fetch(path, {
-		method: 'POST',
-		headers: { 'Content-Type': 'application/json' },
+		method,
+		headers: body === undefined ? {} : { 'Content-Type': 'application/json' },
 		credentials: 'same-origin',
-		body: JSON.stringify(body)
+		body: body === undefined ? undefined : JSON.stringify(body)
 	});
-	const data = (await res.json().catch(() => ({}))) as { error?: string };
-	if (!res.ok) throw new Error(data.error ?? `${path}: ${res.status}`);
+	const data = (await res.json().catch(() => ({}))) as { error?: string; reauth?: boolean };
+	if (!res.ok) {
+		throw new ApiError(res.status, data.error ?? `${path}: ${res.status}`, data.reauth === true);
+	}
 	return data as T;
 }
+
+const post = <T>(path: string, body: unknown = {}) => send<T>('POST', path, body);
 
 /** Who is signed in, or null. */
 export async function me(): Promise<Me | null> {
@@ -67,6 +87,27 @@ export async function signIn(): Promise<void> {
 	await post('/api/passkey/login/verify', { ticket, response });
 }
 
+/** Confirms the signed-in session with one of this account's passkeys. */
+export async function confirmIt(): Promise<void> {
+	const { ticket, options } = await post<{
+		ticket: string;
+		options: PublicKeyCredentialRequestOptionsJSON;
+	}>('/api/passkey/reauth/options');
+	const response = await startAuthentication({ optionsJSON: options });
+	await post('/api/passkey/reauth/verify', { ticket, response });
+}
+
+/** Runs `step`; if the Worker wants the session confirmed first, confirms it and runs it again. */
+export async function confirmed<T>(step: () => Promise<T>): Promise<T> {
+	try {
+		return await step();
+	} catch (e) {
+		if (!(e instanceof ApiError && e.reauth)) throw e;
+	}
+	await confirmIt();
+	return step();
+}
+
 export async function signOut(): Promise<void> {
 	await post('/api/logout');
 }
@@ -88,20 +129,23 @@ export interface PasskeyInfo {
 }
 
 export async function listPasskeys(): Promise<PasskeyInfo[]> {
-	const res = await fetch('/api/passkeys', { credentials: 'same-origin' });
-	const data = (await res.json().catch(() => ({}))) as { passkeys?: PasskeyInfo[]; error?: string };
-	if (!res.ok) throw new Error(data.error ?? `/api/passkeys: ${res.status}`);
+	const data = await send<{ passkeys?: PasskeyInfo[] }>('GET', '/api/passkeys');
 	return data.passkeys ?? [];
 }
 
-/** Removes a passkey from the account (the server refuses the last one). */
-export async function removePasskey(id: string): Promise<void> {
-	const res = await fetch(`/api/passkeys/${encodeURIComponent(id)}`, {
-		method: 'DELETE',
-		credentials: 'same-origin'
-	});
-	if (!res.ok) {
-		const data = (await res.json().catch(() => ({}))) as { error?: string };
-		throw new Error(data.error ?? `couldn't remove the passkey (${res.status})`);
-	}
+/**
+ * Removes a passkey from the account (the server refuses the last one). Its sessions end with it:
+ * `signedOut` when this browser's was one of them.
+ */
+export async function removePasskey(id: string): Promise<{ signedOut: boolean }> {
+	const data = await send<{ signedOut?: boolean }>(
+		'DELETE',
+		`/api/passkeys/${encodeURIComponent(id)}`
+	);
+	return { signedOut: data.signedOut === true };
+}
+
+/** Deletes the account and everything giggle keeps about it, and signs out everywhere. */
+export async function deleteAccount(): Promise<void> {
+	await send('DELETE', '/api/account');
 }

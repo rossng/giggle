@@ -12,6 +12,12 @@
 //
 // Integration: call `notifyLocalChange()` after every local save, and adopt the data passed to
 // `onChange` (it has already been saved) — don't write back an older in-memory copy over it.
+//
+// Whose data is on this device: each record remembers the account it last synced with. Signing
+// out (`forget()`) empties this device's personal data. Data belonging to another account than
+// the one signed in is dropped, and so is data made while signed out, unless this device has
+// just created the account (`prepareSignIn('new-account')`): then the new account adopts it.
+// Signing in to an existing account shows that account's data, not whatever was here.
 
 import { browserStorage, readJson, writeJson, type KeyValueStorage } from '$lib/storage';
 import {
@@ -51,6 +57,13 @@ export type AnyCollection = Collection<any, any>;
 class SignedOut extends Error {}
 class Offline extends Error {}
 class Rejected extends Error {}
+/** The device signed out (or changed account) while a round was running. */
+class Abandoned extends Error {}
+
+/** Set just before creating an account: data made while signed out becomes its own. */
+export const ADOPT_STORAGE_KEY = 'giggle:sync:adopt:v1';
+/** How long that lasts: a passkey dialog, not a day. */
+const ADOPT_MS = 10 * 60_000;
 
 type Listener = (event?: { key?: string | null }) => void;
 
@@ -76,6 +89,8 @@ export interface SyncClientOptions {
 	backoffMs?: { base: number; max: number };
 	/** Called with a collection's merged data whenever a sync changed it (it's already saved). */
 	onChange?: (collection: string, data: unknown) => void;
+	/** Other storage keys holding personal data (not synced), removed with it on sign-out. */
+	personalKeys?: readonly string[];
 }
 
 export class SyncClient {
@@ -91,8 +106,11 @@ export class SyncClient {
 	readonly #pollMs: number;
 	readonly #backoff: { base: number; max: number };
 	readonly #onChange?: (collection: string, data: unknown) => void;
+	readonly #personalKeys: readonly string[];
 
 	#status: SyncStatus;
+	/** Bumped when the device signs out: a round from before must not save anything. */
+	#generation = 0;
 	#listeners = new Set<(status: SyncStatus) => void>();
 	#timer: ReturnType<typeof setTimeout> | null = null;
 	#running = false;
@@ -121,6 +139,7 @@ export class SyncClient {
 		this.#pollMs = options.pollMs ?? 5 * 60_000;
 		this.#backoff = options.backoffMs ?? { base: 2000, max: 5 * 60_000 };
 		this.#onChange = options.onChange;
+		this.#personalKeys = options.personalKeys ?? [];
 		const records = this.#collections.map((c) => this.#load(c));
 		this.#status = {
 			state: 'offline',
@@ -202,6 +221,44 @@ export class SyncClient {
 		return this.#inFlight;
 	}
 
+	/**
+	 * Call just before a passkey sign-in: a new account adopts the data made on this device while
+	 * signed out; signing in to an existing account replaces it with that account's.
+	 */
+	prepareSignIn(kind: 'new-account' | 'existing-account'): void {
+		if (kind === 'new-account')
+			writeJson(ADOPT_STORAGE_KEY, this.#now().toISOString(), this.#storage);
+		else this.#removeKey(ADOPT_STORAGE_KEY);
+	}
+
+	/** Someone signed in (or the account changed): find out who, and sync with them now. */
+	signedIn(): Promise<void> {
+		this.#checkedUser = false;
+		return this.syncNow();
+	}
+
+	/**
+	 * Signed out: this device's personal data goes (the account keeps its copy), and so does the
+	 * sync state. Tells the app (`onChange`) that each collection is empty now.
+	 */
+	forget(): void {
+		this.#generation += 1;
+		this.#checkedUser = false;
+		this.#clearTimer();
+		for (const collection of this.#collections) {
+			this.#clearLocal(collection);
+			this.#save(collection, emptyRecord(null));
+		}
+		for (const key of [...this.#personalKeys, ADOPT_STORAGE_KEY]) this.#removeKey(key);
+		this.#setStatus({
+			state: 'signed-out',
+			user: null,
+			lastSyncedAt: null,
+			pending: 0,
+			error: null
+		});
+	}
+
 	// --- one round -------------------------------------------------------------------------
 
 	async #round(): Promise<void> {
@@ -209,10 +266,13 @@ export class SyncClient {
 			this.#setStatus({ state: 'offline', error: null });
 			return; // the 'online' event starts the next round
 		}
+		const generation = this.#generation;
 		this.#setStatus({ state: 'syncing' });
 		try {
-			await this.#checkUser();
-			for (const collection of this.#collections) await this.#syncCollection(collection);
+			await this.#checkUser(generation);
+			for (const collection of this.#collections) {
+				await this.#syncCollection(collection, generation);
+			}
 			this.#failures = 0;
 			const records = this.#collections.map((c) => this.#load(c));
 			const pending = this.#pending();
@@ -229,9 +289,13 @@ export class SyncClient {
 		}
 	}
 
-	async #syncCollection<T extends Stamped>(collection: Collection<T>): Promise<void> {
+	async #syncCollection<T extends Stamped>(
+		collection: Collection<T>,
+		generation: number
+	): Promise<void> {
 		const pushed = await this.#push(collection);
 		const pulled = await this.#pull(collection);
+		if (generation !== this.#generation) throw new Abandoned();
 		const now = this.#now();
 		const result = applyRound(collection, {
 			record: this.#load(collection),
@@ -250,6 +314,7 @@ export class SyncClient {
 	}
 
 	#fail(e: unknown): void {
+		if (e instanceof Abandoned) return; // forget() has set the status
 		const message = e instanceof Error ? e.message : String(e);
 		if (e instanceof SignedOut) {
 			this.#checkedUser = false;
@@ -263,19 +328,53 @@ export class SyncClient {
 		this.#schedule(Math.round(delay * (0.5 + this.#random() / 2)));
 	}
 
-	/** Once per start (and after signing in again): who is this? A different user starts over. */
-	async #checkUser(): Promise<void> {
+	/**
+	 * Once per start (and after signing in again): who is this? Data that isn't theirs goes, and
+	 * their own is pulled in full; data made while signed out stays only for a brand-new account.
+	 */
+	async #checkUser(generation: number): Promise<void> {
 		if (this.#checkedUser) return;
 		const me = (await this.#request('GET', '/api/me')) as { user?: unknown };
 		if (typeof me.user !== 'string') throw new Rejected('unexpected /api/me response');
+		if (generation !== this.#generation) throw new Abandoned();
+		const adopt = this.#adopting();
+		let dropped = false;
 		for (const collection of this.#collections) {
-			// Another account's cursor and base mean nothing here: pull everything, push it all.
-			if (this.#load(collection).user !== me.user) {
-				this.#save(collection, emptyRecord(me.user));
+			const { user } = this.#load(collection);
+			if (user === me.user) continue;
+			// Another account's cursor and base mean nothing here: pull everything.
+			if (user !== null || !adopt) {
+				this.#clearLocal(collection);
+				dropped = true;
 			}
+			this.#save(collection, emptyRecord(me.user));
 		}
+		if (dropped) for (const key of this.#personalKeys) this.#removeKey(key);
+		this.#removeKey(ADOPT_STORAGE_KEY);
 		this.#checkedUser = true;
-		this.#setStatus({ user: me.user });
+		this.#setStatus({ user: me.user, pending: this.#pending() });
+	}
+
+	/** Whether this device has just created the account (prepareSignIn('new-account')). */
+	#adopting(): boolean {
+		const at = readJson(ADOPT_STORAGE_KEY, this.#storage);
+		const ms = typeof at === 'string' ? Date.parse(at) : NaN;
+		const now = this.#now().getTime();
+		return ms <= now && now - ms < ADOPT_MS;
+	}
+
+	/** Empties a collection's local data and tells the app. */
+	#clearLocal<T extends Stamped>(collection: Collection<T>): void {
+		const data = collection.save({}, this.#storage, this.#now());
+		this.#onChange?.(collection.name, data);
+	}
+
+	#removeKey(key: string): void {
+		try {
+			this.#storage?.removeItem(key);
+		} catch {
+			// Blocked storage: nothing was kept anyway.
+		}
 	}
 
 	async #push<T extends Stamped>(

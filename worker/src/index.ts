@@ -5,12 +5,16 @@
 //   GET  /models/<name>/<revision>/<file>  → the browser's Kokoro files from R2 (models.ts)
 //
 //   GET  /api/me                    → {user, via, passkeys}: who is signed in
-//   POST /api/passkey/…             → signing in and adding passkeys (passkeys.ts)
+//   POST /api/passkey/…             → signing in, adding passkeys and confirming it's you
+//                                      (passkeys.ts)
 //   POST /api/logout  {}            → ends this browser's session
 //   POST /api/logout-everywhere  {} → ends every session of this account, this one included
 //   GET  /api/passkeys              → {passkeys: [{id, created, last_used, device_type,
 //                                      backed_up, transports}]}: this account's passkeys
-//   DELETE /api/passkeys/<id>       → removes one (never the last: 409)
+//   DELETE /api/passkeys/<id>       → removes one (never the last: 409) and the sessions it
+//                                      signed in: {ok, signedOut} (signedOut: this one too)
+//   DELETE /api/account             → deletes the account and everything synced to it, and
+//                                      signs out everywhere
 //   GET  /api/<collection>?since=<cursor>  → {items, cursor, more}: changes after `cursor`,
 //                                            tombstones too
 //   PUT  /api/<collection>  {items: [...]} → {items}: the stored rows for those keys after
@@ -19,10 +23,18 @@
 //   GET  /api/dev/login?as=<email>  → (dev only) sets the dev identity cookie (302 to `next` if given)
 //   GET  /api/dev/logout            → (dev only) clears it (302 to `next` if given)
 //
-// Rate limits (limits.ts) answer 429 with Retry-After.
+// Removing a passkey and deleting the account need the session confirmed by a passkey in the
+// last few minutes, and so does adding a passkey (register/options while signed in). Otherwise
+// they answer 403 {error, reauth: true}: the client confirms with /api/passkey/reauth/… and
+// tries again.
+//
+// Rate limits (limits.ts) answer 429 with Retry-After, as does a write past the account's daily
+// row budget (store.ts). A POST, PUT or DELETE whose Origin header isn't the site's is refused
+// (403); cross-site pages can't send JSON or these methods without CORS anyway.
 
 import {
 	authenticate,
+	clearCookies,
 	DEV_COOKIE,
 	endAllSessions,
 	endSession,
@@ -35,23 +47,35 @@ import { authConfig, ConfigError, type AuthConfig, type Env } from './config';
 import { allowed, clientKey, LIMIT_PERIOD_S, type LimiterName } from './limits';
 import { MODELS_PREFIX, serveModel } from './models';
 import {
+	deleteAccount,
 	deletePasskey,
 	listPasskeys,
 	loginOptions,
 	loginVerify,
+	NeedsConfirmation,
 	PASSKEY_PREFIX,
 	passkeyCount,
 	PasskeyError,
+	reauthOptions,
+	reauthVerify,
 	registerOptions,
-	registerVerify
+	registerVerify,
+	requireFresh
 } from './passkeys';
-import { itemsSince, putItems, TooManyItems } from './store';
+import { itemsSince, OverBudget, putItems, TooManyItems } from './store';
 import { LIMITS, parseBatch, parseSince, ValidationError } from './validate';
 
 const NO_STORE = { 'Cache-Control': 'no-store', 'X-Content-Type-Options': 'nosniff' };
 
-export function json(body: unknown, status = 200, headers: HeadersInit = {}): Response {
-	return Response.json(body, { status, headers: { ...NO_STORE, ...headers } });
+export function json(
+	body: unknown,
+	status = 200,
+	headers: Record<string, string> = {},
+	cookies: string[] = []
+): Response {
+	const all = new Headers({ ...NO_STORE, ...headers });
+	for (const cookie of cookies) all.append('Set-Cookie', cookie);
+	return Response.json(body, { status, headers: all });
 }
 
 /** 429 when `key` is over `name`'s limit, else null. */
@@ -68,23 +92,49 @@ async function limited(
 const tooMany = (retry: Record<string, string>) =>
 	error(429, 'too many requests: wait a minute and try again', retry);
 
-function error(status: number, message: string, headers: HeadersInit = {}): Response {
+function error(status: number, message: string, headers: Record<string, string> = {}): Response {
 	return json({ error: message }, status, headers);
 }
 
+function failure(e: PasskeyError | HttpError): Response {
+	if (e instanceof NeedsConfirmation) return json({ error: e.message, reauth: true }, e.status);
+	return error(e.status, e.message);
+}
+
+/**
+ * The request's JSON body, read as a stream and given up on past LIMITS.body whatever
+ * Content-Length says (a chunked request has none).
+ */
 async function readJsonBody(request: Request): Promise<unknown> {
 	const type = request.headers.get('Content-Type') ?? '';
 	if (!/^application\/json\s*(;|$)/i.test(type)) {
 		throw new HttpError(415, 'Content-Type must be application/json');
 	}
-	const declared = Number(request.headers.get('Content-Length') ?? '0');
-	if (declared > LIMITS.body) throw new HttpError(413, 'request body too large');
-	const text = await request.text();
-	if (new TextEncoder().encode(text).byteLength > LIMITS.body) {
-		throw new HttpError(413, 'request body too large');
+	const tooLarge = () => new HttpError(413, 'request body too large');
+	if (Number(request.headers.get('Content-Length') ?? '0') > LIMITS.body) throw tooLarge();
+	const chunks: Uint8Array[] = [];
+	let size = 0;
+	if (request.body) {
+		const reader = request.body.getReader();
+		for (;;) {
+			const { done, value } = await reader.read();
+			if (done) break;
+			size += value.byteLength;
+			if (size > LIMITS.body) {
+				await reader.cancel().catch(() => {});
+				throw tooLarge();
+			}
+			chunks.push(value);
+		}
+	}
+	const bytes = new Uint8Array(size);
+	let at = 0;
+	for (const chunk of chunks) {
+		bytes.set(chunk, at);
+		at += chunk.byteLength;
 	}
 	try {
-		return JSON.parse(text);
+		return JSON.parse(new TextDecoder().decode(bytes));
 	} catch {
 		throw new HttpError(400, 'body is not valid JSON');
 	}
@@ -97,6 +147,11 @@ class HttpError extends Error {
 	) {
 		super(message);
 	}
+}
+
+/** Seconds until the next UTC midnight, when the daily budgets start again. */
+function untilTomorrow(now: number): string {
+	return String(Math.ceil((86_400_000 - (now % 86_400_000)) / 1000));
 }
 
 async function sync(
@@ -119,6 +174,11 @@ async function sync(
 			});
 		} catch (e) {
 			if (e instanceof TooManyItems) return error(413, collection.fullMessage);
+			if (e instanceof OverBudget) {
+				return error(429, 'this account has synced a lot today: the rest waits until tomorrow', {
+					'Retry-After': untilTomorrow(now)
+				});
+			}
 			throw e;
 		}
 	}
@@ -179,12 +239,22 @@ async function passkeyRoute(
 		const auth = await authenticate(request, config, env.DB);
 		return json(await registerOptions(env.DB, config, auth.ok ? auth.identity : null));
 	}
-	if (step === 'register/verify' || step === 'login/verify') {
-		const verify = step === 'register/verify' ? registerVerify : loginVerify;
-		const { identity, cookie } = await verify(env.DB, config, body, url);
-		return json(identity, 200, { 'Set-Cookie': cookie });
+	if (step === 'register/verify') {
+		const { identity, created, cookies } = await registerVerify(env.DB, config, request, body);
+		return json({ user: identity.user, via: identity.via, created }, 200, {}, cookies);
 	}
 	if (step === 'login/options') return json(await loginOptions(env.DB, config));
+	if (step === 'login/verify') {
+		const { identity, cookies } = await loginVerify(env.DB, config, request, body);
+		return json({ user: identity.user, via: identity.via }, 200, {}, cookies);
+	}
+	if (step === 'reauth/options' || step === 'reauth/verify') {
+		const auth = await authenticate(request, config, env.DB);
+		if (!auth.ok) return error(auth.status, auth.error);
+		if (step === 'reauth/options') return json(await reauthOptions(env.DB, config, auth.identity));
+		await reauthVerify(env.DB, config, auth.identity, body);
+		return json({ ok: true });
+	}
 	return error(404, 'not found');
 }
 
@@ -202,6 +272,17 @@ export async function handleApi(request: Request, env: Env): Promise<Response> {
 	const dev = devRoute(request, url, config);
 	if (dev) return dev;
 
+	// Every /api request, before it reaches D1: one address can't run up the reads.
+	const flood = await limited(env, 'RL_API', clientKey(request), tooMany);
+	if (flood) return flood;
+
+	if (request.method !== 'GET' && request.method !== 'HEAD') {
+		const origin = request.headers.get('Origin');
+		if (origin !== null && !config.origins.includes(origin)) {
+			return error(403, 'cross-site request refused');
+		}
+	}
+
 	try {
 		if (url.pathname.startsWith(PASSKEY_PREFIX)) {
 			return (
@@ -213,10 +294,10 @@ export async function handleApi(request: Request, env: Env): Promise<Response> {
 			if (request.method !== 'POST') return error(405, 'method not allowed', { Allow: 'POST' });
 			// A JSON body, like every POST: a cross-site form can't send one, so can't sign you out.
 			await readJsonBody(request);
-			return json({ ok: true }, 200, { 'Set-Cookie': await endSession(env.DB, request) });
+			return json({ ok: true }, 200, {}, await endSession(env.DB, config, request));
 		}
 	} catch (e) {
-		if (e instanceof PasskeyError || e instanceof HttpError) return error(e.status, e.message);
+		if (e instanceof PasskeyError || e instanceof HttpError) return failure(e);
 		throw e;
 	}
 
@@ -224,10 +305,9 @@ export async function handleApi(request: Request, env: Env): Promise<Response> {
 	if (!auth.ok) return error(auth.status, auth.error);
 	const { user, via } = auth.identity;
 
-	if (request.method !== 'GET' && request.method !== 'HEAD') {
-		const over = await limited(env, 'RL_WRITES', `account:${user}`, tooMany);
-		if (over) return over;
-	}
+	const reading = request.method === 'GET' || request.method === 'HEAD';
+	const over = await limited(env, reading ? 'RL_READS' : 'RL_WRITES', `account:${user}`, tooMany);
+	if (over) return over;
 
 	try {
 		if (url.pathname === '/api/me') {
@@ -239,7 +319,15 @@ export async function handleApi(request: Request, env: Env): Promise<Response> {
 			if (request.method !== 'POST') return error(405, 'method not allowed', { Allow: 'POST' });
 			await readJsonBody(request);
 			await endAllSessions(env.DB, user);
-			return json({ ok: true }, 200, { 'Set-Cookie': await endSession(env.DB, request) });
+			return json({ ok: true }, 200, {}, clearCookies(config));
+		}
+		if (url.pathname === '/api/account') {
+			if (request.method !== 'DELETE') {
+				return error(405, 'method not allowed', { Allow: 'DELETE' });
+			}
+			requireFresh(auth.identity);
+			await deleteAccount(env.DB, user);
+			return json({ ok: true }, 200, {}, clearCookies(config));
 		}
 		if (url.pathname === '/api/passkeys') {
 			if (request.method !== 'GET') return error(405, 'method not allowed', { Allow: 'GET' });
@@ -252,15 +340,18 @@ export async function handleApi(request: Request, env: Env): Promise<Response> {
 			const id = url.pathname.slice('/api/passkeys/'.length);
 			// Credential ids are base64url.
 			if (!/^[A-Za-z0-9_-]{1,1024}$/.test(id)) return error(404, 'no such passkey');
+			requireFresh(auth.identity);
 			await deletePasskey(env.DB, user, id);
-			return json({ ok: true });
+			// The sessions that passkey signed in (or last confirmed) end, maybe this one too.
+			const signedOut = auth.identity.session?.passkey === id;
+			return json({ ok: true, signedOut }, 200, {}, signedOut ? clearCookies(config) : []);
 		}
 		const collection = collectionFor(url.pathname);
 		if (collection) return await sync(request, env, auth.identity, collection);
 		return error(404, 'not found');
 	} catch (e) {
 		if (e instanceof ValidationError) return error(400, e.message);
-		if (e instanceof HttpError || e instanceof PasskeyError) return error(e.status, e.message);
+		if (e instanceof HttpError || e instanceof PasskeyError) return failure(e);
 		throw e;
 	}
 }

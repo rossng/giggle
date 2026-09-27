@@ -4,8 +4,8 @@
 // look like is in collections.ts; the shared rules are here.
 
 export const LIMITS = {
-	/** Items per PUT. */
-	batch: 500,
+	/** Items per PUT (the web app sends at most 400). */
+	batch: 400,
 	/** Request body, bytes. */
 	body: 256 * 1024,
 	keyLength: 256,
