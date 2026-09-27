@@ -18,7 +18,7 @@ from datetime import date
 
 from selectolax.parser import HTMLParser, Node
 
-from podia.extract import combine, month_number, node_text, parse_price
+from podia.extract import combine, month_number, node_text, parse_price, site_url
 from podia.http import Fetcher
 from podia.model import Availability, Event, Price, Status, VenueInfo
 from podia.venue import FetchOptions, Venue, register
@@ -89,7 +89,7 @@ class Muziekgebouw(Venue):
             title=title,
             start=combine(day, clocks[0] if clocks else None),
             end=combine(day, clocks[1]) if len(clocks) > 1 else None,
-            url=BASE + href if link is not None and (href := link.attributes.get("href")) else None,
+            url=site_url(BASE, link.attributes.get("href")) if link is not None else None,
             subtitle=node_text(card.css_first(".subtitle")),
             room=node_text(card.css_first(".venue")),
             city=self.info.city,

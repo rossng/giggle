@@ -2,7 +2,7 @@ from datetime import datetime
 
 from conftest import replay, replay_events
 from podia import AMSTERDAM, Availability, Event, Price, Status
-from podia.venues.melkweg import _with_details
+from podia.venues.melkweg import _url, _with_details
 
 
 def test_melkweg(golden):
@@ -71,3 +71,11 @@ def test_melkweg_timetable_without_show_line():
 def test_melkweg_details_without_data_keeps_the_event():
     listed = _listed(19, 30)
     assert _with_details(listed, {}).to_dict() == listed.to_dict()
+
+
+def test_event_urls_stay_on_the_site():
+    assert _url("/nl/agenda/band-26-09-2026") == "https://www.melkweg.nl/nl/agenda/band-26-09-2026/"
+    assert _url("@evil.example/x") == "https://www.melkweg.nl/@evil.example/x/"
+    assert _url("//evil.example/x") is None
+    assert _url("https://evil.example/x") is None
+    assert _url(None) is None

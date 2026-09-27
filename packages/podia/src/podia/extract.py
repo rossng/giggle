@@ -8,6 +8,7 @@ import re
 from collections.abc import Iterator
 from datetime import date, datetime, time
 from typing import Any
+from urllib.parse import urljoin, urlsplit
 
 from selectolax.parser import HTMLParser, Node
 
@@ -42,6 +43,19 @@ def strip_tags(fragment: str | None) -> str | None:
     if not fragment:
         return None
     return clean(HTMLParser(fragment).text(separator=" "))
+
+
+def site_url(base: str, href: str | None) -> str | None:
+    """`href` (usually a path) resolved against the site `base`, or None when it's empty
+    or leads to another host: pages are fetched from these URLs, and `base + href` with
+    an href like "@evil.example/x" would put the site's name in the userinfo instead."""
+    if not href or not href.strip():
+        return None
+    url = urljoin(base.rstrip("/") + "/", href.strip())
+    parts, site = urlsplit(url), urlsplit(base)
+    if parts.scheme not in ("http", "https") or parts.netloc.lower() != site.netloc.lower():
+        return None
+    return url
 
 
 def local(dt: datetime) -> datetime:
