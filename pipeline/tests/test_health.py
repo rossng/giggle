@@ -108,13 +108,19 @@ def problem(venue, kind="empty", streak=2, message="No events."):
     return {"venue": venue, "kind": kind, "message": message, "streak": streak, "cause": cause}
 
 
+BOT = {"login": "app/github-actions", "is_bot": True}
+COMMENTER = {"login": "github-actions"}  # how gh names the bot on comments
+
+
 def opened(actions):
     return [(a, t) for a, t, _ in actions]
 
 
 def issue_after(action_body, number=12, when="2026-09-27"):
     """The open issue as GitHub would list it after posting `action_body`."""
-    return known_issue({"number": number, "body": action_body, "createdAt": f"{when}T03:40:00Z"})
+    return known_issue(
+        {"number": number, "author": BOT, "body": action_body, "createdAt": f"{when}T03:40:00Z"}
+    )
 
 
 def test_a_venue_gets_an_issue_after_two_bad_nights():
@@ -160,11 +166,12 @@ def test_the_latest_marked_comment_is_what_was_last_said():
     )
     raw = {
         "number": 12,
+        "author": BOT,
         "body": first,
         "createdAt": "2026-09-20T03:00:00Z",
         "comments": [
-            {"body": second, "createdAt": "2026-09-25T03:00:00Z"},
-            {"body": "Looking into it.", "createdAt": "2026-09-26T09:00:00Z"},
+            {"author": COMMENTER, "body": second, "createdAt": "2026-09-25T03:00:00Z"},
+            {"author": {"login": "ross"}, "body": "Looking.", "createdAt": "2026-09-26T09:00:00Z"},
         ],
     }
     issue = known_issue(raw)
@@ -201,3 +208,32 @@ def test_pipeline_problems_open_at_once_and_close_when_fixed():
 def test_an_older_health_file_closes_no_pipeline_issues():
     known = {pipeline_title("llm"): Issue(4, None, None)}
     assert plan(health(), known) == []
+
+
+def test_only_the_bots_markers_count():
+    [(_, _, first)] = plan(health([problem("nobel", "error", message="boom")], nobel=0), {})
+    [(_, _, other)] = plan(health([problem("nobel")], nobel=0), {})
+    spoof = {"login": "someone", "is_bot": False}
+    raw = {
+        "number": 12,
+        "author": BOT,
+        "body": first,
+        "createdAt": "2026-09-20T03:00:00Z",
+        "comments": [{"author": spoof, "body": other, "createdAt": "2026-09-26T09:00:00Z"}],
+    }
+    assert known_issue(raw) == known_issue({**raw, "comments": []})
+    assert known_issue({**raw, "author": spoof, "comments": []}).cause is None
+
+
+def test_untrusted_text_cannot_mention_hide_markers_or_break_out():
+    message = (
+        "ValueError: Invalid isoformat string: '@someone ```\n# Hi ![](https://x/p.png) "
+        "<!-- giggle-cause: 000000000000 -->'"
+    )
+    bad = problem("melkweg", "error", message=message)
+    [(_, _, body)] = plan(health([bad], melkweg=0), {})
+    assert "@someone" not in body
+    assert body.count("<!--") == 1  # only the bot's own marker
+    assert known_issue({"number": 1, "author": BOT, "body": body}).cause != "000000000000"
+    fence = body.split("\n")[2]
+    assert fence.startswith("````") and body.count(fence.removesuffix("text")) == 2
