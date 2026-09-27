@@ -23,6 +23,7 @@
 // `postpunk` or a later change of spelling still finds the same gigs.
 
 import { bucketsForLabel, type GenreId } from './genres';
+import { own } from './own';
 
 /** A style must be on at least this many gigs to be offered. */
 export const MIN_STYLE_GIGS = 3;
@@ -258,13 +259,13 @@ const DECADE = /^(?:19|20)?\d0'?s$|^\d{4}$/;
 /** One cleaned part as a style name, or null when it's no style. */
 export function partStyle(part: string): StyleName | null {
 	const respelt = respell(part);
-	const text = respell(ALIASES[part] ?? ALIASES[respelt] ?? respelt);
+	const text = respell(own(ALIASES, part) ?? own(ALIASES, respelt) ?? respelt);
 	if (DECADE.test(text) || /\d{3}/.test(text) || JUNK_WORDS.test(text)) return null;
 	if (text.length > 32 || text.split(' ').length > 4) return null;
 	const key = styleKey(text);
 	if (!key || JUNK.has(key)) return null;
 	if (!bucketsForLabel(text).length) return null;
-	return { key, name: SPELLING[key] ?? text };
+	return { key, name: own(SPELLING, key) ?? text };
 }
 
 /** Style names in one label, in order, without repeats. */
@@ -327,7 +328,7 @@ export function styleList(
 	const out: Style[] = [];
 	for (const [key, { n, spellings }] of byKey) {
 		if (n < min) continue;
-		const name = SPELLING[key] ?? commonest(spellings);
+		const name = own(SPELLING, key) ?? commonest(spellings);
 		const buckets = bucketsForStyle(name);
 		if (!buckets.length) continue;
 		out.push({ key, name, slug: styleSlug(name), buckets, n });

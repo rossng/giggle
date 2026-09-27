@@ -2,7 +2,7 @@
 // radio-core Tracks (source-agnostic `{videoId, title, album}`), best first.
 
 import type { IntroClip, Track } from '@giggle/radio-core';
-import { externalHref } from '$lib/data/slugs';
+import { imageSrc } from '$lib/data/image-hosts';
 import type { Artist, YoutubeArtist, YoutubeSong } from '$lib/data/types';
 
 const VIDEO_ID = /^[A-Za-z0-9_-]{6,20}$/;
@@ -42,7 +42,7 @@ export function squareImage(url: string | null | undefined, size = 544): string 
 
 /** The best picture of an artist: YouTube Music, else their Wikipedia thumbnail. */
 export function artistImage(artist: Artist | undefined): string | null {
-	return externalHref(artist?.youtube?.image ?? artist?.wikipedia?.thumbnail) ?? null;
+	return imageSrc(artist?.youtube?.image) ?? imageSrc(artist?.wikipedia?.thumbnail) ?? null;
 }
 
 export function youtubeMusicUrl(youtube: YoutubeArtist | null | undefined): string | null {

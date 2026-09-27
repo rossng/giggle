@@ -84,6 +84,9 @@ describe('helpers', () => {
 		expect(artistImage(artist({ youtube: yt(), wikipedia: wiki }))).toBe(yt().image);
 		expect(artistImage(artist({ youtube: null, wikipedia: wiki }))).toBe(wiki.thumbnail);
 		expect(artistImage(undefined)).toBeNull();
+		// A picture from a host the page doesn't load images from is skipped.
+		const elsewhere = { ...yt(), image: 'https://tracker.example/abc.jpg' };
+		expect(artistImage(artist({ youtube: elsewhere, wikipedia: wiki }))).toBe(wiki.thumbnail);
 	});
 
 	it('links to the YouTube Music channel', () => {
