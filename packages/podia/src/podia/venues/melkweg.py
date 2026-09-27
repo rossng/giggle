@@ -29,7 +29,7 @@ from datetime import datetime, time, timedelta
 from typing import Any
 from urllib.parse import urlsplit
 
-from podia.extract import clean, next_data, parse_iso, parse_price, strip_tags
+from podia.extract import clean, next_data, parse_iso, parse_price, site_url, strip_tags
 from podia.http import Fetcher
 from podia.model import AMSTERDAM, Availability, Event, Price, Status, VenueInfo
 from podia.venue import FetchOptions, Venue, register
@@ -163,7 +163,7 @@ def _url(path: str | None) -> str | None:
     if not path:
         return None
     # Event pages live at the path with a trailing slash; without it they redirect.
-    return BASE + path.rstrip("/") + "/"
+    return site_url(BASE, path.rstrip("/") + "/")
 
 
 def _genres(a: dict[str, Any], names: dict[str, str]) -> list[str]:

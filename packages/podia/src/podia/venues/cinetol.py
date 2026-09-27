@@ -21,7 +21,7 @@ from datetime import date
 
 from selectolax.parser import HTMLParser, Node
 
-from podia.extract import clean, combine, infer_year, node_text, parse_price
+from podia.extract import clean, combine, infer_year, node_text, parse_price, site_url
 from podia.http import Fetcher
 from podia.model import Availability, Event, Price, VenueInfo
 from podia.venue import FetchOptions, Venue, register
@@ -75,7 +75,7 @@ class Cinetol(Venue):
             source_id=href.rsplit("/", 1)[-1],
             title=title,
             start=combine(day, None),
-            url=BASE + href,
+            url=site_url(BASE, href),
             subtitle=subtitle,
             city=self.info.city,
             support=[s.strip() for s in support[1].split(" + ")] if support else [],

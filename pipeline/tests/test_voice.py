@@ -1,6 +1,11 @@
+import contextlib
+import hashlib
+
+import httpx
 import numpy as np
 import pytest
 
+from giggle_pipeline import voice as voice_module
 from giggle_pipeline.voice import (
     PEAK_CEILING_DBFS,
     TARGET_RMS_DBFS,
@@ -250,3 +255,39 @@ def test_each_artist_keeps_one_announcer_and_both_are_used():
     keys = [f"mb:{i:04d}" for i in range(200)]
     assert {announcer_for(k) for k in keys} == set(ANNOUNCERS)
     assert announcer_for("mb:b017a7ae") == announcer_for("mb:b017a7ae")
+
+
+class FakeDownload:
+    """Stands in for httpx.stream: serves `body` for every model file."""
+
+    def __init__(self, body: bytes):
+        self.body, self.requests = body, 0
+
+    def __call__(self, method, url, **kwargs):
+        self.requests += 1
+        response = httpx.Response(200, content=self.body, request=httpx.Request(method, url))
+        return contextlib.nullcontext(response)
+
+
+def model_file(body: bytes) -> voice_module.ModelFile:
+    return voice_module.ModelFile("model.onnx", len(body), hashlib.sha256(body).hexdigest())
+
+
+def test_model_files_are_checked_on_download_and_reuse(tmp_path, monkeypatch):
+    body = b"weights" * 100
+    download = FakeDownload(body)
+    monkeypatch.setattr(voice_module.httpx, "stream", download)
+    spec = model_file(body)
+    path = voice_module._fetch(tmp_path, spec)
+    assert path.read_bytes() == body and download.requests == 1
+    assert voice_module._fetch(tmp_path, spec) == path and download.requests == 1
+    path.write_bytes(b"x" * len(body))  # same size, different bytes: fetched again
+    assert voice_module._fetch(tmp_path, spec).read_bytes() == body and download.requests == 2
+
+
+@pytest.mark.parametrize("served", [b"weights" * 200, b"tampered" * 100], ids=["big", "wrong"])
+def test_a_wrong_download_is_refused_and_not_kept(tmp_path, monkeypatch, served):
+    monkeypatch.setattr(voice_module.httpx, "stream", FakeDownload(served))
+    with pytest.raises(voice_module.VoiceError):
+        voice_module._fetch(tmp_path, model_file(b"weights" * 100))
+    assert list(tmp_path.iterdir()) == []

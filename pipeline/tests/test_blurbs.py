@@ -158,6 +158,35 @@ def test_ungrounded_variants_are_rejected(text, why):
     assert any(why.lower() in p.lower() for p in found), found
 
 
+@pytest.mark.parametrize(
+    "text",
+    [
+        # Lower-case claims planted in a bio: every such word must be in the facts too.
+        "a Glasgow band that stole every penny from its shoegaze fans",
+        "a Glasgow band whose singer is a convicted fraud you should avoid",
+        "a shoegaze band from Glasgow with a violent past",
+    ],
+)
+def test_lower_case_claims_must_come_from_the_facts(text):
+    f = facts(artist())
+    assert any(p.startswith("word ") for p in problems(text, f)), text
+    bio = f"Glass Harbour are a four-piece from Glasgow. {text[2:]}."
+    assert problems(text, facts(artist(lastfm={"tags": ["shoegaze"], "bio": bio}))) == []
+
+
+def test_forms_of_words_in_the_facts_pass():
+    f = facts(artist(lastfm={"tags": ["shoegaze"], "bio": "They record with a drum machine."}))
+    assert problems("a Glasgow shoegaze band recording with drum machines", f) == []
+
+
+def test_blocked_artists_and_blurbs_are_left_out(cache, monkeypatch):
+    artists = {"a": artist(), "b": artist("Other Band", key="name:other band")}
+    monkeypatch.setattr(blurbs, "BLOCKED_ARTISTS", frozenset({"b"}))
+    monkeypatch.setattr(blurbs, "BLOCKED_BLURBS", frozenset({blurbs.plain(GOOD[0])}))
+    llm = answering(lambda f: GOOD)
+    assert write_blurbs(artists, llm, cache) == {"a": GOOD[1:], "b": []}
+
+
 def test_count_words_pass_when_the_facts_say_them():
     # The bio says "four-piece"; nothing says "trio".
     f = facts(artist())

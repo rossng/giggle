@@ -23,7 +23,7 @@ from urllib.parse import urlencode
 
 from selectolax.parser import HTMLParser, Node
 
-from podia.extract import combine, infer_year, month_number, node_text, parse_price
+from podia.extract import combine, infer_year, month_number, node_text, parse_price, site_url
 from podia.http import Fetcher
 from podia.model import Availability, Event, Price, Status, VenueInfo
 from podia.venue import FetchOptions, Venue, register
@@ -89,13 +89,13 @@ class Nobel(Venue):
             source_id=slug,
             title=title,
             start=combine(day, None),
-            url=BASE + href,
+            url=site_url(BASE, href),
             subtitle=node_text(card.css_first(".content p")),
             city=self.info.city,
             genres=[t for n in card.css(".genre") if (t := node_text(n))],
             status=next((_STATUSES[s] for s in lowered if s in _STATUSES), Status.SCHEDULED),
             availability=next((_LABELS[s] for s in lowered if s in _LABELS), Availability.UNKNOWN),
-            image=BASE + src if src else None,
+            image=site_url(BASE, src),
             extra=extra,
         )
 
