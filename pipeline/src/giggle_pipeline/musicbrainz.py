@@ -15,17 +15,18 @@ from __future__ import annotations
 
 import re
 import time
-import unicodedata
 from collections.abc import Callable
 from typing import Any
 
 import httpx
 
 from giggle_pipeline.cache import Cache, key_for
+from giggle_pipeline.text import normalise
 
 API = "https://musicbrainz.org/ws/2"
 USER_AGENT = "giggle/0.1 (https://github.com/rossng/giggle)"
 DETAILS_MAX_AGE = 90 * 86400
+NO_MATCH_MAX_AGE = 30 * 86400  # new artists get added: ask about the unknown ones again
 INTERVAL = 1.1  # seconds between requests
 BACKOFF = (5, 10, 20)  # seconds to wait before each retry
 COOL_DOWN = (60, 120)  # after a lookup fails all its retries: pause, then carry on
@@ -43,12 +44,6 @@ LINK_TYPES = {
     "soundcloud": "soundcloud",
     "free streaming": "streaming",
 }
-
-
-def normalise(name: str) -> str:
-    text = unicodedata.normalize("NFKD", name).encode("ascii", "ignore").decode().lower()
-    text = re.sub(r"^the\s+", "", text)
-    return re.sub(r"[^a-z0-9]+", "", text)
 
 
 def _words(values: list[str]) -> set[str]:
@@ -96,6 +91,15 @@ class MusicBrainz:
     def exhausted(self) -> bool:
         return self.requests >= self.max_requests
 
+    def problem(self) -> str | None:
+        """Why this run's lookups need a person to look, if they do."""
+        if not self.unavailable:
+            return None
+        return (
+            f"MusicBrainz stopped answering ({self.outages} lookups failed after retries); "
+            "the rest of the night's artists weren't looked up."
+        )
+
     def _get(self, path: str, params: dict[str, str]) -> dict[str, Any]:
         backoffs = list(BACKOFF)
         sheds = list(SHED_WAITS)
@@ -133,12 +137,15 @@ class MusicBrainz:
         raise MusicBrainzUnavailable(f"{path}: still failing after {len(BACKOFF)} retries")
 
     def match(self, name: str, genres: list[str]) -> dict[str, Any] | None:
-        """The best MusicBrainz candidate for `name`, or None. Answers (including
-        "no match") are cached; returns None without caching when out of budget or
+        """The best MusicBrainz candidate for `name`, or None. Answers are cached, "no
+        match" for `NO_MATCH_MAX_AGE`; returns None without caching when out of budget or
         MusicBrainz is unavailable."""
         key = key_for("mb-match", normalise(name), sorted(_words(genres)))
         cached = self.cache.get("musicbrainz", key)
-        if cached is not None:
+        if cached is not None and (
+            cached.get("match") is not None
+            or (self.cache.age("musicbrainz", key) or 0) <= NO_MATCH_MAX_AGE
+        ):
             return cached.get("match")
         if self.exhausted or self.unavailable or not normalise(name):
             return None

@@ -9,7 +9,7 @@ from collections.abc import Iterator
 from datetime import date, datetime, time
 from typing import Any
 
-from selectolax.parser import HTMLParser
+from selectolax.parser import HTMLParser, Node
 
 from podia.model import AMSTERDAM, Price
 
@@ -31,6 +31,11 @@ def clean(text: str | None) -> str | None:
         return None
     text = _WS.sub(" ", html.unescape(text)).strip()
     return text or None
+
+
+def node_text(node: Node | None, separator: str = " ") -> str | None:
+    """A parsed node's text, cleaned (see `clean`); None for a missing node."""
+    return clean(node.text(separator=separator)) if node is not None else None
 
 
 def strip_tags(fragment: str | None) -> str | None:

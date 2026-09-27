@@ -117,6 +117,11 @@ def test_hash_is_stable():
     assert voice().clip_hash(text) == "939264aebf1fcf04bcb0"
 
 
+def test_the_real_models_name_is_pinned():
+    # Part of every clip's hash, like RENDER_VERSION: renaming it re-renders every clip.
+    assert Voice(lexicon=LEXICON).synthesizer.name == "kokoro-v1.0-fp32/en-gb"
+
+
 def test_hash_ignores_whitespace_differences():
     assert voice().clip_hash("at  Paradiso\n tonight") == voice().clip_hash("at Paradiso tonight")
 
@@ -173,7 +178,7 @@ def test_existing_clip_never_loads_the_model(tmp_path):
     path = v.path_for("Hello", tmp_path)
     path.write_bytes(b"already rendered")
     assert v.render("Hello", tmp_path) == path
-    assert v._synth is None
+    assert v.synthesizer._tts is None
     assert not (tmp_path / "no-models-here").exists()
 
 

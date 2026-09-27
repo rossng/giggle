@@ -1,6 +1,6 @@
 import pytest
 
-from giggle_pipeline.artists import artists_for, names_from_text
+from giggle_pipeline.artists import names_from_text
 
 
 @pytest.mark.parametrize(
@@ -21,12 +21,3 @@ from giggle_pipeline.artists import artists_for, names_from_text
 )
 def test_names_from_text(title, names):
     assert names_from_text(title) == names
-
-
-def test_title_leads_then_performers_and_support_without_repeats():
-    gig = {
-        "title": "Flat Earth Society - The Coltrane Mutations",
-        "performers": ["Peter Vandenberghe", "Flat Earth Society"],
-        "support": ["Ferry Lights"],
-    }
-    assert artists_for(gig) == ["Flat Earth Society", "Peter Vandenberghe", "Ferry Lights"]

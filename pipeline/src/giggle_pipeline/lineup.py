@@ -15,14 +15,22 @@ import json
 import re
 import sys
 import time
-import unicodedata
 from concurrent.futures import ThreadPoolExecutor
 from typing import Any
 
 from giggle_pipeline.artists import names_from_text
-from giggle_pipeline.cache import Cache, key_for
-from giggle_pipeline.llm import LLM, MODELS, LLMError
+from giggle_pipeline.cache import Cache
+from giggle_pipeline.llm import (
+    LLM,
+    MODELS,
+    LLMError,
+    QuotaExhausted,
+    cached_answer,
+    store_answer,
+)
+from giggle_pipeline.text import fold, plain
 
+TASK = "lineup"
 PROMPT_VERSION = 3
 BATCH = 12
 PARALLEL = 4  # concurrent requests; Workers AI allows 300 per minute
@@ -125,15 +133,6 @@ def listing(gig: dict[str, Any]) -> dict[str, Any]:
 # They run on cached answers too, so tightening one needs no new prompt version.
 
 
-def _fold(text: str) -> str:
-    """Lower case without accents; punctuation stays."""
-    return unicodedata.normalize("NFKD", text).encode("ascii", "ignore").decode().lower()
-
-
-def _plain(text: str) -> str:
-    return " ".join("".join(c if c.isalnum() else " " for c in _fold(text)).split())
-
-
 _TAGS = {"id", "type", "genres"}  # the venue's labels, not where performers are named
 
 
@@ -148,12 +147,12 @@ def texts(item: dict[str, Any]) -> list[str]:
 
 def grounded(names: list[Any], item: dict[str, Any]) -> list[str]:
     """Keep only names that appear in the listing text, without repeats."""
-    haystack = _plain(" | ".join(texts(item)))
+    haystack = plain(" | ".join(texts(item)))
     kept, seen = [], set()
     for name in names:
-        plain = _plain(name) if isinstance(name, str) else ""
-        if plain and plain in haystack and plain not in seen:
-            seen.add(plain)
+        words = plain(name) if isinstance(name, str) else ""
+        if words and words in haystack and words not in seen:
+            seen.add(words)
             kept.append(name.strip())
     return kept
 
@@ -188,7 +187,7 @@ _PLAYS_BEFORE = re.compile(r"\b(?:band|live|live\s+music|muziek|music|concert)\s
 def mentions(name: str, texts: list[str]) -> list[str]:
     """What each mention of `name` in the listing says it does: "presents", "aside"
     (a book, film or talk), "plays", or "" when it doesn't say."""
-    words = _plain(name).split()
+    words = plain(name).split()
     if not words:
         return []
     pattern = re.compile(
@@ -196,7 +195,7 @@ def mentions(name: str, texts: list[str]) -> list[str]:
     )
     roles = []
     for text in texts:
-        folded = _fold(text)
+        folded = fold(text)
         for m in pattern.finditer(folded):
             before = folded[: m.start()]
             if _PRESENTS_AFTER.match(folded, m.end()) or _PRESENTS_BEFORE.search(before):
@@ -230,7 +229,7 @@ def tidy(name: str) -> str:
     doesn't know "MINDWAR (BE)"."""
     name = _TAIL.sub("", name.strip())
     bare = _NOTE.sub("", name).strip()
-    return bare if _plain(bare) else name  # "СОЮЗ (SOYUZ)" keeps its Latin spelling
+    return bare if plain(bare) else name  # "СОЮЗ (SOYUZ)" keeps its Latin spelling
 
 
 def performers(names: list[Any], item: dict[str, Any], words: list[str]) -> list[str]:
@@ -240,7 +239,7 @@ def performers(names: list[Any], item: dict[str, Any], words: list[str]) -> list
     return [
         name
         for name in grounded(tidied, item)
-        if not _EVENT.search(name) and _plain(name) not in _FILLER and not not_playing(name, words)
+        if not _EVENT.search(name) and plain(name) not in _FILLER and not not_playing(name, words)
     ]
 
 
@@ -250,9 +249,9 @@ def checked(row: dict[str, Any], item: dict[str, Any]) -> dict[str, Any]:
     even with a film, book or talk beside it."""
     words = texts(item)
     headliners = performers(row.get("headliners") or [], item, words)
-    heads = {_plain(n) for n in headliners}
+    heads = {plain(n) for n in headliners}
     support = performers(row.get("support") or [], item, words)
-    support = [n for n in support if _plain(n) not in heads][:MAX_SUPPORT]
+    support = [n for n in support if plain(n) not in heads][:MAX_SUPPORT]
     kind = row["kind"]
     if kind == "not_music" and any("plays" in mentions(n, words) for n in headliners + support):
         kind = "concert"
@@ -273,45 +272,53 @@ def by_rules(gig: dict[str, Any]) -> dict[str, Any]:
 
 
 def parse_lineups(
-    gigs: list[dict[str, Any]], llm: LLM | None, cache: Cache, max_calls: int = 200
+    gigs: list[dict[str, Any]], llm: LLM | None, cache: Cache
 ) -> dict[str, dict[str, Any]]:
     """Line-up per gig id. Cached answers are reused; new listings go to the model in
-    batches, up to `max_calls` requests; everything else uses the title rules."""
-    model = MODELS["lineup"] if llm and llm.name != "fake" else "fake"
+    batches, as many as its budget allows (`llm.remaining`); everything else uses the
+    title rules."""
     items = {g["id"]: listing(g) for g in gigs}
-    keys = {gid: key_for(PROMPT_VERSION, model, item) for gid, item in items.items()}
     result: dict[str, dict[str, Any]] = {}
     todo = []
     for gig in gigs:
-        cached = cache.get("lineup", keys[gig["id"]])
-        if cached is not None:
-            result[gig["id"]] = {**checked(cached, items[gig["id"]]), "source": model}
+        hit = cached_answer(cache, TASK, llm, PROMPT_VERSION, items[gig["id"]])
+        if hit is not None:
+            answer, model = hit
+            result[gig["id"]] = {**checked(answer, items[gig["id"]]), "source": model}
         else:
             todo.append(gig["id"])
 
     batches = [todo[i : i + BATCH] for i in range(0, len(todo), BATCH)]
-    if llm is None:
-        batches = []
-    batches = batches[:max_calls]
+    batches = batches[: llm.remaining(TASK)] if llm is not None else []
+    if gigs:
+        print(
+            f"lineup: {len(gigs) - len(todo)} cached, {len(todo)} to ask about "
+            f"in {len(batches)} requests",
+            file=sys.stderr,
+        )
+    model = MODELS[TASK] if llm is not None and llm.name != "fake" else "fake"
 
-    def ask(batch: list[str]) -> tuple[list[str], dict[str, Any] | None, str | None]:
+    def ask(batch: list[str]) -> tuple[list[str], dict[str, Any] | None, LLMError | None]:
         user = json.dumps([items[gid] for gid in batch], ensure_ascii=False)
         try:
-            answer = llm.json("lineup", SYSTEM, user, SCHEMA)
-            rows = {r.get("id"): r for r in answer.get("listings", []) if isinstance(r, dict)}
+            answer = llm.json(TASK, SYSTEM, user, SCHEMA)
+            rows = {r.get("id"): r for r in answer["listings"] if isinstance(r, dict)}
             return batch, rows, None
-        except (LLMError, AttributeError) as exc:
-            return batch, None, str(exc)[:200]
+        except LLMError as exc:
+            return batch, None, exc
 
     # Requests run in parallel; the cache (SQLite) is only written from this thread.
     # Listings left unanswered (missing, invalid or misplaced) are asked again next run.
     started = time.monotonic()
     failed = unanswered = 0
+    quota_noted = False
     with ThreadPoolExecutor(max_workers=PARALLEL) as pool:
         for done, (batch, rows, error) in enumerate(pool.map(ask, batches), 1):
             if rows is None:
                 failed += 1
-                print(f"lineup: batch failed, using title rules: {error}", file=sys.stderr)
+                if not isinstance(error, QuotaExhausted) or not quota_noted:
+                    print(f"lineup: batch failed, using title rules: {error}", file=sys.stderr)
+                quota_noted = quota_noted or isinstance(error, QuotaExhausted)
             else:
                 for gid in batch:
                     row = rows.get(gid)
@@ -326,7 +333,7 @@ def parse_lineups(
                     if misplaced(raw, items[gid]):
                         unanswered += 1
                         continue
-                    cache.put("lineup", keys[gid], raw)
+                    store_answer(cache, TASK, llm, PROMPT_VERSION, items[gid], raw)
                     result[gid] = {**checked(raw, items[gid]), "source": model}
             if done % 10 == 0 or done == len(batches):
                 elapsed = time.monotonic() - started

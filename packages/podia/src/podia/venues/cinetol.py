@@ -21,7 +21,7 @@ from datetime import date
 
 from selectolax.parser import HTMLParser, Node
 
-from podia.extract import clean, combine, infer_year, parse_price
+from podia.extract import clean, combine, infer_year, node_text, parse_price
 from podia.http import Fetcher
 from podia.model import Availability, Event, Price, VenueInfo
 from podia.venue import FetchOptions, Venue, register
@@ -57,13 +57,13 @@ class Cinetol(Venue):
         return e
 
     def _card(self, item: Node, since: date) -> Event | None:
-        title = _text(item.css_first('[fs-list-field="name"]'))
+        title = node_text(item.css_first('[fs-list-field="name"]'), "")
         link = item.css_first('a[href^="/events/"]')
         day = _day(item, since)
         if not title or link is None or day is None:
             return None
         href = link.attributes["href"] or ""
-        subtitle = _text(item.css_first('[fs-list-field="support"]'))
+        subtitle = node_text(item.css_first('[fs-list-field="support"]'), "")
         support = _SUPPORT.search(subtitle or "")
         image = item.css_first(".card_image_wrapper img")
         sold_out = item.css_first(".sold-out") is not None
@@ -79,7 +79,7 @@ class Cinetol(Venue):
             subtitle=subtitle,
             city=self.info.city,
             support=[s.strip() for s in support[1].split(" + ")] if support else [],
-            genres=[t for n in item.css('[fs-list-field="genre"]') if (t := _text(n))],
+            genres=[t for n in item.css('[fs-list-field="genre"]') if (t := node_text(n, ""))],
             availability=Availability.SOLD_OUT if sold_out else Availability.UNKNOWN,
             image=image.attributes.get("src") if image is not None else None,
             extra=extra,
@@ -98,18 +98,16 @@ class Cinetol(Venue):
         return node.html or text
 
 
-def _text(node: Node | None) -> str | None:
-    return clean(node.text()) if node is not None else None
-
-
 def _day(item: Node, since: date) -> date | None:
     """The card shows "Sat 26 . 09" plus hidden filter tags "Sep" and "2026"."""
-    parts = [_text(n) for n in item.css(".card_location .event_date-flex .card_text")]
+    parts = [node_text(n, "") for n in item.css(".card_location .event_date-flex .card_text")]
     numbers = [int(p) for p in parts if p and p.isdigit()]
     if len(numbers) != 2:
         return None
     day, month = numbers
-    years = [int(t) for n in item.css(".event-tag.filter") if (t := _text(n)) and t.isdigit()]
+    years = [
+        int(t) for n in item.css(".event-tag.filter") if (t := node_text(n, "")) and t.isdigit()
+    ]
     if years:
         return date(years[0], month, day)
     return infer_year(month, day, since)
@@ -130,12 +128,12 @@ def _add_detail(event: Event, tree: HTMLParser) -> None:
     day = event.start.date()
     prices: list[str] = []
     for row in info.css(".section_event-door-wrapper"):
-        cells = [t for n in row.iter() if (t := _text(n))]
+        cells = [t for n in row.iter() if (t := node_text(n, ""))]
         if not cells:
             continue
         label = cells[0].rstrip(":").strip().lower()
         if label == "location":
-            rooms = [t for n in row.css('[role="listitem"]') if (t := _text(n))]
+            rooms = [t for n in row.css('[role="listitem"]') if (t := node_text(n, ""))]
             if rooms:
                 event.room = ", ".join(rooms)
         elif label == "doors" and len(cells) > 1 and _CLOCK.search(cells[1]):

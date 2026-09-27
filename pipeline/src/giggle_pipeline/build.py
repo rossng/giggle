@@ -7,9 +7,13 @@ Writes to --out:
   gigs.json            the events giggle keeps, with line-ups, plus venue details
   artists.json         everyone playing, with MusicBrainz details where matched
   excluded.json        everything left out, each with its reason
-  health.json          per-venue counts, timings, errors and problems
+  health.json          per-venue counts, timings, errors and problems, and the pipeline's
+                       own problems (LLM quota, YouTube Music, voice, MusicBrainz)
   health-history.json  recent nightly counts, the baseline for spotting broken venues
   pronunciation.json   the announcers' lexicon (pronunciation.toml), for voices in the browser
+  voice/               the announcer clips artists.json uses (rendered into the cache's voice/)
+
+Every URL in the JSON is http(s): anything else is dropped (see urls.py).
 """
 
 from __future__ import annotations
@@ -25,18 +29,22 @@ from typing import Any
 
 from giggle_pipeline import blurbs as blurbs_mod
 from giggle_pipeline import health
+from giggle_pipeline import lineup as lineup_mod
 from giggle_pipeline.cache import Cache
-from giggle_pipeline.clips import render_intros
+from giggle_pipeline.clips import MAX_SECONDS, Intros, render_intros
 from giggle_pipeline.collect import collect_live, collect_replay
 from giggle_pipeline.dedupe import merge_duplicates, place
 from giggle_pipeline.details import fetch_details
 from giggle_pipeline.enrich import enrich_artists, trusted_identity
+from giggle_pipeline.health import PipelineProblem
 from giggle_pipeline.lastfm import LastFM
-from giggle_pipeline.lineup import fake_answer, parse_lineups
-from giggle_pipeline.llm import LLM, FakeLLM, LLMError, WorkersAI
+from giggle_pipeline.lineup import parse_lineups
+from giggle_pipeline.llm import Client as LLMClient
+from giggle_pipeline.llm import FakeLLM, LLMError, WorkersAI
 from giggle_pipeline.musicbrainz import MusicBrainz
 from giggle_pipeline.scope import exclusion_reason, load_rules
-from giggle_pipeline.voice import Lexicon
+from giggle_pipeline.urls import web_urls_only
+from giggle_pipeline.voice import Lexicon, announcer_for
 from giggle_pipeline.wikipedia import Wikipedia
 from giggle_pipeline.ytmusic import ArtistLookup
 from podia import Client, Event, all_venues
@@ -59,21 +67,53 @@ def load_dotenv(path: Path = Path(".env")) -> None:
                 os.environ.setdefault(key.strip(), value.strip().strip("\"'"))
 
 
-def make_llm(choice: str) -> LLM | None:
+FAKE_ANSWERS = {"lineup": lineup_mod.fake_answer, "blurb": blurbs_mod.fake_answer}
+
+
+def fake_llm() -> FakeLLM:
+    """Title rules for line-ups and blurbs pieced together from the facts: offline runs."""
+    return FakeLLM(lambda task, user: FAKE_ANSWERS[task](task, user))
+
+
+def make_llm(choice: str, max_calls: int, lineup_max_calls: int) -> LLMClient | None:
+    """The run's model, with its request budget: `max_calls` in all, of which line-ups
+    may use `lineup_max_calls`, so blurbs always get the rest."""
     if choice == "none":
         return None
     if choice == "fake":
-        return FakeLLM(fake_answer)
+        return fake_llm()
     try:
-        return WorkersAI.from_env()
+        return WorkersAI.from_env(max_calls=max_calls, task_max_calls={"lineup": lineup_max_calls})
     except LLMError as exc:
         if choice == "workers":
             raise
         print(f"llm: {exc}; using title rules (fake LLM) instead", file=sys.stderr)
-        return FakeLLM(fake_answer)
+        return fake_llm()
+
+
+def pipeline_problems(
+    llm: LLMClient | None, youtube: ArtistLookup, mb: MusicBrainz, intros: Intros
+) -> list[PipelineProblem]:
+    """What ran degraded tonight. `cause` says what's wrong without tonight's numbers,
+    so an open issue is only updated when that changes."""
+    found = []
+    if llm is not None and (message := llm.problem()):
+        cause = "daily quota" if llm.quota_exhausted else "failing requests"
+        found.append(PipelineProblem("llm", message, cause))
+    if message := youtube.problem():
+        found.append(
+            PipelineProblem("ytmusic", message, "stopped" if youtube.gave_up else "errors")
+        )
+    if intros.error:
+        message = f"Announcer clips couldn't be rendered ({intros.left} waiting): {intros.error}"
+        found.append(PipelineProblem("voice", message, intros.error))
+    if message := mb.problem():
+        found.append(PipelineProblem("musicbrainz", message, "unavailable"))
+    return found
 
 
 def write_json(path: Path, data: Any) -> None:
+    data = web_urls_only(data)
     path.write_text(json.dumps(data, ensure_ascii=False, indent=1) + "\n")
 
 
@@ -90,7 +130,19 @@ def main(argv: list[str] | None = None) -> int:
         default="auto",
         help="auto: Workers AI if credentials are set, else title rules",
     )
-    parser.add_argument("--llm-max-calls", type=int, default=200)
+    parser.add_argument(
+        "--llm-max-calls",
+        type=int,
+        default=200,
+        help="Workers AI requests per run, line-ups and blurbs together (the free tier "
+        "allows ~200 a day)",
+    )
+    parser.add_argument(
+        "--llm-lineup-max-calls",
+        type=int,
+        default=120,
+        help="of those, the most line-ups may use; blurbs get the rest",
+    )
     parser.add_argument(
         "--mb-max-requests",
         type=int,
@@ -109,6 +161,12 @@ def main(argv: list[str] | None = None) -> int:
         type=int,
         default=600,
         help="announcer clips rendered per run (soonest gigs first; the rest wait for next run)",
+    )
+    parser.add_argument(
+        "--clip-minutes",
+        type=float,
+        default=MAX_SECONDS / 60,
+        help="stop rendering clips after this long, so the nightly job never times out",
     )
     parser.add_argument(
         "--details-max-per-venue",
@@ -142,13 +200,17 @@ def main(argv: list[str] | None = None) -> int:
             else:
                 kept_by_scope.append(event)
 
+    in_scope = {r.venue: 0 for r in results}
+    for event in kept_by_scope:
+        in_scope[event.venue] += 1
+
     gigs, merged = merge_duplicates(kept_by_scope)
     for dropped, twin in merged:
         excluded.append(gig(dropped, reason=f"duplicate of {twin.venue}:{twin.source_id}"))
 
-    llm = make_llm(args.llm)
+    llm = make_llm(args.llm, args.llm_max_calls, args.llm_lineup_max_calls)
     records = [gig(e) for e in gigs]
-    lineups = parse_lineups(records, llm, cache, max_calls=args.llm_max_calls)
+    lineups = parse_lineups(records, llm, cache)
     kept_records = []
     for record in records:
         record["lineup"] = lineups[record["id"]]
@@ -175,33 +237,40 @@ def main(argv: list[str] | None = None) -> int:
         youtube.save()
 
     # Announcer blurbs (LLM, grounded in the facts above) and their voice clips, soonest
-    # gigs first; clips land in <out>/voice/ and are never re-rendered.
-    # Only artists the radio can play get introduced, so only they need blurbs and clips.
-    # enrich_artists adds artists soonest gig first.
-    # Only described when we're sure who they are (see trusted_identity).
-    order = [
-        k
-        for k, a in artists.items()
-        if (a.get("youtube") or {}).get("songs") and trusted_identity(a)
-    ]
-    blurb_llm = FakeLLM(blurbs_mod.fake_answer) if llm and llm.name == "fake" else llm
-    blurbs = blurbs_mod.write_blurbs(artists, blurb_llm, cache, order, max_calls=args.llm_max_calls)
-    fake = offline or blurb_llm is None or blurb_llm.name == "fake"
-    max_clips = 0 if fake else args.max_clips
-    intros = render_intros(artists, blurbs, order, args.out, max_renders=max_clips)
+    # gigs first (enrich_artists adds artists soonest gig first). Clips are rendered into
+    # the clip cache, never twice, and the ones used are copied to <out>/voice/.
+    # Only artists the radio can play get introduced, so only they need blurbs and clips,
+    # and only when we're sure who they are (see trusted_identity).
+    playable = [k for k, a in artists.items() if (a.get("youtube") or {}).get("songs")]
+    order = [k for k in playable if trusted_identity(artists[k])]
+    blurbs = blurbs_mod.write_blurbs(artists, llm, cache, order)
+    fake = offline or llm is None or llm.name == "fake"
+    intros = render_intros(
+        artists,
+        blurbs,
+        order,
+        args.cache.parent / "voice",
+        args.out,
+        today=args.since,
+        max_renders=0 if fake else args.max_clips,
+        max_seconds=args.clip_minutes * 60,
+    )
     for key, artist in artists.items():
         artist["blurbs"] = blurbs.get(key, [])
         artist["announce"] = [
             {"text": c["text"], "clip": c["file"], "seconds": c["seconds"], "voice": c["voice"]}
-            for c in intros.get(key, [])
+            for c in intros.clips.get(key, [])
         ]
+    for key in playable:  # the voice the browser speaks the live gig line in
+        artists[key]["announcer"] = announcer_for(key)
     cache.close()
 
     history: list[dict] = []
     if args.history and args.history.exists():
         history = json.loads(args.history.read_text())
-    problems = health.assess(results, history)
     today = args.since.isoformat()
+    problems = health.assess(results, history, in_scope, today)
+    pipeline = pipeline_problems(llm, youtube, mb, intros)
 
     args.out.mkdir(parents=True, exist_ok=True)
     venues = {slug: asdict(cls.info) for slug, cls in all_venues().items()}
@@ -216,13 +285,15 @@ def main(argv: list[str] | None = None) -> int:
     )
     write_json(args.out / "artists.json", {"artists": artists})
     write_json(args.out / "excluded.json", sorted(excluded, key=lambda e: e["start"]))
-    write_json(args.out / "health.json", health.report(results, problems, today))
+    write_json(
+        args.out / "health.json", health.report(results, problems, today, pipeline, in_scope)
+    )
     # The browser's Kokoro says the live lines (gig, track names), so it needs the same
     # pronunciations as the pre-rendered clips.
     lexicon = [asdict(e) for e in Lexicon.load().entries]
     write_json(args.out / "pronunciation.json", {"names": lexicon})
     if not args.replay:  # replayed fixtures would pollute the baseline
-        runs = health.updated_history(history, results, today)
+        runs = health.updated_history(history, results, today, in_scope, problems)
         write_json(args.out / "health-history.json", runs)
 
     print(f"{'venue':18}{'events':>7}{'kept':>6}{'secs':>7}  status")
@@ -240,8 +311,11 @@ def main(argv: list[str] | None = None) -> int:
     sources: dict[str, int] = {}
     for record in kept_records:
         sources[record["lineup"]["source"]] = sources.get(record["lineup"]["source"], 0) + 1
+    requests = f"{llm.calls} LLM requests" if llm else "no LLM"
+    if llm is not None and llm.max_calls is not None:
+        requests += f" of {llm.max_calls}"
     print("\nline-ups: " + ", ".join(f"{n} from {s}" for s, n in sources.items())
-          + f" ({getattr(llm, 'calls', 0)} LLM calls, {cache.hits} cached)")  # fmt: skip
+          + f" ({requests})")  # fmt: skip
     matched = sum(1 for a in artists.values() if a["match"])
     with_lastfm = sum(1 for a in artists.values() if a["lastfm"])
     with_wiki = sum(1 for a in artists.values() if a["wikipedia"])
@@ -261,10 +335,11 @@ def main(argv: list[str] | None = None) -> int:
         print(f"musicbrainz: {mb.outages} failed lookups; {state}", file=sys.stderr)
     print(f"{len(kept_records)} gigs kept, {len(excluded)} left out: " + ", ".join(
         f"{n} {reason}" for reason, n in sorted(reasons.items(), key=lambda x: -x[1])))  # fmt: skip
-    for p in problems:
-        print(f"problem: {p.venue}: {p.message}", file=sys.stderr)
+    for line in health.warnings(problems, pipeline):
+        print(line)  # GitHub Actions shows these on the run's summary
 
-    # Broken venues are reported via health.json; only fail when nothing usable came out.
+    # Broken venues and degraded steps are reported via health.json (giggle-issues opens
+    # issues for them); only fail when nothing usable came out.
     return 0 if kept_records else 1
 
 

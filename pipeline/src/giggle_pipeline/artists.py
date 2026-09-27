@@ -1,14 +1,11 @@
-"""Artist names from a gig listing, by simple rules.
-
-This is a stopgap until the LLM step parses titles properly: it uses the venue's
-structured performers and support acts when there are any, and otherwise splits the
-title on the separators venues commonly use ("A + B", "A w/ B", "A • Festival").
+"""Artist names from a gig title, by simple rules: the line-up fallback when the LLM
+can't answer (and the fake LLM's answers). Splits the title on the separators venues
+commonly use ("A + B", "A w/ B", "A • Festival").
 """
 
 from __future__ import annotations
 
 import re
-from typing import Any
 
 _PREFIX = re.compile(
     r"^(uitverkocht|sold out|verplaatst|nieuwe datum|extra show|afgelast|geannuleerd|"
@@ -41,18 +38,3 @@ def names_from_text(text: str) -> list[str]:
         if len(part) > 1 and part.lower() not in _NOISE:
             names.append(part)
     return names
-
-
-def artists_for(gig: dict[str, Any], limit: int = 3) -> list[str]:
-    """Names from the title first, then the venue's performers and support acts.
-
-    The title leads because some venues' "performers" are a band's members."""
-    names = names_from_text(gig["title"]) + list(gig.get("performers") or [])
-    for support in gig.get("support") or []:
-        names.extend(names_from_text(support))
-    seen, unique = set(), []
-    for name in names:
-        if name.lower() not in seen:
-            seen.add(name.lower())
-            unique.append(name)
-    return unique[:limit]

@@ -23,7 +23,7 @@ from urllib.parse import urlencode
 
 from selectolax.parser import HTMLParser, Node
 
-from podia.extract import clean, combine, infer_year, month_number, parse_price
+from podia.extract import combine, infer_year, month_number, node_text, parse_price
 from podia.http import Fetcher
 from podia.model import Availability, Event, Price, Status, VenueInfo
 from podia.venue import FetchOptions, Venue, register
@@ -71,15 +71,15 @@ class Nobel(Venue):
     def _card(self, card: Node, since: date) -> Event | None:
         href = card.attributes.get("href") or ""
         slug = href.rsplit("/", 1)[-1]
-        title = _text(card.css_first(".content h3"))
-        day = _slug_date(slug) or _card_date(_text(card.css_first(".time")), since)
+        title = node_text(card.css_first(".content h3"))
+        day = _slug_date(slug) or _card_date(node_text(card.css_first(".time")), since)
         if not title or day is None:
             return None
-        labels = list(dict.fromkeys(t for n in card.css(".special-label") if (t := _text(n))))
+        labels = list(dict.fromkeys(t for n in card.css(".special-label") if (t := node_text(n))))
         extra: dict[str, object] = {"time_known": False}
         if labels:
             extra["labels"] = labels
-        if age := _text(card.css_first(".age")):
+        if age := node_text(card.css_first(".age")):
             extra["age"] = age
         image = card.css_first(".image img")
         src = image.attributes.get("src") if image is not None else None
@@ -90,9 +90,9 @@ class Nobel(Venue):
             title=title,
             start=combine(day, None),
             url=BASE + href,
-            subtitle=_text(card.css_first(".content p")),
+            subtitle=node_text(card.css_first(".content p")),
             city=self.info.city,
-            genres=[t for n in card.css(".genre") if (t := _text(n))],
+            genres=[t for n in card.css(".genre") if (t := node_text(n))],
             status=next((_STATUSES[s] for s in lowered if s in _STATUSES), Status.SCHEDULED),
             availability=next((_LABELS[s] for s in lowered if s in _LABELS), Availability.UNKNOWN),
             image=BASE + src if src else None,
@@ -115,10 +115,6 @@ class Nobel(Venue):
             return "\n".join(f'<a href="{a.attributes["href"]}" class="event"></a>' for a in links)
         kept = "\n".join(n.html or "" for n in nodes)
         return re.sub(r"\s*\n\s*", "\n", kept) if kept else text
-
-
-def _text(node: Node | None) -> str | None:
-    return clean(node.text(separator=" ")) if node is not None else None
 
 
 def _slug_date(slug: str) -> date | None:
@@ -151,7 +147,7 @@ def _event_types(fetch: Fetcher, page: HTMLParser) -> dict[str, list[str]]:
     for box in form.css('input[name^="type["]'):
         name, value = box.attributes.get("name"), box.attributes.get("value")
         label = form.css_first(f'label[for="{box.attributes.get("id")}"]')
-        if not name or not value or label is None or not (type_name := _text(label)):
+        if not name or not value or label is None or not (type_name := node_text(label)):
             continue
         # The filter goes in the URL itself so `redact` can tell these pages apart.
         r = fetch.get(f"{AGENDA}?{urlencode({name: value})}")
@@ -175,7 +171,7 @@ def _add_detail(event: Event, tree: HTMLParser) -> None:
         return
     genres = " ".join(event.genres)
     for span in info.css(".info--tags > span"):
-        text = _text(span)
+        text = node_text(span)
         if not text or "age" in (span.attributes.get("class") or ""):
             continue
         if _CLOCK.match(text):
@@ -195,21 +191,21 @@ def _add_detail(event: Event, tree: HTMLParser) -> None:
     if event.availability is Availability.UNKNOWN and event.ticket_url:
         event.availability = Availability.ON_SALE
     for heading in tree.css("section.event-content h3"):
-        text = _text(heading) or ""
+        text = node_text(heading) or ""
         if text.lower().startswith("support:"):
             names = [s.strip() for s in text.split(":", 1)[1].split(" + ") if s.strip()]
             event.support += [n for n in names if n not in event.support]
-    if intro := _text(tree.css_first("section.event-content p.event-intro")):
+    if intro := node_text(tree.css_first("section.event-content p.event-intro")):
         event.description = intro
 
 
 def _price(tickets: Node) -> Price | None:
     """ "Prijs vanaf: € 29,90" is a lowest price; a title "Gratis entree" means free."""
-    title = _text(tickets.css_first(".tickets-title"))
+    title = node_text(tickets.css_first(".tickets-title"))
     if title and "gratis" in title.lower():
         return Price(0.0, 0.0, title)
     for p in tickets.css("p"):
-        text = _text(p)
+        text = node_text(p)
         if text and "€" in text:
             amount = parse_price(text.split(":", 1)[-1])
             if amount is not None and amount.min_eur is not None:

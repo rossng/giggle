@@ -53,7 +53,7 @@ def answering(variants_for):
 
     def answer(task, user):
         assert task == "blurb"
-        items = json.loads(user.split("\n/no_think")[0])
+        items = json.loads(user)
         seen.append(items)
         return {"artists": [{"id": i["id"], "variants": variants_for(i)} for i in items]}
 
@@ -184,7 +184,8 @@ def test_batches_in_order_within_the_budget(cache):
     artists = {f"k{i}": artist(f"Band {i}", key=f"k{i}") for i in range(20)}
     llm = answering(lambda f: GOOD)
     order = [f"k{i}" for i in reversed(range(20))]  # soonest first
-    result = write_blurbs(artists, llm, cache, order=order, max_calls=2, workers=2)
+    llm.max_calls = 2
+    result = write_blurbs(artists, llm, cache, order=order, workers=2)
     assert llm.calls == 2
     assert set(result) == set(order[: 2 * blurbs.BATCH])
     assert all(v == GOOD for v in result.values())

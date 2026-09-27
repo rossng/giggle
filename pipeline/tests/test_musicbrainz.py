@@ -6,7 +6,7 @@ import httpx
 import pytest
 
 from giggle_pipeline.cache import Cache
-from giggle_pipeline.musicbrainz import DETAILS_MAX_AGE, MusicBrainz, phrase
+from giggle_pipeline.musicbrainz import DETAILS_MAX_AGE, NO_MATCH_MAX_AGE, MusicBrainz, phrase
 
 FIXTURES = Path(__file__).parent / "fixtures" / "musicbrainz"
 NOUVELLE_VAGUE = "b017a7ae-e5ee-4675-bb13-c83346134971"  # the French bossa nova band
@@ -109,6 +109,18 @@ def test_no_exact_name_is_no_match_and_cached(cache):
     assert mb.match("Buena Vista Social", ["latin"]) is None
     assert mb.match("Buena Vista Social", ["latin"]) is None
     assert len(server.requests) == 1, "the 'no match' answer is cached"
+
+
+def test_no_match_is_asked_again_after_a_while_but_a_match_is_kept(cache):
+    server = Server()
+    mb, _ = client(cache, server)
+    mb.match("Buena Vista Social", ["latin"])
+    mb.match("Kaizers Orchestra", [])
+    cache.db.execute("UPDATE cache SET created = created - ?", (NO_MATCH_MAX_AGE + 60,))
+    assert mb.match("Kaizers Orchestra", []) is not None
+    assert len(server.requests) == 2
+    assert mb.match("Buena Vista Social", ["latin"]) is None
+    assert len(server.requests) == 3, "an old 'no match' is looked up again"
 
 
 def test_names_are_escaped_in_the_query():
