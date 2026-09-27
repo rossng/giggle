@@ -4,6 +4,7 @@
 	import { onMount } from 'svelte';
 	import { page } from '$app/state';
 	import Wordmark from '$lib/components/Wordmark.svelte';
+	import AboutDialog from './AboutDialog.svelte';
 	import { radioApp } from '$lib/radio/app.svelte';
 	import { sync } from '$lib/sync/app';
 	import type { SyncStatus } from '$lib/sync/client';
@@ -13,6 +14,7 @@
 	let status = $state<SyncStatus | null>(null);
 	onMount(() => sync?.subscribe((s) => (status = s)));
 	const signedIn = $derived(!!status?.user);
+	let aboutOpen = $state(false);
 </script>
 
 <header class="top">
@@ -25,6 +27,9 @@
 			>
 		{/each}
 	</nav>
+	<button type="button" class="about" aria-haspopup="dialog" onclick={() => (aboutOpen = true)}
+		>About</button
+	>
 	<a
 		class="account"
 		href="/account"
@@ -33,6 +38,7 @@
 		>{signedIn ? 'Account' : 'Sign in'}</a
 	>
 </header>
+<AboutDialog bind:open={aboutOpen} />
 
 <style>
 	.top {
@@ -70,8 +76,22 @@
 		background: var(--p2);
 		color: var(--ink);
 	}
-	.account {
+	.about {
 		margin-left: auto;
+		border: 0;
+		background: none;
+		color: var(--mute);
+		font: inherit;
+		font-weight: 500;
+		font-size: 14px;
+		padding: 7px 11px;
+		border-radius: 8px;
+		cursor: pointer;
+	}
+	.about:hover {
+		color: var(--ink);
+	}
+	.account {
 		font-weight: 500;
 	}
 	@media (max-width: 700px) {
@@ -80,7 +100,8 @@
 		}
 	}
 	@media (hover: none) and (pointer: coarse) {
-		.account {
+		.account,
+		.about {
 			padding: 12px 14px;
 		}
 	}

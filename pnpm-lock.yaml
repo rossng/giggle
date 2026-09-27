@@ -34,6 +34,9 @@ importers:
       phonemizer:
         specifier: 1.2.1
         version: 1.2.1
+      seal-of-slop:
+        specifier: 0.1.1
+        version: 0.1.1
     devDependencies:
       '@sveltejs/adapter-static':
         specifier: ^3.0.10
@@ -1462,6 +1465,10 @@ packages:
     resolution: {integrity: sha512-xal3CZX1Xlo/k4ApwCFrHVACi9fBqJ7V+mwhBsuf/1IOKbBy098Fex+Wa/5QMubw09pSZ/u8EY8PWgevJsXp1A==}
     engines: {node: '>=6'}
 
+  seal-of-slop@0.1.1:
+    resolution: {integrity: sha512-FdYklCvqjxASvX/96ougjUrk6RtvYH8aA5sGNgxJpr9Izj268G/pYLw1kmWW6wA4wNvCInION8onjCATLVeuyw==}
+    engines: {node: '>=20'}
+
   semver-compare@1.0.0:
     resolution: {integrity: sha512-YM3/ITh2MJ5MtzaM429anh+x2jiLVjqILF4m4oyQB18W7Ggea7BfqdH/wGMK7dDiMghv/6WG7znWMwUDzJiXow==}
 
@@ -2878,6 +2885,8 @@ snapshots:
   sade@1.8.1:
     dependencies:
       mri: 1.2.0
+
+  seal-of-slop@0.1.1: {}
 
   semver-compare@1.0.0: {}
 
