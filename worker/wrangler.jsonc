@@ -35,8 +35,8 @@
 		{
 			"binding": "DB",
 			"database_name": "giggle",
-			// Set to the id printed by `wrangler d1 create giggle` before the first deploy.
-			"database_id": "00000000-0000-0000-0000-000000000000",
+			// From `wrangler d1 create giggle` (WEUR); not a secret.
+			"database_id": "a1681d28-13ef-4de0-8cf0-f53eb0c6112b",
 			"migrations_dir": "migrations"
 		}
 	],
