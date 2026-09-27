@@ -5,11 +5,15 @@
 	import {
 		browserSupportsWebAuthn,
 		createPasskey,
+		listPasskeys,
 		me,
 		problem,
+		removePasskey,
 		signIn,
 		signOut,
-		type Me
+		signOutEverywhere,
+		type Me,
+		type PasskeyInfo
 	} from '$lib/account/passkeys';
 	import More from '$lib/components/pages/More.svelte';
 	import { sync } from '$lib/sync/app';
@@ -19,10 +23,28 @@
 	let busy = $state(false);
 	let message: string | null = $state(null);
 	let supported = $state(true);
+	let passkeys: PasskeyInfo[] = $state([]);
 
 	async function refresh() {
 		account = await me().catch(() => null);
+		passkeys = account?.via === 'passkey' ? await listPasskeys().catch(() => passkeys) : [];
 		loaded = true;
+	}
+
+	const day = (iso: string) =>
+		new Date(iso).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
+
+	function remove(p: PasskeyInfo) {
+		if (!confirm('Remove this passkey? It will no longer sign in to giggle.')) return;
+		void run(
+			() => removePasskey(p.id),
+			'Passkey removed. Also delete it from your password manager or device.'
+		);
+	}
+
+	function everywhere() {
+		if (!confirm('Sign out on every device, this one included?')) return;
+		void run(signOutEverywhere, 'Signed out everywhere. Your data stays on this device.');
 	}
 
 	onMount(() => {
@@ -80,6 +102,9 @@
 					onclick={() => run(signOut, 'Signed out. Your data stays on this device.')}
 					>Sign out</button
 				>
+				{#if account.via === 'passkey'}
+					<button class="button" disabled={busy} onclick={everywhere}>Sign out everywhere</button>
+				{/if}
 			</div>
 		</section>
 		{#if account.via === 'passkey'}
@@ -97,6 +122,33 @@
 						>Add a passkey on this device</button
 					>
 				</div>
+			</More>
+			<More label="Passkeys" summary={`${passkeys.length}`}>
+				<ul class="passkeys">
+					{#each passkeys as p (p.id)}
+						<li>
+							<div>
+								<strong
+									>{p.device_type === 'multiDevice'
+										? 'Synced passkey'
+										: 'Passkey on one device'}</strong
+								>
+								<span class="note">
+									Added {day(p.created)}{p.last_used ? ` · last used ${day(p.last_used)}` : ''}
+								</span>
+							</div>
+							<button
+								class="button"
+								disabled={busy || passkeys.length < 2}
+								title={passkeys.length < 2 ? 'Your only passkey: add another first' : undefined}
+								onclick={() => remove(p)}>Remove</button
+							>
+						</li>
+					{/each}
+				</ul>
+				<p class="note">
+					Lost a device? Remove its passkey, then sign out everywhere so its session ends too.
+				</p>
 			</More>
 		{/if}
 	{:else}
@@ -152,6 +204,26 @@
 		display: flex;
 		flex-wrap: wrap;
 		gap: 8px;
+	}
+	.passkeys {
+		list-style: none;
+		margin: 0 0 10px;
+		padding: 0;
+		display: flex;
+		flex-direction: column;
+		gap: 8px;
+	}
+	.passkeys li {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 12px;
+	}
+	.passkeys li > div {
+		display: flex;
+		flex-direction: column;
+		gap: 2px;
+		min-width: 0;
 	}
 	button:disabled {
 		opacity: 0.6;

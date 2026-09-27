@@ -65,6 +65,7 @@ function plain(status: number, message: string, headers: HeadersInit = {}): Resp
 		headers: {
 			'Content-Type': 'text/plain; charset=utf-8',
 			'Cache-Control': 'no-store',
+			'X-Content-Type-Options': 'nosniff',
 			...headers
 		}
 	});

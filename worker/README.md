@@ -4,7 +4,10 @@ One Cloudflare Worker serves the whole site:
 
 - **Static files** (the SPA in `web/build`, gig data under `/data/`) come from Workers static
   assets, with `not_found_handling = "single-page-application"`. The Worker code doesn't run
-  for them.
+  for them. `web/static/_headers` gives them security headers (`frame-ancestors 'none'`,
+  `X-Frame-Options: DENY`, nosniff, a referrer policy and a permissions policy); what pages may
+  load is the CSP `<meta>` SvelteKit writes into each page (`kit.csp` in `web/vite.config.ts`).
+  Neither applies to the Worker's own responses, which set their headers in `src/`.
 - **`/api/*`** (`run_worker_first`) is personal data, stored per user in D1 (`DB`): the board,
   unavailable dates and the radio's play history. Settings may come later.
 - **`/models/*`** (`run_worker_first`) is the browser's Kokoro model, from R2 (`MODELS`): public,
@@ -12,7 +15,9 @@ One Cloudflare Worker serves the whole site:
 
 ## API
 
-All JSON, all `Cache-Control: no-store`. Errors are `{"error": "..."}`.
+All JSON, all `Cache-Control: no-store` and `X-Content-Type-Options: nosniff`. Errors are
+`{"error": "..."}`. Every POST and PUT needs `Content-Type: application/json` (else 415), so a
+cross-site form can't make one.
 
 | Request | Response |
 | --- | --- |
@@ -22,6 +27,9 @@ All JSON, all `Cache-Control: no-store`. Errors are `{"error": "..."}`.
 | `POST /api/passkey/login/options` `{}` | `{ticket, options}`: WebAuthn request options (any giggle passkey) |
 | `POST /api/passkey/login/verify` `{ticket, response}` | `{user, via}` + session cookie |
 | `POST /api/logout` `{}` | ends this browser's session |
+| `POST /api/logout-everywhere` `{}` | ends every session of this account, this browser's too |
+| `GET /api/passkeys` | `{passkeys: [{id, created, last_used, device_type, backed_up, transports}]}`, oldest first (no public keys); `[]` for the dev identity |
+| `DELETE /api/passkeys/<id>` | removes one of this account's passkeys; 409 for the last one, 404 for anyone else's |
 | `GET /api/<collection>?since=<cursor>` | `{items, cursor, more}`: rows changed after `cursor` (omit for all), tombstones included, at most 1000 per page; ask again with `cursor` while `more` |
 | `PUT /api/<collection>` `{items: [...]}` | `{items}`: the stored rows for those keys after last-write-wins |
 
@@ -54,6 +62,26 @@ from 0001's `board_items` with their keys, times and seqs, so existing cursors s
 
 The web client is `web/src/lib/sync/` (`SyncClient` over `collection.ts`/`collections.ts`).
 
+## Rate limits
+
+Workers Rate Limiting bindings (`ratelimits` in `wrangler.jsonc`, the same in `env.dev`;
+`src/limits.ts`) keep one client from filling D1 or using up the free plan's 100 000 rows written
+a day for everyone:
+
+| Binding | What | Key | Limit |
+| --- | --- | --- | --- |
+| `RL_PASSKEY` | `/api/passkey/*` (a sign-in or sign-up is two calls) | client IP (`CF-Connecting-IP`; IPv6 by /64) | 10 a minute |
+| `RL_WRITES` | every signed-in PUT, POST or DELETE (a sync PUT writes up to ~1000 rows) | account | 30 a minute |
+| `RL_MODELS` | `/models/*` (a model load is ~8 files) | client IP | 60 a minute |
+
+Over the limit: 429 with `Retry-After: 60` (the web app's sync backs off and retries). Cloudflare
+counts per location and eventually consistently, so the limits are approximate. They also work
+in `wrangler dev` (in memory) and in the tests; a config without a binding, or a limiter that
+fails, lets requests through. They slow a script down rather than stop a determined one: someone
+with many addresses can still make many accounts, and one account can still write ~30 000 rows a
+minute, so on the free plan a sustained attack could use up the day's writes. Cloudflare's
+account-level usage notifications, or Workers Paid, are the backstop.
+
 ## Who is asking
 
 People sign in with **passkeys** (`src/passkeys.ts`, `@simplewebauthn/server`): no password, no
@@ -61,10 +89,14 @@ email. An account is an id (`u_<uuid>`, table `accounts`) with one or more passk
 credential id, COSE public key, counter, transports). A passkey synced by the listener's password
 manager (iCloud Keychain, Google, 1Password…) signs them in on their other devices; a device
 without it signs in through the browser's "use a phone" QR flow, then can add its own passkey
-(registering while signed in adds to that account, at most 20). Each ceremony's challenge lives
+(registering while signed in adds to that account, at most 20, checked again in the same
+statement that stores it, so several ceremonies at once can't go over). Each ceremony's challenge lives
 five minutes under a random ticket and is used once (`challenges`). Signing in sets
 `giggle_session` (random 256-bit token, only its SHA-256 stored in `sessions`; `Path=/api`,
-`HttpOnly`, `SameSite=Lax`, `Secure` on https, 400 days). Synced data is stored under the account
+`HttpOnly`, `SameSite=Lax`, `Secure` on https, 400 days). Signing in deletes expired sessions
+and keeps the account's newest 50; starting a ceremony deletes expired challenges
+(`migrations/0004_session_hygiene.sql` indexes both). `/account` lists the passkeys, removes them
+and signs out everywhere. Synced data is stored under the account
 id. The web side is `/account` (`web/src/lib/account/passkeys.ts`).
 
 Exactly two configurations are accepted (`src/config.ts`); anything else answers 500 on `/api/*`:
@@ -158,13 +190,21 @@ Never run `wrangler deploy --env dev`.
 
 `.github/workflows/deploy.yml` deploys: after every successful nightly (new data) and every green
 test run on `main` (new code), or by hand (`gh workflow run deploy.yml`). It takes a commit whose
-tests passed (a nightly deploys `main` as it is), the latest nightly `site-data` artifact, runs
-`make web-build` (which copies only the announcer clips `artists.json` uses), applies D1
-migrations (`--remote`), `wrangler deploy`s the top-level (production) config, then
+tests passed (after a nightly or by hand, the newest such commit on `main`) and the latest
+`site-data` artifact from this repo's own scheduled or manual nightlies on `main` (kept 90
+days), runs `make web-build` (which copies only the announcer clips `artists.json` uses),
+applies D1 migrations (`--remote`), `wrangler deploy`s the top-level (production) config, then
 `scripts/smoke-test.mjs` checks the live site: pages, data, a clip, the model files, that
-`/api/me` is 401 signed out, and that passkeys are offered for the site's hostname. It skips (with a notice) until the D1 id and the deploy
-token below exist. The site's URL is what wrangler prints (`giggle.<subdomain>.workers.dev`), or
+`/api/me` is 401 signed out, that passkeys are offered for the site's hostname, and that the gig
+data is less than 3 days old. It skips (with a notice) until the D1 id and the deploy token
+below exist. The site's URL is what wrangler prints (`giggle.<subdomain>.workers.dev`), or
 the repo variable `SITE_URL` for a custom domain. Nothing here deploys from a laptop.
+
+To hear when it stops, add a dead man's switch: create a check at
+[healthchecks.io](https://healthchecks.io) with a period of 1 day and a grace time of about 18
+hours, and add its ping URL as the `HEALTHCHECK_URL` repo secret (`gh secret set HEALTHCHECK_URL`). Each
+deploy whose smoke test passes pings it, a failed deploy pings `…/fail`, and a night without a
+deploy (the nightly failed) alerts once the grace time is up. Without the secret nothing is sent.
 
 ## Setting up Cloudflare (once, by hand)
 

@@ -6,7 +6,11 @@
 //
 //   GET  /api/me                    → {user, via, passkeys}: who is signed in
 //   POST /api/passkey/…             → signing in and adding passkeys (passkeys.ts)
-//   POST /api/logout                → ends this browser's session
+//   POST /api/logout  {}            → ends this browser's session
+//   POST /api/logout-everywhere  {} → ends every session of this account, this one included
+//   GET  /api/passkeys              → {passkeys: [{id, created, last_used, device_type,
+//                                      backed_up, transports}]}: this account's passkeys
+//   DELETE /api/passkeys/<id>       → removes one (never the last: 409)
 //   GET  /api/<collection>?since=<cursor>  → {items, cursor, more}: changes after `cursor`,
 //                                            tombstones too
 //   PUT  /api/<collection>  {items: [...]} → {items}: the stored rows for those keys after
@@ -14,10 +18,13 @@
 //        where <collection> is board, unavailable or plays (collections.ts)
 //   GET  /api/dev/login?as=<email>  → (dev only) sets the dev identity cookie (302 to `next` if given)
 //   GET  /api/dev/logout            → (dev only) clears it (302 to `next` if given)
+//
+// Rate limits (limits.ts) answer 429 with Retry-After.
 
 import {
 	authenticate,
 	DEV_COOKIE,
+	endAllSessions,
 	endSession,
 	isLoopback,
 	normaliseEmail,
@@ -25,8 +32,11 @@ import {
 } from './auth';
 import { COLLECTIONS, type Collection, type CollectionName } from './collections';
 import { authConfig, ConfigError, type AuthConfig, type Env } from './config';
+import { allowed, clientKey, LIMIT_PERIOD_S, type LimiterName } from './limits';
 import { MODELS_PREFIX, serveModel } from './models';
 import {
+	deletePasskey,
+	listPasskeys,
 	loginOptions,
 	loginVerify,
 	PASSKEY_PREFIX,
@@ -38,11 +48,25 @@ import {
 import { itemsSince, putItems, TooManyItems } from './store';
 import { LIMITS, parseBatch, parseSince, ValidationError } from './validate';
 
-const NO_STORE = { 'Cache-Control': 'no-store' };
+const NO_STORE = { 'Cache-Control': 'no-store', 'X-Content-Type-Options': 'nosniff' };
 
 export function json(body: unknown, status = 200, headers: HeadersInit = {}): Response {
 	return Response.json(body, { status, headers: { ...NO_STORE, ...headers } });
 }
+
+/** 429 when `key` is over `name`'s limit, else null. */
+async function limited(
+	env: Env,
+	name: LimiterName,
+	key: string,
+	body: (retry: Record<string, string>) => Response
+): Promise<Response | null> {
+	if (await allowed(env, name, key)) return null;
+	return body({ 'Retry-After': String(LIMIT_PERIOD_S) });
+}
+
+const tooMany = (retry: Record<string, string>) =>
+	error(429, 'too many requests: wait a minute and try again', retry);
 
 function error(status: number, message: string, headers: HeadersInit = {}): Response {
 	return json({ error: message }, status, headers);
@@ -179,10 +203,16 @@ export async function handleApi(request: Request, env: Env): Promise<Response> {
 	if (dev) return dev;
 
 	try {
-		if (url.pathname.startsWith(PASSKEY_PREFIX))
-			return await passkeyRoute(request, env, url, config);
+		if (url.pathname.startsWith(PASSKEY_PREFIX)) {
+			return (
+				(await limited(env, 'RL_PASSKEY', clientKey(request), tooMany)) ??
+				(await passkeyRoute(request, env, url, config))
+			);
+		}
 		if (url.pathname === '/api/logout') {
 			if (request.method !== 'POST') return error(405, 'method not allowed', { Allow: 'POST' });
+			// A JSON body, like every POST: a cross-site form can't send one, so can't sign you out.
+			await readJsonBody(request);
 			return json({ ok: true }, 200, { 'Set-Cookie': await endSession(env.DB, request) });
 		}
 	} catch (e) {
@@ -192,20 +222,45 @@ export async function handleApi(request: Request, env: Env): Promise<Response> {
 
 	const auth = await authenticate(request, config, env.DB);
 	if (!auth.ok) return error(auth.status, auth.error);
+	const { user, via } = auth.identity;
+
+	if (request.method !== 'GET' && request.method !== 'HEAD') {
+		const over = await limited(env, 'RL_WRITES', `account:${user}`, tooMany);
+		if (over) return over;
+	}
 
 	try {
 		if (url.pathname === '/api/me') {
 			if (request.method !== 'GET') return error(405, 'method not allowed', { Allow: 'GET' });
-			const { user, via } = auth.identity;
 			const passkeys = via === 'passkey' ? await passkeyCount(env.DB, user) : 0;
 			return json({ user, via, passkeys });
+		}
+		if (url.pathname === '/api/logout-everywhere') {
+			if (request.method !== 'POST') return error(405, 'method not allowed', { Allow: 'POST' });
+			await readJsonBody(request);
+			await endAllSessions(env.DB, user);
+			return json({ ok: true }, 200, { 'Set-Cookie': await endSession(env.DB, request) });
+		}
+		if (url.pathname === '/api/passkeys') {
+			if (request.method !== 'GET') return error(405, 'method not allowed', { Allow: 'GET' });
+			return json({ passkeys: via === 'passkey' ? await listPasskeys(env.DB, user) : [] });
+		}
+		if (url.pathname.startsWith('/api/passkeys/')) {
+			if (request.method !== 'DELETE') {
+				return error(405, 'method not allowed', { Allow: 'DELETE' });
+			}
+			const id = url.pathname.slice('/api/passkeys/'.length);
+			// Credential ids are base64url.
+			if (!/^[A-Za-z0-9_-]{1,1024}$/.test(id)) return error(404, 'no such passkey');
+			await deletePasskey(env.DB, user, id);
+			return json({ ok: true });
 		}
 		const collection = collectionFor(url.pathname);
 		if (collection) return await sync(request, env, auth.identity, collection);
 		return error(404, 'not found');
 	} catch (e) {
 		if (e instanceof ValidationError) return error(400, e.message);
-		if (e instanceof HttpError) return error(e.status, e.message);
+		if (e instanceof HttpError || e instanceof PasskeyError) return error(e.status, e.message);
 		throw e;
 	}
 }
@@ -217,7 +272,17 @@ export default {
 			return handleApi(request, env);
 		}
 		if (url.pathname.startsWith(MODELS_PREFIX)) {
-			return serveModel(request, env.MODELS, { ctx });
+			const over = await limited(
+				env,
+				'RL_MODELS',
+				clientKey(request),
+				(retry) =>
+					new Response('too many requests: wait a minute and try again\n', {
+						status: 429,
+						headers: { 'Content-Type': 'text/plain; charset=utf-8', ...NO_STORE, ...retry }
+					})
+			);
+			return over ?? serveModel(request, env.MODELS, { ctx });
 		}
 		return env.ASSETS.fetch(request);
 	}

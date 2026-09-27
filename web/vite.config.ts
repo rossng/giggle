@@ -3,6 +3,7 @@ import { resolve } from 'node:path';
 import type { Connect, Plugin } from 'vite';
 import { defineConfig } from 'vitest/config';
 import adapter from '@sveltejs/adapter-static';
+import type { KitConfig } from '@sveltejs/kit';
 import { sveltekit } from '@sveltejs/kit/vite';
 
 /** Serves the pipeline's output (../data/site, or $GIGGLE_DATA) at /data/*.json (and its
@@ -47,6 +48,31 @@ function siteData(): Plugin {
 // (dev identity, local D1 and R2) next to Vite. GIGGLE_WORKER points elsewhere.
 const worker = process.env.GIGGLE_WORKER ?? 'http://127.0.0.1:8787';
 
+// What pages may load, as a <meta> CSP on every page (SvelteKit adds the hashes of its inline
+// bootstrap script, which changes each build). The directives a <meta> can't carry
+// (frame-ancestors) and the other security headers are in static/_headers. A worker's CSP is its
+// own response's, not this, so the Kokoro worker's WebAssembly needs nothing here.
+const CSP = {
+	'default-src': ['self'],
+	// The YouTube IFrame API: iframe_api from www.youtube.com loads www-widgetapi.js from there
+	// (s.ytimg.com in older versions).
+	'script-src': ['self', 'https://www.youtube.com', 'https://s.ytimg.com'],
+	// Svelte transitions insert <style> elements, and components set style attributes.
+	'style-src': ['self', 'unsafe-inline', 'https://fonts.googleapis.com'],
+	'font-src': ['self', 'https://fonts.gstatic.com'],
+	// Artist images come from Wikimedia, YouTube, Last.fm…
+	'img-src': ['self', 'https:', 'data:', 'blob:'],
+	// Announcer clips (/data/voice) and Kokoro's audio (blob: URLs).
+	'media-src': ['self', 'blob:'],
+	'connect-src': ['self'],
+	'worker-src': ['self', 'blob:'],
+	'frame-src': ['https://www.youtube.com', 'https://www.youtube-nocookie.com'],
+	'manifest-src': ['self'],
+	'object-src': ['none'],
+	'base-uri': ['none'],
+	'form-action': ['self']
+} satisfies NonNullable<NonNullable<KitConfig['csp']>['directives']>;
+
 export default defineConfig({
 	server: { proxy: { '/api': worker, '/models': worker } },
 	// kokoro.worker.ts configures transformers.js's `env`: it must be kokoro-js's copy.
@@ -62,7 +88,8 @@ export default defineConfig({
 					filename.split(/[/\\]/).includes('node_modules') ? undefined : true
 			},
 			// A single-page app: every route falls back to index.html and renders in the browser.
-			adapter: adapter({ fallback: 'index.html' })
+			adapter: adapter({ fallback: 'index.html' }),
+			csp: { mode: 'hash', directives: CSP }
 		})
 	],
 	test: {

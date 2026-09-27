@@ -15,6 +15,10 @@ export interface Env {
 	ASSETS: Fetcher;
 	/** The browser's Kokoro model files (see models.ts). */
 	MODELS: R2Bucket;
+	/** Rate limits (limits.ts); a missing one doesn't limit. */
+	RL_PASSKEY?: RateLimit;
+	RL_WRITES?: RateLimit;
+	RL_MODELS?: RateLimit;
 	ENVIRONMENT?: string;
 	/** The passkeys' relying party: the site's hostname. Passkeys only work on it. */
 	PASSKEY_RP_ID?: string;
