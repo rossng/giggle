@@ -32,7 +32,7 @@ from giggle_pipeline import health
 from giggle_pipeline import lineup as lineup_mod
 from giggle_pipeline.cache import Cache
 from giggle_pipeline.clips import MAX_SECONDS, Intros, render_intros
-from giggle_pipeline.collect import collect_live, collect_replay
+from giggle_pipeline.collect import collect_live, collect_replay, venue_client
 from giggle_pipeline.dedupe import merge_duplicates, place
 from giggle_pipeline.details import fetch_details
 from giggle_pipeline.enrich import enrich_artists, trusted_identity
@@ -47,7 +47,7 @@ from giggle_pipeline.urls import web_urls_only
 from giggle_pipeline.voice import Lexicon, announcer_for
 from giggle_pipeline.wikipedia import Wikipedia
 from giggle_pipeline.ytmusic import ArtistLookup
-from podia import Client, Event, all_venues
+from podia import Event, all_venues
 
 # Line-ups the model classes as these aren't what giggle is for.
 LINEUP_EXCLUDE = {"club": "club night", "tribute": "tribute act", "not_music": "not music"}
@@ -87,7 +87,7 @@ def make_llm(choice: str, max_calls: int, lineup_max_calls: int) -> LLMClient | 
     except LLMError as exc:
         if choice == "workers":
             raise
-        print(f"llm: {exc}; using title rules (fake LLM) instead", file=sys.stderr)
+        print(f"llm: {exc!r}; using title rules (fake LLM) instead", file=sys.stderr)
         return fake_llm()
 
 
@@ -186,7 +186,7 @@ def main(argv: list[str] | None = None) -> int:
     # Detail pages (rooms, prices, show times) only for new or soon events; replays use
     # what's cached.
     cache = Cache(args.cache)
-    fetch_factory = None if args.replay else (lambda slug: Client())
+    fetch_factory = None if args.replay else (lambda slug: venue_client())
     results = fetch_details(results, fetch_factory, cache, max_per_venue=args.details_max_per_venue)
 
     rules = load_rules()

@@ -92,7 +92,7 @@ class ArtistLookup:
         try:
             value = self._lookup(name, key)
         except Exception as exc:  # unofficial API: a failure skips this artist
-            print(f"ytmusic: {name}: {exc!r}", file=sys.stderr)
+            print(f"ytmusic: {name!r}: {exc!r}", file=sys.stderr)
             self.errors += 1
             self._consecutive_errors += 1
             if self._consecutive_errors >= MAX_CONSECUTIVE_ERRORS:

@@ -124,11 +124,14 @@ const sorters = {
   start: (e) => e.start, venue: (e) => e.venue + e.start, title: (e) => e.title.toLowerCase(),
   price: (e) => priceOf(e) ?? Infinity,
 };
+// Links from the data: web pages only (raw adapter output hasn't been through urls.py).
+const web = (url) => (typeof url === "string" && /^https?:\/\//i.test(url) ? url : null);
 function row(e) {
   const tr = el("tr", {className: "ev" + (e.reason ? " out" : "")});
   const status = [e.status !== "scheduled" ? e.status : null, e.availability !== "unknown" ? e.availability : null]
     .filter(Boolean);
   const who = [...e.performers, ...e.support.map((s) => "+ " + s)].join(", ");
+  const page = web(e.url), tickets = web(e.ticket_url);
   tr.append(
     el("td", {className: "when", textContent: fmtDate(e.start)},
       e.doors && e.doors !== e.start ? el("div", {className: "sub", textContent: "doors " + e.doors.slice(11, 16)}) : null),
@@ -142,9 +145,9 @@ function row(e) {
     el("td", {className: "num", textContent: priceText(e)}),
     el("td", {}, ...status.map((s) => el("div", {className: "pill " + s, textContent: s.replaceAll("_", " ")})),
       e.reason ? el("div", {className: "pill reason", textContent: "left out: " + e.reason}) : null),
-    el("td", {}, e.url ? el("a", {href: e.url, target: "_blank", rel: "noopener", textContent: "page"}) : null,
-      e.url && e.ticket_url ? " · " : null,
-      e.ticket_url ? el("a", {href: e.ticket_url, target: "_blank", rel: "noopener", textContent: "tickets"}) : null),
+    el("td", {}, page ? el("a", {href: page, target: "_blank", rel: "noopener", textContent: "page"}) : null,
+      page && tickets ? " · " : null,
+      tickets ? el("a", {href: tickets, target: "_blank", rel: "noopener", textContent: "tickets"}) : null),
   );
   tr.addEventListener("click", (ev) => {
     if (ev.target.tagName === "A") return;

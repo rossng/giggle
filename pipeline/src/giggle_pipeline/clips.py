@@ -107,7 +107,7 @@ def render_intros(
             try:
                 voice.render(text, cache_dir)
             except VoiceError as exc:
-                print(f"clips: can't render, using existing clips only: {exc}", file=sys.stderr)
+                print(f"clips: can't render, using existing clips only: {exc!r}", file=sys.stderr)
                 out.error = stop = str(exc)
                 out.left += 1
                 continue

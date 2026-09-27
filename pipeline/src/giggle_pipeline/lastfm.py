@@ -20,7 +20,7 @@ from typing import Any
 import httpx
 
 from giggle_pipeline.cache import Cache, key_for
-from giggle_pipeline.musicbrainz import USER_AGENT
+from giggle_pipeline.musicbrainz import USER_AGENT, is_mbid
 from giggle_pipeline.text import normalise
 
 API = "https://ws.audioscrobbler.com/2.0/"
@@ -156,7 +156,7 @@ class LastFM:
             similar = _as_list((a.get("similar") or {}).get("artist"))
             info = {
                 "name": a.get("name"),
-                "mbid": a.get("mbid") or None,
+                "mbid": a["mbid"] if is_mbid(a.get("mbid")) else None,
                 "url": a.get("url"),
                 "listeners": _int(stats.get("listeners")),
                 "playcount": _int(stats.get("playcount")),

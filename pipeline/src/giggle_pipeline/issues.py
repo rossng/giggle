@@ -35,6 +35,9 @@ LABELS = {
 OPEN_AFTER_NIGHTS = 2  # a venue's problem streak before it gets an issue
 REMIND_AFTER_DAYS = 7  # an unchanged problem is mentioned again after this long
 _MARKER = re.compile(r"<!-- giggle-cause: ([0-9a-f]+) -->")
+# How gh names the Actions bot: "app/github-actions" as an issue's author, "github-actions"
+# as a comment's (and "github-actions[bot]" in the REST API).
+BOT_LOGINS = {"app/github-actions", "github-actions", "github-actions[bot]"}
 HINTS = {
     "llm": "Line-ups fell back to title rules and blurbs wait for a later night. "
     "Check Workers AI usage in the Cloudflare dashboard.",
@@ -61,13 +64,16 @@ class Issue:
 
 
 def known_issue(raw: dict[str, Any]) -> Issue:
-    """An open issue from `gh issue list --json number,body,createdAt,comments`: what it
-    last reported, from the marker in its body or latest marked comment."""
+    """An open issue from `gh issue list --json number,author,body,createdAt,comments`:
+    what it last reported, from the marker in its body or latest marked comment. Only the
+    bot's own posts count: anyone can comment on a public issue."""
     posts = [raw, *(raw.get("comments") or [])]
     for post in reversed(posts):
-        marker = _MARKER.search(post.get("body") or "")
-        if marker:
-            return Issue(raw["number"], marker.group(1), (post.get("createdAt") or "")[:10])
+        if (post.get("author") or {}).get("login") not in BOT_LOGINS:
+            continue
+        markers = _MARKER.findall(post.get("body") or "")
+        if markers:
+            return Issue(raw["number"], markers[-1], (post.get("createdAt") or "")[:10])
     return Issue(raw["number"], None, None)
 
 
@@ -77,6 +83,17 @@ def _hash(cause: str) -> str:
 
 def _marked(body: str, cause: str) -> str:
     return f"{body}\n\n<!-- giggle-cause: {_hash(cause)} -->"
+
+
+def quoted(text: str, limit: int = 2000) -> str:
+    """Untrusted text (an error message from a venue's data, a traceback) as a code block
+    that can't be closed early, mention anyone or hide a marker."""
+    text = text.strip()
+    if len(text) > limit:
+        text = text[:limit] + "…"
+    text = text.replace("@", "@​").replace("<!--", "<​!--")
+    fence = "`" * max(3, max((len(run) for run in re.findall(r"`+", text)), default=0) + 1)
+    return f"{fence}text\n{text}\n{fence}"
 
 
 def _report(cause: str, issue: Issue | None, day: str, ready: bool) -> str | None:
@@ -102,11 +119,11 @@ def plan(health: dict, open_issues: dict[str, Issue]) -> list[tuple[str, str, st
             action = _report(cause, issue, day, problem.get("streak", 1) >= OPEN_AFTER_NIGHTS)
             if action:
                 body = (
-                    f"**{day}**: {problem['message']}\n\n"
+                    f"**{day}**:\n\n{quoted(problem['message'])}\n\n"
                     f"Reproduce locally with `uv run podia fetch {venue}`."
                 )
                 if stats.get("error"):
-                    body += f"\n\n```\n{stats['error'].strip()}\n```"
+                    body += f"\n\n{quoted(stats['error'])}"
                 actions.append((action, title, _marked(body, cause)))
         elif issue:
             actions.append(("close", title, f"**{day}**: working again, {stats['events']} events."))
@@ -120,7 +137,8 @@ def plan(health: dict, open_issues: dict[str, Issue]) -> list[tuple[str, str, st
         if problem:
             action = _report(problem["cause"], issue, day, ready=True)
             if action:
-                body = f"**{day}**: {problem['message']}\n\n{HINTS.get(kind, '')}".strip()
+                body = f"**{day}**:\n\n{quoted(problem['message'])}\n\n{HINTS.get(kind, '')}"
+                body = body.strip()
                 actions.append((action, title, _marked(body, problem["cause"])))
         elif issue:
             actions.append(("close", title, f"**{day}**: this step worked again."))
@@ -132,7 +150,7 @@ def gh(*args: str) -> str:
 
 
 def list_open(label: str) -> list[dict[str, Any]]:
-    fields = "number,title,body,createdAt,comments"
+    fields = "number,title,author,body,createdAt,comments"
     return json.loads(
         gh("issue", "list", "--label", label, "--state", "open", "--limit", "200", "--json", fields)
     )
