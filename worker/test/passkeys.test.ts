@@ -1,9 +1,12 @@
 import { describe, expect, it } from 'vitest';
 import { env } from 'cloudflare:workers';
-import { SoftAuthenticator } from './authenticator';
+import { b64url, SoftAuthenticator } from './authenticator';
 import { MAX_SESSIONS } from '../src/auth';
 import { MAX_PASSKEYS } from '../src/passkeys';
 import { call, callJson, DEV_ENV } from './helpers';
+
+/** The id of an authenticator's (first) passkey. */
+const passkeyId = (auth: SoftAuthenticator, n = 0) => b64url(auth.credentials[n]!.id);
 
 const DB = (env as unknown as { DB: D1Database }).DB;
 
@@ -27,8 +30,8 @@ interface Json {
 
 /** The session cookie a response set, as a Cookie header value. */
 function cookieFrom(res: Response): string {
-	const set = res.headers.get('Set-Cookie') ?? '';
-	expect(set).toMatch(/^giggle_session=[\w-]{43}; Path=\/api; HttpOnly; SameSite=Lax/);
+	const set = res.headers.getSetCookie()[0] ?? '';
+	expect(set).toMatch(/^giggle_session_dev=[\w-]{43}; Path=\/; HttpOnly; SameSite=Lax/);
 	return set.split(';')[0]!;
 }
 
@@ -144,7 +147,11 @@ describe('passkeys', () => {
 		const res = await signUp(new SoftAuthenticator());
 		const cookie = cookieFrom(res);
 		const out = await post('/api/logout', {}, { headers: { Cookie: cookie } });
-		expect(out.headers.get('Set-Cookie')).toMatch(/^giggle_session=; .*Max-Age=0/);
+		expect(out.headers.getSetCookie()).toEqual([
+			'giggle_session_dev=; Path=/; HttpOnly; SameSite=Lax; Max-Age=0',
+			// The cookie's name and path before __Host-.
+			'giggle_session=; Path=/api; Max-Age=0'
+		]);
 		expect((await call('/api/me', { headers: { Cookie: cookie } })).status).toBe(401);
 	});
 
@@ -163,7 +170,15 @@ describe('passkeys', () => {
 		const options = { origin: 'https://giggle.example', env: PROD };
 		const res = await signUp(auth, options);
 		expect(res.status).toBe(200);
-		expect(res.headers.get('Set-Cookie')).toMatch(/; Secure$/);
+		const [session] = res.headers.getSetCookie();
+		expect(session).toMatch(
+			/^__Host-giggle_session=[\w-]{43}; Path=\/; HttpOnly; SameSite=Lax; Max-Age=\d+; Secure$/
+		);
+		const cookie = session!.split(';')[0]!;
+		expect((await call('/api/me', { ...options, headers: { Cookie: cookie } })).status).toBe(200);
+		// The dev cookie's name means nothing here.
+		const devName = cookie.replace('__Host-giggle_session', 'giggle_session_dev');
+		expect((await call('/api/me', { ...options, headers: { Cookie: devName } })).status).toBe(401);
 		const me = await call('/api/me', { ...options, devUser: 'alice@example.test' });
 		expect(me.status).toBe(401);
 		expect((await call('/api/dev/login?as=alice@example.test', options)).status).toBe(401);
@@ -238,7 +253,7 @@ describe('sessions', () => {
 		const stranger = cookieFrom(await signUp(new SoftAuthenticator()));
 		const out = await post('/api/logout-everywhere', {}, { headers: { Cookie: a } });
 		expect(out.status).toBe(200);
-		expect(out.headers.get('Set-Cookie')).toMatch(/^giggle_session=; .*Max-Age=0/);
+		expect(out.headers.get('Set-Cookie')).toMatch(/^giggle_session_dev=; .*Max-Age=0/);
 		expect((await call('/api/me', { headers: { Cookie: a } })).status).toBe(401);
 		expect((await call('/api/me', { headers: { Cookie: b } })).status).toBe(401);
 		expect((await call('/api/me', { headers: { Cookie: stranger } })).status).toBe(200);
@@ -278,10 +293,10 @@ describe('managing passkeys', () => {
 
 	it('lists the account’s passkeys without their keys, and removes all but the last', async () => {
 		const phone = new SoftAuthenticator();
-		const cookie = cookieFrom(await signUp(phone));
+		const phoneCookie = cookieFrom(await signUp(phone));
 		const laptop = new SoftAuthenticator();
-		expect((await addDevice(cookie, laptop)).status).toBe(200);
-		await signIn(laptop);
+		expect((await addDevice(phoneCookie, laptop)).status).toBe(200);
+		const cookie = cookieFrom(await signIn(laptop));
 
 		const list = await callJson<Listed>('/api/passkeys', { headers: { Cookie: cookie } });
 		expect(list.status).toBe(200);
@@ -298,26 +313,34 @@ describe('managing passkeys', () => {
 		const other = cookieFrom(await signUp(new SoftAuthenticator()));
 		const theirs = await callJson<Listed>('/api/passkeys', { headers: { Cookie: other } });
 		expect(theirs.body.passkeys).toHaveLength(1);
-		const [first, second] = list.body.passkeys;
+		const first = passkeyId(phone);
+		const second = passkeyId(laptop);
+		expect(list.body.passkeys.map((p) => p.id).sort()).toEqual([first, second].sort());
 		const del = (id: string, c = cookie) =>
 			call(`/api/passkeys/${id}`, { method: 'DELETE', headers: { Cookie: c } });
-		expect((await del(first!.id, other)).status).toBe(404);
+		expect((await del(first, other)).status).toBe(404);
 
-		expect((await del(first!.id)).status).toBe(200);
-		expect((await del(first!.id)).status).toBe(404);
-		const last = await del(second!.id);
+		// Removing the phone's passkey ends the phone's session, not the laptop's.
+		const removed = await del(first);
+		expect(removed.status).toBe(200);
+		expect(await removed.json()).toEqual({ ok: true, signedOut: false });
+		expect(removed.headers.get('Set-Cookie')).toBeNull();
+		expect((await call('/api/me', { headers: { Cookie: phoneCookie } })).status).toBe(401);
+		expect((await call('/api/me', { headers: { Cookie: cookie } })).status).toBe(200);
+		expect((await del(first)).status).toBe(404);
+		const last = await del(second);
 		expect(last.status).toBe(409);
 		expect(await last.json()).toEqual({ error: expect.stringMatching(/only passkey/) });
 		const after = await callJson<Listed>('/api/passkeys', { headers: { Cookie: cookie } });
-		expect(after.body.passkeys.map((p) => p.id)).toEqual([second!.id]);
+		expect(after.body.passkeys.map((p) => p.id)).toEqual([second]);
 		expect((await del('not!an!id')).status).toBe(404);
 		expect(
 			(await call('/api/passkeys', { method: 'POST', body: {}, headers: { Cookie: cookie } }))
 				.status
 		).toBe(405);
-		expect(
-			(await call(`/api/passkeys/${second!.id}`, { headers: { Cookie: cookie } })).status
-		).toBe(405);
+		expect((await call(`/api/passkeys/${second}`, { headers: { Cookie: cookie } })).status).toBe(
+			405
+		);
 	});
 
 	it('the dev identity has no passkeys', async () => {
@@ -366,5 +389,249 @@ describe('managing passkeys', () => {
 		expect(
 			(await post('/api/passkey/register/options', {}, { headers: { Cookie: cookie } })).status
 		).toBe(409);
+	});
+});
+
+describe('confirming it’s you', () => {
+	/** Makes the session's last passkey confirmation older than FRESH_MS. */
+	async function stale(cookie: string) {
+		const token = decodeURIComponent(cookie.split('=')[1]!);
+		const digest = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(token));
+		await DB.prepare(
+			"UPDATE sessions SET verified_at = '2026-01-01T00:00:00.000Z' WHERE token_hash = ?"
+		)
+			.bind(b64url(new Uint8Array(digest)))
+			.run();
+	}
+
+	async function reauth(cookie: string, auth: SoftAuthenticator) {
+		const start = await (
+			await post('/api/passkey/reauth/options', {}, { headers: { Cookie: cookie } })
+		).json<Json>();
+		const response = await auth.login(start.options);
+		return post(
+			'/api/passkey/reauth/verify',
+			{ ticket: start.ticket, response },
+			{ headers: { Cookie: cookie } }
+		);
+	}
+
+	async function addDevice(cookie: string, auth: SoftAuthenticator) {
+		const start = await (
+			await post('/api/passkey/register/options', {}, { headers: { Cookie: cookie } })
+		).json<Json>();
+		return post(
+			'/api/passkey/register/verify',
+			{ ticket: start.ticket, response: await auth.register(start.options) },
+			{ headers: { Cookie: cookie } }
+		);
+	}
+
+	const del = (path: string, cookie: string) =>
+		call(path, { method: 'DELETE', headers: { Cookie: cookie } });
+
+	it('adding or removing a passkey, or deleting the account, needs a recent confirmation', async () => {
+		const phone = new SoftAuthenticator();
+		const cookie = cookieFrom(await signUp(phone));
+		const laptop = new SoftAuthenticator();
+		const early = await (
+			await post('/api/passkey/register/options', {}, { headers: { Cookie: cookie } })
+		).json<Json>();
+		await stale(cookie);
+
+		const needs = { error: expect.stringMatching(/confirm/), reauth: true };
+		const options = await post(
+			'/api/passkey/register/options',
+			{},
+			{ headers: { Cookie: cookie } }
+		);
+		expect(options.status).toBe(403);
+		expect(await options.json()).toEqual(needs);
+		// A ticket from before goes stale with the session.
+		const late = await post(
+			'/api/passkey/register/verify',
+			{ ticket: early.ticket, response: await laptop.register(early.options) },
+			{ headers: { Cookie: cookie } }
+		);
+		expect(late.status).toBe(403);
+		const removing = await del(`/api/passkeys/${passkeyId(phone)}`, cookie);
+		expect(removing.status).toBe(403);
+		expect(await removing.json()).toEqual(needs);
+		const deleting = await del('/api/account', cookie);
+		expect(deleting.status).toBe(403);
+		expect(await deleting.json()).toEqual(needs);
+		// Still signed in: only these need it.
+		expect((await call('/api/me', { headers: { Cookie: cookie } })).status).toBe(200);
+
+		// The account's own passkey confirms the session, and then it works.
+		const confirmed = await reauth(cookie, phone);
+		expect(confirmed.status).toBe(200);
+		expect(await confirmed.json()).toEqual({ ok: true });
+		expect(confirmed.headers.get('Set-Cookie')).toBeNull();
+		const added = await addDevice(cookie, new SoftAuthenticator());
+		expect(added.status).toBe(200);
+		// Adding a device keeps this browser's session: no new cookie.
+		expect(await added.json()).toMatchObject({ created: false });
+		expect(added.headers.get('Set-Cookie')).toBeNull();
+		expect((await callJson('/api/me', { headers: { Cookie: cookie } })).body).toMatchObject({
+			passkeys: 2
+		});
+	});
+
+	it('offers and accepts only the account’s own passkeys', async () => {
+		const mine = new SoftAuthenticator();
+		const cookie = cookieFrom(await signUp(mine));
+		const theirs = new SoftAuthenticator();
+		const otherCookie = cookieFrom(await signUp(theirs));
+		const start = await (
+			await post('/api/passkey/reauth/options', {}, { headers: { Cookie: cookie } })
+		).json<Json & { options: { allowCredentials: { id: string }[] } }>();
+		expect(start.options.allowCredentials.map((c) => c.id)).toEqual([passkeyId(mine)]);
+		const refused = await post(
+			'/api/passkey/reauth/verify',
+			{ ticket: start.ticket, response: await theirs.login(start.options) },
+			{ headers: { Cookie: cookie } }
+		);
+		expect(refused.status).toBe(401);
+
+		// Someone else's ticket is no good in this session…
+		const theirStart = await (
+			await post('/api/passkey/reauth/options', {}, { headers: { Cookie: otherCookie } })
+		).json<Json>();
+		const wrong = await post(
+			'/api/passkey/reauth/verify',
+			{ ticket: theirStart.ticket, response: await mine.login(theirStart.options) },
+			{ headers: { Cookie: cookie } }
+		);
+		expect(wrong.status).toBe(400);
+		// …nor is a sign-in ticket; and signed out there's nothing to confirm.
+		const login = await (await post('/api/passkey/login/options', {})).json<Json>();
+		const swapped = await post(
+			'/api/passkey/reauth/verify',
+			{ ticket: login.ticket, response: await mine.login(login.options) },
+			{ headers: { Cookie: cookie } }
+		);
+		expect(swapped.status).toBe(400);
+		expect((await post('/api/passkey/reauth/options', {})).status).toBe(401);
+	});
+
+	it('removing the passkey that confirmed this session signs this browser out', async () => {
+		const phone = new SoftAuthenticator();
+		const cookie = cookieFrom(await signUp(phone));
+		const laptop = new SoftAuthenticator();
+		expect((await addDevice(cookie, laptop)).status).toBe(200);
+		const res = await del(`/api/passkeys/${passkeyId(phone)}`, cookie);
+		expect(res.status).toBe(200);
+		expect(await res.json()).toEqual({ ok: true, signedOut: true });
+		expect(res.headers.get('Set-Cookie')).toMatch(/^giggle_session_dev=; .*Max-Age=0/);
+		expect((await call('/api/me', { headers: { Cookie: cookie } })).status).toBe(401);
+		const again = cookieFrom(await signIn(laptop));
+		expect((await callJson('/api/me', { headers: { Cookie: again } })).body).toMatchObject({
+			passkeys: 1
+		});
+	});
+
+	it('signing out everywhere also drops passkeys that were being added', async () => {
+		const cookie = cookieFrom(await signUp(new SoftAuthenticator()));
+		const start = await (
+			await post('/api/passkey/register/options', {}, { headers: { Cookie: cookie } })
+		).json<Json>();
+		const response = await new SoftAuthenticator().register(start.options);
+		const out = await post('/api/logout-everywhere', {}, { headers: { Cookie: cookie } });
+		expect(out.status).toBe(200);
+		const late = await post(
+			'/api/passkey/register/verify',
+			{ ticket: start.ticket, response },
+			{ headers: { Cookie: cookie } }
+		);
+		expect(late.status).toBe(400);
+	});
+
+	it('deleting the account deletes everything giggle keeps about it', async () => {
+		const phone = new SoftAuthenticator();
+		const res = await signUp(phone);
+		const { user } = await res.json<{ user: string }>();
+		const cookie = cookieFrom(res);
+		const other = cookieFrom(await signIn(phone));
+		const now = new Date().toISOString();
+		const puts: [string, unknown[]][] = [
+			['/api/board', [{ key: 'name:nobu', state: 'go', name: 'Nobu', at: now }]],
+			['/api/unavailable', [{ key: '2026-10-03', at: now }]],
+			['/api/plays', [{ key: 'name:nobu', at: now }]]
+		];
+		for (const [path, items] of puts) {
+			const put = await call(path, { method: 'PUT', body: { items }, headers: { Cookie: cookie } });
+			expect(put.status).toBe(200);
+		}
+		await post('/api/passkey/register/options', {}, { headers: { Cookie: cookie } });
+		const bystander = cookieFrom(await signUp(new SoftAuthenticator()));
+
+		const gone = await del('/api/account', cookie);
+		expect(gone.status).toBe(200);
+		expect(gone.headers.get('Set-Cookie')).toMatch(/^giggle_session_dev=; .*Max-Age=0/);
+		for (const [table, column] of [
+			['accounts', 'id'],
+			['passkeys', 'account'],
+			['sessions', 'user'],
+			['challenges', 'account'],
+			['sync_items', 'user'],
+			['sync_counts', 'user'],
+			['usage', 'user']
+		]) {
+			const row = await DB.prepare(`SELECT count(*) AS n FROM ${table} WHERE ${column} = ?`)
+				.bind(user)
+				.first<{ n: number }>();
+			expect([table, row?.n]).toEqual([table, 0]);
+		}
+		expect((await call('/api/me', { headers: { Cookie: other } })).status).toBe(401);
+		expect((await signIn(phone)).status).toBe(401);
+		expect((await call('/api/me', { headers: { Cookie: bystander } })).status).toBe(200);
+		expect((await call('/api/account', { headers: { Cookie: bystander } })).status).toBe(405);
+		// The dev identity has no account, but its data goes.
+		const dev = await call('/api/account', { method: 'DELETE', devUser: 'x@example.test' });
+		expect(dev.status).toBe(200);
+	});
+});
+
+describe('new accounts a day', () => {
+	it('stops sign-ups once the day’s quota is used', async () => {
+		const today = new Date().toISOString().slice(0, 10);
+		const row = await DB.prepare("SELECT n FROM quotas WHERE name = 'new-accounts' AND day = ?")
+			.bind(today)
+			.first<{ n: number }>();
+		const options = { env: { NEW_ACCOUNTS_PER_DAY: String((row?.n ?? 0) + 1) } };
+		// Two ceremonies started while there's room for one more account…
+		const a = await (await post('/api/passkey/register/options', {}, options)).json<Json>();
+		const b = await (await post('/api/passkey/register/options', {}, options)).json<Json>();
+		const verify = async (t: Json) =>
+			post(
+				'/api/passkey/register/verify',
+				{ ticket: t.ticket, response: await new SoftAuthenticator().register(t.options) },
+				options
+			);
+		expect((await verify(a)).status).toBe(200);
+		// …only one makes it.
+		const full = await verify(b);
+		expect(full.status).toBe(429);
+		expect(await full.json()).toEqual({ error: expect.stringMatching(/new accounts today/) });
+		expect((await post('/api/passkey/register/options', {}, options)).status).toBe(429);
+		// Accounts that exist still sign in.
+		const auth = new SoftAuthenticator();
+		expect((await signUp(auth)).status).toBe(200); // the dev environment's own quota
+		expect((await signIn(auth, options)).status).toBe(200);
+	});
+});
+
+describe('cross-site requests', () => {
+	it('refuses a POST, PUT or DELETE from another origin', async () => {
+		const cookie = cookieFrom(await signUp(new SoftAuthenticator()));
+		const evil = { Origin: 'https://evil.example', Cookie: cookie };
+		expect((await post('/api/logout', {}, { headers: evil })).status).toBe(403);
+		expect((await call('/api/account', { method: 'DELETE', headers: evil })).status).toBe(403);
+		const put = await call('/api/board', { method: 'PUT', body: { items: [] }, headers: evil });
+		expect(put.status).toBe(403);
+		expect((await call('/api/me', { headers: { Cookie: cookie } })).status).toBe(200);
+		const site = { Origin: 'http://localhost:5173', Cookie: cookie };
+		expect((await post('/api/logout', {}, { headers: site })).status).toBe(200);
 	});
 });
