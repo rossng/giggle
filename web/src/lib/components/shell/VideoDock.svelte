@@ -1,6 +1,7 @@
 <!-- The app's one YouTube player. An iframe reloads if it moves in the page, so it never does:
-     it stays in this fixed box, which sits exactly over the Radio page's video slot while that
-     page is open and floats as a tile above the player bar elsewhere. YouTube requires the
+     it stays in this box, which sits exactly over the Radio page's video slot while that page is
+     open (placed in page coordinates, so it scrolls and overscroll-bounces with the page on its
+     own) and floats as a fixed tile above the player bar elsewhere. YouTube requires the
      player to stay visible and at least 200×200 px while it plays, so the tile never shrinks
      below that, and tucking it away (phones) pauses. -->
 <script lang="ts">
@@ -17,7 +18,8 @@
 
 	onMount(() => (host ? radio.attach(host) : undefined));
 
-	// Follow the Radio page's slot: its size (layout changes) and position (scrolling).
+	// Follow the Radio page's slot. The box is absolutely positioned in page coordinates, so the
+	// browser scrolls it (elastic overscroll included); only layout changes need a new position.
 	$effect(() => {
 		const slot = radioApp.videoSlot;
 		if (!slot) {
@@ -29,18 +31,18 @@
 			cancelAnimationFrame(frame);
 			frame = requestAnimationFrame(() => {
 				const r = slot.getBoundingClientRect();
-				rect = { top: r.top, left: r.left, width: r.width, height: r.height };
+				rect = { top: r.top + scrollY, left: r.left + scrollX, width: r.width, height: r.height };
 			});
 		};
 		update();
+		// The slot's own size, and the page's (anything above the slot changing height moves it).
 		const observer = new ResizeObserver(update);
 		observer.observe(slot);
-		addEventListener('scroll', update, { capture: true, passive: true });
+		observer.observe(document.body);
 		addEventListener('resize', update);
 		return () => {
 			cancelAnimationFrame(frame);
 			observer.disconnect();
-			removeEventListener('scroll', update, { capture: true });
 			removeEventListener('resize', update);
 		};
 	});
@@ -107,6 +109,10 @@
 		background: #000;
 		border-radius: 12px;
 		overflow: hidden;
+	}
+	/* Over the Radio page's slot: part of the page, so it scrolls (and bounces) with it. */
+	.dock.docked {
+		position: absolute;
 	}
 	.host,
 	.host :global(iframe) {
