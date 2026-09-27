@@ -44,8 +44,10 @@
 				<li>The music plays through YouTube, under YouTube's own terms.</li>
 				<li>
 					If you sign in, giggle keeps your board, unavailable dates and listening history so it can
-					sync them between your devices. It has no ads and doesn't track you. Ask me (via
-					rossng.eu) and I'll delete your data.
+					sync them between your devices. It has no ads and doesn't track you. You can delete your
+					account and everything in it on the <a href="/account" onclick={() => (open = false)}
+						>Account</a
+					> page.
 				</li>
 			</ul>
 		</section>

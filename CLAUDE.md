@@ -64,10 +64,10 @@ https://claude.ai/artifact/6PDPXr3LtbEbPPLUxQPXWR. Architecture diagram: README.
   union). Sign-in is passkeys (`src/passkeys.ts`, @simplewebauthn; an account is an id with
   passkeys; a `__Host-giggle_session` cookie; list/add/remove passkeys, sign out everywhere,
   delete the account; adding or removing a passkey and deleting the account need a passkey
-  confirmation in the last five minutes, `reauth`), bound to `PASSKEY_RP_ID` (the site hostname), plus a dev identity only with
-  `--env dev` on localhost. Rate limits (`src/limits.ts`, `ratelimits` bindings): all of `/api`,
-  sign-in and models per IP, reads and writes per account; in D1, a daily row budget per account
-  and a daily cap on new accounts. New migrations go in new files. Details: `worker/README.md`.
+  confirmation in the last five minutes, `reauth`), bound to `PASSKEY_RP_ID` (the site
+  hostname), plus a dev identity only with `--env dev` on localhost. Rate limits
+  (`src/limits.ts`, `ratelimits` bindings): all of `/api`, sign-in and models per IP, reads and
+  writes per account; in D1, a daily row budget per account and a daily cap on new accounts. New migrations go in new files. Details: `worker/README.md`.
 
 ## Commands
 Enter the toolchain shell first: `direnv allow` (uses `.envrc`) or `nix develop`. The flake pins
@@ -152,7 +152,8 @@ checksummed; never commit them. In CI they're kept by actions/cache (key: the pi
   hardcoded voice URL and checks every download against the pinned size and SHA-256 as it streams
   (`verified`, `sha256.ts`), so a wrong file is never cached. `make models` downloads them
   (checked) to `data/cache/web-models/` — not the pipeline's `data/cache/models/` — and loads the
-  local R2; without it, `vite dev` falls back to Hugging Face. The user uploads to the real bucket (`worker/README.md`); never do it here.
+  local R2; without it, `vite dev` falls back to Hugging Face. The user uploads to the real
+  bucket (`worker/README.md`); never do it here.
 
 ## Local stack
 `make dev` runs it all (web on localhost:5173, API on :8787). Sign in on `/account` with a
