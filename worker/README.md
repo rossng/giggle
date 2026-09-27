@@ -34,6 +34,7 @@ cross-site form can't make one, and a POST, PUT or DELETE whose `Origin` isn't o
 | `GET /api/passkeys` | `{passkeys: [{id, created, last_used, device_type, backed_up, transports}]}`, oldest first (no public keys); `[]` for the dev identity |
 | `DELETE /api/passkeys/<id>` | removes one of this account's passkeys and the sessions it signed in: `{ok, signedOut}` (`signedOut`: this browser's too); 409 for the last one, 404 for anyone else's |
 | `DELETE /api/account` | deletes the account, its passkeys, sessions and everything synced to it |
+| `GET /api/admin/overview` | admins only: usage numbers for `/admin` (see [Admin panel](#admin-panel)) |
 
 Adding a passkey, removing one and deleting the account need the session **confirmed by one of
 the account's passkeys in the last five minutes** (signing in counts). Otherwise they answer
@@ -89,6 +90,7 @@ Workers Rate Limiting bindings (`ratelimits` in `wrangler.jsonc`, the same in `e
 | `RL_READS` | every signed-in GET (a sync GET reads up to 1000 rows) | account | 120 a minute |
 | `RL_WRITES` | every signed-in PUT, POST or DELETE (a sync PUT writes up to 400 rows) | account | 30 a minute |
 | `RL_MODELS` | `/models/*` (a model load is ~8 files) | client IP | 60 a minute |
+| `RL_ADMIN` | `/api/admin/*`, admins only (a view reads every synced row) | account | 10 a minute |
 
 Over the limit: 429 with `Retry-After: 60` (the web app's sync backs off and retries). Cloudflare
 counts per location and eventually consistently, so the limits are approximate. They also work
@@ -110,6 +112,57 @@ rows with each, more than the free allowance; and nothing inside the Worker can 
 being counted against the 100 000 Worker requests a day. A Cloudflare WAF rate-limiting rule
 (the free plan has one) on `/api/*`, account-level usage notifications, or Workers Paid are the
 backstop.
+
+## Admin panel
+
+`/admin` in the web app (not in the nav) shows the site owner how giggle is used: accounts,
+new accounts per day and week, active accounts per day, when each account was last seen, how much
+each stores, today's writes against the budget, and flags for possible abuse (sign-up bursts or
+days the new-account cap was reached, accounts near a row limit or the daily write budget, many
+passkeys or sessions on one account, one account doing most of today's writes). It never shows
+what anyone stored: no item keys or contents, no names or dates from the board, dates or plays,
+and account ids only as their first 8 characters.
+
+**Turning it on**: the Worker secret `ADMIN_ACCOUNTS` lists the account ids allowed in,
+comma-separated (sign in and open `/api/me` to see yours: `"user": "u_…"`); unset or empty turns
+the panel off. It's a secret rather than a `vars` entry because it belongs to one instance of the
+app, not to the repo, and a secret survives `wrangler deploy` (setup step 6 below). Using the panel
+still takes a session of that account confirmed by its passkey in the last five minutes (the web
+app asks for the passkey when needed). `env.dev` lists `alice@example.test` in its `vars`, so the
+dev identity sees it locally without a passkey; `make seed-dev` fills the local D1 with fake accounts and 120 days of stats
+(`scripts/seed-dev.mjs`, local only).
+
+`GET /api/admin/overview` (`src/admin.ts`) answers `{now, today, limits, totals, days, users}`:
+`totals` are accounts, synced rows and their bytes, and the database size (D1's `size_after`);
+`days` are the last 98 days of `daily_stats`; each of `users` is `{id (8 characters), you,
+created, last_seen, passkey_used (days), passkeys, sessions, rows per collection, bytes,
+written_today}`. For anyone not listed (signed in or not, and the dev identity in production) it
+answers exactly as an unknown `/api` path does: 401 signed out (auth comes before routing, for
+every path), 404 signed in. A listed account without a fresh confirmation gets 403
+`{error, reauth: true}`. Read-only: one batch of fixed SELECTs.
+
+**What's stored for it** (`migrations/0006_admin_stats.sql`, `src/stats.ts`):
+
+- `accounts.last_seen`: the UTC day the account last used the API; the day, not a time, and no
+  history. An authenticated request moves it to today at most once a day (the session lookup
+  reads it, so other requests cost nothing), after the response (`ctx.waitUntil`). Deleting the
+  account deletes it.
+- `daily_stats (day, active_users, new_accounts, rows_written, quota_hits)`: site-wide numbers per
+  day, no user ids, kept 400 days (older rows go when someone is first active on a new day).
+  `active_users` counts each account once a day, in the same transaction that moves its
+  `last_seen`; `new_accounts` is counted with the new account; `rows_written` with each accepted
+  sync write (rows sent, as the daily budget counts them); `quota_hits` once per account the day
+  its row budget first refuses a write (`usage.refused`) and once the day the new-account cap first
+  turns someone away. Refused requests can't spend writes: each of these costs at most one write
+  per account (or per site) a day.
+
+**Costs** on the free plan (5 million rows read and 100 000 written a day): one write per active
+account a day for `last_seen` and `active_users`, one per sync write and sign-up for the counters.
+An overview reads every synced row once to measure bytes per user (`SUM(length(...))` over
+`sync_items`, plus the accounts, passkeys, sessions and 98 days of stats): at 100 accounts with a
+few hundred rows each that's tens of thousands of rows a view, and `RL_ADMIN` allows 10 views a
+minute. Platform numbers (requests, errors, D1 usage against the limits) aren't stored: the panel
+links to the Cloudflare dashboard.
 
 ## Who is asking
 
@@ -273,3 +326,7 @@ toolchain shell (`direnv allow` or `nix develop`) as `pnpm exec wrangler …`, a
    its hostname in `PASSKEY_RP_ID` and its origin in `SITE_ORIGINS` (top-level `vars`) if they
    differ from what's there. Sign-in needs nothing else: no Zero Trust, no email service.
 5. Check any time: `node scripts/smoke-test.mjs https://giggle.<subdomain>.workers.dev`.
+6. The admin panel (optional): sign in on the site, open `/api/me` for your `"user": "u_…"`, then
+   `pnpm exec wrangler secret put ADMIN_ACCOUNTS` and paste it (several: comma-separated). It
+   takes effect at once and deploys keep it; `wrangler secret delete ADMIN_ACCOUNTS` turns the
+   panel off.
