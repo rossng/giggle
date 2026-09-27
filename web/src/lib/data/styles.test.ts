@@ -99,6 +99,14 @@ describe('partStyle / labelStyles', () => {
 		expect(names('Midden Oosten/Noord Afrika')).toEqual(['middle eastern', 'north african']);
 	});
 
+	it('takes words that name Object.prototype properties as plain text', () => {
+		// A MusicBrainz tag or a venue's genre can be any word.
+		for (const word of ['constructor', 'toString', '__proto__', 'hasOwnProperty']) {
+			expect(partStyle(word)).toBeNull();
+			expect(stylesFor([word, 'Postpunk']).map((s) => s.name)).toEqual(['post-punk']);
+		}
+	});
+
 	it('gathers several labels without repeats', () => {
 		expect(stylesFor(['Post Punk', 'post-punk', 'Shoegaze']).map((s) => s.key)).toEqual([
 			'postpunk',

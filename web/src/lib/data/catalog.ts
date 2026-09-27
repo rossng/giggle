@@ -5,6 +5,7 @@ import { localDate, localTime } from './dates';
 import { GENRES, NO_GENRE_COLOUR, bucketsFor, gigLabels, type GenreId } from './genres';
 import { isSoldOut, searchText, type Filterable, type FilterNames } from './filters';
 import { isGeneric, styleKey, styleList, stylesFor, type Style, type StyleName } from './styles';
+import { dict } from './own';
 import { gigPath, slugify } from './slugs';
 import type { Artist, ArtistsFile, Gig, GigsFile, Venue } from './types';
 
@@ -141,9 +142,13 @@ export function viewGig(
 }
 
 export function buildCatalog(gigsFile: GigsFile, artistsFile: ArtistsFile): Catalog {
-	const { venues } = gigsFile;
-	const { artists } = artistsFile;
+	// Indexed by slugs and keys from the URL and the data: no prototype to answer "constructor".
+	const venues = dict(gigsFile.venues);
+	const artists = dict(artistsFile.artists);
+	// Each ID once: lists key their rows by it (a repeat would stop the page rendering).
+	const ids = new Set<string>();
 	const gigs = gigsFile.gigs
+		.filter((g) => !ids.has(g.id) && !!ids.add(g.id))
 		.map((g) => viewGig(g, venues, artists))
 		.sort((a, b) => a.gig.start.localeCompare(b.gig.start) || a.id.localeCompare(b.id));
 	const cityCounts = new Map<string, City & { n: number }>();
