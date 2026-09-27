@@ -142,18 +142,22 @@ Never run `wrangler deploy --env dev`.
 
 ## Setting up Cloudflare (once, by hand)
 
-1. `wrangler d1 create giggle`; put the id in `wrangler.jsonc` (`d1_databases[0].database_id`),
-   then `wrangler d1 migrations apply DB --remote`.
+wrangler is this package's dev dependency, not a global command: run it from `worker/` inside the
+toolchain shell (`direnv allow` or `nix develop`) as `pnpm exec wrangler …`, and sign in once with
+`pnpm exec wrangler login`.
+
+1. `pnpm exec wrangler d1 create giggle`; put the id in `wrangler.jsonc` (`d1_databases[0].database_id`),
+   then `pnpm exec wrangler d1 migrations apply DB --remote`.
 2. Zero Trust → Access → Applications → add a self-hosted app for `<hostname>/api/*` only, with a
    policy allowing your emails and the One-time PIN login method (free up to 50 users).
 3. Copy the app's AUD tag and your team domain (`<team>.cloudflareaccess.com`) into `vars`
    (`ACCESS_AUD`, `ACCESS_TEAM_DOMAIN`). Neither is a secret.
-4. The model bucket, from `worker/`: `wrangler r2 bucket create giggle-models` (before the first
+4. The model bucket: `pnpm exec wrangler r2 bucket create giggle-models` (before the first
    deploy: `wrangler.jsonc` binds it), then `node scripts/models.mjs put --remote`. That
    downloads the files into `data/cache/web-models/` if needed, checks every SHA-256 and uploads
    8 objects (~420 MB) with `wrangler r2 object put --remote`, as your `wrangler login`. Run it
    again whenever `model-files.json` changes, before deploying. Keep the bucket private (no
    r2.dev URL or custom domain: the Worker serves it) and `/models/*` outside Access.
-5. `make web-build`, then `wrangler deploy` from `worker/`, on the hostname Access protects.
+5. `make web-build`, then `pnpm exec wrangler deploy` from `worker/`, on the hostname Access protects.
    Check: `curl -sI https://<hostname>/models/kokoro-82m-v1.0/<revision>/config.json` is 200
    with `Cache-Control: public, max-age=31536000, immutable`.
