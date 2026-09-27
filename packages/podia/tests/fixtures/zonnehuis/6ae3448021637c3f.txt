@@ -1,0 +1,96 @@
+<div data-component-event-detail="">
+  <div class="content-wrapper">
+    <article>
+    <div class="block-inner border">
+      <div class="primary title">
+        <h1 class="heading-01">Kerst sing-along van Loes Luca en haar Quartet Royaal</h1>
+        <h3 class="heading-03">Divers, Muziek</h3>
+      </div>
+    </div>
+
+    <div class="block-inner">
+      <div class="primary">
+        <ul class="event-info">
+          
+          
+                      <li>
+              <h4 class="title heading-03">Toegangsprijs</h4>
+              <p class="copy copy-03">€ 32,50- incl. drankje (excl. € 1,- servicekosten)</p>
+            </li>
+          
+          
+                      <li>
+              <h4 class="title heading-03">Meer info</h4>
+              <p class="copy copy-03">Deuren open: 19:00 uur.</p>
+            </li>
+          
+          
+          
+          
+                      <li>
+              <p>
+                                  <a href="https://weeztix.shop/256jumqw" class="button" target="_blank" rel="noreferrer noopener">Kaartverkoop</a>
+                                              </p>
+            </li>
+                  </ul>
+
+                          <div class="agenda-speellijst">
+                                        <table class="speellijst heading-04" cellpadding="0" cellspacing="0">
+                      <tbody>
+                                                    <tr>
+                                <td class="date">do 10 dec</td>
+                                <td class="time">
+                                  19:30                                                                  </td>
+                                                                  <td class="tickets">
+                                    <a href="https://weeztix.shop/256jumqw" target="_blank" rel="noreferrer noopener">Tickets</a>
+                                  </td>
+                                                        </tr>
+                                                    <tr>
+                                <td class="date">vr 11 dec</td>
+                                <td class="time">
+                                  19:30                                                                  </td>
+                                                                  <td class="tickets">
+                                    <a href="https://weeztix.shop/256jumqw" target="_blank" rel="noreferrer noopener">Tickets</a>
+                                  </td>
+                                                        </tr>
+                                          </tbody>
+                  </table>
+                </div>
+                
+          </div>
+        </div>
+
+
+      <div class="block-inner">
+        <div class="primary">
+                      <div class="excerpt copy-03">
+              Kerst sing-along met Loes Luca en Quartet Royaal, drie dagen in 't Zonnehuis!            </div>
+                                <div class="main-content rich-text-container">
+              <p>
+                </p><p>Als Loes in ‘the Royal Albert Hall’ in Londen, één van de legendarische ‘Christmas sing along’ concerten meemaakt is ze diep ontroerd.</p>
+<p>De muziek, de sfeer, het zingen, de prachtige kerstliederen, het ravissant uitgedoste publiek, maar vooral: de gezamenlijkheid, pakken haar compleet in.</p>
+<p>Ze denkt: dit wil ik ook, met “mijn mannen” van Quartet Royaal, aangevuld met musici van Club Classique en twee koren: Het Kometenkoor, gedirigeerd door Wilko Sterke en het KoorKuma&nbsp; door Sanne Huijbregts:</p>
+<p>maar vooral: met U!</p>
+<p>U, die als heerlijk publiek uit volle borst meezingt en zo samen met ons een muzikale kerst viert.</p>
+<p>Wij zouden het waarderen als U zich op z’n Kerst- best aankleedt. Degene met de mooiste Kerst outfit (liefst zelf gemaakt) wint een prijs.</p>
+<p>Geschikt voor de hele familie.<br>
+Wees wellekome</p>
+<p>namens Loes, Arend, Bastiaan, Dennis en Ray.</p>
+<p><img decoding="async" class="alignnone size-full wp-image-173483" src="https://stadsherstel.nl/wp-content/uploads/2026/05/Agenda_loeslucakerstsingalong-scaled.jpg" alt="" width="2560" height="2560" srcset="https://stadsherstel.nl/wp-content/uploads/2026/05/Agenda_loeslucakerstsingalong-scaled.jpg 2560w, https://stadsherstel.nl/wp-content/uploads/2026/05/Agenda_loeslucakerstsingalong-150x150.jpg 150w, https://stadsherstel.nl/wp-content/uploads/2026/05/Agenda_loeslucakerstsingalong-800x800.jpg 800w, https://stadsherstel.nl/wp-content/uploads/2026/05/Agenda_loeslucakerstsingalong-400x400.jpg 400w" sizes="(max-width: 2560px) 100vw, 2560px"></p>
+              <p></p>
+            </div>
+              
+                  <ul class="event-info">
+            <li>
+              <p>
+                                  <a href="https://weeztix.shop/256jumqw" class="button" target="_blank" rel="noreferrer noopener">Kaartverkoop</a>
+                                              </p>
+            </li>
+          </ul>
+                  </div>        
+      </div>
+
+
+    </article>  
+  </div>
+</div>

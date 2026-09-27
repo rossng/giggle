@@ -1,0 +1,155 @@
+<div data-component-event-detail="">
+  <div class="content-wrapper">
+    <article>
+    <div class="block-inner border">
+      <div class="primary title">
+        <h1 class="heading-01">Ja Zuster Nee Zuster | Kerst met Klivia | Nederlied Musical</h1>
+        <h3 class="heading-03">Muziek, Theater</h3>
+      </div>
+    </div>
+
+    <div class="block-inner">
+      <div class="primary">
+        <ul class="event-info">
+          
+          
+                      <li>
+              <h4 class="title heading-03">Toegangsprijs</h4>
+              <p class="copy copy-03">Regulier € 30,- incl. consumptie, garderobe en ticketkosten 	€ 30,00<br>
+* Kortingskaart € 25,- incl. consumptie, garderobe en ticketkosten € 25,00</p>
+            </li>
+          
+          
+          
+          
+          
+                      <li>
+              <h4 class="title heading-03">Website</h4>
+              <p class="copy copy-03">
+                  <a href="https://nederlied.nl/" target="_blank" rel="noreferrer noopener">https://nederlied.nl/ »</a>
+              </p>
+            </li>
+          
+                      <li>
+              <p>
+                                  <a href="https://nederlied.nl/kaartverkoop-ja-zuster-nee-zuster" class="button" target="_blank" rel="noreferrer noopener">Kaartverkoop</a>
+                                              </p>
+            </li>
+                  </ul>
+
+                          <div class="agenda-speellijst">
+                                        <table class="speellijst heading-04" cellpadding="0" cellspacing="0">
+                      <tbody>
+                                                    <tr>
+                                <td class="date">za 19 dec</td>
+                                <td class="time">
+                                  20:15                                                                  </td>
+                                                                  <td class="tickets">
+                                    <a href="https://nederlied.nl/kaartverkoop-ja-zuster-nee-zuster" target="_blank" rel="noreferrer noopener">Tickets</a>
+                                  </td>
+                                                        </tr>
+                                                    <tr>
+                                <td class="date">zo 20 dec</td>
+                                <td class="time">
+                                  14:00                                                                  </td>
+                                                                  <td class="tickets">
+                                    <a href="https://nederlied.nl/kaartverkoop-ja-zuster-nee-zuster" target="_blank" rel="noreferrer noopener">Tickets</a>
+                                  </td>
+                                                        </tr>
+                                                    <tr>
+                                <td class="date">di 22 dec</td>
+                                <td class="time">
+                                  20:15                                                                  </td>
+                                                                  <td class="tickets">
+                                    <a href="https://nederlied.nl/kaartverkoop-ja-zuster-nee-zuster" target="_blank" rel="noreferrer noopener">Tickets</a>
+                                  </td>
+                                                        </tr>
+                                                    <tr>
+                                <td class="date">wo 23 dec</td>
+                                <td class="time">
+                                  20:15                                                                  </td>
+                                                                  <td class="tickets">
+                                    <a href="https://nederlied.nl/kaartverkoop-ja-zuster-nee-zuster" target="_blank" rel="noreferrer noopener">Tickets</a>
+                                  </td>
+                                                        </tr>
+                                                    <tr>
+                                <td class="date">do 24 dec</td>
+                                <td class="time">
+                                  14:00                                                                  </td>
+                                                                  <td class="tickets">
+                                    <a href="https://nederlied.nl/kaartverkoop-ja-zuster-nee-zuster" target="_blank" rel="noreferrer noopener">Tickets</a>
+                                  </td>
+                                                        </tr>
+                                                    <tr>
+                                <td class="date">vr 25 dec</td>
+                                <td class="time">
+                                  14:00                                                                  </td>
+                                                                  <td class="tickets">
+                                    <a href="https://nederlied.nl/kaartverkoop-ja-zuster-nee-zuster" target="_blank" rel="noreferrer noopener">Tickets</a>
+                                  </td>
+                                                        </tr>
+                                                    <tr>
+                                <td class="date">za 26 dec</td>
+                                <td class="time">
+                                  14:00                                                                  </td>
+                                                                  <td class="tickets">
+                                    <a href="https://nederlied.nl/kaartverkoop-ja-zuster-nee-zuster" target="_blank" rel="noreferrer noopener">Tickets</a>
+                                  </td>
+                                                        </tr>
+                                                    <tr>
+                                <td class="date">zo 27 dec</td>
+                                <td class="time">
+                                  14:00                                                                  </td>
+                                                                  <td class="tickets">
+                                    <a href="https://nederlied.nl/kaartverkoop-ja-zuster-nee-zuster" target="_blank" rel="noreferrer noopener">Tickets</a>
+                                  </td>
+                                                        </tr>
+                                          </tbody>
+                  </table>
+                </div>
+                
+          </div>
+        </div>
+
+
+      <div class="block-inner">
+        <div class="primary">
+                      <div class="excerpt copy-03">
+              Een hartverwarmende kerstmusical voor alle leeftijden over zuster Klivia en de bewoners van Rusthuis Klivia, die samen de strijd aangaan met hun vijandige buurman Boordevol.            </div>
+                                <div class="main-content rich-text-container">
+              <p>
+                </p><p><strong><em>Heerlijke musical boordevol humor, warmte én alle bekende liedjes!</em></strong></p>
+<p>Het is bijna Kerst in Rusthuis Klivia. De kerstboom wordt versierd, de bewoners maken zich op voor de feestdagen en achter de voordeur woont een bont gezelschap aan kleurrijke en zeer bijzondere mensen. Ze verschillen in afkomst, geaardheid en levensverhaal, maar één ding hebben ze gemeen: bij zuster Klivia hebben ze een veilig en warm thuis gevonden. Hier mogen ze zichzelf zijn en dat maakt hen gelukkig.</p>
+<p>Niet iedereen is daar blij mee. De zogenaamd beschaafde buurman Boordevol voelt zich ernstig bedreigd door dit ‘vreemde volk’. Boos en achterdochtig zet hij alles op alles om zuster Klivia en haar bewoners dwars te zitten. Hij probeert hen te ondermijnen, beschuldigt hen valselijk en gaat zelfs zo ver dat hij een handlanger infiltreert om het rusthuis weg te krijgen en het pand te kunnen verkopen.</p>
+<p>Is buurman Boordevol werkelijk zo slecht, of weet zuster Klivia ook zijn hart te ontdooien en zijn kwetsbare kant naar boven te halen? Ontdek het in deze geweldige musical!</p>
+<p>zaterdag 19 december 20.15 uur | <a href="https://nederlied.nl/kaartverkoop-ja-zuster-nee-zuster">koop kaarten</a></p>
+<p>zondag 20 december 14.00 uur | UITVERKOCHT</p>
+<p>dinsdag 22 december 20.15 uur | <a href="https://nederlied.nl/kaartverkoop-ja-zuster-nee-zuster">koop kaarten</a></p>
+<p>woensdag 23 december 20.15 uur | <a href="https://nederlied.nl/kaartverkoop-ja-zuster-nee-zuster">koop kaarten</a></p>
+<p>donderdag 24 december 14.00 uur | <a href="https://nederlied.nl/kaartverkoop-ja-zuster-nee-zuster">koop kaarten</a></p>
+<p>vrijdag 25 december 14.00 uur | <a href="https://nederlied.nl/kaartverkoop-ja-zuster-nee-zuster">koop kaarten</a></p>
+<p>zaterdag 26 december 14.00 uur | <a href="https://nederlied.nl/kaartverkoop-ja-zuster-nee-zuster">koop kaarten</a></p>
+<p>zondag 27 december 14.00 uur | <a href="https://nederlied.nl/kaartverkoop-ja-zuster-nee-zuster">koop kaarten</a></p>
+<p>CREDITS<br>
+Regie: Evert de Vries | Choreografie: Fleur Herrewijn<br>
+Muziek: Harry Bannink | Idee en liedteksten: Annie MG Schmidt</p>
+<p>CAST<br>
+Zuster Klivia: Kitty Kieftenbeld | Buurman Boordevol: Ken Besuijen | Gerrit: Pascal van Dijk | Jet: Yvonne Bokdam | Opa: Henny van Kerkwijk | Mw. de Kneu: Anne-Marieke Graafmans Ingenieur: Robert Boer | Dirk: Mo Hopman | Lorre: Janneke de Groot | Bertus: Maarten de Groot Bobby: Erika Combée | Hoofd: Monique Weber | Notaris: Saskia Scherpenzaal<br>
+Ensemble: Marjon Demmers, Marijke Lute, Claudine van Vliet, Joanny Taffijn, Marcel van Zeelt en Peter de Kleijn</p>
+              <p></p>
+            </div>
+              
+                  <ul class="event-info">
+            <li>
+              <p>
+                                  <a href="https://nederlied.nl/kaartverkoop-ja-zuster-nee-zuster" class="button" target="_blank" rel="noreferrer noopener">Kaartverkoop</a>
+                                              </p>
+            </li>
+          </ul>
+                  </div>        
+      </div>
+
+
+    </article>  
+  </div>
+</div>

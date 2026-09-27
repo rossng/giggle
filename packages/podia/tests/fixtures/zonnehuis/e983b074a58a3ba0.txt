@@ -1,0 +1,101 @@
+<div data-component-event-detail="">
+  <div class="content-wrapper">
+    <article>
+    <div class="block-inner border">
+      <div class="primary title">
+        <h1 class="heading-01">Zonneprijs #1 • DEAR VALENCIA • THE PLACES YOU'LL GO • NOSE SHOP • TALES</h1>
+        <h3 class="heading-03">Muziek</h3>
+      </div>
+    </div>
+
+    <div class="block-inner">
+      <div class="primary">
+        <ul class="event-info">
+          
+                      <li>
+              <h4 class="title heading-03">Tijd</h4>
+              <p class="copy copy-03">19:30</p>
+            </li>
+          
+                      <li>
+              <h4 class="title heading-03">Toegangsprijs</h4>
+              <p class="copy copy-03">€5,- entree (excl. €1,- servicekosten)</p>
+            </li>
+          
+          
+                      <li>
+              <h4 class="title heading-03">Meer info</h4>
+              <p class="copy copy-03">Zaal open 19:00 uur</p>
+            </li>
+          
+          
+          
+                      <li>
+              <h4 class="title heading-03">Website</h4>
+              <p class="copy copy-03">
+                  <a href="https://www.paradiso.nl/" target="_blank" rel="noreferrer noopener">https://www.paradiso.nl/ »</a>
+              </p>
+            </li>
+          
+                      <li>
+              <p>
+                                  <a href="https://tickets.paradiso.nl/63d9c34a8a7549b8991679558bb71e07?error=interaction_required&amp;state=oy0u6dh15o" class="button" target="_blank" rel="noreferrer noopener">Kaartverkoop</a>
+                                              </p>
+            </li>
+                  </ul>
+
+                          <div class="agenda-speellijst">
+                                        <table class="speellijst heading-04" cellpadding="0" cellspacing="0">
+                      <tbody>
+                                                    <tr>
+                                <td class="date">do  1 okt</td>
+                                <td class="time">
+                                  19:30                                                                  </td>
+                                                                  <td class="tickets">
+                                    <a href="https://tickets.paradiso.nl/63d9c34a8a7549b8991679558bb71e07?error=interaction_required&amp;state=oy0u6dh15o" target="_blank" rel="noreferrer noopener">Tickets</a>
+                                  </td>
+                                                        </tr>
+                                          </tbody>
+                  </table>
+                </div>
+                
+          </div>
+        </div>
+
+
+      <div class="block-inner">
+        <div class="primary">
+                      <div class="excerpt copy-03">
+              Ontdek iedere eerste donderdag van maand een nieuwe generatie muzikanten bij ons in 't monumentale Zonnehuis.             </div>
+                                <div class="main-content rich-text-container">
+              <p>
+                </p><p>Indiestad, Paradiso en Stadsherstel presenteren de vierde editie van de<strong>&nbsp;Zonneprijs</strong>, de talentencompetitie met de nieuwste en meest gewilde artiesten van dit moment. Donderdag 7 mei is alweer de laatste ronde van deze editie!</p>
+<p>Tijdens acht voorrondes in ’t Zonnehuis strijden zij voor een plek in de finale in Paradiso. De voorrondes vinden iedere eerste donderdag van de maand plaats tot en met mei 2026. In juni 2026 vindt de finale plaats in de Grote Zaal van Paradiso. De winnaar van Zonneprijs wint € 10.000,-. Wie volgt er in de voetsporen van Elmer (winnaar 2022) en Hiqpy (winnaar 2023)?</p>
+<p><span style="text-decoration: underline;">LINE UP</span></p>
+<p><strong>Dear Valencia</strong><br>
+Na verschillende omwegen in soloprojecten en bands in binnen- en buitenland vonden de leden van Dear Valencia elkaar. Sinds januari schrijven ze samen aan muziek waarin dromerige indiepop en postpunk naast elkaar bestaan. Hun inspiratie komt onder meer van Alvvays, Beach House en Molly Nilsson. Momenteel werkt Dear Valencia aan een eerste EP. Tijdens Zonneprijs brengt de band die nummers voor het eerst live naar buiten en maakt Dear Valencia officieel kennis met het publiek.</p>
+<p><strong>The Places You’ll Go</strong><br>
+The Places You’ll Go maakt folkrock waarin persoonlijke, emotionele liedjes langzaam kunnen uitgroeien tot een vol bandgeluid. De Amsterdamse vijfkoppige band bestaat uit een bassist, drummer, twee gitaristen en een violist. De zang en viool geven de nummers hun verhalende karakter, terwijl de ritmesectie en gitaren voor de stevigheid zorgen. Invloeden als Black Country, New Road en Big Thief klinken door, maar de band speelt volledig eigen werk.</p>
+<p><strong>Nose Shop</strong><br>
+Bij Nose Shop gaat alles rechtstreeks de mengtafel in. Elektronische drums, achtsnarige bas en bariton gitaar vormen samen een scherp geluid zonder opsmuk of vangnet. De band noemt het egg-pop: energieke nummers over vrije wil, twijfel, metafysica en de absurditeit van het bestaan, maar altijd met humor. In het eerste jaar stond Nose Shop al op het hoofdprogramma van Sniester. Ook live kiest de band voor het onverwachte, met existentiële vragen waarop je prima kunt knikken.</p>
+<p><strong>Tales</strong><br>
+Voor Tales komt muziek pas echt tot leven op het podium. De vijfkoppige band leerden elkaar kennen aan de Herman Brood Academie en het Conservatorium van Amsterdam en vonden elkaar in de soul van Motown en Stax, de gospel van Aretha Franklin en Al Green en de rock-’n-roll van The Doors en The Rolling Stones. Vanuit die invloeden schrijft de band nummers met aandacht voor samenspel en verhalen die niet alleen gehoord, maar vooral gevoeld moeten worden. Geen optreden verloopt precies hetzelfde, maar de inzet blijft altijd gelijk: alles geven.</p>
+<p><img decoding="async" class="alignnone wp-image-177200" src="https://stadsherstel.nl/wp-content/uploads/2026/07/A2-Zonneprijs-1-scaled.jpg" alt="" width="421" height="596" srcset="https://stadsherstel.nl/wp-content/uploads/2026/07/A2-Zonneprijs-1-scaled.jpg 1810w, https://stadsherstel.nl/wp-content/uploads/2026/07/A2-Zonneprijs-1-566x800.jpg 566w, https://stadsherstel.nl/wp-content/uploads/2026/07/A2-Zonneprijs-1-283x400.jpg 283w" sizes="(max-width: 421px) 100vw, 421px"></p>
+<p>&nbsp;</p>
+              <p></p>
+            </div>
+              
+                  <ul class="event-info">
+            <li>
+              <p>
+                                  <a href="https://tickets.paradiso.nl/63d9c34a8a7549b8991679558bb71e07?error=interaction_required&amp;state=oy0u6dh15o" class="button" target="_blank" rel="noreferrer noopener">Kaartverkoop</a>
+                                              </p>
+            </li>
+          </ul>
+                  </div>        
+      </div>
+
+
+    </article>  
+  </div>
+</div>

@@ -40,10 +40,12 @@ with Client() as client:
 
 Venues with details today: Melkweg (room, prices, ticket link, doors and show time from the
 timetable), Cinetol and Nobel (time, room, price, ticket link, description; Nobel also the
-support acts). Cinetol's and Nobel's agendas give only the date, so until `details()` has
-run their events start at 00:00 Amsterdam time on the right day and carry
-`extra["time_known"] = False`; `details()` sets the real time and `time_known = True`
-(it stays False if the event page has no time either). Treat `start` as a date whenever
+support acts), Het Zonnehuis (price, doors, ticket link, description). Cinetol's and
+Nobel's agendas give only the date, so until `details()` has run their events start at
+00:00 Amsterdam time on the right day and carry `extra["time_known"] = False`;
+`details()` sets the real time and `time_known = True` (it stays False if the event page
+has no time either). A few listings elsewhere have no time either (De Nieuwe Anita, Het
+Zonnehuis) and are marked the same way. Treat `start` as a date whenever
 `event.extra.get("time_known", True)` is False.
 
 The client is polite by default: it honours robots.txt and crawl-delay, waits at least a

@@ -1,0 +1,90 @@
+<div data-component-event-detail="">
+  <div class="content-wrapper">
+    <article>
+    <div class="block-inner border">
+      <div class="primary title">
+        <h1 class="heading-01">Cinema Zonnescherm: Donnie Darko</h1>
+        <h3 class="heading-03">Film</h3>
+      </div>
+    </div>
+
+    <div class="block-inner">
+      <div class="primary">
+        <ul class="event-info">
+          
+                      <li>
+              <h4 class="title heading-03">Tijd</h4>
+              <p class="copy copy-03">20:00</p>
+            </li>
+          
+                      <li>
+              <h4 class="title heading-03">Toegangsprijs</h4>
+              <p class="copy copy-03">Gratis entree. Reserveren verplicht. </p>
+            </li>
+          
+          
+          
+          
+          
+                      <li>
+              <h4 class="title heading-03">Website</h4>
+              <p class="copy copy-03">
+                  <a href="https://www.buurtverenigingzonneplein.nl/" target="_blank" rel="noreferrer noopener">https://www.buurtverenigingzonneplein.nl/ »</a>
+              </p>
+            </li>
+          
+                      <li>
+              <p>
+                                  <a href="https://weeztix.shop/btq7ujbe" class="button" target="_blank" rel="noreferrer noopener">Reserveren</a>
+                                              </p>
+            </li>
+                  </ul>
+
+                          <div class="agenda-speellijst">
+                                        <table class="speellijst heading-04" cellpadding="0" cellspacing="0">
+                      <tbody>
+                                                    <tr>
+                                <td class="date">za  3 okt</td>
+                                <td class="time">
+                                  20:00                                                                  </td>
+                                                                  <td class="tickets">
+                                    <a href="https://weeztix.shop/btq7ujbe" target="_blank" rel="noreferrer noopener">Tickets</a>
+                                  </td>
+                                                        </tr>
+                                          </tbody>
+                  </table>
+                </div>
+                
+          </div>
+        </div>
+
+
+      <div class="block-inner">
+        <div class="primary">
+                      <div class="excerpt copy-03">
+              Kom naar het tot bioscoop omgetoverde Zonnehuis en bekijk deze klassieker in art-deco stijl.            </div>
+                                <div class="main-content rich-text-container">
+              <p>
+                </p><p class="sc-3c953eee-0 sc-36a06b0d-1 dTEcsC gMFWND">Richard Kelly’s debuutfilm werd ontvangen als onnavolgbare hybride van tienerdrama, sf-vertelling en satire op het leven in de Amerikaanse suburb. We schrijven 1988: de gekwelde tiener Donnie Darko (Jake Gyllenhaal) reist door parallelle universa en raakt in gesprek met het reuzenkonijn Frank.</p>
+<p>Donnie’s leven neemt een bizarre wending als hij op een nacht gewekt wordt door Frank, een man in konijnenpak die vertelt dat de wereld binnen precies 28 dagen, 6 uur, 42 minuten en 12 seconden zal vergaan. Surrealistische gebeurtenissen stapelen zich op, Donnie’s beeld van de werkelijkheid wordt aan diggels geslagen…</p>
+<p><strong>Een freak?</strong></p>
+<p>Is Donnie gek? Een freak? Welnee, zijn kolkende fantasie brengt hem op plekken die voor anderen onbereikbaar zijn. En van daaruit het helemaal niet zo’n gek idee om ‘de kloof in het ruimte-tijd-continuüm te dichten en zodoende iedereen te redden’, verklaarde Kelly ooit in een interview met Cinema.nl. De regisseur ziet&nbsp;<em>Donnie Darko</em>, met al z’n verwarrende sf-uitstapjes, in de eerste plaats als het portret van een puber die zich houvast probeert verwerven in een verwarrende wereld.</p>
+<p><strong>Grote namen<br>
+</strong>Richard Kelly was pas 26 jaar en nog niet eens afgestudeerd aan de filmacademie toen hij zijn debuut maakte; toch wist hij voor zijn eerste lange speelfilm grote namen als Drew Barrymore en Patrick Swayze te casten.</p>
+              <p></p>
+            </div>
+              
+                  <ul class="event-info">
+            <li>
+              <p>
+                                  <a href="https://weeztix.shop/btq7ujbe" class="button" target="_blank" rel="noreferrer noopener">Reserveren</a>
+                                              </p>
+            </li>
+          </ul>
+                  </div>        
+      </div>
+
+
+    </article>  
+  </div>
+</div>
