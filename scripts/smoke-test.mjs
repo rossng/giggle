@@ -72,6 +72,8 @@ await expect('/', async (res) => {
 	if (!(res.headers.get('content-security-policy') ?? '').includes("frame-ancestors 'none'"))
 		return "no frame-ancestors 'none' CSP";
 	if (res.headers.get('x-content-type-options') !== 'nosniff') return 'no nosniff';
+	if (res.headers.get('cross-origin-opener-policy') !== 'same-origin') return 'no COOP';
+	if (!(res.headers.get('strict-transport-security') ?? '').includes('max-age=')) return 'no HSTS';
 	const body = await res.text();
 	return body.includes('http-equiv="content-security-policy"') ? null : 'no CSP meta tag';
 });

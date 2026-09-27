@@ -1,5 +1,15 @@
 /* giggle: a dark, poster-inspired look (see the design report's mockups). */
 
+/* The fonts, served from our own origin (Fontsource), in the weights used below. */
+@import '@fontsource/big-shoulders-display/700';
+@import '@fontsource/big-shoulders-display/800';
+@import '@fontsource/hanken-grotesk/400';
+@import '@fontsource/hanken-grotesk/500';
+@import '@fontsource/hanken-grotesk/600';
+@import '@fontsource/hanken-grotesk/700';
+@import '@fontsource/ibm-plex-mono/500';
+@import '@fontsource/ibm-plex-mono/600';
+
 :root {
 	/* The app shell (routes/(app)/+layout.svelte): top bar, player bar, and tabs on phones. */
 	--top-h: 56px;
