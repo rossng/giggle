@@ -4,11 +4,14 @@ version = "0.1.0"
 description = "giggle's nightly build: collect, filter and publish gigs"
 license = "BlueOak-1.0.0"
 requires-python = ">=3.12"
+# Upper bounds keep lockfile maintenance (which Renovate merges by itself) to non-breaking
+# releases; raising one is a reviewed change.
 dependencies = [
-    "lameenc>=1.8.4",
-    "numpy>=2.5.3",
+    "httpx>=0.28,<1",  # imported directly (llm, musicbrainz, lastfm), not only via podia
+    "lameenc>=1.8.4,<2",
+    "numpy>=2.5.3,<3",
     "podia",
-    "ytmusicapi>=1.12.3",
+    "ytmusicapi>=1.12.3,<2",
 ]
 
 [project.scripts]
@@ -18,7 +21,7 @@ giggle-voice-samples = "giggle_pipeline.voice:samples_main"
 
 [project.optional-dependencies]
 voice = [
-    "kokoro-onnx>=0.6.1",
+    "kokoro-onnx>=0.6.1,<0.7",
 ]
 
 [tool.uv.sources]

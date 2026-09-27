@@ -12,3 +12,11 @@ allowBuilds:
   onnxruntime-node: false
   protobufjs: false
   sharp: false
+
+# Don't resolve versions published less than 7 days ago (in minutes), like Renovate's
+# minimumReleaseAge: most compromised releases are caught and pulled within days. This applies
+# when resolving (pnpm add/update, Renovate's lockfile updates). trustLockfile skips re-checking
+# the committed lockfile against it on every install, which would reject the entries resolved
+# before this was set; drop it once they're all a week old (early October 2026).
+minimumReleaseAge: 10080
+trustLockfile: true

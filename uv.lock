@@ -242,8 +242,8 @@ requires-dist = [
 
 [package.metadata.requires-dev]
 dev = [
-    { name = "pytest", specifier = ">=8" },
-    { name = "ruff", specifier = ">=0.6" },
+    { name = "pytest", specifier = ">=8,<10" },
+    { name = "ruff", specifier = ">=0.6,<0.17" },
 ]
 
 [[package]]
@@ -251,6 +251,7 @@ name = "giggle-pipeline"
 version = "0.1.0"
 source = { editable = "pipeline" }
 dependencies = [
+    { name = "httpx" },
     { name = "lameenc" },
     { name = "numpy" },
     { name = "podia" },
@@ -264,11 +265,12 @@ voice = [
 
 [package.metadata]
 requires-dist = [
-    { name = "kokoro-onnx", marker = "extra == 'voice'", specifier = ">=0.6.1" },
-    { name = "lameenc", specifier = ">=1.8.4" },
-    { name = "numpy", specifier = ">=2.5.3" },
+    { name = "httpx", specifier = ">=0.28,<1" },
+    { name = "kokoro-onnx", marker = "extra == 'voice'", specifier = ">=0.6.1,<0.7" },
+    { name = "lameenc", specifier = ">=1.8.4,<2" },
+    { name = "numpy", specifier = ">=2.5.3,<3" },
     { name = "podia", editable = "packages/podia" },
-    { name = "ytmusicapi", specifier = ">=1.12.3" },
+    { name = "ytmusicapi", specifier = ">=1.12.3,<2" },
 ]
 provides-extras = ["voice"]
 
@@ -572,10 +574,10 @@ dependencies = [
 
 [package.metadata]
 requires-dist = [
-    { name = "httpx", specifier = ">=0.27" },
-    { name = "icalendar", specifier = ">=6" },
-    { name = "protego", specifier = ">=0.3" },
-    { name = "selectolax", specifier = ">=0.3.21" },
+    { name = "httpx", specifier = ">=0.27,<1" },
+    { name = "icalendar", specifier = ">=6,<8" },
+    { name = "protego", specifier = ">=0.3,<1" },
+    { name = "selectolax", specifier = ">=0.3.21,<0.5" },
     { name = "tzdata", marker = "sys_platform == 'win32'" },
 ]
 

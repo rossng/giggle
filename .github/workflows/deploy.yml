@@ -19,23 +19,50 @@ concurrency:
 
 jobs:
   deploy:
-    # A nightly that built, or tests that passed on a push to main.
+    # A scheduled or manual nightly that built, or tests that passed on a push to main; always
+    # this repo's own runs (a fork's pull request can run edited copies of those workflows, from
+    # a head branch it may also call main).
     if: >-
       github.event_name == 'workflow_dispatch'
       || (github.event.workflow_run.conclusion == 'success'
           && github.event.workflow_run.head_branch == 'main'
-          && (github.event.workflow_run.name == 'nightly'
-              || github.event.workflow_run.event == 'push'))
+          && github.event.workflow_run.head_repository.full_name == github.repository
+          && ((github.event.workflow_run.name == 'nightly'
+               && (github.event.workflow_run.event == 'schedule'
+                   || github.event.workflow_run.event == 'workflow_dispatch'))
+              || (github.event.workflow_run.name == 'test'
+                  && github.event.workflow_run.event == 'push')))
     runs-on: ubuntu-latest
     timeout-minutes: 20
+    # GH_TOKEN is set only on the steps that run gh.
     env:
-      GH_TOKEN: ${{ github.token }}
       GH_REPO: ${{ github.repository }}
     steps:
-      # The commit the tests passed on; otherwise main as it is now.
-      - uses: actions/checkout@v5
+      # Never ship a commit whose tests didn't pass: the commit the tests just passed on, or
+      # (after a nightly, or by hand) the newest commit on main whose tests passed, so a red
+      # main doesn't hold back new data.
+      - name: Pick a tested commit
+        id: commit
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TESTED: ${{ github.event.workflow_run.name == 'test' && github.event.workflow_run.head_sha || '' }}
+        run: |
+          sha=$TESTED
+          if [ -z "$sha" ]; then
+            sha=$(gh run list --workflow test.yml --branch main --event push --status success \
+              --limit 1 --json headSha -q '.[0].headSha')
+          fi
+          if [ -z "$sha" ]; then
+            echo "::error::No commit on main has passed its tests."
+            exit 1
+          fi
+          echo "Deploying $sha"
+          echo "sha=$sha" >> "$GITHUB_OUTPUT"
+
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
-          ref: ${{ github.event.workflow_run.name == 'test' && github.event.workflow_run.head_sha || 'main' }}
+          ref: ${{ steps.commit.outputs.sha }}
+          persist-credentials: false
 
       - name: Ready to deploy?
         id: ready
@@ -52,31 +79,37 @@ jobs:
             echo "::notice::The production D1 database_id isn't set: not deploying (worker/README.md)."
             ready=false
           fi
-          # Never ship a commit whose tests didn't pass (a nightly deploys main as it is now).
-          sha=$(git rev-parse HEAD)
-          passed=$(gh run list --workflow test.yml --commit "$sha" --status success --limit 1 \
-            --json databaseId -q 'length')
-          if [ "$passed" != "1" ]; then
-            echo "::warning::Tests haven't passed on $sha: not deploying."
-            ready=false
-          fi
           echo "ready=$ready" >> "$GITHUB_OUTPUT"
 
+      # From this repo's own newest successful nightly on main (scheduled or by hand) that still
+      # has its site-data artifact: never by artifact name alone, as a fork's pull request can
+      # upload one with the same name.
       - name: Fetch the latest nightly site data
         if: steps.ready.outputs.ready == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
-          run=$(gh run list --workflow nightly.yml --status success --limit 1 \
-            --json databaseId -q '.[0].databaseId')
+          run=$(gh run list --workflow nightly.yml --branch main --status success --limit 100 \
+              --json databaseId,event,headBranch \
+              -q '.[] | select((.event == "schedule" or .event == "workflow_dispatch")
+                               and .headBranch == "main") | .databaseId' |
+            while read -r id; do
+              if [ -n "$(gh api "repos/$GH_REPO/actions/runs/$id/artifacts?name=site-data" \
+                  -q '.artifacts[] | select(.expired | not) | .id')" ]; then
+                echo "$id"
+                break
+              fi
+            done)
           if [ -z "$run" ]; then
-            echo "::error::No successful nightly run to take the site data from."
+            echo "::error::No successful nightly run with site data to deploy (they're kept 90 days): run the nightly."
             exit 1
           fi
           gh run download "$run" --name site-data --dir data/site
           echo "Site data from nightly run $run: $(jq -r .generated data/site/gigs.json)"
 
-      - uses: cachix/install-nix-action@v31
+      - uses: cachix/install-nix-action@13d8dd58da0234aa297dedd986986ccb8e7f3e24 # v31.11.1
         if: steps.ready.outputs.ready == 'true'
-      - uses: actions/cache@v4
+      - uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
         if: steps.ready.outputs.ready == 'true'
         with:
           path: ~/.local/share/pnpm/store
@@ -109,9 +142,31 @@ jobs:
           url=$(grep -oE 'https://[a-z0-9.-]+\.workers\.dev' deploy.log | head -1)
           echo "url=$url" >> "$GITHUB_OUTPUT"
 
-      # On the workers.dev URL wrangler printed, or the repo variable SITE_URL if set.
+      # On the workers.dev URL wrangler printed, or the repo variable SITE_URL if set. Fails on
+      # data more than 3 days old too.
       - name: Check the live site
         if: steps.ready.outputs.ready == 'true'
+        id: smoke
         env:
           URL: ${{ vars.SITE_URL || steps.deploy.outputs.url }}
         run: nix develop -c node scripts/smoke-test.mjs "$URL"
+
+      # A dead man's switch (healthchecks.io conventions), if the HEALTHCHECK_URL secret is set:
+      # a ping when the live site checks out, /fail when this job fails. A night without either
+      # (the nightly failed, so nothing deployed) alerts too, once the check's grace runs out.
+      - name: Ping the health check
+        if: steps.smoke.outcome == 'success'
+        env:
+          HEALTHCHECK_URL: ${{ secrets.HEALTHCHECK_URL }}
+        run: |
+          if [ -n "$HEALTHCHECK_URL" ]; then
+            curl -fsS -m 10 --retry 5 -o /dev/null "$HEALTHCHECK_URL"
+          fi
+      - name: Report the failure to the health check
+        if: failure()
+        env:
+          HEALTHCHECK_URL: ${{ secrets.HEALTHCHECK_URL }}
+        run: |
+          if [ -n "$HEALTHCHECK_URL" ]; then
+            curl -fsS -m 10 --retry 5 -o /dev/null "$HEALTHCHECK_URL/fail"
+          fi

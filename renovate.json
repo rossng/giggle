@@ -1,15 +1,64 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["config:recommended"],
+  "extends": ["config:recommended", "helpers:pinGitHubActionDigests"],
+  "timezone": "Europe/Amsterdam",
+  "schedule": ["* 0-5 * * 1"],
+  "minimumReleaseAge": "7 days",
+  "internalChecksFilter": "strict",
+  "dependencyDashboard": true,
   "nix": { "enabled": true },
   "lockFileMaintenance": {
     "enabled": true,
-    "schedule": ["before 6am on monday"]
+    "schedule": ["* 0-5 1 * *"],
+    "automerge": true,
+    "automergeType": "branch"
   },
   "packageRules": [
     {
-      "matchUpdateTypes": ["minor", "patch", "digest", "lockFileMaintenance"],
-      "automerge": true
+      "description": "Minor, patch and digest updates merge themselves once the tests pass on their branch.",
+      "matchUpdateTypes": ["minor", "patch", "digest"],
+      "automerge": true,
+      "automergeType": "branch"
+    },
+    {
+      "description": "Majors only when approved on the dependency dashboard, and never automatically.",
+      "matchUpdateTypes": ["major"],
+      "dependencyDashboardApproval": true,
+      "automerge": false
+    },
+    {
+      "matchManagers": ["npm"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "groupName": "JS non-major"
+    },
+    {
+      "matchManagers": ["pep621"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "groupName": "Python non-major"
+    },
+    {
+      "matchManagers": ["github-actions"],
+      "groupName": "GitHub Actions"
+    },
+    {
+      "description": "wrangler and friends release several times a week: once a month is plenty.",
+      "matchPackageNames": ["wrangler", "@cloudflare/**"],
+      "groupName": "Cloudflare tooling",
+      "schedule": ["* 0-5 1 * *"]
+    },
+    {
+      "description": "The browser voice stack and sign-in: always a PR to review, never grouped with the rest.",
+      "matchPackageNames": [
+        "kokoro-js",
+        "@huggingface/transformers",
+        "phonemizer",
+        "onnxruntime*",
+        "@simplewebauthn/**",
+        "kokoro-onnx",
+        "seal-of-slop"
+      ],
+      "groupName": "voice and auth",
+      "automerge": false
     }
   ]
 }
