@@ -48,6 +48,14 @@ run their events start at 00:00 Amsterdam time on the right day and carry
 
 The client is polite by default: it honours robots.txt and crawl-delay, waits at least a
 second between requests to the same host, and identifies itself with a clear User-Agent.
+A site asking for a crawl-delay over 30 seconds is treated as refusing podia.
+
+It is careful too: it only fetches from public hosts (`allow_private=True` for a site on
+your own network), follows redirects to http(s) URLs only, reads at most 20 MB of a
+decoded body (gzip or deflate, one layer), and gives up on a request after 180 seconds.
+`Client(deadline=time.monotonic() + seconds)` ends all of a client's requests at a set
+time, so one slow venue can't hold up a crawl. Adapters build the URLs they fetch with
+`podia.extract.site_url`, which keeps them on the venue's host.
 
 ## Adding a venue
 
