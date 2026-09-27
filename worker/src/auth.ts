@@ -40,6 +40,8 @@ export interface Identity {
 	via: 'passkey' | 'dev';
 	/** The passkey session, for `via: 'passkey'`. */
 	session?: Session;
+	/** The account's last active day as the session lookup found it (null: never), for passkeys. */
+	lastSeen?: string | null;
 }
 
 export type AuthResult =
@@ -204,9 +206,18 @@ async function fromSession(
 	if (!token) return null;
 	const hash = await tokenHash(token);
 	const row = await db
-		.prepare('SELECT user, expires, passkey, verified_at FROM sessions WHERE token_hash = ?')
+		.prepare(
+			`SELECT s.user, s.expires, s.passkey, s.verified_at, a.last_seen
+			 FROM sessions s LEFT JOIN accounts a ON a.id = s.user WHERE s.token_hash = ?`
+		)
 		.bind(hash)
-		.first<{ user: string; expires: string; passkey: string | null; verified_at: string | null }>();
+		.first<{
+			user: string;
+			expires: string;
+			passkey: string | null;
+			verified_at: string | null;
+			last_seen: string | null;
+		}>();
 	if (!row || Date.parse(row.expires) <= Date.now()) {
 		return { ok: false, status: 401, error: 'session expired: sign in again' };
 	}
@@ -215,7 +226,8 @@ async function fromSession(
 		identity: {
 			user: row.user,
 			via: 'passkey',
-			session: { hash, passkey: row.passkey, verifiedAt: row.verified_at }
+			session: { hash, passkey: row.passkey, verifiedAt: row.verified_at },
+			lastSeen: row.last_seen
 		}
 	};
 }

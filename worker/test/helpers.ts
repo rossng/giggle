@@ -1,4 +1,4 @@
-import { createExecutionContext } from 'cloudflare:test';
+import { createExecutionContext, waitOnExecutionContext } from 'cloudflare:test';
 import { env } from 'cloudflare:workers';
 import worker from '../src/index';
 import type { Env } from '../src/config';
@@ -45,11 +45,16 @@ export async function call(path: string, options: CallOptions = {}): Promise<Res
 		headers,
 		body
 	});
-	return worker.fetch(
+	const ctx = createExecutionContext();
+	const response = await worker.fetch(
 		request as Parameters<typeof worker.fetch>[0],
 		{ ...DEV_ENV, ...options.env } as Env,
-		createExecutionContext()
+		ctx
 	);
+	// What the API does after answering (last_seen), done before the test looks. (Not for
+	// /models: its streaming work waits for the body to be read.)
+	if (path.startsWith('/api')) await waitOnExecutionContext(ctx);
+	return response;
 }
 
 export async function callJson<T = Record<string, unknown>>(

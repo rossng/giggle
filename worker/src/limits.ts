@@ -7,6 +7,7 @@
 //   RL_WRITES   PUT/POST/DELETE, signed in  per account       (a sync PUT writes up to 400 rows)
 //   RL_READS    GET, signed in              per account       (a sync GET reads up to 1000 rows)
 //   RL_MODELS   /models/*                   per client IP     (a model load is ~8 files)
+//   RL_ADMIN    /api/admin/*, admins only   per account       (a view reads every synced row)
 //
 // Writes also spend a daily row budget per account, and sign-ups a site-wide daily quota, both
 // kept in D1 (store.ts, passkeys.ts): these limits only have 10 or 60 second periods.
@@ -16,7 +17,8 @@
 // A missing binding (a config that doesn't declare it) or a failing limiter lets the request
 // through: the limits protect the free plan's allowances, they are not access control.
 
-export type LimiterName = 'RL_API' | 'RL_PASSKEY' | 'RL_WRITES' | 'RL_READS' | 'RL_MODELS';
+export type LimiterName =
+	'RL_API' | 'RL_PASSKEY' | 'RL_WRITES' | 'RL_READS' | 'RL_MODELS' | 'RL_ADMIN';
 
 export type Limiters = Partial<Record<LimiterName, RateLimit>>;
 

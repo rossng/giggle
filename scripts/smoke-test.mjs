@@ -146,6 +146,9 @@ await expect('/api/me', (res) =>
 			? 'no nosniff on the API'
 			: null
 );
+await expect('/api/admin/overview', (res) =>
+	res.status !== 401 ? `status ${res.status}, expected 401 when signed out` : null
+);
 await expect(
 	'/api/passkey/login/options',
 	async (res) => {

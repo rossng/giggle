@@ -21,6 +21,7 @@ export interface Env {
 	RL_READS?: RateLimit;
 	RL_API?: RateLimit;
 	RL_MODELS?: RateLimit;
+	RL_ADMIN?: RateLimit;
 	ENVIRONMENT?: string;
 	/** The passkeys' relying party: the site's hostname. Passkeys only work on it. */
 	PASSKEY_RP_ID?: string;
@@ -28,6 +29,8 @@ export interface Env {
 	SITE_ORIGINS?: string;
 	/** New accounts the whole site takes a day (default NEW_ACCOUNTS_PER_DAY). */
 	NEW_ACCOUNTS_PER_DAY?: string;
+	/** Account ids that may use the admin panel, comma-separated (admin.ts); empty: nobody. */
+	ADMIN_ACCOUNTS?: string;
 }
 
 export interface Relying {

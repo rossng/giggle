@@ -3,6 +3,7 @@ import { env } from 'cloudflare:workers';
 import { b64url, SoftAuthenticator } from './authenticator';
 import { MAX_SESSIONS } from '../src/auth';
 import { MAX_PASSKEYS } from '../src/passkeys';
+import { cookieFrom, post, reauth, signIn, signUp, stale, type Json } from './ceremonies';
 import { call, callJson, DEV_ENV } from './helpers';
 
 /** The id of an authenticator's (first) passkey. */
@@ -15,41 +16,6 @@ const PROD = {
 	PASSKEY_RP_ID: 'giggle.example',
 	SITE_ORIGINS: 'https://giggle.example'
 };
-
-/** What the options endpoints return (registration and login options, loosely). */
-interface Json {
-	ticket: string;
-	options: {
-		challenge: string;
-		user: { id: string };
-		rp: { id?: string };
-		rpId?: string;
-		excludeCredentials?: { id: string }[];
-	};
-}
-
-/** The session cookie a response set, as a Cookie header value. */
-function cookieFrom(res: Response): string {
-	const set = res.headers.getSetCookie()[0] ?? '';
-	expect(set).toMatch(/^giggle_session_dev=[\w-]{43}; Path=\/; HttpOnly; SameSite=Lax/);
-	return set.split(';')[0]!;
-}
-
-async function post(path: string, body: unknown, options: Parameters<typeof call>[1] = {}) {
-	return call(path, { method: 'POST', body, ...options });
-}
-
-async function signUp(auth: SoftAuthenticator, options: Parameters<typeof call>[1] = {}) {
-	const start = await (await post('/api/passkey/register/options', {}, options)).json<Json>();
-	const response = await auth.register(start.options);
-	return post('/api/passkey/register/verify', { ticket: start.ticket, response }, options);
-}
-
-async function signIn(auth: SoftAuthenticator, options: Parameters<typeof call>[1] = {}) {
-	const start = await (await post('/api/passkey/login/options', {}, options)).json<Json>();
-	const response = await auth.login(start.options);
-	return post('/api/passkey/login/verify', { ticket: start.ticket, response }, options);
-}
 
 describe('passkeys', () => {
 	it('signing up makes an account and a session', async () => {
@@ -393,29 +359,6 @@ describe('managing passkeys', () => {
 });
 
 describe('confirming it’s you', () => {
-	/** Makes the session's last passkey confirmation older than FRESH_MS. */
-	async function stale(cookie: string) {
-		const token = decodeURIComponent(cookie.split('=')[1]!);
-		const digest = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(token));
-		await DB.prepare(
-			"UPDATE sessions SET verified_at = '2026-01-01T00:00:00.000Z' WHERE token_hash = ?"
-		)
-			.bind(b64url(new Uint8Array(digest)))
-			.run();
-	}
-
-	async function reauth(cookie: string, auth: SoftAuthenticator) {
-		const start = await (
-			await post('/api/passkey/reauth/options', {}, { headers: { Cookie: cookie } })
-		).json<Json>();
-		const response = await auth.login(start.options);
-		return post(
-			'/api/passkey/reauth/verify',
-			{ ticket: start.ticket, response },
-			{ headers: { Cookie: cookie } }
-		);
-	}
-
 	async function addDevice(cookie: string, auth: SoftAuthenticator) {
 		const start = await (
 			await post('/api/passkey/register/options', {}, { headers: { Cookie: cookie } })
