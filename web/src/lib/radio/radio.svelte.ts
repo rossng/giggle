@@ -74,6 +74,7 @@ import {
 	type VoiceInfo
 } from './speaker';
 import { MediaFocus } from './media-focus';
+import { ScreenWake } from './wake-lock';
 import { DEFAULT_ANNOUNCER, squareImage } from './tracks';
 import { sharedKokoro, type KokoroState, type KokoroVoice } from '$lib/voice/kokoro';
 import { isUnplayable, YouTubePlayer, type PlaybackState } from './youtube';
@@ -307,6 +308,14 @@ export class Radio {
 		);
 		// The model takes a few seconds to load (and downloads once): start before play.
 		if (this.#live.enabled) void this.#kokoro.load().catch(() => {});
+		// "Keep screen on": phones pause the embed once the screen sleeps (wake-lock.ts).
+		const wake = new ScreenWake();
+		this.#cleanup.push(
+			$effect.root(() => {
+				$effect(() => wake.set(this.settings.keepScreenOn && this.on));
+			}),
+			() => wake.destroy()
+		);
 		const ticker = setInterval(() => this.#tick(), 500);
 		this.#cleanup.push(() => clearInterval(ticker));
 		void player.ready.then(() => (this.ready = true));
@@ -527,6 +536,11 @@ export class Radio {
 		saveSettings(this.settings);
 		this.#webSpeech.voiceName = name;
 		this.#sample();
+	}
+
+	setKeepScreenOn(on: boolean): void {
+		this.settings.keepScreenOn = on;
+		saveSettings(this.settings);
 	}
 
 	setLiveVoice(voice: LiveVoice): void {
