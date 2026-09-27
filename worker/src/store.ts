@@ -3,12 +3,18 @@
 // ties the same way (the server's copy wins). Deletions are rows with data NULL (tombstones), so
 // they sync like any other change. Every accepted write gets a new per-user, per-collection
 // `seq`, which is what `since` cursors page by.
+//
+// Writes also keep each collection's row count (sync_counts) and spend the account's daily row
+// budget (usage), so neither has to be found by counting rows (migrations/0005).
 
 import type { Collection, Parsed, Row } from './collections';
 import { LIMITS } from './validate';
 
 const DAY_MS = 86_400_000;
 const COLUMNS = 'key, data, at, seq';
+
+/** Rows one account may write a day, all collections together. */
+export const DAILY_ROWS = 10_000;
 
 // One statement for the whole batch (D1 counts statements per invocation): rows come in as a JSON
 // array. seq = the collection's highest seq + position + 1, so every accepted row gets a fresh,
@@ -26,15 +32,50 @@ WHERE excluded.at > sync_items.at`;
 
 const NOT_NEWEST = `seq < (SELECT MAX(seq) FROM sync_items WHERE user = ?1 AND collection = ?2)`;
 
-// Collections that forget: rows past the age limit, then the oldest past the row limit.
+// Collections that forget: rows past the age limit (once a day), and the oldest past the row
+// limit (when over it, down to OVERFLOW_KEEP of it, so that it doesn't run on every write).
 const FORGET_OLD = `
 DELETE FROM sync_items WHERE user = ?1 AND collection = ?2 AND at < ?3 AND ${NOT_NEWEST}`;
 const FORGET_OVERFLOW = `
 DELETE FROM sync_items WHERE user = ?1 AND collection = ?2 AND ${NOT_NEWEST} AND key IN (
   SELECT key FROM sync_items WHERE user = ?1 AND collection = ?2
   ORDER BY at DESC, key DESC LIMIT -1 OFFSET ?3)`;
+const OVERFLOW_KEEP = 0.9;
+
+// A write adds the keys that are new to the count, in the same transaction as the upsert, so it
+// stays exact. Forgetting rows is rare enough to count them all again afterwards.
+const COUNT_NEW = `
+INSERT INTO sync_counts (user, collection, rows)
+SELECT ?1, ?2, count(*) FROM json_each(?3) AS j
+WHERE NOT EXISTS (
+  SELECT 1 FROM sync_items WHERE user = ?1 AND collection = ?2 AND key = j.value)
+ON CONFLICT (user, collection) DO UPDATE SET rows = sync_counts.rows + excluded.rows`;
+const RECOUNT = `
+INSERT INTO sync_counts (user, collection, rows, pruned)
+VALUES (?1, ?2, (SELECT count(*) FROM sync_items WHERE user = ?1 AND collection = ?2), ?3)
+ON CONFLICT (user, collection) DO UPDATE SET rows = excluded.rows, pruned = excluded.pruned`;
+
+// Where a collection stands before a write: its row count, the day it last forgot old rows, and
+// how many of the batch's keys it has already.
+const STATE = `
+SELECT
+  COALESCE((SELECT rows FROM sync_counts WHERE user = ?1 AND collection = ?2), 0) AS rows,
+  COALESCE((SELECT pruned FROM sync_counts WHERE user = ?1 AND collection = ?2), '') AS pruned,
+  (SELECT count(*) FROM sync_items WHERE user = ?1 AND collection = ?2
+     AND key IN (SELECT value FROM json_each(?3))) AS existing`;
+
+// Spends ?3 rows of today's budget, unless that would take it past ?4 (then no row comes back).
+const SPEND = `
+INSERT INTO usage (user, day, rows) VALUES (?1, ?2, ?3)
+ON CONFLICT (user) DO UPDATE SET
+  rows = CASE WHEN usage.day = excluded.day THEN usage.rows + excluded.rows ELSE excluded.rows END,
+  day = excluded.day
+WHERE usage.day <> excluded.day OR usage.rows + excluded.rows <= ?4
+RETURNING rows`;
 
 export class TooManyItems extends Error {}
+/** The account has written its DAILY_ROWS today. */
+export class OverBudget extends Error {}
 
 /** The oldest `at` a collection still keeps, as an ISO string ('' when it keeps everything). */
 function cutoff(collection: Collection, now: number): string {
@@ -43,9 +84,16 @@ function cutoff(collection: Collection, now: number): string {
 		: new Date(now - collection.maxAgeDays * DAY_MS).toISOString();
 }
 
+/** The UTC day of `now`: "2026-10-03". */
+export function dayOf(now: number): string {
+	return new Date(now).toISOString().slice(0, 10);
+}
+
 /**
  * Applies `items` to `user`'s `collection` (older ones lose), returning the stored rows for
- * those keys in wire form. Rows the collection forgets straight away aren't returned.
+ * those keys in wire form. Rows the collection forgets straight away aren't returned. Throws
+ * OverBudget once the account has written DAILY_ROWS today, and TooManyItems if a collection that
+ * refuses overflow would go past its maxRows.
  */
 export async function putItems(
 	db: D1Database,
@@ -56,31 +104,40 @@ export async function putItems(
 ): Promise<Record<string, unknown>[]> {
 	if (!items.length) return [];
 	const keys = JSON.stringify(items.map((item) => item.key));
-	if (collection.overflow === 'reject') {
-		const count = await db
-			.prepare(
-				`SELECT
-				   (SELECT COUNT(*) FROM sync_items WHERE user = ?1 AND collection = ?2) AS total,
-				   (SELECT COUNT(*) FROM sync_items WHERE user = ?1 AND collection = ?2
-				      AND key IN (SELECT value FROM json_each(?3))) AS existing`
-			)
-			.bind(user, collection.name, keys)
-			.first<{ total: number; existing: number }>();
-		const added = items.length - (count?.existing ?? 0);
-		if ((count?.total ?? 0) + added > collection.maxRows) throw new TooManyItems();
-	}
+	const day = dayOf(now);
+	const [spent, state] = await db.batch<Record<string, unknown>>([
+		db.prepare(SPEND).bind(user, day, items.length, DAILY_ROWS),
+		db.prepare(STATE).bind(user, collection.name, keys)
+	]);
+	if (!spent?.results.length) throw new OverBudget();
+	const { rows, pruned, existing } = state!.results[0] as {
+		rows: number;
+		pruned: string;
+		existing: number;
+	};
+	const after = rows + items.length - existing;
+	if (collection.overflow === 'reject' && after > collection.maxRows) throw new TooManyItems();
 
-	const rows = items.map((item) => ({
+	const wire = items.map((item) => ({
 		key: item.key,
 		data: item.data === null ? null : JSON.stringify(item.data),
 		at: item.at
 	}));
-	const statements = [db.prepare(UPSERT).bind(user, collection.name, JSON.stringify(rows))];
-	if (collection.maxAgeDays !== undefined) {
+	const statements = [
+		db.prepare(COUNT_NEW).bind(user, collection.name, keys),
+		db.prepare(UPSERT).bind(user, collection.name, JSON.stringify(wire))
+	];
+	const forgetOld = collection.maxAgeDays !== undefined && pruned !== day;
+	const forgetOverflow = collection.overflow === 'forget-oldest' && after > collection.maxRows;
+	if (forgetOld) {
 		statements.push(db.prepare(FORGET_OLD).bind(user, collection.name, cutoff(collection, now)));
 	}
-	if (collection.overflow === 'forget-oldest') {
-		statements.push(db.prepare(FORGET_OVERFLOW).bind(user, collection.name, collection.maxRows));
+	if (forgetOverflow) {
+		const keep = Math.floor(collection.maxRows * OVERFLOW_KEEP);
+		statements.push(db.prepare(FORGET_OVERFLOW).bind(user, collection.name, keep));
+	}
+	if (forgetOld || forgetOverflow) {
+		statements.push(db.prepare(RECOUNT).bind(user, collection.name, forgetOld ? day : pruned));
 	}
 	statements.push(
 		db
@@ -93,6 +150,15 @@ export async function putItems(
 	);
 	const results = await db.batch<Row>(statements);
 	return (results.at(-1)?.results ?? []).map(collection.toWire);
+}
+
+/** Statements deleting everything `user` has synced, with its counts and usage. */
+export function forgetUser(db: D1Database, user: string): D1PreparedStatement[] {
+	return [
+		db.prepare('DELETE FROM sync_items WHERE user = ?').bind(user),
+		db.prepare('DELETE FROM sync_counts WHERE user = ?').bind(user),
+		db.prepare('DELETE FROM usage WHERE user = ?').bind(user)
+	];
 }
 
 export interface Page {
