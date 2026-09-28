@@ -12,6 +12,7 @@
 	import { TRACKS_PER_ARTIST, type LiveVoice } from '$lib/radio/persist';
 	import { pickVoice } from '$lib/radio/speaker';
 	import { ORDER_DESCRIPTIONS, ORDER_LABELS } from '$lib/radio/station';
+	import { canKeepScreenOn } from '$lib/radio/wake-lock';
 
 	let { catalog }: { catalog: Catalog } = $props();
 
@@ -37,6 +38,7 @@
 		{ voice: 'kokoro', label: 'Kokoro' },
 		{ voice: 'browser', label: 'Browser' }
 	];
+	const wakeLock = canKeepScreenOn();
 	const kokoroNote = $derived.by(() => {
 		const k = radio.kokoro;
 		if (radio.liveSlow) return 'Kokoro is too slow on this device: using the browser voice.';
@@ -141,6 +143,28 @@
 				{/if}
 			</details>
 		</section>
+
+		{#if wakeLock}
+			<section>
+				<h3 class="label">Screen while playing</h3>
+				<div class="seg" role="group" aria-label="Screen while playing">
+					<button
+						type="button"
+						aria-pressed={!radio.settings.keepScreenOn}
+						onclick={() => radio.setKeepScreenOn(false)}>Sleeps as usual</button
+					>
+					<button
+						type="button"
+						aria-pressed={radio.settings.keepScreenOn}
+						onclick={() => radio.setKeepScreenOn(true)}>Stays on</button
+					>
+				</div>
+				<p class="hint">
+					Phones stop the music when the screen turns off, as YouTube requires. Keeping it on uses
+					more battery.
+				</p>
+			</section>
+		{/if}
 
 		<section class="kbd-hint">
 			<h3 class="label">Keys</h3>

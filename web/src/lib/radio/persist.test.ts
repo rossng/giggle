@@ -70,17 +70,25 @@ describe('settings', () => {
 				voiceName: 'Daniel',
 				liveVoice: 'browser',
 				tracksPerArtist: 3,
-				volume: 140
+				volume: 140,
+				keepScreenOn: true
 			})
 		).toEqual({
 			voiceMode: 'name',
 			voiceName: 'Daniel',
 			liveVoice: 'browser',
 			tracksPerArtist: 3,
-			volume: 100
+			volume: 100,
+			keepScreenOn: true
 		});
 		expect(
-			parseSettings({ voiceMode: 'loud', liveVoice: 'robot', tracksPerArtist: 9, volume: 'x' })
+			parseSettings({
+				voiceMode: 'loud',
+				liveVoice: 'robot',
+				tracksPerArtist: 9,
+				volume: 'x',
+				keepScreenOn: 1
+			})
 		).toEqual(DEFAULT_SETTINGS);
 	});
 });

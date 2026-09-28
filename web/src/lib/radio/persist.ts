@@ -116,6 +116,8 @@ export interface RadioSettings {
 	tracksPerArtist: number;
 	/** Listener's music volume, 0–100. */
 	volume: number;
+	/** Keep the screen from sleeping while the radio plays (wake-lock.ts). */
+	keepScreenOn: boolean;
 }
 
 export type LiveVoice = 'kokoro' | 'browser';
@@ -125,7 +127,8 @@ export const DEFAULT_SETTINGS: Readonly<RadioSettings> = Object.freeze({
 	voiceName: null,
 	liveVoice: 'kokoro',
 	tracksPerArtist: 2,
-	volume: 100
+	volume: 100,
+	keepScreenOn: false
 });
 
 export const TRACKS_PER_ARTIST = [1, 2, 3] as const;
@@ -148,7 +151,9 @@ export function parseSettings(value: unknown): RadioSettings {
 		volume:
 			typeof v.volume === 'number' && Number.isFinite(v.volume)
 				? Math.min(100, Math.max(0, Math.round(v.volume)))
-				: DEFAULT_SETTINGS.volume
+				: DEFAULT_SETTINGS.volume,
+		keepScreenOn:
+			typeof v.keepScreenOn === 'boolean' ? v.keepScreenOn : DEFAULT_SETTINGS.keepScreenOn
 	};
 }
 
