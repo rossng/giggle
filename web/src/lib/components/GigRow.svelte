@@ -163,6 +163,7 @@
 		text-decoration: none;
 	}
 	h3 .badge {
+		margin-left: 8px;
 		vertical-align: 2px;
 	}
 	h3 a:hover {
