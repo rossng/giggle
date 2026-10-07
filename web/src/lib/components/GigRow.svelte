@@ -1,10 +1,12 @@
 <!--
-	One gig in a list: date, poster, title (and support), venue, time and price, and ▶ to hear
-	the headliner on the radio. A quieter line under the title gives a style or two and where
-	the headliner is from (wide screens only). The whole row links to the gig.
+	One gig in a list: date, poster, title (and support, and your plan for it), venue, time and
+	price, and ▶ to hear the headliner on the radio. A quieter line under the title gives a style
+	or two and where the headliner is from (wide screens only). The whole row links to the gig.
 -->
 <script lang="ts">
 	import { page } from '$app/state';
+	import { TRIAGE_LABELS } from '$lib/board/board';
+	import { boardStore } from '$lib/board/board-store.svelte';
 	import type { Catalog, GigView } from '$lib/data/catalog';
 	import { dayParts } from '$lib/data/dates';
 	import { GENRES } from '$lib/data/genres';
@@ -23,6 +25,7 @@
 		if (catalog && playable) radioApp.playArtist(catalog, playable.key, playable.name);
 	}
 	const gig = $derived(view.gig);
+	const plan = $derived(boardStore.gigState(view.id));
 	const place = $derived(
 		[gig.room, view.cityName && view.city !== 'amsterdam' ? view.cityName : null]
 			.filter(Boolean)
@@ -44,7 +47,10 @@
 	</div>
 	<PosterTile name={view.headliner} colour={view.colour} thumb={view.thumb} />
 	<div class="main">
-		<h3><a href={view.href}>{gig.title}</a></h3>
+		<h3>
+			<a href={view.href}>{gig.title}</a>{#if plan}
+				<span class="badge b-{plan}">{TRIAGE_LABELS[plan]}</span>{/if}
+		</h3>
 		{#if view.support.length}
 			<p class="sub ellipsis">+ {view.support.join(', ')}</p>
 		{:else if gig.subtitle}
@@ -155,6 +161,9 @@
 	}
 	h3 a {
 		text-decoration: none;
+	}
+	h3 .badge {
+		vertical-align: 2px;
 	}
 	h3 a:hover {
 		text-decoration: underline;

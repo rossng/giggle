@@ -1,12 +1,14 @@
 <script lang="ts">
 	// One gig. Up front: who, when, where, what it costs and where to get tickets, playing them on
-	// the radio, and the line-up. The venue's own blurb is cut to a few lines; everything else the
-	// listing says (genres, its picture, categories, raw fields) is under "More about this gig".
+	// the radio, your plans for it (want to go, got tickets), and the line-up. The venue's own
+	// blurb is cut to a few lines; everything else the listing says (genres, its picture,
+	// categories, raw fields) is under "More about this gig".
 	import PosterTile from '$lib/components/PosterTile.svelte';
 	import More from '$lib/components/pages/More.svelte';
 	import PlayArtist from '$lib/components/pages/PlayArtist.svelte';
 	import ReadMore from '$lib/components/pages/ReadMore.svelte';
-	import { TRIAGE_LABELS } from '$lib/board/board';
+	import TriageButtons from '$lib/components/TriageButtons.svelte';
+	import { GIG_TRIAGES, isGigTriage, TRIAGE_LABELS } from '$lib/board/board';
 	import { boardStore } from '$lib/board/board-store.svelte';
 	import { amsterdamDate, dayParts, localTime, relativeDays } from '$lib/data/dates';
 	import { GENRES } from '$lib/data/genres';
@@ -56,6 +58,10 @@
 			.sort((a, b) => Number(a.role !== 'headliner') - Number(b.role !== 'headliner'))
 			.find((a) => artists[a.key]?.youtube?.songs?.length)
 	);
+
+	/** Who a plan for this gig is for: the act played above, else the first billed. */
+	const planFor = $derived(playable ?? gig.artists[0]);
+	const plan = $derived(boardStore.gigState(view.id));
 
 	const capitalise = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 
@@ -147,13 +153,31 @@
 		{/if}
 	</div>
 
+	<div class="plans">
+		<TriageButtons
+			label="Your plans for this gig"
+			states={GIG_TRIAGES}
+			current={plan ? [plan] : []}
+			onpick={(t) => {
+				if (!isGigTriage(t)) return;
+				boardStore.toggleGig(view.id, t, {
+					artist: {
+						key: planFor?.key ?? null,
+						name: (planFor && artists[planFor.key]?.name) ?? planFor?.name ?? gig.title
+					},
+					when: gig.start
+				});
+			}}
+		/>
+	</div>
+
 	{#if lineup.length}
 		<section class="lineup">
 			<h2 class="label">Line-up</h2>
 			<ul>
 				{#each lineup as ref (ref.key)}
 					{@const artist = artists[ref.key]}
-					{@const state = boardStore.stateOf(ref.key)}
+					{@const state = boardStore.artistState(ref.key)}
 					<li>
 						<div class="act">
 							<a href={artistPath(artist ?? ref)}>{artist?.name ?? ref.name}</a>
@@ -340,6 +364,9 @@
 		align-items: center;
 		gap: 8px 10px;
 		flex-wrap: wrap;
+	}
+	.plans {
+		max-width: 420px;
 	}
 	.t-side .note {
 		color: var(--amber);

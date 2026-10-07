@@ -1,9 +1,8 @@
 <!-- The radio's controls on every page: who's on (tap for the Radio page), play and skip, the
-     position, sorting the artist, and the station & settings drawer. Phones keep the essentials. -->
+     position, sorting the artist and their gig, and the station & settings drawer. Phones keep the essentials. -->
 <script lang="ts">
 	import PosterTile from '$lib/components/PosterTile.svelte';
 	import TriageButtons from '$lib/components/TriageButtons.svelte';
-	import { boardStore } from '$lib/board/board-store.svelte';
 	import type { Catalog } from '$lib/data/catalog';
 	import { formatDay } from '$lib/data/dates';
 	import { NO_GENRE_COLOUR } from '$lib/data/genres';
@@ -18,7 +17,7 @@
 	const track = $derived(radio.track);
 	const artist = $derived(entry ? catalog.artists[entry.artistKey] : undefined);
 	const view = $derived(entry ? catalog.byId.get(entry.gig.id) : undefined);
-	const triage = $derived(entry ? boardStore.stateOf(entry.artistKey) : null);
+	const sorted = $derived(entry ? radio.marksOf(entry.artistKey) : []);
 	const shownTime = $derived(radio.resumeAt ?? radio.time);
 	const progress = $derived(radio.duration ? Math.min(1, shownTime / radio.duration) : 0);
 	// The announcements on this track, as spans of the bar (the voice's colour, not the fill's).
@@ -183,8 +182,8 @@
 	<div class="right wide">
 		<TriageButtons
 			size="compact"
-			label="Sort this artist"
-			current={triage}
+			label="Sort what's playing"
+			current={sorted}
 			disabled={!entry}
 			onpick={(t) => radio.triage(t)}
 		/>

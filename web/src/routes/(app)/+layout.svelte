@@ -2,6 +2,7 @@
 	// The app shell, the same on every page: the top bar, the page, and the radio's player bar and
 	// video, which live here so moving between pages never stops the music.
 	import { untrack } from 'svelte';
+	import GigChoice from '$lib/components/shell/GigChoice.svelte';
 	import PlayerBar from '$lib/components/shell/PlayerBar.svelte';
 	import StationPanel from '$lib/components/shell/StationPanel.svelte';
 	import TabBar from '$lib/components/shell/TabBar.svelte';
@@ -57,6 +58,7 @@
 <PlayerBar {catalog} />
 <TabBar />
 <StationPanel {catalog} />
+<GigChoice {catalog} />
 
 <style>
 	.page-body {

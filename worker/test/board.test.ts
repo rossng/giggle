@@ -50,6 +50,41 @@ describe('PUT and GET /api/board', () => {
 	});
 });
 
+describe('artists and gigs', () => {
+	const gig = {
+		key: 'gig:paradiso:123',
+		state: 'go',
+		name: 'Mogwai',
+		artist: MBID(1),
+		when: '2026-10-10T20:00:00+02:00',
+		at: T0
+	} as const;
+
+	it("stores a gig's plan with the artist and start it was sorted for", async () => {
+		const user = newUser();
+		const res = await put(user, [gig, item('gig:melkweg:9', 'tickets', T0), item(MBID(2), 'nope', T0)]);
+		expect(res.status).toBe(200);
+		expect((await pull(user)).body.items).toEqual(
+			expect.arrayContaining([gig, item('gig:melkweg:9', 'tickets', T0), item(MBID(2), 'nope', T0)])
+		);
+		const gone = await put(user, [{ key: gig.key, state: null, name: '', at: T1 }]);
+		expect(gone.body.items).toEqual([{ key: gig.key, state: null, name: '', at: T1 }]);
+	});
+
+	// LEGACY-BOARD
+	it('still takes plans on an artist from older clients', async () => {
+		const user = newUser();
+		const old = {
+			key: MBID(1),
+			state: 'tickets',
+			name: 'Mogwai',
+			gig: 'paradiso:123',
+			at: T0
+		} as const;
+		expect((await put(user, [old])).body.items).toEqual([old]);
+	});
+});
+
 describe('last write wins', () => {
 	it('keeps the newer change whichever order they arrive in', async () => {
 		const user = newUser();
@@ -192,6 +227,27 @@ describe('validation', () => {
 		]
 	])('rejects %s with 400', async (_, body) => {
 		const res = await callJson('/api/board', { method: 'PUT', devUser: user, body });
+		expect(res.status).toBe(400);
+		expect(res.body).toHaveProperty('error');
+	});
+
+	// Its own account: each account gets 30 writes a minute.
+	it.each([
+		["a gig's listen more", { items: [item('gig:paradiso:1', 'listen', T0)] }],
+		["a gig's not for me", { items: [item('gig:paradiso:1', 'nope', T0)] }],
+		['a gig key without an id', { items: [item('gig:paradiso', 'go', T0)] }],
+		['a gig key with a capital venue', { items: [item('gig:Paradiso:1', 'go', T0)] }],
+		['a gig with a gig field', { items: [{ ...item('gig:x:1', 'go', T0), gig: 'x:1' }] }],
+		["a gig's bad artist", { items: [{ ...item('gig:x:1', 'go', T0), artist: 'spotify:1' }] }],
+		["a gig's bad start", { items: [{ ...item('gig:x:1', 'go', T0), when: 'soon' }] }],
+		["an artist's artist", { items: [{ ...item('name:a', 'listen', T0), artist: 'name:b' }] }],
+		["an artist's start", { items: [{ ...item('name:a', 'listen', T0), when: T0 }] }],
+	])('rejects %s with 400', async (_, body) => {
+		const res = await callJson('/api/board', {
+			method: 'PUT',
+			devUser: 'gig-validator@example.test',
+			body
+		});
 		expect(res.status).toBe(400);
 		expect(res.body).toHaveProperty('error');
 	});

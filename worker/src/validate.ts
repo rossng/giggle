@@ -23,6 +23,8 @@ export class ValidationError extends Error {}
 const MBID = /^mb:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/;
 // "name:" + the pipeline's normalised name (may be empty for names that normalise away).
 const NAME_KEY = /^name:[^\p{Cc}\p{Cs}]*$/u;
+// "gig:" + a gig id, "<venue slug>:<source id>".
+const GIG_KEY = /^gig:[a-z0-9-]+:[^\p{Cc}\p{Cs}]+$/u;
 const NO_CONTROL = /^[^\p{Cc}\p{Cs}]*$/u;
 const ISO = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d{1,3})?(?:Z|[+-]\d{2}:\d{2})$/;
 
@@ -37,6 +39,11 @@ export function isArtistKey(value: unknown): value is string {
 		value.length <= LIMITS.keyLength &&
 		(MBID.test(value) || NAME_KEY.test(value))
 	);
+}
+
+/** A gig's key on the board: "gig:<venue>:<source_id>". */
+export function isGigKey(value: unknown): value is string {
+	return typeof value === 'string' && value.length <= LIMITS.keyLength && GIG_KEY.test(value);
 }
 
 /** `value` as milliseconds since the epoch (not before EPOCH), or throws. */

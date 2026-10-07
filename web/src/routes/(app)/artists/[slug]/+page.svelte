@@ -1,12 +1,13 @@
 <script lang="ts">
-	// One artist. Up front: who they are in a line, playing them, sorting them onto the board, and
-	// their upcoming gigs. The bio, facts, tags, links, top tracks and similar artists are under
+	// One artist. Up front: who they are in a line, playing them, sorting them (listen more, not for
+	// me: plans are each gig's, on its page), and their upcoming gigs. The bio, facts, tags, links, top tracks and similar artists are under
 	// "More about …".
 	import GigList from '$lib/components/GigList.svelte';
 	import PosterTile from '$lib/components/PosterTile.svelte';
 	import More from '$lib/components/pages/More.svelte';
 	import PlayArtist from '$lib/components/pages/PlayArtist.svelte';
 	import TriageButtons from '$lib/components/TriageButtons.svelte';
+	import { ARTIST_TRIAGES, isArtistTriage } from '$lib/board/board';
 	import { boardStore } from '$lib/board/board-store.svelte';
 	import { amsterdamDate } from '$lib/data/dates';
 	import { GENRES, NO_GENRE_COLOUR, bucketsFor } from '$lib/data/genres';
@@ -103,7 +104,7 @@
 			.filter(Boolean)
 			.join(' · ')
 	);
-	const next = $derived(gigs[0]?.gig ?? null);
+	const sorted = $derived(boardStore.artistState(artist.key));
 </script>
 
 <svelte:head><title>{artist.name} · giggle</title></svelte:head>
@@ -127,12 +128,9 @@
 		<PlayArtist {catalog} artistKey={artist.key} name={artist.name} strong />
 		<TriageButtons
 			label="Sort {artist.name}"
-			current={boardStore.stateOf(artist.key)}
-			onpick={(t) =>
-				boardStore.toggle(artist.key, t, {
-					name: artist.name,
-					...(next ? { gig: next.id, when: next.start } : {})
-				})}
+			states={ARTIST_TRIAGES}
+			current={sorted ? [sorted] : []}
+			onpick={(t) => isArtistTriage(t) && boardStore.toggleArtist(artist, t)}
 		/>
 	</div>
 
@@ -145,7 +143,7 @@
 		{#if gigs.length}
 			<GigList views={gigs} {today} />
 		{:else}
-			<p class="muted">Nothing in the listings right now. Sort them and the Board keeps track.</p>
+			<p class="muted">Nothing in the listings right now.</p>
 		{/if}
 	</section>
 

@@ -24,6 +24,7 @@ import {
 	loadUnavailable,
 	type Unavailable
 } from '$lib/data/unavailable';
+import { own } from '$lib/data/own';
 import { KEYS as RADIO_KEYS, loadHistory, saveHistory } from '$lib/radio/persist';
 import type { Collection } from './collection';
 import {
@@ -31,7 +32,6 @@ import {
 	isArtistKey,
 	isSyncable as boardSyncable,
 	LIMITS,
-	toBoardItem,
 	toWire as boardToWire,
 	type SyncItem
 } from './wire';
@@ -54,22 +54,41 @@ function validTime(at: unknown): at is string {
 
 // --- the board -------------------------------------------------------------------------------
 
-/** The board part of a synced map: every item that isn't a tombstone. */
+/** The board in a synced map: every item that isn't a tombstone, read as parseBoard reads
+ * storage (so an older version's items become this version's). */
 export function boardOf(map: Readonly<Record<string, SyncItem>>): Board {
-	const out: Record<string, BoardItem> = {};
-	for (const [key, item] of Object.entries(map)) {
-		if (item.state !== null) out[key] = toBoardItem({ ...item, state: item.state });
-	}
-	return out;
+	const items: Record<string, SyncItem> = {};
+	for (const [key, item] of Object.entries(map)) if (item.state !== null) items[key] = item;
+	return parseBoard({ items });
 }
 
+/**
+ * Same state, name and time. A gig's `when` and `artist`, and an older version's `gig`, never
+ * change without the time changing too, and leaving them out means a copy that lacks them (an
+ * older version's, or one this device converted) is never pushed again over the server's.
+ */
 export function sameItem(a: SyncItem | undefined, b: SyncItem | undefined): boolean {
 	if (!a || !b) return a === b;
 	return (
 		a.state === b.state &&
-		(a.state === null || (a.name === b.name && (a.gig ?? '') === (b.gig ?? ''))) &&
+		(a.state === null || a.name === b.name) &&
 		Date.parse(a.at) === Date.parse(b.at)
 	);
+}
+
+/** The base as the server has it: an older version's items stay as they are, so that the
+ * converted copies (parseBoard) are pushed as changes (LEGACY-BOARD: harmless once there are
+ * none). */
+function parseBase(value: unknown): Record<string, SyncItem> {
+	const out: Record<string, SyncItem> = {};
+	if (!value || typeof value !== 'object' || Array.isArray(value)) return out;
+	for (const [key, raw] of Object.entries(value as Record<string, unknown>)) {
+		const wire = raw && typeof raw === 'object' ? boardFromWire({ ...raw, key }) : null;
+		if (!wire || wire.state === null) continue;
+		const { key: _key, ...item } = wire;
+		out[key] = item;
+	}
+	return out;
 }
 
 /** Its record keeps the key it had before other collections synced. */
@@ -84,18 +103,18 @@ export const boardCollection: Collection<SyncItem, Board> = {
 	immutable: false,
 	load: (storage) => loadBoard(storage),
 	save(items, storage) {
-		// `when` (a sorted gig's date) isn't synced: keep this device's while the gig is the same.
+		// A gig's start, if this device knows it and the server's copy doesn't.
 		const current = loadBoard(storage);
 		const next: Record<string, BoardItem> = {};
 		for (const [key, item] of Object.entries(boardOf(items))) {
-			const when = current[key]?.gig === item.gig ? current[key]?.when : undefined;
+			const when = item.when ?? own(current, key)?.when;
 			next[key] = when ? { ...item, when } : item;
 		}
 		saveBoard(next, storage);
 		return next;
 	},
 	packBase: (items) => items,
-	parseBase: (value) => parseBoard({ items: value }),
+	parseBase,
 	tombstone: (at) => ({ state: null, name: '', at }),
 	isTombstone: (item) => item.state === null,
 	same: sameItem,
