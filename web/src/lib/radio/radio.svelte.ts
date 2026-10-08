@@ -235,6 +235,10 @@ export class Radio {
 	marks = $state.raw<VoiceMark[]>([]);
 	/** Talking before the track starts, for the scrub bar; null otherwise. */
 	preroll = $state.raw<Preroll | null>(null);
+	/** The video the radio moved to while the embed still shows the last one (paused, as the
+	 * announcer talks the next one in): the dock lays this one's thumbnail over the embed until
+	 * the embed plays. */
+	cover = $state<string | null>(null);
 
 	// ---------- engine objects: never reactive ----------
 	#player: YouTubePlayer | null = null;
@@ -459,6 +463,7 @@ export class Radio {
 	/** Moving to the current track: what the UI showed of the last one (clock, announcements) goes. */
 	#leaveTrack(): void {
 		this.preroll = null;
+		this.cover = null;
 		this.#marksFor = this.track?.videoId ?? null;
 		this.marks = [];
 		this.time = 0;
@@ -771,6 +776,7 @@ export class Radio {
 		this.#cued = null;
 		this.position = { ...target, seconds: 0 };
 		this.#leaveTrack();
+		if (player.videoId !== track.videoId) this.cover = track.videoId;
 
 		const voice = this.settings.voiceMode;
 		// What was prepared for the old position and hasn't started rendering: dropped.
@@ -1081,6 +1087,7 @@ export class Radio {
 		const player = this.#player;
 		if (!player) return;
 		this.#errors = 0;
+		this.cover = null; // never over a video that plays
 		if (player.videoId === this.#introVideo) this.#introVideo = null;
 		// Each YouTube track makes its iframe the media keys' target: take them back.
 		this.#focus.claim();
@@ -1151,6 +1158,7 @@ export class Radio {
 		) {
 			this.position = { ...next, seconds: 0 };
 			this.#introVideo = nextTrack.videoId;
+			this.cover = nextTrack.videoId;
 			this.#describe();
 			player.load(nextTrack);
 			return;

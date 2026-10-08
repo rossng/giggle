@@ -3,12 +3,14 @@
      open (placed in page coordinates, so it scrolls and overscroll-bounces with the page on its
      own) and floats as a fixed tile above the player bar elsewhere. YouTube requires the
      player to stay visible and at least 200×200 px while it plays, so the tile never shrinks
-     below that, and tucking it away (phones) pauses. -->
+     below that, and tucking it away (phones) pauses. While the announcer talks the next track in,
+     the embed still holds the last one (paused): the next one's thumbnail covers it. -->
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import type { Catalog } from '$lib/data/catalog';
 	import { radioApp } from '$lib/radio/app.svelte';
 	import { ORDER_DESCRIPTIONS } from '$lib/radio/station';
+	import { videoThumbnail } from '$lib/radio/tracks';
 
 	let { catalog }: { catalog: Catalog } = $props();
 
@@ -47,6 +49,11 @@
 		};
 	});
 
+	// Only ever the current track's: never a picture of one the radio has left.
+	const cover = $derived(
+		radio.cover && radio.cover === radio.track?.videoId ? videoThumbnail(radio.cover) : undefined
+	);
+
 	const docked = $derived(rect !== null);
 	// Away from the Radio page the tile only shows while the radio has something on.
 	const floating = $derived(!docked && radio.started && !!radio.entry);
@@ -74,6 +81,10 @@
 	aria-label="YouTube player"
 >
 	<div class="host" bind:this={host}></div>
+
+	{#if cover}
+		<img class="cover" src={cover} alt="" />
+	{/if}
 
 	{#if docked && radio.entry && !radio.started}
 		<div class="cue">
@@ -138,6 +149,15 @@
 		width: 356px;
 		height: 200px;
 		visibility: hidden;
+	}
+	/* Black behind it, so a picture that doesn't load still hides the last track. */
+	.cover {
+		position: absolute;
+		inset: 0;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		background: #000;
 	}
 	.cue {
 		position: absolute;
