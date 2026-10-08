@@ -32,8 +32,8 @@ format: ## fix lint and formatting
 	uv run --group dev ruff check --fix packages pipeline scripts
 	uv run --group dev ruff format packages pipeline scripts
 
-data: ## run the pipeline live into data/site (~4 min)
-	uv run giggle-build --out data/site --history data/site/health-history.json
+data: ## run the pipeline live into data/site (~4 min; secrets from ../giggle-secrets via sops)
+	scripts/with-secrets uv run giggle-build --out data/site --history data/site/health-history.json
 
 data-offline: ## run the pipeline on recorded fixtures into data/site (seconds, no network)
 	uv run giggle-build --replay packages/podia/tests/fixtures --out data/site

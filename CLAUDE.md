@@ -102,6 +102,10 @@ uv, Node, pnpm and make only; Python is uv-managed (`.python-version`), deps com
 - `uv sync` · `uv run podia list` · `uv run podia fetch <venue>`
 - Build data: `make data` (live, ~4 min, spends the shared daily LLM allowance) or
   `make data-offline` (fixtures, seconds) → `data/site/`
+- Local secrets: `scripts/with-secrets <cmd>` (used by `make data`) decrypts the private
+  giggle-secrets repo (cloned next to this one) with sops and this machine's age key into that
+  command's environment only; setup is in that repo's README. `.env` is the fallback. Never
+  decrypt or print them yourself.
 - Web app: `make web-dev` (localhost:5173, serves `data/site` via a Vite plugin), `make web-build`.
 - Inspect it: `make browse` (kept + left-out events with reasons; `data/` is git-ignored).
   Raw adapter output: `make fetch` then `make browse-raw`.
