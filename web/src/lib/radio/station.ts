@@ -61,9 +61,12 @@ export function stationQuery(station: {
 	});
 }
 
-/** Identifies the station's gigs (not its order), for saving and resuming sessions. */
+/**
+ * Identifies the station's gigs (not its order), for saving and resuming sessions. An unset
+ * `board` is left out (`filtersKey` skips undefined), so stations saved before it existed resume.
+ */
 export function stationKey(filters: Filters): string {
-	return filtersKey({ ...filters, order: null, seed: null });
+	return filtersKey({ ...filters, board: filters.board ?? undefined, order: null, seed: null });
 }
 
 export const ORDER_LABELS: Readonly<Record<RadioOrder, string>> = {

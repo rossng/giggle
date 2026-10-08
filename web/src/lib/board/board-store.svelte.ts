@@ -8,6 +8,7 @@
 import { browser } from '$app/environment';
 import { localChanged, onSynced } from '$lib/sync/app';
 import {
+	artistsIn,
 	artistState,
 	BOARD_STORAGE_KEY,
 	gigState,
@@ -28,6 +29,8 @@ type Artist = { key: string; name: string };
 class BoardStore {
 	/** Artist and gig keys → how they're sorted. */
 	items: Board = $state.raw({});
+	/** Artists marked listen more, for the `board=listen` filter. */
+	readonly listenMore: ReadonlySet<string> = $derived(artistsIn(this.items, ['listen']));
 
 	constructor() {
 		if (!browser) return;
