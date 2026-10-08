@@ -56,12 +56,12 @@ export interface Line {
   artistKey: string;
   /** The voice mode it was written for. */
   mode: "name" | "short";
-  /** A pre-rendered clip to play first ("Djavan, a Brazilian singer-songwriter…");
+  /** A pre-rendered clip to play first ("Next up, Djavan, a Brazilian singer-songwriter…");
    * `spoken` is then the only part to synthesise live. `seconds` covers both. */
   clip?: { url: string; text: string; seconds: number; spoken: string };
 }
 
-/** A pre-rendered artist intro from the pipeline: "<name>, <descriptor>." */
+/** A pre-rendered artist intro from the pipeline: "Next up, <name>, <descriptor>." */
 export interface IntroClip {
   url: string;
   text: string;
@@ -163,12 +163,13 @@ const STRUCTURES: readonly (readonly [Structure, number])[] = [
 
 // ---------- phrase banks ----------
 
+// Intros look ahead ("Next up", "Here's"), never "This is" or "You're listening to": said
+// in the gap after a track, those could be about the one that just ended.
 const PLAIN: Template<{ name: string }>[] = [
   (c) => `Here's ${c.name}.`,
-  (c) => `This is ${c.name}.`,
-  (c) => `On now, ${c.name}.`,
   (c) => `Next up, ${c.name}.`,
-  (c) => `You're listening to ${c.name}.`,
+  (c) => `Up next, ${c.name}.`,
+  (c) => `And now, ${c.name}.`,
 ];
 /** The shortest namings: how a quick intro opens. */
 const QUICK_PLAIN = PLAIN.slice(0, 3);
@@ -214,7 +215,7 @@ const MICRO: Template<MicroCtx>[] = [
   (c) => `More ${c.name}.`,
   (c) => c.nth && `A ${c.nth} one from ${c.name}.`,
   (c) => c.song && `More from ${c.name}: ${c.song}.`,
-  (c) => c.song && `Still ${c.name}. This is ${c.song}.`,
+  (c) => c.song && `Still ${c.name}. Here's ${c.song}.`,
   (c) => c.song && `${c.name} again, with ${c.song}.`,
   (c) => c.song && `And another from ${c.name}: ${c.song}.`,
 ];
@@ -259,9 +260,9 @@ const ORIGIN_OPEN: Template<FactCtx<OriginFact>>[] = [
   (c) => c.fact.place && !c.fact.local && `From ${c.fact.place}, here's ${c.name}.`,
   (c) => c.fact.place && !c.fact.local && `Here's ${c.name}, from ${c.fact.place}.`,
   (c) => c.fact.demonym && !c.fact.local && `Here's ${c.fact.demonym} ${c.fact.noun} ${c.name}.`,
-  (c) => !c.fact.local && demonymAct(c.fact) && `This is ${c.name}, ${demonymAct(c.fact)}.`,
+  (c) => !c.fact.local && demonymAct(c.fact) && `Next up, ${c.name}, ${demonymAct(c.fact)}.`,
   (c) => c.fact.local && `Here's local ${c.fact.noun} ${c.name}.`,
-  (c) => c.fact.local && `From right here in ${c.fact.place}, this is ${c.name}.`,
+  (c) => c.fact.local && `From right here in ${c.fact.place}, here's ${c.name}.`,
 ];
 const ORIGIN_SAY: Template<FactCtx<OriginFact>>[] = [
   (c) => c.fact.place && !c.fact.local && `They're from ${c.fact.place}.`,
@@ -273,7 +274,7 @@ const ORIGIN_SAY: Template<FactCtx<OriginFact>>[] = [
 
 const FORMED_OPEN: Template<FactCtx<FormedFact>>[] = [
   (c) => !c.fact.recent && !c.fact.founded && `Here's ${c.name}, together since ${c.fact.year}.`,
-  (c) => !c.fact.recent && !c.fact.founded && `Together since ${c.fact.year}, this is ${c.name}.`,
+  (c) => !c.fact.recent && !c.fact.founded && `Together since ${c.fact.year}, here's ${c.name}.`,
   (c) => c.fact.recent && !c.fact.founded && `Here's ${c.name}, a brand-new band.`,
   (c) => c.fact.founded && `Here's ${c.name}, founded in ${c.fact.year}.`,
 ];
@@ -288,8 +289,8 @@ const FORMED_SAY: Template<FactCtx<FormedFact>>[] = [
 
 const GENRE_OPEN: Template<FactCtx<GenreFact>>[] = [
   (c) => c.genre && `Here's ${c.name}, ${genreAct(c.genre, c.fact.noun)}.`,
-  (c) => c.genre && `Something on the ${c.genre} side, from ${c.name}.`,
-  (c) => c.fact.descriptor && `This is ${c.name}, ${c.fact.descriptor}.`,
+  (c) => c.genre && `Something on the ${c.genre} side next, from ${c.name}.`,
+  (c) => c.fact.descriptor && `Next up, ${c.name}, ${c.fact.descriptor}.`,
   (c) => c.fact.descriptor && `Here's ${c.name}: ${c.fact.descriptor}.`,
 ];
 const GENRE_SAY: Template<FactCtx<GenreFact>>[] = [
@@ -323,13 +324,13 @@ const SUPPORT_SAY: Template<FactCtx<SupportFact>>[] = [
 ];
 
 const TRACK_OPEN: Template<FactCtx<TrackFact>>[] = [
-  (c) => `This is ${c.name}, with ${c.fact.song}.`,
+  (c) => `Next up, ${c.name}, with ${c.fact.song}.`,
   (c) => `Here's ${c.fact.song}, by ${c.name}.`,
-  (c) => `Here's ${c.name}, and this is ${c.fact.song}.`,
+  (c) => `Here's ${c.name}, with ${c.fact.song}.`,
 ];
 const TRACK_SAY: Template<FactCtx<TrackFact>>[] = [
   (c) => `This one's called ${c.fact.song}.`,
-  (c) => `This is ${c.fact.song}.`,
+  (c) => `Here's ${c.fact.song}.`,
   (c) => `The song is ${c.fact.song}.`,
 ];
 
