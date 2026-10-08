@@ -1,3 +1,4 @@
+import { filtersKey } from '@giggle/radio-core';
 import { describe, expect, it } from 'vitest';
 import { DEFAULT_FILTERS } from '$lib/data/filters';
 import {
@@ -92,5 +93,11 @@ describe('stationKey', () => {
 		expect(stationKey(a.filters)).toBe(stationKey(b.filters));
 		expect(stationKey({ ...a.filters, order: 'mix', seed: 'q' })).toBe(stationKey(a.filters));
 		expect(stationKey(a.filters)).not.toBe(stationKey(c.filters));
+	});
+
+	it('keeps the keys of stations saved before the board filter', () => {
+		const { board: _board, ...before } = s('city=amsterdam').filters;
+		expect(stationKey(s('city=amsterdam').filters)).toBe(filtersKey(before));
+		expect(stationKey(s('city=amsterdam&board=listen').filters)).not.toBe(filtersKey(before));
 	});
 });

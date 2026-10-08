@@ -1,7 +1,7 @@
 // The filter model shared by the agenda and the radio, and its URL form.
 //
 //   ?days=30&from=3&city=amsterdam,utrecht&venue=paradiso&genre=indie,jazz
-//    &style=post-punk,shoegaze&q=nobu&hide=soldout&order=mix&seed=k3x9
+//    &style=post-punk,shoegaze&q=nobu&hide=soldout&board=listen&order=mix&seed=k3x9
 //
 // `days` is the window's length and `from` its start, both relative to today, so a saved
 // link keeps showing "the next month from three days out" as the days pass. Defaults are
@@ -10,7 +10,9 @@
 //
 // `hide=unavailable` leaves out gigs on the listener's own unavailable dates (unavailable.ts).
 // Those aren't in the URL: a shared link hides the *viewer's* dates. `apply` and `facetCounts`
-// take them, with the rest of what's the listener's own, as `Personal`.
+// take them, with the rest of what's the listener's own, as `Personal`. Likewise `board=listen`
+// keeps only gigs with an artist the *viewer* marked listen more on their board (board.ts): the
+// whole gig passes, line-up and all (the radio then plays just those artists: station.ts).
 //
 // Genres come at two levels: the coarse buckets (`genre`, genres.ts) and specific styles
 // (`style`, styles.ts), each style belonging to one or more buckets. Together they are one
@@ -33,6 +35,10 @@ import type { Gig, IsoDate } from './types';
 export const HIDE_FLAGS = ['soldout', 'unavailable'] as const;
 export type HideFlag = (typeof HIDE_FLAGS)[number];
 
+/** Gigs by the listener's board: `listen`, those with an artist they marked listen more. */
+export const BOARD_FILTERS = ['listen'] as const;
+export type BoardFilter = (typeof BOARD_FILTERS)[number];
+
 export const ORDERS = ['date', 'mix', 'shuffle'] as const;
 export type Order = (typeof ORDERS)[number];
 
@@ -53,6 +59,8 @@ export interface Filters {
 	q: string;
 	/** `soldout`; `unavailable`: gigs on the listener's unavailable dates (see `apply`). */
 	hide: HideFlag[];
+	/** Only gigs by the listener's board (see `apply`); null for any gig. */
+	board: BoardFilter | null;
 	/** Radio play order; null means the page's own default. */
 	order: Order | null;
 	/** Shuffle seed, so a shared station plays in the same order. */
@@ -73,6 +81,7 @@ export const DEFAULT_FILTERS: Readonly<Filters> = Object.freeze({
 	styles: [],
 	q: '',
 	hide: [],
+	board: null,
 	order: null,
 	seed: null
 });
@@ -110,6 +119,7 @@ function list(params: URLSearchParams, name: string, valid: (v: string) => boole
 }
 
 export function parse(params: URLSearchParams): Filters {
+	const board = params.get('board')?.trim().toLowerCase();
 	const order = params.get('order');
 	const seed = params.get('seed');
 	return {
@@ -121,6 +131,8 @@ export function parse(params: URLSearchParams): Filters {
 		styles: uniqueStyles(list(params, 'style', (v) => SLUG.test(v) && v.length <= 40)),
 		q: cleanQuery(params.get('q') ?? ''),
 		hide: list(params, 'hide', (v) => (HIDE_FLAGS as readonly string[]).includes(v)) as HideFlag[],
+		board:
+			board && (BOARD_FILTERS as readonly string[]).includes(board) ? (board as BoardFilter) : null,
 		order: order && (ORDERS as readonly string[]).includes(order) ? (order as Order) : null,
 		seed: seed && SEED.test(seed) ? seed : null
 	};
@@ -158,6 +170,7 @@ export function serialise(filters: Filters): URLSearchParams {
 	const q = cleanQuery(filters.q);
 	if (q) params.set('q', q);
 	if (filters.hide.length) params.set('hide', [...new Set(filters.hide)].sort().join(','));
+	if (filters.board) params.set('board', filters.board);
 	if (filters.order) params.set('order', filters.order);
 	if (filters.seed) params.set('seed', filters.seed);
 	return params;
@@ -272,12 +285,14 @@ export type DateTest = (date: IsoDate) => boolean;
 export interface Personal {
 	/** Their unavailable dates, for `hide=unavailable`; without it, nothing is hidden. */
 	unavailable?: DateTest;
+	/** Artist keys they marked listen more, for `board=listen`; without it, nobody is. */
+	listenMore?: ReadonlySet<string>;
 }
 
 function predicate(
 	filters: Filters,
 	now: Date,
-	{ unavailable }: Personal,
+	{ unavailable, listenMore }: Personal,
 	skip?: Facet
 ): (item: Filterable) => boolean {
 	const { first, last } = dateWindow(filters, now);
@@ -287,6 +302,7 @@ function predicate(
 	const words = searchText(cleanQuery(filters.q)).split(' ').filter(Boolean);
 	const hideSoldOut = filters.hide.includes('soldout');
 	const away = filters.hide.includes('unavailable') ? unavailable : undefined;
+	const mine = filters.board === 'listen' ? (listenMore ?? new Set<string>()) : null;
 	return (item) =>
 		item.date >= first &&
 		item.date <= last &&
@@ -295,6 +311,7 @@ function predicate(
 		(!genre || genre(item)) &&
 		!(hideSoldOut && isSoldOut(item.gig)) &&
 		!away?.(item.date) &&
+		(!mine || item.gig.artists.some((a) => mine.has(a.key))) &&
 		words.every((w) => item.haystack.includes(w));
 }
 
@@ -393,6 +410,10 @@ export function removeStyle(
 	return { genres: filters.genres.filter((g) => !drop.has(g)), styles };
 }
 
+export const BOARD_LABELS: Readonly<Record<BoardFilter, string>> = {
+	listen: 'My listen-more artists'
+};
+
 /** One active filter, as a removable chip. */
 export interface ActiveFilter {
 	/** Unique among the chips ("city:utrecht"). */
@@ -405,12 +426,20 @@ export interface ActiveFilter {
 }
 
 /**
- * The filters beyond the search and the time window, one chip each: whole buckets, styles,
- * cities, venues and the hide flags.
+ * The filters beyond the search and the time window, one chip each: the board's, whole buckets,
+ * styles, cities, venues and the hide flags.
  */
 export function activeFilters(filters: Filters, names: FilterNames = {}): ActiveFilter[] {
 	const narrowed = new Set(filters.styles.flatMap(bucketsForStyle));
 	const out: ActiveFilter[] = [];
+	if (filters.board) {
+		out.push({
+			id: `board:${filters.board}`,
+			label: BOARD_LABELS[filters.board],
+			colour: null,
+			without: { board: null }
+		});
+	}
 	for (const g of filters.genres) {
 		if (narrowed.has(g)) continue;
 		out.push({
@@ -460,12 +489,14 @@ export function activeFilters(filters: Filters, names: FilterNames = {}): Active
 	return out;
 }
 
-/** A one-line, human description: "Next 3 months from +3 days · Amsterdam · Indie, Jazz". */
+/** A one-line, human description: "Next 3 months from +3 days · Amsterdam · Indie, Jazz"
+ * ("My listen-more artists · Next 3 months" with `board`). */
 export function summarise(filters: Filters, names: FilterNames = {}): string {
-	const parts = [
+	const parts = filters.board ? [BOARD_LABELS[filters.board]] : [];
+	parts.push(
 		windowLabel(filters.days) +
 			(filters.from ? ` from ${filters.from === 7 ? '+1 week' : `+${filters.from} days`}` : '')
-	];
+	);
 	if (filters.cities.length) parts.push(filters.cities.map(names.city ?? ((c) => c)).join(', '));
 	const genres = genreWords(filters, names);
 	if (genres.length) parts.push(genres.join(', '));
