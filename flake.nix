@@ -17,12 +17,18 @@
     {
       devShells = forAllSystems (pkgs: {
         default = pkgs.mkShell {
-          packages = with pkgs; [
-            uv
-            nodejs_24
-            pnpm
-            gnumake
-          ];
+          packages =
+            with pkgs;
+            [
+              uv
+              nodejs_24
+              pnpm
+              gnumake
+              # Local secrets: scripts/with-secrets (sops + an age key, Secure Enclave on Macs).
+              sops
+              age
+            ]
+            ++ lib.optionals stdenv.hostPlatform.isDarwin [ age-plugin-se ];
           env = {
             # Use uv's standalone Python (pinned in .python-version), not nixpkgs' Python:
             # manylinux wheels such as onnxruntime load reliably against it on the CI runner.
