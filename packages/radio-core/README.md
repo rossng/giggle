@@ -15,7 +15,7 @@ pnpm --dir packages/radio-core typecheck   # tsc --noEmit
 | Module | What it does |
 | --- | --- |
 | `types` | `Gig`, `Venue`, `Artist`: only the fields of the pipeline's JSON that radio-core reads (so the app's fuller types fit them as they are), `Track` `{videoId, title, album?}` and the `Player` interface (implementations live in the app). |
-| `queue` | `buildQueue({gigs, tracks, now, tracksPerArtist, notForMe, artists})`: one `QueueEntry` per artist at their earliest upcoming gig, N tracks each; reports artists skipped for having no tracks or being "not for me". |
+| `queue` | `buildQueue({gigs, tracks, now, tracksPerArtist, notForMe, onlyArtists, artists})`: one `QueueEntry` per artist at their earliest upcoming gig, N tracks each (only `onlyArtists` when given); reports artists skipped for having no tracks or being "not for me". |
 | `order` | `orderQueue(entries, "date" \| "shuffle" \| "mix", {seed, now, listenMore, history})`. Mix is a seeded Efraimidis–Spirakis weighted shuffle; `mixWeight` and `MIX` hold the weights. |
 | `history` | `PlayHistory` (artistKey → epoch-ms timestamps): `recordPlay`, `pruneHistory` (60 days), `mergeHistory` (union of two devices' plays, pruned), `lastHeard`, `parseHistory`. |
 | `session` | `snapshotSession`, `parseSession`, `restoreSession`, `filtersKey`: save a listening session and resume it against fresh data. |

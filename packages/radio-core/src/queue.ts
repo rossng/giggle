@@ -34,6 +34,8 @@ export interface BuildQueueOptions {
   tracksPerArtist?: number;
   /** Artist keys the listener marked "not for me". */
   notForMe?: Iterable<string>;
+  /** Only these artist keys: the rest of the gigs' line-ups are left out (and not reported). */
+  onlyArtists?: Iterable<string>;
   /** artists.json records, for canonical names. */
   artists?: Readonly<Record<string, Artist>>;
 }
@@ -98,6 +100,7 @@ function billingIndex(e: QueueEntry): number {
 export function buildQueue(options: BuildQueueOptions): BuiltQueue {
   const n = Math.max(1, Math.floor(options.tracksPerArtist ?? DEFAULT_TRACKS_PER_ARTIST));
   const nope = new Set(options.notForMe ?? []);
+  const only = options.onlyArtists ? new Set(options.onlyArtists) : null;
   const gigs = options.gigs
     .filter((g) => isUpcoming(g, options.now))
     .sort((a, b) => isoMs(a.start) - isoMs(b.start) || (a.id < b.id ? -1 : a.id > b.id ? 1 : 0));
@@ -108,7 +111,7 @@ export function buildQueue(options: BuildQueueOptions): BuiltQueue {
   const notForMe: string[] = [];
   for (const gig of gigs) {
     for (const ref of gig.artists ?? []) {
-      if (!ref?.key || decided.has(ref.key)) continue;
+      if (!ref?.key || decided.has(ref.key) || (only && !only.has(ref.key))) continue;
       decided.add(ref.key);
       if (nope.has(ref.key)) {
         notForMe.push(ref.key);

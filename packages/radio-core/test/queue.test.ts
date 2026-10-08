@@ -75,6 +75,16 @@ describe("buildQueue", () => {
     expect(built.withoutTracks).toEqual([]);
   });
 
+  it("keeps only the given artists, leaving the rest unreported", () => {
+    const g = gig({ artists: [A, B] });
+    const tracks = tracksFor("mb:a", "mb:b");
+    const built = buildQueue({ gigs: [g], tracks, now: NOW, onlyArtists: ["mb:b"], notForMe: ["mb:a"] });
+    expect(keys(built.entries)).toEqual(["mb:b"]);
+    expect(built.notForMe).toEqual([]);
+    expect(built.withoutTracks).toEqual([]);
+    expect(buildQueue({ gigs: [g], tracks, now: NOW, onlyArtists: [] }).entries).toEqual([]);
+  });
+
   it("accepts a Map, a record or a function as the track lookup", () => {
     const g = gig({ artists: [A] });
     const ts = [track("1")];

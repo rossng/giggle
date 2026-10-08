@@ -103,6 +103,9 @@ export interface StationInput {
 	key: string;
 	/** The station's gigs (already filtered, unavailable dates included). */
 	gigs: readonly CoreGig[];
+	/** Only these artists of the gigs' line-ups (`board=listen`: the listen-more ones), or null
+	 * for everyone on them. */
+	onlyArtists: ReadonlySet<string> | null;
 	/** Each artist's tracks, best first (tracks.ts `trackIndex`). */
 	tracks: ReadonlyMap<string, readonly Track[]>;
 	artists: Readonly<Record<string, CoreArtist>>;
@@ -363,8 +366,14 @@ export class Radio {
 		if (previous && previous.key === input.key) {
 			this.#station = input;
 			this.stationGigs = input.gigs;
-			// Same filters, other gigs: the listener's unavailable dates changed.
-			if (!sameGigs(previous.gigs, input.gigs)) this.#rebuild();
+			// Same filters, other gigs or artists: the listener's own data (unavailable dates, the
+			// board) changed.
+			if (
+				!sameGigs(previous.gigs, input.gigs) ||
+				!sameArtists(previous.onlyArtists, input.onlyArtists)
+			) {
+				this.#rebuild();
+			}
 			const seed = input.seed ?? this.seed;
 			if (input.orderGiven && (input.order !== this.order || seed !== this.seed)) {
 				this.#reorder(input.order, seed, false);
@@ -469,6 +478,7 @@ export class Radio {
 			now: new Date(),
 			tracksPerArtist: this.settings.tracksPerArtist,
 			notForMe: artistsIn(boardStore.items, ['nope']),
+			...(station.onlyArtists ? { onlyArtists: station.onlyArtists } : {}),
 			artists: station.artists
 		});
 		this.withoutTracks = built.withoutTracks.length;
@@ -699,6 +709,9 @@ export class Radio {
 			if (boardStore.artistState(artist.key) === 'nope') {
 				this.#notify(`${entry.name}: not for you. Skipped, and they won't come round again.`);
 				this.#rebuild();
+			} else if (this.#station?.onlyArtists && boardStore.artistState(artist.key) !== 'listen') {
+				// The station follows the board (the layout re-tunes it), which takes them off.
+				this.#notify(`${entry.name}: off your listen-more artists, so off this station.`);
 			}
 			return;
 		}
@@ -1249,4 +1262,8 @@ export class Radio {
 
 function sameGigs(a: readonly CoreGig[], b: readonly CoreGig[]): boolean {
 	return a.length === b.length && a.every((gig, i) => gig.id === b[i]?.id);
+}
+
+function sameArtists(a: ReadonlySet<string> | null, b: ReadonlySet<string> | null): boolean {
+	return a === b || (!!a && !!b && a.size === b.size && [...a].every((key) => b.has(key)));
 }
