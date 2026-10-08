@@ -5,7 +5,7 @@
 
 import type { RadioOrder } from '@giggle/radio-core';
 import type { Catalog } from '$lib/data/catalog';
-import { apply } from '$lib/data/filters';
+import { apply, type Personal } from '$lib/data/filters';
 import { Radio } from './radio.svelte';
 import { stationFromParams, stationKey, type Station } from './station';
 import { announcerOf, artistImage, introClips, trackIndex } from './tracks';
@@ -56,12 +56,12 @@ class RadioApp {
 	}
 
 	/** Feeds the station's gigs to the radio (the layout calls this whenever they change). */
-	tune(catalog: Catalog, isUnavailable: (date: string) => boolean, now: Date): void {
+	tune(catalog: Catalog, personal: Personal, now: Date): void {
 		const radio = this.radio(catalog);
 		const station = this.station;
 		const pending = this.#pending;
 		this.#pending = null;
-		const shown = apply(station.filters, catalog.gigs, now, isUnavailable);
+		const shown = apply(station.filters, catalog.gigs, now, personal);
 		radio.setStation(
 			{
 				key: stationKey(station.filters),

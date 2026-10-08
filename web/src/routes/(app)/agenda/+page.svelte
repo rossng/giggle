@@ -14,7 +14,7 @@
 	import WhenPicker from '$lib/components/agenda/WhenPicker.svelte';
 	import { filterNames } from '$lib/data/catalog';
 	import { amsterdamDate, formatRange } from '$lib/data/dates';
-	import { unavailableDates } from '$lib/data/unavailable-store.svelte';
+	import { personal } from '$lib/data/personal';
 	import {
 		activeFilters,
 		apply,
@@ -37,12 +37,12 @@
 
 	const filters = $derived(parse(page.url.searchParams));
 	const query = $derived(toQuery(filters));
-	const shown = $derived(apply(filters, catalog.gigs, now, unavailableDates.test));
+	const shown = $derived(apply(filters, catalog.gigs, now, personal()));
 	/** Every gig in the time window, for the density strip's totals. */
 	const inWindow = $derived(
 		apply({ ...DEFAULT_FILTERS, days: filters.days, from: filters.from }, catalog.gigs, now)
 	);
-	const counts = $derived(facetCounts(filters, catalog.gigs, now, unavailableDates.test));
+	const counts = $derived(facetCounts(filters, catalog.gigs, now, personal()));
 	const range = $derived(dateWindow(filters, now));
 	const venueCount = $derived(new Set(shown.map((v) => v.gig.venue)).size);
 	/** Where, for the heading: the picked cities, else the whole area. */

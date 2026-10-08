@@ -10,7 +10,7 @@
 //
 // `hide=unavailable` leaves out gigs on the listener's own unavailable dates (unavailable.ts).
 // Those aren't in the URL: a shared link hides the *viewer's* dates. `apply` and `facetCounts`
-// take them as a date test.
+// take them, with the rest of what's the listener's own, as `Personal`.
 //
 // Genres come at two levels: the coarse buckets (`genre`, genres.ts) and specific styles
 // (`style`, styles.ts), each style belonging to one or more buckets. Together they are one
@@ -268,10 +268,16 @@ export function searchText(text: string): string {
 /** Is the listener unavailable on this (Amsterdam) date? From unavailable.ts. */
 export type DateTest = (date: IsoDate) => boolean;
 
+/** What the filters need that's the listener's own rather than the URL's. */
+export interface Personal {
+	/** Their unavailable dates, for `hide=unavailable`; without it, nothing is hidden. */
+	unavailable?: DateTest;
+}
+
 function predicate(
 	filters: Filters,
 	now: Date,
-	unavailable: DateTest | undefined,
+	{ unavailable }: Personal,
 	skip?: Facet
 ): (item: Filterable) => boolean {
 	const { first, last } = dateWindow(filters, now);
@@ -303,17 +309,14 @@ function genreTest(
 	return (item) => item.styles.some((s) => styles.has(s)) || item.buckets.some((b) => whole.has(b));
 }
 
-/**
- * The gigs `filters` let through, in their given order. `unavailable` is the listener's
- * unavailable dates, used when `filters.hide` has 'unavailable'.
- */
+/** The gigs `filters` let through, in their given order. */
 export function apply<T extends Filterable>(
 	filters: Filters,
 	gigs: readonly T[],
 	now: Date,
-	unavailable?: DateTest
+	personal: Personal = {}
 ): T[] {
-	return gigs.filter(predicate(filters, now, unavailable));
+	return gigs.filter(predicate(filters, now, personal));
 }
 
 export interface FacetCounts {
@@ -329,7 +332,7 @@ export function facetCounts(
 	filters: Filters,
 	gigs: readonly Filterable[],
 	now: Date,
-	unavailable?: DateTest
+	personal: Personal = {}
 ): FacetCounts {
 	const counts: FacetCounts = {
 		city: new Map(),
@@ -338,9 +341,9 @@ export function facetCounts(
 		style: new Map()
 	};
 	const bump = <K>(map: Map<K, number>, key: K) => map.set(key, (map.get(key) ?? 0) + 1);
-	const byCity = predicate(filters, now, unavailable, 'city');
-	const byVenue = predicate(filters, now, unavailable, 'venue');
-	const byGenre = predicate(filters, now, unavailable, 'genre');
+	const byCity = predicate(filters, now, personal, 'city');
+	const byVenue = predicate(filters, now, personal, 'venue');
+	const byGenre = predicate(filters, now, personal, 'genre');
 	for (const item of gigs) {
 		if (byCity(item)) bump(counts.city, item.city);
 		if (byVenue(item)) bump(counts.venue, item.gig.venue);
