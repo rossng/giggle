@@ -336,6 +336,25 @@ export function apply<T extends Filterable>(
 	return gigs.filter(predicate(filters, now, personal));
 }
 
+/**
+ * Every upcoming gig for `board` and nothing else (the Board's "Play", and the way out of an
+ * empty board station): over the shortest preset window that holds them all, else the longest
+ * allowed. Null when there are none.
+ */
+export function allOfBoard(
+	board: BoardFilter,
+	gigs: readonly Filterable[],
+	now: Date,
+	personal: Personal
+): Filters | null {
+	const base: Filters = { ...DEFAULT_FILTERS, board };
+	const count = (days: number) => apply({ ...base, days }, gigs, now, personal).length;
+	const all = count(MAX_DAYS);
+	if (!all) return null;
+	const days = DAY_PRESETS.map((p) => p.days).find((d) => count(d) === all) ?? MAX_DAYS;
+	return { ...base, days };
+}
+
 export interface FacetCounts {
 	city: Map<string, number>;
 	venue: Map<string, number>;
@@ -372,7 +391,8 @@ export function facetCounts(
 	return counts;
 }
 
-function windowLabel(days: number): string {
+/** "Next 3 months", "Next 45 days". */
+export function windowLabel(days: number): string {
 	const preset = DAY_PRESETS.find((p) => p.days === days);
 	if (preset?.days === 14) return 'Next 2 weeks';
 	if (preset?.days === 30) return 'Next month';

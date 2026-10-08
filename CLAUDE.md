@@ -63,7 +63,9 @@ https://claude.ai/artifact/6PDPXr3LtbEbPPLUxQPXWR. Architecture diagram: README.
   - `/admin` (not in the nav; `lib/admin/`): the owner's usage panel, hand-drawn SVG charts,
     flags for possible abuse. `make seed-dev` fills the local D1 for it (as alice).
   - One filter model (`lib/data/filters.ts`) lives in the URL; genre buckets expand to specific
-    styles (`lib/data/styles.ts`, `style=`); `hide=unavailable` uses the listener's own dates.
+    styles (`lib/data/styles.ts`, `style=`); `hide=unavailable` uses the listener's own dates,
+    `board=listen` their listen-more artists (`Personal`, `lib/data/personal.ts`; the radio then
+    plays just those artists, not the rest of their gigs' line-ups).
   - UI: primary controls up front, the rest behind drawers or "More" disclosures. Shared pieces:
     `Sheet.svelte` (every dialog/drawer), `TriageButtons.svelte`, and app.css's `.seg`,
     `.ellipsis`, `.tap` and triage colour tokens (`--listen`, `--go`, `--tickets`, `--nope`).

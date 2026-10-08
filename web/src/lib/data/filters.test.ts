@@ -4,6 +4,7 @@ import { VENUES, gig } from './fixtures';
 import {
 	DEFAULT_FILTERS,
 	activeFilters,
+	allOfBoard,
 	apply,
 	bucketState,
 	dateWindow,
@@ -250,6 +251,21 @@ describe('apply', () => {
 			listenMore: new Set(['name:support'])
 		});
 		expect(shown.map((v) => v.gig.artists.length)).toEqual([2]);
+	});
+
+	it("widens to all of a board's gigs, over the shortest preset window that holds them", () => {
+		const mine = (...keys: string[]) => ({ listenMore: new Set(keys) });
+		// Nouvelle Vague's gig is 14 days out, Nobu's last one 128.
+		expect(allOfBoard('listen', views, NOW, mine('mb:b017a7ae'))).toEqual(
+			f({ board: 'listen', days: 30 })
+		);
+		expect(allOfBoard('listen', views, NOW, mine('name:nobu'))).toEqual(
+			f({ board: 'listen', days: 180 })
+		);
+		const later = viewGig(gig({ source_id: '9', start: '2027-06-01T20:00:00+02:00' }), VENUES, {});
+		expect(allOfBoard('listen', [...views, later], NOW, mine('name:nobu'))?.days).toBe(730);
+		expect(allOfBoard('listen', views, NOW, mine('name:nobody'))).toBe(null);
+		expect(allOfBoard('listen', views, NOW, {})).toBe(null);
 	});
 
 	it('searches titles, artists and venues, ignoring case and accents', () => {

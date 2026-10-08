@@ -1,8 +1,9 @@
 <!--
 	The filter controls, shared by the agenda's Filters sheet and the radio's station drawer.
 	With `primary` (the default) it starts with search and the time window; the agenda shows
-	those on the page itself and passes `primary={false}`. Then: genre (buckets, each expandable
-	into its specific styles), city, venue (collapsed), and what to hide.
+	those on the page itself and passes `primary={false}`. Then: your listen-more artists only,
+	genre (buckets, each expandable into its specific styles), city, venue (collapsed), and what
+	to hide.
 -->
 <script lang="ts">
 	import SearchBox from '$lib/components/agenda/SearchBox.svelte';
@@ -23,6 +24,7 @@
 		type Filters
 	} from '$lib/data/filters';
 	import { GENRES, GENRE_IDS, type GenreId } from '$lib/data/genres';
+	import { boardStore } from '$lib/board/board-store.svelte';
 	import { upcomingRules } from '$lib/data/unavailable';
 	import { unavailableDates } from '$lib/data/unavailable-store.svelte';
 
@@ -88,6 +90,9 @@
 	let editingDates = $state(false);
 	const datesSet = $derived(upcomingRules(unavailableDates.items, today).length);
 
+	// So is the board: the listen-more artists `board=listen` keeps.
+	const marked = $derived(boardStore.listenMore.size);
+
 	function clearAll() {
 		onchange({ ...DEFAULT_FILTERS, order: filters.order, seed: filters.seed });
 	}
@@ -104,6 +109,25 @@
 			<p class="caption">{formatRange(range.first, range.last)}</p>
 		</div>
 	{/if}
+
+	<section class="block" aria-labelledby="{uid}-board">
+		<h3 class="label" id="{uid}-board">Artists</h3>
+		<button
+			type="button"
+			class="toggle"
+			role="switch"
+			aria-checked={filters.board === 'listen'}
+			aria-describedby="{uid}-marked"
+			onclick={() => onchange({ board: filters.board === 'listen' ? null : 'listen' })}
+		>
+			<span class="tg" aria-hidden="true"></span>Only my listen-more artists
+		</button>
+		<p class="note" id="{uid}-marked">
+			{marked
+				? `${marked} artist${marked === 1 ? '' : 's'} marked`
+				: 'None marked yet: press Listen more on the radio'}
+		</p>
+	</section>
 
 	<section class="block" aria-labelledby="{uid}-genre">
 		<h3 class="label" id="{uid}-genre">Genre</h3>
@@ -509,6 +533,11 @@
 	.toggle[aria-checked='true'] .tg::after {
 		left: 15px;
 		background: var(--bg);
+	}
+	.note {
+		margin: -6px 0 0 40px;
+		font: 500 11px var(--f-mono);
+		color: var(--mute);
 	}
 	.edit {
 		align-self: flex-start;

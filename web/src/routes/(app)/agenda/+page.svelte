@@ -10,6 +10,7 @@
 	import GigList from '$lib/components/GigList.svelte';
 	import ActiveChips from '$lib/components/agenda/ActiveChips.svelte';
 	import FiltersSheet from '$lib/components/agenda/FiltersSheet.svelte';
+	import ListenMoreEmpty from '$lib/components/ListenMoreEmpty.svelte';
 	import SearchBox from '$lib/components/agenda/SearchBox.svelte';
 	import WhenPicker from '$lib/components/agenda/WhenPicker.svelte';
 	import { filterNames } from '$lib/data/catalog';
@@ -64,7 +65,7 @@
 
 	/** Clears the secondary filters, keeping search and the time window. */
 	function clearFilters() {
-		update({ cities: [], venues: [], genres: [], styles: [], hide: [] });
+		update({ cities: [], venues: [], genres: [], styles: [], hide: [], board: null });
 	}
 
 	function playAsRadio() {
@@ -135,8 +136,12 @@
 		<p class="updated">Listings updated {catalog.generated.slice(0, 10)}</p>
 	{:else}
 		<div class="empty">
-			<p>No gigs match.</p>
-			<a class="button" href={page.url.pathname}>Show all gigs</a>
+			{#if filters.board}
+				<ListenMoreEmpty {filters} {catalog} gigs={0} context="agenda" onchange={update} />
+			{:else}
+				<p>No gigs match.</p>
+				<a class="button" href={page.url.pathname}>Show all gigs</a>
+			{/if}
 		</div>
 	{/if}
 </div>
