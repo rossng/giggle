@@ -7,6 +7,7 @@
 	import { page } from '$app/state';
 	import NowPlaying from '$lib/components/radio/NowPlaying.svelte';
 	import UpNext from '$lib/components/radio/UpNext.svelte';
+	import ListenMoreEmpty from '$lib/components/ListenMoreEmpty.svelte';
 	import TriageButtons from '$lib/components/TriageButtons.svelte';
 	import { boardStore } from '$lib/board/board-store.svelte';
 	import type { GigView } from '$lib/data/catalog';
@@ -103,7 +104,19 @@
 		{:else}
 			<section class="nothing">
 				<h1 class="display">Nothing to play</h1>
-				<p>None of the artists on this station have songs on YouTube Music. Try a wider station.</p>
+				{#if radioApp.station.filters.board}
+					<ListenMoreEmpty
+						filters={radioApp.station.filters}
+						{catalog}
+						gigs={radio.stationGigs.length}
+						context="station"
+						onchange={(filters) => radioApp.playStation(catalog, { ...radioApp.station, filters })}
+					/>
+				{:else}
+					<p>
+						None of the artists on this station have songs on YouTube Music. Try a wider station.
+					</p>
+				{/if}
 				<button type="button" class="button" onclick={() => (radioApp.settingsOpen = true)}
 					>Change station</button
 				>
