@@ -238,7 +238,8 @@ p {
 	text-overflow: ellipsis;
 }
 
-/* How an artist is sorted on the board (listen more / want to go / got tickets / not for me). */
+/* How it's sorted on the board: an artist (listen more / not for me), a gig (want to go / got
+   tickets). */
 .badge {
 	font: 600 9.5px/1 var(--f-mono);
 	letter-spacing: 0.06em;

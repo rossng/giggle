@@ -1,6 +1,6 @@
 /**
  * Dates, times and prices the way a British radio presenter would say them:
- * "on Thursday the sixteenth of October", "at 8.30pm", "about 24 euros".
+ * "on Thursday the sixteenth of October", "at 2:30pm", "about 24 euros".
  * Nothing here ever produces digits after a decimal point in a price, a currency
  * symbol, or a date in figures.
  */
@@ -78,7 +78,7 @@ export interface SpokenDay {
 }
 
 /** Evening starts here, for "tonight" and "tomorrow night". */
-const EVENING_HOUR = 17;
+export const EVENING_HOUR = 17;
 /** Gigs starting before this hour after midnight still count as the night before. */
 const LATE_NIGHT_HOUR = 5;
 
@@ -124,8 +124,9 @@ function same(kind: "today" | "tonight" | "tomorrow"): SpokenDay {
 }
 
 /**
- * Start time, British style: "8pm", "8.30pm", "11am", "midday". Null for exactly
- * midnight, which listings use when they don't know the time.
+ * Start time: "8pm", "8:30pm", "11am", "midday". Null for exactly midnight, which
+ * listings use when they don't know the time. A colon, not a dot: Kokoro's text
+ * normalisation reads "8.30" as "eight point three zero" but "8:30" as "eight thirty".
  */
 export function spokenTime(startIso: string, timeZone: string = DEFAULT_TIME_ZONE): string | null {
   const start = new Date(startIso);
@@ -135,7 +136,7 @@ export function spokenTime(startIso: string, timeZone: string = DEFAULT_TIME_ZON
   if (hour === 12 && minute === 0) return "midday";
   const h12 = hour % 12 === 0 ? 12 : hour % 12;
   const suffix = hour < 12 ? "am" : "pm";
-  return minute ? `${h12}.${String(minute).padStart(2, "0")}${suffix}` : `${h12}${suffix}`;
+  return minute ? `${h12}:${String(minute).padStart(2, "0")}${suffix}` : `${h12}${suffix}`;
 }
 
 /** Whether an amount is a whole number of euros (allowing for float noise). */

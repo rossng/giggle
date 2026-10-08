@@ -11,6 +11,7 @@ import {
 	cleanSongTitle,
 	DuckingController,
 	dropTrack,
+	isUpcoming,
 	mergeHistory,
 	mulberry32,
 	newSeed,
@@ -40,7 +41,15 @@ import {
 	type Venue,
 	type VoiceMode
 } from '@giggle/radio-core';
-import { keysIn, namesIn, POSITIVE, type Board, type Triage } from '$lib/board/board';
+import {
+	artistsIn,
+	isArtistTriage,
+	namesIn,
+	POSITIVE,
+	type Board,
+	type GigTriage,
+	type Triage
+} from '$lib/board/board';
 import { boardStore } from '$lib/board/board-store.svelte';
 import { formatDay, localDate } from '$lib/data/dates';
 import { localChanged, onSynced } from '$lib/sync/app';
@@ -103,6 +112,15 @@ export interface StationInput {
 	/** The URL named the order, so a session saved in another order isn't resumed. */
 	orderGiven: boolean;
 	seed: number | null;
+}
+
+/** Want to go or got tickets, pressed for an artist with more than one gig on the station: the
+ * listener picks which. */
+export interface GigChoice {
+	state: GigTriage;
+	artist: { key: string; name: string };
+	/** Their gigs on the station, soonest first. */
+	gigs: readonly CoreGig[];
 }
 
 export interface Caption {
@@ -200,6 +218,10 @@ export class Radio {
 	/** Artists on this station marked "not for me". */
 	skipped = $state(0);
 	ready = $state(false);
+	/** The station's gigs (StationInput.gigs). */
+	stationGigs = $state.raw<readonly CoreGig[]>([]);
+	/** Asking which gig a plan is for (`triage`), until one is picked or it's closed. */
+	choosing = $state.raw<GigChoice | null>(null);
 
 	entry = $derived<QueueEntry | undefined>(this.queue[this.position.artistIndex]);
 	track = $derived<Track | undefined>(this.entry?.tracks[this.position.trackIndex]);
@@ -340,6 +362,7 @@ export class Radio {
 		const previous = this.#station;
 		if (previous && previous.key === input.key) {
 			this.#station = input;
+			this.stationGigs = input.gigs;
 			// Same filters, other gigs: the listener's unavailable dates changed.
 			if (!sameGigs(previous.gigs, input.gigs)) this.#rebuild();
 			const seed = input.seed ?? this.seed;
@@ -351,6 +374,7 @@ export class Radio {
 		}
 		if (previous) this.save();
 		this.#station = input;
+		this.stationGigs = input.gigs;
 		const entries = this.#build();
 		const now = new Date();
 		const saved = loadSession(input.key);
@@ -364,7 +388,7 @@ export class Radio {
 			const restored = restoreSession(saved, entries, {
 				now,
 				history: this.#history,
-				listenMore: keysIn(boardStore.items, ['listen'])
+				listenMore: artistsIn(boardStore.items, ['listen'])
 			});
 			this.order = saved.order;
 			this.seed = saved.seed;
@@ -444,7 +468,7 @@ export class Radio {
 				station.tracks.get(key)?.filter((t) => !Object.hasOwn(unplayable, t.videoId)),
 			now: new Date(),
 			tracksPerArtist: this.settings.tracksPerArtist,
-			notForMe: keysIn(boardStore.items, ['nope']),
+			notForMe: artistsIn(boardStore.items, ['nope']),
 			artists: station.artists
 		});
 		this.withoutTracks = built.withoutTracks.length;
@@ -457,7 +481,7 @@ export class Radio {
 			seed,
 			now: new Date(),
 			history: this.#history,
-			listenMore: keysIn(boardStore.items, ['listen'])
+			listenMore: artistsIn(boardStore.items, ['listen'])
 		};
 	}
 
@@ -477,7 +501,7 @@ export class Radio {
 		const restored = restoreSession(snapshot, this.#build(), {
 			now: new Date(),
 			history: this.#history,
-			listenMore: keysIn(boardStore.items, ['listen'])
+			listenMore: artistsIn(boardStore.items, ['listen'])
 		});
 		this.queue = restored.queue;
 		this.position = { ...restored.position, seconds: 0 };
@@ -660,19 +684,59 @@ export class Radio {
 
 	// ---------- triage ----------
 
+	/**
+	 * Sorts what's playing: listen more and not for me are the artist's; want to go and got
+	 * tickets are a gig's, the artist's one on this station, or the one the listener picks if
+	 * they have more (`choosing`).
+	 */
 	triage(state: Triage): void {
 		const entry = this.entry;
 		if (!entry) return;
-		boardStore.toggle(entry.artistKey, state, {
-			name: entry.name,
-			gig: entry.gig.id,
-			when: entry.gig.start
-		});
-		// "Not for me" skips them and takes them off the station.
-		if (boardStore.stateOf(entry.artistKey) === 'nope') {
-			this.#notify(`${entry.name}: not for you. Skipped, and they won't come round again.`);
-			this.#rebuild();
+		const artist = { key: entry.artistKey, name: entry.name };
+		if (isArtistTriage(state)) {
+			boardStore.toggleArtist(artist, state);
+			// "Not for me" skips them and takes them off the station.
+			if (boardStore.artistState(artist.key) === 'nope') {
+				this.#notify(`${entry.name}: not for you. Skipped, and they won't come round again.`);
+				this.#rebuild();
+			}
+			return;
 		}
+		const gigs = this.gigsOf(artist.key);
+		if (gigs.length > 1) this.choosing = { state, artist, gigs };
+		else this.#plan(state, artist, gigs[0] ?? entry.gig);
+	}
+
+	/** Answers `choosing`: sorts that gig (or unsorts it, if it's sorted so already). */
+	choose(gig: CoreGig): void {
+		const choice = this.choosing;
+		this.choosing = null;
+		if (choice) this.#plan(choice.state, choice.artist, gig);
+	}
+
+	/** An artist's upcoming gigs on this station, soonest first. */
+	gigsOf(artistKey: string): CoreGig[] {
+		const now = new Date();
+		return this.stationGigs
+			.filter((g) => g.artists.some((a) => a.key === artistKey) && isUpcoming(g, now))
+			.sort((a, b) => a.start.localeCompare(b.start));
+	}
+
+	/** What's sorted for the artist: their own state, and their station gigs' (the radio's
+	 * buttons show both). */
+	marksOf(artistKey: string): Triage[] {
+		const marks: Triage[] = [];
+		const own = boardStore.artistState(artistKey);
+		if (own) marks.push(own);
+		for (const gig of this.gigsOf(artistKey)) {
+			const state = boardStore.gigState(gig.id);
+			if (state && !marks.includes(state)) marks.push(state);
+		}
+		return marks;
+	}
+
+	#plan(state: GigTriage, artist: { key: string; name: string }, gig: CoreGig): void {
+		boardStore.toggleGig(gig.id, state, { artist, when: gig.start });
 	}
 
 	// ---------- playing a track ----------

@@ -46,7 +46,16 @@ https://claude.ai/artifact/6PDPXr3LtbEbPPLUxQPXWR. Architecture diagram: README.
     won't embed (errors 100/101/150) are remembered per browser for 14 days and left out; they
     can't be checked ahead (ytmusicapi, oEmbed and the embed page all say they're fine).
   - Personal data, one reactive store each: the board (`lib/board/board-store.svelte.ts`,
-    `boardStore`: the radio and every page read and write it), unavailable dates
+    `boardStore`: the radio and every page read and write it. An artist's state, listen more or
+    not for me, is keyed by artist and only steers the radio; a gig's, want to go or got
+    tickets, is keyed `gig:<gig id>`, with the artist it was for. On the radio, a plan for an
+    artist with several gigs on the station asks which (`GigChoice`). `parseBoard` converts the
+    older artist-only format and the sync pushes the result; the Worker still accepts the old
+    format, from tabs not reloaded yet. That code is marked `LEGACY-BOARD`: a month after the
+    split deploys, the Worker can refuse old-format writes (plans on an artist key, `gig`); the
+    conversion goes only with a D1 migration converting rows still in the old format, and
+    devices last used signed out before the split would then lose their old plans), unavailable
+    dates
     (`lib/data/unavailable-store.svelte.ts`) and play history; synced by `lib/sync/` (`SyncClient`
     over generic `collections.ts`). Signing out clears the device's copy (`forget()`); signing in
     shows the account's data; only a brand-new account adopts data made signed out

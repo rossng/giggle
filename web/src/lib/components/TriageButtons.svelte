@@ -1,14 +1,27 @@
-<!-- Sorting an artist onto the board: listen more, want to go, got tickets, not for me, each in
-     its colour (--listen, --go, --tickets, --nope in app.css). Three sizes: `compact` (the player
-     bar: two by two small pills, the label and key; one-word labels on narrower screens), `grid` (the Radio page: key and label, filling the width) and `labelled`
-     (the artist page and the Board's card moves: a colour mark and the label, keys optional). -->
+<!-- The sort buttons, in two pairs: the artist's (listen more, not for me) and the gig's (want to
+     go, got tickets), each in its colour (--listen, --go, --tickets, --nope in app.css). Pass
+     `states` for one pair only. Three sizes: `compact` (the player bar: a pair a row, small pills
+     with the label and key; one-word labels on narrower screens), `grid` (the Radio page: key
+     and label, the pairs side by side and captioned, filling the width) and `labelled` (the
+     artist and gig pages and the Board's card moves: a colour mark and the label, keys
+     optional). -->
 <script lang="ts">
-	import { TRIAGES, TRIAGE_KEYS, TRIAGE_LABELS, TRIAGE_SHORT, type Triage } from '$lib/board/board';
+	import {
+		ARTIST_TRIAGES,
+		GIG_TRIAGES,
+		TRIAGES,
+		TRIAGE_KEYS,
+		TRIAGE_LABELS,
+		TRIAGE_SHORT,
+		type Triage
+	} from '$lib/board/board';
 
 	let {
 		current,
 		onpick,
 		label,
+		states = TRIAGES,
+		captions = ['The artist', 'Their gig'],
 		size = 'labelled',
 		keys = false,
 		dense = false,
@@ -16,11 +29,15 @@
 		disabled = false,
 		onclear
 	}: {
-		/** How the artist is sorted now. */
-		current: Triage | null;
+		/** The states it's sorted into now (an artist's and a gig's may both be). */
+		current: readonly Triage[];
 		onpick: (state: Triage) => void;
-		/** The group's accessible name ("Sort this artist"). */
+		/** The group's accessible name ("Sort what's playing"). */
 		label: string;
+		/** The buttons to show (both pairs by default). */
+		states?: readonly Triage[];
+		/** What each pair acts on: shown in the `grid` size, else the pairs' accessible names. */
+		captions?: readonly [string, string];
 		size?: 'compact' | 'grid' | 'labelled';
 		/** `labelled`: show the keyboard shortcuts (1/2/3/X) too. */
 		keys?: boolean;
@@ -33,37 +50,60 @@
 		onclear?: () => void;
 	} = $props();
 
+	const pairs = $derived(
+		[
+			{ caption: captions[0], states: ARTIST_TRIAGES.filter((t) => states.includes(t)) },
+			{ caption: captions[1], states: GIG_TRIAGES.filter((t) => states.includes(t)) }
+		].filter((p) => p.states.length)
+	);
+
 	function title(t: Triage): string | undefined {
 		if (size === 'compact') return `${TRIAGE_LABELS[t]} (${TRIAGE_KEYS[t]})`;
-		if (current === t && !fixed) return 'Take them off your board';
+		if (current.includes(t) && !fixed) return 'Take it off your board';
 		return undefined;
 	}
 </script>
 
-<div class="triage {size}" class:dense role="group" aria-label={label}>
-	<div class="buttons">
-		{#each TRIAGES as t (t)}
-			<button
-				type="button"
-				class="t-{t}"
-				class:on={current === t && !fixed}
-				aria-pressed={current === t}
-				disabled={disabled || (fixed && current === t)}
-				title={title(t)}
-				onclick={() => onpick(t)}
-			>
-				{#if size === 'compact'}
-					<i class="mark" aria-hidden="true"></i>
-					<span class="text full">{TRIAGE_LABELS[t]}</span>
-					<span class="text short" aria-hidden="true">{TRIAGE_SHORT[t]}</span>
-					<kbd>{TRIAGE_KEYS[t]}</kbd>
-				{:else}
-					{#if size === 'grid'}<kbd>{TRIAGE_KEYS[t]}</kbd>{:else}<i class="mark" aria-hidden="true"
-						></i>{/if}
-					<span class="text ellipsis">{TRIAGE_LABELS[t]}</span>
-					{#if keys}<kbd>{TRIAGE_KEYS[t]}</kbd>{/if}
+<div
+	class="triage {size}"
+	class:dense
+	class:both={pairs.length > 1}
+	role="group"
+	aria-label={label}
+>
+	<div class="pairs">
+		{#each pairs as pair (pair.caption)}
+			<div class="pair" role="group" aria-label={pairs.length > 1 ? pair.caption : undefined}>
+				{#if size === 'grid' && pairs.length > 1}
+					<span class="caption ellipsis" aria-hidden="true">{pair.caption}</span>
 				{/if}
-			</button>
+				{#each pair.states as t (t)}
+					{@const on = current.includes(t)}
+					<button
+						type="button"
+						class="t-{t}"
+						class:on={on && !fixed}
+						aria-pressed={on}
+						disabled={disabled || (fixed && on)}
+						title={title(t)}
+						onclick={() => onpick(t)}
+					>
+						{#if size === 'compact'}
+							<i class="mark" aria-hidden="true"></i>
+							<span class="text full">{TRIAGE_LABELS[t]}</span>
+							<span class="text short" aria-hidden="true">{TRIAGE_SHORT[t]}</span>
+							<kbd>{TRIAGE_KEYS[t]}</kbd>
+						{:else}
+							{#if size === 'grid'}<kbd>{TRIAGE_KEYS[t]}</kbd>{:else}<i
+									class="mark"
+									aria-hidden="true"
+								></i>{/if}
+							<span class="text ellipsis">{TRIAGE_LABELS[t]}</span>
+							{#if keys}<kbd>{TRIAGE_KEYS[t]}</kbd>{/if}
+						{/if}
+					</button>
+				{/each}
+			</div>
 		{/each}
 		{#if onclear}
 			<button type="button" class="clear" {disabled} onclick={onclear}>Take off the board</button>
@@ -72,10 +112,27 @@
 </div>
 
 <style>
-	.buttons {
+	.pairs {
 		display: grid;
-		grid-template-columns: repeat(4, minmax(0, 1fr));
+		grid-template-columns: minmax(0, 1fr);
 		gap: 6px;
+	}
+	.both .pairs {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		column-gap: 14px;
+	}
+	.pair {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 6px;
+		min-width: 0;
+	}
+	.caption {
+		grid-column: 1 / -1;
+		font: 600 10px/1.2 var(--f-mono);
+		letter-spacing: 0.12em;
+		text-transform: uppercase;
+		color: var(--mute);
 	}
 	button {
 		display: flex;
@@ -124,10 +181,14 @@
 		min-width: 0;
 	}
 
-	/* The player bar: two by two small pills (colour, label, key), within the bar's height. */
-	.compact .buttons {
+	/* The player bar: a pair a row of small pills (colour, label, key), within the bar's height. */
+	.compact .pairs,
+	.compact.both .pairs {
 		grid-template-columns: repeat(2, auto);
 		gap: 4px;
+	}
+	.compact .pair {
+		display: contents;
 	}
 	.compact button {
 		justify-content: flex-start;
@@ -176,9 +237,13 @@
 		}
 	}
 
-	/* The Radio page: across the width, two by two on phones. */
-	.grid .buttons {
+	/* The Radio page: across the width, a pair a row on phones. */
+	.grid .pairs,
+	.grid .pair {
 		gap: 8px;
+	}
+	.grid.both .pairs {
+		column-gap: 16px;
 	}
 	.grid button {
 		gap: 8px;
@@ -186,12 +251,12 @@
 		font-size: 13.5px;
 	}
 	@media (max-width: 700px) {
-		.grid .buttons {
-			grid-template-columns: repeat(2, minmax(0, 1fr));
+		.grid.both .pairs {
+			grid-template-columns: minmax(0, 1fr);
 		}
 	}
 
-	/* The artist page and card moves: two by two when narrow. */
+	/* The artist and gig pages and card moves: a pair a row when narrow. */
 	.labelled {
 		container-type: inline-size;
 	}
@@ -201,8 +266,8 @@
 		font-size: 13px;
 	}
 	@container (max-width: 440px) {
-		.labelled .buttons {
-			grid-template-columns: repeat(2, minmax(0, 1fr));
+		.labelled.both .pairs {
+			grid-template-columns: minmax(0, 1fr);
 		}
 	}
 	.mark {
@@ -228,7 +293,8 @@
 	.labelled button:has(kbd) .text {
 		flex: 1;
 	}
-	.dense .buttons {
+	.dense .pairs,
+	.dense .pair {
 		gap: 5px;
 	}
 	.dense button {

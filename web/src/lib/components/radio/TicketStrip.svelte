@@ -1,5 +1,7 @@
-<!-- The gig as a ticket stub: date block, venue and room, when and how much, and links. -->
+<!-- The gig as a ticket stub: date block, venue and room (and how the listener sorted it), when
+     and how much, and links. -->
 <script lang="ts">
+	import { TRIAGE_LABELS, type Triage } from '$lib/board/board';
 	import type { GigView } from '$lib/data/catalog';
 	import { dayParts, relativeDays } from '$lib/data/dates';
 	import { externalHref } from '$lib/data/slugs';
@@ -8,8 +10,15 @@
 	let {
 		view,
 		today,
-		youtubeMusic = null
-	}: { view: GigView; today: IsoDate; youtubeMusic?: string | null } = $props();
+		youtubeMusic = null,
+		mark = null
+	}: {
+		view: GigView;
+		today: IsoDate;
+		youtubeMusic?: string | null;
+		/** How the listener sorted it. */
+		mark?: Triage | null;
+	} = $props();
 
 	const gig = $derived(view.gig);
 	const day = $derived(dayParts(view.date));
@@ -42,7 +51,9 @@
 		<b>{day.day}</b><span>{day.month.toUpperCase()}</span>
 	</div>
 	<div class="body">
-		<span class="venue">{where}</span>
+		<span class="venue"
+			>{where}{#if mark}<span class="badge b-{mark}">{TRIAGE_LABELS[mark]}</span>{/if}</span
+		>
 		<span class="meta">
 			{meta.join(' · ')}
 			{#if view.soldOut}<span class="soldout"> · Sold out</span>{/if}
@@ -110,6 +121,10 @@
 	.venue {
 		font-weight: 650;
 		font-size: 15px;
+	}
+	.venue .badge {
+		margin-left: 8px;
+		vertical-align: 2px;
 	}
 	.meta {
 		font-size: 12.5px;

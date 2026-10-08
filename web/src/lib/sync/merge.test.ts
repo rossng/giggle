@@ -50,15 +50,15 @@ describe('pick / mergeMaps', () => {
 			deletedEarlier: { state: null, name: '', at: T0 }
 		};
 		const remote: SyncMap = {
-			deletedLater: { state: 'go', name: 'X', at: T1 },
-			deletedEarlier: { state: 'go', name: 'Y', at: T1 },
+			deletedLater: { state: 'listen', name: 'X', at: T1 },
+			deletedEarlier: { state: 'listen', name: 'Y', at: T1 },
 			removedRemotely: { state: null, name: '', at: T1 }
 		};
 		const merged = mergeMaps(
-			{ ...local, removedRemotely: { state: 'go', name: 'Z', at: T0 } },
+			{ ...local, removedRemotely: { state: 'listen', name: 'Z', at: T0 } },
 			remote
 		);
-		expect(boardOf(merged)).toEqual({ deletedEarlier: { state: 'go', name: 'Y', at: T1 } });
+		expect(boardOf(merged)).toEqual({ deletedEarlier: { state: 'listen', name: 'Y', at: T1 } });
 		expect(merged.deletedLater.state).toBeNull();
 		expect(merged.removedRemotely.state).toBeNull();
 	});
@@ -116,34 +116,69 @@ describe('diffMaps / recordDeletions', () => {
 	});
 });
 
+describe('sameItem', () => {
+	it("ignores a gig's date and artist, and an older version's gig", () => {
+		const a = { state: 'go', name: 'A', at: T0 } as const;
+		expect(sameItem(a, { ...a, when: T1, artist: 'name:a' })).toBe(true);
+		expect(sameItem(a, { ...a, gig: 'x:1' })).toBe(true);
+		expect(sameItem(a, { ...a, state: 'tickets' })).toBe(false);
+		expect(sameItem(a, { ...a, at: T1 })).toBe(false);
+	});
+});
+
 describe('wire', () => {
-	it('knows what the server accepts', () => {
-		const ok = { state: 'go', name: 'A', at: T0 } as const;
-		expect(isSyncable('mb:0b7a6b3e-5a1c-4c4e-9b1a-2f1d3e4c5b6a', ok)).toBe(true);
-		expect(isSyncable('name:mogwai', ok)).toBe(true);
+	const MB = 'mb:0b7a6b3e-5a1c-4c4e-9b1a-2f1d3e4c5b6a';
+
+	it('knows what the server accepts for an artist', () => {
+		const ok = { state: 'listen', name: 'A', at: T0 } as const;
+		expect(isSyncable(MB, ok)).toBe(true);
+		expect(isSyncable('name:mogwai', { ...ok, state: 'nope' })).toBe(true);
 		expect(isSyncable('name:', ok)).toBe(true);
 		expect(isSyncable('spotify:1', ok)).toBe(false);
 		expect(isSyncable('mb:nope', ok)).toBe(false);
 		expect(isSyncable('name:a', { ...ok, name: ' ' })).toBe(false);
 		expect(isSyncable('name:a', { ...ok, at: '1999-01-01T00:00:00Z' })).toBe(false);
 		expect(isSyncable('name:a', { state: null, name: '', at: T0 })).toBe(true);
+		// Plans are a gig's.
+		expect(isSyncable('name:a', { ...ok, state: 'go' })).toBe(false);
+	});
+
+	it('knows what the server accepts for a gig', () => {
+		const ok = { state: 'go', name: 'A', artist: MB, when: '2026-10-10T20:00:00+02:00', at: T0 };
+		expect(isSyncable('gig:paradiso:1', ok as SyncItem)).toBe(true);
+		expect(isSyncable('gig:tivolivredenburg:a0XJz00000FQpj0MAD', ok as SyncItem)).toBe(true);
+		expect(isSyncable('gig:x:1', { state: 'tickets', name: 'A', at: T0 })).toBe(true);
+		expect(isSyncable('gig:x:1', { state: null, name: '', at: T0 })).toBe(true);
+		expect(isSyncable('gig:x:1', { state: 'listen', name: 'A', at: T0 })).toBe(false);
+		expect(isSyncable('gig:X:1', ok as SyncItem)).toBe(false);
+		expect(isSyncable('gig:x', ok as SyncItem)).toBe(false);
+		expect(isSyncable('gig:x:1', { ...ok, artist: 'nobody' } as SyncItem)).toBe(false);
+		expect(isSyncable('gig:x:1', { ...ok, when: 'soon' } as SyncItem)).toBe(false);
 	});
 
 	it('normalises what goes out and checks what comes in', () => {
 		expect(
 			toWire('name:a', { state: null, name: 'A', gig: 'x:1', at: '2026-09-26T22:00:00+02:00' })
-		).toEqual({
+		).toEqual({ key: 'name:a', state: null, name: '', at: T0 });
+		expect(toWire('name:a', { state: 'listen', name: 'A', gig: 'x:1', at: T0 })).toEqual({
 			key: 'name:a',
-			state: null,
-			name: '',
-			at: T0
-		});
-		expect(fromWire({ key: 'name:a', state: 'go', name: 'A', at: T0 })).toEqual({
-			key: 'name:a',
-			state: 'go',
+			state: 'listen',
 			name: 'A',
 			at: T0
 		});
+		expect(
+			toWire('gig:x:1', { state: 'go', name: 'A', artist: 'name:a', when: T1, at: T0 })
+		).toEqual({ key: 'gig:x:1', state: 'go', name: 'A', artist: 'name:a', when: T1, at: T0 });
+		expect(fromWire({ key: 'name:a', state: 'go', name: 'A', gig: 'x:1', at: T0 })).toEqual({
+			key: 'name:a',
+			state: 'go',
+			name: 'A',
+			gig: 'x:1',
+			at: T0
+		});
+		expect(
+			fromWire({ key: 'gig:x:1', state: 'go', name: 'A', artist: 'name:a', when: T1, at: T0 })
+		).toEqual({ key: 'gig:x:1', state: 'go', name: 'A', artist: 'name:a', when: T1, at: T0 });
 		expect(fromWire({ key: 'name:a', state: 'maybe', name: 'A', at: T0 })).toBeNull();
 		expect(fromWire({ key: 'name:a', state: 'go', name: 'A', at: 'soon' })).toBeNull();
 		expect(fromWire(null)).toBeNull();

@@ -228,9 +228,9 @@ describe('KokoroSpeaker', () => {
 	});
 
 	it('splits lines into sentences', () => {
-		expect(sentences('Here’s Nobu!  They play at 7.30pm… Tickets? €24.')).toEqual([
+		expect(sentences('Here’s Nobu!  They play at 7:30pm… Tickets? €24.')).toEqual([
 			'Here’s Nobu!',
-			'They play at 7.30pm…',
+			'They play at 7:30pm…',
 			'Tickets?',
 			'€24.'
 		]);

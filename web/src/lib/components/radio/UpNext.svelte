@@ -49,7 +49,7 @@
 
 <ol class="queue" bind:this={list}>
 	{#each queue as entry, i (entry.artistKey)}
-		{@const state = boardStore.stateOf(entry.artistKey)}
+		{@const state = boardStore.artistState(entry.artistKey) ?? boardStore.gigState(entry.gig.id)}
 		{@const view = catalog.byId.get(entry.gig.id)}
 		<li class:current={i === current} class:played={started && i < current}>
 			<button

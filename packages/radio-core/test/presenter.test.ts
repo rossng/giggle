@@ -173,13 +173,23 @@ describe("Presenter.intro", () => {
   });
 
   it("drops the colour fact, then the start time, to stay under the cap", () => {
-    const p = presenter(11, { knownArtists: BOARD, probabilities: { colour: 1, time: 1 }, budgets: { introMin: 1, introMax: 4, introCap: 4.5 } });
+    const p = presenter(11, { knownArtists: BOARD, probabilities: { colour: 1 }, budgets: { introMin: 1, introMax: 4, introCap: 4.5 } });
     for (let i = 0; i < 50; i++) {
-      const line = p.intro(rich({ start: "2026-09-26T20:30:00+02:00" }), "short", NOW);
+      const line = p.intro(rich({ start: "2026-09-26T14:30:00+02:00" }), "short", NOW);
       expect(line.seconds).toBeLessThanOrEqual(4.5);
-      expect(line.text).not.toMatch(/8\.30pm/);
+      expect(line.text).not.toMatch(/2:30pm/);
       expect(line.text).toMatch(/Mogwai/);
       expect(line.text).toMatch(/Paradiso/);
+    }
+  });
+
+  it("says the start time for an afternoon gig only", () => {
+    const roomy = { introMax: 30, introCap: 30 };
+    const say = (start: string) => presenter(15, { probabilities: { colour: 0 }, budgets: roomy }).intro(rich({ start }), "short", NOW).text;
+    expect(say("2026-10-16T14:30:00+02:00")).toMatch(/, at 2:30pm/);
+    expect(say("2026-10-16T12:00:00+02:00")).toMatch(/, at midday/);
+    for (const start of ["2026-10-16T17:00:00+02:00", "2026-10-16T19:30:00+02:00", "2026-10-16T23:30:00+02:00", "2026-10-16T11:00:00+02:00"]) {
+      expect(say(start)).not.toMatch(/ at \d|midday/);
     }
   });
 

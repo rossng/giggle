@@ -18,6 +18,7 @@
 	import {
 		activeFilters,
 		apply,
+		DEFAULT_FILTERS,
 		dateWindow,
 		facetCounts,
 		parse,
@@ -37,6 +38,10 @@
 	const filters = $derived(parse(page.url.searchParams));
 	const query = $derived(toQuery(filters));
 	const shown = $derived(apply(filters, catalog.gigs, now, unavailableDates.test));
+	/** Every gig in the time window, for the density strip's totals. */
+	const inWindow = $derived(
+		apply({ ...DEFAULT_FILTERS, days: filters.days, from: filters.from }, catalog.gigs, now)
+	);
 	const counts = $derived(facetCounts(filters, catalog.gigs, now, unavailableDates.test));
 	const range = $derived(dateWindow(filters, now));
 	const venueCount = $derived(new Set(shown.map((v) => v.gig.venue)).size);
@@ -125,7 +130,7 @@
 	</div>
 
 	{#if shown.length}
-		<div class="density"><DensityStrip views={shown} {range} {today} /></div>
+		<div class="density"><DensityStrip views={shown} all={inWindow} {range} /></div>
 		<GigList views={shown} {today} />
 		<p class="updated">Listings updated {catalog.generated.slice(0, 10)}</p>
 	{:else}
