@@ -8,6 +8,7 @@ import {
 	songsToTracks,
 	squareImage,
 	trackIndex,
+	videoThumbnail,
 	youtubeMusicUrl
 } from './tracks';
 
@@ -120,5 +121,17 @@ describe('announcerOf', () => {
 		expect(announcerOf({ announce: [clip] })).toBe('bm_fable');
 		expect(announcerOf({})).toBe('bf_isabella');
 		expect(announcerOf(undefined)).toBe('bf_isabella');
+	});
+});
+
+describe('videoThumbnail', () => {
+	it("gives the video's thumbnail on YouTube's image host", () => {
+		expect(videoThumbnail('DGlKqwJuHps')).toBe('https://i.ytimg.com/vi/DGlKqwJuHps/hqdefault.jpg');
+	});
+
+	it('gives nothing for an id that is not one', () => {
+		for (const id of ['', 'abc', '../../x', 'a/b?c=d#e', 'DGlKqwJuHps/../x']) {
+			expect(videoThumbnail(id)).toBeUndefined();
+		}
 	});
 });
