@@ -253,17 +253,25 @@ describe('apply', () => {
 		expect(shown.map((v) => v.gig.artists.length)).toEqual([2]);
 	});
 
-	it("widens to all of a board's gigs, over the shortest preset window that holds them", () => {
+	it("widens to each of a board's artists' next gig, over the shortest preset window", () => {
 		const mine = (...keys: string[]) => ({ listenMore: new Set(keys) });
-		// Nouvelle Vague's gig is 14 days out, Nobu's last one 128.
+		// Nouvelle Vague's gig is 14 days out; Nobu's next is today (and their last 128).
 		expect(allOfBoard('listen', views, NOW, mine('mb:b017a7ae'))).toEqual(
 			f({ board: 'listen', days: 30 })
 		);
 		expect(allOfBoard('listen', views, NOW, mine('name:nobu'))).toEqual(
-			f({ board: 'listen', days: 180 })
+			f({ board: 'listen', days: 14 })
 		);
-		const later = viewGig(gig({ source_id: '9', start: '2027-06-01T20:00:00+02:00' }), VENUES, {});
-		expect(allOfBoard('listen', [...views, later], NOW, mine('name:nobu'))?.days).toBe(730);
+		const later = viewGig(
+			gig({
+				source_id: '9',
+				start: '2027-06-01T20:00:00+02:00',
+				artists: [{ key: 'name:later', name: 'Later', role: 'headliner' }]
+			}),
+			VENUES,
+			{}
+		);
+		expect(allOfBoard('listen', [...views, later], NOW, mine('name:later'))?.days).toBe(730);
 		expect(allOfBoard('listen', views, NOW, mine('name:nobody'))).toBe(null);
 		expect(allOfBoard('listen', views, NOW, {})).toBe(null);
 	});

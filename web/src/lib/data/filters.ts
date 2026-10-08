@@ -337,9 +337,10 @@ export function apply<T extends Filterable>(
 }
 
 /**
- * Every upcoming gig for `board` and nothing else (the Board's "Play", and the way out of an
- * empty board station): over the shortest preset window that holds them all, else the longest
- * allowed. Null when there are none.
+ * All of `board`'s artists with a gig coming up, and nothing else (the Board's "Play", and the
+ * way out of an empty board station): over the shortest preset window that holds each one's
+ * next gig (the radio plays an artist once, at their soonest), else the longest allowed. Null
+ * when none has a gig.
  */
 export function allOfBoard(
 	board: BoardFilter,
@@ -348,7 +349,13 @@ export function allOfBoard(
 	personal: Personal
 ): Filters | null {
 	const base: Filters = { ...DEFAULT_FILTERS, board };
-	const count = (days: number) => apply({ ...base, days }, gigs, now, personal).length;
+	const mine = personal.listenMore ?? new Set<string>();
+	const count = (days: number) =>
+		new Set(
+			apply({ ...base, days }, gigs, now, personal).flatMap((v) =>
+				v.gig.artists.filter((a) => mine.has(a.key)).map((a) => a.key)
+			)
+		).size;
 	const all = count(MAX_DAYS);
 	if (!all) return null;
 	const days = DAY_PRESETS.map((p) => p.days).find((d) => count(d) === all) ?? MAX_DAYS;
