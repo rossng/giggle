@@ -33,11 +33,12 @@ https://claude.ai/artifact/6PDPXr3LtbEbPPLUxQPXWR. Architecture diagram: README.
     (sections, About, account; tabs at the bottom on phones), a global PlayerBar (announcements on
     the scrub bar), the Station & settings drawer, and VideoDock, the app's only YouTube iframe
     (never moved in the DOM: over the Radio page's slot, else a floating tile ≥200px; tucking it
-    pauses). The radio is app-wide (`lib/radio/app.svelte.ts`: one Radio in its own
-    `$effect.root`; the station is app state that /radio's URL mirrors), so pages never stop
-    playback. `lib/radio/media-focus.ts` keeps the laptop's media keys on giggle, not YouTube.
-    Every page's code preloads when idle (`lib/pages.ts`; a new route needs a path there, its
-    test checks), so a deploy mid-visit never forces a reload that would stop the radio.
+    pauses; while the announcer talks a track in, that track's thumbnail covers the last one's). The
+    radio is app-wide (`lib/radio/app.svelte.ts`: one Radio in its own `$effect.root`; the station
+    is app state that /radio's URL mirrors), so pages never stop playback.
+    `lib/radio/media-focus.ts` keeps the laptop's media keys on giggle, not YouTube. Every page's
+    code preloads when idle (`lib/pages.ts`; a new route needs a path there, its test checks), so a
+    deploy mid-visit never forces a reload that would stop the radio.
   - Radio (`lib/radio/`): controller in `radio.svelte.ts`, YouTube Player, ClipSpeaker playing the
     pipeline's intro clips (`/data/voice/*.mp3`), then KokoroSpeaker saying live lines with Kokoro
     in the browser (`lib/voice/`, see Voices) and Web Speech as its fallback; per-station session
