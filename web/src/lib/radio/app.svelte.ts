@@ -66,6 +66,8 @@ class RadioApp {
 			{
 				key: stationKey(station.filters),
 				gigs: shown.map((v) => v.gig),
+				// Their gigs' other acts stay off: this station is for the artists themselves.
+				onlyArtists: station.filters.board === 'listen' ? (personal.listenMore ?? new Set()) : null,
 				tracks: this.#indexes!.tracks,
 				artists: catalog.artists,
 				clips: this.#indexes!.clips,
