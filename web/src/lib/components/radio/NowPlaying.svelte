@@ -156,6 +156,8 @@
 		display: flex;
 		gap: 10px;
 		align-items: center;
+		/* As tall as the sort badge, so sorting the artist doesn't move the page. */
+		min-height: 16px;
 	}
 	.artist {
 		margin: 0;
