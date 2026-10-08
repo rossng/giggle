@@ -13,6 +13,8 @@ export const IMAGE_HOSTS = [
 	'*.ggpht.com',
 	'upload.wikimedia.org',
 	'thumb.wikimedia.org',
+	// Tracks: the video's thumbnail, over the radio's embed while the announcer talks it in.
+	'i.ytimg.com',
 	// Gig pictures, from each venue's site or CDN.
 	'backend.bimhuis.nl',
 	'www.bitterzoet.com',

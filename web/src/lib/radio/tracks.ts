@@ -40,6 +40,13 @@ export function squareImage(url: string | null | undefined, size = 544): string 
 	return /=w\d+-h\d+/.test(url) ? url.replace(/=w\d+-h\d+/, `=w${size}-h${size}`) : url;
 }
 
+/** A track's video thumbnail (YouTube's 480×360 one, which every video has; a 16:9 video
+ * fills its middle 480×270, so `object-fit: cover` in a 16:9 box shows no bars). */
+export function videoThumbnail(videoId: string): string | undefined {
+	if (!VIDEO_ID.test(videoId)) return undefined;
+	return imageSrc(`https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`);
+}
+
 /** The best picture of an artist: YouTube Music, else their Wikipedia thumbnail. */
 export function artistImage(artist: Artist | undefined): string | null {
 	return imageSrc(artist?.youtube?.image) ?? imageSrc(artist?.wikipedia?.thumbnail) ?? null;
