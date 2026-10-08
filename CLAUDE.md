@@ -155,7 +155,10 @@ checksummed; never commit them. In CI they're kept by actions/cache (key: the pi
   can (prompt changes: bump `PROMPT_VERSION`). Pull a bad blurb or artist in `blurbs.toml`
   (`[blocked]`). Line-up names must appear in the listing (letters in any script); batches
   never mix venues.
-- Intros (`clips.py`): "<name>, <blurb>." in the artist's announcer voice. Clips render into
+- Intros (`clips.py`): "Next up, <name>, <blurb>." in the artist's announcer voice (intros look
+  ahead: said after a track, a bare name could be about the one that ended). A new wording
+  re-renders every clip over a few nights; `PREVIOUS_WORDINGS` keeps the old clips playing
+  meanwhile. Clips render into
   `data/cache/voice/` (carried across nights in the pipeline-cache artifact; unused for 60 days →
   deleted, tracked in `referenced.json`) and only those artists.json uses are copied to
   `data/site/voice/`. Capped per night (`--max-clips` 600, `--clip-minutes` 20), first variants

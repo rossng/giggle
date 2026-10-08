@@ -3,7 +3,13 @@ from datetime import date, timedelta
 
 import numpy as np
 
-from giggle_pipeline.clips import KEEP_DAYS, MANIFEST, clip_text, render_intros
+from giggle_pipeline.clips import (
+    KEEP_DAYS,
+    MANIFEST,
+    PREVIOUS_WORDINGS,
+    clip_text,
+    render_intros,
+)
 from giggle_pipeline.voice import (
     ANNOUNCERS,
     Lexicon,
@@ -64,7 +70,10 @@ def names(directory):
 
 
 def test_clip_text():
-    assert clip_text("Mogwai", "a Glasgow post-rock band.") == "Mogwai, a Glasgow post-rock band."
+    assert (
+        clip_text("Mogwai", "a Glasgow post-rock band.")
+        == "Next up, Mogwai, a Glasgow post-rock band."
+    )
 
 
 def test_renders_every_variant_in_the_artists_voice(tmp_path):
@@ -72,8 +81,8 @@ def test_renders_every_variant_in_the_artists_voice(tmp_path):
     result = render(tmp_path, synthesizer=synth)
     assert list(result) == ["k3", "k0", "k1"]  # no blurbs, no clips
     assert [c["text"] for c in result["k0"]] == [
-        "Band 0, a Glasgow band.",
-        "Band 0, a shoegaze band.",
+        "Next up, Band 0, a Glasgow band.",
+        "Next up, Band 0, a shoegaze band.",
     ]
     for key, clips in result.items():
         for clip in clips:
@@ -96,17 +105,17 @@ def test_budget_goes_breadth_first_soonest_first(tmp_path):
     result = render(tmp_path, synthesizer=synth, max_renders=4)
     # First variants for k3, k0, k1, then k3's second.
     assert [t for t, _ in synth.calls] == [
-        "Band 3, a Norwegian rock band.",
-        "Band 0, a Glasgow band.",
-        "Band 1, a Lisbon singer.",
-        "Band 3, a Bergen band.",
+        "Next up, Band 3, a Norwegian rock band.",
+        "Next up, Band 0, a Glasgow band.",
+        "Next up, Band 1, a Lisbon singer.",
+        "Next up, Band 3, a Bergen band.",
     ]
     assert {k: len(v) for k, v in result.items()} == {"k3": 2, "k0": 1, "k1": 1}
     # The next night picks up where this one stopped, and reuse costs nothing.
     synth = FakeSynth()
     result = render(tmp_path, synthesizer=synth, max_renders=4)
     assert len(synth.calls) == 2
-    assert [c["text"] for c in result["k3"]][-1] == "Band 3, a band singing in Norwegian."
+    assert [c["text"] for c in result["k3"]][-1] == "Next up, Band 3, a band singing in Norwegian."
 
 
 def test_without_the_model_existing_clips_are_still_used(tmp_path):
@@ -161,13 +170,27 @@ def test_clips_unused_for_a_while_are_deleted(tmp_path):
     assert json.loads((tmp_path / "cache" / MANIFEST).read_text()) == {}
 
 
+def test_clips_in_an_earlier_wording_stand_in_until_rerendered(tmp_path):
+    old = PREVIOUS_WORDINGS[0]
+    cache = tmp_path / "cache"
+    synth = FakeSynth()
+    for key in ("k0", "k1"):
+        voice = Voice(voice=announcer_for(key), lexicon=Lexicon([]), synthesizer=synth)
+        voice.render(old(ARTISTS[key]["name"], BLURBS[key][0]), cache)
+    result = render(tmp_path, max_renders=2)
+    # k3's and k0's first variants are rendered anew; k1's stays in the old wording.
+    assert [c["text"] for c in result["k0"]] == ["Next up, Band 0, a Glasgow band."]
+    assert [c["text"] for c in result["k1"]] == ["Band 1, a Lisbon singer."]
+    assert "k3" in result and len(result["k3"]) == 1
+
+
 def test_clip_names_match_the_voice_module(tmp_path):
     synth = FakeSynth()
     result = render(tmp_path, synthesizer=synth)
     voice = Voice(voice=announcer_for("k1"), lexicon=Lexicon([]), synthesizer=synth)
     assert (
         result["k1"][0]["file"]
-        == f"voice/{voice.path_for('Band 1, a Lisbon singer.', tmp_path / 'cache').name}"
+        == f"voice/{voice.path_for('Next up, Band 1, a Lisbon singer.', tmp_path / 'cache').name}"
     )
 
 

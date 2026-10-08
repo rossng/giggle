@@ -1,4 +1,4 @@
-"""Pre-rendered artist introductions: "<name>, <blurb>." in the artist's announcer voice.
+"""Pre-rendered artist intros: "Next up, <name>, <blurb>." in the artist's announcer voice.
 
 The browser says the gig line ("They play Paradiso on Thursday…") live after the clip,
 so a clip holds only the name and one blurb variant. Each clip's exact length goes into
@@ -6,11 +6,12 @@ artists.json: the presenter plans its timing around it (see packages/radio-core)
 
 Clips are rendered into the clip cache (`data/cache/voice/<hash>.mp3`), which travels
 between nightly runs with the rest of the cache, and the ones artists.json uses are
-copied to `<site>/voice/`. A clip that exists is never rendered again. A night's
-rendering is capped by count and by time: the first variant of every artist comes before
-anyone's second, soonest gig first, so a spent budget leaves the far-off artists and the
-spare variants for the next night. Cached clips nobody has used for `KEEP_DAYS` are
-deleted; `referenced.json` in the cache remembers when each was last used.
+copied to `<site>/voice/`. A clip that exists is never rendered again; when the wording
+changes, a clip in an earlier one (`PREVIOUS_WORDINGS`) stands in until it's rendered anew.
+A night's rendering is capped by count and by time: the first variant of every artist
+comes before anyone's second, soonest gig first, so a spent budget leaves the far-off
+artists and the spare variants for the next night. Cached clips nobody has used for
+`KEEP_DAYS` are deleted; `referenced.json` in the cache remembers when each was last used.
 """
 
 from __future__ import annotations
@@ -55,7 +56,17 @@ class Intros:
 
 
 def clip_text(name: str, blurb: str) -> str:
+    # "Next up": said straight after a track, a bare name could be about the one that ended.
+    return f"Next up, {name.strip()}, {blurb.strip().rstrip('.')}."
+
+
+def _clip_text_v1(name: str, blurb: str) -> str:
     return f"{name.strip()}, {blurb.strip().rstrip('.')}."
+
+
+# Earlier `clip_text`s, newest first: their clips are used until the current wording's are
+# rendered (they're pruned like any other once nothing uses them).
+PREVIOUS_WORDINGS: tuple[Callable[[str, str], str], ...] = (_clip_text_v1,)
 
 
 def render_intros(
@@ -101,18 +112,22 @@ def render_intros(
                 stop = f"the limit of {max_renders} clips"
             if not stop and clock() - started >= max_seconds:
                 stop = f"the {max_seconds / 60:g}-minute time limit"
-            if stop:
+            if not stop:
+                try:
+                    voice.render(text, cache_dir)
+                    out.rendered += 1
+                    audio_seconds += mp3_seconds(path)
+                except VoiceError as exc:
+                    print(
+                        f"clips: can't render, using existing clips only: {exc!r}", file=sys.stderr
+                    )
+                    out.error = stop = str(exc)
+            if not path.exists():
                 out.left += 1
-                continue
-            try:
-                voice.render(text, cache_dir)
-            except VoiceError as exc:
-                print(f"clips: can't render, using existing clips only: {exc!r}", file=sys.stderr)
-                out.error = stop = str(exc)
-                out.left += 1
-                continue
-            out.rendered += 1
-            audio_seconds += mp3_seconds(path)
+                previous = _previous(voice, artists[key]["name"], blurbs[key][i], cache_dir)
+                if previous is None:
+                    continue
+                text, path = previous
         found[key, i] = {
             "text": text,
             "file": f"{CLIP_DIR}/{path.name}",
@@ -136,6 +151,16 @@ def render_intros(
         file=sys.stderr,
     )
     return out
+
+
+def _previous(voice: Voice, name: str, blurb: str, cache_dir: Path) -> tuple[str, Path] | None:
+    """The newest earlier wording of a clip that's already rendered, with its file."""
+    for wording in PREVIOUS_WORDINGS:
+        text = wording(name, blurb)
+        path = voice.path_for(text, cache_dir)
+        if path.exists():
+            return text, path
+    return None
 
 
 def adopt_site_clips(site_clips: Path, cache_dir: Path) -> None:
