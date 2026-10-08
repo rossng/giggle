@@ -9,7 +9,7 @@
 	import TopBar from '$lib/components/shell/TopBar.svelte';
 	import VideoDock from '$lib/components/shell/VideoDock.svelte';
 	import { TRIAGES, TRIAGE_KEYS } from '$lib/board/board';
-	import { unavailableDates } from '$lib/data/unavailable-store.svelte';
+	import { personal } from '$lib/data/personal';
 	import { radioApp } from '$lib/radio/app.svelte';
 
 	let { data, children } = $props();
@@ -19,11 +19,10 @@
 	// Read once per visit, like the pages: station windows are relative to today.
 	const now = new Date();
 
-	// Keep the radio tuned to the station (and to the unavailable dates it may hide).
+	// Keep the radio tuned to the station (and to the listener's own data it may filter by).
 	$effect(() => {
 		void radioApp.station;
-		void unavailableDates.test;
-		radioApp.tune(catalog, unavailableDates.test, now);
+		radioApp.tune(catalog, personal(), now);
 	});
 
 	function onkeydown(event: KeyboardEvent) {

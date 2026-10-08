@@ -5,7 +5,7 @@
 	import type { RadioOrder, VoiceMode } from '@giggle/radio-core';
 	import FilterPanel from '$lib/components/FilterPanel.svelte';
 	import Sheet from '$lib/components/Sheet.svelte';
-	import { unavailableDates } from '$lib/data/unavailable-store.svelte';
+	import { personal } from '$lib/data/personal';
 	import { dateWindow, facetCounts, summarise, toQuery, type Filters } from '$lib/data/filters';
 	import { filterNames, type Catalog } from '$lib/data/catalog';
 	import { radioApp } from '$lib/radio/app.svelte';
@@ -18,7 +18,7 @@
 	const now = new Date();
 	const radio = $derived(radioApp.radio(catalog));
 	const station = $derived(radioApp.station);
-	const counts = $derived(facetCounts(station.filters, catalog.gigs, now, unavailableDates.test));
+	const counts = $derived(facetCounts(station.filters, catalog.gigs, now, personal()));
 	const range = $derived(dateWindow(station.filters, now));
 	const summary = $derived(summarise(station.filters, filterNames(catalog)));
 	const voiceName = $derived(pickVoice(radio.voices, radio.settings.voiceName)?.name ?? '');
