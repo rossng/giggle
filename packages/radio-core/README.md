@@ -26,7 +26,7 @@ pnpm --dir packages/radio-core typecheck   # tsc --noEmit
 | `said` | `SaidMemory` (artistKey → facts said, with times): `recordSaid`, `pruneSaid`, `parseSaid`. Persist `presenter.said` next to the play history. |
 | `speech` | `estimateSeconds(text, {wordsPerSecond, rate, …})`: spoken length from words and pauses. |
 | `timing` | `planSegment(...)`: when to speak relative to the music (`backAnnounce` / `overIntro` / `beforeTrack` / `skip`); `runSegment(plan, {player, speak, ducking, timers})` carries it out. |
-| `spoken` | `spokenDay` ("tonight", "on Friday the sixteenth of October"), `spokenTime` ("8.30pm"), `spokenPrice` ("about 24 euros"). |
+| `spoken` | `spokenDay` ("tonight", "on Friday the sixteenth of October"), `spokenTime` ("8:30pm"), `spokenPrice` ("about 24 euros"). |
 | `titles` | `cleanSongTitle`: drops "(feat. …)", "[Official Video]", "- Remastered 2011", "(12" Version)", "(Deluxe Edition)", "(From "…" Soundtrack)"…; keeps named versions ("(Bicep Remix)", "(Acoustic)"). |
 | `picker` | `PhrasePicker`: picks a wording per slot, never the previous one. |
 | `ducking` | `DuckingController`: fades the player to 20 (or a per-call `duckTo`, e.g. 0) around an announcement, safe with overlapping ones; `level()` brings music up under the voice. |
