@@ -108,6 +108,7 @@
 		<TicketStrip
 			{view}
 			{today}
+			artistKey={entry.artistKey}
 			youtubeMusic={youtubeMusicUrl(artist?.youtube)}
 			mark={boardStore.gigState(view.id)}
 		/>
@@ -156,6 +157,8 @@
 		display: flex;
 		gap: 10px;
 		align-items: center;
+		/* As tall as the sort badge, so sorting the artist doesn't move the page. */
+		min-height: 16px;
 	}
 	.artist {
 		margin: 0;

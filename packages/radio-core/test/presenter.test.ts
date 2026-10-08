@@ -199,6 +199,17 @@ describe("Presenter.intro", () => {
     expect(texts.some((t) => /on the sixteenth of October/.test(t))).toBe(true);
   });
 
+  it("looks ahead in intros, never at what may be the track that just ended", () => {
+    const p = presenter(15, { knownArtists: BOARD, probabilities: { colour: 1 } });
+    for (let i = 0; i < 200; i++) {
+      const now = new Date(NOW.getTime() + i * 3_600_000);
+      for (const e of [rich(), bare()]) {
+        const text = p.intro(e, "short", now, i % 2).text;
+        expect(text).not.toMatch(/\b(This is|You're listening|On now)\b/);
+      }
+    }
+  });
+
   it("never repeats a wording twice in a row", () => {
     const p = presenter(13, { probabilities: { colour: 0 } });
     const texts = Array.from({ length: 50 }, () => p.intro(bare(), "short", NOW).text);
@@ -206,7 +217,7 @@ describe("Presenter.intro", () => {
   });
 
   it("opens a quick intro with a short naming, keeping the facts, their rotation and the budget", () => {
-    const opening = /^(Here's|This is|On now,) Mogwai\. /;
+    const opening = /^(Here's|Next up,|Up next,) Mogwai\. /;
     const p = presenter(14, { knownArtists: BOARD, probabilities: { colour: 1 } });
     const kinds: FactKind[] = [];
     for (let i = 0; i < 7; i++) {
@@ -221,7 +232,7 @@ describe("Presenter.intro", () => {
     // Every fact still gets its turn, ticket news included (after the gig line).
     expect(new Set(kinds).size).toBe(7);
     const bareLine = p.forTrack({ entry: bare(), trackIndex: 0, mode: "short", now: NOW, quick: true })!;
-    expect(bareLine.text).toMatch(/^(Here's|This is|On now,) Mike\. .*Paradiso/);
+    expect(bareLine.text).toMatch(/^(Here's|Next up,|Up next,) Mike\. .*Paradiso/);
     // Only when asked: most intros open some other way.
     const usual = Array.from({ length: 50 }, () => p.intro(rich(), "short", NOW).text);
     expect(usual.filter((t) => opening.test(t)).length).toBeLessThan(40);
