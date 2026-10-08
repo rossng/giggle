@@ -21,7 +21,7 @@ describe("estimateSeconds", () => {
 
   it("counts times and years as the words they're spoken as", () => {
     // "eight thirty pm" and "nineteen ninety-five" take longer than one word.
-    expect(estimateSeconds("at 8.30pm")).toBeGreaterThan(estimateSeconds("at eight"));
+    expect(estimateSeconds("at 8:30pm")).toBeGreaterThan(estimateSeconds("at eight"));
     expect(estimateSeconds("since 1995")).toBeCloseTo(4 / 2.6, 1);
   });
 

@@ -39,7 +39,7 @@ import type { QueueEntry } from "./queue.ts";
 import type { Rng } from "./random.ts";
 import { recordSaid, saidOrder, type SaidMemory } from "./said.ts";
 import { estimateSeconds, type SpeechRate } from "./speech.ts";
-import { ordinalWord, spokenDay, spokenTime, type SpokenDay } from "./spoken.ts";
+import { EVENING_HOUR, ordinalWord, spokenDay, spokenTime, type SpokenDay } from "./spoken.ts";
 import { DEFAULT_TIME_ZONE, zonedParts } from "./time.ts";
 import type { Venue } from "./types.ts";
 
@@ -93,8 +93,6 @@ export const DEFAULT_BUDGETS: Budgets = {
 export interface PresenterProbabilities {
   /** Adding a colour fact to a new-artist link, when there is one (default 0.85). */
   colour: number;
-  /** Adding the start time to the gig (default 0.35). */
-  time: number;
   /** A micro-announcement before another track by the same artist (default 0.5). */
   micro: number;
   /** A back-announcement for a track whose title wasn't said going in (default 0.3). */
@@ -103,7 +101,6 @@ export interface PresenterProbabilities {
 
 export const DEFAULT_PRESENTER_PROBABILITIES: PresenterProbabilities = {
   colour: 0.85,
-  time: 0.35,
   micro: 0.5,
   back: 0.3,
 };
@@ -143,7 +140,7 @@ interface GigCtx {
   name: string;
   where: string;
   day: SpokenDay;
-  /** ", at 8.30pm" or "". */
+  /** ", at 2:30pm" (afternoon gigs) or "". */
   at: string;
 }
 
@@ -432,8 +429,11 @@ export class Presenter {
     return candidates[candidates.length - 1] ?? null;
   }
 
-  /** Where and when, at a level of detail: 0 full, 1 no time, 2 no weekday on dates. */
-  #gigCtx(entry: QueueEntry, now: Date, level: number, sayTime: boolean): GigCtx {
+  /**
+   * Where and when, at a level of detail: 0 full, 1 no time, 2 no weekday on dates.
+   * The start time only for an afternoon gig: evening starts go without saying.
+   */
+  #gigCtx(entry: QueueEntry, now: Date, level: number): GigCtx {
     const gig = entry.gig;
     let day = spokenDay(gig.start, now, this.#timeZone);
     if (level >= 2 && day.kind === "date") {
@@ -441,8 +441,9 @@ export class Presenter {
       day = { kind: "date", bare, phrase: `on ${bare}` };
     }
     const time = spokenTime(gig.start, this.#timeZone);
-    const afternoonOrLater = zonedParts(new Date(gig.start), this.#timeZone).hour >= 12;
-    const at = level === 0 && sayTime && time && afternoonOrLater ? `, at ${time}` : "";
+    const hour = zonedParts(new Date(gig.start), this.#timeZone).hour;
+    const afternoon = hour >= 12 && hour < EVENING_HOUR;
+    const at = level === 0 && time && afternoon ? `, at ${time}` : "";
     return { name: entry.name, where: spokenWhere(gig, this.#venues, this.#homeCity), day, at };
   }
 
@@ -544,7 +545,6 @@ export class Presenter {
    */
   intro(entry: QueueEntry, mode: "name" | "short", now: Date, trackIndex = 0, { quick = false } = {}): Line {
     const b = this.budgets;
-    const sayTime = this.#chance(this.#p.time);
     if (mode === "name") return this.#nameIntro(entry, now);
 
     const fact = this.#pickFact(this.facts(entry, trackIndex, now), entry.artistKey);
@@ -560,16 +560,16 @@ export class Presenter {
     // lower end are fine: retrying can't add facts that aren't there.
     let done = false;
     for (let level = 0; level < 3 && !done; level++) {
-      const gig = this.#gigCtx(entry, now, level, sayTime);
+      const gig = this.#gigCtx(entry, now, level);
       done = consider(this.#compose(entry, fact, this.#structure(fact, quick), gig, quick), fact);
     }
     // Still over the cap: drop the colour fact.
     for (let level = 1; level <= 2 && !best && fact; level++) {
-      const gig = this.#gigCtx(entry, now, level, false);
+      const gig = this.#gigCtx(entry, now, level);
       consider(this.#compose(entry, null, this.#structure(null, quick), gig, quick), null);
     }
     if (!best) {
-      const text = this.#shortest(GIG_MINIMAL, this.#gigCtx(entry, now, 2, false));
+      const text = this.#shortest(GIG_MINIMAL, this.#gigCtx(entry, now, 2));
       best = { text, seconds: this.estimate(text), fact: null };
     }
     const chosen = best as { text: string; seconds: number; fact: ColourFact | null };
@@ -590,7 +590,7 @@ export class Presenter {
     const b = this.budgets;
     let spoken = "";
     for (let level = 0; level <= 2; level++) {
-      const ctx = this.#gigCtx(entry, now, level, level === 0 && this.#chance(0.4));
+      const ctx = this.#gigCtx(entry, now, level);
       spoken = tidy(this.#picker.render("p.gig", GIG, ctx));
       if (clip.seconds + this.estimate(spoken) <= b.introCap) break;
     }
@@ -611,9 +611,9 @@ export class Presenter {
   #nameIntro(entry: QueueEntry, now: Date): Line {
     const sold = entry.gig.availability === "sold_out" ? " Sold out." : "";
     const limit = this.budgets.nameCap;
-    let text = tidy(this.#picker.render("p.name", NAME_ONLY, this.#gigCtx(entry, now, 1, false)) + sold);
+    let text = tidy(this.#picker.render("p.name", NAME_ONLY, this.#gigCtx(entry, now, 1)) + sold);
     if (this.estimate(text) > limit) {
-      const short = this.#gigCtx(entry, now, 2, false);
+      const short = this.#gigCtx(entry, now, 2);
       text = this.#shortest(NAME_ONLY, short, sold);
       if (this.estimate(text) > limit) text = this.#shortest(NAME_ONLY, short);
     }

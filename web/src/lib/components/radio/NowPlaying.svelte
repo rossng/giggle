@@ -1,10 +1,12 @@
-<!-- Who's on, under the video: the artist's name big, the song, their gig as a ticket, then
-     whatever the page puts there (the sort row), and more about them on request. -->
+<!-- Who's on, under the video: the artist's name big (and how they're sorted), the song, their
+     gigs on the station as tickets (each with how it's sorted), then whatever the page puts there
+     (the sort row), and more about them on request. -->
 <script lang="ts">
 	import type { QueueEntry, Track } from '@giggle/radio-core';
 	import type { Snippet } from 'svelte';
 	import TicketStrip from './TicketStrip.svelte';
 	import { TRIAGE_LABELS, type Triage } from '$lib/board/board';
+	import { boardStore } from '$lib/board/board-store.svelte';
 	import type { GigView } from '$lib/data/catalog';
 	import { artistPath } from '$lib/data/slugs';
 	import type { Artist, IsoDate } from '$lib/data/types';
@@ -15,7 +17,7 @@
 		track,
 		trackIndex,
 		artist,
-		view,
+		views,
 		today,
 		triage = null,
 		actions
@@ -24,8 +26,10 @@
 		track: Track;
 		trackIndex: number;
 		artist: Artist | undefined;
-		view: GigView | undefined;
+		/** Their gigs on the station, soonest first. */
+		views: readonly GigView[];
 		today: IsoDate;
+		/** How the artist is sorted (listen more, not for me). */
 		triage?: Triage | null;
 		/** Under the ticket: the sort row. */
 		actions?: Snippet;
@@ -71,7 +75,7 @@
 		for (const raw of [
 			...(mb?.genres ?? []),
 			...(artist?.lastfm?.tags ?? []),
-			...(view?.gig.genres ?? [])
+			...(views[0]?.gig.genres ?? [])
 		]) {
 			const tag = raw.toLowerCase().trim();
 			if (!tag || seen.has(tag) || tag === 'seen live' || /^\d{4}s?$/.test(tag)) continue;
@@ -100,9 +104,14 @@
 				>{' · '}{track.album}</span
 			>{/if}
 	</p>
-	{#if view}
-		<TicketStrip {view} {today} youtubeMusic={youtubeMusicUrl(artist?.youtube)} />
-	{/if}
+	{#each views as view (view.id)}
+		<TicketStrip
+			{view}
+			{today}
+			youtubeMusic={youtubeMusicUrl(artist?.youtube)}
+			mark={boardStore.gigState(view.id)}
+		/>
+	{/each}
 	{@render actions?.()}
 	{#if line || facts.length || tags.length || about}
 		<details class="more">

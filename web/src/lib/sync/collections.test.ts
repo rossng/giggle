@@ -1,6 +1,6 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { recordPlay, type PlayHistory } from '@giggle/radio-core';
-import { loadBoard, saveBoard, setTriage } from '$lib/board/board';
+import { BOARD_STORAGE_KEY, loadBoard, saveBoard, setArtist, setGig } from '$lib/board/board';
 import {
 	addRule,
 	loadUnavailable,
@@ -9,7 +9,7 @@ import {
 	type Rule
 } from '$lib/data/unavailable';
 import { KEYS, loadHistory, saveHistory } from '$lib/radio/persist';
-import { memoryStorage, readJson } from '$lib/storage';
+import { memoryStorage, readJson, writeJson } from '$lib/storage';
 import { applyRound, emptyRecord, outgoing } from './collection';
 import { SyncClient } from './client';
 import {
@@ -257,7 +257,7 @@ describe('one client, every collection', () => {
 		const server = new FakeServer();
 		const d = device(server);
 		saveBoard(
-			setTriage(loadBoard(d.storage), 'name:a', 'go', { name: 'A' }, new Date()),
+			setArtist(loadBoard(d.storage), { key: 'name:a', name: 'A' }, 'listen', new Date()),
 			d.storage
 		);
 		d.addDates({ kind: 'weekly', weekday: 5 });
@@ -281,15 +281,125 @@ describe('one client, every collection', () => {
 		const server = new FakeServer();
 		const d = device(server);
 		const when = '2026-10-03T20:30:00+02:00';
-		const meta = { name: 'A', gig: 'paradiso:1', when };
-		saveBoard(setTriage({}, 'name:a', 'go', meta, new Date()), d.storage);
+		const meta = { artist: { key: 'name:a', name: 'A' }, when };
+		saveBoard(setGig({}, 'paradiso:1', 'go', meta, new Date()), d.storage);
 		await d.client.syncNow();
 		server.put('alice@example.test', 'board', [
 			{ key: 'name:b', state: 'listen', name: 'B', at: '2026-09-26T20:00:01.000Z' }
 		]);
 		await d.client.syncNow();
-		expect(loadBoard(d.storage)['name:a']?.when).toBe(when);
+		expect(loadBoard(d.storage)['gig:paradiso:1']?.when).toBe(when);
 		expect(loadBoard(d.storage)['name:b']?.state).toBe('listen');
+	});
+});
+
+// LEGACY-BOARD
+describe('the board: data from the version that sorted artists', () => {
+	const U = 'alice@example.test';
+	const AT = '2026-09-20T10:00:00.000Z';
+	const WHEN = '2026-10-03T20:30:00+02:00';
+	const boardPuts = (server: FakeServer) =>
+		server.requests.filter((r) => r.method === 'PUT' && r.path === '/api/board').length;
+	const serverBoard = (server: FakeServer) =>
+		Object.fromEntries(server.items(U, 'board').map(({ key, ...item }) => [key, item]));
+
+	it("moves the server's plans onto gigs, once, and every device agrees", async () => {
+		const server = new FakeServer();
+		server.put(U, 'board', [
+			{ key: 'name:a', state: 'go', name: 'A', gig: 'paradiso:1', at: AT },
+			{ key: 'name:b', state: 'tickets', name: 'B', at: AT },
+			{ key: 'name:c', state: 'nope', name: 'C', gig: 'melkweg:2', at: AT }
+		]);
+		const laptop = device(server);
+		await laptop.client.syncNow(); // pulls, and reads it as this version's board
+		await laptop.client.syncNow(); // pushes the change
+		const expected = {
+			'gig:paradiso:1': { state: 'go', name: 'A', artist: 'name:a', at: AT },
+			'name:b': { state: 'listen', name: 'B', at: '2026-09-20T10:00:00.001Z' },
+			'name:c': { state: 'nope', name: 'C', at: AT }
+		};
+		expect(loadBoard(laptop.storage)).toEqual(expected);
+		expect(serverBoard(server)).toEqual({
+			'name:a': { state: null, name: '', at: '2026-09-26T20:00:00.000Z' },
+			'gig:paradiso:1': { state: 'go', name: 'A', artist: 'name:a', at: AT },
+			'name:b': { state: 'listen', name: 'B', at: '2026-09-20T10:00:00.001Z' },
+			// Unchanged: the gig an older version noted doesn't matter now.
+			'name:c': { state: 'nope', name: 'C', gig: 'melkweg:2', at: AT }
+		});
+		expect(laptop.client.status.pending).toBe(0);
+
+		// Nothing more to push, round after round.
+		const puts = boardPuts(server);
+		await laptop.client.syncNow();
+		await laptop.client.syncNow();
+		expect(boardPuts(server)).toBe(puts);
+
+		const phone = device(server);
+		await phone.client.syncNow();
+		await phone.client.syncNow();
+		expect(loadBoard(phone.storage)).toEqual(expected);
+		expect(phone.client.status.pending).toBe(0);
+	});
+
+	it("moves this device's plans, keeping the gig dates it knew", async () => {
+		const server = new FakeServer();
+		const old = { key: 'name:a', state: 'go', name: 'A', gig: 'paradiso:1', at: AT };
+		server.put(U, 'board', [old]);
+		// As the older version left this device: in step with the server, with a date it kept.
+		const d = device(server);
+		writeJson(
+			BOARD_STORAGE_KEY,
+			{ version: 1, items: { 'name:a': { ...old, key: undefined, when: WHEN } } },
+			d.storage
+		);
+		const { key: _key, ...base } = old;
+		writeJson(
+			SYNC_STORAGE_KEY,
+			{ version: 1, user: U, cursor: '1', base: { 'name:a': base }, tombstones: {} },
+			d.storage
+		);
+		d.client.notifyLocalChange();
+		expect(d.client.status.pending).toBe(2); // the gig's mark, and the artist's deletion
+		await d.client.syncNow();
+		expect(serverBoard(server)['gig:paradiso:1']).toEqual({
+			state: 'go',
+			name: 'A',
+			artist: 'name:a',
+			when: WHEN,
+			at: AT
+		});
+		expect(serverBoard(server)['name:a']?.state).toBeNull();
+		expect(loadBoard(d.storage)).toEqual({
+			'gig:paradiso:1': { state: 'go', name: 'A', artist: 'name:a', when: WHEN, at: AT }
+		});
+		expect(d.client.status.pending).toBe(0);
+	});
+
+	it('moves what a tab still on the older version sorts later', async () => {
+		const server = new FakeServer();
+		const d = device(server);
+		saveBoard(
+			setGig({}, 'paradiso:1', 'go', { artist: { key: 'name:a', name: 'A' } }, new Date()),
+			d.storage
+		);
+		await d.client.syncNow();
+		vi.advanceTimersByTime(60_000);
+		server.put(U, 'board', [
+			{
+				key: 'name:a',
+				state: 'tickets',
+				name: 'A',
+				gig: 'paradiso:1',
+				at: new Date().toISOString()
+			}
+		]);
+		vi.advanceTimersByTime(1000);
+		await d.client.syncNow();
+		await d.client.syncNow();
+		expect(loadBoard(d.storage)['gig:paradiso:1']?.state).toBe('tickets');
+		expect(serverBoard(server)['gig:paradiso:1']?.state).toBe('tickets');
+		expect(serverBoard(server)['name:a']?.state).toBeNull();
+		expect(d.client.status.pending).toBe(0);
 	});
 });
 

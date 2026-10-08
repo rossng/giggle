@@ -1,5 +1,5 @@
 <script lang="ts">
-	// The radio's own page: the video, who's on and their gig, sorting them, and what's next. The
+	// The radio's own page: the video, who's on and their gigs, sorting them, and what's next. The
 	// radio itself (and its player bar and settings) lives in the app layout (lib/radio/app), so
 	// it keeps playing on other pages; this page's URL mirrors the station, so it can be shared.
 	import { untrack } from 'svelte';
@@ -9,6 +9,7 @@
 	import UpNext from '$lib/components/radio/UpNext.svelte';
 	import TriageButtons from '$lib/components/TriageButtons.svelte';
 	import { boardStore } from '$lib/board/board-store.svelte';
+	import type { GigView } from '$lib/data/catalog';
 	import { amsterdamDate } from '$lib/data/dates';
 	import { summarise } from '$lib/data/filters';
 	import { filterNames } from '$lib/data/catalog';
@@ -52,8 +53,10 @@
 	const entry = $derived(radio.entry);
 	const track = $derived(radio.track);
 	const artist = $derived(entry ? artists[entry.artistKey] : undefined);
-	const view = $derived(entry ? catalog.byId.get(entry.gig.id) : undefined);
-	const triage = $derived(entry ? boardStore.stateOf(entry.artistKey) : null);
+	/** Their gigs on the station, soonest first. */
+	const gigs = $derived(entry ? radio.gigsOf(entry.artistKey) : []);
+	const views = $derived(gigs.map((g) => catalog.byId.get(g.id)).filter((v): v is GigView => !!v));
+	const sorted = $derived(entry ? radio.marksOf(entry.artistKey) : []);
 	const summary = $derived(summarise(radioApp.station.filters, filterNames(catalog)));
 	let queueOpen = $state(false);
 
@@ -74,15 +77,19 @@
 				{track}
 				trackIndex={radio.position.trackIndex}
 				{artist}
-				{view}
+				{views}
 				{today}
-				{triage}
+				triage={entry ? boardStore.artistState(entry.artistKey) : null}
 			>
 				{#snippet actions()}
 					<TriageButtons
 						size="grid"
-						label="Sort this artist"
-						current={triage}
+						label="Sort what's playing"
+						captions={[
+							entry.name,
+							gigs.length > 1 ? `One of their ${gigs.length} gigs` : 'Their gig'
+						]}
+						current={sorted}
 						onpick={(t) => radio.triage(t)}
 					/>
 					{#if radio.caption && radio.settings.voiceMode !== 'off' && radio.started}

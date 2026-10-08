@@ -1,12 +1,21 @@
 <script lang="ts">
-	// The Board: the artists you've sorted, in columns (listen more, want to go, got tickets,
-	// been, not for me). The columns are the page. Each card has a ⋯ button to move it; with a
-	// mouse, cards also drag, and a focused card takes 1/2/3/X like the radio. On phones one
-	// column shows at a time, picked from the row of column tabs.
+	// The Board: what you've sorted, in columns. Gigs (want to go, got tickets, been) and artists
+	// (listen more, not for me): the columns are the page. Each card has a ⋯ button to move it
+	// within its kind; with a mouse, cards also drag, and a focused card takes 1/2/3/X like the
+	// radio. On phones one column shows at a time, picked from the row of column tabs.
 	import { onMount } from 'svelte';
 	import { page } from '$app/state';
 	import TriageButtons from '$lib/components/TriageButtons.svelte';
-	import { TRIAGE_KEYS, TRIAGE_LABELS, TRIAGES, type Triage } from '$lib/board/board';
+	import {
+		ARTIST_TRIAGES,
+		gigIdOf,
+		GIG_TRIAGES,
+		isArtistTriage,
+		isGigTriage,
+		TRIAGE_KEYS,
+		TRIAGE_LABELS,
+		type Triage
+	} from '$lib/board/board';
 	import { boardStore } from '$lib/board/board-store.svelte';
 	import {
 		boardColumns,
@@ -16,6 +25,7 @@
 		type ColumnId
 	} from '$lib/board/columns';
 	import { amsterdamDate, dayParts, localDate, localTime } from '$lib/data/dates';
+	import { own } from '$lib/data/own';
 	import { unavailableDates } from '$lib/data/unavailable-store.svelte';
 	import { artistPath } from '$lib/data/slugs';
 	import type { SyncStatus } from '$lib/sync/client';
@@ -27,7 +37,9 @@
 	const board = $derived(boardStore.items);
 	const today = amsterdamDate(new Date());
 	const columns = $derived(boardColumns(board, catalog, today, unavailableDates.test));
-	const total = $derived(Object.keys(board).length);
+	const cards = $derived(Object.values(columns).flat());
+	const total = $derived(cards.length);
+	const gigCount = $derived(cards.filter((c) => c.kind === 'gig').length);
 	// /board?column=go shows one column (the URL shape agreed for deep links).
 	const only = $derived(
 		COLUMNS.find((c) => c.id === page.url.searchParams.get('column'))?.id ?? null
@@ -49,32 +61,47 @@
 		'signed-out': 'On this device only',
 		error: 'Sync problem'
 	};
-	let dragging: string | null = $state(null);
+	let dragging: Card | null = $state(null);
 
 	onMount(() => syncClient?.subscribe((s) => (sync = s)));
 
-	function move(card: Card, state: Triage | null) {
-		moving = null;
-		boardStore.set(card.key, state, {
-			name: card.name,
-			...(card.item.gig ? { gig: card.item.gig } : {}),
-			...(card.item.when ? { when: card.item.when } : {})
-		});
+	/** The states a card can move to: its own kind's. */
+	function statesOf(card: Card): readonly Triage[] {
+		return card.kind === 'gig' ? GIG_TRIAGES : ARTIST_TRIAGES;
 	}
 
-	/** Dropping onto Been doesn't change anything: it follows the gig date. */
+	/** Re-sorts a card within its kind, or takes it off the board (null). */
+	function move(card: Card, state: Triage | null) {
+		moving = null;
+		if (card.kind === 'artist') {
+			if (state === null || isArtistTriage(state)) {
+				boardStore.setArtist({ key: card.key, name: card.item.name }, state);
+			}
+		} else if (state === null || isGigTriage(state)) {
+			const when = card.start ?? card.item.when;
+			boardStore.setGig(gigIdOf(card.key), state, {
+				artist: { key: card.artistKey, name: card.item.name },
+				...(when ? { when } : {})
+			});
+		}
+	}
+
+	/** Takes `card` (the one being dragged): its own kind's columns, but not Been, which follows
+	 * the gig date. */
+	function takes(column: ColumnId, card: Card | null): boolean {
+		return !!card && column !== 'been' && statesOf(card).includes(column as Triage);
+	}
+
 	function drop(column: ColumnId) {
-		const card = Object.values(columns)
-			.flat()
-			.find((c) => c.key === dragging);
+		const card = dragging;
 		dragging = null;
-		if (card && column !== 'been' && card.state !== column) move(card, column);
+		if (card && takes(column, card) && card.state !== column) move(card, column as Triage);
 	}
 
 	function onKey(e: KeyboardEvent, card: Card) {
 		if (e.metaKey || e.ctrlKey || e.altKey) return;
 		const key = e.key.toLowerCase();
-		const state = TRIAGES.find((t) => TRIAGE_KEYS[t].toLowerCase() === key);
+		const state = statesOf(card).find((t) => TRIAGE_KEYS[t].toLowerCase() === key);
 		if (state) {
 			e.preventDefault();
 			move(card, state);
@@ -86,16 +113,30 @@
 		}
 	}
 
+	/** When and where: a gig card's gig (as stored once it's left the data), an artist's next. */
 	function gigLine(card: Card): string | null {
-		const v = card.next ?? card.sortedFrom;
-		if (!v) return null;
-		const d = dayParts(localDate(v.gig.start));
-		const place = v.cityName !== 'Amsterdam' ? `${v.venueName}, ${v.cityName}` : v.venueName;
-		return `${d.weekday} ${d.day} ${d.month} · ${localTime(v.gig.start)} · ${place}`;
+		if (!card.start) return null;
+		const v = card.gig;
+		const d = dayParts(localDate(card.start));
+		const place = v && v.city !== 'amsterdam' ? `${v.venueName}, ${v.cityName}` : card.venueName;
+		const line = [`${d.weekday} ${d.day} ${d.month}`, localTime(card.start), place]
+			.filter(Boolean)
+			.join(' · ');
+		return card.kind === 'artist' ? `Next: ${line}` : line;
+	}
+
+	function artistHref(key: string | null): string | undefined {
+		const artist = key ? own(catalog.artists, key) : undefined;
+		return artist ? artistPath(artist) : undefined;
 	}
 
 	const WARNINGS = {
 		'sold-out': { text: 'Sold out', title: 'Sold out: check resale', mute: false },
+		unlisted: {
+			text: 'No longer listed',
+			title: "Gone from the venue's listings: cancelled or moved?",
+			mute: false
+		},
 		'no-gig': { text: 'No gig listed', title: 'No upcoming gig in the data', mute: true },
 		unavailable: { text: "You're away", title: 'On one of your unavailable dates', mute: false }
 	} as const;
@@ -108,7 +149,13 @@
 		<h1 class="display page-title">Board</h1>
 		<p class="sub">
 			{#if total}
-				<span>{total} artist{total === 1 ? '' : 's'}</span>
+				<span
+					>{gigCount} gig{gigCount === 1 ? '' : 's'} · {total - gigCount} artist{total -
+						gigCount ===
+					1
+						? ''
+						: 's'}</span
+				>
 			{/if}
 			{#if sync}
 				<span class="sync {sync.state}" title={sync.error ?? sync.user ?? ''}
@@ -123,10 +170,11 @@
 	{#if total === 0}
 		<div class="empty">
 			<p>
-				Nothing sorted yet. On the <a href="/radio">radio</a>, sort who's playing: listen more, want
-				to go, got tickets or not for me<span class="kbd-hint">
-					(keys <kbd>1</kbd> <kbd>2</kbd> <kbd>3</kbd> <kbd>X</kbd>)</span
-				>. They land here.
+				Nothing sorted yet. On the <a href="/radio">radio</a>, sort who's playing: listen more or
+				not for me is about the artist<span class="kbd-hint"> (<kbd>1</kbd> <kbd>X</kbd>)</span>;
+				want to go or got tickets is about their gig<span class="kbd-hint">
+					(<kbd>2</kbd> <kbd>3</kbd>)</span
+				>, as on every gig's page. They land here.
 			</p>
 			<a class="button strong" href="/radio">Open the radio</a>
 		</div>
@@ -150,14 +198,19 @@
 	</nav>
 
 	<div class="cols" class:single={!!only}>
+		{#if !only}
+			<p class="group gigs">Gigs <span>your plans</span></p>
+			<p class="group artists">Artists <span>for the radio</span></p>
+		{/if}
 		{#each shown as column (column.id)}
 			<section
 				class="col"
 				class:current={current === column.id}
 				class:faded={column.id === 'been' || column.id === 'nope'}
 				aria-labelledby="col-{column.id}"
+				class:closed={!!dragging && !takes(column.id, dragging)}
 				ondragover={(e) => {
-					if (column.id !== 'been') e.preventDefault();
+					if (takes(column.id, dragging)) e.preventDefault();
 				}}
 				ondrop={() => drop(column.id)}
 			>
@@ -172,26 +225,26 @@
 				{#each columns[column.id] as card (card.key)}
 					{@const line = gigLine(card)}
 					{@const when = countdownText(card.inDays)}
-					{@const artist = catalog.artists[card.key]}
+					{@const href = artistHref(card.artistKey)}
 					<!-- Cards are focusable so 1/2/3/X re-sort them from the keyboard, as on the radio;
 					     the same moves are behind the card's ⋯ button. -->
 					<!-- svelte-ignore a11y_no_noninteractive_tabindex, a11y_no_noninteractive_element_interactions -->
 					<article
 						class="card"
 						class:focused={focused === card.key}
-						style:--strip={card.next?.colour ?? card.sortedFrom?.colour ?? 'var(--p3)'}
+						style:--strip={card.gig?.colour ?? 'var(--p3)'}
 						draggable="true"
 						tabindex="0"
 						aria-label="{card.name}, {TRIAGE_LABELS[card.state]}"
-						ondragstart={() => (dragging = card.key)}
+						ondragstart={() => (dragging = card)}
 						ondragend={() => (dragging = null)}
 						onfocus={() => (focused = card.key)}
 						onblur={() => (focused = null)}
 						onkeydown={(e) => onKey(e, card)}
 					>
 						<div class="top">
-							{#if artist}
-								<a class="name" href={artistPath(artist)} draggable="false">{card.name}</a>
+							{#if href}
+								<a class="name" {href} draggable="false">{card.name}</a>
 							{:else}
 								<span class="name">{card.name}</span>
 							{/if}
@@ -212,18 +265,19 @@
 								>
 							</button>
 						</div>
-						{#if line}
-							{@const v = card.next ?? card.sortedFrom}
-							<a class="gig ellipsis" href={v?.href} draggable="false">{line}</a>
+						{#if line && card.gig}
+							<a class="gig ellipsis" href={card.gig.href} draggable="false">{line}</a>
+						{:else if line}
+							<span class="gig ellipsis">{line}</span>
 						{/if}
-						{#if (when && card.column !== 'been') || card.next?.price || card.warnings.length}
+						{#if (when && card.column !== 'been') || card.gig?.price || card.warnings.length}
 							<p class="foot">
 								{#if when && card.column !== 'been'}<span
 										class="cd"
 										class:strong={card.state === 'tickets'}>{when}</span
 									>{/if}
-								{#if card.next?.price && card.column !== 'been' && !card.warnings.includes('sold-out')}<span
-										>{card.next.price}</span
+								{#if card.gig?.price && card.column !== 'been' && !card.warnings.includes('sold-out')}<span
+										>{card.gig.price}</span
 									>{/if}
 								{#each card.warnings as w (w)}
 									<span class="warn" class:mute={WARNINGS[w].mute} title={WARNINGS[w].title}
@@ -236,7 +290,8 @@
 							<div class="moves">
 								<TriageButtons
 									label="Move {card.name} to"
-									current={card.state}
+									states={statesOf(card)}
+									current={[card.state]}
 									keys
 									dense
 									fixed
@@ -254,8 +309,8 @@
 	{#if total}
 		<p class="how">
 			<span class="kbd-hint"
-				>Drag cards between columns, or focus one and press <kbd>1</kbd> <kbd>2</kbd>
-				<kbd>3</kbd> <kbd>X</kbd>.</span
+				>Drag cards between columns of their kind, or focus one and press <kbd>2</kbd>
+				<kbd>3</kbd> (a gig) or <kbd>1</kbd> <kbd>X</kbd> (an artist).</span
 			>{' '}A card's ⋯ button moves it. “Been” fills itself once a gig has passed.
 		</p>
 	{/if}
@@ -374,6 +429,29 @@
 	}
 	.col.faded > :not(header) {
 		opacity: 0.8;
+	}
+	.col.closed {
+		opacity: 0.45;
+	}
+	.group {
+		grid-row: 1;
+		padding: 0 4px 2px;
+		border-bottom: 1px solid var(--line);
+		font: 600 10.5px/1.4 var(--f-mono);
+		letter-spacing: 0.12em;
+		text-transform: uppercase;
+		color: var(--ink);
+	}
+	.group span {
+		margin-left: 6px;
+		color: var(--mute);
+		letter-spacing: 0.06em;
+	}
+	.group.gigs {
+		grid-column: 1 / span 3;
+	}
+	.group.artists {
+		grid-column: 4 / span 2;
 	}
 	.col header {
 		display: flex;
@@ -548,6 +626,9 @@
 	@media (max-width: 700px) {
 		.tabs {
 			display: grid;
+		}
+		.group {
+			display: none;
 		}
 		.all {
 			display: none;

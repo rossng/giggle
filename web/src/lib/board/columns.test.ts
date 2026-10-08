@@ -32,39 +32,54 @@ function catalogWith() {
 const at = '2026-09-25T12:00:00.000Z';
 const BOARD: Board = {
 	'mb:nobu': { state: 'listen', name: 'Nobu', at },
-	'mb:gh': { state: 'go', name: 'Glass Harbour', gig: 'paradiso:sold', at },
-	'mb:old': { state: 'tickets', name: 'Old Band', gig: 'paradiso:past', at },
-	// Their gig has dropped out of the data; the stored date says it's been.
-	'name:went': {
+	'gig:paradiso:sold': { state: 'go', name: 'Glass Harbour', artist: 'mb:gh', at },
+	'gig:paradiso:past': { state: 'tickets', name: 'Old Band', artist: 'mb:old', at },
+	// Dropped out of the data; the stored date says it's been.
+	'gig:tivolivredenburg:1': {
 		state: 'go',
 		name: 'Went Band',
-		gig: 'melkweg:1',
+		artist: 'name:went',
 		when: '2026-09-28T20:00:00+02:00',
 		at
 	},
-	// Nothing known about when: not assumed to be over.
-	'name:gone': { state: 'go', name: 'Gone Band', at },
-	'name:meh': { state: 'nope', name: 'Meh', at }
+	// Gone from the listings before it happened.
+	'gig:melkweg:2': {
+		state: 'tickets',
+		name: 'Gone Band',
+		when: '2026-10-20T20:00:00+02:00',
+		at
+	},
+	'mb:meh': { state: 'nope', name: 'Meh', at }
 };
 
 describe('boardColumns', () => {
 	const columns = boardColumns(BOARD, catalogWith(), TODAY);
 
-	it('shows each artist with their next gig and a countdown', () => {
+	it('shows an artist with their next gig and a countdown', () => {
 		const [nobu] = columns.listen;
-		expect(nobu.next?.id).toBe('paradiso:soon');
+		expect(nobu).toMatchObject({ kind: 'artist', artistKey: 'mb:nobu' });
+		expect(nobu.gig?.id).toBe('paradiso:soon');
 		expect(nobu.inDays).toBe(2);
 	});
 
-	it('moves wanted artists whose gig has passed into Been', () => {
-		expect(columns.been.map((c) => c.key)).toEqual(['name:went', 'mb:old']);
-		expect(columns.tickets).toEqual([]);
+	it('shows a gig with the artist it was sorted for', () => {
+		const [gh] = columns.go;
+		expect(gh).toMatchObject({ kind: 'gig', name: 'Glass Harbour', artistKey: 'mb:gh' });
+		expect(gh.gig?.id).toBe('paradiso:sold');
+		expect(gh.venueName).toBe('Paradiso');
 	});
 
-	it('warns when a gig you want to go to sells out', () => {
+	it('moves gigs that have passed into Been, latest first', () => {
+		expect(columns.been.map((c) => c.key)).toEqual(['gig:tivolivredenburg:1', 'gig:paradiso:past']);
+		expect(columns.been[0].venueName).toBe('TivoliVredenburg');
+	});
+
+	it('warns when a gig you want to go to sells out, or leaves the listings', () => {
 		expect(columns.go.map((c) => [c.key, c.warnings])).toEqual([
-			['mb:gh', ['sold-out']],
-			['name:gone', ['no-gig']]
+			['gig:paradiso:sold', ['sold-out']]
+		]);
+		expect(columns.tickets.map((c) => [c.key, c.warnings, c.inDays])).toEqual([
+			['gig:melkweg:2', ['unlisted'], 19]
 		]);
 	});
 
@@ -72,15 +87,14 @@ describe('boardColumns', () => {
 		expect(columns.nope.map((c) => [c.name, c.warnings])).toEqual([['Meh', []]]);
 	});
 
-	it("warns (without hiding) when the next gig is on one of the listener's unavailable dates", () => {
+	it("warns (without hiding) when a gig is on one of the listener's unavailable dates", () => {
 		const away = (date: string) => date === '2026-10-03' || date === '2026-10-16';
 		const cols = boardColumns(BOARD, catalogWith(), TODAY, away);
-		expect(cols.listen.map((c) => [c.key, c.next?.id, c.warnings])).toEqual([
+		expect(cols.listen.map((c) => [c.key, c.gig?.id, c.warnings])).toEqual([
 			['mb:nobu', 'paradiso:soon', ['unavailable']]
 		]);
 		expect(cols.go.map((c) => [c.key, c.warnings])).toEqual([
-			['mb:gh', ['sold-out', 'unavailable']],
-			['name:gone', ['no-gig']]
+			['gig:paradiso:sold', ['sold-out', 'unavailable']]
 		]);
 		const nope: Board = { 'mb:nobu': { state: 'nope', name: 'Nobu', at } };
 		expect(boardColumns(nope, catalogWith(), TODAY, away).nope[0].warnings).toEqual([]);

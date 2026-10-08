@@ -1,5 +1,5 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
-import { loadBoard, saveBoard, setTriage, type Board, type Triage } from '$lib/board/board';
+import { loadBoard, saveBoard, setArtist, type ArtistTriage, type Board } from '$lib/board/board';
 import { memoryStorage, readJson, writeJson } from '$lib/storage';
 import { boardCollection } from './collections';
 import { SYNC_STORAGE_KEY, SyncClient, type SyncState, type SyncStatus } from './client';
@@ -163,8 +163,8 @@ function device(
 			return statuses.map((s) => s.state);
 		},
 		/** Sort an artist the way the radio does: save, then tell the client. */
-		triage(key: string, state: Triage | null, name = key) {
-			saveBoard(setTriage(loadBoard(storage), key, state, { name }, new Date()), storage);
+		triage(key: string, state: ArtistTriage | null, name = key) {
+			saveBoard(setArtist(loadBoard(storage), { key, name }, state, new Date()), storage);
 			client.notifyLocalChange();
 		}
 	};
@@ -186,7 +186,7 @@ describe('SyncClient: two devices, one account', () => {
 	it('pushes a local board and brings it to another device', async () => {
 		const server = new FakeServer();
 		const laptop = device(server, 'alice@example.test');
-		laptop.triage(K(1), 'go', 'Mogwai');
+		laptop.triage(K(1), 'listen', 'Mogwai');
 		laptop.triage('name:slowdive', 'listen', 'Slowdive');
 		await laptop.client.syncNow();
 		expect(laptop.client.status).toMatchObject({
@@ -208,10 +208,10 @@ describe('SyncClient: two devices, one account', () => {
 		const server = new FakeServer();
 		const laptop = device(server, 'alice@example.test');
 		const phone = device(server, 'alice@example.test');
-		laptop.triage(K(1), 'go', 'Mogwai');
+		laptop.triage(K(1), 'listen', 'Mogwai');
 		await laptop.client.syncNow();
 		await phone.client.syncNow();
-		expect(phone.board[K(1)]?.state).toBe('go');
+		expect(phone.board[K(1)]?.state).toBe('listen');
 
 		vi.advanceTimersByTime(60_000);
 		laptop.triage(K(1), null); // board.ts just forgets the key
@@ -238,18 +238,18 @@ describe('SyncClient: two devices, one account', () => {
 		// Both offline for a while, editing the same artists.
 		vi.advanceTimersByTime(1000);
 		phone.triage('name:b', 'nope'); // older than laptop's deletion
-		laptop.triage('name:a', 'go'); // older than phone's edit
+		laptop.triage('name:a', 'listen'); // older than phone's edit
 		vi.advanceTimersByTime(1000);
 		laptop.triage('name:b', null); // deleted, stamped now
 		vi.advanceTimersByTime(1000);
-		phone.triage('name:a', 'tickets'); // newer
+		phone.triage('name:a', 'nope'); // newer
 
 		await phone.client.syncNow();
 		await laptop.client.syncNow();
 		await phone.client.syncNow();
 
 		for (const d of [laptop, phone]) {
-			expect(d.board['name:a']?.state).toBe('tickets');
+			expect(d.board['name:a']?.state).toBe('nope');
 			expect(d.board['name:b']).toBeUndefined();
 		}
 	});
@@ -257,12 +257,12 @@ describe('SyncClient: two devices, one account', () => {
 	it('keeps accounts apart: another account’s data leaves the device', async () => {
 		const server = new FakeServer();
 		const shared = device(server, 'alice@example.test');
-		shared.triage('name:a', 'go');
+		shared.triage('name:a', 'listen');
 		await shared.client.syncNow();
 		// Bob signs in on the same browser: his board is pulled in full, not from alice's cursor,
 		// and alice's board goes (her account keeps it).
 		server.put('bob@example.test', [
-			{ key: 'name:b', state: 'go', name: 'B', at: '2026-09-26T19:00:00.000Z' }
+			{ key: 'name:b', state: 'listen', name: 'B', at: '2026-09-26T19:00:00.000Z' }
 		]);
 		const bob = new SyncClient({
 			collections: [boardCollection],
@@ -283,14 +283,14 @@ describe('SyncClient: two devices, one account', () => {
 describe('SyncClient: signing in and out', () => {
 	const bobsBoard = (server: FakeServer) =>
 		server.put('bob@example.test', [
-			{ key: 'name:b', state: 'go', name: 'B', at: '2026-09-26T19:00:00.000Z' }
+			{ key: 'name:b', state: 'listen', name: 'B', at: '2026-09-26T19:00:00.000Z' }
 		]);
 
 	it('signing in to an existing account shows its data, not what was sorted signed out', async () => {
 		const server = new FakeServer();
 		bobsBoard(server);
 		const d = device(server, 'bob@example.test', { newAccount: false });
-		d.triage('name:local', 'go');
+		d.triage('name:local', 'listen');
 		await d.client.syncNow();
 		expect(Object.keys(d.board)).toEqual(['name:b']);
 		expect(Object.keys(server.board('bob@example.test'))).toEqual(['name:b']);
@@ -301,7 +301,7 @@ describe('SyncClient: signing in and out', () => {
 	it('a new account adopts what was sorted here while signed out', async () => {
 		const server = new FakeServer();
 		const d = device(server, 'carol@example.test');
-		d.triage('name:local', 'go');
+		d.triage('name:local', 'listen');
 		await d.client.syncNow();
 		expect(Object.keys(server.board('carol@example.test'))).toEqual(['name:local']);
 		expect(Object.keys(d.board)).toEqual(['name:local']);
@@ -312,7 +312,7 @@ describe('SyncClient: signing in and out', () => {
 		const server = new FakeServer();
 		bobsBoard(server);
 		const d = device(server, 'bob@example.test');
-		d.triage('name:local', 'go');
+		d.triage('name:local', 'listen');
 		vi.advanceTimersByTime(11 * 60_000); // the passkey dialog was long ago
 		await d.client.syncNow();
 		expect(Object.keys(d.board)).toEqual(['name:b']);
@@ -324,7 +324,7 @@ describe('SyncClient: signing in and out', () => {
 		const d = device(server, 'alice@example.test', { personalKeys: ['giggle:radio:said:v1'] });
 		writeJson('giggle:radio:said:v1', { x: 1 }, d.storage);
 		writeJson('giggle:radio:settings:v1', { voice: 'kokoro' }, d.storage);
-		d.triage('name:a', 'go');
+		d.triage('name:a', 'listen');
 		await d.client.syncNow();
 
 		d.client.forget();
@@ -345,7 +345,7 @@ describe('SyncClient: signing in and out', () => {
 	it('a round running while signing out saves nothing', async () => {
 		const server = new FakeServer();
 		const d = device(server, 'alice@example.test');
-		d.triage('name:a', 'go');
+		d.triage('name:a', 'listen');
 		let release!: () => void;
 		server.gate = new Promise((resolve) => (release = resolve));
 		const round = d.client.syncNow();
@@ -366,11 +366,11 @@ describe('SyncClient: scheduling', () => {
 		d.client.start();
 		await tick();
 		const puts = server.count('PUT');
-		d.triage('name:a', 'go');
+		d.triage('name:a', 'listen');
 		await tick(500);
-		d.triage('name:b', 'go');
+		d.triage('name:b', 'listen');
 		await tick(500);
-		d.triage('name:c', 'go');
+		d.triage('name:c', 'listen');
 		expect(server.count('PUT')).toBe(puts);
 		await tick(1000);
 		expect(server.count('PUT')).toBe(puts + 1);
@@ -401,20 +401,20 @@ describe('SyncClient: scheduling', () => {
 		const d = device(server, 'alice@example.test');
 		d.client.start();
 		await tick();
-		saveBoard(setTriage(d.board, 'name:x', 'go', { name: 'X' }, new Date()), d.storage);
+		saveBoard(setArtist(d.board, { key: 'name:x', name: 'X' }, 'listen', new Date()), d.storage);
 		d.events.emit('storage', { key: 'giggle:radio:said:v1' });
 		await tick(5000);
 		expect(server.board('alice@example.test')['name:x']).toBeUndefined();
 		d.events.emit('storage', { key: 'giggle:board:v1' });
 		await tick(1000);
-		expect(server.board('alice@example.test')['name:x']).toMatchObject({ state: 'go' });
+		expect(server.board('alice@example.test')['name:x']).toMatchObject({ state: 'listen' });
 		d.client.stop();
 	});
 
 	it("doesn't lose a change made while a round is in flight", async () => {
 		const server = new FakeServer();
 		const d = device(server, 'alice@example.test');
-		d.triage('name:a', 'go');
+		d.triage('name:a', 'listen');
 		let release!: () => void;
 		server.gate = new Promise((resolve) => (release = resolve));
 		const round = d.client.syncNow();
@@ -435,7 +435,7 @@ describe('SyncClient: failures', () => {
 	it('goes offline and retries with backoff, then recovers', async () => {
 		const server = new FakeServer();
 		const d = device(server, 'alice@example.test');
-		d.triage('name:a', 'go');
+		d.triage('name:a', 'listen');
 		server.mode = 'down';
 		d.client.start();
 		await tick();
@@ -485,7 +485,7 @@ describe('SyncClient: failures', () => {
 			await tick();
 			expect(d.client.status).toMatchObject({ state: 'signed-out', error: 'sign in again' });
 			const before = server.requests.length;
-			d.triage('name:a', 'go');
+			d.triage('name:a', 'listen');
 			await tick(600_000);
 			expect(server.requests).toHaveLength(before); // no retry loop
 			expect(d.client.status.pending).toBe(1);
@@ -506,7 +506,7 @@ describe('SyncClient: server rules', () => {
 			'alice@example.test',
 			[1, 2, 3, 4, 5].map((n) => ({
 				key: K(n),
-				state: 'go',
+				state: 'listen',
 				name: `A${n}`,
 				at: '2026-09-26T19:00:00.000Z'
 			}))
@@ -521,7 +521,7 @@ describe('SyncClient: server rules', () => {
 		const server = new FakeServer();
 		const d = device(server, 'alice@example.test');
 		const future = new Date('2026-09-27T20:00:00Z');
-		saveBoard(setTriage({}, 'name:a', 'go', { name: 'A' }, future), d.storage);
+		saveBoard(setArtist({}, { key: 'name:a', name: 'A' }, 'listen', future), d.storage);
 		d.client.start();
 		await tick(10_000);
 		expect(server.count('PUT')).toBe(1);
@@ -533,11 +533,11 @@ describe('SyncClient: server rules', () => {
 	it('keeps items the server would refuse on this device only', async () => {
 		const server = new FakeServer();
 		const d = device(server, 'alice@example.test');
-		d.triage('weird-key', 'go');
-		d.triage('name:ok', 'go');
+		d.triage('weird-key', 'listen');
+		d.triage('name:ok', 'listen');
 		await d.client.syncNow();
 		expect(Object.keys(server.board('alice@example.test'))).toEqual(['name:ok']);
-		expect(d.board['weird-key']?.state).toBe('go');
+		expect(d.board['weird-key']?.state).toBe('listen');
 		expect(d.client.status.pending).toBe(0);
 	});
 
@@ -545,9 +545,9 @@ describe('SyncClient: server rules', () => {
 		const server = new FakeServer();
 		const d = device(server, 'alice@example.test');
 		writeJson(SYNC_STORAGE_KEY, { cursor: 'drop tables', base: 'x', tombstones: [1] }, d.storage);
-		d.triage('name:a', 'go');
+		d.triage('name:a', 'listen');
 		await d.client.syncNow();
 		expect(d.client.status.state).toBe('synced');
-		expect(server.board('alice@example.test')['name:a']).toMatchObject({ state: 'go' });
+		expect(server.board('alice@example.test')['name:a']).toMatchObject({ state: 'listen' });
 	});
 });

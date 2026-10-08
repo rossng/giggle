@@ -22,7 +22,7 @@ export const DEFAULT_SPEECH_RATE: SpeechRate = {
   commaPause: 0.1,
 };
 
-/** How many spoken words a token is: "8.30pm" is "eight thirty pm", "1995" three words. */
+/** How many spoken words a token is: "8:30pm" is "eight thirty pm", "1995" three words. */
 function tokenWords(token: string): number {
   const bare = token.replace(/^[^\p{L}\p{N}]+|[^\p{L}\p{N}]+$/gu, "");
   if (!bare) return 0;

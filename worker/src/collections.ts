@@ -2,7 +2,13 @@
 // way (store.ts: last write wins per key, tombstones, `since` cursors); what differs is what an
 // item looks like on the wire, how many a user may keep, and whether old ones are forgotten.
 //
-//   board        {key: artist key, state, name, gig?, at}; state null is a deletion.
+//   board        An artist's: {key: artist key, state: listen | nope, name, at}. A gig's:
+//                {key: "gig:<venue>:<source_id>", state: go | tickets, name, artist?, when?,
+//                at}: `artist` is the artist key it was sorted for, `when` the gig's start.
+//                state null is a deletion. Older web clients sorted artists into any state,
+//                with the gig they were sorted from ({key: artist key, state, name, gig?, at}):
+//                still accepted (a tab may run one for days), and the web app moves those
+//                onto the gig. LEGACY-BOARD: see CLAUDE.md for when to stop accepting them.
 //   unavailable  {key: "2026-10-03" | "2026-10-01/2026-10-07" | "weekly:mon", label?, at}, or
 //                {key, deleted: true, at}. Amsterdam dates; a range includes both ends.
 //   plays        {key: artist key, at: when it was heard}. One item per play, never changed or
@@ -12,6 +18,7 @@
 import {
 	fields,
 	isArtistKey,
+	isGigKey,
 	LIMITS,
 	MAX_CLOCK_AHEAD_MS,
 	parseAt,
@@ -63,33 +70,76 @@ function data(row: Row): Record<string, unknown> {
 
 export const STATES = ['listen', 'go', 'tickets', 'nope'] as const;
 export type State = (typeof STATES)[number];
+/** A gig's states; an artist's are the others (and, from older clients, any: LEGACY-BOARD). */
+const GIG_STATES: readonly State[] = ['go', 'tickets'];
 
 /** One board entry as it travels over the wire. `state: null` is a deletion (tombstone). */
 export type BoardItem = {
 	key: string;
 	state: State | null;
 	name: string;
+	/** A gig's: the artist it was sorted for. */
+	artist?: string;
+	/** A gig's start, ISO 8601. */
+	when?: string;
+	/** LEGACY-BOARD: older clients' artists: the gig they were sorted from. */
 	gig?: string;
 	/** ISO 8601 UTC with milliseconds (Date#toISOString). */
 	at: string;
 };
 
-const BOARD_FIELDS = new Set(['key', 'state', 'name', 'gig', 'at']);
+const BOARD_FIELDS = new Set(['key', 'state', 'name', 'artist', 'when', 'gig', 'at']);
+
+/** A gig's start, as sent (it keeps its offset), or throws. */
+function parseWhen(value: unknown): string {
+	try {
+		parseTime(value);
+	} catch {
+		throw new ValidationError('when must be an ISO 8601 timestamp');
+	}
+	return value as string;
+}
 
 export function parseBoardItem(raw: unknown, now: number): Parsed {
 	const item = fields(raw, BOARD_FIELDS);
-	if (!isArtistKey(item.key)) throw new ValidationError('key must be "mb:<mbid>" or "name:<name>"');
+	const key = item.key;
+	if (!isGigKey(key) && !isArtistKey(key)) {
+		throw new ValidationError('key must be "mb:<mbid>", "name:<name>" or "gig:<venue>:<id>"');
+	}
+	const gigKey = isGigKey(key);
 	const state = item.state;
 	if (state !== null && !(STATES as readonly unknown[]).includes(state)) {
 		throw new ValidationError(`state must be one of ${STATES.join(', ')} or null`);
 	}
+	// LEGACY-BOARD: an artist key takes any state (from now on: listen, nope or null).
+	if (gigKey && state !== null && !GIG_STATES.includes(state as State)) {
+		throw new ValidationError(`a gig's state must be one of ${GIG_STATES.join(', ')} or null`);
+	}
 	const name =
 		item.name === undefined && state === null ? '' : text(item.name, 'name', LIMITS.nameLength);
 	if (state !== null && !name.trim()) throw new ValidationError('name is required');
+	if (gigKey ? item.gig != null : item.artist != null || item.when != null) {
+		throw new ValidationError(gigKey ? 'a gig has no gig field' : 'an artist has no artist or when');
+	}
 	const gig = item.gig == null ? undefined : text(item.gig, 'gig', LIMITS.gigLength);
+	if (item.artist != null && !isArtistKey(item.artist)) {
+		throw new ValidationError('artist must be "mb:<mbid>" or "name:<name>"');
+	}
+	const artist = item.artist == null ? undefined : (item.artist as string);
+	const when = item.when == null ? undefined : parseWhen(item.when);
 	const at = parseAt(item.at, now);
-	if (state === null) return { key: item.key, data: null, at };
-	return { key: item.key, data: { state, name, ...(gig ? { gig } : {}) }, at };
+	if (state === null) return { key, data: null, at };
+	return {
+		key,
+		data: {
+			state,
+			name,
+			...(artist ? { artist } : {}),
+			...(when ? { when } : {}),
+			...(gig ? { gig } : {})
+		},
+		at
+	};
 }
 
 export const board: Collection = {
@@ -100,15 +150,19 @@ export const board: Collection = {
 	parseItem: parseBoardItem,
 	toWire(row): BoardItem {
 		if (row.data === null) return { key: row.key, state: null, name: '', at: row.at };
-		const { state, name, gig } = data(row) as {
+		const { state, name, artist, when, gig } = data(row) as {
 			state: State;
 			name?: string;
+			artist?: string | null;
+			when?: string | null;
 			gig?: string | null;
 		};
 		return {
 			key: row.key,
 			state,
 			name: name ?? '',
+			...(artist ? { artist } : {}),
+			...(when ? { when } : {}),
 			...(gig ? { gig } : {}),
 			at: row.at
 		};

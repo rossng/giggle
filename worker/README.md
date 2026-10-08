@@ -48,7 +48,7 @@ attacker's passkey, remove yours or delete the account.
 
 | Collection | Item | Deletion | Limit |
 | --- | --- | --- | --- |
-| `board` | `{key, state, name, gig?, at}`: `key` is `mb:<mbid>` or `name:<normalised name>`, `state` `listen`/`go`/`tickets`/`nope` | `state: null` | 20 000 rows (413) |
+| `board` | An artist's `{key, state, name, at}`: `key` is `mb:<mbid>` or `name:<normalised name>`, `state` `listen`/`nope`. A gig's `{key, state, name, artist?, when?, at}`: `key` is `gig:<venue>:<source_id>`, `state` `go`/`tickets`, `artist` the artist key it was sorted for, `when` the gig's start. Older web clients sorted artists into any state with `gig?` (the gig id): still accepted, and the web app moves those plans onto the gig | `state: null` | 20 000 rows (413) |
 | `unavailable` | `{key, label?, at}`: `key` is a day `2026-10-03`, a range `2026-10-10/2026-10-17` (both ends included, in order, at most 366 days, one day written as the day) or a weekday `weekly:mon` … `weekly:sun`; dates are Amsterdam dates; `label` ≤ 100 characters | `{key, deleted: true, at}` | 2 000 rows (413) |
 | `plays` | `{key: artist key, at: when it was heard}`; a play is its artist and time together, so the same play sent twice is stored once | none | 60 days, 10 000 rows |
 

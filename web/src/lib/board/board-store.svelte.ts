@@ -1,24 +1,32 @@
 // The listener's board as reactive app state, the one copy everything reads and writes (the
 // radio, the player bar, the Radio, Board, gig and artist pages): loaded from this browser, kept
 // up to date with other tabs (storage events) and other devices (the sync client), and changed
-// through `set`/`toggle`, which save and hand the change to the sync client. Changes start from
-// this copy, which the events keep current, so sorting still works where storage doesn't.
+// through the set/toggle methods, which save and hand the change to the sync client. Changes
+// start from this copy, which the events keep current, so sorting still works where storage
+// doesn't. Artists and gigs are sorted apart (board.ts).
 
 import { browser } from '$app/environment';
 import { localChanged, onSynced } from '$lib/sync/app';
 import {
+	artistState,
 	BOARD_STORAGE_KEY,
+	gigState,
 	loadBoard,
 	saveBoard,
-	setTriage,
-	toggleTriage,
+	setArtist,
+	setGig,
+	toggleArtist,
+	toggleGig,
+	type ArtistTriage,
 	type Board,
-	type Triage,
-	type TriageMeta
+	type GigMeta,
+	type GigTriage
 } from './board';
 
+type Artist = { key: string; name: string };
+
 class BoardStore {
-	/** Artist key → how they're sorted. */
+	/** Artist and gig keys → how they're sorted. */
 	items: Board = $state.raw({});
 
 	constructor() {
@@ -30,19 +38,32 @@ class BoardStore {
 		onSynced('board', (items) => (this.items = items));
 	}
 
-	/** How `artistKey` is sorted, or null. */
-	stateOf(artistKey: string): Triage | null {
-		return this.items[artistKey]?.state ?? null;
+	/** How an artist is sorted (listen more, not for me), or null. */
+	artistState(artistKey: string): ArtistTriage | null {
+		return artistState(this.items, artistKey);
 	}
 
-	/** Sorts one artist into `state`, or takes them off the board with null. */
-	set(artistKey: string, state: Triage | null, meta: TriageMeta): void {
-		this.#save(setTriage(this.items, artistKey, state, meta, new Date()));
+	/** How a gig is sorted (want to go, got tickets), or null. */
+	gigState(gigId: string): GigTriage | null {
+		return gigState(this.items, gigId);
 	}
 
-	/** Sorts one artist into `state`; if they're there already, takes them off the board. */
-	toggle(artistKey: string, state: Triage, meta: TriageMeta): void {
-		this.#save(toggleTriage(this.items, artistKey, state, meta, new Date()));
+	setArtist(artist: Artist, state: ArtistTriage | null): void {
+		this.#save(setArtist(this.items, artist, state, new Date()));
+	}
+
+	/** Sorts an artist into `state`; if they're there already, unsorts them. */
+	toggleArtist(artist: Artist, state: ArtistTriage): void {
+		this.#save(toggleArtist(this.items, artist, state, new Date()));
+	}
+
+	setGig(gigId: string, state: GigTriage | null, meta: GigMeta): void {
+		this.#save(setGig(this.items, gigId, state, meta, new Date()));
+	}
+
+	/** Sorts a gig into `state`; if it's there already, unsorts it. */
+	toggleGig(gigId: string, state: GigTriage, meta: GigMeta): void {
+		this.#save(toggleGig(this.items, gigId, state, meta, new Date()));
 	}
 
 	#save(items: Board): void {
