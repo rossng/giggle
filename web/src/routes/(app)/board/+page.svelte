@@ -2,7 +2,8 @@
 	// The Board: what you've sorted, in columns. Gigs (want to go, got tickets, been) and artists
 	// (listen more, not for me): the columns are the page. Each card has a ⋯ button to move it
 	// within its kind; with a mouse, cards also drag, and a focused card takes 1/2/3/X like the
-	// radio. On phones one column shows at a time, picked from the row of column tabs.
+	// radio. On phones one column shows at a time, picked from the row of column tabs. Listen more
+	// plays as a radio station of just those artists.
 	import { onMount } from 'svelte';
 	import { page } from '$app/state';
 	import TriageButtons from '$lib/components/TriageButtons.svelte';
@@ -25,11 +26,15 @@
 		type ColumnId
 	} from '$lib/board/columns';
 	import { amsterdamDate, dayParts, localDate, localTime } from '$lib/data/dates';
+	import { allOfBoard, toQuery } from '$lib/data/filters';
 	import { own } from '$lib/data/own';
+	import { personal } from '$lib/data/personal';
 	import { unavailableDates } from '$lib/data/unavailable-store.svelte';
 	import { artistPath } from '$lib/data/slugs';
 	import type { SyncStatus } from '$lib/sync/client';
 	import { sync as syncClient } from '$lib/sync/app';
+	import { radioApp } from '$lib/radio/app.svelte';
+	import { stationFromParams } from '$lib/radio/station';
 
 	let { data } = $props();
 	const catalog = $derived(data.catalog);
@@ -49,6 +54,16 @@
 	const current = $derived<ColumnId>(
 		only ?? (['go', 'tickets', 'listen'] as const).find((id) => columns[id].length) ?? 'listen'
 	);
+
+	/** The listen-more station: all their upcoming gigs (null: none has one). */
+	const listenQuery = $derived.by(() => {
+		const filters = allOfBoard('listen', catalog.gigs, new Date(), personal());
+		return filters && toQuery(filters);
+	});
+
+	function playListenMore(query: string) {
+		radioApp.playStation(catalog, stationFromParams(new URLSearchParams(query)));
+	}
 
 	let focused: string | null = $state(null);
 	/** The card whose move buttons are open. */
@@ -221,6 +236,22 @@
 				</header>
 				{#if !columns[column.id].length}
 					<p class="hint">{column.hint}.</p>
+				{:else if column.id === 'listen'}
+					{#if listenQuery}
+						<a
+							class="button play"
+							href="/radio{listenQuery}"
+							title="A radio station of just your listen-more artists"
+							onclick={() => playListenMore(listenQuery)}
+						>
+							<svg viewBox="0 0 12 12" width="10" height="10" aria-hidden="true"
+								><path d="M3 1.8v8.4L10 6z" fill="currentColor" /></svg
+							>
+							Play them on the radio
+						</a>
+					{:else}
+						<p class="hint">None of them has a gig coming up, so there's nothing to play yet.</p>
+					{/if}
 				{/if}
 				{#each columns[column.id] as card (card.key)}
 					{@const line = gigLine(card)}
@@ -467,6 +498,12 @@
 		margin-left: auto;
 		font: 500 11px var(--f-mono);
 		color: var(--mute);
+	}
+	.play {
+		align-self: flex-start;
+		height: 32px;
+		padding: 0 12px;
+		font-size: 12.5px;
 	}
 	.hint {
 		padding: 4px 2px;
