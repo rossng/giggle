@@ -44,8 +44,8 @@
 {#if marked === 0}
 	<p>
 		You haven't marked anyone listen more yet. On the <a href="/radio">radio</a>, press Listen more
-		on an artist you'd like to hear again<span class="kbd-hint"> (<kbd>1</kbd>)</span>, or do it on
-		their page, and they'll {verb} here.
+		on an artist you'd like to hear again<span class="kbd-hint">&nbsp;(<kbd>1</kbd>)</span>, or do
+		it on their page, and they'll {verb} here.
 	</p>
 	<div class="actions">
 		<button type="button" class="button strong" onclick={() => onchange(everyone)}
