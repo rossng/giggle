@@ -108,6 +108,7 @@
 		<TicketStrip
 			{view}
 			{today}
+			artistKey={entry.artistKey}
 			youtubeMusic={youtubeMusicUrl(artist?.youtube)}
 			mark={boardStore.gigState(view.id)}
 		/>

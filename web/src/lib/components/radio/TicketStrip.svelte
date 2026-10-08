@@ -1,5 +1,6 @@
-<!-- The gig as a ticket stub: date block, venue and room (and how the listener sorted it), when
-     and how much, and links. -->
+<!-- The gig as a ticket stub: date block, venue and room (and how the listener sorted it), who
+     they open for when they're the support act (a big headliner explains a big price), when and
+     how much, and links. -->
 <script lang="ts">
 	import { TRIAGE_LABELS, type Triage } from '$lib/board/board';
 	import type { GigView } from '$lib/data/catalog';
@@ -10,11 +11,14 @@
 	let {
 		view,
 		today,
+		artistKey = null,
 		youtubeMusic = null,
 		mark = null
 	}: {
 		view: GigView;
 		today: IsoDate;
+		/** Whose ticket this is: when they're the support act, it says who they support. */
+		artistKey?: string | null;
 		youtubeMusic?: string | null;
 		/** How the listener sorted it. */
 		mark?: Triage | null;
@@ -43,6 +47,12 @@
 			relativeDays(view.date, today)
 		].filter(Boolean)
 	);
+	const supporting = $derived.by(() => {
+		if (gig.artists.find((a) => a.key === artistKey)?.role !== 'support') return null;
+		const heads = gig.artists.filter((a) => a.role === 'headliner').map((a) => a.name);
+		if (!heads.length) return null;
+		return heads.slice(0, 2).join(' & ') + (heads.length > 2 ? ` +${heads.length - 2}` : '');
+	});
 	const tickets = $derived(externalHref(gig.ticket_url) ?? externalHref(gig.url));
 </script>
 
@@ -54,6 +64,7 @@
 		<span class="venue"
 			>{where}{#if mark}<span class="badge b-{mark}">{TRIAGE_LABELS[mark]}</span>{/if}</span
 		>
+		{#if supporting}<span class="supporting ellipsis">Supporting {supporting}</span>{/if}
 		<span class="meta">
 			{meta.join(' · ')}
 			{#if view.soldOut}<span class="soldout"> · Sold out</span>{/if}
@@ -125,6 +136,10 @@
 	.venue .badge {
 		margin-left: 8px;
 		vertical-align: 2px;
+	}
+	.supporting {
+		font-size: 12.5px;
+		color: var(--amber);
 	}
 	.meta {
 		font-size: 12.5px;
