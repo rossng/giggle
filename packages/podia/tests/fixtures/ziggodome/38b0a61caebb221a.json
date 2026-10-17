@@ -1,0 +1,35 @@
+{
+ "data": [
+  {
+   "id": "400f743c-8404-45a2-b986-92bc86f1ae1d",
+   "minTicketPrice": "75.17",
+   "maxTicketPrice": "75.17"
+  }
+ ],
+ "program": [
+  {
+   "program": [
+    {
+     "time": "18:00",
+     "title": "Deuren open",
+     "title_en": "Doors open"
+    },
+    {
+     "time": "18:00",
+     "title": "Support acts",
+     "title_en": "Support acts"
+    },
+    {
+     "time": "21:00",
+     "title": "Black Coffee",
+     "title_en": "Black Coffee"
+    },
+    {
+     "time": "00:00",
+     "title": "Verwacht einde",
+     "title_en": "Expected end"
+    }
+   ]
+  }
+ ]
+}

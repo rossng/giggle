@@ -1,0 +1,53 @@
+{
+  "3276b69c926b7c6b": {
+    "body": null,
+    "content_type": "application/json; charset=utf-8",
+    "file": "3276b69c926b7c6b.json",
+    "method": "GET",
+    "params": {
+      "limit": 50,
+      "offset": 50
+    },
+    "status": 200,
+    "url": "https://www.ziggodome.nl/api/agenda/aankomend/"
+  },
+  "38b0a61caebb221a": {
+    "body": null,
+    "content_type": "application/json; charset=utf-8",
+    "file": "38b0a61caebb221a.json",
+    "method": "GET",
+    "params": null,
+    "status": 200,
+    "url": "https://www.ziggodome.nl/api/agenda/events/400f743c-8404-45a2-b986-92bc86f1ae1d/"
+  },
+  "59d4afe07b42d4f9": {
+    "body": null,
+    "content_type": "application/json; charset=utf-8",
+    "file": "59d4afe07b42d4f9.json",
+    "method": "GET",
+    "params": null,
+    "status": 200,
+    "url": "https://www.ziggodome.nl/api/agenda/events/8996c539-f5ab-4ce4-a7c6-9896af7a679f/"
+  },
+  "91c59c7d62975be6": {
+    "body": null,
+    "content_type": "application/json; charset=utf-8",
+    "file": "91c59c7d62975be6.json",
+    "method": "GET",
+    "params": null,
+    "status": 200,
+    "url": "https://www.ziggodome.nl/api/agenda/events/23ab915b-3589-452c-9363-b90f670ab2a1/"
+  },
+  "ffa403494baa3366": {
+    "body": null,
+    "content_type": "application/json; charset=utf-8",
+    "file": "ffa403494baa3366.json",
+    "method": "GET",
+    "params": {
+      "limit": 50,
+      "offset": 0
+    },
+    "status": 200,
+    "url": "https://www.ziggodome.nl/api/agenda/aankomend/"
+  }
+}

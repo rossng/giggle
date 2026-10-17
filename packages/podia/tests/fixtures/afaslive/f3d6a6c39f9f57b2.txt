@@ -1,0 +1,160 @@
+<div class="row agenda-item">
+<div class="gridFrame _xLarge-12 bg-white top-bar watch-listen-bar">
+<div class="grid-item _full">
+<p class="animate__animated animate__fadeInUp">Kijk en/of Luister <span><a href="https://open.spotify.com/artist/30mNTnmvPn3HwXA5dW1Iza?si=kq3Oe7BOQXGlZlJesy4jqQ" target="_blank"><i class="ri-spotify-fill"></i></a><a href="https://www.youtube.com/channel/UCmu3UEj8t9QgLWk9pNfFzVQ" target="_blank"><i class="ri-youtube-fill"></i></a><a href="https://www.instagram.com/racoonband/" target="_blank"><i class="ri-instagram-line"></i></a><a href="https://www.tiktok.com/@racoonhq" target="_blank"><i class="ri-tiktok-fill"></i></a></span></p>
+<p class="right animate__animated animate__fadeInUp"><a href="https://www.agentsafterall.nl/contact/" target="_blank"><i class="ri-arrow-right-up-line"></i>Organisatie</a><a href="https://agenda.paylogic.com/6e858217c6af4771b3376a9f8dce0424" data-target="#tickets" class="button targetLink">Uitverkocht</a></p>
+</div>
+</div>
+<div class="gridFrame _large-12 _xLarge-12 bg-white btm-bar">
+<div class="grid-item _full mobile-row top-bar">
+<p class="right"><a href="https://www.agentsafterall.nl/contact/" target="_blank"><i class="ri-arrow-right-up-line"></i>Organisatie</a></p>
+</div>
+<div class="grid-item _l1-12 _xl1-12 show-for-large"></div>
+<div class="grid-item _s4-4 _l10-12 _xl10-12">
+<div class="floated">
+<h2 class="animate__animated animate__fadeInDown">
+Racoon						<label class=" soldout">Uitverkocht</label>					</h2>
+<ul class="act">
+<li><i class="ri-add-line"></i> Support act <a href="https://www.instagram.com/josuapetermusic/" target="_blank">Josua Peter</a></li>
+</ul>
+<a href="https://agenda.paylogic.com/6e858217c6af4771b3376a9f8dce0424" target="_blank" class="button mobile-tickets gradient">Bestel tickets</a>
+</div>
+<div class="floated">
+<figure class="animate__animated animate__fadeInLeft"><img src="https://www.afaslive.nl/files/Agenda/2026/Oktober/Racoon.png" alt="Racoon | AFAS Live"></figure>					<div class="text animate__animated animate__fadeInRight">
+<p class="dates">
+16																	 en
+17  oktober 2026																					</p>
+<ul class="timesTable">
+<li>Deuren open <span>19:00 uur</span></li>																							</ul>
+<a href="praktische-informatie" class="button visit">Praktische Informatie</a> <a href="#" data-target="#timetable" class="button visit targetLink"><i class="ri-time-line"></i> Tijdschema</a>											</div>
+</div>
+<div class="row spacer _50px"></div>
+<div class="floated intro">
+<p>Racoon staat vrijdag 16 en zaterdag 17 oktober in AFAS Live, als support act brengen zij Josua Peter met zich mee.&nbsp;</p>
+</div>
+</div>
+<div class="grid-item _l1-12 _xl1-12 show-for-large"></div>
+</div>
+<div class="floated dates">
+<details open="">
+<summary>
+<div class="desktop">
+<date>vrijdag, 16 oktober 2026</date>
+<span class="info">  <i class="icon ri-close-line"></i> </span>
+</div>
+<div class="mobile">
+<date>vr, 16 okt. '26</date>
+<span class="info">  <i class="icon ri-close-line"></i> </span>
+</div>
+</summary>
+<div class="gridFrame _medium-4 _large-8 _xLarge-12" id="tickets">
+<div class="grid-item _s4-4 _m2-4 _l4-8 _xl6-12 left">
+<h3 class="txt-purple">Racoon</h3>
+<datetime>vrijdag 16 oktober 2026 - <time>21:00</time></datetime>
+<ul>
+<li>Staanplaats op de vloer<span>€ 55,-</span></li>
+<li>Zitplaats Tribune<span>€ 60,-</span></li>
+<li>Zitplaats Balkon<span>€ 55,-</span></li>
+<li>Mindervalidenticket<span>€ 55,-</span></li>
+</ul>
+</div>
+<div class="grid-item _s4-4 _m2-4 _l4-8 _xl6-12 text-center pTop-49 vipPadding">
+<p class="txt-purple"><em>AFAS Live is niet betrokken bij de reguliere kaartverkoop!</em></p>
+<a href="https://www.ticketmaster.nl/event/1741183851" class="button vip first" target="_blank">
+Premium Tickets
+<i class="ri-arrow-right-line"></i>
+</a>
+<a href="https://agenda.paylogic.com/6e858217c6af4771b3376a9f8dce0424" target="_blank" class="button">Resale platform <i class="ri-arrow-right-line"></i></a>
+<p><i class="ri-team-fill"></i> <a href="https://www.agentsafterall.nl/contact/">Organisatie</a>
+</p></div>
+<div class="grid-item _full ticket">
+De reguliere kaartverkoop loopt via Paylogic. Prijzen zijn incl. €3,50 servicekosten per ticket. Premium Tickets worden via Ticketmaster verkocht door AFAS Live.
+</div>
+</div>
+</details>
+<details open="">
+<summary>
+<div class="desktop">
+<date>zaterdag, 17 oktober 2026</date>
+<span class="info"><i class="icon ri-close-line"></i></span>
+</div>
+<div class="mobile">
+<date>za, 17 okt. '26</date>
+<span class="info"><i class="icon ri-close-line"></i></span>
+</div>
+</summary>
+<div class="gridFrame _medium-4 _large-8 _xLarge-12">
+<div class="grid-item _s4-4 _m2-4 _l4-8 _xl6-12 left">
+<h3 class="txt-purple">Racoon</h3>
+<datetime>zaterdag 17 oktober 2026 - <time>21:00</time></datetime>
+<ul>
+<li>Staanplaats op de vloer<span>€ 55,-</span></li>
+<li>Zitplaats Tribune<span>€ 60,-</span></li>
+<li>Zitplaats Balkon<span>€ 55,-</span></li>
+<li>Mindervalidenticket<span>€ 55,-</span></li>
+</ul>
+</div>
+<div class="grid-item _s4-4 _m2-4 _l4-8 _xl6-12 text-center pTop-49 vipPadding">
+<p class="txt-purple"><em>AFAS Live is niet betrokken bij de reguliere kaartverkoop!</em></p>
+<a href="https://www.ticketmaster.nl/event/1183219791" class="button vip first" target="_blank">
+Premium Tickets
+<i class="ri-arrow-right-line"></i>
+</a>
+<a href="https://agenda.paylogic.com/6e858217c6af4771b3376a9f8dce0424" target="_blank" class="button">Resale platform <i class="ri-arrow-right-line"></i></a>
+<p><i class="ri-team-fill"></i> <a href="https://www.agentsafterall.nl/contact/" target="_blank">Organisatie</a>
+</p></div>
+<div class="grid-item _full ticket">
+De reguliere kaartverkoop loopt via Paylogic. Prijzen zijn incl. €3,50 servicekosten per ticket. Premium Tickets worden via Ticketmaster verkocht door AFAS Live.
+</div>
+</div>
+</details>
+</div>
+<div class="gridFrame _medium-4 _large-12 _xLarge-12 agendaInfo">
+<div class="grid-item _l1-12 _xl1-12 show-for-large"></div>
+<div class="grid-item  _s4-4 _l10-12 _xl10-12">
+<h2 class="txt-white">Racoon</h2>
+<div class="flex-frame widescreen"></div>
+</div>
+<div class="grid-item _l1-12 _xl1-12 show-for-large"></div>
+<div class="grid-item _full spacer-h135"></div>						<div class="grid-item _s4-4 _m2-4 _l4-8 _xl6-12">
+<div class="txt" id="_3528316"><p>GOES – Na een volledig uitverkochte tour in 2025 keert Racoon in het najaar van 2026 opnieuw terug naar de grote zalen in Nederland. De band doet Groningen, Den Bosch, Rotterdam en Amsterdam aan, waarna de reeks wordt afgesloten met een concert in de Zeelandhallen in Goes, de thuisstad van de band. Fans kunnen zich verheugen op een avond vol herkenning en vernieuwing: van de Engelstalige hits en Nederlandstalige favorieten tot nieuwe muziek.&nbsp;</p><p>Deze week start Racoon met een theatertour. Deze brengt de Zeeuwse band dit najaar door kleine zalen in heel Nederland en verkocht eerder dit jaar razendsnel uit. Het verschil tussen de intieme theaters en grote zalen spreekt de Zeeuwse groep enorm aan.</p><p><i>"Dit najaar spelen we in het klein, in de theaters. Volgend jaar pakken we het dan graag weer iets groter aan. Vijf grote shows door heel Nederland. En dan sluiten we ook nog eens af met een concert in de Zeelandhallen onze eigen thuisstad Goes, mooier wordt het niet natuurlijk!”&nbsp;</i>aldus zanger Bart van der Weide.<i> “Iets om ontzettend naar uit te kijken. We hebben er zin in!”&nbsp;</i></p><p>Racoon&nbsp;is bekend van grote hits als ‘Oceaan, ‘Het Is Al Laat Toch, ‘Love You More’, ‘Tijd Verliezen, ‘No Mercy’, ‘Liverpool Rain’ en ‘Nickel For Goodbye’.&nbsp;Ze brachten in 2024 hun negende studioalbum ‘It Is What It is’ uit. De Zeeuwse band won de Popprijs en won ook drie keer een Edison. Daarnaast is de band een gevestigde waarde op alle grote festivals en speelde eerder in een uitverkochte Ziggo Dome en Rotterdam Ahoy.</p></div>
+</div>
+<div class="grid-item _l1-8 _xl1-12 show-for-large"></div>
+<div class="grid-item _s4-4 _m2-4 _l3-8 _xl5-12">
+<div class="flex-frame spotify"></div>
+</div>
+<div class="grid-item _full">
+<h2 class="txt-white small">Tijdschema</h2>
+<div class="tabsContainer timesTable" id="timetable">
+<div class="tab _2">
+<button data-tab="_tab3528316" class="active">vr. 16 okt.<br>21:00</button>
+<button data-tab="_tab4210677">za. 17 okt.<br>21:00</button>
+</div>
+<div id="_tab3528316" class="floated tabsContent active">
+<ul>
+<li>
+Deuren open
+<span>19:00 uur</span>
+</li>
+<li>
+Aanvang support act Josua Peter
+<span>20:00 uur</span>
+</li>
+<li>
+Aanvang Racoon
+<span>21:00 uur</span>
+</li>
+<li>
+Verwacht einde
+<span>22:40 uur</span>
+</li>
+</ul>
+</div>
+<div id="_tab4210677" class="floated tabsContent">
+<ul>
+<li>Deuren open<span>19:00 uur</span></li>																																																							<li>Aanvang support act Josua Peter<span>20:00 uur</span></li>																																																							<li>Aanvang Racoon<span>21:00 uur</span></li>																																																							<li>Verwacht einde<span>22:40 uur</span></li>																			</ul>
+</div>
+</div>
+</div>
+</div>
+</div>

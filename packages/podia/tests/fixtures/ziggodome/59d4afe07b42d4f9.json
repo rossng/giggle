@@ -1,0 +1,30 @@
+{
+ "data": [
+  {
+   "id": "8996c539-f5ab-4ce4-a7c6-9896af7a679f",
+   "minTicketPrice": null,
+   "maxTicketPrice": null
+  }
+ ],
+ "program": [
+  {
+   "program": [
+    {
+     "time": "18:00",
+     "title": "Deuren open",
+     "title_en": "Doors open"
+    },
+    {
+     "time": "19:30",
+     "title": "Aanvang show",
+     "title_en": "Start show"
+    },
+    {
+     "time": "22:00",
+     "title": "Verwacht einde",
+     "title_en": "Expected ending"
+    }
+   ]
+  }
+ ]
+}

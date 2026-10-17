@@ -1,0 +1,111 @@
+<div class="row agenda-item">
+<div class="gridFrame _xLarge-12 bg-white top-bar watch-listen-bar">
+<div class="grid-item _full">
+<p class="animate__animated animate__fadeInUp">Kijk en/of Luister <span><a href="https://open.spotify.com/artist/5MhLmv7GgyjbxGqiIGasvT?si=DjnIbXtHReeEASzdIyUt7A" target="_blank"><i class="ri-spotify-fill"></i></a><a href="https://www.youtube.com/channel/UCYF-QxHI0RAuQqNzZpvvPBw" target="_blank"><i class="ri-youtube-fill"></i></a><a href="https://www.instagram.com/jeanmicheljarre/" target="_blank"><i class="ri-instagram-line"></i></a></span></p>
+<p class="right animate__animated animate__fadeInUp"><a href="https://www.mojo.nl/concerten/jean-michel-jarre" target="_blank"><i class="ri-arrow-right-up-line"></i>Organisatie</a><a href="https://www.ticketmaster.nl/event/1992682488" data-target="#tickets" class="button targetLink">Bestel tickets</a></p>
+</div>
+</div>
+<div class="gridFrame _large-12 _xLarge-12 bg-white btm-bar">
+<div class="grid-item _full mobile-row top-bar">
+<p class="right"><a href="https://www.mojo.nl/concerten/jean-michel-jarre" target="_blank"><i class="ri-arrow-right-up-line"></i>Organisatie</a></p>
+</div>
+<div class="grid-item _l1-12 _xl1-12 show-for-large"></div>
+<div class="grid-item _s4-4 _l10-12 _xl10-12">
+<div class="floated">
+<h2 class="animate__animated animate__fadeInDown">
+Jean-Michel Jarre<small>OXYGENE &amp; BEYOND: A Sonic Journey Celebrating 30 Years of ADE</small>						<label class=" soldout">Uitverkocht</label>					</h2>
+<ul class="act">
+<li><i class="ri-add-line"></i> Support act <a href="https://www.instagram.com/weval_/" target="_blank">Weval</a></li>
+</ul>
+<a href="https://www.ticketmaster.nl/event/1992682488" target="_blank" class="button mobile-tickets gradient">Bestel tickets</a>
+</div>
+<div class="floated">
+<figure class="animate__animated animate__fadeInLeft"><img src="https://www.afaslive.nl/files/Agenda/2026/Oktober/Jean-Michel-Jarre.jpg" alt="Jean-Michel Jarre | AFAS Live"></figure>					<div class="text animate__animated animate__fadeInRight">
+<p class="dates">
+21  oktober 2026																					</p>
+<ul class="timesTable">
+<li>Deuren open <span>18:30 uur</span></li>																							</ul>
+<a href="praktische-informatie" class="button visit">Praktische Informatie</a> <a href="#" data-target="#timetable" class="button visit targetLink"><i class="ri-time-line"></i> Tijdschema</a>											</div>
+</div>
+<div class="row spacer _50px"></div>
+<div class="floated intro">
+<p>Jean-Michel Jarre komt op woensdag 21 oktober naar AFAS Live.&nbsp;</p>
+</div>
+</div>
+<div class="grid-item _l1-12 _xl1-12 show-for-large"></div>
+</div>
+<div class="floated dates">
+<details>
+<summary>
+<div class="desktop">
+<date>woensdag, 21 oktober 2026</date>
+<span class="info">Uitverkocht  <i class="icon ri-add-line"></i> </span>
+</div>
+<div class="mobile">
+<date>wo, 21 okt. '26</date>
+<span class="info">Uitverkocht  <i class="icon ri-add-line"></i> </span>
+</div>
+</summary>
+<div class="gridFrame _medium-4 _large-8 _xLarge-12" id="tickets">
+<div class="grid-item _s4-4 _m2-4 _l4-8 _xl6-12 left">
+<h3 class="txt-purple">Jean-Michel Jarre</h3>
+<datetime>woensdag 21 oktober 2026</datetime>
+<ul>
+<li>Entree vanaf<span>€ 76,30</span></li>
+</ul>
+</div>
+<div class="grid-item _s4-4 _m2-4 _l4-8 _xl6-12 text-center pTop-49">
+<p class="txt-purple"><em>AFAS Live is niet betrokken bij de reguliere kaartverkoop!</em></p>
+<a href="https://www.ticketmaster.nl/event/1992682488" target="_blank" class="button">ticket info <i class="ri-arrow-right-line"></i></a>
+<p><i class="ri-team-fill"></i> <a href="https://www.mojo.nl/concerten/jean-michel-jarre">Organisatie</a>
+</p></div>
+<div class="grid-item _full ticket">
+De kaartverkoop loopt via www.ticketmaster.nl en 0900 - 300 1250 (60 CPM). Prijzen zijn inclusief servicekosten.
+</div>
+</div>
+</details>
+</div>
+<div class="gridFrame _medium-4 _large-12 _xLarge-12 agendaInfo">
+<div class="grid-item _l1-12 _xl1-12 show-for-large"></div>
+<div class="grid-item  _s4-4 _l10-12 _xl10-12">
+<h2 class="txt-white">Jean-Michel Jarre</h2>
+<div class="flex-frame widescreen"></div>
+</div>
+<div class="grid-item _l1-12 _xl1-12 show-for-large"></div>
+<div class="grid-item _full spacer-h135"></div>						<div class="grid-item _s4-4 _m2-4 _l4-8 _xl6-12">
+<div class="txt" id="_5451762"><p>ADE 2026 markeert een grote mijlpaal in de geschiedenis van de elektronische muziek; terwijl ADE haar 30-jarig jubileum viert, reflecteert Jean-Michel Jarre op het 50-jarig jubileum van zijn eerste album Oxygène. Dit elektronisch meesterwerk wordt erkend als een baanbrekend artistiek experiment dat de tand des tijds heeft doorstaan en generaties artiesten heeft beïnvloed die de afgelopen drie decennia hun thuis hebben gevonden bij ADE.<br><br>Als onderdeel van de ‘ADE Opening Concerts’ keert Jean-Michel Jarre terug naar Nederland voor een exclusief optreden in AFAS Live, gepresenteerd door MOJO en Insomniac. Deze unieke&nbsp;show vertaalt Jarre’s oeuvre van grootschalige spektakels naar een moderne live-ervaring in Amsterdam.<br><br><i>“Elektronische muziek heeft, net als ADE, geschiedenis, erfgoed en toekomst. Met de liveshow in Amsterdam vieren we het 30-jarig jubileum van Amsterdam Dance Event, maar ook het 50-jarig jubileum van Oxygène. Ik wil de spanning erin houden en van het ene nummer naar het andere gaan, met telkens een nieuwe atmosfeer, nieuw podiumdesign, nieuwe gigantische projecties en architecturen van licht en video, om momenten te delen die voor de rest van je leven in je hart en hoofd blijven - dat is de reden dat ik zo blij ben om deel uit te maken van deze viering in 2026.”</i> — Jean-Michel Jarre<br><br>Naast het live concert vormt de komst van Jarre bij ADE 2026 een brug tussen de oorsprong en de toekomst van elektronische muziek, met een exclusief keynote-interview bij ADE Pro, en meer verrassingen die later zullen worden onthuld. Van vroege studio-experimenten tot concerten die complete steden transformeerden in gedeelde muzikale ruimtes, loopt Jarre’s invloed door een halve eeuw aan cultuur heen als een artiest die technologie, licht en geluid altijd centraal heeft gesteld in zijn werk.<br><br><strong>Over Jean-Michel Jarre</strong><br>Jean-Michel Jarre is altijd een futurist geweest binnen zijn gebied. Gedurende zijn indrukwekkende carrière heeft de componist, performer, producer en cultureel ambassadeur steeds nieuwe grenzen verlegd met zijn muziek en zijn beheersing van creatieve innovatie. Van zijn vroege pioniersrol in elektronische muziek en zijn gebruik van multichannel-audiotechnologie en -productie, tot zijn recente verkenningen van VR en de metaverse, staat technologie centraal in alles wat hij doet. Hij wordt geciteerd met de uitspraak dat “vandaag de dag de spannendste tijd is om te creëren, muziek te maken en te delen”. Jarre is UNESCO-ambassadeur voor onderwijs, wetenschap en cultuur, een voorvechter van de planeet en het milieu, en laureaat van de Stephen Hawking Medal for Scientific Communication.<br><br>Jarres huidige catalogus, die inmiddels 22 studioalbums omvat, is tot op heden wereldwijd meer dan 85 miljoen keer verkocht en leverde hem talloze prijzen en nominaties op. Gedurende zijn carrière gebruikte Jarre een aantal van de meest iconische monumenten en UNESCO-werelderfgoedlocaties ter wereld als canvas voor zijn creatieve, culturele en ecologische boodschap. Ook vestigde hij nieuwe Guinness World Records voor live publiek bij concerten op verschillende emblematische locaties. Hij was de eerste westerse musicus die werd uitgenodigd om in China op te treden en creëerde en speelde eveneens concerten bij de Piramides in Egypte, de Sahara, de Verboden Stad &amp; het Tiananmenplein, de Eiffeltoren, de Dode Zee, Al-'Ula en meer. Hij verkocht consequent arena- en stadiontours uit op meerdere continenten en trad op bij grote festivals, waaronder Coachella. In 2021 luidde hij het nieuwe jaar in met Welcome To The Other Side, een baanbrekende livestream die wereldwijd werd uitgezonden vanuit een virtuele Notre-Dame in Parijs. Vakblad US Pollstar stelt dat de livestream recordbrekende publieksaantallen trok van meer dan 75 miljoen kijkers wereldwijd via verschillende platforms, tv-zenders en VR. Op 25 december 2023 bracht Jarre Versailles 400: een unieke hybride artistieke creatie, speciaal bedacht om het 400-jarig jubileum van het Château de Versailles te vieren, uitgevoerd in het echt vanuit de Spiegelzaal én in virtual reality. In mei 2024 speelde hij het unieke eenmalige concert Bridge From The Future in Bratislava, Slowakije, met speciale gast Sir Brian May, voor meer dan 100.000 mensen, ter opening van de zevende editie van het Starmus Festival. In september 2024 was hij headliner tijdens de sluitingsceremonie van de Olympische Spelen Parijs 2024. In de zomer van 2025 speelde hij een reeks liveshows door Europa op iconische locaties, waaronder Piazza San Marco in Venetië en Anfiteatro Degli Scavi in Pompeii. 2026 markeert de 50e verjaardag van zijn iconische album Oxygène.<br><br><strong>Over Amsterdam Dance Event&nbsp;</strong><br>In de afgelopen drie decennia is ADE uitgegroeid tot de meest invloedrijke broedplaats voor elektronische muziek: het fundament dat een nieuw genre hielp om wereldwijd erkend te worden als kunstvorm én als bloeiende business. In de komende maanden worden meer specials, initiatieven en evenementen onthuld ter viering van 30 jaar ADE.<br><br>ADE wordt georganiseerd door Stichting Amsterdam Dance Event, een culturele ANBI (Algemeen Nut Beogende Instelling) die zich inzet voor de wereldwijde bevordering van elektronische muziek, haar cultuur en zakelijke sector. Als non-profitorganisatie stimuleert Stichting Amsterdam Dance Event ontwikkeling, innovatie en talent, brengt de internationale muziekindustrie samen en bouwt aan een stevige basis voor toekomstige generaties. Het Amsterdam Dance Event (ADE) is sinds de start in 1996 uitgegroeid tot het meest toonaangevende en belangrijkste zakelijk platform voor de elektronische muziekindustrie en ’s werelds grootste clubfestival. Het vijfdaagse evenement besteedt naast muziek volop aandacht aan andere kunstdisciplines zoals design, film en fotografie en de laatste technologische en maatschappelijke trends. ADE is verspreid over bijna 200 locaties, waar meer dan 500.000 bezoekers uit een recordaantal van 150 landen op af komen.&nbsp;</p></div>
+</div>
+<div class="grid-item _l1-8 _xl1-12 show-for-large"></div>
+<div class="grid-item _s4-4 _m2-4 _l3-8 _xl5-12">
+<div class="flex-frame spotify"></div>
+</div>
+<div class="grid-item _full">
+<h2 class="txt-white small">Tijdschema</h2>
+<div class="tabsContainer timesTable" id="timetable">
+<div class="tab _1">
+<button data-tab="_tab5451762" class="active">wo. 21 okt.</button>
+</div>
+<div id="_tab5451762" class="floated tabsContent active">
+<ul>
+<li>
+Deuren open
+<span>18:30 uur</span>
+</li>
+<li>
+Aanvang support act Weval
+<span>19:40 uur</span>
+</li>
+<li>
+Aanvang Jean-Michel Jarre
+<span>21:00 uur</span>
+</li>
+<li>
+Verwacht einde
+<span>22:30 uur</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>

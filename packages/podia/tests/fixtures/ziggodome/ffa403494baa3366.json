@@ -1,0 +1,1210 @@
+{
+ "data": [
+  {
+   "id": "8996c539-f5ab-4ce4-a7c6-9896af7a679f",
+   "showDate": "2026-10-18 18:00:00",
+   "showTimeUnknown": 0,
+   "showState": "OnSale",
+   "salesUrl": "https://www.ticketmaster.nl/artist/le-sserafim-tickets/1213023?venueId=3001",
+   "salesStartDate": "2026-06-04 08:00:00",
+   "performerName": "LE SSERAFIM ",
+   "event": {
+    "title": "PUREFLOW",
+    "youtubeUrl": "https://www.youtube.com/watch?v=pyf8cbqyfPs&list=RDpyf8cbqyfPs&start_radio=1"
+   },
+   "genres": "[{\"name\": \"K-pop\", \"name_en\": \"K-pop\"}]",
+   "description": "<p><strong>K-pop girlgroup LE SSERAFIM komt voor het eerst naar de Ziggo Dome op zondag 18 oktober 2026 als onderdeel van hun LE SSERAFIM TOUR ‘PUREFLOW’!</strong></p><p><br></p><p>LE SSERAFIM debuteerde in 2022. De vijfkoppige groep, bestaande uit Kim Chaewon, Sakura, Huh Yunjin, Kazuha en Hong Eunchae, heeft zich in korte tijd gevestigd als een van de leidende K-popacts van de vierde generatie.&nbsp;De liveoptredens van LE SSERAFIM staan bekend om hun intensiteit, choreografie en sterke visuele storytelling, waarmee ze zich onderscheiden op het wereldtoneel.&nbsp;Met krachtige performances, uitgesproken concepten en een thematische focus op zelfvertrouwen en groei heeft de groep wereldwijd een sterke fanbase opgebouwd, bekend als FEARNOT.</p><p><br></p>",
+   "supportActDescription": "",
+   "artistImage": {
+    "assetFileName": "images/event/artist/1779451222434-LSF'26 Concept Photo 051226 (Groot).jpeg"
+   },
+   "backgroundImage": {
+    "assetFileName": "images/event/background/1779451235266-LSF'26 Concept Photo 051226 (Groot).jpeg"
+   },
+   "privateEvent": 0,
+   "visible": 1
+  },
+  {
+   "id": "400f743c-8404-45a2-b986-92bc86f1ae1d",
+   "showDate": "2026-10-21 16:00:00",
+   "showTimeUnknown": 0,
+   "showState": "OnSale",
+   "salesUrl": "https://www.ticketmaster.nl/artist/black-coffee-tickets/874757",
+   "salesStartDate": "2026-07-17 08:00:00",
+   "performerName": "Black Coffee",
+   "event": {
+    "title": "3HRS SET - ADE 2026",
+    "youtubeUrl": "https://www.youtube.com/watch?v=FH7lIOv1s3Q&list=RDFH7lIOv1s3Q&start_radio=1"
+   },
+   "genres": "[{\"name\": \"Dance\", \"name_en\": \"Dance\"}]",
+   "description": "<p><strong>De wereldberoemde Zuid-Afrikaanse DJ en producer Black Coffee staat op woensdag 21 oktober 2026</strong> <strong>in de Ziggo Dome tijdens ADE met een 3 HOURS SET! <em>Let op: dit is een 18+ evenement.</em></strong></p><p><br></p><p>Black Coffee zijn muziek is sterk geïnspireerd door het rijke en diverse muzikale erfgoed van zijn thuisland. Zijn kenmerkende sound combineert traditionele Afrikaanse ritmes, jazz en de opkomende housemuziekbeweging in Zuid-Afrika. Door jarenlange toewijding en innovatie heeft hij verschillende muzikale technieken verkend en zijn vaardigheden als dj en muziekproducent aangescherpt. Hij studeerde ook aan een prestigieuze jazzschool, waar hij zijn vaardigheden verder ontwikkelde en een dieper begrip kreeg van muziektheorie en compositie.</p><p><br></p><p>Zijn internationale doorbraak volgde toen hij begon op te treden op gerenommeerde festivals en in bekende zalen over de hele wereld. De dynamische dj-sets van Black Coffee, gekenmerkt door aanstekelijke beats en emotionele melodieën, bezorgden hem een toegewijde wereldwijde fanbase. Samenwerkingen met prominente artiesten zoals Pharrell Williams, Alicia Keys en Usher hebben zijn positie als een toonaangevende figuur binnen de internationale elektronische muziek verder versterkt. Een belangrijk hoogtepunt in zijn carrière was zijn historische uitverkochte hoofdshow in Madison Square Garden in 2023. Met een 360-graden podiumopstelling, een twaalfkoppig orkest en speciale gastoptredens liet dit evenement zijn innovatieve benadering van liveoptredens zien en bevestigde het zijn wereldwijde reputatie.</p><p><br></p>",
+   "supportActDescription": "<p><strong>Jimi Jules</strong></p><p>Jimi Jules is een Zwitserse dj, producer en multi-instrumentalist die house en techno moeiteloos samenbrengt. Zijn sound wordt gekenmerkt door diepe grooves, gelaagde synths en onverwachte melodieën. Met releases op labels als Innervisions, Watergate en Cocoon heeft hij zich gevestigd als een vaste waarde binnen de internationale elektronische muziekscene.</p>",
+   "artistImage": {
+    "assetFileName": "images/event/artist/1782476889323-Black Coffee ADE 2026.png"
+   },
+   "backgroundImage": {
+    "assetFileName": "images/event/background/1782476897519-Black Coffee ADE 2026.png"
+   },
+   "privateEvent": 0,
+   "visible": 1
+  },
+  {
+   "id": "23ab915b-3589-452c-9363-b90f670ab2a1",
+   "showDate": "2026-10-22 16:30:00",
+   "showTimeUnknown": 0,
+   "showState": "OnSale",
+   "salesUrl": "https://www.ticketmaster.nl/event/1542232616?CL_ORIGIN=ORIGIN10",
+   "salesStartDate": "2026-03-26 13:00:00",
+   "performerName": "KI/KI",
+   "event": {
+    "title": "5 HOURS",
+    "youtubeUrl": "https://www.youtube.com/watch?v=S3lL68DA7eY&list=RDS3lL68DA7eY&start_radio=1"
+   },
+   "genres": "[{\"name\": \"Dance\", \"name_en\": \"Dance\"}]",
+   "description": "<p><strong style=\"color: rgb(31, 31, 31);\">DJ en muziekproducent </strong><strong>KI/KI komt op donderdag 22 &amp; vrijdag 23 oktober naar de Ziggo Dome met speciale 'KI/KI 5 HOURS' show tijdens Amsterdam Dance Event! <em>Let op: dit is een 18+ evenement.</em></strong></p><p><br></p><p>Op 22 oktober maakt KI/KI haar debuut in de Ziggo Dome met een exclusieve vijf uur durende headline show in Nederland tijdens ADE 2026. Geen standaard set, maar een speciaal ontwikkelde show die voortbouwt op haar <em>“slash”&nbsp;</em>productieconcept, dat eerder te zien was in een uitverkocht&nbsp;Roundhouse in Camden, Londen.&nbsp;KI/KI is in korte tijd uitgegroeid tot een van de meest populaire&nbsp;namen binnen de elektronische muziek.&nbsp; Ze schreef geschiedenis als de eerste vrouw die de Dutch Edison Pop Award won en werd benoemd tot Spotify Global EQUAL Ambassador, inclusief een feature op Times Square als onderdeel van de “Women of Electronic”-campagne. Vorig jaar sloot KI/KI b2b met&nbsp;Job Jobse de Alpha af&nbsp;op Lowlands voor 60.000 mensen&nbsp;en verkocht ze in België binnen twee uur 20.000 tickets voor een b2b-show met Marlon Hoffstadt. In Australië werd ze de eerste artiest die twee shows in de Wool Store uitverkocht.</p><p> </p>",
+   "supportActDescription": "",
+   "artistImage": {
+    "assetFileName": "images/event/artist/1774349643606-FINAL_KIKI_CloseUp_Retouched (2) (Groot).jpg"
+   },
+   "backgroundImage": {
+    "assetFileName": "images/event/background/1774349649604-V1_KIKI_Wide_Retouched_FINAL.jpg"
+   },
+   "privateEvent": 0,
+   "visible": 1
+  },
+  {
+   "id": "d21e2ddc-b8f9-4c34-b126-002173c7f333",
+   "showDate": "2026-10-23 16:30:00",
+   "showTimeUnknown": 0,
+   "showState": "OnSale",
+   "salesUrl": "https://www.ticketmaster.nl/artist/ki-ki-tickets/1140094",
+   "salesStartDate": "2026-03-26 13:00:00",
+   "performerName": "KI/KI",
+   "event": {
+    "title": "5 HOURS",
+    "youtubeUrl": "https://www.youtube.com/watch?v=S3lL68DA7eY&list=RDS3lL68DA7eY&start_radio=1"
+   },
+   "genres": "[{\"name\": \"Dance\", \"name_en\": \"Dance\"}]",
+   "description": "<p><strong>DJ en muziekproducent KI/KI komt op donderdag 22 &amp; vrijdag 23 oktober naar de Ziggo Dome met speciale 'KI/KI 5 HOURS' show tijdens ADE 2026! <em>Let op: dit is een 18+ evenement.</em></strong></p><p><br></p><p>Op 22 én 23 oktober maakt KI/KI haar debuut in de Ziggo Dome met een exclusieve vijf uur durende headline show in Nederland tijdens ADE 2026. Geen standaard set, maar een speciaal ontwikkelde show die voortbouwt op haar “slash”&nbsp;productieconcept, dat eerder te zien was in een uitverkocht&nbsp;Roundhouse in Camden, Londen.&nbsp;KI/KI is in korte tijd uitgegroeid tot een van de meest populaire&nbsp;namen binnen de elektronische muziek.&nbsp; Ze schreef geschiedenis als de eerste vrouw die de Dutch Edison Pop Award won en werd benoemd tot Spotify Global EQUAL Ambassador, inclusief een feature op Times Square als onderdeel van de “Women of Electronic”-campagne. Vorig jaar sloot KI/KI b2b met&nbsp;Job Jobse de Alpha af&nbsp;op Lowlands voor 60.000 mensen&nbsp;en verkocht ze in België binnen twee uur 20.000 tickets voor een b2b-show met Marlon Hoffstadt. In Australië werd ze de eerste artiest die twee shows in de Wool Store uitverkocht.</p><p> </p>",
+   "supportActDescription": "",
+   "artistImage": {
+    "assetFileName": "images/event/artist/1774349643606-FINAL_KIKI_CloseUp_Retouched (2) (Groot).jpg"
+   },
+   "backgroundImage": {
+    "assetFileName": "images/event/background/1774349649604-V1_KIKI_Wide_Retouched_FINAL.jpg"
+   },
+   "privateEvent": 0,
+   "visible": 1
+  },
+  {
+   "id": "543f0155-cc94-41fd-be59-14a298ae7387",
+   "showDate": "2026-10-24 21:00:00",
+   "showTimeUnknown": 0,
+   "showState": "OnSale",
+   "salesUrl": "https://www.ticketmaster.nl/event/281790193",
+   "salesStartDate": "2026-05-28 17:00:00",
+   "performerName": "OUTWORLD - Klangkuenstler",
+   "event": {
+    "title": "OUTWORLD ADE 2026 - Klangkuenstler All Night Long show",
+    "youtubeUrl": "https://www.youtube.com/watch?v=diknYafcjOY&list=RDdiknYafcjOY&start_radio=1"
+   },
+   "genres": "[{\"name\": \"Dance\", \"name_en\": \"Dance\"}]",
+   "description": "<p><strong>Klangkuenstler All Night Long show naar de Ziggo Dome op 24 oktober tijdens ADE! <em>Let op: dit is een 18+ evenement.</em></strong></p><p><br></p><p>De Duitse dj en producer Klangkuenstler behoort tot de toonaangevende namen van de hedendaagse technoscene. Zijn sound is compromisloos: een krachtige mix van old-school en new-school techno, rauw, intens en gericht op de dansvloer. Zijn inmiddels legendarische \"All Night Long\" shows zijn uitgegroeid tot een uniek concept, waarbij Klangkuenstler volledige creatieve controle heeft over de nacht. In deze marathonset van 7 uur neemt hij het publiek mee op een meeslepende reis door de geschiedenis van techno, puttend uit zijn uitgebreide collectie tracks uit de late jaren ’90 tot het midden van de jaren 2010. </p>",
+   "supportActDescription": "",
+   "artistImage": {
+    "assetFileName": "images/event/artist/1779803934831-KK Outworld Press Photo (Groot).jpg"
+   },
+   "backgroundImage": {
+    "assetFileName": "images/event/background/1779804040782-KK Outworld Press Photo (Groot).jpg"
+   },
+   "privateEvent": 0,
+   "visible": 1
+  },
+  {
+   "id": "4d931ab7-884b-49d8-9b14-81b10eecfc60",
+   "showDate": "2026-10-25 19:00:00",
+   "showTimeUnknown": 0,
+   "showState": "OnSale",
+   "salesUrl": "https://www.ticketmaster.nl/artist/scooter-tickets/146373",
+   "salesStartDate": "2026-07-03 08:00:00",
+   "performerName": "SCOOTER",
+   "event": {
+    "title": "SCOOTER Crushes ADE",
+    "youtubeUrl": "https://www.youtube.com/watch?v=4YxTa1AUqps"
+   },
+   "genres": "[{\"name\": \"Rock\", \"name_en\": \"Rock\"},{\"name\": \"Dance\", \"name_en\": \"Dance\"}]",
+   "description": "<p><strong>De Duitse rave-, techno- en hardcoreband SCOOTER zet op zondag 25 oktober 2026 de Ziggo Dome op zijn kop tijdens Amsterdam Dance Event!</strong></p><p><br></p><p>Al meer dan 30 jaar staat SCOOTER synoniem voor iconische sounds, spectaculaire liveshows en een echte cultstatus. Onder leiding van frontman H.P. Baxxter heeft de band muziekgeschiedenis geschreven, met meer dan 30 miljoen verkochte platen, ruim 2,5 miljard streams en meer dan 1.000 uitverkochte shows wereldwijd, van Europa tot Australië. Daar komen nog talloze uitverkochte arenatours en headline-optredens op enkele van de grootste festivals van Europa bij.</p>",
+   "supportActDescription": "<p><strong>Timmy Trumpet</strong></p><p>DJ, producer en live instrumentalist Timmy Trumpet, een van origine klassiek getraind jazzmuzikant, is één van de meest opvallende figuren in zijn scene te noemen door de kenmerkende trompetsolo's tijdens zijn sets. Eerder stond hij al op de podia van onder andere Tomorrowland, AMF, Creamfields en Parookaville.</p>",
+   "artistImage": {
+    "assetFileName": "images/event/artist/1782478833538-Scooter_Persfoto_Verticaal.jpg"
+   },
+   "backgroundImage": {
+    "assetFileName": "images/event/background/1782478987218-Scooter_Persfoto.jpg"
+   },
+   "privateEvent": 0,
+   "visible": 1
+  },
+  {
+   "id": "1c4d6a23-e91b-4696-9791-ba5eeb2609a4",
+   "showDate": "2026-10-27 19:00:00",
+   "showTimeUnknown": 0,
+   "showState": "OnSale",
+   "salesUrl": "https://www.ticketmaster.nl/artist/placebo-tickets/5183",
+   "salesStartDate": "2026-03-27 09:00:00",
+   "performerName": "Placebo",
+   "event": {
+    "title": "30th Anniversary Tour",
+    "youtubeUrl": "https://www.youtube.com/watch?v=TLrKsMqNMac&list=RDTLrKsMqNMac&start_radio=1"
+   },
+   "genres": "[{\"name\": \"Rock\", \"name_en\": \"Rock\"}]",
+   "description": "<p><strong>De alternatieve rock band Placebo keert op dinsdag 27 oktober 2026 terug naar de Ziggo Dome om hun 30-jarig jubileum te vieren.</strong></p><p><br></p><p>Toen Placebo in 1996 doorbrak, daagde hun esthetiek en tekstuele perspectief de verwachtingen binnen de Britse rockcultuur uit. Hun visuele identiteit zette vraagtekens bij traditionele ideeën over gender en mannelijkheid, in een tijd waarin zulke onderwerpen nauwelijks in de mainstream besproken werden. Zo creëerde Placebo ruimte voor een ander soort alternatieve stem, die sterk resoneerde met mensen die zich buiten de culturele mainstream voelden en die tot op de dag van vandaag invloed heeft op vele artiesten.</p><p><br></p><p>Tegenwoordig zijn discussies over identiteit, genderexpressie en individualiteit zichtbaarder dan ooit. Tegen deze achtergrond voelt het debuutalbum van Placebo opnieuw relevant. Placebo RE:CREATED viert niet alleen de erfenis van het originele album, maar benadrukt ook de blijvende culturele betekenis ervan. Het album is opnieuw gecreëerd door Brian Molko en Rob Kirwan vanuit de originele mastertapes en gemixt door Adam Noble. Het resultaat behoudt de directheid en rebellie van het origineel, terwijl het geluid nieuwe richtingen verkent.</p><p><br></p>",
+   "supportActDescription": "<p><strong>The Mirror Trap</strong></p><p>Wat begint als een gezamenlijke muziekopleiding in Dundee, groeit in 2009 uit tot The Mirror Trap. Hun muziek schrijven ze vanaf het begin al met een duidelijke boodschap: hun teksten raken naast persoonlijke onderwerpen ook aan politieke en maatschappelijke thema’s. Rauwe gitaren, new-wave invloeden en vintage synths geven hun alternatieve rock een eigenzinnig randje. Na een break brachten ze vorige maand hun EP ‘<em>All That Remains is a Ghost’</em> uit en zijn ze klaar om opnieuw het podium te beklimmen.</p>",
+   "artistImage": {
+    "assetFileName": "images/event/artist/1773822952086-261027_Placebo_NCfeed.jpg"
+   },
+   "backgroundImage": {
+    "assetFileName": "images/event/background/1773822962079-261027_Placebo_NCfeed.jpg"
+   },
+   "privateEvent": 0,
+   "visible": 1
+  },
+  {
+   "id": "c8662c9a-cab6-4f41-bcdd-896fe7d1e4bc",
+   "showDate": "2026-10-28 19:00:00",
+   "showTimeUnknown": 0,
+   "showState": "OnSale",
+   "salesUrl": "https://www.ticketmaster.nl/event/stevie-wonder-songs-in-the-key-of-life-performances-tickets/1396808246",
+   "salesStartDate": "2026-09-11 08:00:00",
+   "performerName": "Stevie Wonder",
+   "event": {
+    "title": "'Songs in The Key of Life' performances - 50th anniversary ",
+    "youtubeUrl": "https://www.youtube.com/watch?v=9DYCYeHqM8s"
+   },
+   "genres": "[{\"name\": \"Soul\", \"name_en\": \"Soul\"},{\"name\": \"Jazz\", \"name_en\": \"Jazz\"},{\"name\": \"Pop\", \"name_en\": \"Pop\"}]",
+   "description": "<p><strong>De legendarische Stevie Wonder komt op woensdag 28 oktober 2026 naar de Ziggo Dome met zijn <em>Songs In The Key of Life Performances – 50th Anniversary Tour</em>!</strong></p><p><br></p><p>Tijdens deze bijzondere avond viert Stevie Wonder het 50-jarig jubileum van zijn iconische album <em>Songs In The Key of Life</em>, dat hij integraal zal uitvoeren. Verwacht tijdloze nummers als ‘Sir Duke’, ‘Isn’t She Lovely’, ‘As’ en ‘Love’s in Need of Love Today’. Met 25 GRAMMY Awards en meer dan 100 miljoen verkochte platen is Stevie Wonder een van de meest gevierde artiesten uit de muziekgeschiedenis.</p><p><br></p>",
+   "supportActDescription": "",
+   "artistImage": {
+    "assetFileName": "images/event/artist/1788852452613-StevieWonder-1350x1920-logo+tour.jpg"
+   },
+   "backgroundImage": {
+    "assetFileName": "images/event/background/1788852459483-StevieWonder-1920x1080-logo+tour.jpg"
+   },
+   "privateEvent": 0,
+   "visible": 1
+  },
+  {
+   "id": "6cabb421-7a88-4f7d-a821-503763c4948f",
+   "showDate": "2026-11-03 19:00:00",
+   "showTimeUnknown": 0,
+   "showState": "OnSale",
+   "salesUrl": "https://www.ticketmaster.nl/artist/jungle-tickets/936499",
+   "salesStartDate": "2026-03-27 09:00:00",
+   "performerName": "Jungle",
+   "event": {
+    "title": "Live in de Ziggo Dome 2026",
+    "youtubeUrl": "https://www.youtube.com/watch?v=mPSt74adFnQ&list=RDmPSt74adFnQ&start_radio=1"
+   },
+   "genres": "[{\"name\": \"Pop\", \"name_en\": \"Pop\"}]",
+   "description": "<p><strong style=\"color: rgb(31, 31, 31);\">Het Britse modernsoulcollectief </strong><strong>Jungle staat op dinsdag 3 november 2026 voor het eerst in de Ziggo Dome! Jungle neemt muziekduo Rio Kosta mee als special guest.</strong></p><p><br></p><p>De show is onderdeel van een wereldtour die volgt op het nieuwe album 'Sunshine'. Jungle werd in 2013 in Londen opgericht door Tom McFarland en J Lloyd, waarna hun vaste samenwerkingspartner Lydia Kitto in 2024 officieel lid van de groep werd. Met een euforische mix van moderne disco, soul en hiphop, gecombineerd met indrukwekkende visuele content gekenmerkt door choreografie van wereldklasse, trokken ze meteen de aandacht met hun debuutalbum, dat in 2014 de Britse Top 10 bereikte. In 2023 groeide Jungle uit tot een wereldwijd succes met ‘Volcano’. Het album bereikte de derde plaats in het Verenigd Koninkrijk en bevatte hun grootste hit tot nu toe, ‘Back On 74’, die zowel in het Verenigd Koninkrijk als in de Verenigde Staten platina werd gecertificeerd. Met deze release groeide Jungle door naar uitverkochte arena’s over de hele wereld.&nbsp;</p><p><br></p>",
+   "supportActDescription": "<p><strong>Rio Kosta</strong></p><p>Muziekduo Rio Kosta, bestaande uit Mike Del Rio en Kosta Galanopoulos, brengt een dromerige mix van psychedelische popmuziek, waar ritmische grooves moeiteloos samenvloeien met jazzinvloeden. Hun nummers ademen levendige energie met een tikkeltje melancholie.</p>",
+   "artistImage": {
+    "assetFileName": "images/event/artist/1774348946721-Jungle_44A2196-copy-Credit-Mason-Rose- (Groot).png"
+   },
+   "backgroundImage": {
+    "assetFileName": "images/event/background/1774348935722-Jungle_44A2196-copy-Credit-Mason-Rose- (Groot).png"
+   },
+   "privateEvent": 0,
+   "visible": 1
+  },
+  {
+   "id": "11901ee4-61e4-4063-8b67-5a9b2319531c",
+   "showDate": "2026-11-04 19:00:00",
+   "showTimeUnknown": 0,
+   "showState": "OnSale",
+   "salesUrl": "https://www.ticketmaster.nl/artist/myles-smith-tickets/1288894",
+   "salesStartDate": "2026-03-27 09:00:00",
+   "performerName": "Myles Smith",
+   "event": {
+    "title": "MY MESS, MY HEART, MY LIFE.",
+    "youtubeUrl": "https://www.youtube.com/watch?v=9VbDkDALT7w&list=RD9VbDkDALT7w&start_radio=1"
+   },
+   "genres": "[{\"name\": \"Pop\", \"name_en\": \"Pop\"}]",
+   "description": "<p><strong>De Britse singer-songwriter Myles Smith&nbsp;komt op woensdag 4 november 2026 voor het eerst naar de Ziggo Dome met zijn tour:&nbsp;<em>My Mess, My Heart, My Life.</em>&nbsp;</strong></p><p><br></p><p>In de afgelopen twee jaar is Myles Smith uitgegroeid tot een opvallende nieuwe stem uit het Verenigd Koninkrijk, bekend om zijn directe songwriting, warme zang en het vermogen om persoonlijke ervaringen te vertalen naar muziek die wereldwijd aanspreekt. Zijn doorbraaksingle<em> ‘Stargazing’</em> groeide uit tot een wereldwijd succes, met honderden miljoenen streams en een groot internationaal publiek. Het nummer markeerde een belangrijk moment in zijn ontwikkeling en onderstreepte zijn vermogen om persoonlijke verhalen om te zetten in breed herkenbare muziek.</p><p><br></p>",
+   "supportActDescription": "<p><strong>Chance Peña</strong></p><p>Chance Peña is een Amerikaanse singer-songwriter die folk, indie en pop combineert tot een intieme, sfeervolle sound. Met zijn warme stem en akoestische muziek wist hij wereldwijd miljoenen luisteraars te bereiken, onder meer met nummers als '<em>I Am Not Who I Was'</em> en <em>'Up &amp; Away'.</em></p>",
+   "artistImage": {
+    "assetFileName": "images/event/artist/1773999643722-LEAD - 20251119_JM_MYLES SMITH_SHOT_01_0061.jpg"
+   },
+   "backgroundImage": {
+    "assetFileName": "images/event/background/1773999651702-LEAD - 20251119_JM_MYLES SMITH_SHOT_01_0061.jpg"
+   },
+   "privateEvent": 0,
+   "visible": 1
+  },
+  {
+   "id": "69c734bf-b13c-4bd4-978c-303ea5dd2efb",
+   "showDate": "2026-11-05 19:00:00",
+   "showTimeUnknown": 0,
+   "showState": "OnSale",
+   "salesUrl": "https://www.ticketmaster.nl/artist/don-toliver-tickets/1022563",
+   "salesStartDate": "2026-06-26 10:00:00",
+   "performerName": "Don Toliver",
+   "event": {
+    "title": "NITROUS - OCTANE WORLD TOUR LEG 2",
+    "youtubeUrl": "https://www.youtube.com/watch?v=qFIJHaylMu4&list=RDqFIJHaylMu4&start_radio=1"
+   },
+   "genres": "[{\"name\": \"Hiphop\", \"name_en\": \"Hiphop\"}]",
+   "description": "<p><strong>Amerikaanse rapper en zanger Don Toliver staat op donderdag 5 november 2026 voor het eerst in de Ziggo Dome! Dit concert is onderdeel van zijn 'NITROUS OCTANE WORLD TOUR - LEG 2'.</strong></p><p><br></p><p>De in Houston geboren, multi-platina en voor een GRAMMY genomineerde artiest Don Toliver heeft zijn status als een van de meest innovatieve en grensverleggende krachten in de muziekwereld verstevigd. Hij combineert op meesterlijke wijze hiphop, rap, R&amp;B en filmische verhalen om meeslepende geluidswerelden te creëren. Na een reeks geprezen projecten, waaronder Heaven or Hell (2020), Life of a DON (2021), Love Sick (2023) en Hardstone Psycho (2024), begon Toliver 2026 met zijn carrièrebepalende vijfde studioalbum, OCTANE.</p><p><br></p><p>Het album belandde direct op nummer 1 in de Billboard 200, waarmee Don zijn eerste solo-hit scoorde en de grootste albumdebut van 2026 beleefde. OCTANE heeft inmiddels meer dan 1 miljard streams op Spotify behaald, waarmee het een van de meest gestreamde hiphop- en rapalbums van het jaar is. De culturele impact van het album werd verder versterkt doordat alle 17 nummers tegelijkertijd in de Billboard Hot Rap Songs-hitlijst stonden. Daarmee werd Toliver de zesde artiest in de geschiedenis die 17 of meer noteringen in één week behaalde. Virale fansfavorieten zoals \"E85\" en \"Body\" blijven wereldwijd de streamingplatforms en hitlijsten domineren, wat de positie van het album als een van de bepalende releases van 2026 verder versterkt.</p>",
+   "supportActDescription": "",
+   "artistImage": {
+    "assetFileName": "images/event/artist/1782200445418-DonToliver_Persfoto (Groot).png"
+   },
+   "backgroundImage": {
+    "assetFileName": "images/event/background/1782200462063-DonToliver_Persfoto (Groot).png"
+   },
+   "privateEvent": 0,
+   "visible": 1
+  },
+  {
+   "id": "6fcef90b-977c-4b26-89f5-da3a1832407d",
+   "showDate": "2026-11-07 19:00:00",
+   "showTimeUnknown": 0,
+   "showState": "OnSale",
+   "salesUrl": "https://shop.paylogic.com/bcfa30f1433c4cbaa0bd325b4aad94d6",
+   "salesStartDate": "2025-11-07 09:00:00",
+   "performerName": "Pommelien Thijs",
+   "event": {
+    "title": "Live in de Ziggo Dome 2026",
+    "youtubeUrl": "https://www.youtube.com/watch?v=htvk20gtIQk"
+   },
+   "genres": "[{\"name\": \"Pop\", \"name_en\": \"Pop\"}]",
+   "description": "<p><strong>Belgische popartieste Pommelien Thijs staat op zaterdag 7 november 2026 voor het eerst in de Ziggo Dome!</strong></p><p><br></p><p>Met maar liefst 12 MIA’s (de Vlaamse Music Industry Awards) en grote hits als ‘Het Midden’ (met MEAU), ‘Erop of Eronder’, en haar 2025 zomerhit ‘Atlas’ is Pommelien uitgegroeid tot een van de meest toonaangevende jonge artiesten van de Lage Landen. Begin oktober bracht Pommelien haar tweede album ‘Gedoe’ uit, de opvolger van het succesvolle debuutalbum ‘Per Ongeluk’. Haar huidige single ‘IK MOET GAAN’ domineert momenteel de streaminglijsten en radio’s in Nederland en België.</p><p><br></p><p>Pommelien Thijs: <em>“Op zaterdag 7 november 2026 sta ik voor de allereerste keer in de Ziggo Dome! Het voelt mega surreëel om dit te kunnen zeggen, ik kan niet wachten!”</em></p>",
+   "supportActDescription": "<p><strong>Bazart</strong></p><p>De Belgische groep Bazart brak door met hits als&nbsp;'Goud'&nbsp;en&nbsp;'Chaos', waarmee ze een breed publiek wisten te raken. Hun muziek combineert pakkende melodieën met persoonlijke en soms melancholische teksten, wat hen een vaste waarde maakt binnen de Vlaamse muziekscene. Met energieke liveoptredens en een sterke connectie met hun fans blijft Bazart zich voortdurend vernieuwen en groeien.</p>",
+   "artistImage": {
+    "assetFileName": "images/event/artist/1761916481553-WEBSITE 2026 Pommelien Thijs.jpg"
+   },
+   "backgroundImage": {
+    "assetFileName": "images/event/background/1761817353802-261107_PommelienThijs_NCfeed.jpg"
+   },
+   "privateEvent": 0,
+   "visible": 1
+  },
+  {
+   "id": "428286b1-b709-49f6-ab83-3efb4ead31d5",
+   "showDate": "2026-11-08 18:15:00",
+   "showTimeUnknown": 0,
+   "showState": "OnSale",
+   "salesUrl": "https://www.ticketmaster.nl/artist/korn-tickets/3404",
+   "salesStartDate": "2026-03-20 08:00:00",
+   "performerName": "Korn",
+   "event": {
+    "title": "Euro Tour 2026",
+    "youtubeUrl": "https://youtu.be/wjttaL8y_DA?si=Wuh1FKYGUI52WR7x&t=98"
+   },
+   "genres": "[{\"name\": \"Rock\", \"name_en\": \"Rock\"}]",
+   "description": "<p><strong>De Amerikaanse alternatieve metalband Korn&nbsp;komt op zondag 8 november 2026 voor het eerst naar de Ziggo Dome!</strong></p><p><br></p><p>Korn&nbsp;heeft sinds de oprichting in 1993 wereldwijd 40 miljoen albums verkocht, twee GRAMMYS gewonnen, talloze keren de wereld rondgetoerd en daarbij vele records gevestigd. Zanger Jonathan Davis, gitaristen James \"Munky\" Shaffer en Brian \"Head\" Welch, en drummer Ray Luzier hebben de grenzen blijven verleggen binnen de genres rock, alternative en metal.</p><p><br></p><p>De band veranderde de metalwereld met de release van hun titelloze debuutalbum, dat dit jaar zijn 30e verjaardag viert. Het was een plaat die een nieuw genre pionierde. Sindsdien is de band onverminderd populair gebleven, niet in de minste plaats door grote hits als 'Blind', 'Freak on a Leash', 'Y'all Want a Single', 'Twisted Transistor' en 'Start The Healing'.</p>",
+   "supportActDescription": "<p><strong>Special guest | Architects</strong></p><p>Met hun kenmerkende combinatie van agressie en melodie heeft Architects zich in de afgelopen jaren naar de top van metalcore gewerkt. Op ieder album blijft de band zichzelf opnieuw uitvinden, zo ook op het meest recente <em>The Sky, the Earth &amp; All Between</em>, dat werd geproduceerd door voormalig Bring Me The Horizon-lid Jordan Fish.</p><p><br></p><p><strong>Support | Pixel Grip</strong></p><p>De elektronische groep Pixel Grip bestaat uit vocalist Rita Lukea en producers Tyler Ommen en Jonathon Freund. Hun muziek is geïnspireerd door de queer music scene in de clubs en disco's van de laatste paar decennia. Ook bracht het trio een officiële remix uit van de Nine Inch Nails track <em>As Alive As You Need Me To Be</em>.</p>",
+   "artistImage": {
+    "assetFileName": "images/event/artist/1773647110047-KoRn Press Photo.jpg"
+   },
+   "backgroundImage": {
+    "assetFileName": "images/event/background/1773647130225-KoRn Press Photo.jpg"
+   },
+   "privateEvent": 0,
+   "visible": 1
+  },
+  {
+   "id": "34d089c9-7592-4656-a1fa-8219772bc316",
+   "showDate": "2026-11-09 19:00:00",
+   "showTimeUnknown": 0,
+   "showState": "OnSale",
+   "salesUrl": "https://www.ticketmaster.nl/artist/deep-purple-tickets/1696",
+   "salesStartDate": "2025-11-21 10:00:00",
+   "performerName": "Deep Purple",
+   "event": {
+    "title": "Splat! World Tour 2026",
+    "youtubeUrl": "https://www.youtube.com/watch?v=bbkNm739ULA"
+   },
+   "genres": "[{\"name\": \"Rock\", \"name_en\": \"Rock\"}]",
+   "description": "<p><strong>De iconische Britse hardrockband Deep Purple keert op maandag 9 november 2026 terug naar de Ziggo Dome! De band JAYLER sluit als special guest aan bij deze show.</strong></p><p><br></p><p>Weinig bands in de rockgeschiedenis hebben zo'n krachtige en blijvende impact opgebouwd als Deep Purple. Met meer dan vijf decennia aan hitnoteringen, uitverkochte tournees en een plek in de Rock &amp; Roll Hall of Fame blijven ze een van de meest invloedrijke en prestigieuze bands ter wereld. Hun ongeëvenaarde repertoire, van Smoke on the Water tot Highway Star, blijft generaties muzikanten inspireren, terwijl hun liveoptredens hun status als pioniers van de hardrock keer op keer bevestigen.</p>",
+   "supportActDescription": "<p><strong>JAYLER</strong></p><p>De vierkoppige rockband JAYLER staat bekend om energieke liveshows en door classic rock geïnspireerde sound. Ze hebben in 2023 hun debuut-EP uitgebracht, \"A Piece In Our Time,\" en worden beïnvloed door bands als Led Zeppelin en Greta Van Fleet.</p>",
+   "artistImage": {
+    "assetFileName": "images/event/artist/1778167953901-NEW Deep Purple 2026 Promo photo_Credit_Olaf Heine.jpg"
+   },
+   "backgroundImage": {
+    "assetFileName": "images/event/background/1778168445575-NEW Deep Purple 2026 Promo photo_Credit_Olaf Heine.jpg"
+   },
+   "privateEvent": 0,
+   "visible": 1
+  },
+  {
+   "id": "775a00ba-11a4-481a-bf84-f03c2ba885b2",
+   "showDate": "2026-11-10 19:00:00",
+   "showTimeUnknown": 0,
+   "showState": "OnSale",
+   "salesUrl": "https://www.eventim.nl/artist/fontaines-dc/?affiliate=GAD",
+   "salesStartDate": "2026-09-03 09:00:00",
+   "performerName": "Fontaines D.C.",
+   "event": {
+    "title": "Live in de Ziggo Dome 2026",
+    "youtubeUrl": "https://www.youtube.com/watch?v=lWNxWy012Ro&list=RDlWNxWy012Ro&start_radio=1"
+   },
+   "genres": "[{\"name\": \"Indie\", \"name_en\": \"Indie\"},{\"name\": \"Rock\", \"name_en\": \"Rock\"}]",
+   "description": "<p><strong>De Ierse postpunkband Fontaines D.C. komt op dinsdag 10 november 2026 voor het eerst naar de Ziggo Dome met hun grootste headlinetour tot nu toe!</strong></p><p><br></p><p>Sinds hun debuutalbum Dogrel uit 2019 heeft Fontaines D.C. zich ontwikkeld van rauwe postpunk naar een steeds experimentelere sound. Met stevige gitaren, poëtische teksten en de herkenbare stem van frontman Grian Chatten blijft de band zichzelf opnieuw uitvinden. Op hun vijfde album 'Dopamine Chamber' zetten ze die muzikale ontwikkeling verder voort.</p><p><br></p><p>Fontaines D.C. steunt War Child UK. €1 van elk verkocht ticket (exclusief btw) gaat naar War Child om kinderen die door oorlog getroffen zijn te beschermen, voor te lichten en op te komen voor hun rechten.</p><p><br></p>",
+   "supportActDescription": "",
+   "artistImage": {
+    "assetFileName": "images/event/artist/1787829271918-Persfoto_FontainesDC (Groot).jpg"
+   },
+   "backgroundImage": {
+    "assetFileName": "images/event/background/1787829279759-Persfoto_FontainesDC (Groot).jpg"
+   },
+   "privateEvent": 0,
+   "visible": 1
+  },
+  {
+   "id": "fc2dd249-ce16-48b5-b2e0-a56b033d8bfc",
+   "showDate": "2026-11-13 19:00:00",
+   "showTimeUnknown": 0,
+   "showState": "OnSale",
+   "salesUrl": "https://hetgrotesongfestivalfeest.nl/",
+   "salesStartDate": "2025-11-20 09:00:00",
+   "performerName": "Het Grote Songfestivalfeest",
+   "event": {
+    "title": "De zesde editie!",
+    "youtubeUrl": ""
+   },
+   "genres": "[{\"name\": \"Pop\", \"name_en\": \"Pop\"}]",
+   "description": "<p><strong>Het Grote Songfestivalfeest keert terug naar de Ziggo Dome op vrijdag 13 november 2026 voor de zesde editie!</strong></p><p><br></p><p>Goed nieuws voor alle Songfestivalfans: na het overweldigende succes van de afgelopen jaren staat in 2026 alweer de zesde editie van&nbsp;Het Grote Songfestivalfeest&nbsp;op het programma. Bereid je voor op een avond vol glitter, glamour en legendarische optredens. Ook dit jaar betreden de grootste Eurovision-acts en oud-winnaars het podium. Onder anderen&nbsp;Alexander Rybak, Dami Im, Erika Vikman, Andrew Lambrou, Senhit, Laura Tesoro&nbsp;en&nbsp;Stefan Hope&nbsp;zijn van de partij. En dat is nog maar het begin, in de komende maanden worden er nóg meer spectaculaire namen bekendgemaakt!</p><p><br></p>",
+   "supportActDescription": "",
+   "artistImage": {
+    "assetFileName": "images/event/artist/1763653393881-251120_HGSF_NCFeed.png"
+   },
+   "backgroundImage": {
+    "assetFileName": "images/event/background/1763653404721-251120_HGSF_NCFeed.png"
+   },
+   "privateEvent": 0,
+   "visible": 1
+  },
+  {
+   "id": "c32f88a1-fc28-453b-87ff-36f25dcc2ea8",
+   "showDate": "2026-11-14 19:30:00",
+   "showTimeUnknown": 0,
+   "showState": "OnSale",
+   "salesUrl": "https://shop.paylogic.com/82f3df38a1224316a284a2d39f1ca73b/",
+   "salesStartDate": "2026-03-23 09:00:00",
+   "performerName": "Yves Berendse",
+   "event": {
+    "title": "Live in de Ziggo Dome 2026",
+    "youtubeUrl": "https://www.youtube.com/watch?v=PaW_dhEYH9Y&list=RDPaW_dhEYH9Y&start_radio=1"
+   },
+   "genres": "[{\"name\": \"Nederlands\", \"name_en\": \"Dutch\"}]",
+   "description": "<p><strong>De Nederlandse zanger Yves Berendse staat op zaterdag 14 &amp; zondag 15 november 2026 opnieuw in de Ziggo Dome! De avond staat volledig in het teken van ‘de Y’.</strong></p><p><br></p><p><span class=\"ql-cursor\">﻿﻿﻿﻿﻿﻿﻿﻿﻿</span>Yves Berendse werd bekend met nummers als ‘Zin in Jou’ en ‘Vakantieliefde’ en recent met ‘Alleen met Jou’ en ‘Nachtenlang’. De doorbraak bij het grote publiek kwam met het nummer ‘Terug In De Tijd’, dat 33 weken lang in de Top 40 stond en meerdere weken op de #1 positie stond. Het succes droeg bij aan een Edison en Top 40 Awards. Wat Yves Berendse onderscheidt, is zijn herkenbare sound waarin hij een brug slaat tussen het Nederlandse levenslied en moderne popmuziek. Met zijn eigen sound weet hij een breed publiek aan te spreken, van liefhebbers van het traditionele volkse repertoire tot fans van hedendaagse Nederlandstalige pop. Die unieke mix maakt hem tot een van de opvallendste stemmen binnen de huidige Nederlandstalige muziek.</p><p><br></p>",
+   "supportActDescription": "",
+   "artistImage": {
+    "assetFileName": "images/event/artist/1773828289183-YvesBerendse_Persfoto.jpg"
+   },
+   "backgroundImage": {
+    "assetFileName": "images/event/background/1773828300507-YvesBerendse_Persfoto.jpg"
+   },
+   "privateEvent": 0,
+   "visible": 1
+  },
+  {
+   "id": "68940913-e101-43ce-8b1f-52ecc9523fbe",
+   "showDate": "2026-11-15 15:00:00",
+   "showTimeUnknown": 0,
+   "showState": "OnSale",
+   "salesUrl": "https://shop.paylogic.com/05e01872d05244979e12a59039ba23db/",
+   "salesStartDate": "2026-03-23 09:00:00",
+   "performerName": "Yves Berendse",
+   "event": {
+    "title": "Live in de Ziggo Dome 2026",
+    "youtubeUrl": "https://www.youtube.com/watch?v=PaW_dhEYH9Y&list=RDPaW_dhEYH9Y&start_radio=1"
+   },
+   "genres": "[{\"name\": \"Nederlands\", \"name_en\": \"Dutch\"}]",
+   "description": "<p><strong>Yves Berendse staat op zaterdag 14 en zondag 15 november 2026 opnieuw in de Ziggo Dome! De avond staat volledig in het teken van ‘de Y’.</strong></p><p><br></p><p>﻿﻿﻿Yves Berendse werd bekend met nummers als ‘Zin in Jou’ en ‘Vakantieliefde’ en recent met ‘Alleen met Jou’ en ‘Nachtenlang’. De doorbraak bij het grote publiek kwam met het nummer ‘Terug In De Tijd’, dat 33 weken lang in de Top 40 stond en meerdere weken op de #1 positie stond. Het succes droeg bij aan een Edison en Top 40 Awards. Wat Yves Berendse onderscheidt, is zijn herkenbare sound waarin hij een brug slaat tussen het Nederlandse levenslied en moderne popmuziek. Met zijn eigen sound weet hij een breed publiek aan te spreken, van liefhebbers van het traditionele volkse repertoire tot fans van hedendaagse Nederlandstalige pop. Die unieke mix maakt hem tot een van de opvallendste stemmen binnen de huidige Nederlandstalige muziek.</p>",
+   "supportActDescription": "",
+   "artistImage": {
+    "assetFileName": "images/event/artist/1773828289183-YvesBerendse_Persfoto.jpg"
+   },
+   "backgroundImage": {
+    "assetFileName": "images/event/background/1773828300507-YvesBerendse_Persfoto.jpg"
+   },
+   "privateEvent": 0,
+   "visible": 1
+  },
+  {
+   "id": "f15066a4-14c3-40f4-a09e-d21c59a9ec8d",
+   "showDate": "2026-11-18 19:00:00",
+   "showTimeUnknown": 0,
+   "showState": "Canceled",
+   "salesUrl": "https://www.ticketmaster.nl/event/2037171867",
+   "salesStartDate": "2026-07-03 08:00:00",
+   "performerName": "Aretha Franklin: Queen of Soul ",
+   "event": {
+    "title": "Metropole Orkest & Sheléa, conducted by Jules Buckley",
+    "youtubeUrl": "https://www.youtube.com/watch?v=L9tV_oFjobc&list=RDL9tV_oFjobc&start_radio=1"
+   },
+   "genres": "[{\"name\": \"Soul\", \"name_en\": \"Soul\"},{\"name\": \"Show\", \"name_en\": \"Show\"}]",
+   "description": "<p><strong>BELANGRIJK BERICHT VAN CONCERTORGANISATOR PILOT STUDIO:</strong></p><p>&nbsp;Het concert van Aretha Franklin: Queen of Soul samen met het Metropole Orkest dat op woensdag 18 november 2026 zou plaatsvinden is wegens onvoorziene productionele omstandigheden geannuleerd. Tickethouders ontvangen een mail van Ticketmaster op het e-mailadres waarmee de tickets zijn besteld met meer informatie over de annulering.</p>",
+   "supportActDescription": "",
+   "artistImage": {
+    "assetFileName": "images/event/artist/1782912368458-Persfoto_ArethaFranklin1.jpg"
+   },
+   "backgroundImage": {
+    "assetFileName": "images/event/background/1782913279954-Persfoto_ArethaFranklin2.jpg"
+   },
+   "privateEvent": 0,
+   "visible": 1
+  },
+  {
+   "id": "6cbb56c0-ba56-41b2-8828-6c426fd449a6",
+   "showDate": "2026-11-19 19:00:00",
+   "showTimeUnknown": 0,
+   "showState": "OnSale",
+   "salesUrl": "https://www.ticketmaster.nl/event/656614293",
+   "salesStartDate": "2026-05-22 08:00:00",
+   "performerName": "This Is Michael",
+   "event": {
+    "title": "Live in de Ziggo Dome 2026",
+    "youtubeUrl": "https://www.youtube.com/watch?v=T_UcvkSt6K4"
+   },
+   "genres": "[{\"name\": \"Pop\", \"name_en\": \"Pop\"}]",
+   "description": "<p><strong>Een van de grootste Michael Jackson tribute shows van Europa komt op donderdag 19 november 2026 naar de Ziggo Dome!</strong></p><p><br></p><p>Het concert is een eerbetoon aan het repertoire van Michael Jackson. Tijdens de show staan de muziek en choreografieën van The King of Pop centraal, met uitvoeringen van bekende nummers als Billie Jean, Thriller, Beat It en Man in the Mirror. Verwacht een spectaculair concert bestaande uit meer dan tien dansers, vijftien live muzikanten en bekende MJ-specials.&nbsp;De zanger Jared Grant brengt de grootste hits van Michael Jackson tot leven op het grootste podium van Nederland. “<em>Ik kan niet wachten om samen met 14.000 Michael Jackson-fans een onvergetelijke avond neer te zetten</em>.”</p><p><br></p>",
+   "supportActDescription": "",
+   "artistImage": {
+    "assetFileName": "images/event/artist/1779106622718-Persfoto_ThisIsMichael (Groot).jpg"
+   },
+   "backgroundImage": {
+    "assetFileName": "images/event/background/1779106783225-Persfoto_ThisIsMichael (Groot).jpg"
+   },
+   "privateEvent": 0,
+   "visible": 1
+  },
+  {
+   "id": "6f42353f-b062-413e-ae49-8c9d8c64a14a",
+   "showDate": "2026-11-20 19:00:00",
+   "showTimeUnknown": 0,
+   "showState": "OnSale",
+   "salesUrl": "https://www.ticketmaster.nl/artist/avond-van-de-filmmuziek-tickets/995214",
+   "salesStartDate": "2025-11-21 09:00:00",
+   "performerName": "De Avond van de Filmmuziek",
+   "event": {
+    "title": "Live in de Ziggo Dome 2026",
+    "youtubeUrl": "https://www.youtube.com/watch?v=-QyOBx7_Zls"
+   },
+   "genres": "[{\"name\": \"Klassiek\", \"name_en\": \"Classic\"}]",
+   "description": "<p><strong>De&nbsp;Avond van de Filmmuziek presenteert op&nbsp;vrijdag 20, zaterdag 21 en zondag 22 november 2026 &nbsp;opnieuw een spectaculaire reeks shows met de allermooiste filmmuziek.</strong></p><p><br></p><p>Onder leiding van&nbsp;dirigent Jules Buckley&nbsp;brengen het&nbsp;Metropole Orkest&nbsp;en het&nbsp;Nederlands Concertkoor&nbsp;wederom de meest iconische en geliefde filmklassiekers tot leven. De Avond van de Filmmuziek is het afgelopen decennium uitgegroeid tot een van de grootste filmmuziekevenementen van Europa. Wat ooit begon in het Koninklijk Concertgebouw als een ode aan filmmuziek, is sinds de verhuizing naar de Ziggo Dome in 2019 uitgegroeid tot een meerdaags spektakel.</p><p><br></p><p>Het programma eert de grootste filmcomponisten aller tijden, én componisten van Nederlandse bodem. In eerdere edities werkte het Metropole Orkest samen met (inter)nationale artiesten zoals&nbsp;Lebo M (The Lion King),&nbsp;Steve Stevens&nbsp;(Top Gun),Gary Jules (Donnie Darko),&nbsp;Anna Lapwood (Interstellar),&nbsp;Lavinia Meijer (Intouchables),&nbsp;Lakshmi (The Lord of the Rings)&nbsp;en&nbsp;Noa Wildschut (Schindlers List).</p><p><br></p><p>Welke speciale gasten in 2026 het podium van de Ziggo Dome zullen betreden, blijft nog een verrassing. Zeker is dat de Avond van de Filmmuziek in 2026 opnieuw een onvergetelijke belevenis wordt.</p>",
+   "supportActDescription": "",
+   "artistImage": {
+    "assetFileName": "images/event/artist/1763729583857-2511212223_Avond van de filmmuziek_NC_feed.jpg"
+   },
+   "backgroundImage": {
+    "assetFileName": "images/event/background/1763729599711-2511212223_Avond van de filmmuziek_NC_feed.jpg"
+   },
+   "privateEvent": 0,
+   "visible": 1
+  },
+  {
+   "id": "83c72be1-60d2-43c2-bb19-e09825ca53a7",
+   "showDate": "2026-11-21 19:00:00",
+   "showTimeUnknown": 0,
+   "showState": "OnSale",
+   "salesUrl": "https://www.ticketmaster.nl/artist/avond-van-de-filmmuziek-tickets/995214",
+   "salesStartDate": "2025-11-21 09:00:00",
+   "performerName": "De Avond van de Filmmuziek",
+   "event": {
+    "title": "Live in de Ziggo Dome 2026",
+    "youtubeUrl": "https://www.youtube.com/watch?v=-QyOBx7_Zls"
+   },
+   "genres": "[{\"name\": \"Klassiek\", \"name_en\": \"Classic\"}]",
+   "description": "<p><strong>De&nbsp;Avond van de Filmmuziek presenteert op&nbsp;vrijdag 20, zaterdag 21 en zondag 22 november 2026 &nbsp;opnieuw een spectaculaire reeks shows met de allermooiste filmmuziek.</strong></p><p><br></p><p>Onder leiding van&nbsp;dirigent Jules Buckley&nbsp;brengen het&nbsp;Metropole Orkest&nbsp;en het&nbsp;Nederlands Concertkoor&nbsp;wederom de meest iconische en geliefde filmklassiekers tot leven. De Avond van de Filmmuziek is het afgelopen decennium uitgegroeid tot een van de grootste filmmuziekevenementen van Europa. Wat ooit begon in het Koninklijk Concertgebouw als een ode aan filmmuziek, is sinds de verhuizing naar de Ziggo Dome in 2019 uitgegroeid tot een meerdaags spektakel.</p><p><br></p><p>Het programma eert de grootste filmcomponisten aller tijden, én componisten van Nederlandse bodem. In eerdere edities werkte het Metropole Orkest samen met (inter)nationale artiesten zoals&nbsp;Lebo M (The Lion King),&nbsp;Steve Stevens&nbsp;(Top Gun),Gary Jules (Donnie Darko),&nbsp;Anna Lapwood (Interstellar),&nbsp;Lavinia Meijer (Intouchables),&nbsp;Lakshmi (The Lord of the Rings)&nbsp;en&nbsp;Noa Wildschut (Schindlers List).</p><p><br></p><p>Welke speciale gasten in 2026 het podium van de Ziggo Dome zullen betreden, blijft nog een verrassing. Zeker is dat de Avond van de Filmmuziek in 2026 opnieuw een onvergetelijke belevenis wordt.</p>",
+   "supportActDescription": "",
+   "artistImage": {
+    "assetFileName": "images/event/artist/1763729583857-2511212223_Avond van de filmmuziek_NC_feed.jpg"
+   },
+   "backgroundImage": {
+    "assetFileName": "images/event/background/1763729599711-2511212223_Avond van de filmmuziek_NC_feed.jpg"
+   },
+   "privateEvent": 0,
+   "visible": 1
+  },
+  {
+   "id": "c485362a-4acc-4058-af3c-d0e4ed3442d0",
+   "showDate": "2026-11-22 13:00:00",
+   "showTimeUnknown": 0,
+   "showState": "OnSale",
+   "salesUrl": "https://www.ticketmaster.nl/artist/avond-van-de-filmmuziek-tickets/995214",
+   "salesStartDate": "2025-11-21 09:00:00",
+   "performerName": "De Avond van de Filmmuziek",
+   "event": {
+    "title": "Live in de Ziggo Dome 2026",
+    "youtubeUrl": "https://www.youtube.com/watch?v=-QyOBx7_Zls"
+   },
+   "genres": "[{\"name\": \"Klassiek\", \"name_en\": \"Classic\"}]",
+   "description": "<p><strong>De&nbsp;Avond van de Filmmuziek presenteert op&nbsp;vrijdag 20, zaterdag 21 en zondag 22 november 2026 &nbsp;opnieuw een spectaculaire reeks shows met de allermooiste filmmuziek.</strong></p><p><br></p><p>Onder leiding van&nbsp;dirigent Jules Buckley&nbsp;brengen het&nbsp;Metropole Orkest&nbsp;en het&nbsp;Nederlands Concertkoor&nbsp;wederom de meest iconische en geliefde filmklassiekers tot leven. De Avond van de Filmmuziek is het afgelopen decennium uitgegroeid tot een van de grootste filmmuziekevenementen van Europa. Wat ooit begon in het Koninklijk Concertgebouw als een ode aan filmmuziek, is sinds de verhuizing naar de Ziggo Dome in 2019 uitgegroeid tot een meerdaags spektakel.</p><p><br></p><p>Het programma eert de grootste filmcomponisten aller tijden, én componisten van Nederlandse bodem. In eerdere edities werkte het Metropole Orkest samen met (inter)nationale artiesten zoals&nbsp;Lebo M (The Lion King),&nbsp;Steve Stevens&nbsp;(Top Gun),Gary Jules (Donnie Darko),&nbsp;Anna Lapwood (Interstellar),&nbsp;Lavinia Meijer (Intouchables),&nbsp;Lakshmi (The Lord of the Rings)&nbsp;en&nbsp;Noa Wildschut (Schindlers List).</p><p><br></p><p>Welke speciale gasten in 2026 het podium van de Ziggo Dome zullen betreden, blijft nog een verrassing. Zeker is dat de Avond van de Filmmuziek in 2026 opnieuw een onvergetelijke belevenis wordt.</p>",
+   "supportActDescription": "",
+   "artistImage": {
+    "assetFileName": "images/event/artist/1763729583857-2511212223_Avond van de filmmuziek_NC_feed.jpg"
+   },
+   "backgroundImage": {
+    "assetFileName": "images/event/background/1763729599711-2511212223_Avond van de filmmuziek_NC_feed.jpg"
+   },
+   "privateEvent": 0,
+   "visible": 1
+  },
+  {
+   "id": "732111cf-0308-4b24-9419-305e8ee77a92",
+   "showDate": "2026-11-23 19:00:00",
+   "showTimeUnknown": 0,
+   "showState": "OnSale",
+   "salesUrl": "https://www.ticketmaster.nl/artist/westlife-tickets/26400",
+   "salesStartDate": "2025-10-31 09:00:00",
+   "performerName": "Westlife",
+   "event": {
+    "title": "25 The Anniversary World Tour",
+    "youtubeUrl": "https://www.youtube.com/watch?v=JrzW7EpmhkA"
+   },
+   "genres": "[{\"name\": \"Pop\", \"name_en\": \"Pop\"}]",
+   "description": "<p><strong>De Ierse popgroep Westlife staat op maandag 23 november 2026 voor het eerst in de Ziggo Dome! Dit concert is onderdeel van de 25 The Anniversary World Tour.</strong></p><p><br></p><p>De iconische boyband Westlife, bekend van nummers als ‘My Love’, ‘Uptown Girl’ en ‘If I Let You Go’, raakt al een kwart eeuw luisteraars met harmonieën zo zacht als fluweel en refreinen die je niet meer loslaten. Voeg daar een vleugje nostalgie aan toe en tijdloze popmagie komt tot leven.</p><p><br></p><p>Westlife over de tour en het album:</p><p><em>“This year marks 25 years since we started this incredible journey together and it still feels like only the beginning. The support from our fans has been unbelievable, and to celebrate with this world tour, new music, and a brand-new album feels truly special. We can’t wait to see you all on the road and share this next chapter together.”</em></p><p><br></p>",
+   "supportActDescription": "<p><strong>Ana Sky</strong></p><p>Ana Sky verruilde de microscoop voor de microfoon en brengt een scherpe, observerende blik naar alt-pop. Op haar debuut-EP PROLOGUE onderzoekt de artiest uit Los Angeles liefde, twijfel en zelfbescherming in melancholische pop met krachtige vocalen en heldere melodieën. De EP volgt op King Of Hearts, haar nummer 1-hit in de UK Pop Chart.</p>",
+   "artistImage": {
+    "assetFileName": "images/event/artist/1761148865374-MP629 - Westlife - 03-09-2025 - 2276 f2.jpg"
+   },
+   "backgroundImage": {
+    "assetFileName": "images/event/background/1761148886786-MP629 - Westlife - 03-09-2025 - 2276 f2.jpg"
+   },
+   "privateEvent": 0,
+   "visible": 1
+  },
+  {
+   "id": "9183feef-427f-468c-bdfe-d847769d1e52",
+   "showDate": "2026-11-24 19:00:00",
+   "showTimeUnknown": 0,
+   "showState": "OnSale",
+   "salesUrl": "https://www.ticketmaster.nl/artist/bryson-tiller-tickets/965244",
+   "salesStartDate": "2026-06-05 10:00:00",
+   "performerName": "Bryson Tiller",
+   "event": {
+    "title": "The Neo Trapsoul Tour",
+    "youtubeUrl": "https://www.youtube.com/watch?v=xyTZmViI9Ls"
+   },
+   "genres": "[{\"name\": \"Hiphop\", \"name_en\": \"Hiphop\"}]",
+   "description": "<p><strong>De Grammy-genomineerde superster Bryson Tiller komt op dinsdag 24 november 2026 voor het eerst naar de Ziggo Dome als onderdeel van zijn 'The Neo Trapsoul Tour' met Special Guest Majid Jordan.</strong></p><p><br></p><p>Bryson Tiller, afkomstig uit Louisville, Kentucky, brak door met de met diamant bekroonde hit \"Don't\", wat leidde tot zijn drievoudig platina-gecertificeerde debuutalbum TRAP SOUL (2015), dat mede bepalend was voor de moderne trap-R&amp;B. Hij zette zijn succes voort met True to Self (2017), dat debuteerde op nummer 1 in de Billboard 200, en ANNIVERSARY (2020), dat binnenkwam op nummer 5. Zijn titelloze album uit 2024 oogstte veel lof en bereikte de top 20 van de Billboard 200, met de hit \"Whatever She Wants\" als belangrijkste hit. Vorig jaar begon Tiller aan een nieuw hoofdstuk met de release van zijn langverwachte dubbelalbum Solace &amp; The Vices.</p><p><br></p>",
+   "supportActDescription": "<p><strong>Majid Jordan</strong></p><p>Met hypnotische beats, warme vocals en emotionele teksten creëert Majid Jordan de perfecte soundtrack voor late-night drives en ontspannen avonden. Het duo brak internationaal door via hun samenwerking met Drake op “Hold On, We’re Going Home” en tekende daarna bij OVO Sound.</p>",
+   "artistImage": {
+    "assetFileName": "images/event/artist/1780318303212-Static_TM-ArtistImage_2426x1365_BrysonTiller_2026_Photo.jpg"
+   },
+   "backgroundImage": {
+    "assetFileName": "images/event/background/1780318303624-Static_TM-ArtistImage_2426x1365_BrysonTiller_2026_Photo.jpg"
+   },
+   "privateEvent": 0,
+   "visible": 1
+  },
+  {
+   "id": "23e6b9b3-2f23-4da5-a9c8-b97a86215688",
+   "showDate": "2026-11-26 19:00:00",
+   "showTimeUnknown": 0,
+   "showState": "OnSale",
+   "salesUrl": "https://www.ticketmaster.nl/event/1516159579",
+   "salesStartDate": "2026-05-29 07:30:00",
+   "performerName": "The Script",
+   "event": {
+    "title": "Man In The Arena Tour",
+    "youtubeUrl": "https://www.youtube.com/watch?v=Zi9To04PO78&list=RDZi9To04PO78&start_radio=1"
+   },
+   "genres": "[{\"name\": \"Pop\", \"name_en\": \"Pop\"}]",
+   "description": "<p><strong>De Ierse softrockband The Script keert terug naar de Ziggo Dome op donderdag 26 november 2026 tijdens de 'Man in the arena' tour!</strong></p><p><br></p><p>Het fenomenale en langdurige succes van The Script heeft geleid tot zes nummer 1-albums in het Verenigd Koninkrijk en acht in hun thuisland Ierland. Daarbij hebben ze meer dan 14 miljard streams, 5 miljoen verkochte albums en talloze internationale platina-certificeringen behaald.</p><p>Nu breekt er een nieuw tijdperk aan voor The Script met hun nieuwe single ‘Man In The Arena’, wat op hun nieuwe album ‘The User’s Guide To Being Human’ staat.</p><p><br></p>",
+   "supportActDescription": "<p><strong>James Morrison</strong></p><p>James Morrison is een bekende Engelse singer-songwriter die in 2006 wereldwijd doorbrak met zijn debuutalbum <em>Undiscovered</em> en de hitsingle <em>\"You Give Me Something\"</em>. Hij staat bekend om zijn soulvolle, rauwe stem, die hij dankzij een ernstige kinkhoestaanval als baby ontwikkelde.</p>",
+   "artistImage": {
+    "assetFileName": "images/event/artist/1779369036862-Persfoto_TheScript (Groot).jpg"
+   },
+   "backgroundImage": {
+    "assetFileName": "images/event/background/1779369089221-Persfoto_TheScript (Groot).jpg"
+   },
+   "privateEvent": 0,
+   "visible": 1
+  },
+  {
+   "id": "5687e05e-6ce9-41c5-a72c-d51ec215e7a0",
+   "showDate": "2026-11-27 19:00:00",
+   "showTimeUnknown": 0,
+   "showState": "OnSale",
+   "salesUrl": "https://www.ticketmaster.nl/artist/the-script-tickets/41090",
+   "salesStartDate": "2026-05-29 09:06:00",
+   "performerName": "The Script",
+   "event": {
+    "title": "Man In The Arena Tour",
+    "youtubeUrl": "https://www.youtube.com/watch?v=Zi9To04PO78&list=RDZi9To04PO78&start_radio=1"
+   },
+   "genres": "[{\"name\": \"Pop\", \"name_en\": \"Pop\"}]",
+   "description": "<p><strong>Ierse softrockband The Script keert terug naar de Ziggo Dome op donderdag 26 november 2026 tijdens de 'Man in the arena' tour!</strong></p><p><br></p><p>Het fenomenale en langdurige succes van The Script heeft geleid tot zes nummer 1-albums in het Verenigd Koninkrijk en acht in hun thuisland Ierland. Daarbij hebben ze meer dan 14 miljard streams, 5 miljoen verkochte albums en talloze internationale platina-certificeringen behaald. Nu breekt er een nieuw tijdperk aan voor The Script met hun nieuwe single ‘Man In The Arena’, wat op hun nieuwe album ‘The User’s Guide To Being Human’ staat. </p><p><br></p>",
+   "supportActDescription": "<p><strong>James Morrison</strong></p><p>James Morrison is een bekende Engelse singer-songwriter die in 2006 wereldwijd doorbrak met zijn debuutalbum <em>Undiscovered</em> en de hitsingle <em>\"You Give Me Something\"</em>. Hij staat bekend om zijn soulvolle, rauwe stem, die hij dankzij een ernstige kinkhoestaanval als baby ontwikkelde.</p>",
+   "artistImage": {
+    "assetFileName": "images/event/artist/1779369036862-Persfoto_TheScript (Groot).jpg"
+   },
+   "backgroundImage": {
+    "assetFileName": "images/event/background/1779369089221-Persfoto_TheScript (Groot).jpg"
+   },
+   "privateEvent": 0,
+   "visible": 1
+  },
+  {
+   "id": "a878deb2-e6a4-4fde-8cab-8ef75726d62a",
+   "showDate": "2026-11-28 18:45:00",
+   "showTimeUnknown": 0,
+   "showState": "OnSale",
+   "salesUrl": "https://www.ticketmaster.nl/event/the-prodigy-european-tour-tickets/2090976842",
+   "salesStartDate": "2026-04-10 08:00:00",
+   "performerName": "The Prodigy",
+   "event": {
+    "title": "European Tour",
+    "youtubeUrl": "https://www.youtube.com/watch?v=wmin5WkOuPw"
+   },
+   "genres": "[{\"name\": \"Rock\", \"name_en\": \"Rock\"},{\"name\": \"Heavy\", \"name_en\": \"Heavy\"}]",
+   "description": "<p><strong>Op zaterdag 28&nbsp;november 2026 komt&nbsp;The Prodigy naar de Ziggo Dome met hun European Tour. Het&nbsp;Britse&nbsp;postpunk duo Sleaford Mods sluit aan als special guest tijdens het concert.&nbsp;</strong></p><p>The Prodigy werd in de vroege jaren 90 opgericht en groeide uit tot een invloedrijke elektronische act. Met een combinatie van techno, rave en punk wist de groep een breed publiek te bereiken. Bekende nummers zijn onder meer \"Firestarter\", \"Breathe\" en \"Smack My Bitch Up\".</p><p>In 2019 overleed frontman Keith Flint op 49-jarige leeftijd. Zijn podiumoptredens en uitstraling waren bepalend voor het gezicht van de band. Na dit verlies zetten Liam Howlett en Maxim Reality de band voort. In juli 2022 speelde de groep drie avonden in de Londense O2 Academy Brixton, de eerste optredens zonder Flint. Tijdens deze shows werd aandacht besteed aan zijn nalatenschap, wat breed werd gesteund door fans. Liam H en Maxim bouwen voort op een succesvol 2025, waarin de band als headliner optrad op festivals wereldwijd!</p><p><br></p>",
+   "supportActDescription": "<p><strong>Sleaford Mods</strong></p><p>Sleaford Mods is&nbsp;een invloedrijk Engels postpunk/punk-hopduo uit Nottingham, bestaande uit vocalist Jason Williamson en muzikant Andrew Fearn. Bekend om hun rauwe, minimalistische elektronische beats en sarcastische, maatschappijkritische teksten over het leven in het Verenigd Koninkrijk, worden ze gezien als een stem van de werkklasse.&nbsp;</p>",
+   "artistImage": {
+    "assetFileName": "images/event/artist/1775569964465-Prodigy.jpg"
+   },
+   "backgroundImage": {
+    "assetFileName": "images/event/background/1775570055473-Prodigy.jpg"
+   },
+   "privateEvent": 0,
+   "visible": 1
+  },
+  {
+   "id": "31710bab-a5ce-46c9-83a2-fe1c9e751810",
+   "showDate": "2026-11-29 19:00:00",
+   "showTimeUnknown": 0,
+   "showState": "OnSale",
+   "salesUrl": "https://www.ticketmaster.nl/artist/muse-tickets/26326",
+   "salesStartDate": "2026-06-19 08:00:00",
+   "performerName": "Muse",
+   "event": {
+    "title": "The Wow! Signal Europa Tour",
+    "youtubeUrl": "https://www.youtube.com/watch?v=XVvLRbR4Pa0"
+   },
+   "genres": "[{\"name\": \"Rock\", \"name_en\": \"Rock\"}]",
+   "description": "<p><strong>De Britse band Muse keert op zondag 29 &amp; maandag 30 november 2026 terug naar de Ziggo Dome als onderdeel van <em>The Wow! Signal Europa Tour!</em></strong></p><p>In 2000 traden ze in de muzikale voetsporen van Radiohead. Muse boekt succes met albums als Origin Of Symmetry en Absolution.&nbsp;De muziek en visuals die Muse tot nu toe heeft uitgebracht, onthullen stukje bij beetje het universum van The Wow! Signal. De naam van hun nieuwe album verwijst naar een van de meest intrigerende kosmische mysteries van de afgelopen eeuw: een krachtige radiosignaaluitbarsting van 72 seconden die in 1977 werd waargenomen en afkomstig leek te zijn uit het sterrenbeeld Boogschutter (Sagittarius). De astronoom die deze anomalie ontdekte, omcirkelde destijds de inmiddels iconische tekenreeks “6EQUJ5” en schreef er “WOW!” naast op de uitdraai. Daarmee gaf hij het signaal zijn naam en verzekerde hij het van een blijvende plaats in zowel de wetenschappelijke geschiedenis als de populaire cultuur. Het nieuwe album heeft thema’s als buitenaardse communicatie, technologische onrust, existentiële verwondering en de zoektocht van de mens naar betekenis in een steeds meer ontwrichte en vervreemde wereld.</p>",
+   "supportActDescription": "<p><strong>Support act | Dead Poet Society</strong></p><p>De Amerikaanse band Dead Poet Society is opgericht aan het Berklee College of Music in Boston en groeide uit tot een vaste waarde binnen de alternatieve rock. Vanuit Los Angeles brengt de band een donkere, gelaagde sound waarin invloeden van onder meer Muse en Royal Blood samenkomen. Eerder stonden ze al op Pinkpop en nu warmen ze de Ziggo Dome op voor Muse.</p>",
+   "artistImage": {
+    "assetFileName": "images/event/artist/1781103216192-Muse_Persfoto (Groot).jpg"
+   },
+   "backgroundImage": {
+    "assetFileName": "images/event/background/1781103227595-Muse_Persfoto (Groot).jpg"
+   },
+   "privateEvent": 0,
+   "visible": 1
+  },
+  {
+   "id": "13e88441-61da-459a-947b-1257cef1d990",
+   "showDate": "2026-11-30 19:00:00",
+   "showTimeUnknown": 0,
+   "showState": "OnSale",
+   "salesUrl": "https://www.ticketmaster.nl/artist/muse-tickets/26326",
+   "salesStartDate": "2026-06-19 08:00:00",
+   "performerName": "Muse",
+   "event": {
+    "title": "The Wow! Signal Europa Tour",
+    "youtubeUrl": "https://www.youtube.com/watch?v=XVvLRbR4Pa0"
+   },
+   "genres": "[{\"name\": \"Rock\", \"name_en\": \"Rock\"}]",
+   "description": "<p><strong>De Britse band Muse keert op zondag 29 &amp; maandag 30 november 2026 terug naar de Ziggo Dome als onderdeel van<em> The Wow! Signal Europa Tour!</em></strong></p><p>In 2000 traden ze in de muzikale voetsporen van Radiohead. Muse boekt succes met albums als Origin Of Symmetry en Absolution.&nbsp;De muziek en visuals die Muse tot nu toe heeft uitgebracht, onthullen stukje bij beetje het universum van The Wow! Signal. De naam van hun nieuwe album verwijst naar een van de meest intrigerende kosmische mysteries van de afgelopen eeuw: een krachtige radiosignaaluitbarsting van 72 seconden die in 1977 werd waargenomen en afkomstig leek te zijn uit het sterrenbeeld Boogschutter (Sagittarius). De astronoom die deze anomalie ontdekte, omcirkelde destijds de inmiddels iconische tekenreeks “6EQUJ5” en schreef er “WOW!” naast op de uitdraai. Daarmee gaf hij het signaal zijn naam en verzekerde hij het van een blijvende plaats in zowel de wetenschappelijke geschiedenis als de populaire cultuur. Het nieuwe album heeft thema’s als buitenaardse communicatie, technologische onrust, existentiële verwondering en de zoektocht van de mens naar betekenis in een steeds meer ontwrichte en vervreemde wereld.</p>",
+   "supportActDescription": "<p><strong>Support act | Dead Poet Society</strong></p><p>De Amerikaanse band Dead Poet Society is opgericht aan het Berklee College of Music in Boston en groeide uit tot een vaste waarde binnen de alternatieve rock. Vanuit Los Angeles brengt de band een donkere, gelaagde sound waarin invloeden van onder meer Muse en Royal Blood samenkomen. Eerder stonden ze al op Pinkpop en nu warmen ze de Ziggo Dome op voor Muse.</p>",
+   "artistImage": {
+    "assetFileName": "images/event/artist/1781103216192-Muse_Persfoto (Groot).jpg"
+   },
+   "backgroundImage": {
+    "assetFileName": "images/event/background/1781103227595-Muse_Persfoto (Groot).jpg"
+   },
+   "privateEvent": 0,
+   "visible": 1
+  },
+  {
+   "id": "2d8e1392-3098-48d5-87a9-9f6c04195cfe",
+   "showDate": "2026-12-01 19:00:00",
+   "showTimeUnknown": 0,
+   "showState": "OnlyVIP",
+   "salesUrl": "https://www.eventim.nl/noapp/eventseries/2122382?affiliate=2FF",
+   "salesStartDate": "2026-04-17 08:00:00",
+   "performerName": "Noah Kahan",
+   "event": {
+    "title": "The Great Divide Tour",
+    "youtubeUrl": "https://www.youtube.com/watch?v=SKs80r2Lp34"
+   },
+   "genres": "[{\"name\": \"Pop\", \"name_en\": \"Pop\"},{\"name\": \"Indie\", \"name_en\": \"Indie\"}]",
+   "description": "<p><strong>Op 1 &amp; 2 december 2026 staat Noah Kahan weer in de Ziggo Dome!&nbsp;</strong></p><p>Kahan betreedt zijn volgende artistieke tijdperk met zijn nieuwe album 'The Great Divide', zijn vierde studioalbum. De kern van Noah Kahans muziek blijft hetzelfde leidende principe dat fans in eerste instantie aantrok: eerlijke verhalen, gedeelde kwetsbaarheid en liedjes die luisteraars het gevoel geven begrepen te worden.</p>",
+   "supportActDescription": "",
+   "artistImage": {
+    "assetFileName": "images/event/artist/1775653074707-NoahKahan_Persfoto (Groot).png"
+   },
+   "backgroundImage": {
+    "assetFileName": "images/event/background/1775653180407-NoahKahan_Persfoto (Groot).png"
+   },
+   "privateEvent": 0,
+   "visible": 1
+  },
+  {
+   "id": "74223abb-79c2-4b64-9548-9b0fc88c6be7",
+   "showDate": "2026-12-02 19:00:00",
+   "showTimeUnknown": 0,
+   "showState": "OnlyVIP",
+   "salesUrl": "https://www.eventim.nl/noapp/eventseries/2122382?affiliate=2FF",
+   "salesStartDate": "2026-04-17 08:00:00",
+   "performerName": "Noah Kahan",
+   "event": {
+    "title": "The Great Divide Tour",
+    "youtubeUrl": "https://www.youtube.com/watch?v=SKs80r2Lp34"
+   },
+   "genres": "[{\"name\": \"Pop\", \"name_en\": \"Pop\"},{\"name\": \"Indie\", \"name_en\": \"Indie\"}]",
+   "description": "<p><strong>Op 1 &amp; 2 december 2026 staat Noah Kahan weer in de Ziggo Dome!&nbsp;</strong></p><p>Kahan betreedt zijn volgende artistieke tijdperk met zijn nieuwe album 'The Great Divide', zijn vierde studioalbum. De kern van Noah Kahans muziek blijft hetzelfde leidende principe dat fans in eerste instantie aantrok: eerlijke verhalen, gedeelde kwetsbaarheid en liedjes die luisteraars het gevoel geven begrepen te worden.</p>",
+   "supportActDescription": "",
+   "artistImage": {
+    "assetFileName": "images/event/artist/1775653074707-NoahKahan_Persfoto (Groot).png"
+   },
+   "backgroundImage": {
+    "assetFileName": "images/event/background/1775653180407-NoahKahan_Persfoto (Groot).png"
+   },
+   "privateEvent": 0,
+   "visible": 1
+  },
+  {
+   "id": "3508e218-f1ba-4c69-ae81-cdc9acb15613",
+   "showDate": "2026-12-03 19:00:00",
+   "showTimeUnknown": 0,
+   "showState": "OnSale",
+   "salesUrl": "https://www.eventim.nl/artist/kensington/?affiliate=2FF#calendar-start=2026-12",
+   "salesStartDate": "2026-03-06 09:00:00",
+   "performerName": "Kensington",
+   "event": {
+    "title": "Live in de Ziggo Dome 2026",
+    "youtubeUrl": "https://www.youtube.com/watch?v=FE4VcAXxXfM"
+   },
+   "genres": "[{\"name\": \"Rock\", \"name_en\": \"Rock\"}]",
+   "description": "<p><strong>Kensington keert op donderdag 3 en vrijdag 4 december 2026 terug naar de Ziggo Dome! Naast bekende klassiekers uit hun oeuvre zullen deze avond ook nieuwe hits op de setlist staan.</strong></p><p><br></p><p>Sinds de oprichting in 2005 is Kensington uitgegroeid tot de grootste rockband van Nederland. Geen enkele andere artiest of band stond vaker als headliner in de Ziggo Dome. Met de nieuw aangekondigde show in 2026 bouwt Kensington gestaag verder aan hun record van meeste Ziggo Dome shows van één band of artiest. Zo wordt het jongensboek dat Kensington is verder geschreven. Begin dit jaar kreeg dat een nieuw hoofdstuk met de komst van Jason Dowd. De Amerikaan is de vervanger van Eloi Youssef, die in 2022 afscheid nam van de fans met zes uitverkochte concerten in de Ziggo Dome.</p>",
+   "supportActDescription": "",
+   "artistImage": {
+    "assetFileName": "images/event/artist/1772615242365-Kensington 2026_NEW (Groot).jpg"
+   },
+   "backgroundImage": {
+    "assetFileName": "images/event/background/1772615231542-Kensington 2026_NEW (Groot).jpg"
+   },
+   "privateEvent": 0,
+   "visible": 1
+  },
+  {
+   "id": "b7dd6da8-8d41-454e-9e73-4683348b0492",
+   "showDate": "2026-12-04 19:00:00",
+   "showTimeUnknown": 0,
+   "showState": "SoldOut",
+   "salesUrl": "https://www.eventim.nl/noapp/event/21007311?affiliate=2FF",
+   "salesStartDate": "2025-12-05 09:00:00",
+   "performerName": "Kensington",
+   "event": {
+    "title": "Live in de Ziggo Dome 2026",
+    "youtubeUrl": "https://www.youtube.com/watch?v=FE4VcAXxXfM"
+   },
+   "genres": "[{\"name\": \"Rock\", \"name_en\": \"Rock\"}]",
+   "description": "<p><strong>Kensington keert op donderdag 3 en vrijdag 4 december 2026 terug naar de Ziggo Dome! Naast bekende klassiekers uit hun oeuvre zullen deze avond ook nieuwe hits op de setlist staan.</strong></p><p><br></p><p>Sinds de oprichting in 2005 is Kensington uitgegroeid tot de grootste rockband van Nederland. Geen enkele andere artiest of band stond vaker als headliner in de Ziggo Dome. Met de nieuw aangekondigde show in 2026 bouwt Kensington gestaag verder aan hun record van meeste Ziggo Dome shows van één band of artiest. Zo wordt het jongensboek dat Kensington is verder geschreven. Begin dit jaar kreeg dat een nieuw hoofdstuk met de komst van Jason Dowd. De Amerikaan is de vervanger van Eloi Youssef, die in 2022 afscheid nam van de fans met zes uitverkochte concerten in de Ziggo Dome.</p>",
+   "supportActDescription": "",
+   "artistImage": {
+    "assetFileName": "images/event/artist/1772615242365-Kensington 2026_NEW (Groot).jpg"
+   },
+   "backgroundImage": {
+    "assetFileName": "images/event/background/1772615231542-Kensington 2026_NEW (Groot).jpg"
+   },
+   "privateEvent": 0,
+   "visible": 1
+  },
+  {
+   "id": "54cef577-b31d-4453-a075-55366b15bc42",
+   "showDate": "2026-12-05 19:00:00",
+   "showTimeUnknown": 0,
+   "showState": "OnSale",
+   "salesUrl": "https://shop.paylogic.com/e07a4e75aa2f40309e6542b0e8596c41",
+   "salesStartDate": "2026-05-29 08:00:00",
+   "performerName": "SBMG",
+   "event": {
+    "title": "Live in de Ziggo Dome 2026",
+    "youtubeUrl": "https://www.youtube.com/watch?v=KAPh3eYhAAw&list=RDKAPh3eYhAAw&start_radio=1"
+   },
+   "genres": "[{\"name\": \"Hiphop\", \"name_en\": \"Hiphop\"},{\"name\": \"Nederlands\", \"name_en\": \"Dutch\"}]",
+   "description": "<p><strong>SBMG staat 5 &amp; 16 december 2026 voor het eerst in jaren het podium voor hun grootste show ooit!</strong></p><p><br></p><p>Nederlandse hiphopfans moesten er jaren op wachten, maar de langverwachte terugkeer is eindelijk in zicht. Chivv en Henkie T delen op zaterdag 5 december 2026 voor het eerst in jaren het podium als SBMG, en wel voor hun grootste show ooit. 'SBMG in Ziggo Dome' belooft een nostalgische trip langs hun hits, rauwe straat-energie en melodieuze refreinen. Een beloning voor de fans, een mijlpaal voor de urban- en hiphopcultuur.&nbsp;</p><p><br></p><p>SBMG is een van de meest invloedrijke en herkenbare acts binnen de Nederlandse urban scene. Samen vormen Chivv en Henkie T een duo dat meer vertegenwoordigt dan alleen muziek.</p>",
+   "supportActDescription": "",
+   "artistImage": {
+    "assetFileName": "images/event/artist/1779780185707-Persfoto 1 (Groot).jpg"
+   },
+   "backgroundImage": {
+    "assetFileName": "images/event/background/1779780195274-Persfoto 1 landscape (Groot).jpg"
+   },
+   "privateEvent": 0,
+   "visible": 1
+  },
+  {
+   "id": "8ac0fa23-0e64-4b61-8bac-1a526b5db394",
+   "showDate": "2026-12-06 19:00:00",
+   "showTimeUnknown": 0,
+   "showState": "OnSale",
+   "salesUrl": "https://www.ticketmaster.nl/artist/kehlani-tickets/952571",
+   "salesStartDate": "2026-06-03 08:00:00",
+   "performerName": "Kehlani",
+   "event": {
+    "title": "THE KEHLANI WORLD TOUR: EU & UK",
+    "youtubeUrl": "https://www.youtube.com/watch?v=KFMYx1TibeQ&list=RDKFMYx1TibeQ&start_radio=1"
+   },
+   "genres": "[{\"name\": \"Pop\", \"name_en\": \"Pop\"},{\"name\": \"Hiphop\", \"name_en\": \"Hiphop\"}]",
+   "description": "<p><strong>Kehlani brengt haar 'THE KEHLANI WORLD TOUR: EU &amp; UK' op zondag 6 december 2026 naar de Ziggo Dome!</strong></p><p><br></p><p>Kehlani brak als tiener al door in de groep PopLyfe en groeide daarna uit tot een grote naam in de moderne R&amp;B. Haar muziek draait om liefde, persoonlijke groei en levenservaringen. Met haar nieuwe, zelfgetitelde album <em>Kehlani</em> laat ze opnieuw haar ontwikkeling als artiest horen, met samenwerkingen met Usher, Missy Elliott en Leon Thomas - een mix van legendes en nieuw talent waarmee ze haar sound verder verdiept en vernieuwt.</p>",
+   "supportActDescription": "<p><strong>Opener | WASEEL</strong></p><p>WASEEL is een Amerikaanse artiest, DJ en producer uit Los Angeles (oorspronkelijk afkomstig uit San Jose). Hij haalt inspiratie uit hiphop en R&amp;B (zoals Pharrell en J Dilla).</p><p><br></p><p><strong>Support act | Odeal</strong></p><p>Odeal groeide op in Nigeria, Spanje en het Verenigd Koninkrijk en verwerkt die diverse invloeden moeiteloos in zijn muziek. Met een mix van R&amp;B, Alté en Afro-sounds creëert hij een herkenbare en eigentijdse stijl. Zijn persoonlijke teksten, gecombineerd met warme melodieën en ritmische beats, maken Odeal tot een opvallende naam binnen de nieuwe generatie artiesten.</p>",
+   "artistImage": {
+    "assetFileName": "images/event/artist/1779963356252-Persfoto_Kehlani.jpg"
+   },
+   "backgroundImage": {
+    "assetFileName": "images/event/background/1779963588522-Persfoto_Kehlani.jpg"
+   },
+   "privateEvent": 0,
+   "visible": 1
+  },
+  {
+   "id": "4765bcc9-1b40-460b-97b8-98d9a649dbd7",
+   "showDate": "2026-12-07 19:00:00",
+   "showTimeUnknown": 0,
+   "showState": "SoldOut",
+   "salesUrl": "https://www.eventim.nl/noapp/eventseries/3115616?affiliate=2FF",
+   "salesStartDate": "2026-06-12 08:00:00",
+   "performerName": "Phoebe Bridgers",
+   "event": {
+    "title": "The Lost Tour",
+    "youtubeUrl": "http://youtube.com/watch?v=9sfYpolGCu8&list=RD9sfYpolGCu8&start_radio=1"
+   },
+   "genres": "[{\"name\": \"Pop\", \"name_en\": \"Pop\"},{\"name\": \"Indie\", \"name_en\": \"Indie\"},{\"name\": \"Rock\", \"name_en\": \"Rock\"}]",
+   "description": "<p><strong>De Amerikaanse singer-songwriter Phoebe Bridgers komt op maandag 7 december 2026 voor het eerst naar de Ziggo Dome!&nbsp;</strong></p><p><br></p><p>Na een aantal verrassende pop-up shows in de lente van 2026 gaat Phoebe Bridgers vanaf september weer op wereldtournee. Phoebe doneert&nbsp;€1 van elk verkocht ticket aan lokale organisaties die zich inzetten voor slachtoffers van seksueel geweld en misbruik. Ook zullen alle telefoons, smartwatches en accessoires van het publiek opgeborgen worden, zodat je kunt genieten van een telefoonvrije ervaring. Haar muziekstijl omvat indie-rock, folk en emo. Haar grote doorbraak kwam in 2020 met het bejubelde album <em>Punisher</em>. Ze staat bekend om haar poëtische, melancholische teksten en is tevens lid van de bands Boygenius en Better Oblivion Community Center.</p>",
+   "supportActDescription": "<p><strong>Isaac Woods </strong></p><p>Isaac Wood is een Britse muzikant en zanger. Hij is vooral bekend als de voormalige frontman en gitarist van de rockband Black Country, New Road. Zijn muzikale stijl wordt gekenmerkt door een combinatie van artrock, post-punk en alt-folk.</p><p><br></p><p><strong>Anaïs</strong></p><p><br></p>",
+   "artistImage": {
+    "assetFileName": "images/event/artist/1780658127523-PHOEBE BRIDGERS BY OLOF GRIND FINAL PRESS-1 (Groot).jpg"
+   },
+   "backgroundImage": {
+    "assetFileName": "images/event/background/1780658148695-PHOEBE BRIDGERS BY OLOF GRIND FINAL PRESS-1 (Groot).jpg"
+   },
+   "privateEvent": 0,
+   "visible": 1
+  },
+  {
+   "id": "b30f0c88-4660-4b90-9e60-4c81b6654755",
+   "showDate": "2026-12-11 19:00:00",
+   "showTimeUnknown": 0,
+   "showState": "OnSale",
+   "salesUrl": "https://www.ticketmaster.nl/artist/muziekfeest-van-het-jaar-tickets/989900",
+   "salesStartDate": "2025-12-12 20:00:00",
+   "performerName": "Muziekfeest van het Jaar",
+   "event": {
+    "title": "Live in de Ziggo Dome 2026",
+    "youtubeUrl": "https://www.youtube.com/watch?v=OaiCpOuaR1g&list=RDOaiCpOuaR1g&start_radio=1"
+   },
+   "genres": "[{\"name\": \"Nederlands\", \"name_en\": \"Dutch\"}]",
+   "description": "<p><strong>Muziekfeest van het Jaar keert op vrijdag 11, zaterdag 12 &amp; zondagmiddag 13 december 2026 terug naar de Ziggo Dome voor een feestelijke achtste editie!</strong></p><p><br></p><p>Het Muziekfeest van het Jaar in de Ziggo Dome is het grootste eindejaars spektakel van Nederland, met muziek van eigen bodem. Van levenslied tot Nederpop, van kroeghits tot de mooiste ballads, op het Muziekfeest van het Jaar hoef je niet te kiezen! De artiesten spelen met een groot symfonisch orkest onder begeleiding van Marcel Fisser. Er worden tijdens het evenement TV opnames gemaakt voor een speciale uitzending tijdens Oud &amp; Nieuw op NPO3.</p><p><br></p><p>Line-up tot nu toe:</p><p>Jan Smit | Yves Berendse | Donnie | Anita Meyer&nbsp;| Samuel Welten</p>",
+   "supportActDescription": "",
+   "artistImage": {
+    "assetFileName": "images/event/artist/1765558248010-MF2026_1080x1920_aangepast.jpg"
+   },
+   "backgroundImage": {
+    "assetFileName": "images/event/background/1765558265925-7X6A0522-Enhanced-NR (1).jpg"
+   },
+   "privateEvent": 0,
+   "visible": 1
+  },
+  {
+   "id": "3344714f-ad0d-457c-9d17-97b94afd5a21",
+   "showDate": "2026-12-12 19:00:00",
+   "showTimeUnknown": 0,
+   "showState": "OnSale",
+   "salesUrl": "https://www.ticketmaster.nl/artist/muziekfeest-van-het-jaar-tickets/989900",
+   "salesStartDate": "2025-12-12 20:00:00",
+   "performerName": "Muziekfeest van het Jaar",
+   "event": {
+    "title": "Live in de Ziggo Dome 2026",
+    "youtubeUrl": "https://www.youtube.com/watch?v=OaiCpOuaR1g&list=RDOaiCpOuaR1g&start_radio=1"
+   },
+   "genres": "[{\"name\": \"Nederlands\", \"name_en\": \"Dutch\"}]",
+   "description": "<p><strong>Muziekfeest van het Jaar keert op vrijdag 11, zaterdag 12 &amp; zondagmiddag 13 december 2026 terug naar de Ziggo Dome voor een feestelijke achtste editie!</strong></p><p><br></p><p>Het Muziekfeest van het Jaar in de Ziggo Dome is het grootste eindejaars spektakel van Nederland, met muziek van eigen bodem. Van levenslied tot Nederpop, van kroeghits tot de mooiste ballads, op het Muziekfeest van het Jaar hoef je niet te kiezen! De artiesten spelen met een groot symfonisch orkest onder begeleiding van Marcel Fisser. Er worden tijdens het evenement TV opnames gemaakt voor een speciale uitzending tijdens Oud &amp; Nieuw op NPO3.</p><p><br></p><p>Line-up tot nu toe:</p><p>Jan Smit |Yves Berendse | Donnie | Anita Meyer&nbsp;| Samuel Welten</p>",
+   "supportActDescription": "",
+   "artistImage": {
+    "assetFileName": "images/event/artist/1765558248010-MF2026_1080x1920_aangepast.jpg"
+   },
+   "backgroundImage": {
+    "assetFileName": "images/event/background/1765558265925-7X6A0522-Enhanced-NR (1).jpg"
+   },
+   "privateEvent": 0,
+   "visible": 1
+  },
+  {
+   "id": "b2affc90-31bb-4bff-806e-4a1c97c345ed",
+   "showDate": "2026-12-13 15:00:00",
+   "showTimeUnknown": 0,
+   "showState": "OnSale",
+   "salesUrl": "https://www.ticketmaster.nl/artist/muziekfeest-van-het-jaar-tickets/989900",
+   "salesStartDate": "2026-01-29 11:00:00",
+   "performerName": "Muziekfeest van het Jaar",
+   "event": {
+    "title": "Live in de Ziggo Dome 2026",
+    "youtubeUrl": "https://www.youtube.com/watch?v=OaiCpOuaR1g&list=RDOaiCpOuaR1g&start_radio=1"
+   },
+   "genres": "[{\"name\": \"Nederlands\", \"name_en\": \"Dutch\"}]",
+   "description": "<p><strong>Muziekfeest van het Jaar keert op 11, 12 &amp; 13 december 2026 terug naar de Ziggo Dome voor een feestelijke achtste editie!</strong></p><p><br></p><p>Het Muziekfeest van het Jaar in de Ziggo Dome is het grootste eindejaars spektakel van Nederland, met muziek van eigen bodem. Van levenslied tot Nederpop, van kroeghits tot de mooiste ballads, op het Muziekfeest van het Jaar hoef je niet te kiezen! De artiesten spelen met een groot symfonisch orkest onder begeleiding van Marcel Fisser. Er worden tijdens het evenement TV opnames gemaakt voor een speciale uitzending tijdens Oud &amp; Nieuw op NPO3.</p><p><br></p><p><strong>Line-up tot nu toe:</strong></p><p>Jan Smit |Yves Berendse | Donnie | Anita Meyer| Robert van Hemert | Sven Versteeg | Samuel Welten</p>",
+   "supportActDescription": "",
+   "artistImage": {
+    "assetFileName": "images/event/artist/1765558248010-MF2026_1080x1920_aangepast.jpg"
+   },
+   "backgroundImage": {
+    "assetFileName": "images/event/background/1765558265925-7X6A0522-Enhanced-NR (1).jpg"
+   },
+   "privateEvent": 0,
+   "visible": 1
+  },
+  {
+   "id": "d45549ec-d5cf-42be-a351-3de9e30afaae",
+   "showDate": "2026-12-14 19:00:00",
+   "showTimeUnknown": 0,
+   "showState": "NoSale",
+   "salesUrl": "https://support.bidfood.nl/bidfood-horecafeest-2026",
+   "salesStartDate": "2026-08-21 11:28:00",
+   "performerName": "Bidfood Horecafeest van het Jaar",
+   "event": {
+    "title": "Het grootste personeelsfeest in de horeca 2026",
+    "youtubeUrl": "https://www.youtube.com/watch?v=RPfNWU0INlI"
+   },
+   "genres": "[{\"name\": \"Nederlands\", \"name_en\": \"Dutch\"}]",
+   "description": "<p><strong>Het is tijd om de rollen om te draaien. Na al die ramvolle piekuren, de hectiek achter de pas en het continu 'aanstaan' voor anderen, is deze avond speciaal gereserveerd voor wie de horeca écht een warm hart toedraagt: jullie dus. &nbsp;<em>Let op: dit is een 16+ evenement.</em></strong></p><p>Bidfood presenteert met trots het Horecafeest van het jaar in de Ziggo Dome. Eén avond waarop je niet hoeft te rennen, maar samen met je complete team, je chef, je shiftleader en duizenden vakgenoten uit het hele land volop kunt genieten. Geen bonnenprinter die piept, geen voor- of achterkant, geen concurrentie. Enkel muziek, goede vibes en de energie die je alleen begrijpt als je het meemaakt.</p><p> </p><p> Samen vieren we de horeca.</p><p> De maandag is van ons.</p><p> De maandag is horeca.</p><p><br></p>",
+   "supportActDescription": "",
+   "artistImage": {
+    "assetFileName": "images/event/artist/1787212348250-Bidfood_Persfoto.png"
+   },
+   "backgroundImage": {
+    "assetFileName": "images/event/background/1787212357815-Bidfood_Persfoto.png"
+   },
+   "privateEvent": 0,
+   "visible": 1
+  },
+  {
+   "id": "93e14f12-e933-47cb-95e2-2f0a8fd17315",
+   "showDate": "2026-12-16 19:00:00",
+   "showTimeUnknown": 0,
+   "showState": "OnSale",
+   "salesUrl": "https://friendlyfire.nl/events/sbmg/",
+   "salesStartDate": "2026-05-29 08:00:00",
+   "performerName": "SBMG",
+   "event": {
+    "title": "Live in de Ziggo Dome 2026",
+    "youtubeUrl": "https://www.youtube.com/watch?v=KAPh3eYhAAw&list=RDKAPh3eYhAAw&start_radio=1"
+   },
+   "genres": "[{\"name\": \"Hiphop\", \"name_en\": \"Hiphop\"},{\"name\": \"Nederlands\", \"name_en\": \"Dutch\"}]",
+   "description": "<p><strong>SBMG staat 5 &amp; 16 december 2026 voor het eerst in jaren het podium voor hun grootste show ooit!</strong></p><p><br></p><p>Nederlandse hiphopfans moesten er jaren op wachten, maar de langverwachte terugkeer is eindelijk in zicht. Chivv en Henkie T delen op zaterdag 5 december 2026 voor het eerst in jaren het podium als SBMG, en wel voor hun grootste show ooit. 'SBMG in Ziggo Dome' belooft een nostalgische trip langs hun hits, rauwe straat-energie en melodieuze refreinen. Een beloning voor de fans, een mijlpaal voor de urban- en hiphopcultuur.&nbsp;</p><p><br></p><p>SBMG is een van de meest invloedrijke en herkenbare acts binnen de Nederlandse urban scene. Samen vormen Chivv en Henkie T een duo dat meer vertegenwoordigt dan alleen muziek.</p>",
+   "supportActDescription": "",
+   "artistImage": {
+    "assetFileName": "images/event/artist/1779780185707-Persfoto 1 (Groot).jpg"
+   },
+   "backgroundImage": {
+    "assetFileName": "images/event/background/1779780195274-Persfoto 1 landscape (Groot).jpg"
+   },
+   "privateEvent": 0,
+   "visible": 1
+  },
+  {
+   "id": "e112a6da-4458-4723-b703-44b659bb94cf",
+   "showDate": "2026-12-18 19:00:00",
+   "showTimeUnknown": 0,
+   "showState": "OnSale",
+   "salesUrl": "https://www.ticketmaster.nl/event/993362169",
+   "salesStartDate": "2026-06-05 08:00:00",
+   "performerName": "Najib & Roué",
+   "event": {
+    "title": "Alles is comedy",
+    "youtubeUrl": "https://youtu.be/BiH7QIa4KGo"
+   },
+   "genres": "[{\"name\": \"Comedy\", \"name_en\": \"Comedy\"},{\"name\": \"Show\", \"name_en\": \"Show\"},{\"name\": \"Familie\", \"name_en\": \"Family\"}]",
+   "description": "<p><strong>De theatershow van<em> Alles is Comedy</em> met Najib Amhali en Roué Verveer&nbsp;voegt een bijzondere afsluiting toe aan de tour: een spectaculaire Grand Finale in de Ziggo Dome!</strong></p><p>In hun vorige solo tours bewezen Amhali en Verveer al dat hun kracht verder gaat dan alleen comedy. Op het podium combineren zij scherpe humor met persoonlijke verhalen over ouder worden, vaderschap, succes en de onzekerheden die daarbij horen. Verhalen die eerlijk, herkenbaar en oprecht zijn,  alsof je luistert naar een gesprek tussen twee goede vrienden. Diezelfde intimiteit nemen zij mee naar de Ziggo Dome. Bezoekers kunnen rekenen op stand-up comedy van het hoogste niveau, gecombineerd met muziek, een aantal verrassingen en een unieke mix van culturen en stijlen. Marokkaanse gastvrijheid, Surinaamse gezelligheid en Hollandse nuchterheid komen samen in één avond vol humor, herkenning en verbinding. Een show waarin alles mag en niets moet.</p>",
+   "supportActDescription": "",
+   "artistImage": {
+    "assetFileName": "images/event/artist/1780475776577-1. Persfoto_Najib&Roue-MartinHols_R5II8175-CR3.jpg"
+   },
+   "backgroundImage": {
+    "assetFileName": "images/event/background/1780475769874-1. Persfoto_Najib&Roue-MartinHols_R5II8175-CR3.jpg"
+   },
+   "privateEvent": 0,
+   "visible": 1
+  },
+  {
+   "id": "fb16453d-4157-48e8-a63c-e3a0226a1e66",
+   "showDate": "2026-12-19 19:00:00",
+   "showTimeUnknown": 0,
+   "showState": "OnSale",
+   "salesUrl": "https://www.ticketmaster.nl/event/127930605",
+   "salesStartDate": "2026-03-13 09:00:00",
+   "performerName": "Beach Boys' Best & Metropole Orkest",
+   "event": {
+    "title": "Good Vibrations in de Ziggo Dome",
+    "youtubeUrl": "https://www.youtube.com/watch?v=4PTtz9xJR0A&list=RD4PTtz9xJR0A&start_radio=1"
+   },
+   "genres": "[{\"name\": \"Pop\", \"name_en\": \"Pop\"},{\"name\": \"Rock\", \"name_en\": \"Rock\"}]",
+   "description": "<p><strong>Beach Boys’ Best delen op zaterdag 19 december het podium met het Metropole Orkest in de Ziggo Dome, voor een unieke en eenmalige avond vol Good Vibrations.</strong></p><p><br></p><p>De grote winnaar van The Tribute: Battle of the Bands 2026, Beach Boys’ Best, staat op zaterdagavond 19 december 2026 in de Ziggo Dome Amsterdam met hun eerste eigen soloshow. Na hun indrukwekkende winst, een succesvolle theatertour en een uitverkochte clubtour zijn ze klaar voor een unieke avond vol harmonie, muzikaliteit en de tijdloze muziek van The Beach Boys.</p><p><br></p><p>Voor deze bijzondere show krijgen ze versterking van het Metropole Orkest. Maar liefst 50 musici sluiten aan om samen de iconische sound van The Beach Boys tot leven te brengen in een groots opgezette liveshow. Het resultaat is een avond waarin alles samenkomt: de meerstemmigheid, de orkestrale klanken en de nummers die generaties lang geliefd zijn. Good Vibrations wordt een avond waarop je geniet van nummers die al jaren in je hoofd zitten.&nbsp;&nbsp;</p><p><br></p><p>Aldus het Metropole Orkest:</p><p> “Wij kijken enorm uit naar deze avond, muzikaal zijn Beach Boys’ Best van uitzonderlijk niveau. Nagenoeg perfectie. Het toevoegen van maar liefst 50 musici zal zorgen voor een nieuwe dimensie.”</p><p><br></p>",
+   "supportActDescription": "",
+   "artistImage": {
+    "assetFileName": "images/event/artist/1782289998853-BeachBoysBest.jpg"
+   },
+   "backgroundImage": {
+    "assetFileName": "images/event/background/1773136857895-BACKGROUND_168-web.jpg"
+   },
+   "privateEvent": 0,
+   "visible": 1
+  },
+  {
+   "id": "3d7544ec-32b8-4c24-bdcb-3f1f5ee29f5f",
+   "showDate": "2026-12-20 14:00:00",
+   "showTimeUnknown": 0,
+   "showState": "OnSale",
+   "salesUrl": "https://tickets.medialane.nl/artist/disney-in-concert/",
+   "salesStartDate": "2026-02-12 09:00:00",
+   "performerName": "Disney in Concert",
+   "event": {
+    "title": "Wonderful Worlds",
+    "youtubeUrl": "https://www.youtube.com/watch?v=4hb8Yt2c3nQ"
+   },
+   "genres": "[{\"name\": \"Familie\", \"name_en\": \"Family\"},{\"name\": \"Klassiek\", \"name_en\": \"Classic\"}]",
+   "description": "<p><strong>Disney in Concert keert&nbsp;op 20 december 2026 (15:00 en 19:00 uur)&nbsp;terug naar de Ziggo Dome met&nbsp;een gloednieuwe, betoverende show: Wonderful Worlds!&nbsp;Laat je ook deze kerstvakantie onderdompelen in de&nbsp;magie van Disney.</strong></p><p>&nbsp;</p><p>Disney in Concert&nbsp;brengt&nbsp;de legendarische Disney‑films tot leven.&nbsp;Alle&nbsp;hits uit het rijke Disney‑repertoire worden&nbsp;gezongen&nbsp;door&nbsp;de beste artiesten, begeleid door een&nbsp;groot&nbsp;live orkest. De&nbsp;iconische filmscènes&nbsp;op het grote scherm nemen je&nbsp;mee op een onvergetelijke reis door de magische werelden van Disney.</p>",
+   "supportActDescription": "",
+   "artistImage": {
+    "assetFileName": "images/event/artist/1770817562870-DSC_6608.jpg"
+   },
+   "backgroundImage": {
+    "assetFileName": "images/event/background/1770817594202-DIC WONDERFUL WORLDS 1920X1080.png"
+   },
+   "privateEvent": 0,
+   "visible": 1
+  },
+  {
+   "id": "e036a8a5-2f03-46f5-80bc-310cda78a526",
+   "showDate": "2026-12-20 18:00:00",
+   "showTimeUnknown": 0,
+   "showState": "OnSale",
+   "salesUrl": "https://tickets.medialane.nl/artist/disney-in-concert/",
+   "salesStartDate": "2026-02-12 09:00:00",
+   "performerName": "Disney in Concert",
+   "event": {
+    "title": "Wonderful Worlds",
+    "youtubeUrl": "https://www.youtube.com/watch?v=4hb8Yt2c3nQ"
+   },
+   "genres": "[{\"name\": \"Familie\", \"name_en\": \"Family\"},{\"name\": \"Klassiek\", \"name_en\": \"Classic\"}]",
+   "description": "<p><strong>Disney in Concert keert op 20 december 2026 (15:00 en 19:00 uur) terug naar de Ziggo Dome met een gloednieuwe, betoverende show: Wonderful Worlds! Laat je ook deze kerstvakantie onderdompelen in de magie van Disney.</strong></p><p>&nbsp;</p><p>Disney in Concert brengt de legendarische Disney‑films tot leven. Alle hits uit het rijke Disney‑repertoire worden gezongen door de beste artiesten, begeleid door een groot live orkest. De iconische filmscènes op het grote scherm nemen je mee op een onvergetelijke reis door de magische werelden van Disney.</p>",
+   "supportActDescription": "",
+   "artistImage": {
+    "assetFileName": "images/event/artist/1770817562870-DSC_6608.jpg"
+   },
+   "backgroundImage": {
+    "assetFileName": "images/event/background/1770817594202-DIC WONDERFUL WORLDS 1920X1080.png"
+   },
+   "privateEvent": 0,
+   "visible": 1
+  },
+  {
+   "id": "9bc7ad1c-84af-4701-8b8b-627b807934cd",
+   "showDate": "2027-01-09 18:00:00",
+   "showTimeUnknown": 0,
+   "showState": "OnSale",
+   "salesUrl": "https://tix.andrerieu.com/Amsterdam_09-01-2027",
+   "salesStartDate": "2026-01-09 11:00:00",
+   "performerName": "André Rieu",
+   "event": {
+    "title": "Nieuwjaarsconcert 2027",
+    "youtubeUrl": "https://www.youtube.com/watch?v=KdIhq1tb8Co"
+   },
+   "genres": "[{\"name\": \"Klassiek\", \"name_en\": \"Classic\"}]",
+   "description": "<p><strong>De Koning van de Wals keert terug! Op zaterdag 9 januari 2027 staat André Rieu traditiegetrouw met zijn Nieuwjaarsconcert in de Ziggo Dome.&nbsp;</strong></p><p><br></p><p>Samen met zijn Johann Strauss Orkest, koor en internationale solisten zal André Rieu de Ziggo Dome in 2027 omtoveren tot een betoverende balzaal, gevuld met vrolijke melodieën, adembenemende optredens en hartverwarmende momenten. Zijn unieke mix van klassieke meesterwerken, walsen en populaire melodieën staat garant voor een onvergetelijke start van het nieuwe jaar. </p><p><br></p><p>Met het Johann Strauss Orkest, dat hij in 1987 oprichtte, brengt André Rieu klassieke muziek bij miljoenen mensen over de hele wereld. Met meer dan 40 miljoen verkochte albums, 700.000 concertbezoekers per jaar, talloze internationale onderscheidingen en uitverkochte tournees op alle continenten, spreekt zijn succes voor zich. Rieu staat bekend om zijn charismatische optredens, zijn humor en zijn vermogen om mensen van alle leeftijden te ontroeren met prachtige muziek.&nbsp;</p>",
+   "supportActDescription": "",
+   "artistImage": {
+    "assetFileName": "images/event/artist/1767949501241-Website-Andre_Rieu_Vrijthof_20250710_01262 Â© AndrÃ© Rieu Productions.jpg"
+   },
+   "backgroundImage": {
+    "assetFileName": "images/event/background/1767949515307-Website-AR-Antwerpen2027-4961x3508px.jpg"
+   },
+   "privateEvent": 0,
+   "visible": 1
+  },
+  {
+   "id": "eabea2f5-b7a4-492d-a008-acf4b9289b0a",
+   "showDate": "2027-01-15 19:00:00",
+   "showTimeUnknown": 0,
+   "showState": "OnSale",
+   "salesUrl": "https://www.ticketmaster.nl/artist/nothing-but-thieves-tickets/935443",
+   "salesStartDate": "2026-06-05 09:00:00",
+   "performerName": "Nothing But Thieves",
+   "event": {
+    "title": "The Stray Dogs Tour",
+    "youtubeUrl": "https://www.youtube.com/watch?v=PGj1nF2SMI8&list=RDPGj1nF2SMI8&start_radio=1"
+   },
+   "genres": "[{\"name\": \"Pop\", \"name_en\": \"Pop\"},{\"name\": \"Indie\", \"name_en\": \"Indie\"},{\"name\": \"Rock\", \"name_en\": \"Rock\"}]",
+   "description": "<p><strong>Op 15 en 16 januari 2027 staat Nothing But Thieves weer in de Ziggo Dome</strong></p><p>Nothing But Thieves is een populaire alternatieve rockband uit Southend-on-Sea, Engeland, opgericht in 2012. Ze staan bekend om hun energieke mix van indierock en pop, en de herkenbare, vaak loepzuivere hoge vocalen van frontman Conor Mason. Het nieuwe album ‘Stray Dogs’ spreekt over de kracht van gemeenschap, verbondenheid en de collectieve gedeelde ervaringen die buitenstaanders verenigen, inclusief de ‘Stray Dogs’ in de wereld van de band zelf.</p><p><br></p>",
+   "supportActDescription": "",
+   "artistImage": {
+    "assetFileName": "images/event/artist/1779627941349-Persfoto_NothingButThieves (Groot).jpg"
+   },
+   "backgroundImage": {
+    "assetFileName": "images/event/background/1779627972401-Persfoto_NothingButThieves (Groot).jpg"
+   },
+   "privateEvent": 0,
+   "visible": 1
+  },
+  {
+   "id": "9a1ecf64-aaa6-43ab-8dbe-6e1b5f608d97",
+   "showDate": "2027-01-16 19:00:00",
+   "showTimeUnknown": 0,
+   "showState": "OnSale",
+   "salesUrl": "https://www.ticketmaster.nl/artist/nothing-but-thieves-tickets/935443",
+   "salesStartDate": "2026-06-05 09:00:00",
+   "performerName": "Nothing But Thieves",
+   "event": {
+    "title": "The Stray Dogs Tour",
+    "youtubeUrl": "https://www.youtube.com/watch?v=PGj1nF2SMI8&list=RDPGj1nF2SMI8&start_radio=1"
+   },
+   "genres": "[{\"name\": \"Pop\", \"name_en\": \"Pop\"},{\"name\": \"Indie\", \"name_en\": \"Indie\"},{\"name\": \"Rock\", \"name_en\": \"Rock\"}]",
+   "description": "<p><strong>Op 15 en 16 januari 2027 staat Nothing But Thieves weer in de Ziggo Dome</strong></p><p>Nothing But Thieves is een populaire alternatieve rockband uit Southend-on-Sea, Engeland, opgericht in 2012. Ze staan bekend om hun energieke mix van indierock en pop, en de herkenbare, vaak loepzuivere hoge vocalen van frontman Conor Mason. Het nieuwe album ‘Stray Dogs’ spreekt over de kracht van gemeenschap, verbondenheid en de collectieve gedeelde ervaringen die buitenstaanders verenigen, inclusief de ‘Stray Dogs’ in de wereld van de band zelf.</p><p><br></p>",
+   "supportActDescription": "",
+   "artistImage": {
+    "assetFileName": "images/event/artist/1779627941349-Persfoto_NothingButThieves (Groot).jpg"
+   },
+   "backgroundImage": {
+    "assetFileName": "images/event/background/1779627972401-Persfoto_NothingButThieves (Groot).jpg"
+   },
+   "privateEvent": 0,
+   "visible": 1
+  },
+  {
+   "id": "a461a4cb-0a87-44de-927f-3147b1f7718e",
+   "showDate": "2027-01-17 19:00:00",
+   "showTimeUnknown": 0,
+   "showState": "OnSale",
+   "salesUrl": "https://www.ticketmaster.nl/event/1541060871",
+   "salesStartDate": "2026-09-25 08:00:00",
+   "performerName": "WWE",
+   "event": {
+    "title": "Road to Royal Rumble Tour",
+    "youtubeUrl": "https://www.youtube.com/watch?v=izHCrwaDQII"
+   },
+   "genres": "[{\"name\": \"Sport\", \"name_en\": \"Sport\"}]",
+   "description": "<p><strong>Op zondag 17 januari 2027 keert WWE terug naar Nederland met Road to Royal Rumble in de Ziggo Dome in Amsterdam. Het is de eerste keer in meer dan twee jaar dat WWE weer een show in Nederland organiseert.</strong></p><p>De show maakt deel uit van de Europese Road to Royal Rumble Tour, waarin de WWE Superstars zich opmaken voor Royal Rumble, een van de grootste Premium Live Events van het jaar. </p><p><br></p><p>Tijdens WWE Road to Royal Rumble kunnen fans een spectaculaire avond vol live WWE-actie verwachten. Onder anderen Undisputed WWE Champion CM Punk, Women’s World Champion Liv Morgan, Cody Rhodes, Seth “Freakin” Rollins, Rhea Ripley, Becky Lynch, Finn Bálor, Jey Uso, LA Knight, GUNTHER, Jade Cargill, Trick Williams en Oba Femi zijn aangekondigd voor de Europese tour.* Meer informatie over de kaartverkoop voor de show in Amsterdam volgt op een later moment. Fans die toegang willen tot de exclusieve presale kunnen zich registreren via de aanmeld knop.</p><p><br></p><p><em>*De aangekondigde WWE Superstars kunnen worden gewijzigd.</em></p>",
+   "supportActDescription": "",
+   "artistImage": {
+    "assetFileName": "images/event/artist/1786966696076-WWE_Road to Rumble_1920x1080.jpg"
+   },
+   "backgroundImage": {
+    "assetFileName": "images/event/background/1786966706528-WWE_Road to Rumble_1920x1080.jpg"
+   },
+   "privateEvent": 0,
+   "visible": 1
+  }
+ ],
+ "pagination": {
+  "total": "124",
+  "limit": 50,
+  "offset": 0,
+  "hasMore": true
+ }
+}

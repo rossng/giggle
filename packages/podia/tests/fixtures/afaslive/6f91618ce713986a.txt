@@ -1,0 +1,2280 @@
+<div class="agendaV2-list">
+<div class="agendaV2-month" id="2026_10">
+<div class="row"><h3>oktober</h3></div>
+</div>
+<article id="_agenda_3528316" class="agendaV2-item st-soldout">
+<div class="row inner">
+<a href="https://www.afaslive.nl/agenda/racoon-3" class="rowBadges"><em class="today">Vandaag</em></a>
+<a href="https://www.afaslive.nl/agenda/racoon-3" class="rowImg" tabindex="-1" aria-hidden="true">
+<figure><img src="https://www.afaslive.nl/files/Agenda/2026/Oktober/Racoon.png" alt="Racoon | AFAS Live" loading="lazy"></figure>
+</a>
+<div class="mid">
+<a href="https://www.afaslive.nl/agenda/racoon-3" class="rowMain">
+<h4>Racoon</h4>
+<p class="date">
+<span class="d">zaterdag 17 oktober 2026</span>
+</p>
+</a>
+<div class="btns">
+<a href="https://agenda.paylogic.com/6e858217c6af4771b3376a9f8dce0424" target="_blank" rel="noopener" class="btnV2 premium"><span class="lbl">Resale platform</span></a>
+<a href="https://www.ticketmaster.nl/event/1183219791" target="_blank" rel="noopener" class="btnV2 premium"><span class="lbl">Premium Tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+</div>
+</div>
+<a href="https://www.afaslive.nl/agenda/racoon-3" class="statusLabel soldout"><b>Uitverkocht!</b></a>
+</div>
+</article>
+<article id="_agenda_5451762" class="agendaV2-item alt st-soldout">
+<div class="row inner">
+<a href="https://www.afaslive.nl/agenda/jean-michel-jarre" class="rowImg" tabindex="-1" aria-hidden="true">
+<figure><img src="https://www.afaslive.nl/files/Agenda/2026/Oktober/Jean-Michel-Jarre.jpg" alt="Jean-Michel Jarre | AFAS Live" loading="lazy"></figure>
+</a>
+<div class="mid">
+<a href="https://www.afaslive.nl/agenda/jean-michel-jarre" class="rowMain">
+<h4>Jean-Michel Jarre</h4>
+<p class="date">
+<span class="d">woensdag 21 oktober 2026</span>
+</p>
+</a>
+<div class="btns">
+</div>
+</div>
+<a href="https://www.afaslive.nl/agenda/jean-michel-jarre" class="statusLabel soldout"><b>Uitverkocht!</b></a>
+</div>
+</article>
+<article id="_agenda_6290923" class="agendaV2-item st-none">
+<div class="row inner">
+<a href="https://www.afaslive.nl/agenda/stmpd-10yrs-ade" class="rowImg" tabindex="-1" aria-hidden="true">
+<figure><img src="https://www.afaslive.nl/files/Agenda/2026/Oktober/STMPD-Records.jpg" alt="10 YEARS OF STMPD RCRDS - ADE | AFAS Live" loading="lazy"></figure>
+</a>
+<div class="mid">
+<a href="https://www.afaslive.nl/agenda/stmpd-10yrs-ade" class="rowMain">
+<h4>10 YEARS OF STMPD RCRDS - ADE</h4>
+<p class="date">
+<span class="d">donderdag 22 oktober 2026</span>
+</p>
+</a>
+<div class="btns">
+<a href="https://www.ticketmaster.nl/event/1718475544" target="_blank" rel="noopener" class="btnV2 tickets"><span class="lbl">tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+<a href="https://www.ticketmaster.nl/event/785096731" target="_blank" rel="noopener" class="btnV2 premium"><span class="lbl">Premium Standing Tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+</div>
+</div>
+</div>
+</article>
+<article id="_agenda_5788638" class="agendaV2-item alt st-none">
+<div class="row inner">
+<a href="https://www.afaslive.nl/agenda/unreal-by-day-x-cloudy-2" class="rowImg" tabindex="-1" aria-hidden="true">
+<figure><img src="https://www.afaslive.nl/files/Agenda/2026/Oktober/Unreal-Cloudy.jpg" alt="UNREAL BY DAY x CLOUDY | AFAS Live" loading="lazy"></figure>
+</a>
+<div class="mid">
+<a href="https://www.afaslive.nl/agenda/unreal-by-day-x-cloudy-2" class="rowMain">
+<h4>UNREAL BY DAY x CLOUDY</h4>
+<p class="date">
+<span class="d">vrijdag 23 oktober 2026</span>
+</p>
+</a>
+<div class="btns">
+<a href="https://shop.paylogic.com/24bf0785c53e4894b36dde5caa0405f7" target="_blank" rel="noopener" class="btnV2 tickets"><span class="lbl">tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+</div>
+</div>
+</div>
+</article>
+<article id="_agenda_5788518" class="agendaV2-item st-none">
+<div class="row inner">
+<a href="https://www.afaslive.nl/agenda/unreal-by-day-x-cloudy" class="rowImg" tabindex="-1" aria-hidden="true">
+<figure><img src="https://www.afaslive.nl/files/Agenda/2026/Oktober/Unreal-KUKO.jpg" alt="UNREAL BY NIGHT x KUKO ALL NIGHT LONG | AFAS Live" loading="lazy"></figure>
+</a>
+<div class="mid">
+<a href="https://www.afaslive.nl/agenda/unreal-by-day-x-cloudy" class="rowMain">
+<h4>UNREAL BY NIGHT x KUKO ALL NIGHT LONG</h4>
+<p class="date">
+<span class="d">vrijdag 23 oktober 2026</span>
+</p>
+</a>
+<div class="btns">
+<a href="https://shop.paylogic.com/77827c1dd73249f99b892f765fa5a6cd" target="_blank" rel="noopener" class="btnV2 tickets"><span class="lbl">tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+</div>
+</div>
+</div>
+</article>
+<article id="_agenda_6292004" class="agendaV2-item alt st-none">
+<div class="row inner">
+<a href="https://www.afaslive.nl/agenda/verknipt-ade-special" class="rowImg" tabindex="-1" aria-hidden="true">
+<figure><img src="https://www.afaslive.nl/files/Agenda/2027/02.-februari/Verknipt-zaterdag.jpg" alt="Verknipt ADE Saturday | AFAS Live" loading="lazy"></figure>
+</a>
+<div class="mid">
+<a href="https://www.afaslive.nl/agenda/verknipt-ade-special" class="rowMain">
+<h4>Verknipt ADE Saturday</h4>
+<p class="date">
+<span class="d">zaterdag 24 oktober 2026</span>
+</p>
+</a>
+<div class="btns">
+<a href="https://www.verknipt.org/verknipt-ade-special-saturday/tickets/" target="_blank" rel="noopener" class="btnV2 tickets"><span class="lbl">tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+</div>
+</div>
+</div>
+</article>
+<article id="_agenda_6292635" class="agendaV2-item st-none">
+<div class="row inner">
+<a href="https://www.afaslive.nl/agenda/zazu-presents-soley" class="rowImg" tabindex="-1" aria-hidden="true">
+<figure><img src="https://www.afaslive.nl/files/Agenda/2026/Oktober/Zazu-Presents-Soley.jpg" alt="ZAZU Presents: SOLÈY | AFAS Live" loading="lazy"></figure>
+</a>
+<div class="mid">
+<a href="https://www.afaslive.nl/agenda/zazu-presents-soley" class="rowMain">
+<h4>ZAZU Presents: SOLÈY</h4>
+<p class="date">
+<span class="d">zaterdag 24 oktober 2026</span>
+</p>
+</a>
+<div class="btns">
+<a href="https://shop.weeztix.com/a1cd3d83-efa6-11f0-a9cb-7e126431635e/tickets?shop_code=qqja3dqq&amp;original_referer=https%3A%2F%2Fdashboard.weeztix.com%2F&amp;event=a33b2c42-0b8c-4c6a-af44-6ee53c3a0f7b" target="_blank" rel="noopener" class="btnV2 tickets"><span class="lbl">tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+</div>
+</div>
+</div>
+</article>
+<article id="_agenda_6292020" class="agendaV2-item alt st-none">
+<div class="row inner">
+<a href="https://www.afaslive.nl/agenda/verknipt-ade-special-2" class="rowImg" tabindex="-1" aria-hidden="true">
+<figure><img src="https://www.afaslive.nl/files/Agenda/2027/02.-februari/Verknipt-zondag.jpg" alt="Verknipt ADE Sunday | AFAS Live" loading="lazy"></figure>
+</a>
+<div class="mid">
+<a href="https://www.afaslive.nl/agenda/verknipt-ade-special-2" class="rowMain">
+<h4>Verknipt ADE Sunday</h4>
+<p class="date">
+<span class="d">zondag 25 oktober 2026</span>
+</p>
+</a>
+<div class="btns">
+<a href="https://www.verknipt.org/verknipt-ade-special-sunday/tickets/" target="_blank" rel="noopener" class="btnV2 tickets"><span class="lbl">tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+</div>
+</div>
+</div>
+</article>
+<article id="_agenda_6296380" class="agendaV2-item st-canceled">
+<div class="row inner">
+<a href="https://www.afaslive.nl/agenda/d-block-europe-french-montana" class="rowImg" tabindex="-1" aria-hidden="true">
+<figure><img src="https://www.afaslive.nl/files/Agenda/2026/Oktober/D-Block-Europe-x-French-Montana.jpg" alt="D-Block Europe x French Montana | AFAS Live" loading="lazy"></figure>
+</a>
+<div class="mid">
+<a href="https://www.afaslive.nl/agenda/d-block-europe-french-montana" class="rowMain">
+<h4>D-Block Europe x French Montana</h4>
+<p class="date">
+<span class="d strike">vrijdag 30 oktober 2026</span>
+</p>
+</a>
+<div class="btns">
+<a href="https://www.afaslive.nl/agenda/d-block-europe-french-montana" class="btnV2 info"><span class="lbl">Meer info</span></a>
+</div>
+</div>
+<a href="https://www.afaslive.nl/agenda/d-block-europe-french-montana" class="statusLabel canceled"><i class="ri-close-line"></i> <em>Geannuleerd</em></a>
+</div>
+</article>
+<article id="_agenda_2341866" class="agendaV2-item alt st-none">
+<div class="row inner">
+<a href="https://www.afaslive.nl/agenda/treasure" class="rowImg" tabindex="-1" aria-hidden="true">
+<figure><img src="https://www.afaslive.nl/files/Agenda/2026/Oktober/Treasure.jpg" alt="Treasure | AFAS Live" loading="lazy"></figure>
+</a>
+<div class="mid">
+<a href="https://www.afaslive.nl/agenda/treasure" class="rowMain">
+<h4>Treasure</h4>
+<p class="date">
+<span class="d">zaterdag 31 oktober 2026</span>
+</p>
+</a>
+<div class="btns">
+<a href="https://www.ticketmaster.nl/event/treasure-in-afas-live-tickets/1462060349?language=en-us" target="_blank" rel="noopener" class="btnV2 tickets"><span class="lbl">tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+<a href="https://www.ticketmaster.nl/event/1276707262" target="_blank" rel="noopener" class="btnV2 premium"><span class="lbl">Premium Tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+<a href="https://www.afaslive.nl/skylounge?show=2341866#booking" class="btnV2 sky"> <span class="lbl">Reserveer de Sky Lounge</span></a>
+</div>
+</div>
+</div>
+</article>
+<div class="agendaV2-month" id="2026_11">
+<div class="row"><h3>november</h3></div>
+</div>
+<article id="_agenda_1345930" class="agendaV2-item st-none">
+<div class="row inner">
+<a href="https://www.afaslive.nl/agenda/tokio-hotel" class="rowImg" tabindex="-1" aria-hidden="true">
+<figure><img src="https://www.afaslive.nl/files/Agenda/2025/11.-November/Tokio-Hotel-Pressphoto.jpg" alt="Tokio Hotel | AFAS Live" loading="lazy"></figure>
+</a>
+<div class="mid">
+<a href="https://www.afaslive.nl/agenda/tokio-hotel" class="rowMain">
+<h4>Tokio Hotel</h4>
+<p class="date">
+<span class="d">woensdag 04 november 2026</span>
+</p>
+</a>
+<div class="btns">
+<a href="https://www.ticketmaster.nl/artist/tokio-hotel-tickets/40563?language=en-us" target="_blank" rel="noopener" class="btnV2 tickets"><span class="lbl">tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+<a href="https://www.ticketmaster.nl/event/225502203" target="_blank" rel="noopener" class="btnV2 premium"><span class="lbl">Premium Tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+<a href="https://www.ticketmaster.nl/event/40908210" target="_blank" rel="noopener" class="btnV2 skytickets"><span class="lbl">Sky Lounge Tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+</div>
+</div>
+</div>
+</article>
+<article id="_agenda_5175628" class="agendaV2-item alt st-none">
+<div class="row inner">
+<a href="https://www.afaslive.nl/agenda/the-kid-laroi-2" class="rowImg" tabindex="-1" aria-hidden="true">
+<figure><img src="https://www.afaslive.nl/files/Agenda/2026/november/The-Kid-Laroi.jpg" alt="The Kid LAROI | AFAS Live" loading="lazy"></figure>
+</a>
+<div class="mid">
+<a href="https://www.afaslive.nl/agenda/the-kid-laroi-2" class="rowMain">
+<h4>The Kid LAROI</h4>
+<p class="date">
+<span class="d">donderdag 05 november 2026</span>
+</p>
+</a>
+<div class="btns">
+<a href="https://www.ticketmaster.nl/artist/the-kid-laroi-tickets/1067142" target="_blank" rel="noopener" class="btnV2 tickets"><span class="lbl">tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+<a href="https://www.ticketmaster.nl/event/36720447" target="_blank" rel="noopener" class="btnV2 premium"><span class="lbl">Premium Tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+</div>
+</div>
+</div>
+</article>
+<article id="_agenda_6292446" class="agendaV2-item st-soldout">
+<div class="row inner">
+<a href="https://www.afaslive.nl/agenda/guus-meeuwis" class="rowImg" tabindex="-1" aria-hidden="true">
+<figure><img src="https://www.afaslive.nl/files/Agenda/2026/november/Guus-Meeuwis.jpg" alt="Guus Meeuwis | AFAS Live" loading="lazy"></figure>
+</a>
+<div class="mid">
+<a href="https://www.afaslive.nl/agenda/guus-meeuwis" class="rowMain">
+<h4>Guus Meeuwis</h4>
+<p class="date">
+<span class="d">vrijdag 06 november 2026</span>
+</p>
+</a>
+<div class="btns">
+<a href="https://www.ticketmaster.nl/event/121176604" target="_blank" rel="noopener" class="btnV2 premium"><span class="lbl">Premium Tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+</div>
+</div>
+<a href="https://www.afaslive.nl/agenda/guus-meeuwis" class="statusLabel soldout"><b>Uitverkocht!</b></a>
+</div>
+</article>
+<article id="_agenda_5952943" class="agendaV2-item alt st-canceled">
+<div class="row inner">
+<a href="https://www.afaslive.nl/agenda/andrehazes" class="rowImg" tabindex="-1" aria-hidden="true">
+<figure><img src="https://www.afaslive.nl/files/Agenda/2026/november/Andre-Hazes-november.jpg" alt="André Hazes | AFAS Live" loading="lazy"></figure>
+</a>
+<div class="mid">
+<a href="https://www.afaslive.nl/agenda/andrehazes" class="rowMain">
+<h4>André Hazes</h4>
+<p class="date">
+<span class="d strike">zaterdag 07 november 2026</span>
+</p>
+</a>
+<div class="btns">
+<a href="https://www.afaslive.nl/agenda/andrehazes" class="btnV2 info"><span class="lbl">Meer info</span></a>
+</div>
+</div>
+<a href="https://www.afaslive.nl/agenda/andrehazes" class="statusLabel canceled"><i class="ri-close-line"></i> <em>Geannuleerd</em></a>
+</div>
+</article>
+<article id="_agenda_6097999" class="agendaV2-item st-none">
+<div class="row inner">
+<a href="https://www.afaslive.nl/agenda/tove-lo" class="rowImg" tabindex="-1" aria-hidden="true">
+<figure><img src="https://www.afaslive.nl/files/Agenda/2026/november/tove-lo.jpg" alt="Tove Lo | AFAS Live" loading="lazy"></figure>
+</a>
+<div class="mid">
+<a href="https://www.afaslive.nl/agenda/tove-lo" class="rowMain">
+<h4>Tove Lo</h4>
+<p class="date">
+<span class="d">donderdag 12 november 2026</span>
+</p>
+</a>
+<div class="btns">
+<a href="https://www.ticketmaster.nl/artist/tove-lo-tickets/942130" target="_blank" rel="noopener" class="btnV2 tickets"><span class="lbl">tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+<a href="https://www.ticketmaster.nl/event/213946742" target="_blank" rel="noopener" class="btnV2 premium"><span class="lbl">Premium tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+<a href="https://www.afaslive.nl/skylounge?show=6097999#booking" class="btnV2 sky"> <span class="lbl">Reserveer de Sky Lounge</span></a>
+</div>
+</div>
+</div>
+</article>
+<article id="_agenda_4120819" class="agendaV2-item alt st-none">
+<div class="row inner">
+<a href="https://www.afaslive.nl/agenda/edsilia-rombley" class="rowImg" tabindex="-1" aria-hidden="true">
+<figure><img src="https://www.afaslive.nl/files/Agenda/2026/november/Edsilia-Rombley-Nieuw.jpg" alt="Edsilia Rombley | AFAS Live" loading="lazy"></figure>
+</a>
+<div class="mid">
+<a href="https://www.afaslive.nl/agenda/edsilia-rombley" class="rowMain">
+<h4>Edsilia Rombley</h4>
+<p class="date">
+<span class="d">zaterdag 14 november 2026</span>
+</p>
+</a>
+<div class="btns">
+<a href="https://ddec1-0-en-ctp.trendmicro.com/wis/clicktime/v1/query?url=https%3a%2f%2fwww.30jaaredsilia.nl&amp;umid=828cc619-2d65-4f22-948a-b87076125caf&amp;rct=1762956742&amp;auth=0d3b13d49c370e598b0d70bb9dccbae8eaca962e-c6c248f9b2a2e08c7d460ddbd4afe26ace886f57" target="_blank" rel="noopener" class="btnV2 tickets"><span class="lbl">tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+<a href="https://www.ticketmaster.nl/event/1609525956" target="_blank" rel="noopener" class="btnV2 premium"><span class="lbl">Premium Tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+<a href="https://www.afaslive.nl/skylounge?show=4120819#booking" class="btnV2 sky"> <span class="lbl">Reserveer de Sky Lounge</span></a>
+</div>
+</div>
+</div>
+</article>
+<article id="_agenda_5237003" class="agendaV2-item st-none">
+<div class="row inner">
+<a href="https://www.afaslive.nl/agenda/hatsunemiku" class="rowImg" tabindex="-1" aria-hidden="true">
+<figure><img src="https://www.afaslive.nl/files/Agenda/2026/november/hatsune-miku.jpg" alt="Hatsune Miku | AFAS Live" loading="lazy"></figure>
+</a>
+<div class="mid">
+<a href="https://www.afaslive.nl/agenda/hatsunemiku" class="rowMain">
+<h4>Hatsune Miku</h4>
+<p class="date">
+<span class="d">zondag 15 november 2026</span>
+</p>
+</a>
+<div class="btns">
+<a href="https://www.ticketmaster.nl/artist/hatsune-miku-tickets/943109" target="_blank" rel="noopener" class="btnV2 tickets"><span class="lbl">tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+<a href="https://www.ticketmaster.nl/event/1924871707" target="_blank" rel="noopener" class="btnV2 premium"><span class="lbl">Premium Tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+<a href="https://www.ticketmaster.nl/event/1157359470" target="_blank" rel="noopener" class="btnV2 skytickets"><span class="lbl">Sky Lounge Tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+</div>
+</div>
+</div>
+</article>
+<article id="_agenda_6233342" class="agendaV2-item alt st-none">
+<div class="row inner">
+<a href="https://www.afaslive.nl/agenda/good-charlotte" class="rowImg" tabindex="-1" aria-hidden="true">
+<figure><img src="https://www.afaslive.nl/files/Agenda/2026/november/good-charlotte_2026-05-22-082919_pgaz.jpg" alt="Good Charlotte | AFAS Live" loading="lazy"></figure>
+</a>
+<div class="mid">
+<a href="https://www.afaslive.nl/agenda/good-charlotte" class="rowMain">
+<h4>Good Charlotte</h4>
+<p class="date">
+<span class="d">maandag 16 november 2026</span>
+</p>
+</a>
+<div class="btns">
+<a href="https://www.ticketmaster.nl/artist/good-charlotte-tickets/12821" target="_blank" rel="noopener" class="btnV2 tickets"><span class="lbl">tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+<a href="https://www.ticketmaster.nl/event/1757809487" target="_blank" rel="noopener" class="btnV2 premium"><span class="lbl">Premium Tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+</div>
+</div>
+</div>
+</article>
+<article id="_agenda_3970748" class="agendaV2-item st-none">
+<div class="row inner">
+<a href="https://www.afaslive.nl/agenda/bloc-party-interpol" class="rowImg" tabindex="-1" aria-hidden="true">
+<figure><img src="https://www.afaslive.nl/files/Agenda/2026/november/bloc-party-interpol-nieuw.jpg" alt="Bloc Party + Interpol | AFAS Live" loading="lazy"></figure>
+</a>
+<div class="mid">
+<a href="https://www.afaslive.nl/agenda/bloc-party-interpol" class="rowMain">
+<h4>Bloc Party + Interpol</h4>
+<p class="date">
+<span class="d">dinsdag 17 november 2026</span>
+</p>
+</a>
+<div class="btns">
+<a href="https://www.ticketmaster.nl/artist/bloc-party-tickets/26945" target="_blank" rel="noopener" class="btnV2 tickets"><span class="lbl">tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+<a href="https://www.ticketmaster.nl/event/202278905" target="_blank" rel="noopener" class="btnV2 premium"><span class="lbl">Premium Tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+<a href="https://www.afaslive.nl/skylounge?show=3970748#booking" class="btnV2 sky"> <span class="lbl">Reserveer de Sky Lounge</span></a>
+</div>
+</div>
+</div>
+</article>
+<article id="_agenda_6296366" class="agendaV2-item alt st-none">
+<div class="row inner">
+<a href="https://www.afaslive.nl/agenda/kneecap-" class="rowImg" tabindex="-1" aria-hidden="true">
+<figure><img src="https://www.afaslive.nl/files/Agenda/2026/november/kneecap-press-photo.jpg" alt="KNEECAP | AFAS Live" loading="lazy"></figure>
+</a>
+<div class="mid">
+<a href="https://www.afaslive.nl/agenda/kneecap-" class="rowMain">
+<h4>KNEECAP</h4>
+<p class="date">
+<span class="d">woensdag 18 november 2026</span>
+</p>
+</a>
+<div class="btns">
+<a href="https://urldefense.com/v3/__https:/shop.paylogic.com/3b75d72dae344078b3e001e1d7f87862__;!!GeIQSb45FBw!sqHcKK50jIUJXlGYNyz1wgkzE0u2CG44qgWoV5dDUPLdsFFHrepAiCWg7RlyEYp_J_RPI1YUYY9zsNYoPdKK5irwbeURsA$" target="_blank" rel="noopener" class="btnV2 tickets"><span class="lbl">tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+<a href="https://www.ticketmaster.nl/event/1506012339" target="_blank" rel="noopener" class="btnV2 premium"><span class="lbl">premium tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+</div>
+</div>
+</div>
+</article>
+<article id="_agenda_5850655" class="agendaV2-item st-none">
+<div class="row inner">
+<a href="https://www.afaslive.nl/agenda/jessie-ware" class="rowImg" tabindex="-1" aria-hidden="true">
+<figure><img src="https://www.afaslive.nl/files/Agenda/2026/november/Jessie-Ware.jpg" alt="Jessie Ware | AFAS Live" loading="lazy"></figure>
+</a>
+<div class="mid">
+<a href="https://www.afaslive.nl/agenda/jessie-ware" class="rowMain">
+<h4>Jessie Ware</h4>
+<p class="date">
+<span class="d">zaterdag 21 november 2026</span>
+</p>
+</a>
+<div class="btns">
+<a href="https://www.ticketmaster.nl/event/jessie-ware-the-superbloom-tour-2026-tickets/1325258064" target="_blank" rel="noopener" class="btnV2 tickets"><span class="lbl">tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+<a href="https://www.ticketmaster.nl/event/524622966" target="_blank" rel="noopener" class="btnV2 premium"><span class="lbl">Premium Tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+<a href="https://www.afaslive.nl/skylounge?show=5850655#booking" class="btnV2 sky"> <span class="lbl">Reserveer de Sky Lounge</span></a>
+</div>
+</div>
+</div>
+</article>
+<article id="_agenda_6171437" class="agendaV2-item alt st-none">
+<div class="row inner">
+<a href="https://www.afaslive.nl/agenda/tayc" class="rowImg" tabindex="-1" aria-hidden="true">
+<figure><img src="https://www.afaslive.nl/files/Agenda/2026/november/TAYC.jpg" alt="TAYC | AFAS Live" loading="lazy"></figure>
+</a>
+<div class="mid">
+<a href="https://www.afaslive.nl/agenda/tayc" class="rowMain">
+<h4>TAYC</h4>
+<p class="date">
+<span class="d">zondag 22 november 2026</span>
+</p>
+</a>
+<div class="btns">
+<a href="https://www.ticketmaster.nl/event/tayc--afas-live-amsterdam-tickets/390304566?utm_medium=affiliate&amp;utm_source=5128861-Google%20Events&amp;source=ea" target="_blank" rel="noopener" class="btnV2 tickets"><span class="lbl">tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+<a href="https://www.ticketmaster.nl/event/657135687" target="_blank" rel="noopener" class="btnV2 premium"><span class="lbl">Premium Tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+<a href="https://www.afaslive.nl/skylounge?show=6171437#booking" class="btnV2 sky"> <span class="lbl">Reserveer de Sky Lounge</span></a>
+</div>
+</div>
+</div>
+</article>
+<article id="_agenda_5517965" class="agendaV2-item st-none">
+<div class="row inner">
+<a href="https://www.afaslive.nl/agenda/the-pretty-reckless" class="rowImg" tabindex="-1" aria-hidden="true">
+<figure><img src="https://www.afaslive.nl/files/Agenda/2026/november/the-pretty-reckless.jpg" alt="The Pretty Reckless | AFAS Live" loading="lazy"></figure>
+</a>
+<div class="mid">
+<a href="https://www.afaslive.nl/agenda/the-pretty-reckless" class="rowMain">
+<h4>The Pretty Reckless</h4>
+<p class="date">
+<span class="d">maandag 23 november 2026</span>
+</p>
+</a>
+<div class="btns">
+<a href="https://www.ticketmaster.nl/artist/the-pretty-reckless-tickets/491813" target="_blank" rel="noopener" class="btnV2 tickets"><span class="lbl">tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+<a href="https://www.ticketmaster.nl/event/1763164570" target="_blank" rel="noopener" class="btnV2 premium"><span class="lbl">Premium Tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+<a href="https://www.afaslive.nl/skylounge?show=5517965#booking" class="btnV2 sky"> <span class="lbl">Reserveer de Sky Lounge</span></a>
+</div>
+</div>
+</div>
+</article>
+<article id="_agenda_6295752" class="agendaV2-item alt st-none">
+<div class="row inner">
+<a href="https://www.afaslive.nl/agenda/taemin" class="rowImg" tabindex="-1" aria-hidden="true">
+<figure><img src="https://www.afaslive.nl/files/Agenda/2026/november/taemin.jpg" alt="TAEMIN | AFAS Live" loading="lazy"></figure>
+</a>
+<div class="mid">
+<a href="https://www.afaslive.nl/agenda/taemin" class="rowMain">
+<h4>TAEMIN</h4>
+<p class="date">
+<span class="d">dinsdag 24 november 2026</span>
+</p>
+</a>
+<div class="btns">
+<a href="https://urldefense.com/v3/__http:/onionproduction.com/taemin__;!!GeIQSb45FBw!uJzsJmMG2CsvlYEfhYHZuwLe6GIRrmB3iK3KqT_CkYu_Qw3urqPYovi-xZXU4Yhn1X6sW6n0UkVFh6tAj8ae$" target="_blank" rel="noopener" class="btnV2 tickets"><span class="lbl">tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+<a href="https://www.ticketmaster.nl/event/781959205" target="_blank" rel="noopener" class="btnV2 premium"><span class="lbl">premium tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+</div>
+</div>
+</div>
+</article>
+<article id="_agenda_4317241" class="agendaV2-item st-none">
+<div class="row inner">
+<a href="https://www.afaslive.nl/agenda/de-mega-sint-show-2026" class="rowImg" tabindex="-1" aria-hidden="true">
+<figure><img src="https://www.afaslive.nl/files/Agenda/2026/november/landscape-goede.jpg" alt="De Mega Sint Show 2026 | AFAS Live" loading="lazy"></figure>
+</a>
+<div class="mid">
+<a href="https://www.afaslive.nl/agenda/de-mega-sint-show-2026" class="rowMain">
+<h4>De Mega Sint Show 2026 <time>13:45</time></h4>
+<p class="date">
+<span class="d">woensdag 25 november 2026</span>
+</p>
+</a>
+<div class="btns">
+<a href="https://ticketshop.nl/" target="_blank" rel="noopener" class="btnV2 tickets"><span class="lbl">tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+<a href="https://www.ticketmaster.nl/event/1454556728" target="_blank" rel="noopener" class="btnV2 premium"><span class="lbl">Premium Tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+</div>
+</div>
+</div>
+</article>
+<article id="_agenda_4317241" class="agendaV2-item alt st-none">
+<div class="row inner">
+<a href="https://www.afaslive.nl/agenda/de-mega-sint-show-2026" class="rowImg" tabindex="-1" aria-hidden="true">
+<figure><img src="https://www.afaslive.nl/files/Agenda/2026/november/landscape-goede.jpg" alt="De Mega Sint Show 2026 | AFAS Live" loading="lazy"></figure>
+</a>
+<div class="mid">
+<a href="https://www.afaslive.nl/agenda/de-mega-sint-show-2026" class="rowMain">
+<h4>De Mega Sint Show 2026 <time>16:45</time></h4>
+<p class="date">
+<span class="d">woensdag 25 november 2026</span>
+</p>
+</a>
+<div class="btns">
+<a href="https://ticketshop.nl/" target="_blank" rel="noopener" class="btnV2 tickets"><span class="lbl">tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+<a href="https://www.ticketmaster.nl/event/115928311" target="_blank" rel="noopener" class="btnV2 premium"><span class="lbl">Premium Tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+</div>
+</div>
+</div>
+</article>
+<article id="_agenda_6291700" class="agendaV2-item st-none">
+<div class="row inner">
+<a href="https://www.afaslive.nl/agenda/we-all-sing-abba" class="rowImg" tabindex="-1" aria-hidden="true">
+<figure><img src="https://www.afaslive.nl/files/Agenda/2026/november/we-all-sing-abba-zonder-tekst.jpg" alt="We All Sing ABBA | AFAS Live" loading="lazy"></figure>
+</a>
+<div class="mid">
+<a href="https://www.afaslive.nl/agenda/we-all-sing-abba" class="rowMain">
+<h4>We All Sing ABBA</h4>
+<p class="date">
+<span class="d">woensdag 25 november 2026</span>
+</p>
+</a>
+<div class="btns">
+<a href="https://ticketshop.nl/we-all-sing-abba/afas-live/2026-11-25/20:00" target="_blank" rel="noopener" class="btnV2 tickets"><span class="lbl">tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+<a href="https://www.ticketmaster.nl/event/601528633" target="_blank" rel="noopener" class="btnV2 premium"><span class="lbl">Premium Tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+</div>
+</div>
+</div>
+</article>
+<article id="_agenda_5518374" class="agendaV2-item alt st-soldout">
+<div class="row inner">
+<a href="https://www.afaslive.nl/agenda/quido-van-de-graaf" class="rowImg" tabindex="-1" aria-hidden="true">
+<figure><img src="https://www.afaslive.nl/files/Agenda/2026/november/guido-van-de-graaf.jpg" alt="Quido van de Graaf | AFAS Live" loading="lazy"></figure>
+</a>
+<div class="mid">
+<a href="https://www.afaslive.nl/agenda/quido-van-de-graaf" class="rowMain">
+<h4>Quido van de Graaf</h4>
+<p class="date">
+<span class="d">vrijdag 27 november 2026</span>
+</p>
+</a>
+<div class="btns">
+<a href="https://www.ticketmaster.nl/event/1561756939" target="_blank" rel="noopener" class="btnV2 premium"><span class="lbl">Premium Tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+<a href="https://www.afaslive.nl/skylounge?show=5518374#booking" class="btnV2 sky"> <span class="lbl">Reserveer de Sky Lounge</span></a>
+</div>
+</div>
+<a href="https://www.afaslive.nl/agenda/quido-van-de-graaf" class="statusLabel soldout"><b>Uitverkocht!</b></a>
+</div>
+</article>
+<article id="_agenda_3893156" class="agendaV2-item st-none">
+<div class="row inner">
+<a href="https://www.afaslive.nl/agenda/ademnood-discobal" class="rowImg" tabindex="-1" aria-hidden="true">
+<figure><img src="https://www.afaslive.nl/files/Agenda/2026/november/ademnood-discobal-2026-NIEUW.jpg" alt="Het Grote Ademnood Discobal 2026 | AFAS Live" loading="lazy"></figure>
+</a>
+<div class="mid">
+<a href="https://www.afaslive.nl/agenda/ademnood-discobal" class="rowMain">
+<h4>Het Grote Ademnood Discobal 2026</h4>
+<p class="date">
+<span class="d">zaterdag 28 november 2026</span>
+</p>
+</a>
+<div class="btns">
+<a href="https://shop.paylogic.com/ab7398028c51440f91b14add121ccc0d/offsale" target="_blank" rel="noopener" class="btnV2 tickets"><span class="lbl">tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+<a href="https://www.ticketmaster.nl/event/889888726" target="_blank" rel="noopener" class="btnV2 premium"><span class="lbl">Premium Tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+</div>
+</div>
+</div>
+</article>
+<article id="_agenda_6295232" class="agendaV2-item alt st-moved">
+<div class="row inner">
+<a href="https://www.afaslive.nl/agenda/esdeekid" class="rowImg" tabindex="-1" aria-hidden="true">
+<figure><img src="https://www.afaslive.nl/files/Agenda/2026/november/EsDeeKid.jpg" alt="EsDeeKid | AFAS Live" loading="lazy"></figure>
+</a>
+<div class="mid">
+<a href="https://www.afaslive.nl/agenda/esdeekid" class="rowMain">
+<h4>EsDeeKid</h4>
+<p class="date">
+<span class="d">maandag 30 november 2026</span>
+</p>
+</a>
+<div class="btns">
+<a href="https://www.ticketmaster.nl/event/1694146546" target="_blank" rel="noopener" class="btnV2 tickets"><span class="lbl">tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+<a href="https://www.ticketmaster.nl/event/410415005" target="_blank" rel="noopener" class="btnV2 premium"><span class="lbl">Premium Tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+</div>
+</div>
+<a href="https://www.afaslive.nl/agenda/esdeekid" class="statusLabel moved"><i class="ri-close-line"></i> <em>Verplaatst!</em></a>
+</div>
+</article>
+<div class="agendaV2-month" id="2026_12">
+<div class="row"><h3>december</h3></div>
+</div>
+<article id="_agenda_6231347" class="agendaV2-item st-none">
+<div class="row inner">
+<a href="https://www.afaslive.nl/agenda/beth-hart" class="rowImg" tabindex="-1" aria-hidden="true">
+<figure><img src="https://www.afaslive.nl/files/Agenda/2026/december/beth-hart-2.jpg" alt="Beth Hart | AFAS Live" loading="lazy"></figure>
+</a>
+<div class="mid">
+<a href="https://www.afaslive.nl/agenda/beth-hart" class="rowMain">
+<h4>Beth Hart</h4>
+<p class="date">
+<span class="d">dinsdag 01 december 2026</span>
+</p>
+</a>
+<div class="btns">
+<a href="https://www.ticketmaster.nl/artist/beth-hart-tickets/3829" target="_blank" rel="noopener" class="btnV2 tickets"><span class="lbl">tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+<a href="https://www.ticketmaster.nl/event/285916759" target="_blank" rel="noopener" class="btnV2 premium"><span class="lbl">Premium Tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+</div>
+</div>
+</div>
+</article>
+<article id="_agenda_6292419" class="agendaV2-item alt st-none">
+<div class="row inner">
+<a href="https://www.afaslive.nl/agenda/beabadoobee" class="rowImg" tabindex="-1" aria-hidden="true">
+<figure><img src="https://www.afaslive.nl/files/Agenda/2026/december/BeaBadoobee-Gecentreerd.jpg" alt="Beabadoobee | AFAS Live" loading="lazy"></figure>
+</a>
+<div class="mid">
+<a href="https://www.afaslive.nl/agenda/beabadoobee" class="rowMain">
+<h4>Beabadoobee</h4>
+<p class="date">
+<span class="d">woensdag 02 december 2026</span>
+</p>
+</a>
+<div class="btns">
+<a href="https://www.ticketmaster.nl/artist/beabadoobee-tickets/1010356" target="_blank" rel="noopener" class="btnV2 tickets"><span class="lbl">tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+<a href="https://www.ticketmaster.nl/event/1588396564" target="_blank" rel="noopener" class="btnV2 premium"><span class="lbl">Premium Tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+</div>
+</div>
+</div>
+</article>
+<article id="_agenda_6292419" class="agendaV2-item st-none">
+<div class="row inner">
+<a href="https://www.afaslive.nl/agenda/beabadoobee" class="rowImg" tabindex="-1" aria-hidden="true">
+<figure><img src="https://www.afaslive.nl/files/Agenda/2026/december/BeaBadoobee-Gecentreerd.jpg" alt="Beabadoobee | AFAS Live" loading="lazy"></figure>
+</a>
+<div class="mid">
+<a href="https://www.afaslive.nl/agenda/beabadoobee" class="rowMain">
+<h4>Beabadoobee</h4>
+<p class="date">
+<span class="d">donderdag 03 december 2026</span>
+</p>
+</a>
+<div class="btns">
+<a href="https://www.ticketmaster.nl/artist/beabadoobee-tickets/1010356" target="_blank" rel="noopener" class="btnV2 tickets"><span class="lbl">tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+<a href="https://www.ticketmaster.nl/event/1197721190" target="_blank" rel="noopener" class="btnV2 premium"><span class="lbl">Premium tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+</div>
+</div>
+</div>
+</article>
+<article id="_agenda_6231347" class="agendaV2-item alt st-none">
+<div class="row inner">
+<a href="https://www.afaslive.nl/agenda/beth-hart" class="rowImg" tabindex="-1" aria-hidden="true">
+<figure><img src="https://www.afaslive.nl/files/Agenda/2026/december/beth-hart-2.jpg" alt="Beth Hart | AFAS Live" loading="lazy"></figure>
+</a>
+<div class="mid">
+<a href="https://www.afaslive.nl/agenda/beth-hart" class="rowMain">
+<h4>Beth Hart</h4>
+<p class="date">
+<span class="d">vrijdag 04 december 2026</span>
+</p>
+</a>
+<div class="btns">
+<a href="https://www.ticketmaster.nl/artist/beth-hart-tickets/3829" target="_blank" rel="noopener" class="btnV2 tickets"><span class="lbl">tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+<a href="https://www.ticketmaster.nl/event/1541207215" target="_blank" rel="noopener" class="btnV2 premium"><span class="lbl">Premium Tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+</div>
+</div>
+</div>
+</article>
+<article id="_agenda_6297981" class="agendaV2-item st-soldout">
+<div class="row inner">
+<a href="https://www.afaslive.nl/agenda/vieze-asbak-b2b-kruelty-all-day-long" class="rowBadges"><em class="new">nieuw!</em></a>
+<a href="https://www.afaslive.nl/agenda/vieze-asbak-b2b-kruelty-all-day-long" class="rowImg" tabindex="-1" aria-hidden="true">
+<figure><img src="https://www.afaslive.nl/files/Agenda/2026/december/Vieze-Asbak.jpg" alt="Vieze Asbak B2B Kruelty All Day Long | AFAS Live" loading="lazy"></figure>
+</a>
+<div class="mid">
+<a href="https://www.afaslive.nl/agenda/vieze-asbak-b2b-kruelty-all-day-long" class="rowMain">
+<h4>Vieze Asbak B2B Kruelty All Day Long</h4>
+<p class="date">
+<span class="d">zaterdag 05 december 2026</span>
+</p>
+</a>
+<div class="btns">
+</div>
+</div>
+<a href="https://www.afaslive.nl/agenda/vieze-asbak-b2b-kruelty-all-day-long" class="statusLabel soldout"><b>Uitverkocht!</b></a>
+</div>
+</article>
+<article id="_agenda_6291239" class="agendaV2-item alt st-none">
+<div class="row inner">
+<a href="https://www.afaslive.nl/agenda/polyphia" class="rowImg" tabindex="-1" aria-hidden="true">
+<figure><img src="https://www.afaslive.nl/files/Agenda/2026/december/Polyphia.jpg" alt="Polyphia | AFAS Live" loading="lazy"></figure>
+</a>
+<div class="mid">
+<a href="https://www.afaslive.nl/agenda/polyphia" class="rowMain">
+<h4>Polyphia</h4>
+<p class="date">
+<span class="d">dinsdag 08 december 2026</span>
+</p>
+</a>
+<div class="btns">
+<a href="https://www.ticketmaster.nl/event/polyphia-tour-mmxxvi-tickets/175314658?language=en-us" target="_blank" rel="noopener" class="btnV2 tickets"><span class="lbl">tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+<a href="https://www.ticketmaster.nl/event/1557225582" target="_blank" rel="noopener" class="btnV2 premium"><span class="lbl">Premium Tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+</div>
+</div>
+</div>
+</article>
+<article id="_agenda_4315455" class="agendaV2-item st-soldout">
+<div class="row inner">
+<a href="https://www.afaslive.nl/agenda/sef" class="rowImg" tabindex="-1" aria-hidden="true">
+<figure><img src="https://www.afaslive.nl/files/Agenda/2026/december/Sef.jpg" alt="Sef | AFAS Live" loading="lazy"></figure>
+</a>
+<div class="mid">
+<a href="https://www.afaslive.nl/agenda/sef" class="rowMain">
+<h4>Sef</h4>
+<p class="date">
+<span class="d">donderdag 10 december 2026</span>
+</p>
+</a>
+<div class="btns">
+<a href="https://www.ticketmaster.nl/event/1664556637" target="_blank" rel="noopener" class="btnV2 premium"><span class="lbl">Premium Tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+</div>
+</div>
+<a href="https://www.afaslive.nl/agenda/sef" class="statusLabel soldout"><b>Uitverkocht!</b></a>
+</div>
+</article>
+<article id="_agenda_5412570" class="agendaV2-item alt st-none">
+<div class="row inner">
+<a href="https://www.afaslive.nl/agenda/nacht-van-de-nederpop-xxl" class="rowImg" tabindex="-1" aria-hidden="true">
+<figure><img src="https://www.afaslive.nl/files/Agenda/2026/december/Nacht-van-de-Nederpop-Nieuw-28-09.jpg" alt="Nacht van de Nederpop XXL | AFAS Live" loading="lazy"></figure>
+</a>
+<div class="mid">
+<a href="https://www.afaslive.nl/agenda/nacht-van-de-nederpop-xxl" class="rowMain">
+<h4>Nacht van de Nederpop XXL</h4>
+<p class="date">
+<span class="d">zaterdag 12 december 2026</span>
+</p>
+</a>
+<div class="btns">
+<a href="https://www.ticketmaster.nl/event/1471042228" target="_blank" rel="noopener" class="btnV2 tickets"><span class="lbl">tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+<a href="https://www.ticketmaster.nl/event/200046197" target="_blank" rel="noopener" class="btnV2 premium"><span class="lbl">Premium Tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+<a href="https://www.afaslive.nl/skylounge?show=5412570#booking" class="btnV2 sky"> <span class="lbl">Reserveer de Sky Lounge</span></a>
+</div>
+</div>
+</div>
+</article>
+<article id="_agenda_6296430" class="agendaV2-item st-none">
+<div class="row inner">
+<a href="https://www.afaslive.nl/agenda/jagged-edge-live-band" class="rowImg" tabindex="-1" aria-hidden="true">
+<figure><img src="https://www.afaslive.nl/files/Agenda/2026/december/jagged-edge.jpg" alt="Jagged Edge Live + Band | AFAS Live" loading="lazy"></figure>
+</a>
+<div class="mid">
+<a href="https://www.afaslive.nl/agenda/jagged-edge-live-band" class="rowMain">
+<h4>Jagged Edge Live + Band</h4>
+<p class="date">
+<span class="d">dinsdag 15 december 2026</span>
+</p>
+</a>
+<div class="btns">
+<a href="https://jaggededge.byticks.com/event/jaggededge" target="_blank" rel="noopener" class="btnV2 tickets"><span class="lbl">tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+<a href="https://www.ticketmaster.nl/event/822244861" target="_blank" rel="noopener" class="btnV2 premium"><span class="lbl">premium tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+</div>
+</div>
+</div>
+</article>
+<article id="_agenda_4976013" class="agendaV2-item alt st-none">
+<div class="row inner">
+<a href="https://www.afaslive.nl/agenda/freek-vonk-live-2" class="rowImg" tabindex="-1" aria-hidden="true">
+<figure><img src="https://www.afaslive.nl/files/Agenda/2026/december/freek-vonk-live.jpg" alt="Freek Vonk Live | AFAS Live" loading="lazy"></figure>
+</a>
+<div class="mid">
+<a href="https://www.afaslive.nl/agenda/freek-vonk-live-2" class="rowMain">
+<h4>Freek Vonk Live <time>13:30</time></h4>
+<p class="date">
+<span class="d">zaterdag 19 december 2026</span>
+</p>
+</a>
+<div class="btns">
+<a href="https://www.freekvonklive.nl/" target="_blank" rel="noopener" class="btnV2 tickets"><span class="lbl">tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+</div>
+</div>
+</div>
+</article>
+<article id="_agenda_4976013" class="agendaV2-item st-none">
+<div class="row inner">
+<a href="https://www.afaslive.nl/agenda/freek-vonk-live-2" class="rowImg" tabindex="-1" aria-hidden="true">
+<figure><img src="https://www.afaslive.nl/files/Agenda/2026/december/freek-vonk-live.jpg" alt="Freek Vonk Live | AFAS Live" loading="lazy"></figure>
+</a>
+<div class="mid">
+<a href="https://www.afaslive.nl/agenda/freek-vonk-live-2" class="rowMain">
+<h4>Freek Vonk Live <time>17:00</time></h4>
+<p class="date">
+<span class="d">zaterdag 19 december 2026</span>
+</p>
+</a>
+<div class="btns">
+<a href="https://www.freekvonklive.nl/" target="_blank" rel="noopener" class="btnV2 tickets"><span class="lbl">tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+</div>
+</div>
+</div>
+</article>
+<article id="_agenda_4976013" class="agendaV2-item alt st-soldout">
+<div class="row inner">
+<a href="https://www.afaslive.nl/agenda/freek-vonk-live-2" class="rowImg" tabindex="-1" aria-hidden="true">
+<figure><img src="https://www.afaslive.nl/files/Agenda/2026/december/freek-vonk-live.jpg" alt="Freek Vonk Live | AFAS Live" loading="lazy"></figure>
+</a>
+<div class="mid">
+<a href="https://www.afaslive.nl/agenda/freek-vonk-live-2" class="rowMain">
+<h4>Freek Vonk Live <time>10:00</time></h4>
+<p class="date">
+<span class="d">zondag 20 december 2026</span>
+</p>
+</a>
+<div class="btns">
+</div>
+</div>
+<a href="https://www.afaslive.nl/agenda/freek-vonk-live-2" class="statusLabel soldout"><b>Uitverkocht!</b></a>
+</div>
+</article>
+<article id="_agenda_4976013" class="agendaV2-item st-soldout">
+<div class="row inner">
+<a href="https://www.afaslive.nl/agenda/freek-vonk-live-2" class="rowImg" tabindex="-1" aria-hidden="true">
+<figure><img src="https://www.afaslive.nl/files/Agenda/2026/december/freek-vonk-live.jpg" alt="Freek Vonk Live | AFAS Live" loading="lazy"></figure>
+</a>
+<div class="mid">
+<a href="https://www.afaslive.nl/agenda/freek-vonk-live-2" class="rowMain">
+<h4>Freek Vonk Live <time>13:30</time></h4>
+<p class="date">
+<span class="d">zondag 20 december 2026</span>
+</p>
+</a>
+<div class="btns">
+</div>
+</div>
+<a href="https://www.afaslive.nl/agenda/freek-vonk-live-2" class="statusLabel soldout"><b>Uitverkocht!</b></a>
+</div>
+</article>
+<article id="_agenda_4976013" class="agendaV2-item alt st-none">
+<div class="row inner">
+<a href="https://www.afaslive.nl/agenda/freek-vonk-live-2" class="rowImg" tabindex="-1" aria-hidden="true">
+<figure><img src="https://www.afaslive.nl/files/Agenda/2026/december/freek-vonk-live.jpg" alt="Freek Vonk Live | AFAS Live" loading="lazy"></figure>
+</a>
+<div class="mid">
+<a href="https://www.afaslive.nl/agenda/freek-vonk-live-2" class="rowMain">
+<h4>Freek Vonk Live <time>17:00</time></h4>
+<p class="date">
+<span class="d">zondag 20 december 2026</span>
+</p>
+</a>
+<div class="btns">
+<a href="https://www.freekvonklive.nl/" target="_blank" rel="noopener" class="btnV2 tickets"><span class="lbl">tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+</div>
+</div>
+</div>
+</article>
+<article id="_agenda_4976013" class="agendaV2-item st-soldout">
+<div class="row inner">
+<a href="https://www.afaslive.nl/agenda/freek-vonk-live-2" class="rowImg" tabindex="-1" aria-hidden="true">
+<figure><img src="https://www.afaslive.nl/files/Agenda/2026/december/freek-vonk-live.jpg" alt="Freek Vonk Live | AFAS Live" loading="lazy"></figure>
+</a>
+<div class="mid">
+<a href="https://www.afaslive.nl/agenda/freek-vonk-live-2" class="rowMain">
+<h4>Freek Vonk Live <time>10:00</time></h4>
+<p class="date">
+<span class="d">maandag 21 december 2026</span>
+</p>
+</a>
+<div class="btns">
+</div>
+</div>
+<a href="https://www.afaslive.nl/agenda/freek-vonk-live-2" class="statusLabel soldout"><b>Uitverkocht!</b></a>
+</div>
+</article>
+<article id="_agenda_4976013" class="agendaV2-item alt st-soldout">
+<div class="row inner">
+<a href="https://www.afaslive.nl/agenda/freek-vonk-live-2" class="rowImg" tabindex="-1" aria-hidden="true">
+<figure><img src="https://www.afaslive.nl/files/Agenda/2026/december/freek-vonk-live.jpg" alt="Freek Vonk Live | AFAS Live" loading="lazy"></figure>
+</a>
+<div class="mid">
+<a href="https://www.afaslive.nl/agenda/freek-vonk-live-2" class="rowMain">
+<h4>Freek Vonk Live <time>13:30</time></h4>
+<p class="date">
+<span class="d">maandag 21 december 2026</span>
+</p>
+</a>
+<div class="btns">
+</div>
+</div>
+<a href="https://www.afaslive.nl/agenda/freek-vonk-live-2" class="statusLabel soldout"><b>Uitverkocht!</b></a>
+</div>
+</article>
+<article id="_agenda_4226356" class="agendaV2-item st-none">
+<div class="row inner">
+<a href="https://www.afaslive.nl/agenda/guido-weijers" class="rowImg" tabindex="-1" aria-hidden="true">
+<figure><img src="https://www.afaslive.nl/files/Agenda/2026/december/guido-weijers-oudejaarsconference.jpg" alt="Guido Weijers | AFAS Live" loading="lazy"></figure>
+</a>
+<div class="mid">
+<a href="https://www.afaslive.nl/agenda/guido-weijers" class="rowMain">
+<h4>Guido Weijers</h4>
+<p class="date">
+<span class="d">woensdag 23 december 2026</span>
+</p>
+</a>
+<div class="btns">
+<a href="https://eventix.shop/x9tydq2z" target="_blank" rel="noopener" class="btnV2 tickets"><span class="lbl">tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+<a href="https://www.ticketmaster.nl/event/295953332" target="_blank" rel="noopener" class="btnV2 premium"><span class="lbl">Premium Tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+</div>
+</div>
+</div>
+</article>
+<article id="_agenda_6297654" class="agendaV2-item alt st-none">
+<div class="row inner">
+<a href="https://www.afaslive.nl/agenda/kinderenvoorkinderen" class="rowBadges"><em class="new">nieuw!</em></a>
+<a href="https://www.afaslive.nl/agenda/kinderenvoorkinderen" class="rowImg" tabindex="-1" aria-hidden="true">
+<figure><img src="https://www.afaslive.nl/files/Agenda/2026/december/Kinderen-voor-Kinderen.jpg" alt="Kinderen voor Kinderen | AFAS Live" loading="lazy"></figure>
+</a>
+<div class="mid">
+<a href="https://www.afaslive.nl/agenda/kinderenvoorkinderen" class="rowMain">
+<h4>Kinderen voor Kinderen <time>13:00</time></h4>
+<p class="date">
+<span class="d">maandag 28 december 2026</span>
+</p>
+</a>
+<div class="btns">
+<a href="https://www.bnnvara.nl/tickets/degroteshow" target="_blank" rel="noopener" class="btnV2 tickets"><span class="lbl">tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+<a href="https://www.ticketmaster.nl/event/1906816397" target="_blank" rel="noopener" class="btnV2 premium"><span class="lbl">Premium Tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+</div>
+</div>
+</div>
+</article>
+<article id="_agenda_6297654" class="agendaV2-item st-none">
+<div class="row inner">
+<a href="https://www.afaslive.nl/agenda/kinderenvoorkinderen" class="rowBadges"><em class="new">nieuw!</em></a>
+<a href="https://www.afaslive.nl/agenda/kinderenvoorkinderen" class="rowImg" tabindex="-1" aria-hidden="true">
+<figure><img src="https://www.afaslive.nl/files/Agenda/2026/december/Kinderen-voor-Kinderen.jpg" alt="Kinderen voor Kinderen | AFAS Live" loading="lazy"></figure>
+</a>
+<div class="mid">
+<a href="https://www.afaslive.nl/agenda/kinderenvoorkinderen" class="rowMain">
+<h4>Kinderen voor Kinderen <time>16:00</time></h4>
+<p class="date">
+<span class="d">maandag 28 december 2026</span>
+</p>
+</a>
+<div class="btns">
+<a href="https://www.bnnvara.nl/tickets/degroteshow" target="_blank" rel="noopener" class="btnV2 tickets"><span class="lbl">tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+<a href="https://www.ticketmaster.nl/event/1154393062" target="_blank" rel="noopener" class="btnV2 premium"><span class="lbl">Premium Tickets </span> <i class="ri-arrow-right-s-line"></i></a>
+</div>
+</div>
+</div>
+</article>
+<article id="_agenda_6297654" class="agendaV2-item alt st-none">
+<div class="row inner">
+<a href="https://www.afaslive.nl/agenda/kinderenvoorkinderen" class="rowBadges"><em class="new">nieuw!</em></a>
+<a href="https://www.afaslive.nl/agenda/kinderenvoorkinderen" class="rowImg" tabindex="-1" aria-hidden="true">
+<figure><img src="https://www.afaslive.nl/files/Agenda/2026/december/Kinderen-voor-Kinderen.jpg" alt="Kinderen voor Kinderen | AFAS Live" loading="lazy"></figure>
+</a>
+<div class="mid">
+<a href="https://www.afaslive.nl/agenda/kinderenvoorkinderen" class="rowMain">
+<h4>Kinderen voor Kinderen <time>13:00</time></h4>
+<p class="date">
+<span class="d">dinsdag 29 december 2026</span>
+</p>
+</a>
+<div class="btns">
+<a href="https://www.bnnvara.nl/tickets/degroteshow" target="_blank" rel="noopener" class="btnV2 tickets"><span class="lbl">tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+<a href="https://www.ticketmaster.nl/event/340988760" target="_blank" rel="noopener" class="btnV2 premium"><span class="lbl">Premium Tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+</div>
+</div>
+</div>
+</article>
+<article id="_agenda_6297654" class="agendaV2-item st-none">
+<div class="row inner">
+<a href="https://www.afaslive.nl/agenda/kinderenvoorkinderen" class="rowBadges"><em class="new">nieuw!</em></a>
+<a href="https://www.afaslive.nl/agenda/kinderenvoorkinderen" class="rowImg" tabindex="-1" aria-hidden="true">
+<figure><img src="https://www.afaslive.nl/files/Agenda/2026/december/Kinderen-voor-Kinderen.jpg" alt="Kinderen voor Kinderen | AFAS Live" loading="lazy"></figure>
+</a>
+<div class="mid">
+<a href="https://www.afaslive.nl/agenda/kinderenvoorkinderen" class="rowMain">
+<h4>Kinderen voor Kinderen <time>16:00</time></h4>
+<p class="date">
+<span class="d">dinsdag 29 december 2026</span>
+</p>
+</a>
+<div class="btns">
+<a href="https://www.bnnvara.nl/tickets/degroteshow" target="_blank" rel="noopener" class="btnV2 tickets"><span class="lbl">tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+<a href="https://www.ticketmaster.nl/event/1620830029" target="_blank" rel="noopener" class="btnV2 premium"><span class="lbl">Premium Tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+</div>
+</div>
+</div>
+</article>
+<article id="_agenda_6297654" class="agendaV2-item alt st-none">
+<div class="row inner">
+<a href="https://www.afaslive.nl/agenda/kinderenvoorkinderen" class="rowBadges"><em class="new">nieuw!</em></a>
+<a href="https://www.afaslive.nl/agenda/kinderenvoorkinderen" class="rowImg" tabindex="-1" aria-hidden="true">
+<figure><img src="https://www.afaslive.nl/files/Agenda/2026/december/Kinderen-voor-Kinderen.jpg" alt="Kinderen voor Kinderen | AFAS Live" loading="lazy"></figure>
+</a>
+<div class="mid">
+<a href="https://www.afaslive.nl/agenda/kinderenvoorkinderen" class="rowMain">
+<h4>Kinderen voor Kinderen <time>13:00</time></h4>
+<p class="date">
+<span class="d">woensdag 30 december 2026</span>
+</p>
+</a>
+<div class="btns">
+<a href="https://www.bnnvara.nl/tickets/degroteshow" target="_blank" rel="noopener" class="btnV2 tickets"><span class="lbl">tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+<a href="https://www.ticketmaster.nl/event/785183928" target="_blank" rel="noopener" class="btnV2 premium"><span class="lbl">Premium Tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+</div>
+</div>
+</div>
+</article>
+<article id="_agenda_6297654" class="agendaV2-item st-none">
+<div class="row inner">
+<a href="https://www.afaslive.nl/agenda/kinderenvoorkinderen" class="rowBadges"><em class="new">nieuw!</em></a>
+<a href="https://www.afaslive.nl/agenda/kinderenvoorkinderen" class="rowImg" tabindex="-1" aria-hidden="true">
+<figure><img src="https://www.afaslive.nl/files/Agenda/2026/december/Kinderen-voor-Kinderen.jpg" alt="Kinderen voor Kinderen | AFAS Live" loading="lazy"></figure>
+</a>
+<div class="mid">
+<a href="https://www.afaslive.nl/agenda/kinderenvoorkinderen" class="rowMain">
+<h4>Kinderen voor Kinderen <time>16:00</time></h4>
+<p class="date">
+<span class="d">woensdag 30 december 2026</span>
+</p>
+</a>
+<div class="btns">
+<a href="https://www.bnnvara.nl/tickets/degroteshow" target="_blank" rel="noopener" class="btnV2 tickets"><span class="lbl">tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+<a href="https://www.ticketmaster.nl/event/1159429621" target="_blank" rel="noopener" class="btnV2 premium"><span class="lbl">Premium Tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+</div>
+</div>
+</div>
+</article>
+<article id="_agenda_6296959" class="agendaV2-item alt st-none">
+<div class="row inner">
+<a href="https://www.afaslive.nl/agenda/teletech-new-years" class="rowImg" tabindex="-1" aria-hidden="true">
+<figure><img src="https://www.afaslive.nl/files/Agenda/2026/december/teletecht-fym-new-years-even-and-day.jpg" alt="Teletech New Years | AFAS Live" loading="lazy"></figure>
+</a>
+<div class="mid">
+<a href="https://www.afaslive.nl/agenda/teletech-new-years" class="rowMain">
+<h4>Teletech New Years</h4>
+<p class="date">
+<span class="d">donderdag 31 december 2026</span>
+</p>
+</a>
+<div class="btns">
+<a href="https://shop.tickets.cm.com/b2e2956b-665b-ae5a-e8fe-16b21a2ea786" target="_blank" rel="noopener" class="btnV2 tickets"><span class="lbl">tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+</div>
+</div>
+</div>
+</article>
+<div class="agendaV2-month" id="2027_01">
+<div class="row"><h3>januari</h3></div>
+</div>
+<article id="_agenda_6296959" class="agendaV2-item st-none">
+<div class="row inner">
+<a href="https://www.afaslive.nl/agenda/teletech-new-years" class="rowImg" tabindex="-1" aria-hidden="true">
+<figure><img src="https://www.afaslive.nl/files/Agenda/2026/december/teletecht-fym-new-years-even-and-day.jpg" alt="Teletech New Years | AFAS Live" loading="lazy"></figure>
+</a>
+<div class="mid">
+<a href="https://www.afaslive.nl/agenda/teletech-new-years" class="rowMain">
+<h4>Teletech New Years</h4>
+<p class="date">
+<span class="d">vrijdag 01 januari 2027</span>
+</p>
+</a>
+<div class="btns">
+<a href="https://shop.tickets.cm.com/b2e2956b-665b-ae5a-e8fe-16b21a2ea786" target="_blank" rel="noopener" class="btnV2 tickets"><span class="lbl">tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+</div>
+</div>
+</div>
+</article>
+<article id="_agenda_6295542" class="agendaV2-item alt st-none">
+<div class="row inner">
+<a href="https://www.afaslive.nl/agenda/mahsun-kirmizigul" class="rowImg" tabindex="-1" aria-hidden="true">
+<figure><img src="https://www.afaslive.nl/files/Agenda/2027/01.-Januari/Mahsun-Kirmizigul.jpg" alt="Mahsun Kirmizigul | AFAS Live" loading="lazy"></figure>
+</a>
+<div class="mid">
+<a href="https://www.afaslive.nl/agenda/mahsun-kirmizigul" class="rowMain">
+<h4>Mahsun Kirmizigul</h4>
+<p class="date">
+<span class="d">zondag 10 januari 2027</span>
+</p>
+</a>
+<div class="btns">
+<a href="https://www.eventim.nl/event/mahsun-kirmizigul-live-in-concert-afas-live-21996365/?affiliate=AG2" target="_blank" rel="noopener" class="btnV2 tickets"><span class="lbl">tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+<a href="https://www.ticketmaster.nl/event/1626131023" target="_blank" rel="noopener" class="btnV2 premium"><span class="lbl">premium tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+</div>
+</div>
+</div>
+</article>
+<article id="_agenda_6291877" class="agendaV2-item st-soldout">
+<div class="row inner">
+<a href="https://www.afaslive.nl/agenda/thegathering" class="rowImg" tabindex="-1" aria-hidden="true">
+<figure><img src="https://www.afaslive.nl/files/Agenda/2027/01.-Januari/The-Gathering.jpg" alt="The Gathering | AFAS Live" loading="lazy"></figure>
+</a>
+<div class="mid">
+<a href="https://www.afaslive.nl/agenda/thegathering" class="rowMain">
+<h4>The Gathering</h4>
+<p class="date">
+<span class="d">zaterdag 16 januari 2027</span>
+</p>
+</a>
+<div class="btns">
+<a href="https://www.ticketmaster.nl/event/934438424" target="_blank" rel="noopener" class="btnV2 premium"><span class="lbl">Premium Tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+</div>
+</div>
+<a href="https://www.afaslive.nl/agenda/thegathering" class="statusLabel soldout"><b>Uitverkocht!</b></a>
+</div>
+</article>
+<article id="_agenda_6297578" class="agendaV2-item alt st-none">
+<div class="row inner">
+<a href="https://www.afaslive.nl/agenda/famke-louise" class="rowBadges"><em class="new">nieuw!</em></a>
+<a href="https://www.afaslive.nl/agenda/famke-louise" class="rowImg" tabindex="-1" aria-hidden="true">
+<figure><img src="https://www.afaslive.nl/files/Agenda/2027/01.-Januari/Famke-Louise.jpg" alt="Famke Louise | AFAS Live" loading="lazy"></figure>
+</a>
+<div class="mid">
+<a href="https://www.afaslive.nl/agenda/famke-louise" class="rowMain">
+<h4>Famke Louise</h4>
+<p class="date">
+<span class="d">vrijdag 22 januari 2027</span>
+</p>
+</a>
+<div class="btns">
+<a href="https://www.ticketmaster.nl/artist/famke-louise-tickets/1001841" target="_blank" rel="noopener" class="btnV2 tickets"><span class="lbl">tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+<a href="https://www.ticketmaster.nl/event/65433862" target="_blank" rel="noopener" class="btnV2 premium"><span class="lbl">Premium Tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+</div>
+</div>
+</div>
+</article>
+<article id="_agenda_6297578" class="agendaV2-item st-none">
+<div class="row inner">
+<a href="https://www.afaslive.nl/agenda/famke-louise" class="rowBadges"><em class="new">nieuw!</em></a>
+<a href="https://www.afaslive.nl/agenda/famke-louise" class="rowImg" tabindex="-1" aria-hidden="true">
+<figure><img src="https://www.afaslive.nl/files/Agenda/2027/01.-Januari/Famke-Louise.jpg" alt="Famke Louise | AFAS Live" loading="lazy"></figure>
+</a>
+<div class="mid">
+<a href="https://www.afaslive.nl/agenda/famke-louise" class="rowMain">
+<h4>Famke Louise</h4>
+<p class="date">
+<span class="d">zaterdag 23 januari 2027</span>
+</p>
+</a>
+<div class="btns">
+<a href="https://www.ticketmaster.nl/artist/famke-louise-tickets/1001841" target="_blank" rel="noopener" class="btnV2 tickets"><span class="lbl">tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+<a href="https://www.ticketmaster.nl/event/1379314093" target="_blank" rel="noopener" class="btnV2 premium"><span class="lbl">Premium Tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+</div>
+</div>
+</div>
+</article>
+<article id="_agenda_6292576" class="agendaV2-item alt st-none">
+<div class="row inner">
+<a href="https://www.afaslive.nl/agenda/dan-phil" class="rowImg" tabindex="-1" aria-hidden="true">
+<figure><img src="https://www.afaslive.nl/files/Agenda/2027/01.-Januari/Dan-Phil.jpg" alt="Dan &amp; Phil | AFAS Live" loading="lazy"></figure>
+</a>
+<div class="mid">
+<a href="https://www.afaslive.nl/agenda/dan-phil" class="rowMain">
+<h4>Dan &amp; Phil</h4>
+<p class="date">
+<span class="d">maandag 25 januari 2027</span>
+</p>
+</a>
+<div class="btns">
+<a href="https://www.ticketmaster.nl/artist/dan-and-phil-tickets/969249?language=en-us" target="_blank" rel="noopener" class="btnV2 tickets"><span class="lbl">tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+<a href="https://www.ticketmaster.nl/event/1875389431" target="_blank" rel="noopener" class="btnV2 premium"><span class="lbl">Premium tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+</div>
+</div>
+</div>
+</article>
+<div class="agendaV2-month" id="2027_02">
+<div class="row"><h3>februari</h3></div>
+</div>
+<article id="_agenda_6291882" class="agendaV2-item st-none">
+<div class="row inner">
+<a href="https://www.afaslive.nl/agenda/skryptonite" class="rowImg" tabindex="-1" aria-hidden="true">
+<figure><img src="https://www.afaslive.nl/files/Agenda/2027/02.-februari/Skryptonite.jpg" alt="Skryptonite | AFAS Live" loading="lazy"></figure>
+</a>
+<div class="mid">
+<a href="https://www.afaslive.nl/agenda/skryptonite" class="rowMain">
+<h4>Skryptonite</h4>
+<p class="date">
+<span class="d">dinsdag 02 februari 2027</span>
+</p>
+</a>
+<div class="btns">
+<a href="https://chaika.org/event/skryptonite-amsterdam/" target="_blank" rel="noopener" class="btnV2 tickets"><span class="lbl">tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+<a href="https://www.ticketmaster.nl/event/359658556" target="_blank" rel="noopener" class="btnV2 premium"><span class="lbl">Premium tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+</div>
+</div>
+</div>
+</article>
+<article id="_agenda_6025882" class="agendaV2-item alt st-none">
+<div class="row inner">
+<a href="https://www.afaslive.nl/agenda/five-finger-death-punch-2" class="rowImg" tabindex="-1" aria-hidden="true">
+<figure><img src="https://www.afaslive.nl/files/Agenda/2027/02.-februari/5FDP.jpg" alt="Five Finger Death Punch | AFAS Live" loading="lazy"></figure>
+</a>
+<div class="mid">
+<a href="https://www.afaslive.nl/agenda/five-finger-death-punch-2" class="rowMain">
+<h4>Five Finger Death Punch</h4>
+<p class="date">
+<span class="d">zondag 07 februari 2027</span>
+</p>
+</a>
+<div class="btns">
+<a href="https://www.ticketmaster.nl/event/five-finger-death-punch-20th-anniversary-world-tour-tickets/1788904960?language=en-us" target="_blank" rel="noopener" class="btnV2 tickets"><span class="lbl">tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+<a href="https://www.ticketmaster.nl/event/1192592955" target="_blank" rel="noopener" class="btnV2 premium"><span class="lbl">Premium Tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+<a href="https://www.afaslive.nl/skylounge?show=6025882#booking" class="btnV2 sky"> <span class="lbl">Reserveer de Sky Lounge</span></a>
+</div>
+</div>
+</div>
+</article>
+<article id="_agenda_6292058" class="agendaV2-item st-none">
+<div class="row inner">
+<a href="https://www.afaslive.nl/agenda/role-model" class="rowImg" tabindex="-1" aria-hidden="true">
+<figure><img src="https://www.afaslive.nl/files/Agenda/2027/02.-februari/Role-Model.jpg" alt="Role Model | AFAS Live" loading="lazy"></figure>
+</a>
+<div class="mid">
+<a href="https://www.afaslive.nl/agenda/role-model" class="rowMain">
+<h4>Role Model</h4>
+<p class="date">
+<span class="d">zaterdag 13 februari 2027</span>
+</p>
+</a>
+<div class="btns">
+<a href="https://www.ticketmaster.nl/artist/role-model-tickets/1011340?language=en-us" target="_blank" rel="noopener" class="btnV2 tickets"><span class="lbl">tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+<a href="https://www.ticketmaster.nl/event/188007552" target="_blank" rel="noopener" class="btnV2 premium"><span class="lbl">Premium tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+</div>
+</div>
+</div>
+</article>
+<article id="_agenda_6292058" class="agendaV2-item alt st-none">
+<div class="row inner">
+<a href="https://www.afaslive.nl/agenda/role-model" class="rowImg" tabindex="-1" aria-hidden="true">
+<figure><img src="https://www.afaslive.nl/files/Agenda/2027/02.-februari/Role-Model.jpg" alt="Role Model | AFAS Live" loading="lazy"></figure>
+</a>
+<div class="mid">
+<a href="https://www.afaslive.nl/agenda/role-model" class="rowMain">
+<h4>Role Model</h4>
+<p class="date">
+<span class="d">zondag 14 februari 2027</span>
+</p>
+</a>
+<div class="btns">
+<a href="https://www.ticketmaster.nl/artist/role-model-tickets/1011340?language=en-us" target="_blank" rel="noopener" class="btnV2 tickets"><span class="lbl">tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+<a href="https://www.ticketmaster.nl/event/1884904263" target="_blank" rel="noopener" class="btnV2 premium"><span class="lbl">Premium Tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+</div>
+</div>
+</div>
+</article>
+<article id="_agenda_6296912" class="agendaV2-item st-none">
+<div class="row inner">
+<a href="https://www.afaslive.nl/agenda/cage-the-elephant-2" class="rowImg" tabindex="-1" aria-hidden="true">
+<figure><img src="https://www.afaslive.nl/files/Agenda/2027/02.-februari/Cage-The-Elephant.jpg" alt="Cage The Elephant | AFAS Live" loading="lazy"></figure>
+</a>
+<div class="mid">
+<a href="https://www.afaslive.nl/agenda/cage-the-elephant-2" class="rowMain">
+<h4>Cage The Elephant</h4>
+<p class="date">
+<span class="d">maandag 15 februari 2027</span>
+</p>
+</a>
+<div class="btns">
+<a href="https://www.ticketmaster.nl/event/752721309" target="_blank" rel="noopener" class="btnV2 tickets"><span class="lbl">tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+<a href="https://www.ticketmaster.nl/event/1414005074" target="_blank" rel="noopener" class="btnV2 premium"><span class="lbl">Premium Tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+</div>
+</div>
+</div>
+</article>
+<article id="_agenda_6297647" class="agendaV2-item alt st-none">
+<div class="row inner">
+<a href="https://www.afaslive.nl/agenda/bullet-for-my-valentine" class="rowBadges"><em class="new">nieuw!</em></a>
+<a href="https://www.afaslive.nl/agenda/bullet-for-my-valentine" class="rowImg" tabindex="-1" aria-hidden="true">
+<figure><img src="https://www.afaslive.nl/files/Agenda/2027/02.-februari/bullet-for-my-valentine.jpg" alt="Bullet For My Valentine | AFAS Live" loading="lazy"></figure>
+</a>
+<div class="mid">
+<a href="https://www.afaslive.nl/agenda/bullet-for-my-valentine" class="rowMain">
+<h4>Bullet For My Valentine</h4>
+<p class="date">
+<span class="d">vrijdag 19 februari 2027</span>
+</p>
+</a>
+<div class="btns">
+<a href="https://www.ticketmaster.nl/artist/bullet-for-my-valentine-tickets/28188?venueId=4247&amp;CL_ORIGIN=" target="_blank" rel="noopener" class="btnV2 tickets"><span class="lbl">tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+<a href="https://www.ticketmaster.nl/event/701750066" target="_blank" rel="noopener" class="btnV2 premium"><span class="lbl">Premium Tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+</div>
+</div>
+</div>
+</article>
+<article id="_agenda_6293831" class="agendaV2-item st-none">
+<div class="row inner">
+<a href="https://www.afaslive.nl/agenda/ezra-collective" class="rowImg" tabindex="-1" aria-hidden="true">
+<figure><img src="https://www.afaslive.nl/files/Agenda/2027/02.-februari/Ezra-Collective.jpg" alt="Ezra Collective | AFAS Live" loading="lazy"></figure>
+</a>
+<div class="mid">
+<a href="https://www.afaslive.nl/agenda/ezra-collective" class="rowMain">
+<h4>Ezra Collective</h4>
+<p class="date">
+<span class="d">zaterdag 20 februari 2027</span>
+</p>
+</a>
+<div class="btns">
+<a href="https://www.ticketmaster.nl/event/ezra-collective-here-because-of-hope-tickets/83481807?language=en-us" target="_blank" rel="noopener" class="btnV2 tickets"><span class="lbl">tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+<a href="https://www.ticketmaster.nl/event/1863726035" target="_blank" rel="noopener" class="btnV2 premium"><span class="lbl">Premium tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+</div>
+</div>
+</div>
+</article>
+<article id="_agenda_6297139" class="agendaV2-item alt st-none">
+<div class="row inner">
+<a href="https://www.afaslive.nl/agenda/malcolm-todd" class="rowImg" tabindex="-1" aria-hidden="true">
+<figure><img src="https://www.afaslive.nl/files/Agenda/2027/02.-februari/Malcolm-Todd.jpg" alt="Malcolm Todd | AFAS Live" loading="lazy"></figure>
+</a>
+<div class="mid">
+<a href="https://www.afaslive.nl/agenda/malcolm-todd" class="rowMain">
+<h4>Malcolm Todd</h4>
+<p class="date">
+<span class="d">zondag 21 februari 2027</span>
+</p>
+</a>
+<div class="btns">
+<a href="https://www.ticketmaster.nl/event/995921285" target="_blank" rel="noopener" class="btnV2 tickets"><span class="lbl">tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+<a href="https://www.ticketmaster.nl/event/1805126929" target="_blank" rel="noopener" class="btnV2 premium"><span class="lbl">Premium Tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+</div>
+</div>
+</div>
+</article>
+<article id="_agenda_6291058" class="agendaV2-item st-moved">
+<div class="row inner">
+<a href="https://www.afaslive.nl/agenda/masego" class="rowImg" tabindex="-1" aria-hidden="true">
+<figure><img src="https://www.afaslive.nl/files/Agenda/2026/Oktober/Masego.jpg" alt="Masego | AFAS Live" loading="lazy"></figure>
+</a>
+<div class="mid">
+<a href="https://www.afaslive.nl/agenda/masego" class="rowMain">
+<h4>Masego</h4>
+<p class="date">
+<span class="d">dinsdag 23 februari 2027</span>
+</p>
+</a>
+<div class="btns">
+<a href="https://www.ticketmaster.nl/event/masego-fix-your-face-tour-tickets/189887615?language=en-us" target="_blank" rel="noopener" class="btnV2 tickets"><span class="lbl">tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+</div>
+</div>
+<a href="https://www.afaslive.nl/agenda/masego" class="statusLabel moved"><i class="ri-close-line"></i> <em>Verplaatst!</em></a>
+</div>
+</article>
+<article id="_agenda_6297505" class="agendaV2-item alt st-none">
+<div class="row inner">
+<a href="https://www.afaslive.nl/agenda/chase-status" class="rowBadges"><em class="new">nieuw!</em></a>
+<a href="https://www.afaslive.nl/agenda/chase-status" class="rowImg" tabindex="-1" aria-hidden="true">
+<figure><img src="https://www.afaslive.nl/files/Agenda/2027/02.-februari/chase-status.jpg" alt="Chase &amp; Status | AFAS Live" loading="lazy"></figure>
+</a>
+<div class="mid">
+<a href="https://www.afaslive.nl/agenda/chase-status" class="rowMain">
+<h4>Chase &amp; Status</h4>
+<p class="date">
+<span class="d">donderdag 25 februari 2027</span>
+</p>
+</a>
+<div class="btns">
+<a href="https://www.ticketmaster.nl/artist/chase-status-tickets/281213" target="_blank" rel="noopener" class="btnV2 tickets"><span class="lbl">tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+<a href="https://www.ticketmaster.nl/event/1946715227" target="_blank" rel="noopener" class="btnV2 premium"><span class="lbl">Premium Tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+</div>
+</div>
+</div>
+</article>
+<article id="_agenda_6298584" class="agendaV2-item st-none">
+<div class="row inner">
+<a href="https://www.afaslive.nl/agenda/royal-blood" class="rowBadges"><em class="new">nieuw!</em></a>
+<a href="https://www.afaslive.nl/agenda/royal-blood" class="rowImg" tabindex="-1" aria-hidden="true">
+<figure><img src="https://www.afaslive.nl/files/Agenda/2027/02.-februari/Royal-Blood.jpg" alt="Royal Blood | AFAS Live" loading="lazy"></figure>
+</a>
+<div class="mid">
+<a href="https://www.afaslive.nl/agenda/royal-blood" class="rowMain">
+<h4>Royal Blood</h4>
+<p class="date">
+<span class="d">vrijdag 26 februari 2027</span>
+</p>
+</a>
+<div class="btns">
+<a href="https://www.ticketmaster.nl/artist/royal-blood-tickets/709593" target="_blank" rel="noopener" class="btnV2 tickets"><span class="lbl">tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+</div>
+</div>
+</div>
+</article>
+<div class="agendaV2-month" id="2027_03">
+<div class="row"><h3>maart</h3></div>
+</div>
+<article id="_agenda_5889736" class="agendaV2-item st-none">
+<div class="row inner">
+<a href="https://www.afaslive.nl/agenda/russo-2027" class="rowImg" tabindex="-1" aria-hidden="true">
+<figure><img src="https://www.afaslive.nl/files/Agenda/2027/03.-maart/Russo.jpg" alt="Russo | AFAS Live" loading="lazy"></figure>
+</a>
+<div class="mid">
+<a href="https://www.afaslive.nl/agenda/russo-2027" class="rowMain">
+<h4>Russo <time>14:30</time></h4>
+<p class="date">
+<span class="d">zaterdag 06 maart 2027</span>
+</p>
+</a>
+<div class="btns">
+<a href="https://agenda.paylogic.com/07248c844bc446ec9dc009ed272b6d96?" target="_blank" rel="noopener" class="btnV2 tickets"><span class="lbl">tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+<a href="https://www.ticketmaster.nl/event/2090463193" target="_blank" rel="noopener" class="btnV2 premium"><span class="lbl">Premium Tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+</div>
+</div>
+</div>
+</article>
+<article id="_agenda_5889736" class="agendaV2-item alt st-soldout">
+<div class="row inner">
+<a href="https://www.afaslive.nl/agenda/russo-2027" class="rowImg" tabindex="-1" aria-hidden="true">
+<figure><img src="https://www.afaslive.nl/files/Agenda/2027/03.-maart/Russo.jpg" alt="Russo | AFAS Live" loading="lazy"></figure>
+</a>
+<div class="mid">
+<a href="https://www.afaslive.nl/agenda/russo-2027" class="rowMain">
+<h4>Russo <time>20:30</time></h4>
+<p class="date">
+<span class="d">zaterdag 06 maart 2027</span>
+</p>
+</a>
+<div class="btns">
+<a href="https://www.ticketmaster.nl/event/1655528140" target="_blank" rel="noopener" class="btnV2 premium"><span class="lbl">Premium Tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+</div>
+</div>
+<a href="https://www.afaslive.nl/agenda/russo-2027" class="statusLabel soldout"><b>Uitverkocht!</b></a>
+</div>
+</article>
+<article id="_agenda_6298099" class="agendaV2-item st-none">
+<div class="row inner">
+<a href="https://www.afaslive.nl/agenda/flo" class="rowBadges"><em class="new">nieuw!</em></a>
+<a href="https://www.afaslive.nl/agenda/flo" class="rowImg" tabindex="-1" aria-hidden="true">
+<figure><img src="https://www.afaslive.nl/files/Agenda/2027/03.-maart/FLO.jpg" alt="FLO | AFAS Live" loading="lazy"></figure>
+</a>
+<div class="mid">
+<a href="https://www.afaslive.nl/agenda/flo" class="rowMain">
+<h4>FLO</h4>
+<p class="date">
+<span class="d">zondag 07 maart 2027</span>
+</p>
+</a>
+<div class="btns">
+<a href="https://www.ticketmaster.nl/artist/flo-tickets/894544?venueId=4247" target="_blank" rel="noopener" class="btnV2 tickets"><span class="lbl">tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+</div>
+</div>
+</div>
+</article>
+<article id="_agenda_6298726" class="agendaV2-item alt st-none">
+<div class="row inner">
+<a href="https://www.afaslive.nl/agenda/kool-the-gang" class="rowBadges"><em class="new">nieuw!</em></a>
+<a href="https://www.afaslive.nl/agenda/kool-the-gang" class="rowImg" tabindex="-1" aria-hidden="true">
+<figure><img src="https://www.afaslive.nl/files/Agenda/2027/03.-maart/Kool-and-the-Gang.png" alt="Kool &amp; The Gang | AFAS Live" loading="lazy"></figure>
+</a>
+<div class="mid">
+<a href="https://www.afaslive.nl/agenda/kool-the-gang" class="rowMain">
+<h4>Kool &amp; The Gang</h4>
+<p class="date">
+<span class="d">maandag 08 maart 2027</span>
+</p>
+</a>
+<div class="btns">
+<a href="https://www.eventim.nl/event/kool-the-gang-afas-live-22206139/?affiliate=GAD" target="_blank" rel="noopener" class="btnV2 tickets"><span class="lbl">tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+</div>
+</div>
+</div>
+</article>
+<article id="_agenda_6298011" class="agendaV2-item st-none">
+<div class="row inner">
+<a href="https://www.afaslive.nl/agenda/dr-gabor-maté-an-evening-with-gabor-maté" class="rowBadges"><em class="new">nieuw!</em></a>
+<a href="https://www.afaslive.nl/agenda/dr-gabor-maté-an-evening-with-gabor-maté" class="rowImg" tabindex="-1" aria-hidden="true">
+<figure><img src="https://www.afaslive.nl/files/News/Nieuws/Nieuwsberichten-September/gabor-mate-lighter-version.jpg" alt="An Evening with Gabor Maté | AFAS Live" loading="lazy"></figure>
+</a>
+<div class="mid">
+<a href="https://www.afaslive.nl/agenda/dr-gabor-maté-an-evening-with-gabor-maté" class="rowMain">
+<h4>An Evening with Gabor Maté</h4>
+<p class="date">
+<span class="d">dinsdag 09 maart 2027</span>
+</p>
+</a>
+<div class="btns">
+<a href="https://gabormateamsterdam.eventbrite.ca" target="_blank" rel="noopener" class="btnV2 tickets"><span class="lbl">tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+</div>
+</div>
+</div>
+</article>
+<article id="_agenda_6296131" class="agendaV2-item alt st-none">
+<div class="row inner">
+<a href="https://www.afaslive.nl/agenda/passenger" class="rowImg" tabindex="-1" aria-hidden="true">
+<figure><img src="https://www.afaslive.nl/files/Agenda/2027/03.-maart/086A2721.jpg" alt="Passenger | AFAS Live" loading="lazy"></figure>
+</a>
+<div class="mid">
+<a href="https://www.afaslive.nl/agenda/passenger" class="rowMain">
+<h4>Passenger</h4>
+<p class="date">
+<span class="d">zondag 21 maart 2027</span>
+</p>
+</a>
+<div class="btns">
+<a href="https://www.ticketmaster.nl/artist/passenger-tickets/34574" target="_blank" rel="noopener" class="btnV2 tickets"><span class="lbl">tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+<a href="https://www.ticketmaster.nl/event/36624330" target="_blank" rel="noopener" class="btnV2 premium"><span class="lbl">premium tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+</div>
+</div>
+</div>
+</article>
+<article id="_agenda_6294933" class="agendaV2-item st-none">
+<div class="row inner">
+<a href="https://www.afaslive.nl/agenda/megadeth" class="rowImg" tabindex="-1" aria-hidden="true">
+<figure><img src="https://www.afaslive.nl/files/Agenda/2027/07.-Juli/Megadeth.jpg" alt="Megadeth | AFAS Live" loading="lazy"></figure>
+</a>
+<div class="mid">
+<a href="https://www.afaslive.nl/agenda/megadeth" class="rowMain">
+<h4>Megadeth</h4>
+<p class="date">
+<span class="d">woensdag 24 maart 2027</span>
+</p>
+</a>
+<div class="btns">
+<a href="https://www.ticketmaster.nl/event/megadeth-breakout-hibernation-of-the-nations-europe-tour-2027-tickets/1372783969?language=en-us" target="_blank" rel="noopener" class="btnV2 tickets"><span class="lbl">tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+<a href="https://www.ticketmaster.nl/event/397220963" target="_blank" rel="noopener" class="btnV2 premium"><span class="lbl">premium tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+</div>
+</div>
+</div>
+</article>
+<article id="_agenda_6291069" class="agendaV2-item alt st-none">
+<div class="row inner">
+<a href="https://www.afaslive.nl/agenda/ice-nine-kills" class="rowImg" tabindex="-1" aria-hidden="true">
+<figure><img src="https://www.afaslive.nl/files/Agenda/2027/03.-maart/Ice-Nine-Kills.jpg" alt="Ice Nine Kills | AFAS Live" loading="lazy"></figure>
+</a>
+<div class="mid">
+<a href="https://www.afaslive.nl/agenda/ice-nine-kills" class="rowMain">
+<h4>Ice Nine Kills</h4>
+<p class="date">
+<span class="d">donderdag 25 maart 2027</span>
+</p>
+</a>
+<div class="btns">
+<a href="https://www.ticketmaster.nl/artist/ice-nine-kills-tickets/528303" target="_blank" rel="noopener" class="btnV2 tickets"><span class="lbl">tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+<a href="https://www.ticketmaster.nl/event/1595824770" target="_blank" rel="noopener" class="btnV2 premium"><span class="lbl">Premium tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+</div>
+</div>
+</div>
+</article>
+<article id="_agenda_6297514" class="agendaV2-item st-none">
+<div class="row inner">
+<a href="https://www.afaslive.nl/agenda/lizzymcalpine" class="rowBadges"><em class="new">nieuw!</em></a>
+<a href="https://www.afaslive.nl/agenda/lizzymcalpine" class="rowImg" tabindex="-1" aria-hidden="true">
+<figure><img src="https://www.afaslive.nl/files/Agenda/2027/03.-maart/Lizzy-McAlpine.jpg" alt="Lizzy McAlpine | AFAS Live" loading="lazy"></figure>
+</a>
+<div class="mid">
+<a href="https://www.afaslive.nl/agenda/lizzymcalpine" class="rowMain">
+<h4>Lizzy McAlpine</h4>
+<p class="date">
+<span class="d">vrijdag 26 maart 2027</span>
+</p>
+</a>
+<div class="btns">
+<a href="https://www.eventim.nl/artist/lizzy-mcalpine/" target="_blank" rel="noopener" class="btnV2 tickets"><span class="lbl">tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+<a href="https://www.ticketmaster.nl/event/1052413690" target="_blank" rel="noopener" class="btnV2 premium"><span class="lbl">Premium Tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+</div>
+</div>
+</div>
+</article>
+<article id="_agenda_5580701" class="agendaV2-item alt st-none">
+<div class="row inner">
+<a href="https://www.afaslive.nl/agenda/hannah-mae" class="rowImg" tabindex="-1" aria-hidden="true">
+<figure><img src="https://www.afaslive.nl/files/Agenda/2027/03.-maart/hannah-mae.jpg" alt="Hannah Mae | AFAS Live" loading="lazy"></figure>
+</a>
+<div class="mid">
+<a href="https://www.afaslive.nl/agenda/hannah-mae" class="rowMain">
+<h4>Hannah Mae</h4>
+<p class="date">
+<span class="d">zaterdag 27 maart 2027</span>
+</p>
+</a>
+<div class="btns">
+<a href="https://www.hannahmaelive.nl/" target="_blank" rel="noopener" class="btnV2 tickets"><span class="lbl">tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+<a href="https://www.ticketmaster.nl/event/1611437541" target="_blank" rel="noopener" class="btnV2 premium"><span class="lbl">Premium Tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+</div>
+</div>
+</div>
+</article>
+<div class="agendaV2-month" id="2027_04">
+<div class="row"><h3>april</h3></div>
+</div>
+<article id="_agenda_3833537" class="agendaV2-item st-moved">
+<div class="row inner">
+<a href="https://www.afaslive.nl/agenda/brandi-carlile" class="rowImg" tabindex="-1" aria-hidden="true">
+<figure><img src="https://www.afaslive.nl/files/Agenda/2026/Oktober/brandi-carlile.jpg" alt="Brandi Carlile | AFAS Live" loading="lazy"></figure>
+</a>
+<div class="mid">
+<a href="https://www.afaslive.nl/agenda/brandi-carlile" class="rowMain">
+<h4>Brandi Carlile</h4>
+<p class="date">
+<span class="d strike">dinsdag 27 oktober 2026</span>
+<span class="d">vrijdag 02 april 2027</span>
+</p>
+</a>
+<div class="btns">
+<a href="https://www.ticketmaster.nl/artist/brandi-carlile-tickets/31217" target="_blank" rel="noopener" class="btnV2 tickets"><span class="lbl">tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+<a href="https://www.ticketmaster.nl/event/438553445" target="_blank" rel="noopener" class="btnV2 premium"><span class="lbl">Premium Tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+<a href="https://www.afaslive.nl/skylounge?show=3833537#booking" class="btnV2 sky"> <span class="lbl">Reserveer de Sky Lounge</span></a>
+</div>
+</div>
+<a href="https://www.afaslive.nl/agenda/brandi-carlile" class="statusLabel moved"><i class="ri-close-line"></i> <em>Verplaatst!</em></a>
+</div>
+</article>
+<article id="_agenda_6298682" class="agendaV2-item alt st-none">
+<div class="row inner">
+<a href="https://www.afaslive.nl/agenda/eurovision-in-concert-2027-2" class="rowBadges"><em class="new">nieuw!</em></a>
+<a href="https://www.afaslive.nl/agenda/eurovision-in-concert-2027-2" class="rowImg" tabindex="-1" aria-hidden="true">
+<figure><img src="https://www.afaslive.nl/files/Agenda/2027/04.-april/Eurovisie.jpg" alt="Eurovision in Concert 2027 | AFAS Live" loading="lazy"></figure>
+</a>
+<div class="mid">
+<a href="https://www.afaslive.nl/agenda/eurovision-in-concert-2027-2" class="rowMain">
+<h4>Eurovision in Concert 2027</h4>
+<p class="date">
+<span class="d">zaterdag 03 april 2027</span>
+</p>
+</a>
+<div class="btns">
+<a href="https://www.ticketmaster.nl/event/eurovision-in-concert-2027-tickets/1507315289" target="_blank" rel="noopener" class="btnV2 tickets"><span class="lbl">tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+</div>
+</div>
+</div>
+</article>
+<article id="_agenda_6086696" class="agendaV2-item st-none">
+<div class="row inner">
+<a href="https://www.afaslive.nl/agenda/the-lord-of-the-rings" class="rowImg" tabindex="-1" aria-hidden="true">
+<figure><img src="https://www.afaslive.nl/files/Agenda/2027/04.-april/LOTR.jpg" alt="The Lord of the Rings: The Fellowship of the Ring in Concert | AFAS Live" loading="lazy"></figure>
+</a>
+<div class="mid">
+<a href="https://www.afaslive.nl/agenda/the-lord-of-the-rings" class="rowMain">
+<h4>The Lord of the Rings: The Fellowship of the Ring in Concert</h4>
+<p class="date">
+<span class="d">vrijdag 09 april 2027</span>
+</p>
+</a>
+<div class="btns">
+<a href="https://shop.weeztix.com/5ebfd319-05a3-4bca-8c64-aed06cea9c5c/events?nocache" target="_blank" rel="noopener" class="btnV2 tickets"><span class="lbl">tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+<a href="https://www.ticketmaster.nl/event/401567677" target="_blank" rel="noopener" class="btnV2 premium"><span class="lbl">Premium Tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+<a href="https://www.afaslive.nl/skylounge?show=6086696#booking" class="btnV2 sky"> <span class="lbl">Reserveer de Sky Lounge</span></a>
+</div>
+</div>
+</div>
+</article>
+<article id="_agenda_6086696" class="agendaV2-item alt st-none">
+<div class="row inner">
+<a href="https://www.afaslive.nl/agenda/the-lord-of-the-rings" class="rowImg" tabindex="-1" aria-hidden="true">
+<figure><img src="https://www.afaslive.nl/files/Agenda/2027/04.-april/LOTR.jpg" alt="The Lord of the Rings: The Fellowship of the Ring in Concert | AFAS Live" loading="lazy"></figure>
+</a>
+<div class="mid">
+<a href="https://www.afaslive.nl/agenda/the-lord-of-the-rings" class="rowMain">
+<h4>The Lord of the Rings: The Fellowship of the Ring in Concert</h4>
+<p class="date">
+<span class="d">zaterdag 10 april 2027</span>
+</p>
+</a>
+<div class="btns">
+<a href="https://shop.weeztix.com/5ebfd319-05a3-4bca-8c64-aed06cea9c5c/events?nocache" target="_blank" rel="noopener" class="btnV2 tickets"><span class="lbl">tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+<a href="https://www.ticketmaster.nl/event/1869135012" target="_blank" rel="noopener" class="btnV2 premium"><span class="lbl">Premium Tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+<a href="https://www.afaslive.nl/skylounge?show=6086696#booking" class="btnV2 sky"> <span class="lbl">Reserveer de Sky Lounge</span></a>
+</div>
+</div>
+</div>
+</article>
+<article id="_agenda_6086696" class="agendaV2-item st-none">
+<div class="row inner">
+<a href="https://www.afaslive.nl/agenda/the-lord-of-the-rings" class="rowImg" tabindex="-1" aria-hidden="true">
+<figure><img src="https://www.afaslive.nl/files/Agenda/2027/04.-april/LOTR.jpg" alt="The Lord of the Rings: The Fellowship of the Ring in Concert | AFAS Live" loading="lazy"></figure>
+</a>
+<div class="mid">
+<a href="https://www.afaslive.nl/agenda/the-lord-of-the-rings" class="rowMain">
+<h4>The Lord of the Rings: The Fellowship of the Ring in Concert</h4>
+<p class="date">
+<span class="d">zondag 11 april 2027</span>
+</p>
+</a>
+<div class="btns">
+<a href="https://shop.weeztix.com/5ebfd319-05a3-4bca-8c64-aed06cea9c5c/events?nocache" target="_blank" rel="noopener" class="btnV2 tickets"><span class="lbl">tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+<a href="https://www.ticketmaster.nl/event/1844972091" target="_blank" rel="noopener" class="btnV2 premium"><span class="lbl">Premium Tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+<a href="https://www.afaslive.nl/skylounge?show=6086696#booking" class="btnV2 sky"> <span class="lbl">Reserveer de Sky Lounge</span></a>
+</div>
+</div>
+</div>
+</article>
+<article id="_agenda_6135300" class="agendaV2-item alt st-none">
+<div class="row inner">
+<a href="https://www.afaslive.nl/agenda/thomas-bergersen" class="rowImg" tabindex="-1" aria-hidden="true">
+<figure><img src="https://www.afaslive.nl/files/Agenda/2027/04.-april/Thomas-Bergersen_2026-05-18-140728_arpc.jpg" alt="Thomas Bergersen | AFAS Live" loading="lazy"></figure>
+</a>
+<div class="mid">
+<a href="https://www.afaslive.nl/agenda/thomas-bergersen" class="rowMain">
+<h4>Thomas Bergersen</h4>
+<p class="date">
+<span class="d">woensdag 14 april 2027</span>
+</p>
+</a>
+<div class="btns">
+<a href="https://www.eventim.nl/noapp/eventseries/4151123?affiliate=2FF" target="_blank" rel="noopener" class="btnV2 tickets"><span class="lbl">tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+<a href="https://www.ticketmaster.nl/event/1876335469" target="_blank" rel="noopener" class="btnV2 premium"><span class="lbl">Premium tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+<a href="https://www.afaslive.nl/skylounge?show=6135300#booking" class="btnV2 sky"> <span class="lbl">Reserveer de Sky Lounge</span></a>
+</div>
+</div>
+</div>
+</article>
+<article id="_agenda_5598674" class="agendaV2-item st-soldout">
+<div class="row inner">
+<a href="https://www.afaslive.nl/agenda/chefspecial-2" class="rowImg" tabindex="-1" aria-hidden="true">
+<figure><img src="https://www.afaslive.nl/files/Agenda/2027/04.-april/ChefSpecial.jpg" alt="Chef'Special | AFAS Live" loading="lazy"></figure>
+</a>
+<div class="mid">
+<a href="https://www.afaslive.nl/agenda/chefspecial-2" class="rowMain">
+<h4>Chef'Special</h4>
+<p class="date">
+<span class="d">vrijdag 16 april 2027</span>
+</p>
+</a>
+<div class="btns">
+<a href="https://www.ticketmaster.nl/event/180499953" target="_blank" rel="noopener" class="btnV2 premium"><span class="lbl">Premium Tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+</div>
+</div>
+<a href="https://www.afaslive.nl/agenda/chefspecial-2" class="statusLabel soldout"><b>Uitverkocht!</b></a>
+</div>
+</article>
+<article id="_agenda_5598674" class="agendaV2-item alt st-soldout">
+<div class="row inner">
+<a href="https://www.afaslive.nl/agenda/chefspecial-2" class="rowImg" tabindex="-1" aria-hidden="true">
+<figure><img src="https://www.afaslive.nl/files/Agenda/2027/04.-april/ChefSpecial.jpg" alt="Chef'Special | AFAS Live" loading="lazy"></figure>
+</a>
+<div class="mid">
+<a href="https://www.afaslive.nl/agenda/chefspecial-2" class="rowMain">
+<h4>Chef'Special</h4>
+<p class="date">
+<span class="d">zaterdag 17 april 2027</span>
+</p>
+</a>
+<div class="btns">
+<a href="https://www.ticketmaster.nl/event/1563430825" target="_blank" rel="noopener" class="btnV2 premium"><span class="lbl">Premium Tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+</div>
+</div>
+<a href="https://www.afaslive.nl/agenda/chefspecial-2" class="statusLabel soldout"><b>Uitverkocht!</b></a>
+</div>
+</article>
+<article id="_agenda_6296451" class="agendaV2-item st-none">
+<div class="row inner">
+<a href="https://www.afaslive.nl/agenda/trivium-in-flames" class="rowImg" tabindex="-1" aria-hidden="true">
+<figure><img src="https://www.afaslive.nl/files/Agenda/2027/04.-april/Trivium.jpg" alt="Trivium &amp; In Flames | AFAS Live" loading="lazy"></figure>
+</a>
+<div class="mid">
+<a href="https://www.afaslive.nl/agenda/trivium-in-flames" class="rowMain">
+<h4>Trivium &amp; In Flames</h4>
+<p class="date">
+<span class="d">zondag 18 april 2027</span>
+</p>
+</a>
+<div class="btns">
+<a href="https://shop.paylogic.com/85c71439ac794fabbf4b95c821ab14c6/offsale" target="_blank" rel="noopener" class="btnV2 tickets"><span class="lbl">tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+<a href="https://www.ticketmaster.nl/event/1181844489" target="_blank" rel="noopener" class="btnV2 premium"><span class="lbl">premium tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+</div>
+</div>
+</div>
+</article>
+<article id="_agenda_6292920" class="agendaV2-item alt st-none">
+<div class="row inner">
+<a href="https://www.afaslive.nl/agenda/bill-bailey" class="rowImg" tabindex="-1" aria-hidden="true">
+<figure><img src="https://www.afaslive.nl/files/Agenda/2027/04.-april/Bill-Bailey.jpg" alt="Bill Bailey | AFAS Live" loading="lazy"></figure>
+</a>
+<div class="mid">
+<a href="https://www.afaslive.nl/agenda/bill-bailey" class="rowMain">
+<h4>Bill Bailey</h4>
+<p class="date">
+<span class="d">donderdag 22 april 2027</span>
+</p>
+</a>
+<div class="btns">
+<a href="https://www.ticketmaster.nl/event/932590386" target="_blank" rel="noopener" class="btnV2 tickets"><span class="lbl">tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+<a href="https://www.ticketmaster.nl/event/351986054" target="_blank" rel="noopener" class="btnV2 premium"><span class="lbl">Premium tickets </span> <i class="ri-arrow-right-s-line"></i></a>
+</div>
+</div>
+</div>
+</article>
+<article id="_agenda_6290485" class="agendaV2-item st-none">
+<div class="row inner">
+<a href="https://www.afaslive.nl/agenda/robert-van-hemert" class="rowImg" tabindex="-1" aria-hidden="true">
+<figure><img src="https://www.afaslive.nl/files/Agenda/2027/04.-april/robert-van-hemert.jpg" alt="Robert van Hemert | AFAS Live" loading="lazy"></figure>
+</a>
+<div class="mid">
+<a href="https://www.afaslive.nl/agenda/robert-van-hemert" class="rowMain">
+<h4>Robert van Hemert</h4>
+<p class="date">
+<span class="d">vrijdag 23 april 2027</span>
+</p>
+</a>
+<div class="btns">
+<a href="https://www.robertvanhemertlive.nl/" target="_blank" rel="noopener" class="btnV2 tickets"><span class="lbl">tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+<a href="https://www.ticketmaster.nl/event/856132254" target="_blank" rel="noopener" class="btnV2 premium"><span class="lbl">comfort tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+</div>
+</div>
+</div>
+</article>
+<article id="_agenda_6231677" class="agendaV2-item alt st-none">
+<div class="row inner">
+<a href="https://www.afaslive.nl/agenda/ilse-delange" class="rowImg" tabindex="-1" aria-hidden="true">
+<figure><img src="https://www.afaslive.nl/files/Agenda/2027/04.-april/ilse-delange_2026-05-27-123234_htfk.jpg" alt="Ilse DeLange | AFAS Live" loading="lazy"></figure>
+</a>
+<div class="mid">
+<a href="https://www.afaslive.nl/agenda/ilse-delange" class="rowMain">
+<h4>Ilse DeLange</h4>
+<p class="date">
+<span class="d">zaterdag 24 april 2027</span>
+</p>
+</a>
+<div class="btns">
+<a href="https://shop.paylogic.com/fac33f4d997945499c2f93c32823ca75/offsale" target="_blank" rel="noopener" class="btnV2 tickets"><span class="lbl">tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+<a href="https://www.ticketmaster.nl/event/1131250637" target="_blank" rel="noopener" class="btnV2 premium"><span class="lbl">Premium Tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+</div>
+</div>
+</div>
+</article>
+<article id="_agenda_5787791" class="agendaV2-item st-none">
+<div class="row inner">
+<a href="https://www.afaslive.nl/agenda/thirty-seconds-to-mars" class="rowImg" tabindex="-1" aria-hidden="true">
+<figure><img src="https://www.afaslive.nl/files/Agenda/2027/04.-april/30-Seconds-To-Mars-NEW.jpg" alt="Thirty Seconds to Mars | AFAS Live" loading="lazy"></figure>
+</a>
+<div class="mid">
+<a href="https://www.afaslive.nl/agenda/thirty-seconds-to-mars" class="rowMain">
+<h4>Thirty Seconds to Mars</h4>
+<p class="date">
+<span class="d">zondag 25 april 2027</span>
+</p>
+</a>
+<div class="btns">
+<a href="https://www.ticketmaster.nl/artist/thirty-seconds-to-mars-tickets/18794" target="_blank" rel="noopener" class="btnV2 tickets"><span class="lbl">tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+<a href="https://www.ticketmaster.nl/event/1964844875" target="_blank" rel="noopener" class="btnV2 premium"><span class="lbl">Premium Tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+</div>
+</div>
+</div>
+</article>
+<article id="_agenda_5580278" class="agendaV2-item alt st-none">
+<div class="row inner">
+<a href="https://www.afaslive.nl/agenda/bouke-meets-elvis-classics" class="rowImg" tabindex="-1" aria-hidden="true">
+<figure><img src="https://www.afaslive.nl/files/Agenda/2027/04.-april/bouke-meets-elvis.jpg" alt="Bouke with Symphonic Orchestra | AFAS Live" loading="lazy"></figure>
+</a>
+<div class="mid">
+<a href="https://www.afaslive.nl/agenda/bouke-meets-elvis-classics" class="rowMain">
+<h4>Bouke with Symphonic Orchestra</h4>
+<p class="date">
+<span class="d">donderdag 29 april 2027</span>
+</p>
+</a>
+<div class="btns">
+<a href="https://www.ticketmaster.nl/event/bouke-with-symphonic-orchestra-tickets/2070565892?language=en-us" target="_blank" rel="noopener" class="btnV2 tickets"><span class="lbl">tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+<a href="https://www.ticketmaster.nl/event/bouke-with-symphonic-orchestra-%7C-comfort-seats-tickets/662753931?language=en-us" target="_blank" rel="noopener" class="btnV2 premium"><span class="lbl">Premium Tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+<a href="https://www.afaslive.nl/skylounge?show=5580278#booking" class="btnV2 sky"> <span class="lbl">Reserveer de Sky Lounge</span></a>
+</div>
+</div>
+</div>
+</article>
+<article id="_agenda_5580278" class="agendaV2-item st-none">
+<div class="row inner">
+<a href="https://www.afaslive.nl/agenda/bouke-meets-elvis-classics" class="rowImg" tabindex="-1" aria-hidden="true">
+<figure><img src="https://www.afaslive.nl/files/Agenda/2027/04.-april/bouke-meets-elvis.jpg" alt="Bouke with Symphonic Orchestra | AFAS Live" loading="lazy"></figure>
+</a>
+<div class="mid">
+<a href="https://www.afaslive.nl/agenda/bouke-meets-elvis-classics" class="rowMain">
+<h4>Bouke with Symphonic Orchestra</h4>
+<p class="date">
+<span class="d">vrijdag 30 april 2027</span>
+</p>
+</a>
+<div class="btns">
+<a href="https://www.ticketmaster.nl/event/bouke-with-symphonic-orchestra-tickets/2070565892?language=en-us" target="_blank" rel="noopener" class="btnV2 tickets"><span class="lbl">tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+<a href="https://www.ticketmaster.nl/event/318889122" target="_blank" rel="noopener" class="btnV2 premium"><span class="lbl">Premium Tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+<a href="https://www.afaslive.nl/skylounge?show=5580278#booking" class="btnV2 sky"> <span class="lbl">Reserveer de Sky Lounge</span></a>
+</div>
+</div>
+</div>
+</article>
+<div class="agendaV2-month" id="2027_05">
+<div class="row"><h3>mei</h3></div>
+</div>
+<article id="_agenda_6244267" class="agendaV2-item st-none">
+<div class="row inner">
+<a href="https://www.afaslive.nl/agenda/morgan-jay" class="rowImg" tabindex="-1" aria-hidden="true">
+<figure><img src="https://www.afaslive.nl/files/Agenda/2027/05.-mei/morgan-jay.jpg" alt="Morgan Jay | AFAS Live" loading="lazy"></figure>
+</a>
+<div class="mid">
+<a href="https://www.afaslive.nl/agenda/morgan-jay" class="rowMain">
+<h4>Morgan Jay <time>16:00</time></h4>
+<p class="date">
+<span class="d">zaterdag 01 mei 2027</span>
+</p>
+</a>
+<div class="btns">
+<a href="https://www.ticketmaster.nl/artist/morgan-jay-tickets/1191374" target="_blank" rel="noopener" class="btnV2 tickets"><span class="lbl">tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+<a href="https://www.ticketmaster.nl/event/307419603" target="_blank" rel="noopener" class="btnV2 premium"><span class="lbl">Premium Tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+</div>
+</div>
+</div>
+</article>
+<article id="_agenda_6244267" class="agendaV2-item alt st-none">
+<div class="row inner">
+<a href="https://www.afaslive.nl/agenda/morgan-jay" class="rowImg" tabindex="-1" aria-hidden="true">
+<figure><img src="https://www.afaslive.nl/files/Agenda/2027/05.-mei/morgan-jay.jpg" alt="Morgan Jay | AFAS Live" loading="lazy"></figure>
+</a>
+<div class="mid">
+<a href="https://www.afaslive.nl/agenda/morgan-jay" class="rowMain">
+<h4>Morgan Jay <time>20:00</time></h4>
+<p class="date">
+<span class="d">zaterdag 01 mei 2027</span>
+</p>
+</a>
+<div class="btns">
+<a href="https://www.ticketmaster.nl/artist/morgan-jay-tickets/1191374" target="_blank" rel="noopener" class="btnV2 tickets"><span class="lbl">tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+<a href="https://www.ticketmaster.nl/event/287718456" target="_blank" rel="noopener" class="btnV2 premium"><span class="lbl">Premium Tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+</div>
+</div>
+</div>
+</article>
+<article id="_agenda_6244267" class="agendaV2-item st-none">
+<div class="row inner">
+<a href="https://www.afaslive.nl/agenda/morgan-jay" class="rowImg" tabindex="-1" aria-hidden="true">
+<figure><img src="https://www.afaslive.nl/files/Agenda/2027/05.-mei/morgan-jay.jpg" alt="Morgan Jay | AFAS Live" loading="lazy"></figure>
+</a>
+<div class="mid">
+<a href="https://www.afaslive.nl/agenda/morgan-jay" class="rowMain">
+<h4>Morgan Jay</h4>
+<p class="date">
+<span class="d">zondag 02 mei 2027</span>
+</p>
+</a>
+<div class="btns">
+<a href="https://www.ticketmaster.nl/artist/morgan-jay-tickets/1191374" target="_blank" rel="noopener" class="btnV2 tickets"><span class="lbl">tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+</div>
+</div>
+</div>
+</article>
+<article id="_agenda_6231906" class="agendaV2-item alt st-none">
+<div class="row inner">
+<a href="https://www.afaslive.nl/agenda/b-brave" class="rowImg" tabindex="-1" aria-hidden="true">
+<figure><img src="https://www.afaslive.nl/files/Agenda/2027/04.-april/b-brave.jpg" alt="B-Brave | AFAS Live" loading="lazy"></figure>
+</a>
+<div class="mid">
+<a href="https://www.afaslive.nl/agenda/b-brave" class="rowMain">
+<h4>B-Brave</h4>
+<p class="date">
+<span class="d">donderdag 06 mei 2027</span>
+</p>
+</a>
+<div class="btns">
+<a href="https://www.ticketmaster.nl/artist/bbrave-tickets/944538?language=en-us" target="_blank" rel="noopener" class="btnV2 tickets"><span class="lbl">tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+<a href="https://www.ticketmaster.nl/event/1238666357" target="_blank" rel="noopener" class="btnV2 premium"><span class="lbl">Premium Tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+</div>
+</div>
+</div>
+</article>
+<article id="_agenda_6231906" class="agendaV2-item st-none">
+<div class="row inner">
+<a href="https://www.afaslive.nl/agenda/b-brave" class="rowImg" tabindex="-1" aria-hidden="true">
+<figure><img src="https://www.afaslive.nl/files/Agenda/2027/04.-april/b-brave.jpg" alt="B-Brave | AFAS Live" loading="lazy"></figure>
+</a>
+<div class="mid">
+<a href="https://www.afaslive.nl/agenda/b-brave" class="rowMain">
+<h4>B-Brave</h4>
+<p class="date">
+<span class="d">vrijdag 07 mei 2027</span>
+</p>
+</a>
+<div class="btns">
+<a href="https://www.ticketmaster.nl/artist/bbrave-tickets/944538?language=en-us" target="_blank" rel="noopener" class="btnV2 tickets"><span class="lbl">tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+<a href="https://www.ticketmaster.nl/event/448025807" target="_blank" rel="noopener" class="btnV2 premium"><span class="lbl">Premium Tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+</div>
+</div>
+</div>
+</article>
+<article id="_agenda_6231906" class="agendaV2-item alt st-none">
+<div class="row inner">
+<a href="https://www.afaslive.nl/agenda/b-brave" class="rowImg" tabindex="-1" aria-hidden="true">
+<figure><img src="https://www.afaslive.nl/files/Agenda/2027/04.-april/b-brave.jpg" alt="B-Brave | AFAS Live" loading="lazy"></figure>
+</a>
+<div class="mid">
+<a href="https://www.afaslive.nl/agenda/b-brave" class="rowMain">
+<h4>B-Brave <time>15:00</time></h4>
+<p class="date">
+<span class="d">zaterdag 08 mei 2027</span>
+</p>
+</a>
+<div class="btns">
+<a href="https://www.ticketmaster.nl/artist/bbrave-tickets/944538?language=en-us" target="_blank" rel="noopener" class="btnV2 tickets"><span class="lbl">tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+<a href="https://www.ticketmaster.nl/event/448025807" target="_blank" rel="noopener" class="btnV2 premium"><span class="lbl">Premium Tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+</div>
+</div>
+</div>
+</article>
+<article id="_agenda_6231906" class="agendaV2-item st-none">
+<div class="row inner">
+<a href="https://www.afaslive.nl/agenda/b-brave" class="rowImg" tabindex="-1" aria-hidden="true">
+<figure><img src="https://www.afaslive.nl/files/Agenda/2027/04.-april/b-brave.jpg" alt="B-Brave | AFAS Live" loading="lazy"></figure>
+</a>
+<div class="mid">
+<a href="https://www.afaslive.nl/agenda/b-brave" class="rowMain">
+<h4>B-Brave <time>21:00</time></h4>
+<p class="date">
+<span class="d">zaterdag 08 mei 2027</span>
+</p>
+</a>
+<div class="btns">
+<a href="https://www.ticketmaster.nl/artist/bbrave-tickets/944538?language=en-us" target="_blank" rel="noopener" class="btnV2 tickets"><span class="lbl">tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+<a href="https://www.ticketmaster.nl/event/1314110072" target="_blank" rel="noopener" class="btnV2 premium"><span class="lbl">Premium Tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+</div>
+</div>
+</div>
+</article>
+<article id="_agenda_6231906" class="agendaV2-item alt st-none">
+<div class="row inner">
+<a href="https://www.afaslive.nl/agenda/b-brave" class="rowImg" tabindex="-1" aria-hidden="true">
+<figure><img src="https://www.afaslive.nl/files/Agenda/2027/04.-april/b-brave.jpg" alt="B-Brave | AFAS Live" loading="lazy"></figure>
+</a>
+<div class="mid">
+<a href="https://www.afaslive.nl/agenda/b-brave" class="rowMain">
+<h4>B-Brave <time>15:00</time></h4>
+<p class="date">
+<span class="d">zondag 09 mei 2027</span>
+</p>
+</a>
+<div class="btns">
+<a href="https://www.ticketmaster.nl/artist/bbrave-tickets/944538?language=en-us" target="_blank" rel="noopener" class="btnV2 tickets"><span class="lbl">tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+<a href="https://www.ticketmaster.nl/event/1028473001" target="_blank" rel="noopener" class="btnV2 premium"><span class="lbl">Premium Tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+</div>
+</div>
+</div>
+</article>
+<article id="_agenda_6231906" class="agendaV2-item st-none">
+<div class="row inner">
+<a href="https://www.afaslive.nl/agenda/b-brave" class="rowImg" tabindex="-1" aria-hidden="true">
+<figure><img src="https://www.afaslive.nl/files/Agenda/2027/04.-april/b-brave.jpg" alt="B-Brave | AFAS Live" loading="lazy"></figure>
+</a>
+<div class="mid">
+<a href="https://www.afaslive.nl/agenda/b-brave" class="rowMain">
+<h4>B-Brave <time>21:00</time></h4>
+<p class="date">
+<span class="d">zondag 09 mei 2027</span>
+</p>
+</a>
+<div class="btns">
+<a href="https://www.ticketmaster.nl/artist/bbrave-tickets/944538?language=en-us" target="_blank" rel="noopener" class="btnV2 tickets"><span class="lbl">tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+<a href="https://www.ticketmaster.nl/event/1579147314" target="_blank" rel="noopener" class="btnV2 premium"><span class="lbl">Premium Tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+</div>
+</div>
+</div>
+</article>
+<article id="_agenda_6296538" class="agendaV2-item alt st-none">
+<div class="row inner">
+<a href="https://www.afaslive.nl/agenda/angele" class="rowImg" tabindex="-1" aria-hidden="true">
+<figure><img src="https://www.afaslive.nl/files/Agenda/2027/05.-mei/Angele_2026-09-05-094319_wzlu.jpg" alt="Angèle | AFAS Live" loading="lazy"></figure>
+</a>
+<div class="mid">
+<a href="https://www.afaslive.nl/agenda/angele" class="rowMain">
+<h4>Angèle</h4>
+<p class="date">
+<span class="d">dinsdag 11 mei 2027</span>
+</p>
+</a>
+<div class="btns">
+<a href="https://www.ticketmaster.nl/event/angele--instinct-tour-tickets/1301376544?language=en-us" target="_blank" rel="noopener" class="btnV2 tickets"><span class="lbl">tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+<a href="https://www.ticketmaster.nl/event/1045829134" target="_blank" rel="noopener" class="btnV2 premium"><span class="lbl">Premium Tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+</div>
+</div>
+</div>
+</article>
+<article id="_agenda_6296069" class="agendaV2-item st-none">
+<div class="row inner">
+<a href="https://www.afaslive.nl/agenda/craig-david" class="rowBadges"><em class="new">nieuw!</em></a>
+<a href="https://www.afaslive.nl/agenda/craig-david" class="rowImg" tabindex="-1" aria-hidden="true">
+<figure><img src="https://www.afaslive.nl/files/Agenda/2027/05.-mei/craig-david.jpg" alt="Craig David | AFAS Live" loading="lazy"></figure>
+</a>
+<div class="mid">
+<a href="https://www.afaslive.nl/agenda/craig-david" class="rowMain">
+<h4>Craig David</h4>
+<p class="date">
+<span class="d">woensdag 12 mei 2027</span>
+</p>
+</a>
+<div class="btns">
+<a href="https://www.ticketmaster.nl/event/craig-david-born-to-do-it-25th-anniversary-tour-tickets/616719289?language=en-us" target="_blank" rel="noopener" class="btnV2 tickets"><span class="lbl">tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+</div>
+</div>
+</div>
+</article>
+<article id="_agenda_6295240" class="agendaV2-item alt st-none">
+<div class="row inner">
+<a href="https://www.afaslive.nl/agenda/weezer" class="rowImg" tabindex="-1" aria-hidden="true">
+<figure><img src="https://www.afaslive.nl/files/Agenda/2027/05.-mei/Weezer.jpg" alt="Weezer | AFAS Live" loading="lazy"></figure>
+</a>
+<div class="mid">
+<a href="https://www.afaslive.nl/agenda/weezer" class="rowMain">
+<h4>Weezer</h4>
+<p class="date">
+<span class="d">woensdag 26 mei 2027</span>
+</p>
+</a>
+<div class="btns">
+<a href="https://www.ticketmaster.nl/event/1205197733" target="_blank" rel="noopener" class="btnV2 tickets"><span class="lbl">tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+<a href="https://www.ticketmaster.nl/event/561528287" target="_blank" rel="noopener" class="btnV2 premium"><span class="lbl">premium tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+</div>
+</div>
+</div>
+</article>
+<article id="_agenda_6295260" class="agendaV2-item st-none">
+<div class="row inner">
+<a href="https://www.afaslive.nl/agenda/electro-symphony-orchestra-dance-party" class="rowImg" tabindex="-1" aria-hidden="true">
+<figure><img src="https://www.afaslive.nl/files/News/Nieuws/Nieuwsberichten-Juni-26/Electro-Symphony.jpg" alt="Electro Symphony: Orchestra Dance Party | AFAS Live" loading="lazy"></figure>
+</a>
+<div class="mid">
+<a href="https://www.afaslive.nl/agenda/electro-symphony-orchestra-dance-party" class="rowMain">
+<h4>Electro Symphony: Orchestra Dance Party</h4>
+<p class="date">
+<span class="d">donderdag 27 mei 2027</span>
+</p>
+</a>
+<div class="btns">
+<a href="https://www.ticketmaster.nl/event/489911010" target="_blank" rel="noopener" class="btnV2 tickets"><span class="lbl">tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+<a href="https://www.ticketmaster.nl/event/1730506815" target="_blank" rel="noopener" class="btnV2 premium"><span class="lbl">Premium tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+</div>
+</div>
+</div>
+</article>
+<div class="agendaV2-month" id="2027_06">
+<div class="row"><h3>juni</h3></div>
+</div>
+<article id="_agenda_6296589" class="agendaV2-item st-soldout">
+<div class="row inner">
+<a href="https://www.afaslive.nl/agenda/hayley-williams" class="rowImg" tabindex="-1" aria-hidden="true">
+<figure><img src="https://www.afaslive.nl/files/Agenda/2027/06.-Juni/HaileyWilliams.jpg" alt="Hayley Williams | AFAS Live" loading="lazy"></figure>
+</a>
+<div class="mid">
+<a href="https://www.afaslive.nl/agenda/hayley-williams" class="rowMain">
+<h4>Hayley Williams</h4>
+<p class="date">
+<span class="d">donderdag 17 juni 2027</span>
+</p>
+</a>
+<div class="btns">
+<a href="https://www.ticketmaster.nl/event/1862823506" target="_blank" rel="noopener" class="btnV2 premium"><span class="lbl">Premium Tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+</div>
+</div>
+<a href="https://www.afaslive.nl/agenda/hayley-williams" class="statusLabel soldout"><b>Uitverkocht!</b></a>
+</div>
+</article>
+<article id="_agenda_6292292" class="agendaV2-item alt st-none">
+<div class="row inner">
+<a href="https://www.afaslive.nl/agenda/tribute-to-the-cats-band" class="rowImg" tabindex="-1" aria-hidden="true">
+<figure><img src="https://www.afaslive.nl/files/Agenda/2027/06.-Juni/Tribute-to-The-Cats-band.jpg" alt="Tribute To The Cats Band | AFAS Live" loading="lazy"></figure>
+</a>
+<div class="mid">
+<a href="https://www.afaslive.nl/agenda/tribute-to-the-cats-band" class="rowMain">
+<h4>Tribute To The Cats Band</h4>
+<p class="date">
+<span class="d">zaterdag 19 juni 2027</span>
+</p>
+</a>
+<div class="btns">
+<a href="https://mgtickets.nl/tttcb-afaslive" target="_blank" rel="noopener" class="btnV2 tickets"><span class="lbl">tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+<a href="https://www.ticketmaster.nl/event/43128358" target="_blank" rel="noopener" class="btnV2 premium"><span class="lbl">Premium tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+</div>
+</div>
+</div>
+</article>
+<article id="_agenda_6298065" class="agendaV2-item st-none">
+<div class="row inner">
+<a href="https://www.afaslive.nl/agenda/take-that" class="rowBadges"><em class="new">nieuw!</em></a>
+<a href="https://www.afaslive.nl/agenda/take-that" class="rowImg" tabindex="-1" aria-hidden="true">
+<figure><img src="https://www.afaslive.nl/files/Agenda/2027/06.-Juni/Take-That.jpg" alt="Take That | AFAS Live" loading="lazy"></figure>
+</a>
+<div class="mid">
+<a href="https://www.afaslive.nl/agenda/take-that" class="rowMain">
+<h4>Take That</h4>
+<p class="date">
+<span class="d">zondag 27 juni 2027</span>
+</p>
+</a>
+<div class="btns">
+<a href="https://www.eventim.nl/noapp/eventseries/4251935?affiliate=2FF" target="_blank" rel="noopener" class="btnV2 tickets"><span class="lbl">tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+</div>
+</div>
+</div>
+</article>
+<div class="agendaV2-month" id="2027_07">
+<div class="row"><h3>juli</h3></div>
+</div>
+<article id="_agenda_6291687" class="agendaV2-item st-none">
+<div class="row inner">
+<a href="https://www.afaslive.nl/agenda/luna-sabella" class="rowImg" tabindex="-1" aria-hidden="true">
+<figure><img src="https://www.afaslive.nl/files/Agenda/2026/juli/Luna-Sabella.jpg" alt="Luna Sabella | AFAS Live" loading="lazy"></figure>
+</a>
+<div class="mid">
+<a href="https://www.afaslive.nl/agenda/luna-sabella" class="rowMain">
+<h4>Luna Sabella</h4>
+<p class="date">
+<span class="d">zondag 04 juli 2027</span>
+</p>
+</a>
+<div class="btns">
+<a href="https://www.eventim.nl/noapp/eventseries/4177514?affiliate=AG1" target="_blank" rel="noopener" class="btnV2 tickets"><span class="lbl">tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+<a href="https://www.ticketmaster.nl/event/260294508" target="_blank" rel="noopener" class="btnV2 premium"><span class="lbl">Premium Tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+</div>
+</div>
+</div>
+</article>
+<div class="agendaV2-month" id="2027_09">
+<div class="row"><h3>september</h3></div>
+</div>
+<article id="_agenda_6297396" class="agendaV2-item st-none">
+<div class="row inner">
+<a href="https://www.afaslive.nl/agenda/ronan-keating" class="rowImg" tabindex="-1" aria-hidden="true">
+<figure><img src="https://www.afaslive.nl/files/Agenda/2027/02.-februari/Ronan-Keating.jpg" alt="Ronan Keating | AFAS Live" loading="lazy"></figure>
+</a>
+<div class="mid">
+<a href="https://www.afaslive.nl/agenda/ronan-keating" class="rowMain">
+<h4>Ronan Keating</h4>
+<p class="date">
+<span class="d">maandag 06 september 2027</span>
+</p>
+</a>
+<div class="btns">
+<a href="https://www.eventim.nl/noapp/eventseries/4237890?affiliate=2FF" target="_blank" rel="noopener" class="btnV2 tickets"><span class="lbl">tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+<a href="https://www.ticketmaster.nl/event/2036376823" target="_blank" rel="noopener" class="btnV2 premium"><span class="lbl">Premium Tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+</div>
+</div>
+</div>
+</article>
+<div class="agendaV2-month" id="2027_10">
+<div class="row"><h3>oktober</h3></div>
+</div>
+<article id="_agenda_6295633" class="agendaV2-item st-none">
+<div class="row inner">
+<a href="https://www.afaslive.nl/agenda/20-jaar-3js" class="rowImg" tabindex="-1" aria-hidden="true">
+<figure><img src="https://www.afaslive.nl/files/Agenda/2027/10.-Oktober/20JAAR3JS.jpg" alt="20 JAAR 3JS | AFAS Live" loading="lazy"></figure>
+</a>
+<div class="mid">
+<a href="https://www.afaslive.nl/agenda/20-jaar-3js" class="rowMain">
+<h4>20 JAAR 3JS</h4>
+<p class="date">
+<span class="d">zaterdag 09 oktober 2027</span>
+</p>
+</a>
+<div class="btns">
+<a href="https://apps.ticketmatic.com/widgets/nationale_theaterkassa/addtickets?event=935531180535" target="_blank" rel="noopener" class="btnV2 tickets"><span class="lbl">tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+<a href="https://www.ticketmaster.nl/event/1269070752" target="_blank" rel="noopener" class="btnV2 premium"><span class="lbl">premium tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+</div>
+</div>
+</div>
+</article>
+<article id="_agenda_6297934" class="agendaV2-item alt st-none">
+<div class="row inner">
+<a href="https://www.afaslive.nl/agenda/brit-floyd-animals-50-world-tour-2027" class="rowBadges"><em class="new">nieuw!</em></a>
+<a href="https://www.afaslive.nl/agenda/brit-floyd-animals-50-world-tour-2027" class="rowImg" tabindex="-1" aria-hidden="true">
+<figure><img src="https://www.afaslive.nl/files/News/Nieuws/Nieuwsberichten-September/Tijdelijke-persfoto-Brit-Floyd.png" alt="Brit Floyd: ANIMALS 50 – World Tour 2027 | AFAS Live" loading="lazy"></figure>
+</a>
+<div class="mid">
+<a href="https://www.afaslive.nl/agenda/brit-floyd-animals-50-world-tour-2027" class="rowMain">
+<h4>Brit Floyd: ANIMALS 50 – World Tour 2027</h4>
+<p class="date">
+<span class="d">dinsdag 12 oktober 2027</span>
+</p>
+</a>
+<div class="btns">
+<a href="https://www.ticketmaster.nl/event/209091797" target="_blank" rel="noopener" class="btnV2 tickets"><span class="lbl">tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+</div>
+</div>
+</div>
+</article>
+<article id="_agenda_6297940" class="agendaV2-item st-none">
+<div class="row inner">
+<a href="https://www.afaslive.nl/agenda/brit-floyd-echoes-60-years-of-pink-floyd" class="rowBadges"><em class="new">nieuw!</em></a>
+<a href="https://www.afaslive.nl/agenda/brit-floyd-echoes-60-years-of-pink-floyd" class="rowImg" tabindex="-1" aria-hidden="true">
+<figure><img src="https://www.afaslive.nl/files/Agenda/2027/10.-Oktober/Brit-Floyd-tijdelijk-ANIMALS.jpg" alt="Brit Floyd: Echoes - 60 Years of Pink Floyd | AFAS Live" loading="lazy"></figure>
+</a>
+<div class="mid">
+<a href="https://www.afaslive.nl/agenda/brit-floyd-echoes-60-years-of-pink-floyd" class="rowMain">
+<h4>Brit Floyd: Echoes - 60 Years of Pink Floyd</h4>
+<p class="date">
+<span class="d">woensdag 13 oktober 2027</span>
+</p>
+</a>
+<div class="btns">
+<a href="https://www.ticketmaster.nl/event/1636973232" target="_blank" rel="noopener" class="btnV2 tickets"><span class="lbl">tickets</span> <i class="ri-arrow-right-s-line"></i></a>
+</div>
+</div>
+</div>
+</article>
+</div>

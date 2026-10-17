@@ -1,0 +1,108 @@
+<div class="row agenda-item">
+<div class="gridFrame _xLarge-12 bg-white top-bar watch-listen-bar">
+<div class="grid-item _full">
+<p class="animate__animated animate__fadeInUp">Kijk en/of Luister <span><a href="https://open.spotify.com/user/stmpdrcrds?si=73959b9c69954e11" target="_blank"><i class="ri-spotify-fill"></i></a><a href="https://www.youtube.com/@STMPDRCRDS" target="_blank"><i class="ri-youtube-fill"></i></a><a href="https://www.instagram.com/stmpdrcrds/" target="_blank"><i class="ri-instagram-line"></i></a></span></p>
+<p class="right animate__animated animate__fadeInUp"><a href="https://www.mojo.nl/concerten/stmpd" target="_blank"><i class="ri-arrow-right-up-line"></i>Organisatie</a><a href="https://www.ticketmaster.nl/event/1718475544" data-target="#tickets" class="button targetLink">Bestel tickets</a></p>
+</div>
+</div>
+<div class="gridFrame _large-12 _xLarge-12 bg-white btm-bar">
+<div class="grid-item _full mobile-row top-bar">
+<p class="right"><a href="https://www.mojo.nl/concerten/stmpd" target="_blank"><i class="ri-arrow-right-up-line"></i>Organisatie</a></p>
+</div>
+<div class="grid-item _l1-12 _xl1-12 show-for-large"></div>
+<div class="grid-item _s4-4 _l10-12 _xl10-12">
+<div class="floated">
+<h2 class="animate__animated animate__fadeInDown">
+10 YEARS OF STMPD RCRDS - ADE											</h2>
+<a href="https://www.ticketmaster.nl/event/1718475544" target="_blank" class="button mobile-tickets gradient">Bestel tickets</a>
+</div>
+<div class="floated">
+<figure class="animate__animated animate__fadeInLeft"><img src="https://www.afaslive.nl/files/Agenda/2026/Oktober/STMPD-Records.jpg" alt="10 YEARS OF STMPD RCRDS - ADE | AFAS Live"></figure>					<div class="text animate__animated animate__fadeInRight">
+<p class="dates">
+22  oktober 2026																					</p>
+<a href="praktische-informatie" class="button visit">Praktische Informatie</a> <a href="#" data-target="#timetable" class="button visit targetLink"><i class="ri-time-line"></i> Tijdschema</a>											</div>
+</div>
+<div class="row spacer _50px"></div>
+<div class="floated intro">
+<p>Op donderdag 22&nbsp;oktober&nbsp;2026&nbsp;host het label van Martin Garrix een avond tijdens ADE 2026 in&nbsp;AFAS Live.</p>
+</div>
+</div>
+<div class="grid-item _l1-12 _xl1-12 show-for-large"></div>
+</div>
+<div class="gridFrame _xLarge-12 bg-lime important">
+<div class="grid-item _full">
+<h2><i class="ri-error-warning-line"></i> belangrijke informatie</h2>
+<p><span style="color:#000000;">Voor deze show geldt een minimumleeftijd van 18 jaar. &nbsp;Een geldig identiteitsbewijs is verplicht.</span></p>
+</div>
+</div>
+<div class="floated dates">
+<details open="">
+<summary>
+<div class="desktop">
+<date>donderdag, 22 oktober 2026</date>
+<span class="info">  <i class="icon ri-close-line"></i> </span>
+</div>
+<div class="mobile">
+<date>do, 22 okt. '26</date>
+<span class="info">  <i class="icon ri-close-line"></i> </span>
+</div>
+</summary>
+<div class="gridFrame _medium-4 _large-8 _xLarge-12" id="tickets">
+<div class="grid-item _s4-4 _m2-4 _l4-8 _xl6-12 left">
+<h3 class="txt-purple">10 YEARS OF STMPD RCRDS - ADE</h3>
+<datetime>donderdag 22 oktober 2026</datetime>
+<ul>
+<li>Entree vanaf<span>€ 54,98</span></li>
+</ul>
+</div>
+<div class="grid-item _s4-4 _m2-4 _l4-8 _xl6-12 text-center pTop-49 vipPadding">
+<p class="txt-purple"><em>AFAS Live is niet betrokken bij de reguliere kaartverkoop!</em></p>
+<a href="https://www.ticketmaster.nl/event/1718475544" target="_blank" class="button first">tickets <i class="ri-arrow-right-line"></i></a>
+<a href="https://www.ticketmaster.nl/event/785096731" class="button vip" target="_blank">
+Premium Standing Tickets
+<i class="ri-arrow-right-line"></i>
+</a>
+<p><i class="ri-team-fill"></i> <a href="https://www.mojo.nl/concerten/stmpd">Organisatie</a>
+</p></div>
+<div class="grid-item _full ticket">
+De kaartverkoop loopt via www.ticketmaster.nl en 0900 - 300 1250 (60 CPM). Prijzen zijn inclusief servicekosten.
+</div>
+</div>
+</details>
+</div>
+<div class="gridFrame _medium-4 _large-12 _xLarge-12 agendaInfo">
+<div class="grid-item _l1-12 _xl1-12 show-for-large"></div>
+<div class="grid-item  _s4-4 _l10-12 _xl10-12">
+<h2 class="txt-white">10 YEARS OF STMPD RCRDS - ADE</h2>
+<div class="flex-frame widescreen"></div>
+</div>
+<div class="grid-item _l1-12 _xl1-12 show-for-large"></div>
+<div class="grid-item _full spacer-h135"></div>						<div class="grid-item _s4-4 _m2-4 _l4-8 _xl6-12">
+<div class="txt" id="_6290923"><p>Het door Martin Garrix opgerichte platenlabel STMPD RCRDS bestaat tien jaar en keert voor deze anniversary terug naar hun Amsterdamse thuisbasis. Na een succesvolle start van de wereldwijde jubileumtour met drukbezochte events in onder andere Amerika, Canada, Brazilië en Japan, strijkt het label op donderdag 22 oktober neer in AFAS Live voor een grote label night tijdens ADE.<br><br>In het afgelopen decennium hostte STMPD RCRDS al eigen stages op toonaangevende festivals zoals Tomorrowland, Ultra, Sziget en Lollapalooza. De aankomende show in Amsterdam is het moment waarop de internationale STMPD familie weer samenkomt. Bezoekers kunnen in de AFAS Live rekenen op een productie met de kenmerkende STMPD live visuals en branding. Er staan energieke dj sets op het programma waarbij zowel bekende namen als nieuw, opkomend talent het podium delen.</p><p>A-Z</p><p>Citadelle, Curbi, Dubvision, Julian Jordan, Justin Mylo, Lavern, Martin Garrix, Matisse &amp; Sadko, Merow, Mesto, NOME., Nova Blue, R3HAB, Skytech, Third Party, Vluarr</p></div>
+</div>
+<div class="grid-item _l1-8 _xl1-12 show-for-large"></div>
+<div class="grid-item _s4-4 _m2-4 _l3-8 _xl5-12">
+<div class="flex-frame spotify"></div>
+</div>
+<div class="grid-item _full">
+<h2 class="txt-white small">Tijdschema</h2>
+<div class="tabsContainer timesTable" id="timetable">
+<div class="tab _1">
+<button data-tab="_tab6290923" class="active">do. 22 okt.</button>
+</div>
+<div id="_tab6290923" class="floated tabsContent active">
+<ul>
+<li>
+Aanvang show
+<span>17:00 uur</span>
+</li>
+<li>
+Verwacht eind
+<span>00:00 uur</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>

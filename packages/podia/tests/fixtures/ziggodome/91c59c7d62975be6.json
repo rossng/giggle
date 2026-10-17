@@ -1,0 +1,30 @@
+{
+ "data": [
+  {
+   "id": "23ab915b-3589-452c-9363-b90f670ab2a1",
+   "minTicketPrice": "69.56",
+   "maxTicketPrice": "69.56"
+  }
+ ],
+ "program": [
+  {
+   "program": [
+    {
+     "time": "18:30",
+     "title": "Deuren open & aanvang show",
+     "title_en": "Deuren open & start show"
+    },
+    {
+     "time": "02:00",
+     "title": "Einde show",
+     "title_en": "End of the show"
+    },
+    {
+     "time": "18:30",
+     "title": "Support act | HAAi & Anetha",
+     "title_en": "Support act | HAAi & Anetha"
+    }
+   ]
+  }
+ ]
+}

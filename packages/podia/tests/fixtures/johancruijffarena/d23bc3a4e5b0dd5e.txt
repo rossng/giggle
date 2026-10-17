@@ -1,0 +1,656 @@
+<main id="main">
+						<div class="page-header ">
+            <div class="page-header__background-wrapper">
+            <img src="/images/backgrounds/oval-visual-stretched.png" alt="background" class="page-header__background">
+        </div>
+    	<div class="wrapper-inner">
+					<ul class="breadcrumb">
+	<li>
+		<a href="https://www.johancruijffarena.nl/">Home</a>
+	</li>
+							<li>
+			<span>Kalender</span>
+		</li>
+	</ul>
+		
+								<h1 class="page-header__title">Kalender</h1>
+
+			
+																											</div>
+</div>
+		
+					
+	
+	<section class="section">
+					<div class="wrapper-inner">
+				<header>
+					<h2 class="calendar__month">Oktober 2026</h2>
+				</header>
+			</div>
+			<div class="card-grid card-grid--vertical">
+									
+<a href="https://www.johancruijffarena.nl/kalender/461366-ajax-fc-sion/" class="card " data-entry-id="461366">
+            <div class="card__image">
+                                                                <picture><source type="image/webp" srcset="https://johan-cruijff-arena.b-cdn.net/production/Ajax-Burnley-1.png?width=909&amp;height=569&amp;format=webp&amp;quality=80&amp;crop=1726%2C1080%2C97%2C0 1x, https://johan-cruijff-arena.b-cdn.net/production/Ajax-Burnley-1.png?width=1212&amp;height=758&amp;format=webp&amp;quality=80&amp;crop=1727%2C1080%2C96%2C0 2x"><source type="image/jpg" srcset="https://johan-cruijff-arena.b-cdn.net/production/Ajax-Burnley-1.png?width=909&amp;height=569&amp;format=jpg&amp;quality=80&amp;crop=1726%2C1080%2C97%2C0 1x, https://johan-cruijff-arena.b-cdn.net/production/Ajax-Burnley-1.png?width=1212&amp;height=758&amp;format=jpg&amp;quality=80&amp;crop=1727%2C1080%2C96%2C0 2x"><img class="card__image__img" src="https://johan-cruijff-arena.b-cdn.net/production/Ajax-Burnley-1.png?width=909&amp;height=569&amp;format=jpg&amp;quality=80&amp;crop=1726%2C1080%2C97%2C0" width="606" height="379" alt="Ajax - Atalanta" loading="lazy" onerror="window.utilitiesPictureTagFallbackHandler(this)"></picture>
+                            
+                                                <time datetime="2026-10-22T21:00:00+02:00" class="card__image__date">
+    <span>22 okt, '26</span>
+</time>
+                            
+                                </div>
+    
+    <div class="card__content-wrapper">
+        
+                    <div class="card__title">
+	<h3>Ajax - Atalanta</h3>
+</div>
+        
+        
+                                <div class="card__meta-row">
+                                                                                                                <div class="card__meta">
+	<span>UEFA Conference League</span>
+</div>
+                                                                        </div>
+        
+                                                <div class="card__content">
+			<p>Donderdag 22 oktober speelt Ajax tegen Atalanta in de Johan Cruijff ArenA.</p>
+	</div>                    
+                
+<div class="card__clickout">
+	<span>Meer informatie</span>
+	<svg width="14" height="16" aria-hidden="true">
+			<use xlink:href="/build/svg/symbol/svg/sprite.symbol.svg#arrow-right"></use>
+</svg>
+</div>
+        </div>
+</a>
+									
+<a href="https://www.johancruijffarena.nl/kalender/433532-amf-2026/" class="card " data-entry-id="433532">
+            <div class="card__image">
+                                                                <picture><source type="image/webp" srcset="https://johan-cruijff-arena.b-cdn.net/production/AMF26-Date-2048x1365.png?width=909&amp;height=569&amp;format=webp&amp;quality=80&amp;crop=2048%2C1282%2C0%2C41 1x, https://johan-cruijff-arena.b-cdn.net/production/AMF26-Date-2048x1365.png?width=1212&amp;height=758&amp;format=webp&amp;quality=80&amp;crop=2048%2C1281%2C0%2C42 2x"><source type="image/jpg" srcset="https://johan-cruijff-arena.b-cdn.net/production/AMF26-Date-2048x1365.png?width=909&amp;height=569&amp;format=jpg&amp;quality=80&amp;crop=2048%2C1282%2C0%2C41 1x, https://johan-cruijff-arena.b-cdn.net/production/AMF26-Date-2048x1365.png?width=1212&amp;height=758&amp;format=jpg&amp;quality=80&amp;crop=2048%2C1281%2C0%2C42 2x"><img class="card__image__img" src="https://johan-cruijff-arena.b-cdn.net/production/AMF26-Date-2048x1365.png?width=909&amp;height=569&amp;format=jpg&amp;quality=80&amp;crop=2048%2C1282%2C0%2C41" width="606" height="379" alt="AMF 2026" loading="lazy" onerror="window.utilitiesPictureTagFallbackHandler(this)"></picture>
+                            
+                                                <time datetime="2026-10-24T20:00:00+02:00" class="card__image__date">
+    <span>24 okt, '26</span>
+</time>
+                            
+                                
+            <span class="card__image__label">Koop tickets</span>
+                    </div>
+    
+    <div class="card__content-wrapper">
+        
+                    <div class="card__title">
+	<h3>AMF 2026</h3>
+</div>
+        
+        
+                                <div class="card__meta-row">
+                                                                                                                <div class="card__meta">
+	<span>Dance</span>
+</div>
+                                                                        </div>
+        
+                                                <div class="card__content">
+			<p>Op zaterdag 24 oktober 2026 komt AMF terug naar de Johan Cruijff ArenA als onderdeel van Amsterdam Dance Event.</p>
+	</div>                    
+                
+<div class="card__clickout">
+	<span>Meer informatie</span>
+	<svg width="14" height="16" aria-hidden="true">
+			<use xlink:href="/build/svg/symbol/svg/sprite.symbol.svg#arrow-right"></use>
+</svg>
+</div>
+        </div>
+</a>
+									
+<a href="https://www.johancruijffarena.nl/kalender/458038-ajax-az/" class="card " data-entry-id="458038">
+            <div class="card__image">
+                                                                <picture><source type="image/webp" srcset="https://johan-cruijff-arena.b-cdn.net/production/Website-cards-Ajax-2526-7_2026-07-07-101334_sgqx.png?width=909&amp;height=569&amp;format=webp&amp;quality=80&amp;crop=1726%2C1080%2C97%2C0 1x, https://johan-cruijff-arena.b-cdn.net/production/Website-cards-Ajax-2526-7_2026-07-07-101334_sgqx.png?width=1212&amp;height=758&amp;format=webp&amp;quality=80&amp;crop=1727%2C1080%2C96%2C0 2x"><source type="image/jpg" srcset="https://johan-cruijff-arena.b-cdn.net/production/Website-cards-Ajax-2526-7_2026-07-07-101334_sgqx.png?width=909&amp;height=569&amp;format=jpg&amp;quality=80&amp;crop=1726%2C1080%2C97%2C0 1x, https://johan-cruijff-arena.b-cdn.net/production/Website-cards-Ajax-2526-7_2026-07-07-101334_sgqx.png?width=1212&amp;height=758&amp;format=jpg&amp;quality=80&amp;crop=1727%2C1080%2C96%2C0 2x"><img class="card__image__img" src="https://johan-cruijff-arena.b-cdn.net/production/Website-cards-Ajax-2526-7_2026-07-07-101334_sgqx.png?width=909&amp;height=569&amp;format=jpg&amp;quality=80&amp;crop=1726%2C1080%2C97%2C0" width="606" height="379" alt="Ajax - AZ" loading="lazy" onerror="window.utilitiesPictureTagFallbackHandler(this)"></picture>
+                            
+                                                <time datetime="2026-10-31T21:00:00+01:00" class="card__image__date">
+    <span>31 okt, '26</span>
+</time>
+                            
+                                </div>
+    
+    <div class="card__content-wrapper">
+        
+                    <div class="card__title">
+	<h3>Ajax - AZ</h3>
+</div>
+        
+        
+                                <div class="card__meta-row">
+                                                                                                                <div class="card__meta">
+	<span>Eredivisie</span>
+</div>
+                                                                        </div>
+        
+                                                <div class="card__content">
+			<p>Zaterdag 31 oktober 2026 speelt Ajax tegen AZ in de Johan Cruijff ArenA.</p>
+	</div>                    
+                
+<div class="card__clickout">
+	<span>Meer informatie</span>
+	<svg width="14" height="16" aria-hidden="true">
+			<use xlink:href="/build/svg/symbol/svg/sprite.symbol.svg#arrow-right"></use>
+</svg>
+</div>
+        </div>
+</a>
+							</div>
+					<div class="wrapper-inner">
+				<header>
+					<h2 class="calendar__month">November 2026</h2>
+				</header>
+			</div>
+			<div class="card-grid card-grid--vertical">
+									
+<a href="https://www.johancruijffarena.nl/kalender/446964-nederland-griekenland/" class="card " data-entry-id="446964">
+            <div class="card__image">
+                                                                <picture><source type="image/webp" srcset="https://johan-cruijff-arena.b-cdn.net/production/oranje.jpg?width=909&amp;height=569&amp;format=webp&amp;quality=80&amp;crop=620%2C389%2C0%2C10 1x"><source type="image/jpg" srcset="https://johan-cruijff-arena.b-cdn.net/production/oranje.jpg?width=909&amp;height=569&amp;format=jpg&amp;quality=80&amp;crop=620%2C389%2C0%2C10 1x"><img class="card__image__img" src="https://johan-cruijff-arena.b-cdn.net/production/oranje.jpg?width=909&amp;height=569&amp;format=jpg&amp;quality=80&amp;crop=620%2C389%2C0%2C10" width="606" height="379" alt="Nederland-Griekenland" loading="lazy" onerror="window.utilitiesPictureTagFallbackHandler(this)"></picture>
+                            
+                                                <time datetime="2026-11-13T20:45:00+01:00" class="card__image__date">
+    <span>13 nov, '26</span>
+</time>
+                            
+                                </div>
+    
+    <div class="card__content-wrapper">
+        
+                    <div class="card__title">
+	<h3>Nederland-Griekenland</h3>
+</div>
+        
+        
+                                <div class="card__meta-row">
+                                                                                                                <div class="card__meta">
+	<span>Oranje</span>
+</div>
+                                                                        </div>
+        
+                                                <div class="card__content">
+			<p>Op vrijdag 13 november 2026 speelt het Nederlands elftal tegen Griekenland in de Johan Cruijff ArenA.</p>
+	</div>                    
+                
+<div class="card__clickout">
+	<span>Meer informatie</span>
+	<svg width="14" height="16" aria-hidden="true">
+			<use xlink:href="/build/svg/symbol/svg/sprite.symbol.svg#arrow-right"></use>
+</svg>
+</div>
+        </div>
+</a>
+									
+<a href="https://www.johancruijffarena.nl/kalender/457807-ajax-ado-den-haag/" class="card " data-entry-id="457807">
+            <div class="card__image">
+                                                                <picture><source type="image/webp" srcset="https://johan-cruijff-arena.b-cdn.net/production/Ajax-Ado-Den-Haag.png?width=909&amp;height=569&amp;format=webp&amp;quality=80&amp;crop=1726%2C1080%2C97%2C0 1x, https://johan-cruijff-arena.b-cdn.net/production/Ajax-Ado-Den-Haag.png?width=1212&amp;height=758&amp;format=webp&amp;quality=80&amp;crop=1727%2C1080%2C96%2C0 2x"><source type="image/jpg" srcset="https://johan-cruijff-arena.b-cdn.net/production/Ajax-Ado-Den-Haag.png?width=909&amp;height=569&amp;format=jpg&amp;quality=80&amp;crop=1726%2C1080%2C97%2C0 1x, https://johan-cruijff-arena.b-cdn.net/production/Ajax-Ado-Den-Haag.png?width=1212&amp;height=758&amp;format=jpg&amp;quality=80&amp;crop=1727%2C1080%2C96%2C0 2x"><img class="card__image__img" src="https://johan-cruijff-arena.b-cdn.net/production/Ajax-Ado-Den-Haag.png?width=909&amp;height=569&amp;format=jpg&amp;quality=80&amp;crop=1726%2C1080%2C97%2C0" width="606" height="379" alt="Ajax - ADO Den Haag" loading="lazy" onerror="window.utilitiesPictureTagFallbackHandler(this)"></picture>
+                            
+                                                <time datetime="2026-11-22T14:30:00+01:00" class="card__image__date">
+    <span>22 nov, '26</span>
+</time>
+                            
+                                </div>
+    
+    <div class="card__content-wrapper">
+        
+                    <div class="card__title">
+	<h3>Ajax - ADO Den Haag</h3>
+</div>
+        
+        
+                                <div class="card__meta-row">
+                                                                                                                <div class="card__meta">
+	<span>Eredivisie</span>
+</div>
+                                                                        </div>
+        
+                                                <div class="card__content">
+			<p>Zondag 22 november 2026 speelt Ajax tegen ADO Den Haag in de Johan Cruijff ArenA.</p>
+	</div>                    
+                
+<div class="card__clickout">
+	<span>Meer informatie</span>
+	<svg width="14" height="16" aria-hidden="true">
+			<use xlink:href="/build/svg/symbol/svg/sprite.symbol.svg#arrow-right"></use>
+</svg>
+</div>
+        </div>
+</a>
+									
+<a href="https://www.johancruijffarena.nl/kalender/461409-ajax-fc-sion/" class="card " data-entry-id="461409">
+            <div class="card__image">
+                                                                <picture><source type="image/webp" srcset="https://johan-cruijff-arena.b-cdn.net/production/Ajax-Burnley-2.png?width=909&amp;height=569&amp;format=webp&amp;quality=80&amp;crop=1726%2C1080%2C97%2C0 1x, https://johan-cruijff-arena.b-cdn.net/production/Ajax-Burnley-2.png?width=1212&amp;height=758&amp;format=webp&amp;quality=80&amp;crop=1727%2C1080%2C96%2C0 2x"><source type="image/jpg" srcset="https://johan-cruijff-arena.b-cdn.net/production/Ajax-Burnley-2.png?width=909&amp;height=569&amp;format=jpg&amp;quality=80&amp;crop=1726%2C1080%2C97%2C0 1x, https://johan-cruijff-arena.b-cdn.net/production/Ajax-Burnley-2.png?width=1212&amp;height=758&amp;format=jpg&amp;quality=80&amp;crop=1727%2C1080%2C96%2C0 2x"><img class="card__image__img" src="https://johan-cruijff-arena.b-cdn.net/production/Ajax-Burnley-2.png?width=909&amp;height=569&amp;format=jpg&amp;quality=80&amp;crop=1726%2C1080%2C97%2C0" width="606" height="379" alt="Ajax - FC Thun" loading="lazy" onerror="window.utilitiesPictureTagFallbackHandler(this)"></picture>
+                            
+                                                <time datetime="2026-11-26T18:45:00+01:00" class="card__image__date">
+    <span>26 nov, '26</span>
+</time>
+                            
+                                </div>
+    
+    <div class="card__content-wrapper">
+        
+                    <div class="card__title">
+	<h3>Ajax - FC Thun</h3>
+</div>
+        
+        
+                                <div class="card__meta-row">
+                                                                                                                <div class="card__meta">
+	<span>UEFA Conference League</span>
+</div>
+                                                                        </div>
+        
+                                                <div class="card__content">
+			<p>Donderdag 26 november speelt Ajax tegen FC Thun in de Johan Cruijff ArenA.</p>
+	</div>                    
+                
+<div class="card__clickout">
+	<span>Meer informatie</span>
+	<svg width="14" height="16" aria-hidden="true">
+			<use xlink:href="/build/svg/symbol/svg/sprite.symbol.svg#arrow-right"></use>
+</svg>
+</div>
+        </div>
+</a>
+							</div>
+					<div class="wrapper-inner">
+				<header>
+					<h2 class="calendar__month">December 2026</h2>
+				</header>
+			</div>
+			<div class="card-grid card-grid--vertical">
+									
+<a href="https://www.johancruijffarena.nl/kalender/457744-ajax-fc-utrecht/" class="card " data-entry-id="457744">
+            <div class="card__image">
+                                                                <picture><source type="image/webp" srcset="https://johan-cruijff-arena.b-cdn.net/production/17.png?width=909&amp;height=569&amp;format=webp&amp;quality=80&amp;crop=1726%2C1080%2C97%2C0 1x, https://johan-cruijff-arena.b-cdn.net/production/17.png?width=1212&amp;height=758&amp;format=webp&amp;quality=80&amp;crop=1727%2C1080%2C96%2C0 2x"><source type="image/jpg" srcset="https://johan-cruijff-arena.b-cdn.net/production/17.png?width=909&amp;height=569&amp;format=jpg&amp;quality=80&amp;crop=1726%2C1080%2C97%2C0 1x, https://johan-cruijff-arena.b-cdn.net/production/17.png?width=1212&amp;height=758&amp;format=jpg&amp;quality=80&amp;crop=1727%2C1080%2C96%2C0 2x"><img class="card__image__img" src="https://johan-cruijff-arena.b-cdn.net/production/17.png?width=909&amp;height=569&amp;format=jpg&amp;quality=80&amp;crop=1726%2C1080%2C97%2C0" width="606" height="379" alt="Ajax - FC Utrecht" loading="lazy" onerror="window.utilitiesPictureTagFallbackHandler(this)"></picture>
+                            
+                                                <time datetime="2026-12-06T14:30:00+01:00" class="card__image__date">
+    <span>6 dec, '26</span>
+</time>
+                            
+                                </div>
+    
+    <div class="card__content-wrapper">
+        
+                    <div class="card__title">
+	<h3>Ajax - FC Utrecht</h3>
+</div>
+        
+        
+                                <div class="card__meta-row">
+                                                                                                                <div class="card__meta">
+	<span>Eredivisie</span>
+</div>
+                                                                        </div>
+        
+                                                <div class="card__content">
+			<p>Zondag 6 december 2026 speelt Ajax tegen FC Utrecht in de Johan Cruijff ArenA.</p>
+	</div>                    
+                
+<div class="card__clickout">
+	<span>Meer informatie</span>
+	<svg width="14" height="16" aria-hidden="true">
+			<use xlink:href="/build/svg/symbol/svg/sprite.symbol.svg#arrow-right"></use>
+</svg>
+</div>
+        </div>
+</a>
+									
+<a href="https://www.johancruijffarena.nl/kalender/457723-ajax-sc-cambuur/" class="card " data-entry-id="457723">
+            <div class="card__image">
+                                                                <picture><source type="image/webp" srcset="https://johan-cruijff-arena.b-cdn.net/production/25.png?width=909&amp;height=569&amp;format=webp&amp;quality=80&amp;crop=1726%2C1080%2C97%2C0 1x, https://johan-cruijff-arena.b-cdn.net/production/25.png?width=1212&amp;height=758&amp;format=webp&amp;quality=80&amp;crop=1727%2C1080%2C96%2C0 2x"><source type="image/jpg" srcset="https://johan-cruijff-arena.b-cdn.net/production/25.png?width=909&amp;height=569&amp;format=jpg&amp;quality=80&amp;crop=1726%2C1080%2C97%2C0 1x, https://johan-cruijff-arena.b-cdn.net/production/25.png?width=1212&amp;height=758&amp;format=jpg&amp;quality=80&amp;crop=1727%2C1080%2C96%2C0 2x"><img class="card__image__img" src="https://johan-cruijff-arena.b-cdn.net/production/25.png?width=909&amp;height=569&amp;format=jpg&amp;quality=80&amp;crop=1726%2C1080%2C97%2C0" width="606" height="379" alt="Ajax - SC Cambuur" loading="lazy" onerror="window.utilitiesPictureTagFallbackHandler(this)"></picture>
+                            
+                                                <time datetime="2026-12-13T20:00:00+01:00" class="card__image__date">
+    <span>13 dec, '26</span>
+</time>
+                            
+                                </div>
+    
+    <div class="card__content-wrapper">
+        
+                    <div class="card__title">
+	<h3>Ajax - SC Cambuur</h3>
+</div>
+        
+        
+                                <div class="card__meta-row">
+                                                                                                                <div class="card__meta">
+	<span>Eredivisie</span>
+</div>
+                                                                        </div>
+        
+                                                <div class="card__content">
+			<p>Zondag 13 december 2026 speelt Ajax tegen SC Cambuur in de Johan Cruijff ArenA.</p>
+	</div>                    
+                
+<div class="card__clickout">
+	<span>Meer informatie</span>
+	<svg width="14" height="16" aria-hidden="true">
+			<use xlink:href="/build/svg/symbol/svg/sprite.symbol.svg#arrow-right"></use>
+</svg>
+</div>
+        </div>
+</a>
+									
+<a href="https://www.johancruijffarena.nl/kalender/461452-ajax-fc-sion/" class="card " data-entry-id="461452">
+            <div class="card__image">
+                                                                <picture><source type="image/webp" srcset="https://johan-cruijff-arena.b-cdn.net/production/Ajax-Burnley-3.png?width=909&amp;height=569&amp;format=webp&amp;quality=80&amp;crop=1726%2C1080%2C97%2C0 1x, https://johan-cruijff-arena.b-cdn.net/production/Ajax-Burnley-3.png?width=1212&amp;height=758&amp;format=webp&amp;quality=80&amp;crop=1727%2C1080%2C96%2C0 2x"><source type="image/jpg" srcset="https://johan-cruijff-arena.b-cdn.net/production/Ajax-Burnley-3.png?width=909&amp;height=569&amp;format=jpg&amp;quality=80&amp;crop=1726%2C1080%2C97%2C0 1x, https://johan-cruijff-arena.b-cdn.net/production/Ajax-Burnley-3.png?width=1212&amp;height=758&amp;format=jpg&amp;quality=80&amp;crop=1727%2C1080%2C96%2C0 2x"><img class="card__image__img" src="https://johan-cruijff-arena.b-cdn.net/production/Ajax-Burnley-3.png?width=909&amp;height=569&amp;format=jpg&amp;quality=80&amp;crop=1726%2C1080%2C97%2C0" width="606" height="379" alt="Ajax - Getafe CF" loading="lazy" onerror="window.utilitiesPictureTagFallbackHandler(this)"></picture>
+                            
+                                                <time datetime="2026-12-17T21:00:00+01:00" class="card__image__date">
+    <span>17 dec, '26</span>
+</time>
+                            
+                                </div>
+    
+    <div class="card__content-wrapper">
+        
+                    <div class="card__title">
+	<h3>Ajax - Getafe CF</h3>
+</div>
+        
+        
+                                <div class="card__meta-row">
+                                                                                                                <div class="card__meta">
+	<span>UEFA Conference League</span>
+</div>
+                                                                        </div>
+        
+                                                <div class="card__content">
+			<p>Donderdag 17 december speelt Ajax tegen Getafe CF in de Johan Cruijff ArenA.</p>
+	</div>                    
+                
+<div class="card__clickout">
+	<span>Meer informatie</span>
+	<svg width="14" height="16" aria-hidden="true">
+			<use xlink:href="/build/svg/symbol/svg/sprite.symbol.svg#arrow-right"></use>
+</svg>
+</div>
+        </div>
+</a>
+							</div>
+					<div class="wrapper-inner">
+				<header>
+					<h2 class="calendar__month">Januari 2027</h2>
+				</header>
+			</div>
+			<div class="card-grid card-grid--vertical">
+									
+<a href="https://www.johancruijffarena.nl/kalender/457765-ajax-fc-groningen/" class="card " data-entry-id="457765">
+            <div class="card__image">
+                                                                <picture><source type="image/webp" srcset="https://johan-cruijff-arena.b-cdn.net/production/8_2026-08-13-125433_gttg.png?width=909&amp;height=569&amp;format=webp&amp;quality=80&amp;crop=1726%2C1080%2C97%2C0 1x, https://johan-cruijff-arena.b-cdn.net/production/8_2026-08-13-125433_gttg.png?width=1212&amp;height=758&amp;format=webp&amp;quality=80&amp;crop=1727%2C1080%2C96%2C0 2x"><source type="image/jpg" srcset="https://johan-cruijff-arena.b-cdn.net/production/8_2026-08-13-125433_gttg.png?width=909&amp;height=569&amp;format=jpg&amp;quality=80&amp;crop=1726%2C1080%2C97%2C0 1x, https://johan-cruijff-arena.b-cdn.net/production/8_2026-08-13-125433_gttg.png?width=1212&amp;height=758&amp;format=jpg&amp;quality=80&amp;crop=1727%2C1080%2C96%2C0 2x"><img class="card__image__img" src="https://johan-cruijff-arena.b-cdn.net/production/8_2026-08-13-125433_gttg.png?width=909&amp;height=569&amp;format=jpg&amp;quality=80&amp;crop=1726%2C1080%2C97%2C0" width="606" height="379" alt="Ajax - FC Groningen" loading="lazy" onerror="window.utilitiesPictureTagFallbackHandler(this)"></picture>
+                            
+                                                <time datetime="2027-01-17T14:30:00+01:00" class="card__image__date">
+    <span>17 jan, '27</span>
+</time>
+                            
+                                </div>
+    
+    <div class="card__content-wrapper">
+        
+                    <div class="card__title">
+	<h3>Ajax - FC Groningen</h3>
+</div>
+        
+        
+                                <div class="card__meta-row">
+                                                                                                                <div class="card__meta">
+	<span>Eredivisie</span>
+</div>
+                                                                        </div>
+        
+                                                <div class="card__content">
+			<p>Zondag 17 januari 2027 speelt Ajax tegen FC Groningen in de Johan Cruijff ArenA.</p>
+	</div>                    
+                
+<div class="card__clickout">
+	<span>Meer informatie</span>
+	<svg width="14" height="16" aria-hidden="true">
+			<use xlink:href="/build/svg/symbol/svg/sprite.symbol.svg#arrow-right"></use>
+</svg>
+</div>
+        </div>
+</a>
+									
+<a href="https://www.johancruijffarena.nl/kalender/457786-ajax-telstar/" class="card " data-entry-id="457786">
+            <div class="card__image">
+                                                                <picture><source type="image/webp" srcset="https://johan-cruijff-arena.b-cdn.net/production/1_2026-08-13-125231_vopo.png?width=909&amp;height=569&amp;format=webp&amp;quality=80&amp;crop=1726%2C1080%2C97%2C0 1x, https://johan-cruijff-arena.b-cdn.net/production/1_2026-08-13-125231_vopo.png?width=1212&amp;height=758&amp;format=webp&amp;quality=80&amp;crop=1727%2C1080%2C96%2C0 2x"><source type="image/jpg" srcset="https://johan-cruijff-arena.b-cdn.net/production/1_2026-08-13-125231_vopo.png?width=909&amp;height=569&amp;format=jpg&amp;quality=80&amp;crop=1726%2C1080%2C97%2C0 1x, https://johan-cruijff-arena.b-cdn.net/production/1_2026-08-13-125231_vopo.png?width=1212&amp;height=758&amp;format=jpg&amp;quality=80&amp;crop=1727%2C1080%2C96%2C0 2x"><img class="card__image__img" src="https://johan-cruijff-arena.b-cdn.net/production/1_2026-08-13-125231_vopo.png?width=909&amp;height=569&amp;format=jpg&amp;quality=80&amp;crop=1726%2C1080%2C97%2C0" width="606" height="379" alt="Ajax - Telstar" loading="lazy" onerror="window.utilitiesPictureTagFallbackHandler(this)"></picture>
+                            
+                                                <time datetime="2027-01-23T16:30:00+01:00" class="card__image__date">
+    <span>23 jan, '27</span>
+</time>
+                            
+                                </div>
+    
+    <div class="card__content-wrapper">
+        
+                    <div class="card__title">
+	<h3>Ajax - Telstar</h3>
+</div>
+        
+        
+                                <div class="card__meta-row">
+                                                                                                                <div class="card__meta">
+	<span>Eredivisie</span>
+</div>
+                                                                        </div>
+        
+                                                <div class="card__content">
+			<p>Zaterdag 23 januari 2027 speelt Ajax tegen Telstar in de Johan Cruijff ArenA.</p>
+	</div>                    
+                
+<div class="card__clickout">
+	<span>Meer informatie</span>
+	<svg width="14" height="16" aria-hidden="true">
+			<use xlink:href="/build/svg/symbol/svg/sprite.symbol.svg#arrow-right"></use>
+</svg>
+</div>
+        </div>
+</a>
+							</div>
+					<div class="wrapper-inner">
+				<header>
+					<h2 class="calendar__month">April 2027</h2>
+				</header>
+			</div>
+			<div class="card-grid card-grid--vertical">
+									
+<a href="https://www.johancruijffarena.nl/kalender/461559-roxy-dekker/" class="card " data-entry-id="461559">
+            <div class="card__image">
+                                                                <picture><source type="image/webp" srcset="https://johan-cruijff-arena.b-cdn.net/production/jamanbroershots-9849-LR.jpg?width=909&amp;height=569&amp;format=webp&amp;quality=80&amp;crop=2000%2C1252%2C0%2C625 1x, https://johan-cruijff-arena.b-cdn.net/production/jamanbroershots-9849-LR.jpg?width=1212&amp;height=758&amp;format=webp&amp;quality=80&amp;crop=2000%2C1251%2C0%2C625 2x"><source type="image/jpg" srcset="https://johan-cruijff-arena.b-cdn.net/production/jamanbroershots-9849-LR.jpg?width=909&amp;height=569&amp;format=jpg&amp;quality=80&amp;crop=2000%2C1252%2C0%2C625 1x, https://johan-cruijff-arena.b-cdn.net/production/jamanbroershots-9849-LR.jpg?width=1212&amp;height=758&amp;format=jpg&amp;quality=80&amp;crop=2000%2C1251%2C0%2C625 2x"><img class="card__image__img" src="https://johan-cruijff-arena.b-cdn.net/production/jamanbroershots-9849-LR.jpg?width=909&amp;height=569&amp;format=jpg&amp;quality=80&amp;crop=2000%2C1252%2C0%2C625" width="606" height="379" alt="Roxy Dekker" loading="lazy" style="object-position: 45.23% 35.76%;" onerror="window.utilitiesPictureTagFallbackHandler(this)"></picture>
+                            
+                                                <time datetime="2027-04-24T00:00:00+02:00" class="card__image__date">
+    <span>24 apr, '27</span>
+</time>
+                            
+                                </div>
+    
+    <div class="card__content-wrapper">
+        
+                    <div class="card__title">
+	<h3>Roxy Dekker</h3>
+</div>
+        
+        
+                                <div class="card__meta-row">
+                                                                                                                <div class="card__meta">
+	<span>Concert</span>
+</div>
+                                                                        </div>
+        
+                                                <div class="card__content">
+			<p>Op zaterdag 24 april 2027 treedt Roxy Dekker op in de Johan Cruijff ArenA.</p>
+	</div>                    
+                
+<div class="card__clickout">
+	<span>Meer informatie</span>
+	<svg width="14" height="16" aria-hidden="true">
+			<use xlink:href="/build/svg/symbol/svg/sprite.symbol.svg#arrow-right"></use>
+</svg>
+</div>
+        </div>
+</a>
+							</div>
+					<div class="wrapper-inner">
+				<header>
+					<h2 class="calendar__month">Mei 2027</h2>
+				</header>
+			</div>
+			<div class="card-grid card-grid--vertical">
+									
+<a href="https://www.johancruijffarena.nl/kalender/458867-ajax-sparta-rotterdam/" class="card " data-entry-id="458867">
+            <div class="card__image">
+                                                                <picture><source type="image/webp" srcset="https://johan-cruijff-arena.b-cdn.net/production/14.png?width=909&amp;height=569&amp;format=webp&amp;quality=80&amp;crop=1726%2C1080%2C97%2C0 1x, https://johan-cruijff-arena.b-cdn.net/production/14.png?width=1212&amp;height=758&amp;format=webp&amp;quality=80&amp;crop=1727%2C1080%2C96%2C0 2x"><source type="image/jpg" srcset="https://johan-cruijff-arena.b-cdn.net/production/14.png?width=909&amp;height=569&amp;format=jpg&amp;quality=80&amp;crop=1726%2C1080%2C97%2C0 1x, https://johan-cruijff-arena.b-cdn.net/production/14.png?width=1212&amp;height=758&amp;format=jpg&amp;quality=80&amp;crop=1727%2C1080%2C96%2C0 2x"><img class="card__image__img" src="https://johan-cruijff-arena.b-cdn.net/production/14.png?width=909&amp;height=569&amp;format=jpg&amp;quality=80&amp;crop=1726%2C1080%2C97%2C0" width="606" height="379" alt="Ajax - Sparta Rotterdam" loading="lazy" onerror="window.utilitiesPictureTagFallbackHandler(this)"></picture>
+                            
+                                                <time datetime="2027-05-16T00:00:00+02:00" class="card__image__date">
+    <span>16 mei, '27</span>
+</time>
+                            
+                                </div>
+    
+    <div class="card__content-wrapper">
+        
+                    <div class="card__title">
+	<h3>Ajax - Sparta Rotterdam</h3>
+</div>
+        
+        
+                                <div class="card__meta-row">
+                                                                                                                <div class="card__meta">
+	<span>Eredivisie</span>
+</div>
+                                                                        </div>
+        
+                                                <div class="card__content">
+			<p>Zondag 16 mei 2027 speelt Ajax tegen Sparta Rotterdam in de Johan Cruijff ArenA.</p>
+	</div>                    
+                
+<div class="card__clickout">
+	<span>Meer informatie</span>
+	<svg width="14" height="16" aria-hidden="true">
+			<use xlink:href="/build/svg/symbol/svg/sprite.symbol.svg#arrow-right"></use>
+</svg>
+</div>
+        </div>
+</a>
+							</div>
+					<div class="wrapper-inner">
+				<header>
+					<h2 class="calendar__month">Juli 2027</h2>
+				</header>
+			</div>
+			<div class="card-grid card-grid--vertical">
+									
+<a href="https://www.johancruijffarena.nl/kalender/442129-karol-g-viajando-por-el-mundo-tropitour/" class="card " data-entry-id="442129">
+            <div class="card__image">
+                                                                <picture><source type="image/webp" srcset="https://johan-cruijff-arena.b-cdn.net/production/Karol-G-2026.jpg?width=909&amp;height=569&amp;format=webp&amp;quality=80&amp;crop=2000%2C1252%2C0%2C874 1x, https://johan-cruijff-arena.b-cdn.net/production/Karol-G-2026.jpg?width=1212&amp;height=758&amp;format=webp&amp;quality=80&amp;crop=2000%2C1251%2C0%2C874 2x"><source type="image/jpg" srcset="https://johan-cruijff-arena.b-cdn.net/production/Karol-G-2026.jpg?width=909&amp;height=569&amp;format=jpg&amp;quality=80&amp;crop=2000%2C1252%2C0%2C874 1x, https://johan-cruijff-arena.b-cdn.net/production/Karol-G-2026.jpg?width=1212&amp;height=758&amp;format=jpg&amp;quality=80&amp;crop=2000%2C1251%2C0%2C874 2x"><img class="card__image__img" src="https://johan-cruijff-arena.b-cdn.net/production/Karol-G-2026.jpg?width=909&amp;height=569&amp;format=jpg&amp;quality=80&amp;crop=2000%2C1252%2C0%2C874" width="606" height="379" alt="KAROL G - Viajando Por El Mundo Tropitour" loading="lazy" onerror="window.utilitiesPictureTagFallbackHandler(this)"></picture>
+                            
+                                                <time datetime="2027-07-10T20:00:00+02:00" class="card__image__date">
+    <span>10 jul, '27</span>
+</time>
+                            
+                                
+            <span class="card__image__label">Koop tickets</span>
+                    </div>
+    
+    <div class="card__content-wrapper">
+        
+                    <div class="card__title">
+	<h3>KAROL G - Viajando Por El Mundo Tropitour</h3>
+</div>
+        
+        
+                                <div class="card__meta-row">
+                                                                                                                <div class="card__meta">
+	<span>Concert</span>
+</div>
+                                                                        </div>
+        
+                                                <div class="card__content">
+			<p>Zaterdag 10 juli 2027 brengt KAROL G de reggaeton sfeer naar de Johan Cruijff ArenA met haar Viajando Por El Mundo Tropitour.</p>
+	</div>                    
+                
+<div class="card__clickout">
+	<span>Meer informatie</span>
+	<svg width="14" height="16" aria-hidden="true">
+			<use xlink:href="/build/svg/symbol/svg/sprite.symbol.svg#arrow-right"></use>
+</svg>
+</div>
+        </div>
+</a>
+									
+<a href="https://www.johancruijffarena.nl/kalender/462141-oasis/" class="card " data-entry-id="462141">
+            <div class="card__image">
+                                                                <picture><source type="image/webp" srcset="https://johan-cruijff-arena.b-cdn.net/production/Joshua_Halling_2055-v1f1.jpg?width=909&amp;height=569&amp;format=webp&amp;quality=80&amp;crop=3000%2C1878%2C0%2C61 1x, https://johan-cruijff-arena.b-cdn.net/production/Joshua_Halling_2055-v1f1.jpg?width=1212&amp;height=758&amp;format=webp&amp;quality=80&amp;crop=3000%2C1877%2C0%2C61 2x"><source type="image/jpg" srcset="https://johan-cruijff-arena.b-cdn.net/production/Joshua_Halling_2055-v1f1.jpg?width=909&amp;height=569&amp;format=jpg&amp;quality=80&amp;crop=3000%2C1878%2C0%2C61 1x, https://johan-cruijff-arena.b-cdn.net/production/Joshua_Halling_2055-v1f1.jpg?width=1212&amp;height=758&amp;format=jpg&amp;quality=80&amp;crop=3000%2C1877%2C0%2C61 2x"><img class="card__image__img" src="https://johan-cruijff-arena.b-cdn.net/production/Joshua_Halling_2055-v1f1.jpg?width=909&amp;height=569&amp;format=jpg&amp;quality=80&amp;crop=3000%2C1878%2C0%2C61" width="606" height="379" alt="Oasis Live '27" loading="lazy" onerror="window.utilitiesPictureTagFallbackHandler(this)"></picture>
+                            
+                                                <time datetime="2027-07-16T00:00:00+02:00" class="card__image__date">
+    <span>16 jul, '27</span>
+</time>
+                            
+                                </div>
+    
+    <div class="card__content-wrapper">
+        
+                    <div class="card__title">
+	<h3>Oasis Live '27</h3>
+</div>
+        
+        
+                                <div class="card__meta-row">
+                                                                                                                <div class="card__meta">
+	<span>Concert</span>
+</div>
+                                                                        </div>
+        
+                                                <div class="card__content">
+			<p>Op 16 juli 2027 treedt Oasis op in de Johan Cruijff ArenA.</p>
+	</div>                    
+                
+<div class="card__clickout">
+	<span>Meer informatie</span>
+	<svg width="14" height="16" aria-hidden="true">
+			<use xlink:href="/build/svg/symbol/svg/sprite.symbol.svg#arrow-right"></use>
+</svg>
+</div>
+        </div>
+</a>
+									
+<a href="https://www.johancruijffarena.nl/kalender/462272-oasis/" class="card " data-entry-id="462272">
+            <div class="card__image">
+                                                                <picture><source type="image/webp" srcset="https://johan-cruijff-arena.b-cdn.net/production/Joshua_Halling_2055-v1f1.jpg?width=909&amp;height=569&amp;format=webp&amp;quality=80&amp;crop=3000%2C1878%2C0%2C61 1x, https://johan-cruijff-arena.b-cdn.net/production/Joshua_Halling_2055-v1f1.jpg?width=1212&amp;height=758&amp;format=webp&amp;quality=80&amp;crop=3000%2C1877%2C0%2C61 2x"><source type="image/jpg" srcset="https://johan-cruijff-arena.b-cdn.net/production/Joshua_Halling_2055-v1f1.jpg?width=909&amp;height=569&amp;format=jpg&amp;quality=80&amp;crop=3000%2C1878%2C0%2C61 1x, https://johan-cruijff-arena.b-cdn.net/production/Joshua_Halling_2055-v1f1.jpg?width=1212&amp;height=758&amp;format=jpg&amp;quality=80&amp;crop=3000%2C1877%2C0%2C61 2x"><img class="card__image__img" src="https://johan-cruijff-arena.b-cdn.net/production/Joshua_Halling_2055-v1f1.jpg?width=909&amp;height=569&amp;format=jpg&amp;quality=80&amp;crop=3000%2C1878%2C0%2C61" width="606" height="379" alt="Oasis Live '27" loading="lazy" onerror="window.utilitiesPictureTagFallbackHandler(this)"></picture>
+                            
+                                                <time datetime="2027-07-17T00:00:00+02:00" class="card__image__date">
+    <span>17 jul, '27</span>
+</time>
+                            
+                                </div>
+    
+    <div class="card__content-wrapper">
+        
+                    <div class="card__title">
+	<h3>Oasis Live '27</h3>
+</div>
+        
+        
+                                <div class="card__meta-row">
+                                                                                                                <div class="card__meta">
+	<span>Concert</span>
+</div>
+                                                                        </div>
+        
+                                                <div class="card__content">
+			<p>Op 17 juli 2027 treedt Oasis op in de Johan Cruijff ArenA.</p>
+	</div>                    
+                
+<div class="card__clickout">
+	<span>Meer informatie</span>
+	<svg width="14" height="16" aria-hidden="true">
+			<use xlink:href="/build/svg/symbol/svg/sprite.symbol.svg#arrow-right"></use>
+</svg>
+</div>
+        </div>
+</a>
+							</div>
+			</section>
+
+											</main>

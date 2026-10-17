@@ -1,0 +1,38 @@
+{
+  "0620b8149e6d4a92": {
+    "body": null,
+    "content_type": "text/html; charset=UTF-8",
+    "file": "0620b8149e6d4a92.txt",
+    "method": "GET",
+    "params": null,
+    "status": 200,
+    "url": "https://www.afaslive.nl/agenda/stmpd-10yrs-ade"
+  },
+  "1881ba1205c53ba0": {
+    "body": null,
+    "content_type": "text/html; charset=UTF-8",
+    "file": "1881ba1205c53ba0.txt",
+    "method": "GET",
+    "params": null,
+    "status": 200,
+    "url": "https://www.afaslive.nl/agenda/jean-michel-jarre"
+  },
+  "6f91618ce713986a": {
+    "body": null,
+    "content_type": "text/html; charset=UTF-8",
+    "file": "6f91618ce713986a.txt",
+    "method": "GET",
+    "params": null,
+    "status": 200,
+    "url": "https://www.afaslive.nl/agenda"
+  },
+  "f3d6a6c39f9f57b2": {
+    "body": null,
+    "content_type": "text/html; charset=UTF-8",
+    "file": "f3d6a6c39f9f57b2.txt",
+    "method": "GET",
+    "params": null,
+    "status": 200,
+    "url": "https://www.afaslive.nl/agenda/racoon-3"
+  }
+}
