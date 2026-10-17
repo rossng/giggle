@@ -33,3 +33,12 @@ Zonnehuis = "zˈɒnəhˌaʊs"                               # ZON-nuh-house
 "Het Zonnehuis" = "ət zˈɒnəhˌaʊs"                      # ut ZON-nuh-house
 "De Nieuwe Anita" = "də nˈiːwə ɐnˈiːtə"                # duh NEE-wuh a-NEE-ta
 Utrecht = "jˈuːtɹɛkt"                                  # YOO-trekt, as English speakers say it
+"Garage Noord" = "ɡˈaɹɑːʒ nˈɔːt"                        # GA-rahzh NORT
+OT301 = { ipa = "ˈəʊ tˈiː θɹˈiː ˈəʊ wˈʌn", match_case = true } # O T three-oh-one
+Victorie = "vɪktˈəʊɹi"                                 # vik-TOH-ree (Podium Victorie)
+Alkmaar = "ˈalkmɑː"                                    # ALK-mar
+Amstelveen = "ˈamstəlvˌeɪn"                            # AM-stel-vane
+AFAS = { ipa = "ˈɑːfas", match_case = true }           # AH-fass (AFAS Live)
+Cruijff = "kɹˈaɪf"                                     # KRIFE, as English speakers say Cruyff
+"Johan Cruijff" = "jˈəʊhan kɹˈaɪf"                     # YO-han KRIFE
+ArenA = { ipa = "əɹˈiːnə", match_case = true }         # the stadium's spelling of arena

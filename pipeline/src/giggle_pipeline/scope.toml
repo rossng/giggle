@@ -26,15 +26,16 @@ category = ["clubnacht", "club", "dance", "dance/nacht", "party"]
 reason = "club night"
 genre = [
     "clubnacht", "nachtleven", "dance / by night", "techno", "house", "house/techno",
-    "rave", "edm", "trance", "club3", "club",
+    "rave", "edm", "trance", "club3", "club", "club / dance",
 ]
 unless_category = ["concert", "muziek", "music", "pop", "jazz", "global"]
 
 # Q-Factory files everything as a concert, its ADE techno and rave nights included; those
-# carry "Dance" and no pop genre (Jacek Stachursky's show is "Dance, Pop").
+# carry "Dance" and no pop genre (Jacek Stachursky's show is "Dance, Pop"). Ziggo Dome has
+# no types at all: its ADE nights are "Dance" too (SCOOTER is "Rock, Dance").
 [[rule]]
 reason = "club night"
-venue = ["qfactory"]
+venue = ["qfactory", "ziggodome"]
 genre = ["dance"]
 unless_genre = ["pop", "rock", "indie", "jazz"]
 
@@ -42,6 +43,11 @@ unless_genre = ["pop", "rock", "indie", "jazz"]
 [[rule]]
 reason = "club night"
 category_word = ["dj's all night", "dj night", "disco"]
+
+# OT301 files its DJ nights (and the odd live electronic act among them) as one type.
+[[rule]]
+reason = "club night"
+category = ["electronic music, party"]
 
 [[rule]]
 reason = "club night"
@@ -68,7 +74,7 @@ unless_genre = [
 
 [[rule]]
 reason = "tribute act"
-genre = ["tribute", "klassiekers / tributes"]
+genre = ["tribute", "klassiekers / tributes", "cover / tribute"]
 
 [[rule]]
 reason = "not music"
@@ -77,6 +83,7 @@ category = [
     "kinderactiviteit", "doorlopend", "knowledge & debate", "education & participation",
     "guided tours", "corporate/sponsor events", "business events", "bar/cafe",
     "course/workshop", "literair / wetenschap / politiek / kunst", "vrije ruimte",
+    "food, kitchen", "bar", "dance performance", "restaurant",
 ]
 unless_genre = ["pop", "jazz", "rock", "indie", "global", "pop / rock"]
 
@@ -84,7 +91,7 @@ unless_genre = ["pop", "jazz", "rock", "indie", "global", "pop / rock"]
 reason = "not music"
 genre = [
     "kennis & debat", "comedy", "cultuur & maatschappij", "spoken word", "(pop)cultuur",
-    "educatie", "muziekdocumentaire", "film",
+    "educatie", "muziekdocumentaire", "film", "theater/dans", "panel/workshop", "sport",
 ]
 
 # Some venues name each event's type in their own words (De Nieuwe Anita: "Comedy!",
@@ -107,11 +114,11 @@ reason = "not music"
 venue = ["nieuweanita"]
 category_word = ["anita monday"]
 
-# Catch-all types: EKKO's "Overig" (quizzes, cabaret) and Het Zonnehuis's "Divers"
-# (dance afternoons, film festivals), unless also filed as music.
+# Catch-all types: EKKO's "Overig" (quizzes, cabaret), Het Zonnehuis's "Divers"
+# (dance afternoons, film festivals) and De Helling's "Anders", unless also filed as music.
 [[rule]]
 reason = "not music"
-category = ["overig", "divers"]
+category = ["overig", "divers", "anders"]
 unless_category = ["concert", "club", "muziek"]
 
 [[rule]]
@@ -129,3 +136,10 @@ unless_genre = ["pop", "jazz", "rock", "indie"]
 reason = "not music"
 venue = ["muziekgebouw"]
 no_genres = true
+
+# The stadium's calendar is mostly football (Eredivisie, Oranje, European cups), filed by
+# competition; its concerts say "Concert".
+[[rule]]
+reason = "not music"
+venue = ["johancruijffarena"]
+unless_category = ["concert"]
