@@ -1,0 +1,75 @@
+{
+  "206c751a9631abd2": {
+    "body": null,
+    "content_type": "text/html; charset=UTF-8",
+    "file": "206c751a9631abd2.txt",
+    "method": "GET",
+    "params": null,
+    "status": 200,
+    "url": "https://p60.nl/2026/mokka/"
+  },
+  "562f6ca463d28a0c": {
+    "body": null,
+    "content_type": "application/json; charset=UTF-8",
+    "file": "562f6ca463d28a0c.json",
+    "method": "GET",
+    "params": {
+      "_fields": "id,name",
+      "per_page": "100"
+    },
+    "status": 200,
+    "url": "https://p60.nl/wp-json/wp/v2/type"
+  },
+  "6ff32ea93881c0d9": {
+    "body": null,
+    "content_type": "text/html; charset=UTF-8",
+    "file": "6ff32ea93881c0d9.txt",
+    "method": "GET",
+    "params": null,
+    "status": 200,
+    "url": "https://p60.nl/2026/moscow-death-brigade/"
+  },
+  "76f690905f7a8c31": {
+    "body": null,
+    "content_type": "application/json; charset=UTF-8",
+    "file": "76f690905f7a8c31.json",
+    "method": "GET",
+    "params": null,
+    "status": 200,
+    "url": "https://p60.nl/wp-json/p60/v1/posts"
+  },
+  "8d4cb66bd09d36f1": {
+    "body": null,
+    "content_type": "text/html; charset=UTF-8",
+    "file": "8d4cb66bd09d36f1.txt",
+    "method": "GET",
+    "params": null,
+    "status": 200,
+    "url": "https://p60.nl/2026/pow/"
+  },
+  "9d1a01b6869745cb": {
+    "body": null,
+    "content_type": "application/json; charset=UTF-8",
+    "file": "9d1a01b6869745cb.json",
+    "method": "GET",
+    "params": {
+      "_fields": "id,name",
+      "per_page": "100"
+    },
+    "status": 200,
+    "url": "https://p60.nl/wp-json/wp/v2/eventtype"
+  },
+  "bbe718e91e4f335b": {
+    "body": null,
+    "content_type": "application/json; charset=UTF-8",
+    "file": "bbe718e91e4f335b.json",
+    "method": "GET",
+    "params": {
+      "_fields": "id,link,eventtype,type",
+      "include": "7769,7733,7729,7725,7715,7705,7692,7684,7681,7674,7663,7649,7643,7635,7614,7616,7604,7601,7585,7581,7578,7566,7560,7514,7501,7467,7439,7282,7122,6907,7754,6801,6574,6413",
+      "per_page": "100"
+    },
+    "status": 200,
+    "url": "https://p60.nl/wp-json/wp/v2/agenda_item"
+  }
+}

@@ -1,0 +1,129 @@
+<div class="color-mask">
+
+                <section class="flex flex-col-reverse items-start justify-between gap-4 p-mobile md:flex-row md:p-default">
+                    <h2 class="type-large-text">
+                        Een nieuw editie van Victorie Sunday Sessions met niemand minder dan Extince!                    </h2>
+
+                    <a href="https://tickets.podiumvictorie.nl/nl-NL/Show/Details/4751" target="_blank" class="button button--inverse-effect border-primary bg-primary text-secondary hover:text-primary hover:after:bg-secondary group-hover:after:translate-x-0 whitespace-nowrap" data-active-tickets-link="" title="Uitverkocht">
+        Uitverkocht</a>
+                    </section>
+
+                <section class="mt-12 grid-cols-2 p-mobile md:grid md:p-default">
+                    <div>
+                        <div class="mb-16 grid grid-cols-2 gap-x-4 gap-y-12 leading-[1.15] md:mb-0 lg:w-2/3">
+                                                            <div>
+                                    <dt>Deur open</dt>
+                                    <dd class="text-[20px] font-bold">14:30</dd>
+                                </div>
+                                                            <div>
+                                    <dt>Aanvang</dt>
+                                    <dd class="text-[20px] font-bold">14:30</dd>
+                                </div>
+                                                            <div>
+                                    <dt>Zitplaats</dt>
+                                    <dd class="text-[20px] font-bold">€ 26,00</dd>
+                                </div>
+                                                            <div>
+                                    <dt>Staanplaats</dt>
+                                    <dd class="text-[20px] font-bold">€ 21,00</dd>
+                                </div>
+                                                            <div>
+                                    <dt>Rolstoel/scootmobiel ticket incl. 1 extra bezoeker</dt>
+                                    <dd class="text-[20px] font-bold">€ 26,00</dd>
+                                </div>
+                                                            <div>
+                                    <dt>Zaal</dt>
+                                    <dd class="text-[20px] font-bold">Kleine Zaal</dd>
+                                </div>
+                                                            <div>
+                                    <dt>Datum</dt>
+                                    <dd class="text-[20px] font-bold">zo 18 oktober 2026</dd>
+                                </div>
+                                                                                        <div class="col-span-2">*Exclusief transactiekosten à €0,28 per boeking.</div>
+                                                                                </div>
+
+                    </div>
+
+                    <section style="--restricted-width--mobile: 100%; --restricted-width: 66.6%">
+        <div class="typogram">
+        <p class="MsoNormal" style="margin: 0cm; font-size: 11pt; font-family: Aptos, sans-serif; caret-color: #212121; color: #212121; font-style: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration: none;">Voor deze Sunday Sessions maken we een uitstapje naar het genre hiphop, samen met de topmuzikanten van de Sunday Sessions huisband. En wie past daar beter bij dan&nbsp;Extince, een van de grondleggers van de Nederlandse hiphop?</p>
+<p class="MsoNormal" style="margin: 0cm; font-size: 11pt; font-family: Aptos, sans-serif; caret-color: #212121; color: #212121; font-style: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration: none;">&nbsp;</p>
+<p class="MsoNormal" style="margin: 0cm; font-size: 11pt; font-family: Aptos, sans-serif; caret-color: #212121; color: #212121; font-style: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration: none;">Met ‘Spraakwater’ scoorde de rapper in 1995 de eerste Nederlandstalige hiphop hit en gaf hij het genre een uitgesproken eigen stijl. Zijn kenmerkende Brabantse woordspelingen, zachte G en funky sound maakten hem tot een pionier die liet horen hoeveel je met de Nederlandse taal kunt doen.</p>
+<p class="MsoNormal" style="margin: 0cm; font-size: 11pt; font-family: Aptos, sans-serif; caret-color: #212121; color: #212121; font-style: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration: none;">&nbsp;</p>
+<p class="MsoNormal" style="margin: 0cm; font-size: 11pt; font-family: Aptos, sans-serif; caret-color: #212121; color: #212121; font-style: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration: none;">Met het iconische album ‘Binnenlandse Funk’ groeide&nbsp;Extince&nbsp;uit tot een van de bepalende namen van de Nederlandse hiphop. In 2018 ontving hij als eerste Nederlandstalige rapper de Edison Oeuvre Award voor Hip-Hop NL. Inmiddels heeft hij een carrière van ruim drie decennia achter zich en zijn tracks als ‘Spraakwater’, ‘Grootheidswaan’, ‘Viervoeters’ en ‘Zoete Inval’ nog altijd vaste prik voor liefhebbers van Nederlandse hiphop.</p>
+<p class="MsoNormal" style="margin: 0cm; font-size: 11pt; font-family: Aptos, sans-serif; caret-color: #212121; color: #212121; font-style: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration: none;">&nbsp;</p>
+<p class="MsoNormal" style="margin: 0cm; font-size: 11pt; font-family: Aptos, sans-serif; caret-color: #212121; color: #212121; font-style: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration: none;">Tijdens de Victorie Sunday Sessions staat&nbsp;Extince&nbsp;op het podium met DJ DNS, vier keer Nederlands dj-kampioen en een meester in scratches, live mash-ups en eclectische sets. Verwacht een middag vol hiphop, funk en klassiekers van toen en nu.</p>
+<p class="MsoNormal" style="margin: 0cm; font-size: 11pt; font-family: Aptos, sans-serif; caret-color: #212121; color: #212121; font-style: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration: none;">&nbsp;</p>
+<p class="MsoNormal" style="margin: 0cm; font-size: 11pt; font-family: Aptos, sans-serif; caret-color: #212121; color: #212121; font-style: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration: none;">Voor dit concert zijn zowel staan- als zitplaatsen beschikbaar.&nbsp;</p>
+<p class="MsoNormal" style="margin: 0cm; font-size: 11pt; font-family: Aptos, sans-serif; caret-color: #212121; color: #212121; font-style: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration: none;">&nbsp;</p>
+<p class="MsoNormal" style="margin: 0cm; font-size: 11pt; font-family: Aptos, sans-serif; caret-color: #212121; color: #212121; font-style: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration: none;">Band:&nbsp;</p>
+<p class="MsoNormal" style="margin: 0cm; font-size: 11pt; font-family: Aptos, sans-serif; caret-color: #212121; color: #212121; font-style: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration: none;">Extince: rap</p>
+<p class="MsoNormal" style="margin: 0cm; font-size: 11pt; font-family: Aptos, sans-serif; caret-color: #212121; color: #212121; font-style: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration: none;">DNS: dj</p>
+<p class="MsoNormal" style="margin: 0cm; font-size: 11pt; font-family: Aptos, sans-serif; caret-color: #212121; color: #212121; font-style: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration: none;">Aron Raams: gitaar</p>
+<p class="MsoNormal" style="margin: 0cm; font-size: 11pt; font-family: Aptos, sans-serif; caret-color: #212121; color: #212121; font-style: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration: none;">Ferry Lagendijk: toetsen</p>
+<p class="MsoNormal" style="margin: 0cm; font-size: 11pt; font-family: Aptos, sans-serif; caret-color: #212121; color: #212121; font-style: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration: none;">Sven Happel: bas&nbsp;</p>
+<p class="MsoNormal" style="margin: 0cm; font-size: 11pt; font-family: Aptos, sans-serif; caret-color: #212121; color: #212121; font-style: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration: none;">Marc Schenk: drums</p>
+
+    </div>
+</section>
+
+                </section>
+
+                <section class="mt-12 grid-cols-2 p-mobile md:grid md:p-default">
+                    <div class="mb-16 md:mb-0">
+
+                        <blockquote class="type-large-text sticky top-[4.5rem] z-[--z-blockquote] w-full md:w-2/3">
+                                                    </blockquote>
+
+                    </div>
+
+                    <div class="z-0">
+                        <section class="mb-20">
+							                    <div class="my-12 md:my-20 first:mt-0 last:mb-0">
+					    <section class="event-media__video w-full">
+
+        <div class="video relative aspect-video w-full bg-primary flex flex-col justify-center">
+            <div class="play group absolute left-0 top-0 z-20 flex h-full w-full cursor-pointer flex-col items-center justify-center [&amp;_path]:fill-secondary">
+                <div class="flex aspect-square flex-col items-center justify-center bg-primary p-5 transition group-hover:scale-105 [&amp;_svg]:translate-x-0.5">
+                                        <svg width="29" height="34" viewBox="0 0 29 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M29 17L0.499998 33.4545L0.5 0.545516L29 17Z" fill="#44413D"></path>
+</svg>
+
+                </div>
+            </div>
+
+                        <div class="iframe relative z-0 aspect-video w-full [&amp;_iframe]:h-full [&amp;_iframe]:!w-full">
+                <iframe title="Extince - Spraakwater (video) ❄️" width="640" height="360" src="https://www.youtube.com/embed/BYZSTueF9qs?feature=oembed&amp;enablejsapi=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen=""></iframe>
+            </div>
+        </div>
+
+    </section>
+                    </div>
+											                    <div class="my-12 md:my-20 first:mt-0 last:mb-0">
+					    <section class="event-media__embed w-full md:restricted-width">
+		<div class="iframe relative z-0 w-full [&amp;_iframe]:w-full">
+			<iframe src="https://open.spotify.com/embed/artist/1VcWBBXrRinwtVyU7oSsc5" width="640" height="390" frameborder="0" allowtransparency="true" allow="encrypted-media" loading="lazy"></iframe>
+		</div>
+	</section>
+                    </div>
+									</section>
+	
+                    </div>
+
+                </section>
+
+                <section class="event-footer-bar fixed bottom-0 left-0 z-[--z-event-footer-bar] w-full translate-y-full bg-secondary px-mobile py-3 leading-none text-primary transition duration-500 ease-in md:px-default">
+                    <div class="flex items-center justify-between gap-5">
+                        <div class="narrow  basis-[33.33%] text-[37px] max-md:hidden md:text-[70px]">18&nbsp;okt</div>
+                        <div class="event-footer-bar__text-container narrow overflow-hidden shrink text-[37px] md:basis-[56.66%] md:text-[70px]">
+                            <div class="event-footer-bar__text whitespace-nowrap">
+                                <div>Victorie Sunday Sessions – Extince</div>
+                            </div>
+                        </div>
+                        <div class="shrink-0 grow text-right md:basis-[10%]">
+                            <a href="https://tickets.podiumvictorie.nl/nl-NL/Show/Details/4751" target="_blank" class="button border-primary bg-primary text-secondary hover:text-primary hover:after:bg-secondary group-hover:after:translate-x-0 whitespace-nowrap" data-active-tickets-link="" title="Uitverkocht">
+        Uitverkocht</a>
+                            </div>
+                    </div>
+                </section>
+            </div>

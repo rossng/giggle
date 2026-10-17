@@ -1,0 +1,31 @@
+<div class="selected event">
+	<div class="head bg-dark light">Saturday 17 October</div>
+	<article class="body">
+		<div  class="media" style="background-image:url(https://amsterdamalternative.nl/media/content/18170_large.jpg)"></div>		<div class="meta">
+<!-- 
+			<a class="icon fb issue-bg" href="https://www.meetup.com/life-drawing-amsterdam-4bid-gallery-ot301/events/310256593/?slug=life-drawing-amsterdam-4bid-gallery-ot301&eventId=310256593" target="_blank"></a>			<div class="icon type" style="background-image:url(/media/agenda/.svg)"></div>
+ -->
+			4bid Gallery // 16:00 // € 150 early bird, 180 after August 30th<br/>
+			<strong>Life Drawing Weekend Intensive   </strong>
+		</div>
+		<div class="info">
+			
+		<div class="icon type bg-dark" style="background-image:url(https://amsterdamalternative.nl/media/agenda/1001.svg)"></div><a href="https://www.meetup.com/life-drawing-amsterdam-4bid-gallery-ot301/events/310256593/?slug=life-drawing-amsterdam-4bid-gallery-ot301&eventId=310256593" target="_blank"><svg class="bg-dark icon white" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><path d="M12,4.93,11.78,5a2.19,2.19,0,0,0-.76.24l-.45.36h0a2,2,0,0,0-.61.9,1,1,0,0,0-.1.26,2.48,2.48,0,0,0,0,.27V7.3h0v.25a15,15,0,0,1-.06,1.9H8.42v2.22H9.85V18.2h2.63V11.72l1.69-.05.29-2.22-2,0s0-.48,0-1.41a.92.92,0,0,1,.16-.53.63.63,0,0,1,.19-.17L13,7.24a.75.75,0,0,1,.19,0h0l.72.09.3,0,.3,0,.25-2.24-2.41-.19Z" transform="translate(-1 -1)"></path></svg></a>		</div>
+		<div class="detail">
+			<strong>Genre:</strong> Weekend intensives <br/><strong>Open:</strong> 16:00 - 19:00 hrs<br/><strong>Tickets:</strong> € 150 early bird, 180 after August 30th 		</div>
+		<div class="text">
+			<p>After several requests, 4bid offers a new series of life drawing weekend intensives! This four-lesson weekend course covers all you need to know (or need a nudge to remember to put into practice) when it comes to model drawing. Over the 4 sessions (Friday to Monday, each 3h) you&#39;ll delve much deeper into the subject matter than in our regular 1,5h weekly appointments.</p>
+
+<p>Under the tutor&#39;s guidance, you will cover composition, anatomy, and shading. In each lesson, you&#39;ll work with the same live model, to master the understanding of their shapes. You will be invited to immediately develop and own a personal style, focusing on chiaro-scuro and line work, and applying bold gesture onto the paper. On the last evening you&#39;ll further one drawing, finishing it by applying all the learned tools.</p>
+
+<p>To get the most out of this course, it can be helpful to have taken part to a drop-in session at 4bid gallery on either Tuesdays or Sundays (see the regular meetups). It is however not required to have prior experience.</p>
+
+<p>The suggested price is &euro;180 pp | 4 lessons of 3 hours | 8 participants max | Includes materials, coffee, tea, and snacks.<br />
+If you have difficulties meeting this cost please let us know via email, and we can arrange something you are comfortable with:&nbsp;<a href="http://email@example.invalid./" target="_blank">email@example.invalid.</a></p>
+
+<p>Classes are on Friday from 18:00 to 21:00, Saturday and Sunday from 16:00 to 19:00 and Monday from 18:00 to 21:00.</p>
+
+<p>Location: 4bid gallery, Overtoom 301, 1054HW AMSTERDAM</p>
+		</div>
+	</article>
+</div>

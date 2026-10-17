@@ -1,0 +1,958 @@
+<form class="c-filter" data-agenda-filter="" autocomplete="off" method="GET" action="https://dehelling.nl/agenda">
+
+	<div class="c-search">
+		<label for="search">
+			<svg class="icon c-search__icon" aria-labelledby="search-title">
+				<title id="search-title">Zoeken</title>
+				<use xlink:href="#icon-search"></use>
+			</svg>
+		</label>
+		<input id="search" data-search-input="" class="c-search__input" type="search" name="zoeken" placeholder="Zoek artiest of evenement">
+	</div>
+
+	<div class="c-filter__buttons">
+
+		<div class="c-filter-button-wrapper c-filter-button-wrapper--date" data-modal-wrapper="">
+			<span class="c-filter-button-wrapper__backdrop" data-modal-backdrop="" aria-hidden="true"></span>
+			<button type="button" class="c-filter__button c-raised-button c-raised-button--big" data-modal-button="">Datum</button>
+			<div class="c-filter-modal" role="dialog" aria-labelledby="date-dialog-title">
+				<div class="c-filter-modal__bg">
+					<svg class="icon">
+						<use xlink:href="#date-background"></use>
+					</svg>
+				</div>
+				<div class="c-filter-modal__close">
+					<button aria-label="Sluit filter" type="button" class="c-filter-modal-close" data-close-modal="">
+						<svg class="icon icon-back"><use xlink:href="#icon-back"></use></svg>
+					</button>
+				</div>
+				<h2 class="c-filter-modal__heading u-heading u-heading--a" id="date-dialog-title">kies een datum</h2>
+				<div class="c-filter-modal__content">
+					<ul>
+													<li class="c-filter-radio">
+								<input data-preset-date-radio="" class="c-filter-radio__input" type="radio" name="datum" id="vandaag" value="2026-10-17">
+								<label class="c-filter-radio__label" for="vandaag">Vandaag</label>
+							</li>
+														<li class="c-filter-radio">
+								<input data-preset-date-radio="" class="c-filter-radio__input" type="radio" name="datum" id="morgen" value="2026-10-18">
+								<label class="c-filter-radio__label" for="morgen">Morgen</label>
+							</li>
+														<li class="c-filter-radio">
+								<input data-preset-date-radio="" class="c-filter-radio__input" type="radio" name="datum" id="weekend" value="weekend">
+								<label class="c-filter-radio__label" for="weekend">Dit weekend</label>
+							</li>
+														<li class="c-filter-radio">
+								<input data-preset-date-radio="" class="c-filter-radio__input" type="radio" name="datum" id="week" value="week">
+								<label class="c-filter-radio__label" for="week">Deze week</label>
+							</li>
+												</ul>
+										<input type="radio" name="datum" id="datepicker-radio" value="" tabindex="-1" aria-hidden="true" data-datepicker-radio="" ="">
+					<div data-datepicker=""></div>
+				</div>
+				<button type="submit" class="c-filter-modal__submit-button c-raised-button c-raised-button--white c-raised-button--big">Toepassen</button>
+			</div>
+		</div>
+
+		<div class="c-filter-button-wrapper c-filter-button-wrapper--genre" data-modal-wrapper="">
+			<div class="c-filter-button-wrapper__backdrop" data-modal-backdrop=""></div>
+			<button type="button" class="c-filter__button c-raised-button c-raised-button--big" data-modal-button="">Genre</button>
+			<div class="c-filter-modal" role="dialog" aria-labelledby="genre-dialog-title">
+				<div class="c-filter-modal__bg">
+					<svg class="icon">
+						<use xlink:href="#genre-background"></use>
+					</svg>
+				</div>
+				<div class="c-filter-modal__close">
+					<button aria-label="Sluit filter" type="button" class="c-filter-modal-close" data-close-modal="">
+						<svg class="icon icon-back"><use xlink:href="#icon-back"></use></svg>
+					</button>
+				</div>
+				<h2 class="c-filter-modal__heading u-heading u-heading--a" id="genre-dialog-title">kies een genre</h2>
+				<div class="c-filter-modal__content">
+					<ul>
+						
+							<li class="c-filter-checkbox">
+								<input data-genre-checkbox="" class="c-filter-checkbox__input" type="checkbox" name="genre[]" value="rock" id="genre_rock">
+								<label class="c-filter-checkbox__label" for="genre_rock">Rock</label>
+							</li>
+						
+							<li class="c-filter-checkbox">
+								<input data-genre-checkbox="" class="c-filter-checkbox__input" type="checkbox" name="genre[]" value="pop" id="genre_pop">
+								<label class="c-filter-checkbox__label" for="genre_pop">Pop</label>
+							</li>
+						
+							<li class="c-filter-checkbox">
+								<input data-genre-checkbox="" class="c-filter-checkbox__input" type="checkbox" name="genre[]" value="house-techno-disco" id="genre_house-techno-disco">
+								<label class="c-filter-checkbox__label" for="genre_house-techno-disco">House/Techno/Disco</label>
+							</li>
+						
+							<li class="c-filter-checkbox">
+								<input data-genre-checkbox="" class="c-filter-checkbox__input" type="checkbox" name="genre[]" value="heavy" id="genre_heavy">
+								<label class="c-filter-checkbox__label" for="genre_heavy">Heavy</label>
+							</li>
+						
+							<li class="c-filter-checkbox">
+								<input data-genre-checkbox="" class="c-filter-checkbox__input" type="checkbox" name="genre[]" value="hiphop-rb" id="genre_hiphop-rb">
+								<label class="c-filter-checkbox__label" for="genre_hiphop-rb">Hiphop/R&amp;B</label>
+							</li>
+						
+							<li class="c-filter-checkbox">
+								<input data-genre-checkbox="" class="c-filter-checkbox__input" type="checkbox" name="genre[]" value="reggae-dancehall-afro-latin" id="genre_reggae-dancehall-afro-latin">
+								<label class="c-filter-checkbox__label" for="genre_reggae-dancehall-afro-latin">Reggae/Dancehall/Afro/Latin</label>
+							</li>
+						
+							<li class="c-filter-checkbox">
+								<input data-genre-checkbox="" class="c-filter-checkbox__input" type="checkbox" name="genre[]" value="bass-music" id="genre_bass-music">
+								<label class="c-filter-checkbox__label" for="genre_bass-music">Bass Music</label>
+							</li>
+						
+							<li class="c-filter-checkbox">
+								<input data-genre-checkbox="" class="c-filter-checkbox__input" type="checkbox" name="genre[]" value="anders" id="genre_anders">
+								<label class="c-filter-checkbox__label" for="genre_anders">Anders</label>
+							</li>
+						
+							<li class="c-filter-checkbox">
+								<input data-genre-checkbox="" class="c-filter-checkbox__input" type="checkbox" name="genre[]" value="indie" id="genre_indie">
+								<label class="c-filter-checkbox__label" for="genre_indie">Indie</label>
+							</li>
+						
+							<li class="c-filter-checkbox">
+								<input data-genre-checkbox="" class="c-filter-checkbox__input" type="checkbox" name="genre[]" value="experimental" id="genre_experimental">
+								<label class="c-filter-checkbox__label" for="genre_experimental">Experimental</label>
+							</li>
+						
+							<li class="c-filter-checkbox">
+								<input data-genre-checkbox="" class="c-filter-checkbox__input" type="checkbox" name="genre[]" value="theater-dans" id="genre_theater-dans">
+								<label class="c-filter-checkbox__label" for="genre_theater-dans">Theater/Dans</label>
+							</li>
+						
+							<li class="c-filter-checkbox">
+								<input data-genre-checkbox="" class="c-filter-checkbox__input" type="checkbox" name="genre[]" value="global-sounds" id="genre_global-sounds">
+								<label class="c-filter-checkbox__label" for="genre_global-sounds">Global sounds</label>
+							</li>
+											</ul>
+				</div>
+				<button type="submit" class="c-filter-modal__submit-button c-raised-button c-raised-button--white c-raised-button--big">Toepassen</button>
+			</div>
+		</div>
+
+		<div class="c-filter-button-wrapper c-filter-button-wrapper--type" data-modal-wrapper="">
+			<div class="c-filter-button-wrapper__backdrop" data-modal-backdrop=""></div>
+			<button type="button" class="c-filter__button c-raised-button c-raised-button--big" data-modal-button="">Type</button>
+			<div class="c-filter-modal" role="dialog" aria-labelledby="type-dialog-title">
+				<div class="c-filter-modal__bg">
+					<svg class="icon">
+						<use xlink:href="#genre-background"></use>
+					</svg>
+				</div>
+				<div class="c-filter-modal__close">
+					<button aria-label="Sluit filter" type="button" class="c-filter-modal-close" data-close-modal="">
+						<svg class="icon icon-back"><use xlink:href="#icon-back"></use></svg>
+					</button>
+				</div>
+				<h2 class="c-filter-modal__heading u-heading u-heading--a" id="type-dialog-title">kies een type</h2>
+				<div class="c-filter-modal__content">
+					<ul>
+						
+							<li class="c-filter-checkbox">
+								<input data-type-checkbox="" class="c-filter-checkbox__input" type="checkbox" name="label[]" value="club" id="label_club" checked="">
+								<label class="c-filter-checkbox__label" for="label_club">Club</label>
+							</li>
+						
+							<li class="c-filter-checkbox">
+								<input data-type-checkbox="" class="c-filter-checkbox__input" type="checkbox" name="label[]" value="concert" id="label_concert">
+								<label class="c-filter-checkbox__label" for="label_concert">Concert</label>
+							</li>
+						
+							<li class="c-filter-checkbox">
+								<input data-type-checkbox="" class="c-filter-checkbox__input" type="checkbox" name="label[]" value="open" id="label_open">
+								<label class="c-filter-checkbox__label" for="label_open">OPEN</label>
+							</li>
+						
+							<li class="c-filter-checkbox">
+								<input data-type-checkbox="" class="c-filter-checkbox__input" type="checkbox" name="label[]" value="cross-over" id="label_cross-over">
+								<label class="c-filter-checkbox__label" for="label_cross-over">Cross-over</label>
+							</li>
+						
+							<li class="c-filter-checkbox">
+								<input data-type-checkbox="" class="c-filter-checkbox__input" type="checkbox" name="label[]" value="festival" id="label_festival">
+								<label class="c-filter-checkbox__label" for="label_festival">Festival</label>
+							</li>
+						
+							<li class="c-filter-checkbox">
+								<input data-type-checkbox="" class="c-filter-checkbox__input" type="checkbox" name="label[]" value="anders" id="label_anders">
+								<label class="c-filter-checkbox__label" for="label_anders">Anders</label>
+							</li>
+						
+							<li class="c-filter-checkbox">
+								<input data-type-checkbox="" class="c-filter-checkbox__input" type="checkbox" name="label[]" value="cafe" id="label_cafe">
+								<label class="c-filter-checkbox__label" for="label_cafe">Café</label>
+							</li>
+											</ul>
+				</div>
+				<button type="submit" class="c-filter-modal__submit-button c-raised-button c-raised-button--white c-raised-button--big">Toepassen</button>
+			</div>
+		</div>
+
+	</div>
+
+			<ul class="c-active-filters">
+							<li class="c-active-filter">
+					<button aria-label="club verwijderen" type="submit" data-reset-value="club">
+						Club					</button>
+				</li>
+								</ul>
+	
+</form>
+<div class="u-section__inner u-section__inner--small t-agenda__results">
+            
+
+<div class="c-event-card" id="set-the-bar-w-mokum-rave-massive-17-10-2026">
+    <div class="c-event-card__image">
+        <span class="img img--cover"><img srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" width="680" height="400" data-src="https://dehelling.nl/app/uploads/2026/09/Set_The_Bar_Banner_V1-680x400.jpg" class="lazyload" alt="" data-aspectratio="1.7" data-sizes="auto" decoding="async" fetchpriority="high" data-srcset="https://dehelling.nl/app/uploads/2026/09/Set_The_Bar_Banner_V1-680x400.jpg 680w, https://dehelling.nl/app/uploads/2026/09/Set_The_Bar_Banner_V1-300x176.jpg 300w, https://dehelling.nl/app/uploads/2026/09/Set_The_Bar_Banner_V1-1024x602.jpg 1024w, https://dehelling.nl/app/uploads/2026/09/Set_The_Bar_Banner_V1-768x452.jpg 768w, https://dehelling.nl/app/uploads/2026/09/Set_The_Bar_Banner_V1-340x200.jpg 340w, https://dehelling.nl/app/uploads/2026/09/Set_The_Bar_Banner_V1-1020x600.jpg 1020w, https://dehelling.nl/app/uploads/2026/09/Set_The_Bar_Banner_V1.jpg 1360w"></span>           </div>
+
+    <ul class="c-event-card__meta">
+                    <li>za 17/10</li>
+                        <li>22:00 - 03:00</li>
+                        <li>Bass Music</li>
+                </ul>
+
+    <h3 class="u-heading u-heading--f c-event-card__title">
+        <a class="c-event-card__link" href="https://dehelling.nl/agenda/set-the-bar-w-mokum-rave-massive-17-10-2026/">
+            Set the Bar w/ Mokum Rave Massive        </a>
+    </h3>
+
+            <div class="c-event-card__subtitle">Fresh faces and filthy basses</div>
+    
+    
+<script type="application/ld+json" aria-hidden="true">
+    {
+    "@context": "https:\/\/schema.org",
+    "@type": "Event",
+    "location": {
+        "@type": "Place",
+        "name": "De Helling",
+        "address": "Helling 7, 3523 CB Utrecht"
+    },
+    "name": "Set the Bar w\/ Mokum Rave Massive",
+    "url": "https:\/\/dehelling.nl\/agenda\/set-the-bar-w-mokum-rave-massive-17-10-2026\/",
+    "image": "https:\/\/dehelling.nl\/app\/uploads\/2026\/09\/Set_The_Bar_Banner_V1-680x400.jpg",
+    "description": "Fresh faces and filthy basses",
+    "performer": {
+        "@type": "PerformingGroup",
+        "name": "set the bar "
+    },
+    "startDate": "2026-10-17 22:00:00",
+    "endDate": "2026-10-18 03:00:00",
+    "offers": {
+        "@type": "Offer",
+        "price": "12.50",
+        "priceCurrency": "EUR",
+        "url": "https:\/\/dehelling.stager.co\/shop\/default\/events\/111690990"
+    }
+}</script></div>
+
+
+<div class="c-event-card" id="the-sun-23-10-2026">
+    <div class="c-event-card__image">
+        <span class="img img--cover"><img srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" width="680" height="400" data-src="https://dehelling.nl/app/uploads/2026/10/TheSun_23.10-680x400.jpg" class="lazyload" alt="" data-aspectratio="1.7" data-sizes="auto" decoding="async" data-srcset="https://dehelling.nl/app/uploads/2026/10/TheSun_23.10-680x400.jpg 680w, https://dehelling.nl/app/uploads/2026/10/TheSun_23.10-300x176.jpg 300w, https://dehelling.nl/app/uploads/2026/10/TheSun_23.10-1024x602.jpg 1024w, https://dehelling.nl/app/uploads/2026/10/TheSun_23.10-768x452.jpg 768w, https://dehelling.nl/app/uploads/2026/10/TheSun_23.10-340x200.jpg 340w, https://dehelling.nl/app/uploads/2026/10/TheSun_23.10-1020x600.jpg 1020w, https://dehelling.nl/app/uploads/2026/10/TheSun_23.10.jpg 1360w"></span>                               </div>
+
+    <ul class="c-event-card__meta">
+                    <li>vr 23/10</li>
+                        <li>23:59 - 05:00</li>
+                        <li>Reggae/Dancehall/Afro/Latin</li>
+                </ul>
+
+    <h3 class="u-heading u-heading--f c-event-card__title">
+        <a class="c-event-card__link" href="https://dehelling.nl/agenda/the-sun-23-10-2026/">
+            The Sun        </a>
+    </h3>
+
+            <div class="c-event-card__subtitle">More than a reggaeton event, a fusion of music, energy, and culture.</div>
+    
+    
+<script type="application/ld+json" aria-hidden="true">
+    {
+    "@context": "https:\/\/schema.org",
+    "@type": "Event",
+    "location": {
+        "@type": "Place",
+        "name": "De Helling",
+        "address": "Helling 7, 3523 CB Utrecht"
+    },
+    "name": "The Sun",
+    "url": "https:\/\/dehelling.nl\/agenda\/the-sun-23-10-2026\/",
+    "image": "https:\/\/dehelling.nl\/app\/uploads\/2026\/10\/TheSun_23.10-680x400.jpg",
+    "description": "More than a reggaeton event, a fusion of music, energy, and culture.",
+    "performer": {
+        "@type": "PerformingGroup",
+        "name": "the sun"
+    },
+    "startDate": "2026-10-23 23:59:00",
+    "endDate": "2026-10-24 05:00:00",
+    "offers": {
+        "@type": "Offer",
+        "price": "15.50",
+        "priceCurrency": "EUR",
+        "url": "https:\/\/dehelling.stager.co\/shop\/default\/events\/111654710",
+        "availability": "https:\/\/schema.org\/InStock"
+    },
+    "eventStatus": "Geen"
+}</script></div>
+
+
+<div class="c-event-card" id="tropenrooster-24-10-2026">
+    <div class="c-event-card__image">
+        <span class="img img--cover"><img srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" width="680" height="400" data-src="https://dehelling.nl/app/uploads/2026/09/824073117_1402955261985552_1332364553906571698_n-680x400.jpg" class="lazyload" alt="" data-aspectratio="1.7" data-sizes="auto" decoding="async" data-srcset="https://dehelling.nl/app/uploads/2026/09/824073117_1402955261985552_1332364553906571698_n-680x400.jpg 680w, https://dehelling.nl/app/uploads/2026/09/824073117_1402955261985552_1332364553906571698_n-340x200.jpg 340w, https://dehelling.nl/app/uploads/2026/09/824073117_1402955261985552_1332364553906571698_n-1020x600.jpg 1020w, https://dehelling.nl/app/uploads/2026/09/824073117_1402955261985552_1332364553906571698_n-1360x800.jpg 1360w, https://dehelling.nl/app/uploads/2026/09/824073117_1402955261985552_1332364553906571698_n-1700x1000.jpg 1700w"></span>                               </div>
+
+    <ul class="c-event-card__meta">
+                    <li>za 24/10</li>
+                        <li>23:00 - 04:00</li>
+                        <li>Reggae/Dancehall/Afro/Latin</li>
+                </ul>
+
+    <h3 class="u-heading u-heading--f c-event-card__title">
+        <a class="c-event-card__link" href="https://dehelling.nl/agenda/tropenrooster-24-10-2026/">
+            Tropenrooster        </a>
+    </h3>
+
+            <div class="c-event-card__subtitle">De heetste latin, dancehall en afro </div>
+    
+    
+<script type="application/ld+json" aria-hidden="true">
+    {
+    "@context": "https:\/\/schema.org",
+    "@type": "Event",
+    "location": {
+        "@type": "Place",
+        "name": "De Helling",
+        "address": "Helling 7, 3523 CB Utrecht"
+    },
+    "name": "Tropenrooster",
+    "url": "https:\/\/dehelling.nl\/agenda\/tropenrooster-24-10-2026\/",
+    "image": "https:\/\/dehelling.nl\/app\/uploads\/2026\/09\/824073117_1402955261985552_1332364553906571698_n-680x400.jpg",
+    "description": "De heetste latin, dancehall en afro ",
+    "performer": {
+        "@type": "PerformingGroup",
+        "name": "Tropenrooster"
+    },
+    "startDate": "2026-10-24 23:00:00",
+    "endDate": "2026-10-25 04:00:00",
+    "offers": {
+        "@type": "Offer",
+        "price": "13.54",
+        "priceCurrency": "EUR",
+        "url": "https:\/\/dehelling.stager.co\/shop\/default\/events\/111606171",
+        "availability": "https:\/\/schema.org\/InStock"
+    },
+    "eventStatus": "Geen"
+}</script></div>
+
+
+<div class="c-event-card" id="perrx-halloween-edition-30-10-2026">
+    <div class="c-event-card__image">
+        <span class="img img--cover"><img srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" width="680" height="400" data-src="https://dehelling.nl/app/uploads/2026/09/PERRX-FLYER-MONSTRUAL-banner-680x400.jpeg" class="lazyload" alt="" data-aspectratio="1.7" data-sizes="auto" decoding="async" data-srcset="https://dehelling.nl/app/uploads/2026/09/PERRX-FLYER-MONSTRUAL-banner-680x400.jpeg 680w, https://dehelling.nl/app/uploads/2026/09/PERRX-FLYER-MONSTRUAL-banner-300x176.jpeg 300w, https://dehelling.nl/app/uploads/2026/09/PERRX-FLYER-MONSTRUAL-banner-1024x602.jpeg 1024w, https://dehelling.nl/app/uploads/2026/09/PERRX-FLYER-MONSTRUAL-banner-768x452.jpeg 768w, https://dehelling.nl/app/uploads/2026/09/PERRX-FLYER-MONSTRUAL-banner-340x200.jpeg 340w, https://dehelling.nl/app/uploads/2026/09/PERRX-FLYER-MONSTRUAL-banner-1020x600.jpeg 1020w, https://dehelling.nl/app/uploads/2026/09/PERRX-FLYER-MONSTRUAL-banner.jpeg 1080w"></span>           </div>
+
+    <ul class="c-event-card__meta">
+                    <li>vr 30/10</li>
+                        <li>23:59 - 05:00</li>
+                        <li>latin/neoperreo/cumbia/baile funk</li>
+                </ul>
+
+    <h3 class="u-heading u-heading--f c-event-card__title">
+        <a class="c-event-card__link" href="https://dehelling.nl/agenda/perrx-halloween-edition-30-10-2026/">
+            Perrx Halloween Edition        </a>
+    </h3>
+
+            <div class="c-event-card__subtitle">PERRX: a Queer (kuir) Latinx party bringing inclusivity, safety, and revolutionary joy to Utrecht nightlife through Latin rhythms and sexy spaces. </div>
+    
+    
+<script type="application/ld+json" aria-hidden="true">
+    {
+    "@context": "https:\/\/schema.org",
+    "@type": "Event",
+    "location": {
+        "@type": "Place",
+        "name": "De Helling",
+        "address": "Helling 7, 3523 CB Utrecht"
+    },
+    "name": "Perrx Halloween Edition",
+    "url": "https:\/\/dehelling.nl\/agenda\/perrx-halloween-edition-30-10-2026\/",
+    "image": "https:\/\/dehelling.nl\/app\/uploads\/2026\/09\/PERRX-FLYER-MONSTRUAL-banner-680x400.jpeg",
+    "description": "PERRX: a Queer (kuir) Latinx party bringing inclusivity, safety, and revolutionary joy to Utrecht nightlife through Latin rhythms and sexy spaces. ",
+    "performer": {
+        "@type": "PerformingGroup",
+        "name": "perrx, queer, halloween "
+    },
+    "startDate": "2026-10-30 23:59:00",
+    "endDate": "2026-10-31 05:00:00",
+    "offers": {
+        "@type": "Offer",
+        "price": "16.50",
+        "priceCurrency": "EUR",
+        "url": "https:\/\/dehelling.stager.co\/shop\/default\/events\/111610783",
+        "availability": "https:\/\/schema.org\/InStock"
+    }
+}</script></div>
+
+
+<div class="c-event-card" id="paardenrave-halloween-edition-31-10-2026">
+    <div class="c-event-card__image">
+        <span class="img img--cover"><img srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" width="680" height="400" data-src="https://dehelling.nl/app/uploads/2026/10/260116-BC-FNL-LOWRES-184-680x400.jpg" class="lazyload" alt="" data-aspectratio="1.7" data-sizes="auto" decoding="async" data-srcset="https://dehelling.nl/app/uploads/2026/10/260116-BC-FNL-LOWRES-184-680x400.jpg 680w, https://dehelling.nl/app/uploads/2026/10/260116-BC-FNL-LOWRES-184-340x200.jpg 340w, https://dehelling.nl/app/uploads/2026/10/260116-BC-FNL-LOWRES-184-1020x600.jpg 1020w, https://dehelling.nl/app/uploads/2026/10/260116-BC-FNL-LOWRES-184-1360x800.jpg 1360w, https://dehelling.nl/app/uploads/2026/10/260116-BC-FNL-LOWRES-184-1700x1000.jpg 1700w"></span>           </div>
+
+    <ul class="c-event-card__meta">
+                    <li>za 31/10</li>
+                        <li>23:00 - 05:00</li>
+                        <li>House/Techno/Disco</li>
+                        <li>LHBTQIA+</li>
+                </ul>
+
+    <h3 class="u-heading u-heading--f c-event-card__title">
+        <a class="c-event-card__link" href="https://dehelling.nl/agenda/paardenrave-halloween-edition-31-10-2026/">
+            Paardenrave Halloween Edition        </a>
+    </h3>
+
+            <div class="c-event-card__subtitle">Flamboyante rodeo vol high-energy genre-fluid dj's en performances</div>
+    
+    
+<script type="application/ld+json" aria-hidden="true">
+    {
+    "@context": "https:\/\/schema.org",
+    "@type": "Event",
+    "location": {
+        "@type": "Place",
+        "name": "De Helling",
+        "address": "Helling 7, 3523 CB Utrecht"
+    },
+    "name": "Paardenrave Halloween Edition",
+    "url": "https:\/\/dehelling.nl\/agenda\/paardenrave-halloween-edition-31-10-2026\/",
+    "image": "https:\/\/dehelling.nl\/app\/uploads\/2026\/10\/260116-BC-FNL-LOWRES-184-680x400.jpg",
+    "description": "Flamboyante rodeo vol high-energy genre-fluid dj's en performances",
+    "performer": {
+        "@type": "PerformingGroup",
+        "name": "Paardenrave "
+    },
+    "startDate": "2026-10-31 23:00:00",
+    "endDate": "2026-11-01 05:00:00",
+    "offers": {
+        "@type": "Offer",
+        "price": "18.00",
+        "priceCurrency": "EUR",
+        "url": "https:\/\/dehelling.stager.co\/shop\/default\/events\/111704710",
+        "availability": "https:\/\/schema.org\/InStock"
+    }
+}</script></div>
+
+
+<div class="c-event-card" id="freax-07-11-2026">
+    <div class="c-event-card__image">
+        <span class="img img--cover"><img srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" width="680" height="400" data-src="https://dehelling.nl/app/uploads/2026/06/FreaX_20261107_de_helling-680x400.jpg" class="lazyload" alt="" data-aspectratio="1.7" data-sizes="auto" decoding="async" data-srcset="https://dehelling.nl/app/uploads/2026/06/FreaX_20261107_de_helling-680x400.jpg 680w, https://dehelling.nl/app/uploads/2026/06/FreaX_20261107_de_helling-300x177.jpg 300w, https://dehelling.nl/app/uploads/2026/06/FreaX_20261107_de_helling-1024x603.jpg 1024w, https://dehelling.nl/app/uploads/2026/06/FreaX_20261107_de_helling-768x452.jpg 768w, https://dehelling.nl/app/uploads/2026/06/FreaX_20261107_de_helling-340x200.jpg 340w, https://dehelling.nl/app/uploads/2026/06/FreaX_20261107_de_helling-1020x600.jpg 1020w, https://dehelling.nl/app/uploads/2026/06/FreaX_20261107_de_helling.jpg 1181w"></span>           </div>
+
+    <ul class="c-event-card__meta">
+                    <li>za 07/11</li>
+                        <li>23:00 - 06:00</li>
+                        <li>Bass Music</li>
+                        <li>Tekno</li>
+                </ul>
+
+    <h3 class="u-heading u-heading--f c-event-card__title">
+        <a class="c-event-card__link" href="https://dehelling.nl/agenda/freax-07-11-2026/">
+            FreaX        </a>
+    </h3>
+
+            <div class="c-event-card__subtitle">Frequency shift</div>
+    
+    
+<script type="application/ld+json" aria-hidden="true">
+    {
+    "@context": "https:\/\/schema.org",
+    "@type": "Event",
+    "location": {
+        "@type": "Place",
+        "name": "De Helling",
+        "address": "Helling 7, 3523 CB Utrecht"
+    },
+    "name": "FreaX",
+    "url": "https:\/\/dehelling.nl\/agenda\/freax-07-11-2026\/",
+    "image": "https:\/\/dehelling.nl\/app\/uploads\/2026\/06\/FreaX_20261107_de_helling-680x400.jpg",
+    "description": "Frequency shift",
+    "performer": {
+        "@type": "PerformingGroup",
+        "name": "Freax"
+    },
+    "startDate": "2026-11-07 23:00:00",
+    "endDate": "2026-11-08 06:00:00",
+    "offers": {
+        "@type": "Offer",
+        "price": "17.50",
+        "priceCurrency": "EUR",
+        "url": "https:\/\/dehelling.stager.co\/shop\/default\/events\/111637734",
+        "availability": "https:\/\/schema.org\/InStock"
+    }
+}</script></div>
+
+
+<div class="c-event-card" id="voidborn-vi-13-11-2026">
+    <div class="c-event-card__image">
+        <span class="img img--cover"><img srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" width="680" height="400" data-src="https://dehelling.nl/app/uploads/2026/03/UJ-copy-1-680x400.jpg" class="lazyload" alt="" data-aspectratio="1.7" data-sizes="auto" decoding="async" data-srcset="https://dehelling.nl/app/uploads/2026/03/UJ-copy-1-680x400.jpg 680w, https://dehelling.nl/app/uploads/2026/03/UJ-copy-1-300x176.jpg 300w, https://dehelling.nl/app/uploads/2026/03/UJ-copy-1-1024x602.jpg 1024w, https://dehelling.nl/app/uploads/2026/03/UJ-copy-1-768x452.jpg 768w, https://dehelling.nl/app/uploads/2026/03/UJ-copy-1-1536x904.jpg 1536w, https://dehelling.nl/app/uploads/2026/03/UJ-copy-1-2048x1205.jpg 2048w, https://dehelling.nl/app/uploads/2026/03/UJ-copy-1-340x200.jpg 340w, https://dehelling.nl/app/uploads/2026/03/UJ-copy-1-1020x600.jpg 1020w, https://dehelling.nl/app/uploads/2026/03/UJ-copy-1-1360x800.jpg 1360w, https://dehelling.nl/app/uploads/2026/03/UJ-copy-1-1700x1000.jpg 1700w"></span>           </div>
+
+    <ul class="c-event-card__meta">
+                    <li>vr 13/11</li>
+                        <li>23:59 - 06:00</li>
+                        <li>Hi-Tech</li>
+                        <li>Psytrance</li>
+                </ul>
+
+    <h3 class="u-heading u-heading--f c-event-card__title">
+        <a class="c-event-card__link" href="https://dehelling.nl/agenda/voidborn-vi-13-11-2026/">
+            VOIDBORN VI        </a>
+    </h3>
+
+            <div class="c-event-card__subtitle">Psychedelic Night</div>
+    
+    
+<script type="application/ld+json" aria-hidden="true">
+    {
+    "@context": "https:\/\/schema.org",
+    "@type": "Event",
+    "location": {
+        "@type": "Place",
+        "name": "De Helling",
+        "address": "Helling 7, 3523 CB Utrecht"
+    },
+    "name": "VOIDBORN VI",
+    "url": "https:\/\/dehelling.nl\/agenda\/voidborn-vi-13-11-2026\/",
+    "image": "https:\/\/dehelling.nl\/app\/uploads\/2026\/03\/UJ-copy-1-680x400.jpg",
+    "description": "Psychedelic Night",
+    "startDate": "2026-11-13 23:59:00",
+    "endDate": "2026-11-14 06:00:00",
+    "offers": {
+        "@type": "Offer",
+        "price": "20.00",
+        "priceCurrency": "EUR",
+        "url": "https:\/\/dehelling.stager.co\/shop\/default\/events\/111599826",
+        "availability": "https:\/\/schema.org\/InStock"
+    }
+}</script></div>
+
+
+<div class="c-event-card" id="getikt-14-11-2026">
+    <div class="c-event-card__image">
+        <span class="img img--cover"><img srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" width="680" height="400" data-src="https://dehelling.nl/app/uploads/2026/08/Getikt-nieuw-sitebeeld-680x400.jpg" class="lazyload" alt="" data-aspectratio="1.7" data-sizes="auto" decoding="async" data-srcset="https://dehelling.nl/app/uploads/2026/08/Getikt-nieuw-sitebeeld-680x400.jpg 680w, https://dehelling.nl/app/uploads/2026/08/Getikt-nieuw-sitebeeld-300x176.jpg 300w, https://dehelling.nl/app/uploads/2026/08/Getikt-nieuw-sitebeeld-1024x602.jpg 1024w, https://dehelling.nl/app/uploads/2026/08/Getikt-nieuw-sitebeeld-768x452.jpg 768w, https://dehelling.nl/app/uploads/2026/08/Getikt-nieuw-sitebeeld-340x200.jpg 340w, https://dehelling.nl/app/uploads/2026/08/Getikt-nieuw-sitebeeld-1020x600.jpg 1020w, https://dehelling.nl/app/uploads/2026/08/Getikt-nieuw-sitebeeld.jpg 1360w"></span>           </div>
+
+    <ul class="c-event-card__meta">
+                    <li>za 14/11</li>
+                        <li>23:00 - 05:00</li>
+                        <li>House/Techno/Disco</li>
+                </ul>
+
+    <h3 class="u-heading u-heading--f c-event-card__title">
+        <a class="c-event-card__link" href="https://dehelling.nl/agenda/getikt-14-11-2026/">
+            GETiKT        </a>
+    </h3>
+
+            <div class="c-event-card__subtitle">Utrechts Hottest Clubnight W// Newtone &amp; Kara Okay</div>
+    
+    
+<script type="application/ld+json" aria-hidden="true">
+    {
+    "@context": "https:\/\/schema.org",
+    "@type": "Event",
+    "location": {
+        "@type": "Place",
+        "name": "De Helling",
+        "address": "Helling 7, 3523 CB Utrecht"
+    },
+    "name": "GETiKT",
+    "url": "https:\/\/dehelling.nl\/agenda\/getikt-14-11-2026\/",
+    "image": "https:\/\/dehelling.nl\/app\/uploads\/2026\/08\/Getikt-nieuw-sitebeeld-680x400.jpg",
+    "description": "Utrechts Hottest Clubnight W\/\/ Newtone & Kara Okay",
+    "performer": {
+        "@type": "PerformingGroup",
+        "name": "getikt"
+    },
+    "startDate": "2026-11-14 23:00:00",
+    "endDate": "2026-11-15 05:00:00",
+    "offers": {
+        "@type": "Offer",
+        "price": "12.95",
+        "priceCurrency": "EUR",
+        "url": "https:\/\/dehelling.stager.co\/shop\/default\/events\/111606263",
+        "availability": "https:\/\/schema.org\/InStock"
+    }
+}</script></div>
+
+
+<div class="c-event-card" id="pann-25-27-11-2026">
+    <div class="c-event-card__image">
+        <span class="img img--cover"><img srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" width="680" height="400" data-src="https://dehelling.nl/app/uploads/2026/09/PannBanner-2-680x400.jpg" class="lazyload" alt="" data-aspectratio="1.7" data-sizes="auto" decoding="async" data-srcset="https://dehelling.nl/app/uploads/2026/09/PannBanner-2-680x400.jpg 680w, https://dehelling.nl/app/uploads/2026/09/PannBanner-2-300x176.jpg 300w, https://dehelling.nl/app/uploads/2026/09/PannBanner-2-1024x602.jpg 1024w, https://dehelling.nl/app/uploads/2026/09/PannBanner-2-768x452.jpg 768w, https://dehelling.nl/app/uploads/2026/09/PannBanner-2-340x200.jpg 340w, https://dehelling.nl/app/uploads/2026/09/PannBanner-2-1020x600.jpg 1020w, https://dehelling.nl/app/uploads/2026/09/PannBanner-2.jpg 1080w"></span>                               </div>
+
+    <ul class="c-event-card__meta">
+                    <li>vr 27/11</li>
+                        <li>22:00 - 04:00</li>
+                        <li>LHBTQIA+</li>
+                        <li>Pop</li>
+                </ul>
+
+    <h3 class="u-heading u-heading--f c-event-card__title">
+        <a class="c-event-card__link" href="https://dehelling.nl/agenda/pann-25-27-11-2026/">
+            PANN 25+        </a>
+    </h3>
+
+            <div class="c-event-card__subtitle">Het leukste LHBTQIA+ event van Nederland</div>
+    
+    
+<script type="application/ld+json" aria-hidden="true">
+    {
+    "@context": "https:\/\/schema.org",
+    "@type": "Event",
+    "location": {
+        "@type": "Place",
+        "name": "De Helling",
+        "address": "Helling 7, 3523 CB Utrecht"
+    },
+    "name": "PANN 25+",
+    "url": "https:\/\/dehelling.nl\/agenda\/pann-25-27-11-2026\/",
+    "image": "https:\/\/dehelling.nl\/app\/uploads\/2026\/09\/PannBanner-2-680x400.jpg",
+    "description": "Het leukste LHBTQIA+ event van Nederland",
+    "performer": {
+        "@type": "PerformingGroup",
+        "name": "PANN"
+    },
+    "startDate": "2026-11-27 22:00:00",
+    "endDate": "2026-11-28 04:00:00",
+    "offers": {
+        "@type": "Offer",
+        "price": "14.64",
+        "priceCurrency": "EUR",
+        "url": "https:\/\/dehelling.stager.co\/shop\/default\/events\/111584684",
+        "availability": "https:\/\/schema.org\/InStock"
+    },
+    "eventStatus": "Geen"
+}</script></div>
+
+
+<div class="c-event-card" id="10eurodance-28-11-2026">
+    <div class="c-event-card__image">
+        <span class="img img--cover"><img srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" width="680" height="400" data-src="https://dehelling.nl/app/uploads/2026/09/De-Helling-10EuroDance-261128-banner-1360x800-1-680x400.jpg" class="lazyload" alt="" data-aspectratio="1.7" data-sizes="auto" decoding="async" data-srcset="https://dehelling.nl/app/uploads/2026/09/De-Helling-10EuroDance-261128-banner-1360x800-1-680x400.jpg 680w, https://dehelling.nl/app/uploads/2026/09/De-Helling-10EuroDance-261128-banner-1360x800-1-300x176.jpg 300w, https://dehelling.nl/app/uploads/2026/09/De-Helling-10EuroDance-261128-banner-1360x800-1-1024x602.jpg 1024w, https://dehelling.nl/app/uploads/2026/09/De-Helling-10EuroDance-261128-banner-1360x800-1-768x452.jpg 768w, https://dehelling.nl/app/uploads/2026/09/De-Helling-10EuroDance-261128-banner-1360x800-1-340x200.jpg 340w, https://dehelling.nl/app/uploads/2026/09/De-Helling-10EuroDance-261128-banner-1360x800-1-1020x600.jpg 1020w, https://dehelling.nl/app/uploads/2026/09/De-Helling-10EuroDance-261128-banner-1360x800-1.jpg 1360w"></span>           </div>
+
+    <ul class="c-event-card__meta">
+                    <li>za 28/11</li>
+                        <li>23:30 - 04:00</li>
+                        <li>House/Techno/Disco</li>
+                        <li>Pop</li>
+                </ul>
+
+    <h3 class="u-heading u-heading--f c-event-card__title">
+        <a class="c-event-card__link" href="https://dehelling.nl/agenda/10eurodance-28-11-2026/">
+            10EURODANCE        </a>
+    </h3>
+
+            <div class="c-event-card__subtitle">Ongegeneerd losgaan op de beste 90's eurodance hits en club bangers</div>
+    
+    
+<script type="application/ld+json" aria-hidden="true">
+    {
+    "@context": "https:\/\/schema.org",
+    "@type": "Event",
+    "location": {
+        "@type": "Place",
+        "name": "De Helling",
+        "address": "Helling 7, 3523 CB Utrecht"
+    },
+    "name": "10EURODANCE",
+    "url": "https:\/\/dehelling.nl\/agenda\/10eurodance-28-11-2026\/",
+    "image": "https:\/\/dehelling.nl\/app\/uploads\/2026\/09\/De-Helling-10EuroDance-261128-banner-1360x800-1-680x400.jpg",
+    "description": "Ongegeneerd losgaan op de beste 90's eurodance hits en club bangers",
+    "performer": {
+        "@type": "PerformingGroup",
+        "name": "10EURODANCE "
+    },
+    "startDate": "2026-11-28 23:30:00",
+    "endDate": "2026-11-29 04:00:00",
+    "offers": {
+        "@type": "Offer",
+        "price": "10.00",
+        "priceCurrency": "EUR",
+        "url": "https:\/\/dehelling.stager.co\/shop\/default\/events\/111667082",
+        "availability": "https:\/\/schema.org\/InStock"
+    }
+}</script></div>
+
+
+<div class="c-event-card" id="styass-unscripted-04-12-2026">
+    <div class="c-event-card__image">
+        <span class="img img--cover"><img srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" width="680" height="400" data-src="https://dehelling.nl/app/uploads/2026/10/banner-styass-680x400.jpeg" class="lazyload" alt="" data-aspectratio="1.7" data-sizes="auto" decoding="async" data-srcset="https://dehelling.nl/app/uploads/2026/10/banner-styass-680x400.jpeg 680w, https://dehelling.nl/app/uploads/2026/10/banner-styass-300x177.jpeg 300w, https://dehelling.nl/app/uploads/2026/10/banner-styass-1024x603.jpeg 1024w, https://dehelling.nl/app/uploads/2026/10/banner-styass-768x452.jpeg 768w, https://dehelling.nl/app/uploads/2026/10/banner-styass-1536x904.jpeg 1536w, https://dehelling.nl/app/uploads/2026/10/banner-styass-340x200.jpeg 340w, https://dehelling.nl/app/uploads/2026/10/banner-styass-1020x600.jpeg 1020w, https://dehelling.nl/app/uploads/2026/10/banner-styass-1360x800.jpeg 1360w, https://dehelling.nl/app/uploads/2026/10/banner-styass.jpeg 1635w"></span>           </div>
+
+    <ul class="c-event-card__meta">
+                    <li>vr 04/12</li>
+                        <li>23:30 - 05:30</li>
+                        <li>Raw hardtechno, industrial and schranz</li>
+                </ul>
+
+    <h3 class="u-heading u-heading--f c-event-card__title">
+        <a class="c-event-card__link" href="https://dehelling.nl/agenda/styass-unscripted-04-12-2026/">
+            STYASS UNSCRIPTED        </a>
+    </h3>
+
+            <div class="c-event-card__subtitle">Raw hardtechno, industrial and schranz in an immersive Boiler Room setting.</div>
+    
+    
+<script type="application/ld+json" aria-hidden="true">
+    {
+    "@context": "https:\/\/schema.org",
+    "@type": "Event",
+    "location": {
+        "@type": "Place",
+        "name": "De Helling",
+        "address": "Helling 7, 3523 CB Utrecht"
+    },
+    "name": "STYASS UNSCRIPTED",
+    "url": "https:\/\/dehelling.nl\/agenda\/styass-unscripted-04-12-2026\/",
+    "image": "https:\/\/dehelling.nl\/app\/uploads\/2026\/10\/banner-styass-680x400.jpeg",
+    "description": "Raw hardtechno, industrial and schranz in an immersive Boiler Room setting.",
+    "performer": {
+        "@type": "PerformingGroup",
+        "name": "styass"
+    },
+    "startDate": "2026-12-04 23:30:00",
+    "endDate": "2026-12-05 05:30:00",
+    "offers": {
+        "@type": "Offer",
+        "price": "27.45",
+        "priceCurrency": "EUR",
+        "url": "https:\/\/dehelling.stager.co\/shop\/default\/events\/111668766",
+        "availability": "https:\/\/schema.org\/InStock"
+    }
+}</script></div>
+
+
+<div class="c-event-card" id="alternative-80s-12-12-2026">
+    <div class="c-event-card__image">
+        <span class="img img--cover"><img srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" width="680" height="400" data-src="https://dehelling.nl/app/uploads/2026/09/80s-1360x800-1-680x400.jpg" class="lazyload" alt="" data-aspectratio="1.7" data-sizes="auto" decoding="async" data-srcset="https://dehelling.nl/app/uploads/2026/09/80s-1360x800-1-680x400.jpg 680w, https://dehelling.nl/app/uploads/2026/09/80s-1360x800-1-300x176.jpg 300w, https://dehelling.nl/app/uploads/2026/09/80s-1360x800-1-1024x602.jpg 1024w, https://dehelling.nl/app/uploads/2026/09/80s-1360x800-1-768x452.jpg 768w, https://dehelling.nl/app/uploads/2026/09/80s-1360x800-1-340x200.jpg 340w, https://dehelling.nl/app/uploads/2026/09/80s-1360x800-1-1020x600.jpg 1020w, https://dehelling.nl/app/uploads/2026/09/80s-1360x800-1.jpg 1360w"></span>           </div>
+
+    <ul class="c-event-card__meta">
+                    <li>za 12/12</li>
+                        <li>22:00 - 03:00</li>
+                        <li>Pop</li>
+                        <li>Rock</li>
+                </ul>
+
+    <h3 class="u-heading u-heading--f c-event-card__title">
+        <a class="c-event-card__link" href="https://dehelling.nl/agenda/alternative-80s-12-12-2026/">
+            Alternative 80’s        </a>
+    </h3>
+
+            <div class="c-event-card__subtitle">Alternative 80's hits zo uit je platenkast</div>
+    
+    
+<script type="application/ld+json" aria-hidden="true">
+    {
+    "@context": "https:\/\/schema.org",
+    "@type": "Event",
+    "location": {
+        "@type": "Place",
+        "name": "De Helling",
+        "address": "Helling 7, 3523 CB Utrecht"
+    },
+    "name": "Alternative 80&#8217;s",
+    "url": "https:\/\/dehelling.nl\/agenda\/alternative-80s-12-12-2026\/",
+    "image": "https:\/\/dehelling.nl\/app\/uploads\/2026\/09\/80s-1360x800-1-680x400.jpg",
+    "description": "Alternative 80's hits zo uit je platenkast",
+    "performer": {
+        "@type": "PerformingGroup",
+        "name": "Alternative 80"
+    },
+    "startDate": "2026-12-12 22:00:00",
+    "endDate": "2026-12-13 03:00:00",
+    "offers": {
+        "@type": "Offer",
+        "price": "13.50",
+        "priceCurrency": "EUR",
+        "url": "https:\/\/dehelling.stager.co\/shop\/default\/events\/111576229",
+        "availability": "https:\/\/schema.org\/InStock"
+    }
+}</script></div>
+
+
+<div class="c-event-card" id="no-barrier-x-mas-special-18-12-2026">
+    <div class="c-event-card__image">
+        <span class="img img--cover"><img srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" width="680" height="400" data-src="https://dehelling.nl/app/uploads/2026/06/1812-Helling-1360x800-copy-1-680x400.jpg" class="lazyload" alt="" data-aspectratio="1.7" data-sizes="auto" decoding="async" data-srcset="https://dehelling.nl/app/uploads/2026/06/1812-Helling-1360x800-copy-1-680x400.jpg 680w, https://dehelling.nl/app/uploads/2026/06/1812-Helling-1360x800-copy-1-300x176.jpg 300w, https://dehelling.nl/app/uploads/2026/06/1812-Helling-1360x800-copy-1-1024x602.jpg 1024w, https://dehelling.nl/app/uploads/2026/06/1812-Helling-1360x800-copy-1-768x452.jpg 768w, https://dehelling.nl/app/uploads/2026/06/1812-Helling-1360x800-copy-1-340x200.jpg 340w, https://dehelling.nl/app/uploads/2026/06/1812-Helling-1360x800-copy-1-1020x600.jpg 1020w, https://dehelling.nl/app/uploads/2026/06/1812-Helling-1360x800-copy-1.jpg 1360w"></span>           </div>
+
+    <ul class="c-event-card__meta">
+                    <li>vr 18/12</li>
+                        <li>21:00 - 02:00</li>
+                        <li>Metalcore</li>
+                        <li>Punkrock</li>
+                </ul>
+
+    <h3 class="u-heading u-heading--f c-event-card__title">
+        <a class="c-event-card__link" href="https://dehelling.nl/agenda/no-barrier-x-mas-special-18-12-2026/">
+            NO BARRIER X-MAS SPECIAL        </a>
+    </h3>
+
+            <div class="c-event-card__subtitle">Punk, Emo, Rock &amp; Metalcore Christmas Party</div>
+    
+    
+<script type="application/ld+json" aria-hidden="true">
+    {
+    "@context": "https:\/\/schema.org",
+    "@type": "Event",
+    "location": {
+        "@type": "Place",
+        "name": "De Helling",
+        "address": "Helling 7, 3523 CB Utrecht"
+    },
+    "name": "NO BARRIER X-MAS SPECIAL",
+    "url": "https:\/\/dehelling.nl\/agenda\/no-barrier-x-mas-special-18-12-2026\/",
+    "image": "https:\/\/dehelling.nl\/app\/uploads\/2026\/06\/1812-Helling-1360x800-copy-1-680x400.jpg",
+    "description": "Punk, Emo, Rock & Metalcore Christmas Party",
+    "performer": {
+        "@type": "PerformingGroup",
+        "name": "No barrier"
+    },
+    "startDate": "2026-12-18 21:00:00",
+    "endDate": "2026-12-19 02:00:00",
+    "offers": {
+        "@type": "Offer",
+        "price": "16.50",
+        "priceCurrency": "EUR",
+        "url": "https:\/\/dehelling.stager.co\/shop\/default\/events\/111576715",
+        "availability": "https:\/\/schema.org\/InStock"
+    }
+}</script></div>
+
+
+<div class="c-event-card" id="80s-verantwoord-26-12-2026">
+    <div class="c-event-card__image">
+        <span class="img img--cover"><img srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" width="680" height="400" data-src="https://dehelling.nl/app/uploads/2026/10/80s-Kerst-FB-680x400.jpg" class="lazyload" alt="" data-aspectratio="1.7" data-sizes="auto" decoding="async" data-srcset="https://dehelling.nl/app/uploads/2026/10/80s-Kerst-FB-680x400.jpg 680w, https://dehelling.nl/app/uploads/2026/10/80s-Kerst-FB-300x176.jpg 300w, https://dehelling.nl/app/uploads/2026/10/80s-Kerst-FB-1024x602.jpg 1024w, https://dehelling.nl/app/uploads/2026/10/80s-Kerst-FB-768x452.jpg 768w, https://dehelling.nl/app/uploads/2026/10/80s-Kerst-FB-1536x904.jpg 1536w, https://dehelling.nl/app/uploads/2026/10/80s-Kerst-FB-340x200.jpg 340w, https://dehelling.nl/app/uploads/2026/10/80s-Kerst-FB-1020x600.jpg 1020w, https://dehelling.nl/app/uploads/2026/10/80s-Kerst-FB-1360x800.jpg 1360w, https://dehelling.nl/app/uploads/2026/10/80s-Kerst-FB-1700x1000.jpg 1700w, https://dehelling.nl/app/uploads/2026/10/80s-Kerst-FB.jpg 1836w"></span>           </div>
+
+    <ul class="c-event-card__meta">
+                    <li>za 26/12</li>
+                        <li>21:00 - 02:00</li>
+                        <li>Pop</li>
+                        <li>Rock</li>
+                </ul>
+
+    <h3 class="u-heading u-heading--f c-event-card__title">
+        <a class="c-event-card__link" href="https://dehelling.nl/agenda/80s-verantwoord-26-12-2026/">
+            80s Verantwoord        </a>
+    </h3>
+
+            <div class="c-event-card__subtitle">ÉXTRA GEZELLIGE KERSTEDITIE</div>
+    
+    
+<script type="application/ld+json" aria-hidden="true">
+    {
+    "@context": "https:\/\/schema.org",
+    "@type": "Event",
+    "location": {
+        "@type": "Place",
+        "name": "De Helling",
+        "address": "Helling 7, 3523 CB Utrecht"
+    },
+    "name": "80s Verantwoord",
+    "url": "https:\/\/dehelling.nl\/agenda\/80s-verantwoord-26-12-2026\/",
+    "image": "https:\/\/dehelling.nl\/app\/uploads\/2026\/10\/80s-Kerst-FB-680x400.jpg",
+    "description": "\u00c9XTRA GEZELLIGE KERSTEDITIE",
+    "startDate": "2026-12-26 21:00:00",
+    "endDate": "2026-12-27 02:00:00",
+    "offers": {
+        "@type": "Offer",
+        "price": "18.50",
+        "priceCurrency": "EUR",
+        "url": "https:\/\/dehelling.stager.co\/shop\/default\/events\/111582523",
+        "availability": "https:\/\/schema.org\/InStock"
+    }
+}</script></div>
+
+
+<div class="c-event-card" id="getikt-nye-31-12-2026">
+    <div class="c-event-card__image">
+        <span class="img img--cover"><img srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" width="680" height="400" data-src="https://dehelling.nl/app/uploads/2026/10/email@example.invalid" class="lazyload" alt="" data-aspectratio="1.7" data-sizes="auto" decoding="async" data-srcset="https://dehelling.nl/app/uploads/2026/10/email@example.invalid 680w, https://dehelling.nl/app/uploads/2026/10/email@example.invalid 340w, https://dehelling.nl/app/uploads/2026/10/email@example.invalid 1020w, https://dehelling.nl/app/uploads/2026/10/email@example.invalid 1360w, https://dehelling.nl/app/uploads/2026/10/email@example.invalid 1700w"></span>           </div>
+
+    <ul class="c-event-card__meta">
+                    <li>do 31/12</li>
+                        <li>23:59 - 05:00</li>
+                        <li>House/Techno/Disco</li>
+                </ul>
+
+    <h3 class="u-heading u-heading--f c-event-card__title">
+        <a class="c-event-card__link" href="https://dehelling.nl/agenda/getikt-nye-31-12-2026/">
+            GETiKT NYE        </a>
+    </h3>
+
+            <div class="c-event-card__subtitle">Utrechts hottest New Years Eve</div>
+    
+    
+<script type="application/ld+json" aria-hidden="true">
+    {
+    "@context": "https:\/\/schema.org",
+    "@type": "Event",
+    "location": {
+        "@type": "Place",
+        "name": "De Helling",
+        "address": "Helling 7, 3523 CB Utrecht"
+    },
+    "name": "GETiKT NYE",
+    "url": "https:\/\/dehelling.nl\/agenda\/getikt-nye-31-12-2026\/",
+    "image": "https:\/\/dehelling.nl\/app\/uploads\/2026\/10\/email@example.invalid",
+    "description": "Utrechts hottest New Years Eve",
+    "performer": {
+        "@type": "PerformingGroup",
+        "name": "GETIKT NYE"
+    },
+    "startDate": "2026-12-31 23:59:00",
+    "endDate": "2027-01-01 05:00:00",
+    "offers": {
+        "@type": "Offer",
+        "price": "25.95",
+        "priceCurrency": "EUR",
+        "url": "https:\/\/dehelling.stager.co\/shop\/default\/events\/111696602",
+        "availability": "https:\/\/schema.org\/InStock"
+    }
+}</script></div>
+
+
+<div class="c-event-card" id="honk-02-01-2027">
+    <div class="c-event-card__image">
+        <span class="img img--cover"><img srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" width="680" height="400" data-src="https://dehelling.nl/app/uploads/2026/09/BANNER-2-680x400.jpg" class="lazyload" alt="" data-aspectratio="1.7" data-sizes="auto" decoding="async" data-srcset="https://dehelling.nl/app/uploads/2026/09/BANNER-2-680x400.jpg 680w, https://dehelling.nl/app/uploads/2026/09/BANNER-2-340x200.jpg 340w, https://dehelling.nl/app/uploads/2026/09/BANNER-2-1020x600.jpg 1020w, https://dehelling.nl/app/uploads/2026/09/BANNER-2-1360x800.jpg 1360w, https://dehelling.nl/app/uploads/2026/09/BANNER-2-1700x1000.jpg 1700w"></span>           </div>
+
+    <ul class="c-event-card__meta">
+                    <li>za 02/01</li>
+                        <li>20:00 - 03:00</li>
+                        <li>House/Techno/Disco</li>
+                </ul>
+
+    <h3 class="u-heading u-heading--f c-event-card__title">
+        <a class="c-event-card__link" href="https://dehelling.nl/agenda/honk-02-01-2027/">
+            HONK        </a>
+    </h3>
+
+            <div class="c-event-card__subtitle">HONK – Jouw nieuwe ‘thuis’ voor house</div>
+    
+    
+<script type="application/ld+json" aria-hidden="true">
+    {
+    "@context": "https:\/\/schema.org",
+    "@type": "Event",
+    "location": {
+        "@type": "Place",
+        "name": "De Helling",
+        "address": "Helling 7, 3523 CB Utrecht"
+    },
+    "name": "HONK",
+    "url": "https:\/\/dehelling.nl\/agenda\/honk-02-01-2027\/",
+    "image": "https:\/\/dehelling.nl\/app\/uploads\/2026\/09\/BANNER-2-680x400.jpg",
+    "description": "HONK \u2013 Jouw nieuwe \u2018thuis\u2019 voor house",
+    "startDate": "2027-01-02 21:00:00",
+    "endDate": "2027-01-03 03:00:00",
+    "offers": {
+        "@type": "Offer",
+        "price": "15.00",
+        "priceCurrency": "EUR",
+        "url": "https:\/\/dehelling.stager.co\/shop\/default\/events\/111668654",
+        "availability": "https:\/\/schema.org\/InStock"
+    }
+}</script></div>
+        </div>

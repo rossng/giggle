@@ -1,0 +1,11 @@
+<h2 class="elementor-heading-title">Agenda</h2>
+<h2 class="elementor-heading-title">popprijs</h2>
+<h2 class="elementor-heading-title">POW</h2>
+<h2 class="elementor-heading-title">CONCERT TOUR: COLOR ON IN AMSTERDAM</h2>
+<h2 class="elementor-heading-title">General Admissions</h2>
+<h2 class="elementor-heading-title">€ 39</h2>
+<h2 class="elementor-heading-title">Zaal Open</h2>
+<h2 class="elementor-heading-title">19:00 uur</h2>
+<h2 class="elementor-heading-title">Show</h2>
+<h2 class="elementor-heading-title">20:00 uur</h2>
+<a class="elementor-button" href="https://heyhallyu.weticket.io/2026-pow-concert-tour-color-on-in-amsterdam">tickets</a>

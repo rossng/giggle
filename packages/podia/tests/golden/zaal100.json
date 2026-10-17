@@ -1,0 +1,445 @@
+[
+ {
+  "availability": "unknown",
+  "categories": [],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": null,
+  "end": null,
+  "extra": {
+   "pretitle": "Ons Soort Mensen speelt:"
+  },
+  "genres": [],
+  "image": null,
+  "performers": [],
+  "price": {
+   "max_eur": 7.5,
+   "min_eur": 7.5,
+   "text": "€ 7,50"
+  },
+  "room": null,
+  "source_id": "17-10-26-ons-soort-mensen",
+  "start": "2026-10-17T20:00:00+02:00",
+  "status": "scheduled",
+  "subtitle": "‘n hilarisch licht op pseudo-spiritualiteit, zoekers vinden niet wat ze zoeken of juist wel?",
+  "support": [],
+  "ticket_url": null,
+  "title": "Kristalhelder",
+  "url": "https://zaal100.nl/event/17-10-26-ons-soort-mensen/",
+  "venue": "zaal100"
+ },
+ {
+  "availability": "unknown",
+  "categories": [],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": null,
+  "end": null,
+  "extra": {
+   "pretitle": "Ons Soort Mensen speelt:"
+  },
+  "genres": [],
+  "image": null,
+  "performers": [],
+  "price": {
+   "max_eur": 7.5,
+   "min_eur": 7.5,
+   "text": "€ 7,50"
+  },
+  "room": null,
+  "source_id": "18-10-26-ons-soort-mensen",
+  "start": "2026-10-18T15:00:00+02:00",
+  "status": "scheduled",
+  "subtitle": "‘n hilarisch licht op pseudo-spiritualiteit, zoekers vinden niet wat ze zoeken of juist wel?",
+  "support": [],
+  "ticket_url": null,
+  "title": "Kristalhelder",
+  "url": "https://zaal100.nl/event/18-10-26-ons-soort-mensen/",
+  "venue": "zaal100"
+ },
+ {
+  "availability": "unknown",
+  "categories": [],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": null,
+  "end": null,
+  "extra": {
+   "pretitle": "Elke maandag Goeie Zin! Heerlijk eten & lekkere muziek!"
+  },
+  "genres": [],
+  "image": null,
+  "performers": [],
+  "price": {
+   "max_eur": 15.0,
+   "min_eur": 15.0,
+   "text": "€ 15,00"
+  },
+  "room": null,
+  "source_id": "19-10-2026-goeie-zin",
+  "start": "2026-10-19T18:00:00+02:00",
+  "status": "scheduled",
+  "subtitle": "2 singer songwriters",
+  "support": [],
+  "ticket_url": null,
+  "title": "Lisa Graciano + Cindy Peress",
+  "url": "https://zaal100.nl/event/19-10-2026-goeie-zin/",
+  "venue": "zaal100"
+ },
+ {
+  "availability": "unknown",
+  "categories": [],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": null,
+  "end": null,
+  "extra": {
+   "pretitle": "Elke dinsdag:"
+  },
+  "genres": [],
+  "image": null,
+  "performers": [],
+  "price": {
+   "max_eur": 5.0,
+   "min_eur": 5.0,
+   "text": "€ 5,00"
+  },
+  "room": null,
+  "source_id": "20-10-26-impro-jazz",
+  "start": "2026-10-20T21:00:00+02:00",
+  "status": "scheduled",
+  "subtitle": "Alfredo Genovesi - gitaar | Felicity Provan - cornet | Salvoandrea Lucifora - trombone | Marcos Baggiani - drums",
+  "support": [],
+  "ticket_url": null,
+  "title": "Jazzcafé!",
+  "url": "https://zaal100.nl/event/20-10-26-impro-jazz/",
+  "venue": "zaal100"
+ },
+ {
+  "availability": "unknown",
+  "categories": [
+   "Restaurant"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": null,
+  "end": null,
+  "extra": {
+   "pretitle": "Elke woensdag:"
+  },
+  "genres": [],
+  "image": null,
+  "performers": [],
+  "price": {
+   "max_eur": 12.0,
+   "min_eur": 12.0,
+   "text": "€ 12,00"
+  },
+  "room": null,
+  "source_id": "20261021-yayang",
+  "start": "2026-10-21T18:00:00+02:00",
+  "status": "scheduled",
+  "subtitle": "Vegetarisch en vegan Aziatisch",
+  "support": [],
+  "ticket_url": null,
+  "title": "Restaurant: Yayang",
+  "url": "https://zaal100.nl/event/20261021-yayang/",
+  "venue": "zaal100"
+ },
+ {
+  "availability": "unknown",
+  "categories": [
+   "Restaurant"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": null,
+  "end": null,
+  "extra": {
+   "pretitle": "Elke donderdag:"
+  },
+  "genres": [],
+  "image": null,
+  "performers": [],
+  "price": {
+   "max_eur": 12.0,
+   "min_eur": 12.0,
+   "text": "€ 12,00"
+  },
+  "room": null,
+  "source_id": "22-10-26-sisi-sevgi-koken",
+  "start": "2026-10-22T18:00:00+02:00",
+  "status": "scheduled",
+  "subtitle": "a wholesome, hearty, and fully vegan dinner",
+  "support": [],
+  "ticket_url": null,
+  "title": "Restaurant: Sisi & Sevgi koken",
+  "url": "https://zaal100.nl/event/22-10-26-sisi-sevgi-koken/",
+  "venue": "zaal100"
+ },
+ {
+  "availability": "free",
+  "categories": [],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": null,
+  "end": null,
+  "extra": {
+   "pretitle": "Oudste workshoporkest ter wereld!"
+  },
+  "genres": [],
+  "image": null,
+  "performers": [],
+  "price": {
+   "max_eur": 0.0,
+   "min_eur": 0.0,
+   "text": "gratis"
+  },
+  "room": null,
+  "source_id": "08-10-26-oktopedians-2-2-2",
+  "start": "2026-10-22T20:00:00+02:00",
+  "status": "scheduled",
+  "subtitle": "meedoen € 5 / luisteren gratis",
+  "support": [],
+  "ticket_url": null,
+  "title": "Oktopedians",
+  "url": "https://zaal100.nl/event/08-10-26-oktopedians-2-2-2/",
+  "venue": "zaal100"
+ },
+ {
+  "availability": "unknown",
+  "categories": [],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": null,
+  "end": null,
+  "extra": {
+   "pretitle": "Elke maandag Goeie Zin! Heerlijk eten & lekkere muziek!"
+  },
+  "genres": [],
+  "image": null,
+  "performers": [],
+  "price": {
+   "max_eur": 15.0,
+   "min_eur": 15.0,
+   "text": "€ 15,00"
+  },
+  "room": null,
+  "source_id": "26-10-2026-goeie-zin",
+  "start": "2026-10-26T18:00:00+01:00",
+  "status": "scheduled",
+  "subtitle": "2 singer songwriters",
+  "support": [],
+  "ticket_url": null,
+  "title": "Jetty Swart + Cato Fluitsma",
+  "url": "https://zaal100.nl/event/26-10-2026-goeie-zin/",
+  "venue": "zaal100"
+ },
+ {
+  "availability": "unknown",
+  "categories": [],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": null,
+  "end": null,
+  "extra": {
+   "pretitle": "Elke dinsdag:"
+  },
+  "genres": [],
+  "image": null,
+  "performers": [],
+  "price": {
+   "max_eur": 5.0,
+   "min_eur": 5.0,
+   "text": "€ 5,00"
+  },
+  "room": null,
+  "source_id": "27-10-26-impro-jazz",
+  "start": "2026-10-27T21:00:00+01:00",
+  "status": "scheduled",
+  "subtitle": "All Ellington: Jodi Gilbert - zang | Jimmy Sernesky - zang & trompet | Eric Boeren - cornet | Joost Buis, Maarten Combrink & Gregor Sperzel - trombone | Mo van der Does - altsax, klarinet | Natalio Sued - tenorsax, klarinet | Peter van Bergen - baritonsax | Floris Kappeyne - piano | Wilbert de Joode - bas | Giacomo Camiletti - drums",
+  "support": [],
+  "ticket_url": null,
+  "title": "Jazzcafé!",
+  "url": "https://zaal100.nl/event/27-10-26-impro-jazz/",
+  "venue": "zaal100"
+ },
+ {
+  "availability": "unknown",
+  "categories": [
+   "Restaurant"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": null,
+  "end": null,
+  "extra": {
+   "pretitle": "Elke woensdag:"
+  },
+  "genres": [],
+  "image": null,
+  "performers": [],
+  "price": {
+   "max_eur": 12.0,
+   "min_eur": 12.0,
+   "text": "€ 12,00"
+  },
+  "room": null,
+  "source_id": "20261028-yayang",
+  "start": "2026-10-28T18:00:00+01:00",
+  "status": "scheduled",
+  "subtitle": "Vegetarisch en vegan Aziatisch",
+  "support": [],
+  "ticket_url": null,
+  "title": "Restaurant: Yayang",
+  "url": "https://zaal100.nl/event/20261028-yayang/",
+  "venue": "zaal100"
+ },
+ {
+  "availability": "unknown",
+  "categories": [
+   "Restaurant"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": null,
+  "end": null,
+  "extra": {
+   "pretitle": "Elke donderdag:"
+  },
+  "genres": [],
+  "image": null,
+  "performers": [],
+  "price": {
+   "max_eur": 12.0,
+   "min_eur": 12.0,
+   "text": "€ 12,00"
+  },
+  "room": null,
+  "source_id": "29-10-26-sisi-sevgi-koken",
+  "start": "2026-10-29T18:00:00+01:00",
+  "status": "scheduled",
+  "subtitle": "a wholesome, hearty, and fully vegan dinner",
+  "support": [],
+  "ticket_url": null,
+  "title": "Restaurant: Sisi & Sevgi koken",
+  "url": "https://zaal100.nl/event/29-10-26-sisi-sevgi-koken/",
+  "venue": "zaal100"
+ },
+ {
+  "availability": "free",
+  "categories": [],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": null,
+  "end": null,
+  "extra": {
+   "pretitle": "Oudste workshoporkest ter wereld!"
+  },
+  "genres": [],
+  "image": null,
+  "performers": [],
+  "price": {
+   "max_eur": 0.0,
+   "min_eur": 0.0,
+   "text": "gratis"
+  },
+  "room": null,
+  "source_id": "29-10-26-oktopedians",
+  "start": "2026-10-29T20:00:00+01:00",
+  "status": "scheduled",
+  "subtitle": "meedoen € 5 / luisteren gratis",
+  "support": [],
+  "ticket_url": null,
+  "title": "Oktopedians",
+  "url": "https://zaal100.nl/event/29-10-26-oktopedians/",
+  "venue": "zaal100"
+ },
+ {
+  "availability": "unknown",
+  "categories": [],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": null,
+  "end": null,
+  "extra": {
+   "pretitle": "Türkçe Doğaçlama Gösterisi"
+  },
+  "genres": [],
+  "image": null,
+  "performers": [],
+  "price": {
+   "max_eur": 10.0,
+   "min_eur": 10.0,
+   "text": "€ 10,00"
+  },
+  "room": null,
+  "source_id": "30-10-2026-palas-pandiras",
+  "start": "2026-10-30T19:00:00+01:00",
+  "status": "scheduled",
+  "subtitle": "Turkish Improv Show",
+  "support": [],
+  "ticket_url": null,
+  "title": "Palas Pandıras",
+  "url": "https://zaal100.nl/event/30-10-2026-palas-pandiras/",
+  "venue": "zaal100"
+ },
+ {
+  "availability": "unknown",
+  "categories": [],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": null,
+  "end": null,
+  "extra": {
+   "pretitle": "An evening of West African music and dance"
+  },
+  "genres": [],
+  "image": null,
+  "performers": [],
+  "price": {
+   "max_eur": null,
+   "min_eur": null,
+   "text": "donatie"
+  },
+  "room": null,
+  "source_id": "31-10-2026-african-soundscapes",
+  "start": "2026-10-31T18:00:00+01:00",
+  "status": "scheduled",
+  "subtitle": "live music & dance",
+  "support": [],
+  "ticket_url": null,
+  "title": "African Soundscapes",
+  "url": "https://zaal100.nl/event/31-10-2026-african-soundscapes/",
+  "venue": "zaal100"
+ },
+ {
+  "availability": "unknown",
+  "categories": [],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": null,
+  "end": null,
+  "extra": {
+   "pretitle": "Amsterdam Blues Company presenteert:"
+  },
+  "genres": [],
+  "image": null,
+  "performers": [],
+  "price": {
+   "max_eur": 10.0,
+   "min_eur": 10.0,
+   "text": "€ 10,00"
+  },
+  "room": null,
+  "source_id": "01-nov-26-abc",
+  "start": "2026-11-01T15:00:00+01:00",
+  "status": "scheduled",
+  "subtitle": "Mét Pieter Jan Cramer van den Boogaart",
+  "support": [],
+  "ticket_url": null,
+  "title": "Westside Blues",
+  "url": "https://zaal100.nl/event/01-nov-26-abc/",
+  "venue": "zaal100"
+ }
+]

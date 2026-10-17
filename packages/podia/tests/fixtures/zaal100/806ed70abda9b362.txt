@@ -1,0 +1,53 @@
+<article class="agenda-item">
+	
+		
+	<div class="dagdatumtijdprijs floatleft clear bgoffwhite bortop">
+
+		<div class="dagdatummaand">
+			<div class="dag floatleft">za</div><div class="datummaand"><span class="datum">17</span><span class="maand">10</span></div> 		</div>
+
+		<div class="tijdprijs floatleft bortop">
+			<div class="tijd floatleft">20:00</div>
+			<div class="prijs">€ 7,50</div>					</div>					
+
+	</div>
+
+	<div class="gebeurtenis floatleft bgoffwhite bortop">
+
+					<h4 class="voor-titel">Ons Soort Mensen speelt:</h4>
+		
+					<h2 class="titel">Kristalhelder</h2>
+		
+					<h5 class="na-titel">‘n hilarisch licht op pseudo-spiritualiteit, zoekers vinden niet wat ze zoeken of juist wel?</h5>
+		
+	</div>
+	
+		
+				
+		<div class="tekstblok bglight">
+
+			<p>Ons Soort Mensen speelt: Kristalhelder</p>
+<p> ‘n hilarisch licht op pseudo-spiritualiteit<br>
+zoekers vinden niet wat ze zoeken of juist wel?</p>
+<p>Kristalhelder is een actuele, scherpe en geestige eenakter over de dunne grens tussen oprechte hulp en slimme manipulatie.<br>
+Wanneer twee deelnemers zich aanmelden voor een exclusieve bewustwordingsworkshop, blijkt de veelgeprezen coach Vera onverwacht afwezig. Toch verzekeren de organisatoren dat hun persoonlijke ontwikkeling gewoon kan doorgaan. Terwijl de sessie vordert, stapelen de vragen zich op en wordt steeds onduidelijker wie of wat ze eigenlijk kunnen vertrouwen.<br>
+Op zaterdag 17 oktober (20 uur), zondag 18 oktober (15 uur) te zien in Zaal 100 in Amsterdam. De voorstelling duurt ongeveer 40 minuten. Tickets kosten € 7,50.</p>
+<p>Tekst: Alfons Roebroek<br>
+Spel:  Yvonne Ravestein, Sandra Smeekes, Robert Jan Pruijn, Alfons Roebroek<br>
+<img src="http://zaal100.nl/media/2026/10/Kristalhelder-300x225.jpg" alt="" width="300" height="225" class="alignnone size-medium wp-image-3510"><br>
+Speladvies: Hanneke Borger<br>
+Techniek: Bas Klaassen</p>
+<p>Deze voorstelling is <strong>UITVERKOCHT</strong><br>
+wel zijn er nog kaarten voor:<br>
+Zondag 13 december 2026<br>
+15.00 u<br>
+Tickets: <a href="http://www.ons-soort-mensen.nl">www.ons-soort-mensen.nl</a></p>
+
+			
+		</div>
+	
+</article>
+<div class="featured-image-container">
+			<div class="featured-image">
+				<img width="640" height="479" src="https://zaal100.nl/media/2026/10/Kristalhelder-1024x767.jpg" class="attachment-large size-large wp-post-image" alt="" decoding="async" loading="lazy" srcset="https://zaal100.nl/media/2026/10/Kristalhelder-1024x767.jpg 1024w, https://zaal100.nl/media/2026/10/Kristalhelder-300x225.jpg 300w, https://zaal100.nl/media/2026/10/Kristalhelder-768x575.jpg 768w, https://zaal100.nl/media/2026/10/Kristalhelder-1536x1151.jpg 1536w, https://zaal100.nl/media/2026/10/Kristalhelder-2048x1534.jpg 2048w" sizes="auto, (max-width: 640px) 100vw, 640px">			</div>
+		</div>

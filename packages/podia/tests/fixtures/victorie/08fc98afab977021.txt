@@ -1,0 +1,99 @@
+<div class="color-mask">
+
+                <section class="flex flex-col-reverse items-start justify-between gap-4 p-mobile md:flex-row md:p-default">
+                    <h2 class="type-large-text">
+                        35+ clubnight                    </h2>
+
+                    <a href="https://tickets.podiumvictorie.nl/nl-NL/Show/Details/4721" target="_blank" class="button button--inverse-effect border-primary bg-primary text-secondary hover:text-primary hover:after:bg-secondary group-hover:after:translate-x-0 whitespace-nowrap" data-active-tickets-link="" title="Tickets">
+        Tickets</a>
+                    </section>
+
+                <section class="mt-12 grid-cols-2 p-mobile md:grid md:p-default">
+                    <div>
+                        <div class="mb-16 grid grid-cols-2 gap-x-4 gap-y-12 leading-[1.15] md:mb-0 lg:w-2/3">
+                                                            <div>
+                                    <dt>Deur open</dt>
+                                    <dd class="text-[20px] font-bold">20:00</dd>
+                                </div>
+                                                            <div>
+                                    <dt>Aanvang</dt>
+                                    <dd class="text-[20px] font-bold">20:00</dd>
+                                </div>
+                                                            <div>
+                                    <dt>Early Birds</dt>
+                                    <dd class="text-[20px] font-bold">€ 18,25</dd>
+                                </div>
+                                                            <div>
+                                    <dt>Super Early Birds</dt>
+                                    <dd class="text-[20px] font-bold">€ 16,25</dd>
+                                </div>
+                                                            <div>
+                                    <dt>Groepsticket (minimaal 4 tickets)</dt>
+                                    <dd class="text-[20px] font-bold">€ 20,50</dd>
+                                </div>
+                                                            <div>
+                                    <dt>Ticket</dt>
+                                    <dd class="text-[20px] font-bold">€ 19,75</dd>
+                                </div>
+                                                            <div>
+                                    <dt>Late Birds</dt>
+                                    <dd class="text-[20px] font-bold">€ 21,25</dd>
+                                </div>
+                                                            <div>
+                                    <dt>Last Chance Ticket</dt>
+                                    <dd class="text-[20px] font-bold">€ 23,25</dd>
+                                </div>
+                                                            <div>
+                                    <dt>Zaal</dt>
+                                    <dd class="text-[20px] font-bold">Grolsch zaal</dd>
+                                </div>
+                                                            <div>
+                                    <dt>Datum</dt>
+                                    <dd class="text-[20px] font-bold">za 17 oktober 2026</dd>
+                                </div>
+                                                                                        <div class="col-span-2">*Exclusief transactiekosten à €0,28 per boeking.</div>
+                                                                                </div>
+
+                    </div>
+
+                    <section style="--restricted-width--mobile: 100%; --restricted-width: 66.6%">
+        <div class="typogram">
+        <p><strong>CLUB 40 is altijd leuk!</strong></p>
+<p>2 area’s | 1000 partypeepz | 35+ clubbin’ | chille vibes&nbsp;Van Eurythmics t/m Dua Lipa: al jouw favoriete dancehits uit de 80s, 90s, 00s en 10s, met de videoclips op megaschermen!</p>
+<p>Met DVDJ DNS, JERONE en guest-dj VALERIO ZENO!&nbsp;Deze avond is ook het debuut van de ’40-minute 70s Disco Take-over’. Veertig minuten disco-classics met de originele clips op groot scherm, dus volle bak met jouw John Travolta-moves de dansvloer op. Daarna vliegen we gewoon weer door alle decades.</p>
+<p>In de 2nd room: ‘Housemusic Allnightlong’ met DJ’s DUANE en MICKY HURTS!&nbsp;Vette decorations en stijlvolle extravaganza shows by WAAH!</p>
+<p><strong>Let op: vanaf dit najaar start CLUB 40 al om 20.00 uur!&nbsp;</strong></p>
+
+    </div>
+</section>
+
+                </section>
+
+                <section class="mt-12 grid-cols-2 p-mobile md:grid md:p-default">
+                    <div class="mb-16 md:mb-0">
+
+                        <blockquote class="type-large-text sticky top-[4.5rem] z-[--z-blockquote] w-full md:w-2/3">
+                                                    </blockquote>
+
+                    </div>
+
+                    <div class="z-0">
+                                            </div>
+
+                </section>
+
+                <section class="event-footer-bar fixed bottom-0 left-0 z-[--z-event-footer-bar] w-full translate-y-full bg-secondary px-mobile py-3 leading-none text-primary transition duration-500 ease-in md:px-default">
+                    <div class="flex items-center justify-between gap-5">
+                        <div class="narrow  basis-[33.33%] text-[37px] max-md:hidden md:text-[70px]">17&nbsp;okt</div>
+                        <div class="event-footer-bar__text-container narrow overflow-hidden shrink text-[37px] md:basis-[56.66%] md:text-[70px]">
+                            <div class="event-footer-bar__text whitespace-nowrap">
+                                <div>Club 40</div>
+                            </div>
+                        </div>
+                        <div class="shrink-0 grow text-right md:basis-[10%]">
+                            <a href="https://tickets.podiumvictorie.nl/nl-NL/Show/Details/4721" target="_blank" class="button border-primary bg-primary text-secondary hover:text-primary hover:after:bg-secondary group-hover:after:translate-x-0 whitespace-nowrap" data-active-tickets-link="" title="Tickets">
+        Tickets</a>
+                            </div>
+                    </div>
+                </section>
+            </div>

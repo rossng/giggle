@@ -1,0 +1,378 @@
+<form class="c-filter" data-agenda-filter="" autocomplete="off" method="GET" action="https://dehelling.nl/agenda">
+
+	<div class="c-search">
+		<label for="search">
+			<svg class="icon c-search__icon" aria-labelledby="search-title">
+				<title id="search-title">Zoeken</title>
+				<use xlink:href="#icon-search"></use>
+			</svg>
+		</label>
+		<input id="search" data-search-input="" class="c-search__input" type="search" name="zoeken" placeholder="Zoek artiest of evenement">
+	</div>
+
+	<div class="c-filter__buttons">
+
+		<div class="c-filter-button-wrapper c-filter-button-wrapper--date" data-modal-wrapper="">
+			<span class="c-filter-button-wrapper__backdrop" data-modal-backdrop="" aria-hidden="true"></span>
+			<button type="button" class="c-filter__button c-raised-button c-raised-button--big" data-modal-button="">Datum</button>
+			<div class="c-filter-modal" role="dialog" aria-labelledby="date-dialog-title">
+				<div class="c-filter-modal__bg">
+					<svg class="icon">
+						<use xlink:href="#date-background"></use>
+					</svg>
+				</div>
+				<div class="c-filter-modal__close">
+					<button aria-label="Sluit filter" type="button" class="c-filter-modal-close" data-close-modal="">
+						<svg class="icon icon-back"><use xlink:href="#icon-back"></use></svg>
+					</button>
+				</div>
+				<h2 class="c-filter-modal__heading u-heading u-heading--a" id="date-dialog-title">kies een datum</h2>
+				<div class="c-filter-modal__content">
+					<ul>
+													<li class="c-filter-radio">
+								<input data-preset-date-radio="" class="c-filter-radio__input" type="radio" name="datum" id="vandaag" value="2026-10-17">
+								<label class="c-filter-radio__label" for="vandaag">Vandaag</label>
+							</li>
+														<li class="c-filter-radio">
+								<input data-preset-date-radio="" class="c-filter-radio__input" type="radio" name="datum" id="morgen" value="2026-10-18">
+								<label class="c-filter-radio__label" for="morgen">Morgen</label>
+							</li>
+														<li class="c-filter-radio">
+								<input data-preset-date-radio="" class="c-filter-radio__input" type="radio" name="datum" id="weekend" value="weekend">
+								<label class="c-filter-radio__label" for="weekend">Dit weekend</label>
+							</li>
+														<li class="c-filter-radio">
+								<input data-preset-date-radio="" class="c-filter-radio__input" type="radio" name="datum" id="week" value="week">
+								<label class="c-filter-radio__label" for="week">Deze week</label>
+							</li>
+												</ul>
+										<input type="radio" name="datum" id="datepicker-radio" value="" tabindex="-1" aria-hidden="true" data-datepicker-radio="" ="">
+					<div data-datepicker=""></div>
+				</div>
+				<button type="submit" class="c-filter-modal__submit-button c-raised-button c-raised-button--white c-raised-button--big">Toepassen</button>
+			</div>
+		</div>
+
+		<div class="c-filter-button-wrapper c-filter-button-wrapper--genre" data-modal-wrapper="">
+			<div class="c-filter-button-wrapper__backdrop" data-modal-backdrop=""></div>
+			<button type="button" class="c-filter__button c-raised-button c-raised-button--big" data-modal-button="">Genre</button>
+			<div class="c-filter-modal" role="dialog" aria-labelledby="genre-dialog-title">
+				<div class="c-filter-modal__bg">
+					<svg class="icon">
+						<use xlink:href="#genre-background"></use>
+					</svg>
+				</div>
+				<div class="c-filter-modal__close">
+					<button aria-label="Sluit filter" type="button" class="c-filter-modal-close" data-close-modal="">
+						<svg class="icon icon-back"><use xlink:href="#icon-back"></use></svg>
+					</button>
+				</div>
+				<h2 class="c-filter-modal__heading u-heading u-heading--a" id="genre-dialog-title">kies een genre</h2>
+				<div class="c-filter-modal__content">
+					<ul>
+						
+							<li class="c-filter-checkbox">
+								<input data-genre-checkbox="" class="c-filter-checkbox__input" type="checkbox" name="genre[]" value="rock" id="genre_rock">
+								<label class="c-filter-checkbox__label" for="genre_rock">Rock</label>
+							</li>
+						
+							<li class="c-filter-checkbox">
+								<input data-genre-checkbox="" class="c-filter-checkbox__input" type="checkbox" name="genre[]" value="pop" id="genre_pop">
+								<label class="c-filter-checkbox__label" for="genre_pop">Pop</label>
+							</li>
+						
+							<li class="c-filter-checkbox">
+								<input data-genre-checkbox="" class="c-filter-checkbox__input" type="checkbox" name="genre[]" value="house-techno-disco" id="genre_house-techno-disco">
+								<label class="c-filter-checkbox__label" for="genre_house-techno-disco">House/Techno/Disco</label>
+							</li>
+						
+							<li class="c-filter-checkbox">
+								<input data-genre-checkbox="" class="c-filter-checkbox__input" type="checkbox" name="genre[]" value="heavy" id="genre_heavy">
+								<label class="c-filter-checkbox__label" for="genre_heavy">Heavy</label>
+							</li>
+						
+							<li class="c-filter-checkbox">
+								<input data-genre-checkbox="" class="c-filter-checkbox__input" type="checkbox" name="genre[]" value="hiphop-rb" id="genre_hiphop-rb">
+								<label class="c-filter-checkbox__label" for="genre_hiphop-rb">Hiphop/R&amp;B</label>
+							</li>
+						
+							<li class="c-filter-checkbox">
+								<input data-genre-checkbox="" class="c-filter-checkbox__input" type="checkbox" name="genre[]" value="reggae-dancehall-afro-latin" id="genre_reggae-dancehall-afro-latin">
+								<label class="c-filter-checkbox__label" for="genre_reggae-dancehall-afro-latin">Reggae/Dancehall/Afro/Latin</label>
+							</li>
+						
+							<li class="c-filter-checkbox">
+								<input data-genre-checkbox="" class="c-filter-checkbox__input" type="checkbox" name="genre[]" value="bass-music" id="genre_bass-music">
+								<label class="c-filter-checkbox__label" for="genre_bass-music">Bass Music</label>
+							</li>
+						
+							<li class="c-filter-checkbox">
+								<input data-genre-checkbox="" class="c-filter-checkbox__input" type="checkbox" name="genre[]" value="anders" id="genre_anders">
+								<label class="c-filter-checkbox__label" for="genre_anders">Anders</label>
+							</li>
+						
+							<li class="c-filter-checkbox">
+								<input data-genre-checkbox="" class="c-filter-checkbox__input" type="checkbox" name="genre[]" value="indie" id="genre_indie">
+								<label class="c-filter-checkbox__label" for="genre_indie">Indie</label>
+							</li>
+						
+							<li class="c-filter-checkbox">
+								<input data-genre-checkbox="" class="c-filter-checkbox__input" type="checkbox" name="genre[]" value="experimental" id="genre_experimental">
+								<label class="c-filter-checkbox__label" for="genre_experimental">Experimental</label>
+							</li>
+						
+							<li class="c-filter-checkbox">
+								<input data-genre-checkbox="" class="c-filter-checkbox__input" type="checkbox" name="genre[]" value="theater-dans" id="genre_theater-dans">
+								<label class="c-filter-checkbox__label" for="genre_theater-dans">Theater/Dans</label>
+							</li>
+						
+							<li class="c-filter-checkbox">
+								<input data-genre-checkbox="" class="c-filter-checkbox__input" type="checkbox" name="genre[]" value="global-sounds" id="genre_global-sounds">
+								<label class="c-filter-checkbox__label" for="genre_global-sounds">Global sounds</label>
+							</li>
+											</ul>
+				</div>
+				<button type="submit" class="c-filter-modal__submit-button c-raised-button c-raised-button--white c-raised-button--big">Toepassen</button>
+			</div>
+		</div>
+
+		<div class="c-filter-button-wrapper c-filter-button-wrapper--type" data-modal-wrapper="">
+			<div class="c-filter-button-wrapper__backdrop" data-modal-backdrop=""></div>
+			<button type="button" class="c-filter__button c-raised-button c-raised-button--big" data-modal-button="">Type</button>
+			<div class="c-filter-modal" role="dialog" aria-labelledby="type-dialog-title">
+				<div class="c-filter-modal__bg">
+					<svg class="icon">
+						<use xlink:href="#genre-background"></use>
+					</svg>
+				</div>
+				<div class="c-filter-modal__close">
+					<button aria-label="Sluit filter" type="button" class="c-filter-modal-close" data-close-modal="">
+						<svg class="icon icon-back"><use xlink:href="#icon-back"></use></svg>
+					</button>
+				</div>
+				<h2 class="c-filter-modal__heading u-heading u-heading--a" id="type-dialog-title">kies een type</h2>
+				<div class="c-filter-modal__content">
+					<ul>
+						
+							<li class="c-filter-checkbox">
+								<input data-type-checkbox="" class="c-filter-checkbox__input" type="checkbox" name="label[]" value="club" id="label_club">
+								<label class="c-filter-checkbox__label" for="label_club">Club</label>
+							</li>
+						
+							<li class="c-filter-checkbox">
+								<input data-type-checkbox="" class="c-filter-checkbox__input" type="checkbox" name="label[]" value="concert" id="label_concert">
+								<label class="c-filter-checkbox__label" for="label_concert">Concert</label>
+							</li>
+						
+							<li class="c-filter-checkbox">
+								<input data-type-checkbox="" class="c-filter-checkbox__input" type="checkbox" name="label[]" value="open" id="label_open">
+								<label class="c-filter-checkbox__label" for="label_open">OPEN</label>
+							</li>
+						
+							<li class="c-filter-checkbox">
+								<input data-type-checkbox="" class="c-filter-checkbox__input" type="checkbox" name="label[]" value="cross-over" id="label_cross-over">
+								<label class="c-filter-checkbox__label" for="label_cross-over">Cross-over</label>
+							</li>
+						
+							<li class="c-filter-checkbox">
+								<input data-type-checkbox="" class="c-filter-checkbox__input" type="checkbox" name="label[]" value="festival" id="label_festival" checked="">
+								<label class="c-filter-checkbox__label" for="label_festival">Festival</label>
+							</li>
+						
+							<li class="c-filter-checkbox">
+								<input data-type-checkbox="" class="c-filter-checkbox__input" type="checkbox" name="label[]" value="anders" id="label_anders">
+								<label class="c-filter-checkbox__label" for="label_anders">Anders</label>
+							</li>
+						
+							<li class="c-filter-checkbox">
+								<input data-type-checkbox="" class="c-filter-checkbox__input" type="checkbox" name="label[]" value="cafe" id="label_cafe">
+								<label class="c-filter-checkbox__label" for="label_cafe">Café</label>
+							</li>
+											</ul>
+				</div>
+				<button type="submit" class="c-filter-modal__submit-button c-raised-button c-raised-button--white c-raised-button--big">Toepassen</button>
+			</div>
+		</div>
+
+	</div>
+
+			<ul class="c-active-filters">
+							<li class="c-active-filter">
+					<button aria-label="festival verwijderen" type="submit" data-reset-value="festival">
+						Festival					</button>
+				</li>
+								</ul>
+	
+</form>
+<div class="u-section__inner u-section__inner--small t-agenda__results">
+            
+
+<div class="c-event-card" id="popronde-utrecht-22-10-2026">
+    <div class="c-event-card__image">
+        <span class="img img--cover"><img srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" width="680" height="400" data-src="https://dehelling.nl/app/uploads/2026/09/banner-popronde-680x400.jpg" class="lazyload" alt="" data-aspectratio="1.7" data-sizes="auto" decoding="async" fetchpriority="high" data-srcset="https://dehelling.nl/app/uploads/2026/09/banner-popronde-680x400.jpg 680w, https://dehelling.nl/app/uploads/2026/09/banner-popronde-300x177.jpg 300w, https://dehelling.nl/app/uploads/2026/09/banner-popronde-1024x602.jpg 1024w, https://dehelling.nl/app/uploads/2026/09/banner-popronde-768x452.jpg 768w, https://dehelling.nl/app/uploads/2026/09/banner-popronde-340x200.jpg 340w, https://dehelling.nl/app/uploads/2026/09/banner-popronde-1020x600.jpg 1020w, https://dehelling.nl/app/uploads/2026/09/banner-popronde-1360x800.jpg 1360w, https://dehelling.nl/app/uploads/2026/09/banner-popronde.jpg 1494w"></span>                               </div>
+
+    <ul class="c-event-card__meta">
+                    <li>do 22/10</li>
+                        <li>19:00 - 00:00</li>
+                        <li>Darkwave</li>
+                        <li>shoegaze</li>
+                        <li>Postpunk</li>
+                </ul>
+
+    <h3 class="u-heading u-heading--f c-event-card__title">
+        <a class="c-event-card__link" href="https://dehelling.nl/agenda/popronde-utrecht-22-10-2026/">
+            Popronde Utrecht        </a>
+    </h3>
+
+            <div class="c-event-card__subtitle">Het grootste reizende talentenfestival van Nederland</div>
+    
+    
+<script type="application/ld+json" aria-hidden="true">
+    {
+    "@context": "https:\/\/schema.org",
+    "@type": "Event",
+    "location": {
+        "@type": "Place",
+        "name": "De Helling",
+        "address": "Helling 7, 3523 CB Utrecht"
+    },
+    "name": "Popronde Utrecht",
+    "url": "https:\/\/dehelling.nl\/agenda\/popronde-utrecht-22-10-2026\/",
+    "image": "https:\/\/dehelling.nl\/app\/uploads\/2026\/09\/banner-popronde-680x400.jpg",
+    "description": "Het grootste reizende talentenfestival van Nederland",
+    "performer": {
+        "@type": "PerformingGroup",
+        "name": "Keely Westwood, Girlhead, KRAM, LONA, popronde"
+    },
+    "startDate": "2026-10-22 19:30:00",
+    "endDate": "2026-10-23 00:00:00",
+    "eventStatus": "Geen"
+}</script></div>
+
+
+<div class="c-event-card" id="momentum-iii-potochkine-vioflesh-silent-runners-01-11-2026">
+    <div class="c-event-card__image">
+        <span class="img img--cover"><img srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" width="680" height="400" data-src="https://dehelling.nl/app/uploads/2026/06/DH-Momentum-Nov-1360x800-1-680x400.jpg" class="lazyload" alt="" data-aspectratio="1.7" data-sizes="auto" decoding="async" data-srcset="https://dehelling.nl/app/uploads/2026/06/DH-Momentum-Nov-1360x800-1-680x400.jpg 680w, https://dehelling.nl/app/uploads/2026/06/DH-Momentum-Nov-1360x800-1-300x176.jpg 300w, https://dehelling.nl/app/uploads/2026/06/DH-Momentum-Nov-1360x800-1-1024x602.jpg 1024w, https://dehelling.nl/app/uploads/2026/06/DH-Momentum-Nov-1360x800-1-768x452.jpg 768w, https://dehelling.nl/app/uploads/2026/06/DH-Momentum-Nov-1360x800-1-340x200.jpg 340w, https://dehelling.nl/app/uploads/2026/06/DH-Momentum-Nov-1360x800-1-1020x600.jpg 1020w, https://dehelling.nl/app/uploads/2026/06/DH-Momentum-Nov-1360x800-1.jpg 1360w"></span>           </div>
+
+    <ul class="c-event-card__meta">
+                    <li>zo 01/11</li>
+                        <li>15:00 - 23:00</li>
+                        <li>Heavy</li>
+                </ul>
+
+    <h3 class="u-heading u-heading--f c-event-card__title">
+        <a class="c-event-card__link" href="https://dehelling.nl/agenda/momentum-iii-potochkine-vioflesh-silent-runners-01-11-2026/">
+            Momentum III – Potochkine + Vioflesh + Silent Runners        </a>
+    </h3>
+
+            <div class="c-event-card__subtitle">Mini new wave/postpunkfestival met o.a. Potochkine, Vioflesh en Dear Omen</div>
+    
+    
+<script type="application/ld+json" aria-hidden="true">
+    {
+    "@context": "https:\/\/schema.org",
+    "@type": "Event",
+    "location": {
+        "@type": "Place",
+        "name": "De Helling",
+        "address": "Helling 7, 3523 CB Utrecht"
+    },
+    "name": "Momentum III &#8211; Potochkine + Vioflesh + Silent Runners",
+    "url": "https:\/\/dehelling.nl\/agenda\/momentum-iii-potochkine-vioflesh-silent-runners-01-11-2026\/",
+    "image": "https:\/\/dehelling.nl\/app\/uploads\/2026\/06\/DH-Momentum-Nov-1360x800-1-680x400.jpg",
+    "description": "Mini new wave\/postpunkfestival met o.a. Potochkine, Vioflesh en Dear Omen",
+    "performer": {
+        "@type": "PerformingGroup",
+        "name": "Momentum"
+    },
+    "startDate": "2026-11-01 15:45:00",
+    "endDate": "2026-11-01 23:00:00",
+    "offers": {
+        "@type": "Offer",
+        "price": "27.50",
+        "priceCurrency": "EUR",
+        "url": "https:\/\/dehelling.stager.co\/shop\/default\/events\/111585212",
+        "availability": "https:\/\/schema.org\/InStock"
+    }
+}</script></div>
+
+
+<div class="c-event-card" id="le-guess-who-2026-06-11-2026">
+    <div class="c-event-card__image">
+        <span class="img img--cover"><img srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" width="680" height="400" data-src="https://dehelling.nl/app/uploads/2026/08/1.-LGW-Sign-Noah-Schielen-680x400.jpg" class="lazyload" alt="" data-aspectratio="1.7" data-sizes="auto" decoding="async" data-srcset="https://dehelling.nl/app/uploads/2026/08/1.-LGW-Sign-Noah-Schielen-680x400.jpg 680w, https://dehelling.nl/app/uploads/2026/08/1.-LGW-Sign-Noah-Schielen-340x200.jpg 340w, https://dehelling.nl/app/uploads/2026/08/1.-LGW-Sign-Noah-Schielen-1020x600.jpg 1020w, https://dehelling.nl/app/uploads/2026/08/1.-LGW-Sign-Noah-Schielen-1360x800.jpg 1360w"></span>                               </div>
+
+    <ul class="c-event-card__meta">
+                    <li>vr 06/11</li>
+                        <li>10:00 - 00:00</li>
+                        <li>Experimental</li>
+                        <li>Hiphop/R&amp;B</li>
+                </ul>
+
+    <h3 class="u-heading u-heading--f c-event-card__title">
+        <a class="c-event-card__link" href="https://dehelling.nl/agenda/le-guess-who-2026-06-11-2026/">
+            Le Guess Who? 2026        </a>
+    </h3>
+
+            <div class="c-event-card__subtitle">20e jubileumeditie - vrijdag</div>
+    
+    
+<script type="application/ld+json" aria-hidden="true">
+    {
+    "@context": "https:\/\/schema.org",
+    "@type": "Event",
+    "location": {
+        "@type": "Place",
+        "name": "De Helling",
+        "address": "Helling 7, 3523 CB Utrecht"
+    },
+    "name": "Le Guess Who? 2026",
+    "url": "https:\/\/dehelling.nl\/agenda\/le-guess-who-2026-06-11-2026\/",
+    "image": "https:\/\/dehelling.nl\/app\/uploads\/2026\/08\/1.-LGW-Sign-Noah-Schielen-680x400.jpg",
+    "description": "20e jubileumeditie - vrijdag",
+    "startDate": "2026-11-06 10:00:00",
+    "endDate": "2026-11-07 00:00:00",
+    "eventStatus": "Geen"
+}</script></div>
+
+
+<div class="c-event-card" id="le-guess-who-2026-07-11-2026">
+    <div class="c-event-card__image">
+        <span class="img img--cover"><img srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" width="680" height="400" data-src="https://dehelling.nl/app/uploads/2026/08/1.-LGW-Sign-Noah-Schielen-680x400.jpg" class="lazyload" alt="" data-aspectratio="1.7" data-sizes="auto" decoding="async" data-srcset="https://dehelling.nl/app/uploads/2026/08/1.-LGW-Sign-Noah-Schielen-680x400.jpg 680w, https://dehelling.nl/app/uploads/2026/08/1.-LGW-Sign-Noah-Schielen-340x200.jpg 340w, https://dehelling.nl/app/uploads/2026/08/1.-LGW-Sign-Noah-Schielen-1020x600.jpg 1020w, https://dehelling.nl/app/uploads/2026/08/1.-LGW-Sign-Noah-Schielen-1360x800.jpg 1360w"></span>                               </div>
+
+    <ul class="c-event-card__meta">
+                    <li>za 07/11</li>
+                        <li>10:00 - 00:00</li>
+                        <li>Experimental</li>
+                        <li>Hiphop/R&amp;B</li>
+                </ul>
+
+    <h3 class="u-heading u-heading--f c-event-card__title">
+        <a class="c-event-card__link" href="https://dehelling.nl/agenda/le-guess-who-2026-07-11-2026/">
+            Le Guess Who? 2026        </a>
+    </h3>
+
+            <div class="c-event-card__subtitle">20e jubileumeditie - zaterdag</div>
+    
+    
+<script type="application/ld+json" aria-hidden="true">
+    {
+    "@context": "https:\/\/schema.org",
+    "@type": "Event",
+    "location": {
+        "@type": "Place",
+        "name": "De Helling",
+        "address": "Helling 7, 3523 CB Utrecht"
+    },
+    "name": "Le Guess Who? 2026",
+    "url": "https:\/\/dehelling.nl\/agenda\/le-guess-who-2026-07-11-2026\/",
+    "image": "https:\/\/dehelling.nl\/app\/uploads\/2026\/08\/1.-LGW-Sign-Noah-Schielen-680x400.jpg",
+    "description": "20e jubileumeditie - zaterdag",
+    "performer": {
+        "@type": "PerformingGroup",
+        "name": "Le guess who"
+    },
+    "startDate": "2026-11-07 10:00:00",
+    "endDate": "2026-11-08 00:00:00",
+    "eventStatus": "Geen"
+}</script></div>
+        </div>

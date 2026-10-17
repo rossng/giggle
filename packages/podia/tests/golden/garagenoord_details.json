@@ -1,0 +1,127 @@
+[
+ {
+  "availability": "unknown",
+  "categories": [
+   "Club"
+  ],
+  "city": "Amsterdam",
+  "description": "Distorted, apocalyptic dub soundscapes downstairs. The return of the ever-experimental SUBURBIA in bar40.",
+  "doors": null,
+  "end": null,
+  "extra": {
+   "time_known": false
+  },
+  "genres": [],
+  "image": "https://garagenoord.com/media/pages/club/mick-harris-presents-culvert-dubs-live-vanja-rakic-b2b-olgica-brent-jacko-bar40-hosted-by-suburbia/40d38d585e-1789646689/13.jpg",
+  "performers": [
+   "Mick Harris",
+   "Vanja Rakic",
+   "Olgica",
+   "Brent Jacko",
+   "Pebblle",
+   "Ben Vince",
+   "Xterea",
+   "Marijn S"
+  ],
+  "price": null,
+  "room": null,
+  "source_id": "mick-harris-presents-culvert-dubs-live-vanja-rakic-b2b-olgica-brent-jacko-bar40-hosted-by-suburbia",
+  "start": "2026-10-17T00:00:00+02:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://garagenoord.weticket.io/mick-harris-present-culvert-dubs-vanja-rakic-b2b-olgica-brent-jacko-bar40-hosted-by-suburbia/shop?",
+  "title": "Mick Harris presents Culvert Dubs (live), Vanja Rakic b2b Olgica, Brent Jacko + Bar40 Hosted by SUBURBIA",
+  "url": "https://garagenoord.com/club/mick-harris-presents-culvert-dubs-live-vanja-rakic-b2b-olgica-brent-jacko-bar40-hosted-by-suburbia",
+  "venue": "garagenoord"
+ },
+ {
+  "availability": "unknown",
+  "categories": [
+   "Club"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": null,
+  "end": null,
+  "extra": {
+   "time_known": false
+  },
+  "genres": [],
+  "image": "https://garagenoord.com/media/pages/club/firewire/1bd416fe12-1792101188/img_4516.jpeg",
+  "performers": [],
+  "price": null,
+  "room": null,
+  "source_id": "firewire",
+  "start": "2026-10-21T00:00:00+02:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://garagenoord.weticket.io/firewire-ade/shop",
+  "title": "Firewire",
+  "url": "https://garagenoord.com/club/firewire",
+  "venue": "garagenoord"
+ },
+ {
+  "availability": "unknown",
+  "categories": [
+   "Club"
+  ],
+  "city": "Amsterdam",
+  "description": "IYKYK. Amsterdam Punk Event is back to save you from that week-long EDM event that terrorises the city each year. Courtesy of Pacific Ondergronds and KRUISPUNT.",
+  "doors": null,
+  "end": null,
+  "extra": {
+   "time_known": false
+  },
+  "genres": [],
+  "image": "https://garagenoord.com/media/pages/club/ape/9bba4b26a3-1789649492/16.jpg",
+  "performers": [
+   "Bleedroot",
+   "Cest qui?",
+   "The Protos",
+   "La Sagne",
+   "Oust",
+   "Teenage Tits",
+   "DJ Bone"
+  ],
+  "price": null,
+  "room": null,
+  "source_id": "ape",
+  "start": "2026-10-23T00:00:00+02:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://garagenoord.weticket.io/ape-amsterdam-punk-event/shop?",
+  "title": "APE",
+  "url": "https://garagenoord.com/club/ape",
+  "venue": "garagenoord"
+ },
+ {
+  "availability": "unknown",
+  "categories": [
+   "Club"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": null,
+  "end": null,
+  "extra": {
+   "time_known": false
+  },
+  "genres": [],
+  "image": "https://garagenoord.com/media/pages/club/gn-does-a-party-with-nyege-nyege-trackwork/c3736b6871-1789647581/17.jpg",
+  "performers": [],
+  "price": null,
+  "room": null,
+  "source_id": "gn-does-a-party-with-nyege-nyege-trackwork",
+  "start": "2026-10-24T00:00:00+02:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://garagenoord.weticket.io/garage-does-a-party-with-nyege-nyege-trackwork/shop?",
+  "title": "GN does a party with Nyege Nyege & Trackwork",
+  "url": "https://garagenoord.com/club/gn-does-a-party-with-nyege-nyege-trackwork",
+  "venue": "garagenoord"
+ }
+]

@@ -1,0 +1,514 @@
+<div class="agenda-container">
+			
+
+			
+<article class="agenda-item">
+	
+			<a href="https://zaal100.nl/event/17-10-26-ons-soort-mensen/" title="20261017 Ons Soort Mensen">
+		
+	<div class="dagdatumtijdprijs floatleft clear bgoffwhite bortop">
+
+		<div class="dagdatummaand">
+			<div class="dag floatleft">za</div><div class="datummaand"><span class="datum">17</span><span class="maand">10</span></div> 		</div>
+
+		<div class="tijdprijs floatleft bortop">
+			<div class="tijd floatleft">20:00</div>
+			<div class="prijs">€ 7,50</div>					</div>					
+
+	</div>
+
+	<div class="gebeurtenis floatleft bgoffwhite bortop">
+
+					<h4 class="voor-titel">Ons Soort Mensen speelt:</h4>
+		
+					<h2 class="titel">Kristalhelder</h2>
+		
+					<h5 class="na-titel">‘n hilarisch licht op pseudo-spiritualiteit, zoekers vinden niet wat ze zoeken of juist wel?</h5>
+		
+	</div>
+	
+			</a>
+		
+	
+</article>
+
+	<button class="prev" href="" onclick="window.history.go(-1)"><span class="arrow arrow-left curve-left"><span class="curve"></span></span></button>
+
+
+			
+<article class="agenda-item">
+	
+			<a href="https://zaal100.nl/event/18-10-26-ons-soort-mensen/" title="20261018 Ons Soort Mensen">
+		
+	<div class="dagdatumtijdprijs floatleft clear bgoffwhite bortop">
+
+		<div class="dagdatummaand">
+			<div class="dag floatleft">zo</div><div class="datummaand"><span class="datum">18</span><span class="maand">10</span></div> 		</div>
+
+		<div class="tijdprijs floatleft bortop">
+			<div class="tijd floatleft">15:00</div>
+			<div class="prijs">€ 7,50</div>					</div>					
+
+	</div>
+
+	<div class="gebeurtenis floatleft bgoffwhite bortop">
+
+					<h4 class="voor-titel">Ons Soort Mensen speelt:</h4>
+		
+					<h2 class="titel">Kristalhelder</h2>
+		
+					<h5 class="na-titel">‘n hilarisch licht op pseudo-spiritualiteit, zoekers vinden niet wat ze zoeken of juist wel?</h5>
+		
+	</div>
+	
+			</a>
+		
+	
+</article>
+
+	<button class="prev" href="" onclick="window.history.go(-1)"><span class="arrow arrow-left curve-left"><span class="curve"></span></span></button>
+
+
+			
+<article class="agenda-item">
+	
+			<a href="https://zaal100.nl/event/19-10-2026-goeie-zin/" title="20261019 Goeie Zin">
+		
+	<div class="dagdatumtijdprijs floatleft clear bgoffwhite bortop">
+
+		<div class="dagdatummaand">
+			<div class="dag floatleft">ma</div><div class="datummaand"><span class="datum">19</span><span class="maand">10</span></div> 		</div>
+
+		<div class="tijdprijs floatleft bortop">
+			<div class="tijd floatleft">18:00</div>
+			<div class="prijs">€ 15,00</div>					</div>					
+
+	</div>
+
+	<div class="gebeurtenis floatleft bgoffwhite bortop">
+
+					<h4 class="voor-titel">Elke maandag Goeie Zin! Heerlijk eten &amp; lekkere muziek!</h4>
+		
+					<h2 class="titel">Lisa Graciano + Cindy Peress</h2>
+		
+					<h5 class="na-titel">2 singer songwriters</h5>
+		
+	</div>
+	
+			</a>
+		
+	
+</article>
+
+	<button class="prev" href="" onclick="window.history.go(-1)"><span class="arrow arrow-left curve-left"><span class="curve"></span></span></button>
+
+
+			
+<article class="agenda-item">
+	
+			<a href="https://zaal100.nl/event/20-10-26-impro-jazz/" title="20261020 Impro Jazzcafé">
+		
+	<div class="dagdatumtijdprijs floatleft clear bgoffwhite bortop">
+
+		<div class="dagdatummaand">
+			<div class="dag floatleft">di</div><div class="datummaand"><span class="datum">20</span><span class="maand">10</span></div> 		</div>
+
+		<div class="tijdprijs floatleft bortop">
+			<div class="tijd floatleft">21:00</div>
+			<div class="prijs">€ 5,00</div>					</div>					
+
+	</div>
+
+	<div class="gebeurtenis floatleft bgoffwhite bortop">
+
+					<h4 class="voor-titel">Elke dinsdag:</h4>
+		
+					<h2 class="titel">Jazzcafé!</h2>
+		
+					<h5 class="na-titel">Alfredo Genovesi - gitaar | Felicity Provan - cornet | Salvoandrea Lucifora - trombone | Marcos Baggiani - drums</h5>
+		
+	</div>
+	
+			</a>
+		
+	
+</article>
+
+	<button class="prev" href="" onclick="window.history.go(-1)"><span class="arrow arrow-left curve-left"><span class="curve"></span></span></button>
+
+
+			
+<article class="agenda-item">
+	
+			<a href="https://zaal100.nl/event/20261021-yayang/" title="20261021 restaurant Yayang">
+		
+	<div class="dagdatumtijdprijs floatleft clear bgoffwhite bortop">
+
+		<div class="dagdatummaand">
+			<div class="dag floatleft">wo</div><div class="datummaand"><span class="datum">21</span><span class="maand">10</span></div> 		</div>
+
+		<div class="tijdprijs floatleft bortop">
+			<div class="tijd floatleft">18:00</div>
+			<div class="prijs">€ 12,00</div>					</div>					
+
+	</div>
+
+	<div class="gebeurtenis floatleft bgoffwhite bortop">
+
+					<h4 class="voor-titel">Elke woensdag:</h4>
+		
+					<h2 class="titel">Restaurant: Yayang</h2>
+		
+					<h5 class="na-titel">Vegetarisch en vegan Aziatisch</h5>
+		
+	</div>
+	
+			</a>
+		
+	
+</article>
+
+	<button class="prev" href="" onclick="window.history.go(-1)"><span class="arrow arrow-left curve-left"><span class="curve"></span></span></button>
+
+
+			
+<article class="agenda-item">
+	
+			<a href="https://zaal100.nl/event/22-10-26-sisi-sevgi-koken/" title="20261022 Sisi &amp; Sevgi koken">
+		
+	<div class="dagdatumtijdprijs floatleft clear bgoffwhite bortop">
+
+		<div class="dagdatummaand">
+			<div class="dag floatleft">do</div><div class="datummaand"><span class="datum">22</span><span class="maand">10</span></div> 		</div>
+
+		<div class="tijdprijs floatleft bortop">
+			<div class="tijd floatleft">18:00</div>
+			<div class="prijs">€ 12,00</div>					</div>					
+
+	</div>
+
+	<div class="gebeurtenis floatleft bgoffwhite bortop">
+
+					<h4 class="voor-titel">Elke donderdag:</h4>
+		
+					<h2 class="titel">Restaurant: Sisi &amp; Sevgi koken</h2>
+		
+					<h5 class="na-titel">a wholesome, hearty, and fully vegan dinner</h5>
+		
+	</div>
+	
+			</a>
+		
+	
+</article>
+
+	<button class="prev" href="" onclick="window.history.go(-1)"><span class="arrow arrow-left curve-left"><span class="curve"></span></span></button>
+
+
+			
+<article class="agenda-item">
+	
+			<a href="https://zaal100.nl/event/08-10-26-oktopedians-2-2-2/" title="20261022 Oktopedians">
+		
+	<div class="dagdatumtijdprijs floatleft clear bgoffwhite bortop">
+
+		<div class="dagdatummaand">
+			<div class="dag floatleft">do</div><div class="datummaand"><span class="datum">22</span><span class="maand">10</span></div> 		</div>
+
+		<div class="tijdprijs floatleft bortop">
+			<div class="tijd floatleft">20:00</div>
+						<div class="prijs">gratis</div>		</div>					
+
+	</div>
+
+	<div class="gebeurtenis floatleft bgoffwhite bortop">
+
+					<h4 class="voor-titel">Oudste workshoporkest ter wereld!</h4>
+		
+					<h2 class="titel">Oktopedians</h2>
+		
+					<h5 class="na-titel">meedoen € 5 / luisteren gratis</h5>
+		
+	</div>
+	
+			</a>
+		
+	
+</article>
+
+	<button class="prev" href="" onclick="window.history.go(-1)"><span class="arrow arrow-left curve-left"><span class="curve"></span></span></button>
+
+
+			
+<article class="agenda-item">
+	
+			<a href="https://zaal100.nl/event/26-10-2026-goeie-zin/" title="20261026 Goeie Zin">
+		
+	<div class="dagdatumtijdprijs floatleft clear bgoffwhite bortop">
+
+		<div class="dagdatummaand">
+			<div class="dag floatleft">ma</div><div class="datummaand"><span class="datum">26</span><span class="maand">10</span></div> 		</div>
+
+		<div class="tijdprijs floatleft bortop">
+			<div class="tijd floatleft">18:00</div>
+			<div class="prijs">€ 15,00</div>					</div>					
+
+	</div>
+
+	<div class="gebeurtenis floatleft bgoffwhite bortop">
+
+					<h4 class="voor-titel">Elke maandag Goeie Zin! Heerlijk eten &amp; lekkere muziek!</h4>
+		
+					<h2 class="titel">Jetty Swart + Cato Fluitsma</h2>
+		
+					<h5 class="na-titel">2 singer songwriters</h5>
+		
+	</div>
+	
+			</a>
+		
+	
+</article>
+
+	<button class="prev" href="" onclick="window.history.go(-1)"><span class="arrow arrow-left curve-left"><span class="curve"></span></span></button>
+
+
+			
+<article class="agenda-item">
+	
+			<a href="https://zaal100.nl/event/27-10-26-impro-jazz/" title="20261027 Impro Jazzcafé">
+		
+	<div class="dagdatumtijdprijs floatleft clear bgoffwhite bortop">
+
+		<div class="dagdatummaand">
+			<div class="dag floatleft">di</div><div class="datummaand"><span class="datum">27</span><span class="maand">10</span></div> 		</div>
+
+		<div class="tijdprijs floatleft bortop">
+			<div class="tijd floatleft">21:00</div>
+			<div class="prijs">€ 5,00</div>					</div>					
+
+	</div>
+
+	<div class="gebeurtenis floatleft bgoffwhite bortop">
+
+					<h4 class="voor-titel">Elke dinsdag:</h4>
+		
+					<h2 class="titel">Jazzcafé!</h2>
+		
+					<h5 class="na-titel">All Ellington: Jodi Gilbert - zang | Jimmy Sernesky - zang &amp; trompet | Eric Boeren - cornet | Joost Buis, Maarten Combrink &amp; Gregor Sperzel - trombone | Mo van der Does - altsax, klarinet | Natalio Sued - tenorsax, klarinet | Peter van Bergen - baritonsax | Floris Kappeyne - piano | Wilbert de Joode - bas | Giacomo Camiletti - drums</h5>
+		
+	</div>
+	
+			</a>
+		
+	
+</article>
+
+	<button class="prev" href="" onclick="window.history.go(-1)"><span class="arrow arrow-left curve-left"><span class="curve"></span></span></button>
+
+
+			
+<article class="agenda-item">
+	
+			<a href="https://zaal100.nl/event/20261028-yayang/" title="20261028 restaurant Yayang">
+		
+	<div class="dagdatumtijdprijs floatleft clear bgoffwhite bortop">
+
+		<div class="dagdatummaand">
+			<div class="dag floatleft">wo</div><div class="datummaand"><span class="datum">28</span><span class="maand">10</span></div> 		</div>
+
+		<div class="tijdprijs floatleft bortop">
+			<div class="tijd floatleft">18:00</div>
+			<div class="prijs">€ 12,00</div>					</div>					
+
+	</div>
+
+	<div class="gebeurtenis floatleft bgoffwhite bortop">
+
+					<h4 class="voor-titel">Elke woensdag:</h4>
+		
+					<h2 class="titel">Restaurant: Yayang</h2>
+		
+					<h5 class="na-titel">Vegetarisch en vegan Aziatisch</h5>
+		
+	</div>
+	
+			</a>
+		
+	
+</article>
+
+	<button class="prev" href="" onclick="window.history.go(-1)"><span class="arrow arrow-left curve-left"><span class="curve"></span></span></button>
+
+
+			
+<article class="agenda-item">
+	
+			<a href="https://zaal100.nl/event/29-10-26-sisi-sevgi-koken/" title="20261029 Sisi &amp; Sevgi koken">
+		
+	<div class="dagdatumtijdprijs floatleft clear bgoffwhite bortop">
+
+		<div class="dagdatummaand">
+			<div class="dag floatleft">do</div><div class="datummaand"><span class="datum">29</span><span class="maand">10</span></div> 		</div>
+
+		<div class="tijdprijs floatleft bortop">
+			<div class="tijd floatleft">18:00</div>
+			<div class="prijs">€ 12,00</div>					</div>					
+
+	</div>
+
+	<div class="gebeurtenis floatleft bgoffwhite bortop">
+
+					<h4 class="voor-titel">Elke donderdag:</h4>
+		
+					<h2 class="titel">Restaurant: Sisi &amp; Sevgi koken</h2>
+		
+					<h5 class="na-titel">a wholesome, hearty, and fully vegan dinner</h5>
+		
+	</div>
+	
+			</a>
+		
+	
+</article>
+
+	<button class="prev" href="" onclick="window.history.go(-1)"><span class="arrow arrow-left curve-left"><span class="curve"></span></span></button>
+
+
+			
+<article class="agenda-item">
+	
+			<a href="https://zaal100.nl/event/29-10-26-oktopedians/" title="20261029 Oktopedians">
+		
+	<div class="dagdatumtijdprijs floatleft clear bgoffwhite bortop">
+
+		<div class="dagdatummaand">
+			<div class="dag floatleft">do</div><div class="datummaand"><span class="datum">29</span><span class="maand">10</span></div> 		</div>
+
+		<div class="tijdprijs floatleft bortop">
+			<div class="tijd floatleft">20:00</div>
+						<div class="prijs">gratis</div>		</div>					
+
+	</div>
+
+	<div class="gebeurtenis floatleft bgoffwhite bortop">
+
+					<h4 class="voor-titel">Oudste workshoporkest ter wereld!</h4>
+		
+					<h2 class="titel">Oktopedians</h2>
+		
+					<h5 class="na-titel">meedoen € 5 / luisteren gratis</h5>
+		
+	</div>
+	
+			</a>
+		
+	
+</article>
+
+	<button class="prev" href="" onclick="window.history.go(-1)"><span class="arrow arrow-left curve-left"><span class="curve"></span></span></button>
+
+
+			
+<article class="agenda-item">
+	
+			<a href="https://zaal100.nl/event/30-10-2026-palas-pandiras/" title="20261030 Palas Pandıras">
+		
+	<div class="dagdatumtijdprijs floatleft clear bgoffwhite bortop">
+
+		<div class="dagdatummaand">
+			<div class="dag floatleft">vr</div><div class="datummaand"><span class="datum">30</span><span class="maand">10</span></div> 		</div>
+
+		<div class="tijdprijs floatleft bortop">
+			<div class="tijd floatleft">19:00</div>
+			<div class="prijs">€ 10,00</div>					</div>					
+
+	</div>
+
+	<div class="gebeurtenis floatleft bgoffwhite bortop">
+
+					<h4 class="voor-titel">Türkçe Doğaçlama Gösterisi</h4>
+		
+					<h2 class="titel">Palas Pandıras</h2>
+		
+					<h5 class="na-titel">Turkish Improv Show</h5>
+		
+	</div>
+	
+			</a>
+		
+	
+</article>
+
+	<button class="prev" href="" onclick="window.history.go(-1)"><span class="arrow arrow-left curve-left"><span class="curve"></span></span></button>
+
+
+			
+<article class="agenda-item">
+	
+			<a href="https://zaal100.nl/event/31-10-2026-african-soundscapes/" title="20261031 African Soundscapes">
+		
+	<div class="dagdatumtijdprijs floatleft clear bgoffwhite bortop">
+
+		<div class="dagdatummaand">
+			<div class="dag floatleft">za</div><div class="datummaand"><span class="datum">31</span><span class="maand">10</span></div> 		</div>
+
+		<div class="tijdprijs floatleft bortop">
+			<div class="tijd floatleft">18:00</div>
+						<div class="prijs">donatie</div>		</div>					
+
+	</div>
+
+	<div class="gebeurtenis floatleft bgoffwhite bortop">
+
+					<h4 class="voor-titel">An evening of West African music and dance</h4>
+		
+					<h2 class="titel">African Soundscapes</h2>
+		
+					<h5 class="na-titel">live music &amp; dance</h5>
+		
+	</div>
+	
+			</a>
+		
+	
+</article>
+
+	<button class="prev" href="" onclick="window.history.go(-1)"><span class="arrow arrow-left curve-left"><span class="curve"></span></span></button>
+
+
+			
+<article class="agenda-item">
+	
+			<a href="https://zaal100.nl/event/01-nov-26-abc/" title="20261101 Amsterdam Blues Company">
+		
+	<div class="dagdatumtijdprijs floatleft clear bgoffwhite bortop">
+
+		<div class="dagdatummaand">
+			<div class="dag floatleft">zo</div><div class="datummaand"><span class="datum">01</span><span class="maand">11</span></div> 		</div>
+
+		<div class="tijdprijs floatleft bortop">
+			<div class="tijd floatleft">15:00</div>
+			<div class="prijs">€ 10,00</div>					</div>					
+
+	</div>
+
+	<div class="gebeurtenis floatleft bgoffwhite bortop">
+
+					<h4 class="voor-titel">Amsterdam Blues Company presenteert:</h4>
+		
+					<h2 class="titel">Westside Blues</h2>
+		
+					<h5 class="na-titel">Mét Pieter Jan Cramer van den Boogaart</h5>
+		
+	</div>
+	
+			</a>
+		
+	
+</article>
+
+	<button class="prev" href="" onclick="window.history.go(-1)"><span class="arrow arrow-left curve-left"><span class="curve"></span></span></button>
+
+ 
+	</div>

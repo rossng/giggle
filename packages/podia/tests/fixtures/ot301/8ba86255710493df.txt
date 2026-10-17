@@ -1,0 +1,97 @@
+<div class="selected event">
+	<div class="head bg-dark light">Saturday 17 October</div>
+	<article class="body">
+		<div  class="media" style="background-image:url(https://amsterdamalternative.nl/media/content/22193_large.jpg)"></div>		<div class="meta">
+<!-- 
+						<div class="icon type" style="background-image:url(/media/agenda/.svg)"></div>
+ -->
+			Ventilator Cinema // 15:00 // € 10<br/>
+			<strong>CineCarib NL (Ed. 5): Kombiná + Forsa Ansestral (Special Screening)  </strong>
+		</div>
+		<div class="info">
+			
+		<div class="icon type bg-dark" style="background-image:url(https://amsterdamalternative.nl/media/agenda/1006.svg)"></div><a href="https://amsterdamalternative.nl/tickets/22735" class="button presale head bg-dark white" target="_blank">Buy tickets</a>		</div>
+		<div class="detail">
+			<strong>Open:</strong> 15:00 - 19:00 hrs<br/><strong>Tickets:</strong> € 10 		</div>
+		<div class="text">
+			<p>We&rsquo;re excited to welcome the <strong>5th edition of CineCarib</strong> to Ventilator Cinema on <strong>Saturday, October 17 at 15:00</strong>, presented together with <strong>Caribbean Creativity and Africadelic.</strong></p>
+
+<p>This edition features a special screening of <strong>Kombin&aacute;</strong>, a feature documentary exploring contemporary (Dutch) Caribbean architecture through 25 years of design work by architect <strong>Lyongo Juliana</strong>.</p>
+
+<p>The programme also includes <strong>Forsa Ansestral</strong>, a short documentary about tamb&uacute;, an Afro-Caribbean musical and cultural tradition rooted in resistance, spirituality and community.</p>
+
+<p>Following the screenings, the filmmakers will join us for a <strong>panel discussion exploring the past, present and future of preserving cultural heritage in the Dutch Caribbean and its diaspora</strong>.</p>
+
+<p>Join us at Ventilator Cinema for an afternoon of film, architecture, music, heritage and conversation.</p>
+
+<p><strong>MAIN FILM &mdash; KOMBINÁ</strong></p>
+
+<p>Director: Lyongo Juliana<br />
+Year: 2024<br />
+Locations: Cura&ccedil;ao, Bonaire, Saba &amp; the Netherlands<br />
+Languages: Papiamentu, Dutch &amp; English<br />
+Subtitles: English<br />
+Duration: 69 min</p>
+
+<p><strong>SHORT FILM &mdash; FORSA ANSESTRAL</strong></p>
+
+<p>Director: Gyoni Jamanika<br />
+Year: 2026<br />
+Produced by: Sendebibu<br />
+Duration: 20 min</p>
+
+<p><strong>About Kombina</strong></p>
+
+<p>What defines contemporary Caribbean architecture? We have asked ourselves this question many times while designing new projects on the Dutch Caribbean islands. After 25 years of work in the Caribbean, we wanted to document our work and visualize the search for an answer to this question.Everyone knows what you mean when you talk about Caribbean music. Styles such as reggae, calypso, soca, salsa, zouk and merengue are known worldwide. This music emerged from a mix of African, European and other influences, characteristic of Caribbean culture. But architecture in the Caribbean is often reduced to traditional styles: Curacao&#39;s colorful facades, Bonaire&#39;s historic slave houses, and Saba&#39;s gingerbread trims. While beautiful, these images only scratch the surface of the islands&#39; architectural diversity and innovation. Especially when it comes to contemporary architecture, there has been very little documented until now. So, what does contemporary Caribbean architecture actually look like? And what influence do climate, migration and heritage, for example, have on it?</p>
+
+<p>For us, like the local music and language, architecture is a mix of influences. Our documentary Kombina, which literally translates as &quot;mixed&quot;, tells the story of how our contemporary projects reflect the local culture.</p>
+
+<p><strong>About Lyongo Juliana</strong></p>
+
+<p>Lyongo Juliana is a Curacaoan-Dutch architect whose work bridges the Netherlands and the Caribbean. Born in Utrecht and raised in Curacao, he studied architecture at Pennsylvania State University before completing his education in Architecture and Urbanism at Eindhoven University of Technology. Over the past 25 years, Juliana has designed numerous projects in the Caribbean and the Netherlands, combining sensitivity to local culture and climate with a strong commitment to the social role of architecture.</p>
+
+<p>As founder of lyongo architecture, with offices in Amsterdam and Willemstad, Juliana advocates for more diverse and inclusive approaches to architecture and urban development. In 2020, he served as Architect in Residence at the Amsterdam Architecture Centre (Arcam), where he researched diversity and inclusivity in the built environment, and subsequently continued this work as a fellow in Pakhuis de Zwijger&#39;s Designing Cities for All programme. His architectural projects include the Curacao Medical Center and various residential, educational and urban developments across the Caribbean and the Netherlands.</p>
+
+<p><strong>About Forsa Ansestral</strong></p>
+
+<p>Forsa Ansestral follows one week in the lives of tambu artists and elders from Curacao, Aruba, Bonaire, and the Dutch Caribbean diaspora as they come together for performances, workshops, gatherings, and conversations.</p>
+
+<p>Through these intimate encounters, the documentary explores tambu, an Afro-Caribbean musical and cultural tradition rooted in resistance, spirituality, and community, as a living archive of ancestral knowledge. Moving between generations and across borders, the film examines how heritage is embodied, transmitted, and continually reshaped.</p>
+
+<p>Conversations about gender, spirituality, modernization, and tradition reveal both tensions and connections within the community, while rhythm, movement, storytelling, and performance become vehicles for collective memory and healing. Forsa Ansestral ultimately asks what it means to inherit a cultural tradition, what responsibilities come with carrying it forward, and who gets to define its essence and shape its future.</p>
+
+<p><strong>About Gyoni Jamanika and Sendebibu</strong></p>
+
+<p>Gyoni Jamanika is a Curacaoan cultural researcher and heritage practitioner whose work engages with Caribbean history, cultural memory, identity, and the transmission of knowledge across generations.</p>
+
+<p>Jamanika has been involved in research on Caribbean genealogy and historical archives and has contributed to initiatives concerned with making Caribbean histories and cultural heritage more accessible.</p>
+
+<p>Jamanika is connected to Sendebibu, a community-led collective dedicated to preserving, sharing, and activating the cultural heritage of Curacao and the wider Dutch Caribbean. Through dialogue, workshops, performances, and intergenerational encounters, the collective creates spaces in which heritage is not simply documented but experienced and carried forward. Its work places particular emphasis on decolonization, community service, and connecting generations. One of Sendebibu&#39;s recent projects is Forsa Ansestral, developed around tambu in collaboration with Museo di Tambu Shon Cola.</p>
+
+<p><strong>About Caribbean Creativity</strong></p>
+
+<p>Caribbean Creativity is a Kingston- and Amsterdam-based non-profit organization that is committed to the programming and promotion of Caribbean and Caribbean-themed cinema.</p>
+
+<p>Over the years, Caribbean Creativity has hosted over 350 screenings, including numerous premieres. In 2020, they launched YardVibes, a streaming platform featuring content from independent Caribbean and African filmmakers. YardVibes currently offers over 100 titles, including feature films, web series, documentaries, and short films, with new content added monthly.</p>
+
+<p>For more information, visit <a href="http://www.caribbeancreativity.nl">www.caribbeancreativity.nl</a></p>
+
+<p><strong>About Africadelic</strong></p>
+
+<p>Africadelic is an organization and platform committed to the programming and promotion of African and African diasporic cultural creativity, diversity and activism in the Netherlands.</p>
+
+<p>The annual Africadelic Festival is an ode to the African continent and its worldwide diaspora, and offers a showcase of the cultural wealth and profound influence Afrodescendants have on global culture and society. Taking place from May 20-27, 2026, this year&#39;s festival offered another week filled with concerts, films, and talks. At the same time, they are (co-)organizing one-off events throughout the year, including CineCarib in collaboration with Caribbean Creativity.</p>
+
+<p>For more information, visit <a href="http://www.africadelic.com">www.africadelic.com</a></p>
+
+<p><strong>Running Order&nbsp;</strong></p>
+
+<p>14:45 - Doors open&nbsp;&nbsp;<br />
+15:00 - Introduction by Angel Misier&nbsp;&nbsp;<br />
+15:08 - Short film: <em>Forsa Ansestral</em> (20 minutes; to follow shortly)<br />
+15:28 - Feature film: <em>Kombin&aacute;</em> (69 minutes)<br />
+16:37 - Q&amp;A with the filmmakers, moderated by Angel Misier&nbsp;&nbsp;<br />
+17:10 - End of Q&amp;A. Clear the auditorium; conversations can continue in the bar.</p>
+		</div>
+	</article>
+</div>

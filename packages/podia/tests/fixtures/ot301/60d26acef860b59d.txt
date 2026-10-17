@@ -1,0 +1,24 @@
+<div class="selected event">
+	<div class="head bg-dark light">Saturday 17 October</div>
+	<article class="body">
+		<div  class="media" style="background-image:url(https://amsterdamalternative.nl/media/content/20120_large.jpg)"></div>		<div class="meta">
+<!-- 
+						<div class="icon type" style="background-image:url(/media/agenda/.svg)"></div>
+ -->
+			Café Gilde // 12:00 // € 0<br/>
+			<strong>Lunch at Café Gilde</strong>
+		</div>
+		<div class="info">
+			
+		<div class="icon type bg-dark" style="background-image:url(https://amsterdamalternative.nl/media/agenda/1007.svg)"></div>		</div>
+		<div class="detail">
+			<strong>Open:</strong> 12:00 - 17:00 hrs<br/><strong>Tickets:</strong> € 0 		</div>
+		<div class="text">
+			<p>Lunch! On the weekly changing, plant-based menu there&#39;s always a sandwich, a soup, and a special at a lower price and better quality than just about anywhere in Amsterdam!</p>
+
+<p>Caf&eacute; Gilde has a homely, relaxing atmosphere at lunchtime, with music you wouldn&#39;t likely hear anywhere else, interesting and often unusual food and drink, art on display, and of course een gezellige gastheer.</p>
+
+<p>Come with your weirdo mates, your dog (on the lead), your laptop, your kids, your art project, your pet brick, anything. Feel free to sit all afternoon with your work, feel free to chat to anyone and no one, feel free to buy an espresso and dip straight back out. We&#39;ve got board games, a PS4, books, magazines, a USB-C cable - the lot. Come if you&#39;re transgender, come if you&#39;re autistic, come if you&#39;re disabled, come if you&#39;re none of the above; all are welcome except fascists. I mean it.</p>
+		</div>
+	</article>
+</div>

@@ -1,0 +1,92 @@
+<div class="single-content">
+  <div class="single-content__close">
+    <div class="single-content__close__icon"></div>
+    <div class="single-content__close__icon single-content__close__icon--2"></div>
+  </div>
+ 
+ 
+ <div class="single-content__event event">
+    <div class="event__date"> 
+      23    </div>
+   
+     <div class="event__info">
+       <div class="event__info__meta">
+         <div class="event__info__meta__date">
+             October, 2026         </div>
+       </div>
+             
+       <div class="event__info__title">
+         <div class="event__title"> 
+             APE         </div>
+       </div>
+     </div>
+   </div>
+ 
+  
+  <div class="single-content__details">
+    
+    <div class="single-content__left">
+               <a class="single-content__tickets" href="https://garagenoord.weticket.io/ape-amsterdam-punk-event/shop?" target="blank">     
+             Buy Tickets
+         </a>
+             
+      <div class="single-content__blocks">
+        
+<div id="dcb7355d-6aaa-473c-a994-da9592ec9080" class="block block__text block--float-no">
+  <p>IYKYK. Amsterdam Punk Event is back to save you from that week-long EDM event that terrorises the city each year. Courtesy of Pacific Ondergronds and KRUISPUNT.&nbsp;</p></div>
+      </div>
+    </div>
+    
+    <div class="single-content__right">
+      <div class="single-content__image">
+                  <img src="https://garagenoord.com/media/pages/club/ape/9bba4b26a3-1789649492/16.jpg" alt="">
+              </div>
+      
+      
+      
+              
+        <div class="single-content__links-title">
+          Listen here
+        </div>
+        
+        <div class="single-content__links">
+          
+          
+                  <div class="single-content__links__link">
+            <a href="https://www.youtube.com/watch?v=hOge-TmXStc" target="blank">
+              Bleedroot             </a>
+          </div>
+                  <div class="single-content__links__link">
+            <a href="" target="blank">
+              Cest qui?            </a>
+          </div>
+                  <div class="single-content__links__link">
+            <a href="https://theprotos.bandcamp.com/album/the-protos-drain-in-my-brain?fbclid=PAcGRvZgJleHRuA2FlbQIxMQBzcnRjBmFwcF9pZA85MzY2MTk3NDMzOTI0NTkAAafTYjQG_BA2SIUk2pw5Xaoz9rUT_fZfAemAf-8_swHp8DX9C9xE4JhSWh0pTQ_aem_aCc2IVvkvS8tUUWYSe4fGA" target="blank">
+              The Protos            </a>
+          </div>
+                  <div class="single-content__links__link">
+            <a href="https://soundcloud.com/user-89564582-625235922" target="blank">
+              La Sagne            </a>
+          </div>
+                  <div class="single-content__links__link">
+            <a href="https://oustpunx.bandcamp.com/album/a-girl-can-dream?fbclid=PAcGRvZgJleHRuA2FlbQIxMQBzcnRjBmFwcF9pZA85MzY2MTk3NDMzOTI0NTkAAaelqHVSZ5OwXcTaimtoEbtxVWfl7GwQ87uR7-YzFXc6Vyk2u_N7rkGy96RvrQ_aem_ds5e1rsxNoA2N4dCMWdo4w" target="blank">
+              Oust            </a>
+          </div>
+                  <div class="single-content__links__link">
+            <a href="https://teenagetits.bandcamp.com/album/teenage-tits-a-d" target="blank">
+              Teenage Tits            </a>
+          </div>
+                  <div class="single-content__links__link">
+            <a href="https://www.mixcloud.com/djbone666/?utm_source=ig&amp;utm_medium=social&amp;utm_content=link_in_bio&amp;fbclid=PAcGRvZgJleHRuA2FlbQIxMQBzcnRjBmFwcF9pZA85MzY2MTk3NDMzOTI0NTkAAadi3mdE-8okOO2zs4K4B3tKWXQyJqKimNBf3X6tKrS72VZhxbQIQGgZv0ncOw_aem_lPovfLT6YgbO-rdqHTcHjA" target="blank">
+              DJ Bone            </a>
+          </div>
+                </div>
+            
+    </div>
+    
+    
+   
+    
+  </div>
+  
+</div>

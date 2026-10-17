@@ -1,0 +1,73 @@
+<aside class="c-event-meta">
+		<div class="c-event-meta__container">
+
+			<div class="c-event-meta__table c-event-meta__table--mobile">
+									<div class="c-event-meta__row" id="date">
+						<div class="c-event-meta__label">Datum</div>
+						<div class="c-event-meta__field"><span class="u-captialize">zondag 18 oktober 2026</span></div>
+					</div>
+																	<div class="c-event-meta__row" id="open">
+						<div class="c-event-meta__label">Zaal open</div>
+						<div class="c-event-meta__field">19:30 uur</div>
+					</div>
+													<div class="c-event-meta__row" id="start">
+						<div class="c-event-meta__label">Aanvang</div>
+						<div class="c-event-meta__field">20:00 uur</div>
+					</div>
+													<div class="c-event-meta__row" id="end">
+						<div class="c-event-meta__label">Eindtijd</div>
+						<div class="c-event-meta__field">Uiterlijk 23:00 uur</div>
+					</div>
+													<div class="c-event-meta__row" id="price">
+						<div class="c-event-meta__label">Prijs</div>
+						<div class="c-event-meta__field">
+							€29,50															<span class="c-event-meta__fee">incl. €2,50 servicekosten</span>
+													</div>
+					</div>
+							</div>
+
+			<div class="c-event-meta__table c-event-meta__table--desktop">
+				<div>
+											<div class="c-event-meta__row" id="date">
+							<div class="c-event-meta__label">Datum</div>
+							<div class="c-event-meta__field"><span class="u-captialize">zondag 18 oktober 2026</span></div>
+						</div>
+																					<div class="c-event-meta__row" id="price">
+							<div class="c-event-meta__label">Prijs</div>
+							<div class="c-event-meta__field">
+								€29,50																	<span class="c-event-meta__fee">incl. €2,50 servicekosten</span>
+															</div>
+						</div>
+									</div>
+				<div>
+											<div class="c-event-meta__row" id="open">
+							<div class="c-event-meta__label">Zaal open</div>
+							<div class="c-event-meta__field">19:30 uur</div>
+						</div>
+																<div class="c-event-meta__row" id="start">
+							<div class="c-event-meta__label">Aanvang</div>
+							<div class="c-event-meta__field">20:00 uur</div>
+						</div>
+																<div class="c-event-meta__row" id="end">
+							<div class="c-event-meta__label">Eindtijd</div>
+							<div class="c-event-meta__field">Uiterlijk 23:00 uur</div>
+						</div>
+									</div>
+			</div>
+
+			<div class="c-event-meta__button">
+										<span class="c-raised-button c-raised-button--big c-raised-button--disabled c-raised-button--uitverkocht">
+							uitverkocht						</span>
+								</div>
+
+		</div>
+	</aside>
+<div class="u-section__inner u-section__inner--right c-event-content__text wysiwyg">
+			<p>Geen band uit Manchester is zó Manchester als IST IST. Vier bloedserieuze Britten met Ray Ban zonnebrillen en zwarte pakken, bewapend met een stuwende, retestrakke 80s-postpunksound en een galmstem waar Ian Curtis de rillingen van zou krijgen. Al meer dan twaalf jaar houden ze hun hoofd moeiteloos boven water in de grauwe zee van Britse postpunkbands.</p>
+<p>&nbsp;</p>
+<p>Het geheim? Een eigen smoel, en tegelijkertijd een onmiskenbare heimwee naar de jaren ‘80.Het bracht ze al naar Paradiso, Doornroosje en de Albert Hall in thuisstad Manchester. Ook brachten ze vijf albums uit, waarvan er twee in de Album Top 40 belandden.</p>
+<p>&nbsp;</p>
+<p>Op de golf van hun recente succesalbum DAGGER, steekt IST IST het kanaal over voor een rondje ‘continent’. Op 18 oktober komen ze voor het eerst naar Utrecht, om De Helling plat te walsen met hun tot op de komma afgemeten combinatie van melancholie, kracht en precisie.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+		</div>

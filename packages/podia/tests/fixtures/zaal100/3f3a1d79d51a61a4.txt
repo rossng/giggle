@@ -1,0 +1,51 @@
+<article class="agenda-item">
+	
+		
+	<div class="dagdatumtijdprijs floatleft clear bgoffwhite bortop">
+
+		<div class="dagdatummaand">
+			<div class="dag floatleft">ma</div><div class="datummaand"><span class="datum">19</span><span class="maand">10</span></div> 		</div>
+
+		<div class="tijdprijs floatleft bortop">
+			<div class="tijd floatleft">18:00</div>
+			<div class="prijs">€ 15,00</div>					</div>					
+
+	</div>
+
+	<div class="gebeurtenis floatleft bgoffwhite bortop">
+
+					<h4 class="voor-titel">Elke maandag Goeie Zin! Heerlijk eten &amp; lekkere muziek!</h4>
+		
+					<h2 class="titel">Lisa Graciano + Cindy Peress</h2>
+		
+					<h5 class="na-titel">2 singer songwriters</h5>
+		
+	</div>
+	
+		
+				
+		<div class="tekstblok bglight">
+
+			<p>Goeie Zin is DE avond in Zaal 100 voor singer-songwriters en semi akoestische muziek. Vanavond: <strong>Lisa Graciano + Cindy Peress</strong></p>
+<p><img src="http://zaal100.nl/media/2026/10/Lisa-Graciano-2022-square-300x300.jpg" alt="" width="300" height="300" class="alignnone size-medium wp-image-3517"><br>
+Singer, songwriter and guitarist Lisa Graciano grew up in 3 South East Asian cities, spending some years in the alternative music scene of Manila. She lived in the Netherlands with her mother and played in the folk, jazz and blues music circuit of Amsterdam. Now in Oakland, she leads the gamelan-infused band Purnamasari. Lisa also performs her bluesy non-gamelan rock songs as Lisa Graciano &amp; Friends with a line-up of seasoned musicians. She is a self-proclaimed citizen of the world and cultivates the Earth identity.<br>
+Go to <a href="https://www.lisagraciano.com/">https://www.lisagraciano.com/</a> for more info.</p>
+<p><img src="http://zaal100.nl/media/2026/10/Cindy-Peress-300x201.jpg" alt="" width="300" height="201" class="alignnone size-medium wp-image-3519"><br>
+And Cindy Peress, the local guitarslingingswingingsingingsongwriter...<br>
+<a href="http://www.stichting-a4.nl">http://www.stichting-a4.nl</a></p>
+<p>Zaal open 18.00 uur<br>
+Van 18.00 tot 20.00 uur kan je genieten van een zo biologisch mogelijk en 100 % vegetarisch (of vegan) 3 gangen diner voor 12,00 euro.</p>
+<p>Met allergieën en/of intoleranties kan rekening worden gehouden mits ruim vooraf gemeld. Vegan vooraf even melden svp. Reserveringen vooraf worden erg op prijs gesteld en voorkomen verspilling. Mail naar <a href="mailto:email@example.invalid">email@example.invalid</a> of bel op de dag zelf vanaf 14.00 uur 020-6880127 om te checken of reserveren nog mogelijk is.<br>
+De live muziek begint om 20.00 uur.<br>
+entree 5 euro<br>
+Het 3 gangen diner &amp; concert kost 15 euro<br>
+Neem cash geld mee want Zaal 100 heeft <strong>GEEN PIN</strong></p>
+
+			
+		</div>
+	
+</article>
+<div class="featured-image-container">
+			<div class="featured-image">
+				<img src="https://zaal100.nl/wp-content/themes/zaal100/assets/img/misc/diashow-default.jpg">			</div>
+		</div>

@@ -1,0 +1,14 @@
+<h2 class="elementor-heading-title">Agenda</h2>
+<h2 class="elementor-heading-title">popprijs</h2>
+<h2 class="elementor-heading-title">MOSCOW DEATH BRIGADE</h2>
+<h2 class="elementor-heading-title">Voorverkoop</h2>
+<h2 class="elementor-heading-title">€ 19,50</h2>
+<h2 class="elementor-heading-title">Avondkassa</h2>
+<h2 class="elementor-heading-title">€ 21</h2>
+<h2 class="elementor-heading-title">Zaal Open</h2>
+<h2 class="elementor-heading-title">20:00 uur</h2>
+<h2 class="elementor-heading-title">Support (tba)</h2>
+<h2 class="elementor-heading-title">20:30 uur</h2>
+<h2 class="elementor-heading-title">MDB</h2>
+<h2 class="elementor-heading-title">21:15 uur</h2>
+<a class="elementor-button" href="https://www.ticketmaster.nl/event/1925262796">tickets</a>

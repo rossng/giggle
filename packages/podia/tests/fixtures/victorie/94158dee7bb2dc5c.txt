@@ -1,0 +1,79 @@
+<div class="color-mask">
+
+                <section class="flex flex-col-reverse items-start justify-between gap-4 p-mobile md:flex-row md:p-default">
+                    <h2 class="type-large-text">
+                        Gezellige popquiz door Pop in de Kop op de zondagmiddag                     </h2>
+
+                    <a href="https://tickets.podiumvictorie.nl/nl-NL/Show/Details/4718" target="_blank" class="button button--inverse-effect border-primary bg-primary text-secondary hover:text-primary hover:after:bg-secondary group-hover:after:translate-x-0 whitespace-nowrap" data-active-tickets-link="" title="Uitverkocht">
+        Uitverkocht</a>
+                    </section>
+
+                <section class="mt-12 grid-cols-2 p-mobile md:grid md:p-default">
+                    <div>
+                        <div class="mb-16 grid grid-cols-2 gap-x-4 gap-y-12 leading-[1.15] md:mb-0 lg:w-2/3">
+                                                            <div>
+                                    <dt>Deur open</dt>
+                                    <dd class="text-[20px] font-bold">12:15</dd>
+                                </div>
+                                                            <div>
+                                    <dt>Aanvang</dt>
+                                    <dd class="text-[20px] font-bold">13:00</dd>
+                                </div>
+                                                            <div>
+                                    <dt>Team Ticket (3 personen)</dt>
+                                    <dd class="text-[20px] font-bold">€ 29,90</dd>
+                                </div>
+                                                            <div>
+                                    <dt>Zaal</dt>
+                                    <dd class="text-[20px] font-bold">Grolsch zaal</dd>
+                                </div>
+                                                            <div>
+                                    <dt>Datum</dt>
+                                    <dd class="text-[20px] font-bold">zo 18 oktober 2026</dd>
+                                </div>
+                                                                                        <div class="col-span-2">*Exclusief transactiekosten à €0,28 per boeking.</div>
+                                                                                </div>
+
+                    </div>
+
+                    <section style="--restricted-width--mobile: 100%; --restricted-width: 66.6%">
+        <div class="typogram">
+        <p><strong>Popquiz XL: de gezelligste muziekmiddag van het jaar<br></strong><br>Op zondag 18 oktober verandert onze grote zaal van 13:00 tot 18:00 in de gezelligste kroeg van de regio voor de Popquiz XL, georganiseerd door Pop in de Kop. Ben je er eerder bij geweest? Dan weet je: dit is niet zomaar een quiz, maar een complete middag vol muziek, heel veel gezelligheid en een fanatieke strijd om mooie prijzen en eeuwige roem. </p>
+<p>De vragen schieten alle kanten op: van Beyoncé tot punk, van de jaren 70 tot Harry. Herken jij een nummer al na drie seconden of heb jij stiekem een master in guilty pleasures? Mooi, want teamwork is de sleutel! Nodig je vrienden, familie of buren uit en meld je snel aan voordat de kroeg vol zit.</p>
+<p>Extra leuk: Danny van Tiggele (bekend van o.a. Mister &amp; Mississippi, Blaudzun en TOUSCH) treedt in de pauzes op, samen met een te gekke band.</p>
+<p><strong>Tickets</strong><br>Om ervoor te zorgen dat iedereen optimaal zicht heeft op het podium, bestaan de teams voor deze editie uit drie personen. Hoe werkt het? Je koopt een groepsticket voor je team a 29,90 euro. Stel snel je ideale team samen en doe mee met de leukste quiz van het jaar!</p>
+<p><strong>Tijden</strong><br>12:15 deur open<br>13:00 – 18:00 popquiz</p>
+
+    </div>
+</section>
+
+                </section>
+
+                <section class="mt-12 grid-cols-2 p-mobile md:grid md:p-default">
+                    <div class="mb-16 md:mb-0">
+
+                        <blockquote class="type-large-text sticky top-[4.5rem] z-[--z-blockquote] w-full md:w-2/3">
+                            Gezellige popquiz door Pop in de Kop op de zondagmiddag                         </blockquote>
+
+                    </div>
+
+                    <div class="z-0">
+                                            </div>
+
+                </section>
+
+                <section class="event-footer-bar fixed bottom-0 left-0 z-[--z-event-footer-bar] w-full translate-y-full bg-secondary px-mobile py-3 leading-none text-primary transition duration-500 ease-in md:px-default">
+                    <div class="flex items-center justify-between gap-5">
+                        <div class="narrow  basis-[33.33%] text-[37px] max-md:hidden md:text-[70px]">18&nbsp;okt</div>
+                        <div class="event-footer-bar__text-container narrow overflow-hidden shrink text-[37px] md:basis-[56.66%] md:text-[70px]">
+                            <div class="event-footer-bar__text whitespace-nowrap">
+                                <div>Popquiz XL</div>
+                            </div>
+                        </div>
+                        <div class="shrink-0 grow text-right md:basis-[10%]">
+                            <a href="https://tickets.podiumvictorie.nl/nl-NL/Show/Details/4718" target="_blank" class="button border-primary bg-primary text-secondary hover:text-primary hover:after:bg-secondary group-hover:after:translate-x-0 whitespace-nowrap" data-active-tickets-link="" title="Uitverkocht">
+        Uitverkocht</a>
+                            </div>
+                    </div>
+                </section>
+            </div>

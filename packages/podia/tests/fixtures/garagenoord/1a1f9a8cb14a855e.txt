@@ -1,0 +1,96 @@
+<div class="single-content">
+  <div class="single-content__close">
+    <div class="single-content__close__icon"></div>
+    <div class="single-content__close__icon single-content__close__icon--2"></div>
+  </div>
+ 
+ 
+ <div class="single-content__event event">
+    <div class="event__date"> 
+      17    </div>
+   
+     <div class="event__info">
+       <div class="event__info__meta">
+         <div class="event__info__meta__date">
+             October, 2026         </div>
+       </div>
+             
+       <div class="event__info__title">
+         <div class="event__title"> 
+             Mick Harris presents Culvert Dubs (live), Vanja Rakic b2b Olgica, Brent Jacko + Bar40 Hosted by SUBURBIA         </div>
+       </div>
+     </div>
+   </div>
+ 
+  
+  <div class="single-content__details">
+    
+    <div class="single-content__left">
+               <a class="single-content__tickets" href="https://garagenoord.weticket.io/mick-harris-present-culvert-dubs-vanja-rakic-b2b-olgica-brent-jacko-bar40-hosted-by-suburbia/shop?" target="blank">     
+             Buy Tickets
+         </a>
+             
+      <div class="single-content__blocks">
+        
+<div id="dcb7355d-6aaa-473c-a994-da9592ec9080" class="block block__text block--float-no">
+  <p>Distorted, apocalyptic dub soundscapes downstairs. The return of the ever-experimental SUBURBIA in bar40.&nbsp;</p></div>
+      </div>
+    </div>
+    
+    <div class="single-content__right">
+      <div class="single-content__image">
+                  <img src="https://garagenoord.com/media/pages/club/mick-harris-presents-culvert-dubs-live-vanja-rakic-b2b-olgica-brent-jacko-bar40-hosted-by-suburbia/40d38d585e-1789646689/13.jpg" alt="">
+              </div>
+      
+      
+      
+              
+        <div class="single-content__links-title">
+          Listen here
+        </div>
+        
+        <div class="single-content__links">
+          
+          
+                  <div class="single-content__links__link">
+            <a href="https://soundcloud.com/mick-harris-390132372" target="blank">
+              Mick Harris            </a>
+          </div>
+                  <div class="single-content__links__link">
+            <a href="https://soundcloud.com/vanja-rakic" target="blank">
+              Vanja Rakic            </a>
+          </div>
+                  <div class="single-content__links__link">
+            <a href="https://soundcloud.com/olgica23" target="blank">
+              Olgica            </a>
+          </div>
+                  <div class="single-content__links__link">
+            <a href="https://soundcloud.com/brent-jacko" target="blank">
+              Brent Jacko             </a>
+          </div>
+                  <div class="single-content__links__link">
+            <a href="https://soundcloud.com/pebblle" target="blank">
+              Pebblle            </a>
+          </div>
+                  <div class="single-content__links__link">
+            <a href="https://soundcloud.com/vince21music" target="blank">
+              Ben Vince            </a>
+          </div>
+                  <div class="single-content__links__link">
+            <a href="https://soundcloud.com/xtereaa" target="blank">
+              Xterea            </a>
+          </div>
+                  <div class="single-content__links__link">
+            <a href="https://soundcloud.com/marijnswillens" target="blank">
+              Marijn S            </a>
+          </div>
+                </div>
+            
+    </div>
+    
+    
+   
+    
+  </div>
+  
+</div>

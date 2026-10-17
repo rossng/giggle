@@ -1,0 +1,18 @@
+<h2 class="elementor-heading-title">Agenda</h2>
+<h2 class="elementor-heading-title">popprijs</h2>
+<h2 class="elementor-heading-title">MOKKA!</h2>
+<h2 class="elementor-heading-title">WHERE REAL R&B LIVES</h2>
+<h2 class="elementor-heading-title">Early Single</h2>
+<h2 class="elementor-heading-title">€ 15</h2>
+<h2 class="elementor-heading-title">Early Duo</h2>
+<h2 class="elementor-heading-title">€ 25</h2>
+<h2 class="elementor-heading-title">Regular Single</h2>
+<h2 class="elementor-heading-title">€ 20</h2>
+<h2 class="elementor-heading-title">Regular Duo</h2>
+<h2 class="elementor-heading-title">Zaal Open</h2>
+<h2 class="elementor-heading-title">22:00 uur</h2>
+<h2 class="elementor-heading-title">Start MOKKA!</h2>
+<h2 class="elementor-heading-title">22:00 uur</h2>
+<h2 class="elementor-heading-title">Deuren dicht</h2>
+<h2 class="elementor-heading-title">00:30 uur</h2>
+<a class="elementor-button" href="https://party-elite.nl/">tickets</a>

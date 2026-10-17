@@ -1,0 +1,64 @@
+<div class="single-content">
+  <div class="single-content__close">
+    <div class="single-content__close__icon"></div>
+    <div class="single-content__close__icon single-content__close__icon--2"></div>
+  </div>
+ 
+ 
+ <div class="single-content__event event">
+    <div class="event__date"> 
+      24    </div>
+   
+     <div class="event__info">
+       <div class="event__info__meta">
+         <div class="event__info__meta__date">
+             October, 2026         </div>
+       </div>
+             
+       <div class="event__info__title">
+         <div class="event__title"> 
+             GN does a party with Nyege Nyege &amp; Trackwork         </div>
+       </div>
+     </div>
+   </div>
+ 
+  
+  <div class="single-content__details">
+    
+    <div class="single-content__left">
+               <a class="single-content__tickets" href="https://garagenoord.weticket.io/garage-does-a-party-with-nyege-nyege-trackwork/shop?" target="blank">     
+             Buy Tickets
+         </a>
+             
+      <div class="single-content__blocks">
+        
+<div id="dcb7355d-6aaa-473c-a994-da9592ec9080" class="block block__text block--float-no">
+  </div>
+      </div>
+    </div>
+    
+    <div class="single-content__right">
+      <div class="single-content__image">
+                  <img src="https://garagenoord.com/media/pages/club/gn-does-a-party-with-nyege-nyege-trackwork/c3736b6871-1789647581/17.jpg" alt="">
+              </div>
+      
+      
+      
+              
+        <div class="single-content__links-title">
+          Listen here
+        </div>
+        
+        <div class="single-content__links">
+          
+          
+                </div>
+            
+    </div>
+    
+    
+   
+    
+  </div>
+  
+</div>

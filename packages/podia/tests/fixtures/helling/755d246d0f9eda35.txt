@@ -1,0 +1,78 @@
+<aside class="c-event-meta">
+		<div class="c-event-meta__container">
+
+			<div class="c-event-meta__table c-event-meta__table--mobile">
+									<div class="c-event-meta__row" id="date">
+						<div class="c-event-meta__label">Datum</div>
+						<div class="c-event-meta__field"><span class="u-captialize">dinsdag 20 oktober 2026</span></div>
+					</div>
+																	<div class="c-event-meta__row" id="open">
+						<div class="c-event-meta__label">Zaal open</div>
+						<div class="c-event-meta__field">18:30 uur</div>
+					</div>
+													<div class="c-event-meta__row" id="start">
+						<div class="c-event-meta__label">Aanvang</div>
+						<div class="c-event-meta__field">19:00 uur</div>
+					</div>
+													<div class="c-event-meta__row" id="end">
+						<div class="c-event-meta__label">Eindtijd</div>
+						<div class="c-event-meta__field">Uiterlijk 23:00 uur</div>
+					</div>
+													<div class="c-event-meta__row" id="price">
+						<div class="c-event-meta__label">Prijs</div>
+						<div class="c-event-meta__field">
+							€15,00															<span class="c-event-meta__fee">incl. €2,50 servicekosten</span>
+													</div>
+					</div>
+							</div>
+
+			<div class="c-event-meta__table c-event-meta__table--desktop">
+				<div>
+											<div class="c-event-meta__row" id="date">
+							<div class="c-event-meta__label">Datum</div>
+							<div class="c-event-meta__field"><span class="u-captialize">dinsdag 20 oktober 2026</span></div>
+						</div>
+																					<div class="c-event-meta__row" id="price">
+							<div class="c-event-meta__label">Prijs</div>
+							<div class="c-event-meta__field">
+								€15,00																	<span class="c-event-meta__fee">incl. €2,50 servicekosten</span>
+															</div>
+						</div>
+									</div>
+				<div>
+											<div class="c-event-meta__row" id="open">
+							<div class="c-event-meta__label">Zaal open</div>
+							<div class="c-event-meta__field">18:30 uur</div>
+						</div>
+																<div class="c-event-meta__row" id="start">
+							<div class="c-event-meta__label">Aanvang</div>
+							<div class="c-event-meta__field">19:00 uur</div>
+						</div>
+																<div class="c-event-meta__row" id="end">
+							<div class="c-event-meta__label">Eindtijd</div>
+							<div class="c-event-meta__field">Uiterlijk 23:00 uur</div>
+						</div>
+									</div>
+			</div>
+
+			<div class="c-event-meta__button">
+										<span class="c-raised-button c-raised-button--big c-raised-button--disabled c-raised-button--uitverkocht">
+							uitverkocht						</span>
+								</div>
+
+		</div>
+	</aside>
+<div class="u-section__inner u-section__inner--right c-event-content__text wysiwyg">
+			<p>Het is tijd om alle Billie eras opnieuw te beleven! Op dinsdag 20 oktober staat De Helling volledig in het teken van Billie Eilish: een avond voor fans, door fans.</p>
+<p>Van Ocean Eyes tot BIRDS OF A FEATHER, van bury a friend tot LUNCH, we hebben de ultieme setlist tot in de puntjes voor je samengesteld. Of je nu al sinds Don’t Smile at Me fan bent of Billie pas recent hebt ontdekt, dit is dé plek waar de Nederlandse Billie community samenkomt. Onze host begeleidt je door de avond en zorgt dat het dak er gegarandeerd af gaat! Zing uit volle borst mee, maak nieuwe vrienden, maak herinneringen die je bijblijven en geniet van een avond die volledig draait om jouw favoriete artiest.</p>
+<p>Daar wil jij toch ook bij zijn? Scoor dan nu je tickets!</p>
+<p>Credits<br>
+Muziek: Billie Eilish en Finneas O’Connell<br>
+Organisator: Eilish Netherlands<br>
+Host: Victoria Kools<br>
+Lichtontwerp: Djairo van Hensbergen<br>
+Vormgeving: Louise Willems<br>
+Ceative concept: Alvin Vrolijk, Liselotte Wilshaus en Summer Noordzij</p>
+<p>Disclaimer<br>
+Eilish Netherlands is een onafhankelijke fanpagina en staat niet in contact met Billie Eilish of haar management. Billie Eilish is zelf dan ook niet aanwezig op dit evenement. Wij zijn er puur om de liefde voor haar muziek en de NL/BE community samen te brengen</p>
+		</div>

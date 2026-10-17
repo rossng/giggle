@@ -1,0 +1,2043 @@
+[
+ {
+  "availability": "unknown",
+  "categories": [
+   "Club"
+  ],
+  "city": "Utrecht",
+  "description": null,
+  "doors": null,
+  "end": "2026-10-18T03:00:00+02:00",
+  "extra": {},
+  "genres": [
+   "Bass Music"
+  ],
+  "image": "https://dehelling.nl/app/uploads/2026/09/Set_The_Bar_Banner_V1-680x400.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 12.5,
+   "min_eur": 12.5,
+   "text": null
+  },
+  "room": null,
+  "source_id": "set-the-bar-w-mokum-rave-massive-17-10-2026",
+  "start": "2026-10-17T22:00:00+02:00",
+  "status": "scheduled",
+  "subtitle": "Fresh faces and filthy basses",
+  "support": [],
+  "ticket_url": "https://dehelling.stager.co/shop/default/events/111690990",
+  "title": "Set the Bar w/ Mokum Rave Massive",
+  "url": "https://dehelling.nl/agenda/set-the-bar-w-mokum-rave-massive-17-10-2026/",
+  "venue": "helling"
+ },
+ {
+  "availability": "sold_out",
+  "categories": [
+   "Concert"
+  ],
+  "city": "Utrecht",
+  "description": null,
+  "doors": "2026-10-18T19:30:00+02:00",
+  "end": "2026-10-18T23:00:00+02:00",
+  "extra": {},
+  "genres": [
+   "Postpunk",
+   "New Wave"
+  ],
+  "image": "https://dehelling.nl/app/uploads/2026/07/sitebeeld_IST_IST-680x400.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 29.5,
+   "min_eur": 29.5,
+   "text": null
+  },
+  "room": null,
+  "source_id": "ist-ist-support-echo-mesh-18-10-2026",
+  "start": "2026-10-18T20:00:00+02:00",
+  "status": "scheduled",
+  "subtitle": "Stuwende postpunk waarin de jaren tachtig duidelijk nagalmt",
+  "support": [],
+  "ticket_url": "https://dehelling.stager.co/shop/default/events/111674131",
+  "title": "IST IST + support Echo Mesh",
+  "url": "https://dehelling.nl/agenda/ist-ist-support-echo-mesh-18-10-2026/",
+  "venue": "helling"
+ },
+ {
+  "availability": "sold_out",
+  "categories": [
+   "Concert"
+  ],
+  "city": "Utrecht",
+  "description": null,
+  "doors": "2026-10-20T18:30:00+02:00",
+  "end": "2026-10-20T23:00:00+02:00",
+  "extra": {},
+  "genres": [
+   "Experimental",
+   "Pop"
+  ],
+  "image": "https://dehelling.nl/app/uploads/2026/07/ENL-Fanparty_Banner_V1_1360x800-680x400.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 15.0,
+   "min_eur": 15.0,
+   "text": null
+  },
+  "room": null,
+  "source_id": "billie-eilish-fanparty-20-10-2026",
+  "start": "2026-10-20T19:00:00+02:00",
+  "status": "scheduled",
+  "subtitle": "Where are Billie’s good girls and bad guys at?",
+  "support": [],
+  "ticket_url": "https://dehelling.stager.co/shop/default/events/111671613",
+  "title": "Billie Eilish Fanparty",
+  "url": "https://dehelling.nl/agenda/billie-eilish-fanparty-20-10-2026/",
+  "venue": "helling"
+ },
+ {
+  "availability": "unknown",
+  "categories": [
+   "Concert"
+  ],
+  "city": "Utrecht",
+  "description": null,
+  "doors": "2026-10-21T19:00:00+02:00",
+  "end": "2026-10-21T23:00:00+02:00",
+  "extra": {},
+  "genres": [
+   "Metalcore",
+   "Post-hardcore"
+  ],
+  "image": "https://dehelling.nl/app/uploads/2026/04/sitebeeld_acres-680x400.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 25.5,
+   "min_eur": 25.5,
+   "text": null
+  },
+  "room": null,
+  "source_id": "acres-wayside-what-lies-below-lifespark-21-10-2026",
+  "start": "2026-10-21T19:15:00+02:00",
+  "status": "scheduled",
+  "subtitle": "Emotionele metalcore vol hooks en verwoestende grooves",
+  "support": [],
+  "ticket_url": "https://dehelling.stager.co/shop/default/events/111564098",
+  "title": "Acres + Wayside + What Lies Below + Lifespark",
+  "url": "https://dehelling.nl/agenda/acres-wayside-what-lies-below-lifespark-21-10-2026/",
+  "venue": "helling"
+ },
+ {
+  "availability": "unknown",
+  "categories": [
+   "Festival"
+  ],
+  "city": "Utrecht",
+  "description": null,
+  "doors": "2026-10-22T19:00:00+02:00",
+  "end": "2026-10-23T00:00:00+02:00",
+  "extra": {},
+  "genres": [
+   "Darkwave",
+   "shoegaze",
+   "Postpunk"
+  ],
+  "image": "https://dehelling.nl/app/uploads/2026/09/banner-popronde-680x400.jpg",
+  "performers": [],
+  "price": null,
+  "room": null,
+  "source_id": "popronde-utrecht-22-10-2026",
+  "start": "2026-10-22T19:30:00+02:00",
+  "status": "scheduled",
+  "subtitle": "Het grootste reizende talentenfestival van Nederland",
+  "support": [],
+  "ticket_url": null,
+  "title": "Popronde Utrecht",
+  "url": "https://dehelling.nl/agenda/popronde-utrecht-22-10-2026/",
+  "venue": "helling"
+ },
+ {
+  "availability": "unknown",
+  "categories": [
+   "Concert"
+  ],
+  "city": "Utrecht",
+  "description": null,
+  "doors": "2026-10-23T19:30:00+02:00",
+  "end": "2026-10-23T23:00:00+02:00",
+  "extra": {},
+  "genres": [
+   "poëzie",
+   "Jazzpunk"
+  ],
+  "image": "https://dehelling.nl/app/uploads/2026/04/sitebeeld-Kruidkoek-Joost-Oomen-1-680x400.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 20.0,
+   "min_eur": 20.0,
+   "text": null
+  },
+  "room": null,
+  "source_id": "kruidkoek-joost-oomen-support-tim-koehoorn-23-10-2026",
+  "start": "2026-10-23T20:00:00+02:00",
+  "status": "scheduled",
+  "subtitle": "Poëzie meets jazzpunk in de meest literaire moshpit van het jaar",
+  "support": [],
+  "ticket_url": "https://dehelling.stager.co/shop/default/events/111633563",
+  "title": "Kruidkoek & Joost Oomen + support Tim Koehoorn",
+  "url": "https://dehelling.nl/agenda/kruidkoek-joost-oomen-support-tim-koehoorn-23-10-2026/",
+  "venue": "helling"
+ },
+ {
+  "availability": "unknown",
+  "categories": [
+   "Club"
+  ],
+  "city": "Utrecht",
+  "description": null,
+  "doors": null,
+  "end": "2026-10-24T05:00:00+02:00",
+  "extra": {},
+  "genres": [
+   "Reggae/Dancehall/Afro/Latin"
+  ],
+  "image": "https://dehelling.nl/app/uploads/2026/10/TheSun_23.10-680x400.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 15.5,
+   "min_eur": 15.5,
+   "text": null
+  },
+  "room": null,
+  "source_id": "the-sun-23-10-2026",
+  "start": "2026-10-23T23:59:00+02:00",
+  "status": "scheduled",
+  "subtitle": "More than a reggaeton event, a fusion of music, energy, and culture.",
+  "support": [],
+  "ticket_url": "https://dehelling.stager.co/shop/default/events/111654710",
+  "title": "The Sun",
+  "url": "https://dehelling.nl/agenda/the-sun-23-10-2026/",
+  "venue": "helling"
+ },
+ {
+  "availability": "unknown",
+  "categories": [
+   "Concert"
+  ],
+  "city": "Utrecht",
+  "description": null,
+  "doors": "2026-10-24T19:30:00+02:00",
+  "end": "2026-10-24T23:00:00+02:00",
+  "extra": {},
+  "genres": [
+   "New Wave",
+   "Tribute"
+  ],
+  "image": "https://dehelling.nl/app/uploads/2025/09/website-beeld-Joy-Division-Undercover-680x400.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 22.0,
+   "min_eur": 22.0,
+   "text": null
+  },
+  "room": null,
+  "source_id": "joy-division-undercover-24-10-2026",
+  "start": "2026-10-24T20:30:00+02:00",
+  "status": "scheduled",
+  "subtitle": "Doorgewinterde muzikanten brengen een ode aan de pioniers van de new wave",
+  "support": [],
+  "ticket_url": "https://dehelling.stager.co/shop/default/events/111552298",
+  "title": "Joy Division Undercover",
+  "url": "https://dehelling.nl/agenda/joy-division-undercover-24-10-2026/",
+  "venue": "helling"
+ },
+ {
+  "availability": "unknown",
+  "categories": [
+   "Club"
+  ],
+  "city": "Utrecht",
+  "description": null,
+  "doors": null,
+  "end": "2026-10-25T04:00:00+01:00",
+  "extra": {},
+  "genres": [
+   "Reggae/Dancehall/Afro/Latin"
+  ],
+  "image": "https://dehelling.nl/app/uploads/2026/09/824073117_1402955261985552_1332364553906571698_n-680x400.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 13.54,
+   "min_eur": 13.54,
+   "text": null
+  },
+  "room": null,
+  "source_id": "tropenrooster-24-10-2026",
+  "start": "2026-10-24T23:00:00+02:00",
+  "status": "scheduled",
+  "subtitle": "De heetste latin, dancehall en afro",
+  "support": [],
+  "ticket_url": "https://dehelling.stager.co/shop/default/events/111606171",
+  "title": "Tropenrooster",
+  "url": "https://dehelling.nl/agenda/tropenrooster-24-10-2026/",
+  "venue": "helling"
+ },
+ {
+  "availability": "unknown",
+  "categories": [
+   "Concert"
+  ],
+  "city": "Utrecht",
+  "description": null,
+  "doors": "2026-10-30T18:30:00+01:00",
+  "end": "2026-10-30T23:00:00+01:00",
+  "extra": {},
+  "genres": [
+   "Heavy"
+  ],
+  "image": "https://dehelling.nl/app/uploads/2026/06/Sitebeeld_Nasty-680x400.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 28.5,
+   "min_eur": 28.5,
+   "text": null
+  },
+  "room": null,
+  "source_id": "nasty-crawlspace-pintglass-premonition-30-10-2026",
+  "start": "2026-10-30T19:00:00+01:00",
+  "status": "scheduled",
+  "subtitle": "Belgische beatdown-hardcore vol adrenaline",
+  "support": [],
+  "ticket_url": "https://dehelling.stager.co/shop/default/events/111637751",
+  "title": "Nasty + Crawlspace + Pintglass + Premonition",
+  "url": "https://dehelling.nl/agenda/nasty-crawlspace-pintglass-premonition-30-10-2026/",
+  "venue": "helling"
+ },
+ {
+  "availability": "unknown",
+  "categories": [
+   "Club"
+  ],
+  "city": "Utrecht",
+  "description": null,
+  "doors": null,
+  "end": "2026-10-31T05:00:00+01:00",
+  "extra": {},
+  "genres": [
+   "latin/neoperreo/cumbia/baile funk"
+  ],
+  "image": "https://dehelling.nl/app/uploads/2026/09/PERRX-FLYER-MONSTRUAL-banner-680x400.jpeg",
+  "performers": [],
+  "price": {
+   "max_eur": 16.5,
+   "min_eur": 16.5,
+   "text": null
+  },
+  "room": null,
+  "source_id": "perrx-halloween-edition-30-10-2026",
+  "start": "2026-10-30T23:59:00+01:00",
+  "status": "scheduled",
+  "subtitle": "PERRX: a Queer (kuir) Latinx party bringing inclusivity, safety, and revolutionary joy to Utrecht nightlife through Latin rhythms and sexy spaces.",
+  "support": [],
+  "ticket_url": "https://dehelling.stager.co/shop/default/events/111610783",
+  "title": "Perrx Halloween Edition",
+  "url": "https://dehelling.nl/agenda/perrx-halloween-edition-30-10-2026/",
+  "venue": "helling"
+ },
+ {
+  "availability": "unknown",
+  "categories": [
+   "Concert"
+  ],
+  "city": "Utrecht",
+  "description": null,
+  "doors": "2026-10-31T19:30:00+01:00",
+  "end": "2026-10-31T23:00:00+01:00",
+  "extra": {},
+  "genres": [
+   "Hiphop",
+   "Trap"
+  ],
+  "image": "https://dehelling.nl/app/uploads/2026/04/Sitebeeld_Bartofso-680x400.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 20.0,
+   "min_eur": 20.0,
+   "text": null
+  },
+  "room": null,
+  "source_id": "bartofso-31-10-2026",
+  "start": "2026-10-31T20:00:00+01:00",
+  "status": "cancelled",
+  "subtitle": "Gemaskerde rapper tilt Haagse trapsound naar een nieuw level",
+  "support": [],
+  "ticket_url": "https://dehelling.stager.co/shop/default/events/111627235",
+  "title": "Bartofso",
+  "url": "https://dehelling.nl/agenda/bartofso-31-10-2026/",
+  "venue": "helling"
+ },
+ {
+  "availability": "unknown",
+  "categories": [
+   "Club"
+  ],
+  "city": "Utrecht",
+  "description": null,
+  "doors": null,
+  "end": "2026-11-01T05:00:00+01:00",
+  "extra": {},
+  "genres": [
+   "House/Techno/Disco",
+   "LHBTQIA+"
+  ],
+  "image": "https://dehelling.nl/app/uploads/2026/10/260116-BC-FNL-LOWRES-184-680x400.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 18.0,
+   "min_eur": 18.0,
+   "text": null
+  },
+  "room": null,
+  "source_id": "paardenrave-halloween-edition-31-10-2026",
+  "start": "2026-10-31T23:00:00+01:00",
+  "status": "scheduled",
+  "subtitle": "Flamboyante rodeo vol high-energy genre-fluid dj's en performances",
+  "support": [],
+  "ticket_url": "https://dehelling.stager.co/shop/default/events/111704710",
+  "title": "Paardenrave Halloween Edition",
+  "url": "https://dehelling.nl/agenda/paardenrave-halloween-edition-31-10-2026/",
+  "venue": "helling"
+ },
+ {
+  "availability": "unknown",
+  "categories": [
+   "Festival"
+  ],
+  "city": "Utrecht",
+  "description": null,
+  "doors": "2026-11-01T15:00:00+01:00",
+  "end": "2026-11-01T23:00:00+01:00",
+  "extra": {},
+  "genres": [
+   "Heavy"
+  ],
+  "image": "https://dehelling.nl/app/uploads/2026/06/DH-Momentum-Nov-1360x800-1-680x400.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 27.5,
+   "min_eur": 27.5,
+   "text": null
+  },
+  "room": null,
+  "source_id": "momentum-iii-potochkine-vioflesh-silent-runners-01-11-2026",
+  "start": "2026-11-01T15:45:00+01:00",
+  "status": "scheduled",
+  "subtitle": "Mini new wave/postpunkfestival met o.a. Potochkine, Vioflesh en Dear Omen",
+  "support": [],
+  "ticket_url": "https://dehelling.stager.co/shop/default/events/111585212",
+  "title": "Momentum III – Potochkine + Vioflesh + Silent Runners",
+  "url": "https://dehelling.nl/agenda/momentum-iii-potochkine-vioflesh-silent-runners-01-11-2026/",
+  "venue": "helling"
+ },
+ {
+  "availability": "unknown",
+  "categories": [
+   "Concert"
+  ],
+  "city": "Utrecht",
+  "description": null,
+  "doors": "2026-11-05T19:30:00+01:00",
+  "end": "2026-11-05T23:00:00+01:00",
+  "extra": {},
+  "genres": [
+   "Indie",
+   "Pop"
+  ],
+  "image": "https://dehelling.nl/app/uploads/2026/04/sitebeeld_ciao_Lucifer-680x400.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 18.5,
+   "min_eur": 18.5,
+   "text": null
+  },
+  "room": null,
+  "source_id": "ciao-lucifer-05-11-2026",
+  "start": "2026-11-05T20:15:00+01:00",
+  "status": "scheduled",
+  "subtitle": "Amsterdams indiepopduo draagt de titel ‘feelgoodband’ met trots",
+  "support": [],
+  "ticket_url": "https://dehelling.stager.co/shop/default/events/111566511",
+  "title": "Ciao Lucifer",
+  "url": "https://dehelling.nl/agenda/ciao-lucifer-05-11-2026/",
+  "venue": "helling"
+ },
+ {
+  "availability": "unknown",
+  "categories": [
+   "Festival"
+  ],
+  "city": "Utrecht",
+  "description": null,
+  "doors": null,
+  "end": "2026-11-07T00:00:00+01:00",
+  "extra": {},
+  "genres": [
+   "Experimental",
+   "Hiphop/R&B"
+  ],
+  "image": "https://dehelling.nl/app/uploads/2026/08/1.-LGW-Sign-Noah-Schielen-680x400.jpg",
+  "performers": [],
+  "price": null,
+  "room": null,
+  "source_id": "le-guess-who-2026-06-11-2026",
+  "start": "2026-11-06T10:00:00+01:00",
+  "status": "scheduled",
+  "subtitle": "20e jubileumeditie - vrijdag",
+  "support": [],
+  "ticket_url": null,
+  "title": "Le Guess Who? 2026",
+  "url": "https://dehelling.nl/agenda/le-guess-who-2026-06-11-2026/",
+  "venue": "helling"
+ },
+ {
+  "availability": "unknown",
+  "categories": [
+   "Festival"
+  ],
+  "city": "Utrecht",
+  "description": null,
+  "doors": null,
+  "end": "2026-11-08T00:00:00+01:00",
+  "extra": {},
+  "genres": [
+   "Experimental",
+   "Hiphop/R&B"
+  ],
+  "image": "https://dehelling.nl/app/uploads/2026/08/1.-LGW-Sign-Noah-Schielen-680x400.jpg",
+  "performers": [],
+  "price": null,
+  "room": null,
+  "source_id": "le-guess-who-2026-07-11-2026",
+  "start": "2026-11-07T10:00:00+01:00",
+  "status": "scheduled",
+  "subtitle": "20e jubileumeditie - zaterdag",
+  "support": [],
+  "ticket_url": null,
+  "title": "Le Guess Who? 2026",
+  "url": "https://dehelling.nl/agenda/le-guess-who-2026-07-11-2026/",
+  "venue": "helling"
+ },
+ {
+  "availability": "unknown",
+  "categories": [
+   "Club"
+  ],
+  "city": "Utrecht",
+  "description": null,
+  "doors": null,
+  "end": "2026-11-08T06:00:00+01:00",
+  "extra": {},
+  "genres": [
+   "Bass Music",
+   "Tekno"
+  ],
+  "image": "https://dehelling.nl/app/uploads/2026/06/FreaX_20261107_de_helling-680x400.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 17.5,
+   "min_eur": 17.5,
+   "text": null
+  },
+  "room": null,
+  "source_id": "freax-07-11-2026",
+  "start": "2026-11-07T23:00:00+01:00",
+  "status": "scheduled",
+  "subtitle": "Frequency shift",
+  "support": [],
+  "ticket_url": "https://dehelling.stager.co/shop/default/events/111637734",
+  "title": "FreaX",
+  "url": "https://dehelling.nl/agenda/freax-07-11-2026/",
+  "venue": "helling"
+ },
+ {
+  "availability": "unknown",
+  "categories": [
+   "Concert"
+  ],
+  "city": "Utrecht",
+  "description": null,
+  "doors": "2026-11-08T19:30:00+01:00",
+  "end": "2026-11-08T23:00:00+01:00",
+  "extra": {},
+  "genres": [
+   "Indie",
+   "Electro"
+  ],
+  "image": "https://dehelling.nl/app/uploads/2026/05/sitebeeld_Ghostly_Kisses-680x400.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 24.0,
+   "min_eur": 24.0,
+   "text": null
+  },
+  "room": null,
+  "source_id": "ghostly-kisses-08-11-2026",
+  "start": "2026-11-08T20:15:00+01:00",
+  "status": "scheduled",
+  "subtitle": "Minimalistische fluister-indie vol grote gevoelens",
+  "support": [],
+  "ticket_url": "https://dehelling.stager.co/shop/default/events/111650844",
+  "title": "Ghostly Kisses",
+  "url": "https://dehelling.nl/agenda/ghostly-kisses-08-11-2026/",
+  "venue": "helling"
+ },
+ {
+  "availability": "unknown",
+  "categories": [
+   "Concert"
+  ],
+  "city": "Utrecht",
+  "description": null,
+  "doors": "2026-11-10T19:30:00+01:00",
+  "end": "2026-11-10T23:00:00+01:00",
+  "extra": {},
+  "genres": [
+   "Pop",
+   "Rock"
+  ],
+  "image": "https://dehelling.nl/app/uploads/2026/05/Sitebeeld_Ash-680x400.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 32.5,
+   "min_eur": 32.5,
+   "text": null
+  },
+  "room": null,
+  "source_id": "ash-1977-30th-anniversary-show-10-11-2026",
+  "start": "2026-11-10T20:15:00+01:00",
+  "status": "scheduled",
+  "subtitle": "Noord-Ierse Britrockers vieren de dertigste verjaardag van hun debuut in stijl",
+  "support": [],
+  "ticket_url": "https://dehelling.stager.co/shop/default/events/111638411",
+  "title": "ASH – 1977 30th anniversary show",
+  "url": "https://dehelling.nl/agenda/ash-1977-30th-anniversary-show-10-11-2026/",
+  "venue": "helling"
+ },
+ {
+  "availability": "sold_out",
+  "categories": [
+   "Concert"
+  ],
+  "city": "Utrecht",
+  "description": null,
+  "doors": "2026-11-12T19:00:00+01:00",
+  "end": "2026-11-12T23:00:00+01:00",
+  "extra": {},
+  "genres": [
+   "Rock"
+  ],
+  "image": "https://dehelling.nl/app/uploads/2026/05/sitebeeld_Boris-680x400.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 29.5,
+   "min_eur": 29.5,
+   "text": null
+  },
+  "room": null,
+  "source_id": "boris-pink-20th-anniversary-tour-planning-to-burial-12-11-2026",
+  "start": "2026-11-12T20:00:00+01:00",
+  "status": "scheduled",
+  "subtitle": "Japanse metal-duizendpoten vieren 20-jarig bestaan van hun beste album",
+  "support": [],
+  "ticket_url": "https://dehelling.stager.co/shop/default/events/111623474",
+  "title": "BORIS – PINK 20th Anniversary Tour + Planning To Burial",
+  "url": "https://dehelling.nl/agenda/boris-pink-20th-anniversary-tour-planning-to-burial-12-11-2026/",
+  "venue": "helling"
+ },
+ {
+  "availability": "unknown",
+  "categories": [
+   "Club"
+  ],
+  "city": "Utrecht",
+  "description": null,
+  "doors": null,
+  "end": "2026-11-14T06:00:00+01:00",
+  "extra": {},
+  "genres": [
+   "Hi-Tech",
+   "Psytrance"
+  ],
+  "image": "https://dehelling.nl/app/uploads/2026/03/UJ-copy-1-680x400.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 20.0,
+   "min_eur": 20.0,
+   "text": null
+  },
+  "room": null,
+  "source_id": "voidborn-vi-13-11-2026",
+  "start": "2026-11-13T23:59:00+01:00",
+  "status": "scheduled",
+  "subtitle": "Psychedelic Night",
+  "support": [],
+  "ticket_url": "https://dehelling.stager.co/shop/default/events/111599826",
+  "title": "VOIDBORN VI",
+  "url": "https://dehelling.nl/agenda/voidborn-vi-13-11-2026/",
+  "venue": "helling"
+ },
+ {
+  "availability": "unknown",
+  "categories": [
+   "Club"
+  ],
+  "city": "Utrecht",
+  "description": null,
+  "doors": null,
+  "end": "2026-11-15T05:00:00+01:00",
+  "extra": {},
+  "genres": [
+   "House/Techno/Disco"
+  ],
+  "image": "https://dehelling.nl/app/uploads/2026/08/Getikt-nieuw-sitebeeld-680x400.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 12.95,
+   "min_eur": 12.95,
+   "text": null
+  },
+  "room": null,
+  "source_id": "getikt-14-11-2026",
+  "start": "2026-11-14T23:00:00+01:00",
+  "status": "scheduled",
+  "subtitle": "Utrechts Hottest Clubnight W// Newtone & Kara Okay",
+  "support": [],
+  "ticket_url": "https://dehelling.stager.co/shop/default/events/111606263",
+  "title": "GETiKT",
+  "url": "https://dehelling.nl/agenda/getikt-14-11-2026/",
+  "venue": "helling"
+ },
+ {
+  "availability": "unknown",
+  "categories": [
+   "Concert"
+  ],
+  "city": "Utrecht",
+  "description": null,
+  "doors": "2026-11-15T15:30:00+01:00",
+  "end": "2026-11-15T18:00:00+01:00",
+  "extra": {},
+  "genres": [
+   "Indie",
+   "Pop"
+  ],
+  "image": "https://dehelling.nl/app/uploads/2026/08/HeleenPLAY_header_1360x800_6-2-680x400.jpg",
+  "performers": [],
+  "price": null,
+  "room": null,
+  "source_id": "heleen-play-ils-kiik-15-11-2026",
+  "start": "2026-11-15T16:00:00+01:00",
+  "status": "scheduled",
+  "subtitle": "Maandelijkse muzikale samenwerking met restaurant LE:EN",
+  "support": [],
+  "ticket_url": null,
+  "title": "HE:LEEN Play – Ils & KIIK",
+  "url": "https://dehelling.nl/agenda/heleen-play-ils-kiik-15-11-2026/",
+  "venue": "helling"
+ },
+ {
+  "availability": "unknown",
+  "categories": [
+   "Concert"
+  ],
+  "city": "Utrecht",
+  "description": null,
+  "doors": "2026-11-18T19:30:00+01:00",
+  "end": "2026-11-18T23:00:00+01:00",
+  "extra": {},
+  "genres": [
+   "Spoken Word",
+   "Live EDM"
+  ],
+  "image": "https://dehelling.nl/app/uploads/2026/04/sitebeeld_Joshua_Idehen-680x400.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 19.5,
+   "min_eur": 19.5,
+   "text": null
+  },
+  "room": null,
+  "source_id": "joshua-idehen-18-11-2026",
+  "start": "2026-11-18T20:15:00+01:00",
+  "status": "scheduled",
+  "subtitle": "Poëtische clubfilosoof veegt de (dans)vloer aan met het kwaad",
+  "support": [],
+  "ticket_url": "https://dehelling.stager.co/shop/default/events/111630125",
+  "title": "Joshua Idehen",
+  "url": "https://dehelling.nl/agenda/joshua-idehen-18-11-2026/",
+  "venue": "helling"
+ },
+ {
+  "availability": "unknown",
+  "categories": [
+   "Concert"
+  ],
+  "city": "Utrecht",
+  "description": null,
+  "doors": "2026-11-19T19:30:00+01:00",
+  "end": "2026-11-19T23:00:00+01:00",
+  "extra": {},
+  "genres": [
+   "Indie",
+   "Pop"
+  ],
+  "image": "https://dehelling.nl/app/uploads/2026/05/sitebeeld_Muylike-680x400.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 17.5,
+   "min_eur": 17.5,
+   "text": null
+  },
+  "room": null,
+  "source_id": "muylike-support-dolphin-love-19-11-2026",
+  "start": "2026-11-19T20:15:00+01:00",
+  "status": "scheduled",
+  "subtitle": "Indiedarling van Utrechtse bodem presenteert z’n beste album tot nu toe",
+  "support": [],
+  "ticket_url": "https://dehelling.stager.co/shop/default/events/111621766",
+  "title": "Muylike + support Dolphin Love",
+  "url": "https://dehelling.nl/agenda/muylike-support-dolphin-love-19-11-2026/",
+  "venue": "helling"
+ },
+ {
+  "availability": "unknown",
+  "categories": [
+   "Concert"
+  ],
+  "city": "Utrecht",
+  "description": null,
+  "doors": "2026-11-20T19:30:00+01:00",
+  "end": "2026-11-20T23:00:00+01:00",
+  "extra": {},
+  "genres": [
+   "Punk",
+   "rap"
+  ],
+  "image": "https://dehelling.nl/app/uploads/2026/08/sitebeeld_Krav_Boca-2-680x400.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 16.5,
+   "min_eur": 16.5,
+   "text": null
+  },
+  "room": null,
+  "source_id": "krav-boca-emirhan-x-20-11-2026",
+  "start": "2026-11-20T20:15:00+01:00",
+  "status": "scheduled",
+  "subtitle": "Achtkoppig rap-punk circus geeft een gemaskerde kopstoot in het gezicht van het establishment",
+  "support": [],
+  "ticket_url": "https://dehelling.stager.co/shop/default/events/111680914",
+  "title": "Krav Boca + Emirhan X",
+  "url": "https://dehelling.nl/agenda/krav-boca-emirhan-x-20-11-2026/",
+  "venue": "helling"
+ },
+ {
+  "availability": "sold_out",
+  "categories": [
+   "Concert"
+  ],
+  "city": "Utrecht",
+  "description": null,
+  "doors": "2026-11-21T19:00:00+01:00",
+  "end": "2026-11-21T23:00:00+01:00",
+  "extra": {},
+  "genres": [
+   "Alternative",
+   "Rock"
+  ],
+  "image": "https://dehelling.nl/app/uploads/2026/07/sitbeeld-680x400.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 20.0,
+   "min_eur": 20.0,
+   "text": null
+  },
+  "room": null,
+  "source_id": "violent-vira-support-cl_audio_dj-21-11-2026",
+  "start": "2026-11-21T19:45:00+01:00",
+  "status": "scheduled",
+  "subtitle": "Duistere altrockzangeres met songteksten die druipen van het bloed",
+  "support": [],
+  "ticket_url": "https://dehelling.stager.co/shop/default/events/111650215",
+  "title": "Violent Vira + support cl_audio_dj",
+  "url": "https://dehelling.nl/agenda/violent-vira-support-cl_audio_dj-21-11-2026/",
+  "venue": "helling"
+ },
+ {
+  "availability": "unknown",
+  "categories": [
+   "Concert"
+  ],
+  "city": "Utrecht",
+  "description": null,
+  "doors": null,
+  "end": "2026-11-22T18:00:00+01:00",
+  "extra": {},
+  "genres": [
+   "Global sounds",
+   "Jazz"
+  ],
+  "image": "https://dehelling.nl/app/uploads/2026/09/FLU_de-Helling_2026-680x400.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 15.5,
+   "min_eur": 15.5,
+   "text": null
+  },
+  "room": null,
+  "source_id": "fiesta-latina-26-22-11-2026",
+  "start": "2026-11-22T13:00:00+01:00",
+  "status": "scheduled",
+  "subtitle": "Latin bands laten langs de Vaartsche Rijn de palmen wuiven. Vamos a gozarrr!",
+  "support": [],
+  "ticket_url": "https://dehelling.stager.co/shop/default/events/111610446",
+  "title": "Fiesta Latina ’26",
+  "url": "https://dehelling.nl/agenda/fiesta-latina-26-22-11-2026/",
+  "venue": "helling"
+ },
+ {
+  "availability": "unknown",
+  "categories": [
+   "OPEN"
+  ],
+  "city": "Utrecht",
+  "description": null,
+  "doors": "2026-11-26T19:30:00+01:00",
+  "end": "2026-11-26T23:30:00+01:00",
+  "extra": {},
+  "genres": [
+   "Jazz",
+   "Grunge",
+   "Anders"
+  ],
+  "image": "https://dehelling.nl/app/uploads/2026/09/Startblok_banner-2-680x400.jpg",
+  "performers": [],
+  "price": null,
+  "room": null,
+  "source_id": "startblok-finale-26-11-2026",
+  "start": "2026-11-26T20:15:00+01:00",
+  "status": "scheduled",
+  "subtitle": "Utrechts muzikaal talent strijdt om de eerste plek in de finale van Startblok 2026",
+  "support": [],
+  "ticket_url": null,
+  "title": "Startblok Finale",
+  "url": "https://dehelling.nl/agenda/startblok-finale-26-11-2026/",
+  "venue": "helling"
+ },
+ {
+  "availability": "unknown",
+  "categories": [
+   "Club"
+  ],
+  "city": "Utrecht",
+  "description": null,
+  "doors": null,
+  "end": "2026-11-28T04:00:00+01:00",
+  "extra": {},
+  "genres": [
+   "LHBTQIA+",
+   "Pop"
+  ],
+  "image": "https://dehelling.nl/app/uploads/2026/09/PannBanner-2-680x400.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 14.64,
+   "min_eur": 14.64,
+   "text": null
+  },
+  "room": null,
+  "source_id": "pann-25-27-11-2026",
+  "start": "2026-11-27T22:00:00+01:00",
+  "status": "scheduled",
+  "subtitle": "Het leukste LHBTQIA+ event van Nederland",
+  "support": [],
+  "ticket_url": "https://dehelling.stager.co/shop/default/events/111584684",
+  "title": "PANN 25+",
+  "url": "https://dehelling.nl/agenda/pann-25-27-11-2026/",
+  "venue": "helling"
+ },
+ {
+  "availability": "unknown",
+  "categories": [
+   "Concert"
+  ],
+  "city": "Utrecht",
+  "description": null,
+  "doors": "2026-11-28T19:30:00+01:00",
+  "end": "2026-11-28T23:00:00+01:00",
+  "extra": {},
+  "genres": [
+   "Roots",
+   "Tribute"
+  ],
+  "image": "https://dehelling.nl/app/uploads/2026/03/site-680x400.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 23.5,
+   "min_eur": 23.5,
+   "text": null
+  },
+  "room": null,
+  "source_id": "the-hillbilly-moonshiners-28-11-2026",
+  "start": "2026-11-28T20:45:00+01:00",
+  "status": "scheduled",
+  "subtitle": "Je favoriete hits in een bruinleren bluegrassjasje",
+  "support": [],
+  "ticket_url": "https://dehelling.stager.co/shop/default/events/111600397",
+  "title": "The Hillbilly Moonshiners",
+  "url": "https://dehelling.nl/agenda/the-hillbilly-moonshiners-28-11-2026/",
+  "venue": "helling"
+ },
+ {
+  "availability": "unknown",
+  "categories": [
+   "Club"
+  ],
+  "city": "Utrecht",
+  "description": null,
+  "doors": null,
+  "end": "2026-11-29T04:00:00+01:00",
+  "extra": {},
+  "genres": [
+   "House/Techno/Disco",
+   "Pop"
+  ],
+  "image": "https://dehelling.nl/app/uploads/2026/09/De-Helling-10EuroDance-261128-banner-1360x800-1-680x400.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 10.0,
+   "min_eur": 10.0,
+   "text": null
+  },
+  "room": null,
+  "source_id": "10eurodance-28-11-2026",
+  "start": "2026-11-28T23:30:00+01:00",
+  "status": "scheduled",
+  "subtitle": "Ongegeneerd losgaan op de beste 90's eurodance hits en club bangers",
+  "support": [],
+  "ticket_url": "https://dehelling.stager.co/shop/default/events/111667082",
+  "title": "10EURODANCE",
+  "url": "https://dehelling.nl/agenda/10eurodance-28-11-2026/",
+  "venue": "helling"
+ },
+ {
+  "availability": "unknown",
+  "categories": [
+   "Concert"
+  ],
+  "city": "Utrecht",
+  "description": null,
+  "doors": "2026-11-30T19:30:00+01:00",
+  "end": "2026-11-30T23:00:00+01:00",
+  "extra": {},
+  "genres": [
+   "Bluegrass",
+   "Blues/Americana"
+  ],
+  "image": "https://dehelling.nl/app/uploads/2026/07/tophouse-website-beeld-680x400.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 22.5,
+   "min_eur": 22.5,
+   "text": null
+  },
+  "room": null,
+  "source_id": "tophouse-30-11-2026",
+  "start": "2026-11-30T20:15:00+01:00",
+  "status": "scheduled",
+  "subtitle": "Moderne troubadours steken folk en bluegrass in een poppy houthakkersjasje",
+  "support": [],
+  "ticket_url": "https://dehelling.stager.co/shop/default/events/111662058",
+  "title": "Tophouse",
+  "url": "https://dehelling.nl/agenda/tophouse-30-11-2026/",
+  "venue": "helling"
+ },
+ {
+  "availability": "unknown",
+  "categories": [
+   "Concert"
+  ],
+  "city": "Utrecht",
+  "description": null,
+  "doors": "2026-12-03T19:30:00+01:00",
+  "end": "2026-12-03T23:00:00+01:00",
+  "extra": {},
+  "genres": [
+   "Industrial synthpop",
+   "Heavy"
+  ],
+  "image": "https://dehelling.nl/app/uploads/2026/09/europe-2026-1-1-680x400.jpeg",
+  "performers": [],
+  "price": {
+   "max_eur": 27.5,
+   "min_eur": 27.5,
+   "text": null
+  },
+  "room": null,
+  "source_id": "spktr-03-12-2026",
+  "start": "2026-12-03T20:15:00+01:00",
+  "status": "scheduled",
+  "subtitle": "Absolute industrial-legende uit de 70’s en 80’s begint aan een nieuw leven",
+  "support": [],
+  "ticket_url": "https://dehelling.stager.co/shop/default/events/111687762",
+  "title": "SPKtR",
+  "url": "https://dehelling.nl/agenda/spktr-03-12-2026/",
+  "venue": "helling"
+ },
+ {
+  "availability": "unknown",
+  "categories": [
+   "Concert"
+  ],
+  "city": "Utrecht",
+  "description": null,
+  "doors": "2026-12-04T19:30:00+01:00",
+  "end": "2026-12-04T23:00:00+01:00",
+  "extra": {},
+  "genres": [
+   "Synthpop",
+   "Tribute"
+  ],
+  "image": "https://dehelling.nl/app/uploads/2026/04/site-crop-680x400.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 27.5,
+   "min_eur": 27.5,
+   "text": null
+  },
+  "room": null,
+  "source_id": "voxtechnik-04-12-2026",
+  "start": "2026-12-04T20:00:00+01:00",
+  "status": "scheduled",
+  "subtitle": "Synthpop half-mens-half-robotband neemt je mee naar de gouden dagen.",
+  "support": [],
+  "ticket_url": "https://dehelling.stager.co/shop/default/events/111629559",
+  "title": "VoxTechnik",
+  "url": "https://dehelling.nl/agenda/voxtechnik-04-12-2026/",
+  "venue": "helling"
+ },
+ {
+  "availability": "unknown",
+  "categories": [
+   "Club"
+  ],
+  "city": "Utrecht",
+  "description": null,
+  "doors": null,
+  "end": "2026-12-05T05:30:00+01:00",
+  "extra": {},
+  "genres": [
+   "Raw hardtechno, industrial and schranz"
+  ],
+  "image": "https://dehelling.nl/app/uploads/2026/10/banner-styass-680x400.jpeg",
+  "performers": [],
+  "price": {
+   "max_eur": 27.45,
+   "min_eur": 27.45,
+   "text": null
+  },
+  "room": null,
+  "source_id": "styass-unscripted-04-12-2026",
+  "start": "2026-12-04T23:30:00+01:00",
+  "status": "scheduled",
+  "subtitle": "Raw hardtechno, industrial and schranz in an immersive Boiler Room setting.",
+  "support": [],
+  "ticket_url": "https://dehelling.stager.co/shop/default/events/111668766",
+  "title": "STYASS UNSCRIPTED",
+  "url": "https://dehelling.nl/agenda/styass-unscripted-04-12-2026/",
+  "venue": "helling"
+ },
+ {
+  "availability": "unknown",
+  "categories": [
+   "Concert"
+  ],
+  "city": "Utrecht",
+  "description": null,
+  "doors": "2026-12-07T19:30:00+01:00",
+  "end": "2026-12-07T23:00:00+01:00",
+  "extra": {},
+  "genres": [
+   "Folk Metal",
+   "Irish Rock"
+  ],
+  "image": "https://dehelling.nl/app/uploads/2026/04/sitebeeld-1-680x400.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 21.5,
+   "min_eur": 21.5,
+   "text": null
+  },
+  "room": null,
+  "source_id": "the-scratch-07-12-2026",
+  "start": "2026-12-07T20:15:00+01:00",
+  "status": "scheduled",
+  "subtitle": "Oer-Ierse folkmetalheads met het hart op de juiste plek",
+  "support": [],
+  "ticket_url": "https://dehelling.stager.co/shop/default/events/111592012",
+  "title": "The Scratch",
+  "url": "https://dehelling.nl/agenda/the-scratch-07-12-2026/",
+  "venue": "helling"
+ },
+ {
+  "availability": "unknown",
+  "categories": [
+   "Concert"
+  ],
+  "city": "Utrecht",
+  "description": null,
+  "doors": "2026-12-10T19:30:00+01:00",
+  "end": "2026-12-10T23:00:00+01:00",
+  "extra": {},
+  "genres": [
+   "Funk/Soul",
+   "Pop"
+  ],
+  "image": "https://dehelling.nl/app/uploads/2026/03/warbuhl_new-680x400.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 17.5,
+   "min_eur": 17.5,
+   "text": null
+  },
+  "room": null,
+  "source_id": "warbuhl-10-12-2026",
+  "start": "2026-12-10T20:00:00+01:00",
+  "status": "scheduled",
+  "subtitle": "Nederpop-chaos waar je vrolijk van wordt",
+  "support": [],
+  "ticket_url": "https://dehelling.stager.co/shop/default/events/111633183",
+  "title": "Warbuhl",
+  "url": "https://dehelling.nl/agenda/warbuhl-10-12-2026/",
+  "venue": "helling"
+ },
+ {
+  "availability": "unknown",
+  "categories": [
+   "Concert"
+  ],
+  "city": "Utrecht",
+  "description": null,
+  "doors": "2026-12-12T19:30:00+01:00",
+  "end": "2026-12-12T22:00:00+01:00",
+  "extra": {},
+  "genres": [
+   "Tribute"
+  ],
+  "image": "https://dehelling.nl/app/uploads/2025/09/website-header-The-Smiths-Presumably-680x400.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 22.5,
+   "min_eur": 22.5,
+   "text": null
+  },
+  "room": null,
+  "source_id": "the-smiths-presumably-12-12-2026",
+  "start": "2026-12-12T20:30:00+01:00",
+  "status": "scheduled",
+  "subtitle": "Smiths-tributeband met internationale reputatie",
+  "support": [],
+  "ticket_url": "https://dehelling.stager.co/shop/default/events/111569809",
+  "title": "The Smiths Presumably",
+  "url": "https://dehelling.nl/agenda/the-smiths-presumably-12-12-2026/",
+  "venue": "helling"
+ },
+ {
+  "availability": "unknown",
+  "categories": [
+   "Club"
+  ],
+  "city": "Utrecht",
+  "description": null,
+  "doors": null,
+  "end": "2026-12-13T03:00:00+01:00",
+  "extra": {},
+  "genres": [
+   "Pop",
+   "Rock"
+  ],
+  "image": "https://dehelling.nl/app/uploads/2026/09/80s-1360x800-1-680x400.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 13.5,
+   "min_eur": 13.5,
+   "text": null
+  },
+  "room": null,
+  "source_id": "alternative-80s-12-12-2026",
+  "start": "2026-12-12T22:00:00+01:00",
+  "status": "scheduled",
+  "subtitle": "Alternative 80's hits zo uit je platenkast",
+  "support": [],
+  "ticket_url": "https://dehelling.stager.co/shop/default/events/111576229",
+  "title": "Alternative 80’s",
+  "url": "https://dehelling.nl/agenda/alternative-80s-12-12-2026/",
+  "venue": "helling"
+ },
+ {
+  "availability": "unknown",
+  "categories": [
+   "Club",
+   "Cross-over"
+  ],
+  "city": "Utrecht",
+  "description": null,
+  "doors": null,
+  "end": "2026-12-19T02:00:00+01:00",
+  "extra": {},
+  "genres": [
+   "Metalcore",
+   "Punkrock"
+  ],
+  "image": "https://dehelling.nl/app/uploads/2026/06/1812-Helling-1360x800-copy-1-680x400.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 16.5,
+   "min_eur": 16.5,
+   "text": null
+  },
+  "room": null,
+  "source_id": "no-barrier-x-mas-special-18-12-2026",
+  "start": "2026-12-18T21:00:00+01:00",
+  "status": "scheduled",
+  "subtitle": "Punk, Emo, Rock & Metalcore Christmas Party",
+  "support": [],
+  "ticket_url": "https://dehelling.stager.co/shop/default/events/111576715",
+  "title": "NO BARRIER X-MAS SPECIAL",
+  "url": "https://dehelling.nl/agenda/no-barrier-x-mas-special-18-12-2026/",
+  "venue": "helling"
+ },
+ {
+  "availability": "sold_out",
+  "categories": [
+   "Concert"
+  ],
+  "city": "Utrecht",
+  "description": null,
+  "doors": "2026-12-19T19:30:00+01:00",
+  "end": "2026-12-19T23:00:00+01:00",
+  "extra": {},
+  "genres": [
+   "Hiphop/R&B",
+   "Pop"
+  ],
+  "image": "https://dehelling.nl/app/uploads/2026/06/Sitebeeld_Isabel_Usher-680x400.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 19.5,
+   "min_eur": 19.5,
+   "text": null
+  },
+  "room": null,
+  "source_id": "isabel-usher-19-12-2026",
+  "start": "2026-12-19T20:00:00+01:00",
+  "status": "scheduled",
+  "subtitle": "Popster-in-wording met platinahit op zak",
+  "support": [],
+  "ticket_url": "https://dehelling.stager.co/shop/default/events/111638717",
+  "title": "Isabèl Usher",
+  "url": "https://dehelling.nl/agenda/isabel-usher-19-12-2026/",
+  "venue": "helling"
+ },
+ {
+  "availability": "unknown",
+  "categories": [
+   "Club"
+  ],
+  "city": "Utrecht",
+  "description": null,
+  "doors": null,
+  "end": "2026-12-27T02:00:00+01:00",
+  "extra": {},
+  "genres": [
+   "Pop",
+   "Rock"
+  ],
+  "image": "https://dehelling.nl/app/uploads/2026/10/80s-Kerst-FB-680x400.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 18.5,
+   "min_eur": 18.5,
+   "text": null
+  },
+  "room": null,
+  "source_id": "80s-verantwoord-26-12-2026",
+  "start": "2026-12-26T21:00:00+01:00",
+  "status": "scheduled",
+  "subtitle": "ÉXTRA GEZELLIGE KERSTEDITIE",
+  "support": [],
+  "ticket_url": "https://dehelling.stager.co/shop/default/events/111582523",
+  "title": "80s Verantwoord",
+  "url": "https://dehelling.nl/agenda/80s-verantwoord-26-12-2026/",
+  "venue": "helling"
+ },
+ {
+  "availability": "unknown",
+  "categories": [
+   "Club"
+  ],
+  "city": "Utrecht",
+  "description": null,
+  "doors": null,
+  "end": "2027-01-01T05:00:00+01:00",
+  "extra": {},
+  "genres": [
+   "House/Techno/Disco"
+  ],
+  "image": "https://dehelling.nl/app/uploads/2026/10/email@example.invalid",
+  "performers": [],
+  "price": {
+   "max_eur": 25.95,
+   "min_eur": 25.95,
+   "text": null
+  },
+  "room": null,
+  "source_id": "getikt-nye-31-12-2026",
+  "start": "2026-12-31T23:59:00+01:00",
+  "status": "scheduled",
+  "subtitle": "Utrechts hottest New Years Eve",
+  "support": [],
+  "ticket_url": "https://dehelling.stager.co/shop/default/events/111696602",
+  "title": "GETiKT NYE",
+  "url": "https://dehelling.nl/agenda/getikt-nye-31-12-2026/",
+  "venue": "helling"
+ },
+ {
+  "availability": "unknown",
+  "categories": [
+   "Club"
+  ],
+  "city": "Utrecht",
+  "description": null,
+  "doors": "2027-01-02T20:00:00+01:00",
+  "end": "2027-01-03T03:00:00+01:00",
+  "extra": {},
+  "genres": [
+   "House/Techno/Disco"
+  ],
+  "image": "https://dehelling.nl/app/uploads/2026/09/BANNER-2-680x400.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 15.0,
+   "min_eur": 15.0,
+   "text": null
+  },
+  "room": null,
+  "source_id": "honk-02-01-2027",
+  "start": "2027-01-02T21:00:00+01:00",
+  "status": "scheduled",
+  "subtitle": "HONK – Jouw nieuwe ‘thuis’ voor house",
+  "support": [],
+  "ticket_url": "https://dehelling.stager.co/shop/default/events/111668654",
+  "title": "HONK",
+  "url": "https://dehelling.nl/agenda/honk-02-01-2027/",
+  "venue": "helling"
+ },
+ {
+  "availability": "unknown",
+  "categories": [
+   "Concert"
+  ],
+  "city": "Utrecht",
+  "description": null,
+  "doors": "2027-01-08T19:30:00+01:00",
+  "end": "2027-01-08T23:00:00+01:00",
+  "extra": {},
+  "genres": [
+   "Punk",
+   "fanfare"
+  ],
+  "image": "https://dehelling.nl/app/uploads/2026/05/Sitebeeld-169-1-680x400.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 24.5,
+   "min_eur": 24.5,
+   "text": null
+  },
+  "room": null,
+  "source_id": "de-kift-speelt-de-eenzame-08-01-2027",
+  "start": "2027-01-08T20:15:00+01:00",
+  "status": "scheduled",
+  "subtitle": "De eenzaamste liedjes van De Kift",
+  "support": [],
+  "ticket_url": "https://dehelling.stager.co/shop/default/events/111646345",
+  "title": "De Kift Speelt ‘De Eenzame’",
+  "url": "https://dehelling.nl/agenda/de-kift-speelt-de-eenzame-08-01-2027/",
+  "venue": "helling"
+ },
+ {
+  "availability": "unknown",
+  "categories": [
+   "Concert"
+  ],
+  "city": "Utrecht",
+  "description": null,
+  "doors": "2027-01-21T19:30:00+01:00",
+  "end": "2027-01-21T23:00:00+01:00",
+  "extra": {},
+  "genres": [
+   "Rock",
+   "Folk"
+  ],
+  "image": "https://dehelling.nl/app/uploads/2026/04/Sitebeeld_Dave_Hause-680x400.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 24.5,
+   "min_eur": 24.5,
+   "text": null
+  },
+  "room": null,
+  "source_id": "dave-hause-sincere-engineer-21-01-2027",
+  "start": "2027-01-21T20:15:00+01:00",
+  "status": "scheduled",
+  "subtitle": "Punk-troubadour blijft zichzelf opnieuw uitvinden",
+  "support": [],
+  "ticket_url": "https://dehelling.stager.co/shop/default/events/111631996",
+  "title": "Dave Hause + Sincere Engineer",
+  "url": "https://dehelling.nl/agenda/dave-hause-sincere-engineer-21-01-2027/",
+  "venue": "helling"
+ },
+ {
+  "availability": "unknown",
+  "categories": [
+   "Concert"
+  ],
+  "city": "Utrecht",
+  "description": null,
+  "doors": "2027-01-23T19:30:00+01:00",
+  "end": "2027-01-23T23:00:00+01:00",
+  "extra": {},
+  "genres": [
+   "Hiphop/R&B",
+   "Jazz"
+  ],
+  "image": "https://dehelling.nl/app/uploads/2026/08/Sitebeeld_YongYello-680x400.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 25.0,
+   "min_eur": 25.0,
+   "text": null
+  },
+  "room": null,
+  "source_id": "yong-yello-23-01-2027",
+  "start": "2027-01-23T20:00:00+01:00",
+  "status": "scheduled",
+  "subtitle": "Antwerpse rapper neemt je mee door het spectrum van menselijke emoties",
+  "support": [],
+  "ticket_url": "https://dehelling.stager.co/shop/default/events/111659238",
+  "title": "Yong Yello",
+  "url": "https://dehelling.nl/agenda/yong-yello-23-01-2027/",
+  "venue": "helling"
+ },
+ {
+  "availability": "unknown",
+  "categories": [
+   "Concert"
+  ],
+  "city": "Utrecht",
+  "description": null,
+  "doors": "2027-01-31T19:00:00+01:00",
+  "end": "2027-01-31T23:00:00+01:00",
+  "extra": {},
+  "genres": [
+   "Heavy"
+  ],
+  "image": "https://dehelling.nl/app/uploads/2026/10/sitebeeld-680x400.jpeg",
+  "performers": [],
+  "price": {
+   "max_eur": 29.5,
+   "min_eur": 29.5,
+   "text": null
+  },
+  "room": null,
+  "source_id": "madmans-esprit-31-01-2027",
+  "start": "2027-01-31T19:45:00+01:00",
+  "status": "scheduled",
+  "subtitle": "Gitzwarte mix van avant-metal, extravagante kostuums en zware emoties",
+  "support": [],
+  "ticket_url": "https://dehelling.stager.co/shop/default/events/111685891",
+  "title": "Madmans Esprit",
+  "url": "https://dehelling.nl/agenda/madmans-esprit-31-01-2027/",
+  "venue": "helling"
+ },
+ {
+  "availability": "unknown",
+  "categories": [
+   "Concert"
+  ],
+  "city": "Utrecht",
+  "description": null,
+  "doors": "2027-02-06T19:30:00+01:00",
+  "end": "2027-02-06T23:00:00+01:00",
+  "extra": {},
+  "genres": [
+   "Funk/Soul",
+   "Rock"
+  ],
+  "image": "https://dehelling.nl/app/uploads/2026/10/rude_boy_sitebeeld-680x400.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 23.5,
+   "min_eur": 23.5,
+   "text": null
+  },
+  "room": null,
+  "source_id": "rudeboy-x-boskat-persona-non-grata-06-02-2027",
+  "start": "2027-02-06T20:15:00+01:00",
+  "status": "scheduled",
+  "subtitle": "Legendarisch UDS-album in een nieuw, pluizig jasje",
+  "support": [],
+  "ticket_url": "https://dehelling.stager.co/shop/default/events/111638923",
+  "title": "Rudeboy x Boskat – Persona Non Grata",
+  "url": "https://dehelling.nl/agenda/rudeboy-x-boskat-persona-non-grata-06-02-2027/",
+  "venue": "helling"
+ },
+ {
+  "availability": "unknown",
+  "categories": [
+   "Cross-over"
+  ],
+  "city": "Utrecht",
+  "description": null,
+  "doors": null,
+  "end": "2027-02-14T03:00:00+01:00",
+  "extra": {},
+  "genres": [
+   "Theater/Dans"
+  ],
+  "image": "https://dehelling.nl/app/uploads/2026/05/7J3A5668-680x400.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 32.4,
+   "min_eur": 32.4,
+   "text": null
+  },
+  "room": null,
+  "source_id": "international-burlesque-circus-13-02-2027",
+  "start": "2027-02-13T21:00:00+01:00",
+  "status": "scheduled",
+  "subtitle": "Vampire Empire Edition",
+  "support": [],
+  "ticket_url": "https://dehelling.stager.co/shop/default/events/111623139",
+  "title": "International Burlesque Circus",
+  "url": "https://dehelling.nl/agenda/international-burlesque-circus-13-02-2027/",
+  "venue": "helling"
+ },
+ {
+  "availability": "unknown",
+  "categories": [
+   "Concert"
+  ],
+  "city": "Utrecht",
+  "description": null,
+  "doors": "2027-02-15T19:30:00+01:00",
+  "end": "2027-02-15T23:00:00+01:00",
+  "extra": {},
+  "genres": [
+   "Indie"
+  ],
+  "image": "https://dehelling.nl/app/uploads/2026/09/HF28-680x400.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 19.5,
+   "min_eur": 19.5,
+   "text": null
+  },
+  "room": null,
+  "source_id": "hudson-freeman-15-02-2027",
+  "start": "2027-02-15T20:15:00+01:00",
+  "status": "scheduled",
+  "subtitle": "Veelbelovende folktroubadour uit het digitale tijdperk met full band",
+  "support": [],
+  "ticket_url": "https://dehelling.stager.co/shop/default/events/111664335",
+  "title": "Hudson Freeman",
+  "url": "https://dehelling.nl/agenda/hudson-freeman-15-02-2027/",
+  "venue": "helling"
+ },
+ {
+  "availability": "unknown",
+  "categories": [
+   "Concert"
+  ],
+  "city": "Utrecht",
+  "description": null,
+  "doors": "2027-02-25T19:30:00+01:00",
+  "end": "2027-02-25T23:00:00+01:00",
+  "extra": {},
+  "genres": [
+   "Psychedelic rock / progressive rock"
+  ],
+  "image": "https://dehelling.nl/app/uploads/2026/06/OZRICS-INSTAGRID-1-680x400.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 29.5,
+   "min_eur": 29.5,
+   "text": null
+  },
+  "room": null,
+  "source_id": "ozric-tentacles-25-02-2027",
+  "start": "2027-02-25T20:15:00+01:00",
+  "status": "scheduled",
+  "subtitle": "Kosmische rocklegendes nemen je mee op een instrumentale reis door ruimte en tijd",
+  "support": [],
+  "ticket_url": "https://dehelling.stager.co/shop/default/events/111623688",
+  "title": "Ozric Tentacles",
+  "url": "https://dehelling.nl/agenda/ozric-tentacles-25-02-2027/",
+  "venue": "helling"
+ },
+ {
+  "availability": "unknown",
+  "categories": [
+   "Concert"
+  ],
+  "city": "Utrecht",
+  "description": null,
+  "doors": "2027-02-26T19:30:00+01:00",
+  "end": "2027-02-26T23:00:00+01:00",
+  "extra": {},
+  "genres": [
+   "Indie"
+  ],
+  "image": "https://dehelling.nl/app/uploads/2026/08/sitebeeld_RIPE-680x400.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 20.5,
+   "min_eur": 20.5,
+   "text": null
+  },
+  "room": null,
+  "source_id": "ripe-26-02-2027",
+  "start": "2027-02-26T20:15:00+01:00",
+  "status": "scheduled",
+  "subtitle": "Funky partymachine met conservatorium-chops en kelderklasse-teamspirit",
+  "support": [],
+  "ticket_url": "https://dehelling.stager.co/shop/default/events/111664491",
+  "title": "Ripe",
+  "url": "https://dehelling.nl/agenda/ripe-26-02-2027/",
+  "venue": "helling"
+ },
+ {
+  "availability": "unknown",
+  "categories": [
+   "Concert"
+  ],
+  "city": "Utrecht",
+  "description": null,
+  "doors": "2027-03-05T19:30:00+01:00",
+  "end": "2027-03-05T23:00:00+01:00",
+  "extra": {},
+  "genres": [
+   "Heavy"
+  ],
+  "image": "https://dehelling.nl/app/uploads/2026/08/sitebeeld_Bloodred_Hourglass-680x400.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 27.5,
+   "min_eur": 27.5,
+   "text": null
+  },
+  "room": null,
+  "source_id": "bloodred-hourglass-05-03-2027",
+  "start": "2027-03-05T20:15:00+01:00",
+  "status": "scheduled",
+  "subtitle": "Drie ijskoude metalbands uit het Hoge Noorden",
+  "support": [],
+  "ticket_url": "https://dehelling.stager.co/shop/default/events/111655026",
+  "title": "Bloodred Hourglass",
+  "url": "https://dehelling.nl/agenda/bloodred-hourglass-05-03-2027/",
+  "venue": "helling"
+ },
+ {
+  "availability": "unknown",
+  "categories": [
+   "Concert"
+  ],
+  "city": "Utrecht",
+  "description": null,
+  "doors": "2027-03-13T19:00:00+01:00",
+  "end": "2027-03-13T22:00:00+01:00",
+  "extra": {},
+  "genres": [
+   "Global sounds",
+   "Jazz"
+  ],
+  "image": "https://dehelling.nl/app/uploads/2026/10/turn_the_dice_sitebeeld-680x400.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 22.5,
+   "min_eur": 22.5,
+   "text": null
+  },
+  "room": null,
+  "source_id": "turn-the-dice-iii-13-03-2027",
+  "start": "2027-03-13T19:30:00+01:00",
+  "status": "scheduled",
+  "subtitle": "Dans alle genres, kaders en hokjes van je af",
+  "support": [],
+  "ticket_url": "https://dehelling.stager.co/shop/default/events/111680073",
+  "title": "Turn The Dice III",
+  "url": "https://dehelling.nl/agenda/turn-the-dice-iii-13-03-2027/",
+  "venue": "helling"
+ },
+ {
+  "availability": "unknown",
+  "categories": [
+   "Concert"
+  ],
+  "city": "Utrecht",
+  "description": null,
+  "doors": "2027-03-22T19:30:00+01:00",
+  "end": "2027-03-22T23:00:00+01:00",
+  "extra": {},
+  "genres": [
+   "Pop",
+   "Tribute"
+  ],
+  "image": "https://dehelling.nl/app/uploads/2026/06/sitebeeld_Morgan_Wallen-680x400.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 31.5,
+   "min_eur": 31.5,
+   "text": null
+  },
+  "room": null,
+  "source_id": "morgan-wallen-tribute-22-03-2027",
+  "start": "2027-03-22T20:15:00+01:00",
+  "status": "scheduled",
+  "subtitle": "Ode aan de nieuwe country-superster",
+  "support": [],
+  "ticket_url": "https://dehelling.stager.co/shop/default/events/111659924",
+  "title": "Morgan Wallen Tribute",
+  "url": "https://dehelling.nl/agenda/morgan-wallen-tribute-22-03-2027/",
+  "venue": "helling"
+ },
+ {
+  "availability": "unknown",
+  "categories": [
+   "Concert"
+  ],
+  "city": "Utrecht",
+  "description": null,
+  "doors": "2027-03-28T19:30:00+02:00",
+  "end": "2027-03-28T23:00:00+02:00",
+  "extra": {},
+  "genres": [
+   "Indie",
+   "Pop"
+  ],
+  "image": "https://dehelling.nl/app/uploads/2026/09/ILUKA_sitebeeld-680x400.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 21.0,
+   "min_eur": 21.0,
+   "text": null
+  },
+  "room": null,
+  "source_id": "iluka-28-03-2027",
+  "start": "2027-03-28T20:15:00+02:00",
+  "status": "scheduled",
+  "subtitle": "Australische popcowgirl vol female rage",
+  "support": [],
+  "ticket_url": "https://dehelling.stager.co/shop/default/events/111664663",
+  "title": "ILUKA",
+  "url": "https://dehelling.nl/agenda/iluka-28-03-2027/",
+  "venue": "helling"
+ },
+ {
+  "availability": "sold_out",
+  "categories": [
+   "Concert"
+  ],
+  "city": "Utrecht",
+  "description": null,
+  "doors": "2027-04-02T19:30:00+02:00",
+  "end": "2027-04-02T23:00:00+02:00",
+  "extra": {},
+  "genres": [
+   "Ska Punk",
+   "Pop"
+  ],
+  "image": "https://dehelling.nl/app/uploads/2026/09/Sitebeeld_Politie_warnsveld-680x400.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 18.5,
+   "min_eur": 18.5,
+   "text": null
+  },
+  "room": null,
+  "source_id": "politie-warnsveld-02-04-2027",
+  "start": "2027-04-02T20:00:00+02:00",
+  "status": "scheduled",
+  "subtitle": "Skapunkers nemen feesten bloedserieus",
+  "support": [],
+  "ticket_url": "https://dehelling.stager.co/shop/default/events/111653294",
+  "title": "Politie Warnsveld",
+  "url": "https://dehelling.nl/agenda/politie-warnsveld-02-04-2027/",
+  "venue": "helling"
+ },
+ {
+  "availability": "unknown",
+  "categories": [
+   "Concert"
+  ],
+  "city": "Utrecht",
+  "description": null,
+  "doors": "2027-04-17T19:30:00+02:00",
+  "end": "2027-04-17T23:00:00+02:00",
+  "extra": {},
+  "genres": [
+   "Indie",
+   "Jazz"
+  ],
+  "image": "https://dehelling.nl/app/uploads/2026/08/sitebeeld_Buntspecht-680x400.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 24.5,
+   "min_eur": 24.5,
+   "text": null
+  },
+  "room": null,
+  "source_id": "buntspecht-17-04-2027",
+  "start": "2027-04-17T20:00:00+02:00",
+  "status": "scheduled",
+  "subtitle": "Oostenrijkse indiepopband zingt met bezieling over het absurdisme van het leven",
+  "support": [],
+  "ticket_url": "https://dehelling.stager.co/shop/default/events/111638609",
+  "title": "Buntspecht",
+  "url": "https://dehelling.nl/agenda/buntspecht-17-04-2027/",
+  "venue": "helling"
+ },
+ {
+  "availability": "unknown",
+  "categories": [
+   "Concert"
+  ],
+  "city": "Utrecht",
+  "description": null,
+  "doors": "2027-04-23T19:30:00+02:00",
+  "end": "2027-04-23T23:00:00+02:00",
+  "extra": {},
+  "genres": [
+   "Funkrock"
+  ],
+  "image": "https://dehelling.nl/app/uploads/2026/09/siteheader_High-Fade-680x400.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 24.5,
+   "min_eur": 24.5,
+   "text": null
+  },
+  "room": null,
+  "source_id": "high-fade-23-04-2027",
+  "start": "2027-04-23T20:15:00+02:00",
+  "status": "scheduled",
+  "subtitle": "Funkrocktrio High Fade is klaar om je omver te blazen",
+  "support": [],
+  "ticket_url": "https://dehelling.stager.co/shop/default/events/111677297",
+  "title": "High Fade",
+  "url": "https://dehelling.nl/agenda/high-fade-23-04-2027/",
+  "venue": "helling"
+ },
+ {
+  "availability": "unknown",
+  "categories": [
+   "Concert"
+  ],
+  "city": "Utrecht",
+  "description": null,
+  "doors": "2027-05-02T19:00:00+02:00",
+  "end": "2027-05-02T23:00:00+02:00",
+  "extra": {},
+  "genres": [
+   "Heavy"
+  ],
+  "image": "https://dehelling.nl/app/uploads/2026/08/sitebeeld-aangeleverde-foto-680x400.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 29.5,
+   "min_eur": 29.5,
+   "text": null
+  },
+  "room": null,
+  "source_id": "breakdown-of-sanity-02-05-2027",
+  "start": "2027-05-02T19:30:00+02:00",
+  "status": "scheduled",
+  "subtitle": "De gerenommeerde DIY-modernmetalband uit Bern",
+  "support": [],
+  "ticket_url": "https://dehelling.stager.co/shop/default/events/111661201",
+  "title": "Breakdown Of Sanity",
+  "url": "https://dehelling.nl/agenda/breakdown-of-sanity-02-05-2027/",
+  "venue": "helling"
+ },
+ {
+  "availability": "unknown",
+  "categories": [
+   "Concert"
+  ],
+  "city": "Utrecht",
+  "description": null,
+  "doors": "2027-06-05T19:30:00+02:00",
+  "end": "2027-06-05T23:00:00+02:00",
+  "extra": {},
+  "genres": [
+   "Indie"
+  ],
+  "image": "https://dehelling.nl/app/uploads/2026/09/Quentyn_Siteheader-680x400.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 18.49,
+   "min_eur": 18.49,
+   "text": null
+  },
+  "room": null,
+  "source_id": "quentyn-05-06-2027",
+  "start": "2027-06-05T20:15:00+02:00",
+  "status": "scheduled",
+  "subtitle": "EUFORISCHE BLEND VAN INDIE EN ELEKTRONICA",
+  "support": [],
+  "ticket_url": "https://dehelling.stager.co/shop/default/events/111676893",
+  "title": "Quentyn",
+  "url": "https://dehelling.nl/agenda/quentyn-05-06-2027/",
+  "venue": "helling"
+ },
+ {
+  "availability": "unknown",
+  "categories": [
+   "Concert"
+  ],
+  "city": "Utrecht",
+  "description": null,
+  "doors": "2027-09-25T19:30:00+02:00",
+  "end": "2027-09-25T23:00:00+02:00",
+  "extra": {},
+  "genres": [
+   "Hiphop/R&B"
+  ],
+  "image": "https://dehelling.nl/app/uploads/2026/09/Persfoto-Extince-1-680x400.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 27.5,
+   "min_eur": 27.5,
+   "text": null
+  },
+  "room": null,
+  "source_id": "extince-30-jaar-spraakwater-25-09-2027",
+  "start": "2027-09-25T20:00:00+02:00",
+  "status": "scheduled",
+  "subtitle": "De godfather van de nederhop is nog steeds nummer één",
+  "support": [],
+  "ticket_url": "https://dehelling.stager.co/shop/default/events/111697708",
+  "title": "Extince – 30 Jaar Spraakwater",
+  "url": "https://dehelling.nl/agenda/extince-30-jaar-spraakwater-25-09-2027/",
+  "venue": "helling"
+ }
+]

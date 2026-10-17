@@ -1,0 +1,326 @@
+[
+ {
+  "availability": "unknown",
+  "categories": [
+   "Club"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": null,
+  "end": null,
+  "extra": {
+   "time_known": false
+  },
+  "genres": [],
+  "image": null,
+  "performers": [],
+  "price": null,
+  "room": null,
+  "source_id": "mick-harris-presents-culvert-dubs-live-vanja-rakic-b2b-olgica-brent-jacko-bar40-hosted-by-suburbia",
+  "start": "2026-10-17T00:00:00+02:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://garagenoord.weticket.io/mick-harris-present-culvert-dubs-vanja-rakic-b2b-olgica-brent-jacko-bar40-hosted-by-suburbia/shop?",
+  "title": "Mick Harris presents Culvert Dubs (live), Vanja Rakic b2b Olgica, Brent Jacko + Bar40 Hosted by SUBURBIA",
+  "url": "https://garagenoord.com/club/mick-harris-presents-culvert-dubs-live-vanja-rakic-b2b-olgica-brent-jacko-bar40-hosted-by-suburbia",
+  "venue": "garagenoord"
+ },
+ {
+  "availability": "unknown",
+  "categories": [
+   "Club"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": null,
+  "end": null,
+  "extra": {
+   "time_known": false
+  },
+  "genres": [],
+  "image": null,
+  "performers": [],
+  "price": null,
+  "room": null,
+  "source_id": "firewire",
+  "start": "2026-10-21T00:00:00+02:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://garagenoord.weticket.io/firewire-ade/shop",
+  "title": "Firewire",
+  "url": "https://garagenoord.com/club/firewire",
+  "venue": "garagenoord"
+ },
+ {
+  "availability": "unknown",
+  "categories": [
+   "Club"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": null,
+  "end": null,
+  "extra": {
+   "time_known": false
+  },
+  "genres": [],
+  "image": null,
+  "performers": [],
+  "price": null,
+  "room": null,
+  "source_id": "ape",
+  "start": "2026-10-23T00:00:00+02:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://garagenoord.weticket.io/ape-amsterdam-punk-event/shop?",
+  "title": "APE",
+  "url": "https://garagenoord.com/club/ape",
+  "venue": "garagenoord"
+ },
+ {
+  "availability": "unknown",
+  "categories": [
+   "Club"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": null,
+  "end": null,
+  "extra": {
+   "time_known": false
+  },
+  "genres": [],
+  "image": null,
+  "performers": [],
+  "price": null,
+  "room": null,
+  "source_id": "gn-does-a-party-with-nyege-nyege-trackwork",
+  "start": "2026-10-24T00:00:00+02:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://garagenoord.weticket.io/garage-does-a-party-with-nyege-nyege-trackwork/shop?",
+  "title": "GN does a party with Nyege Nyege & Trackwork",
+  "url": "https://garagenoord.com/club/gn-does-a-party-with-nyege-nyege-trackwork",
+  "venue": "garagenoord"
+ },
+ {
+  "availability": "unknown",
+  "categories": [
+   "Club"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": null,
+  "end": null,
+  "extra": {
+   "time_known": false
+  },
+  "genres": [],
+  "image": null,
+  "performers": [],
+  "price": null,
+  "room": null,
+  "source_id": "spacebunker-w-upvampin-live-arapaima-live-lui-surreal-live-cvpid-hybrid",
+  "start": "2026-10-29T00:00:00+01:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://garagenoord.weticket.io/spacebunker-presents-house-of-dolls/shop",
+  "title": "Spacebunker w/ UpVampin (live), ARAPAIMA (live), Lui Surreal (live), CVPID (hybrid)",
+  "url": "https://garagenoord.com/club/spacebunker-w-upvampin-live-arapaima-live-lui-surreal-live-cvpid-hybrid",
+  "venue": "garagenoord"
+ },
+ {
+  "availability": "unknown",
+  "categories": [
+   "Club"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": null,
+  "end": null,
+  "extra": {
+   "time_known": false
+  },
+  "genres": [],
+  "image": null,
+  "performers": [],
+  "price": null,
+  "room": null,
+  "source_id": "co-curated-by-oceanic-w-tristan-arp-live-isa-w-oceanic",
+  "start": "2026-10-30T00:00:00+01:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://garagenoord.weticket.io/tristan-arp-oceanic-isa-w/shop?",
+  "title": "Co-curated by Oceanic w/ Tristan Arp (live), ISA W, Oceanic",
+  "url": "https://garagenoord.com/club/co-curated-by-oceanic-w-tristan-arp-live-isa-w-oceanic",
+  "venue": "garagenoord"
+ },
+ {
+  "availability": "unknown",
+  "categories": [
+   "Club"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": null,
+  "end": null,
+  "extra": {
+   "time_known": false
+  },
+  "genres": [],
+  "image": null,
+  "performers": [],
+  "price": null,
+  "room": null,
+  "source_id": "new-world-dysorder-x-kumata",
+  "start": "2026-10-31T00:00:00+01:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://garagenoord.weticket.io/new-world-disorder-x-kumata/shop?",
+  "title": "Kumata x New World Dysorder",
+  "url": "https://garagenoord.com/club/new-world-dysorder-x-kumata",
+  "venue": "garagenoord"
+ },
+ {
+  "availability": "unknown",
+  "categories": [
+   "Club"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": null,
+  "end": null,
+  "extra": {
+   "time_known": false
+  },
+  "genres": [],
+  "image": null,
+  "performers": [],
+  "price": null,
+  "room": null,
+  "source_id": "loukeman",
+  "start": "2026-11-06T00:00:00+01:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://garagenoord.weticket.io/loukeman/shop?",
+  "title": "Loukeman",
+  "url": "https://garagenoord.com/club/loukeman",
+  "venue": "garagenoord"
+ },
+ {
+  "availability": "unknown",
+  "categories": [
+   "Club"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": null,
+  "end": null,
+  "extra": {
+   "time_known": false
+  },
+  "genres": [],
+  "image": null,
+  "performers": [],
+  "price": null,
+  "room": null,
+  "source_id": "mirrorzone",
+  "start": "2026-11-07T00:00:00+01:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://garagenoord.weticket.io/mirror-zone-3/shop",
+  "title": "Mirrorzone",
+  "url": "https://garagenoord.com/club/mirrorzone",
+  "venue": "garagenoord"
+ },
+ {
+  "availability": "unknown",
+  "categories": [
+   "Club"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": null,
+  "end": null,
+  "extra": {
+   "time_known": false
+  },
+  "genres": [],
+  "image": null,
+  "performers": [],
+  "price": null,
+  "room": null,
+  "source_id": "omen-wapta",
+  "start": "2026-11-21T00:00:00+01:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://garagenoord.weticket.io/omen-wapta-weekender-3/shop",
+  "title": "Omen Wapta",
+  "url": "https://garagenoord.com/club/omen-wapta",
+  "venue": "garagenoord"
+ },
+ {
+  "availability": "unknown",
+  "categories": [
+   "Club"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": null,
+  "end": null,
+  "extra": {
+   "time_known": false
+  },
+  "genres": [],
+  "image": null,
+  "performers": [],
+  "price": null,
+  "room": null,
+  "source_id": "exert-w-derozan-ghenwa-nware-abou-fayad-zamity-mitelembe-winnie-conradi-adhi-seok-yun",
+  "start": "2026-11-26T00:00:00+01:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://garagenoord.weticket.io/exert-w-derozan-ghenwa-nwar-abou-fayad-zamity-mitelembe-winnie-conradi-adhi-seok-yun/shop",
+  "title": "Exert! w/ Derozan, ghenwa (nwaré) abou fayad, Zamity Mitelembe, Winnie Conradi, Adhi, Seok Yun",
+  "url": "https://garagenoord.com/club/exert-w-derozan-ghenwa-nware-abou-fayad-zamity-mitelembe-winnie-conradi-adhi-seok-yun",
+  "venue": "garagenoord"
+ },
+ {
+  "availability": "unknown",
+  "categories": [
+   "Club"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": null,
+  "end": null,
+  "extra": {
+   "time_known": false
+  },
+  "genres": [],
+  "image": null,
+  "performers": [],
+  "price": null,
+  "room": null,
+  "source_id": "kynant-w-dialog-benji-live-richard-akingbehin-mia-cecille",
+  "start": "2026-11-28T00:00:00+01:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://garagenoord.weticket.io/10-years-of-kynant",
+  "title": "Kynant w/ Dialog & Benji (live), Richard Akingbehin, Mia Cecille",
+  "url": "https://garagenoord.com/club/kynant-w-dialog-benji-live-richard-akingbehin-mia-cecille",
+  "venue": "garagenoord"
+ }
+]

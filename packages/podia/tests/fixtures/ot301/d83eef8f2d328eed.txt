@@ -1,0 +1,24 @@
+<div class="selected event">
+	<div class="head bg-dark light">Saturday 17 October</div>
+	<article class="body">
+		<div  class="media" style="background-image:url(https://amsterdamalternative.nl/media/content/19999_large.jpg)"></div>		<div class="meta">
+<!-- 
+						<div class="icon type" style="background-image:url(/media/agenda/.svg)"></div>
+ -->
+			Café Gilde // 18:00 // € 10<br/>
+			<strong>Dinner at Café Gilde</strong>
+		</div>
+		<div class="info">
+			
+		<div class="icon type bg-dark" style="background-image:url(https://amsterdamalternative.nl/media/agenda/1007.svg)"></div>		</div>
+		<div class="detail">
+			<strong>Open:</strong> 18:00 - 22:00 hrs<br/><strong>Tickets:</strong> € 10 		</div>
+		<div class="text">
+			<p>Dinner! Dindins! One of Caf&eacute; Gilde&#39;s cooks will be at the helm to bring something affordable, accessible, delectable, and sometimes, just a bit batty.</p>
+
+<p>The deal is &euro;10 for a main and a drink, with desserts available. Easy peasy.</p>
+
+<p>No obstacle is too high for us, so if you plan to come and have any dietary needs, let us know in advance and you&#39;ll see what a cook who actually cares about their craft does. We relish the challenge, if you want to call it as much. Just as long as it&#39;s vegan.</p>
+		</div>
+	</article>
+</div>

@@ -1,0 +1,77 @@
+<aside class="c-event-meta">
+		<div class="c-event-meta__container">
+
+			<div class="c-event-meta__table c-event-meta__table--mobile">
+									<div class="c-event-meta__row" id="date">
+						<div class="c-event-meta__label">Datum</div>
+						<div class="c-event-meta__field"><span class="u-captialize">zaterdag 17 oktober 2026</span></div>
+					</div>
+													<div class="c-event-meta__row" id="age">
+						<div class="c-event-meta__label">Leeftijd</div>
+						<div class="c-event-meta__field">18+</div>
+					</div>
+													<div class="c-event-meta__row" id="open">
+						<div class="c-event-meta__label">Zaal open</div>
+						<div class="c-event-meta__field">22:00 uur</div>
+					</div>
+													<div class="c-event-meta__row" id="start">
+						<div class="c-event-meta__label">Aanvang</div>
+						<div class="c-event-meta__field">22:00 uur</div>
+					</div>
+													<div class="c-event-meta__row" id="end">
+						<div class="c-event-meta__label">Eindtijd</div>
+						<div class="c-event-meta__field">Uiterlijk 03:00 uur</div>
+					</div>
+													<div class="c-event-meta__row" id="price">
+						<div class="c-event-meta__label">Prijs</div>
+						<div class="c-event-meta__field">
+							€12,50															<span class="c-event-meta__fee">incl. €2,50 servicekosten</span>
+													</div>
+					</div>
+							</div>
+
+			<div class="c-event-meta__table c-event-meta__table--desktop">
+				<div>
+											<div class="c-event-meta__row" id="date">
+							<div class="c-event-meta__label">Datum</div>
+							<div class="c-event-meta__field"><span class="u-captialize">zaterdag 17 oktober 2026</span></div>
+						</div>
+																<div class="c-event-meta__row" id="age">
+							<div class="c-event-meta__label">Leeftijd</div>
+							<div class="c-event-meta__field">18+</div>
+						</div>
+																<div class="c-event-meta__row" id="price">
+							<div class="c-event-meta__label">Prijs</div>
+							<div class="c-event-meta__field">
+								€12,50																	<span class="c-event-meta__fee">incl. €2,50 servicekosten</span>
+															</div>
+						</div>
+									</div>
+				<div>
+											<div class="c-event-meta__row" id="open">
+							<div class="c-event-meta__label">Zaal open</div>
+							<div class="c-event-meta__field">22:00 uur</div>
+						</div>
+																<div class="c-event-meta__row" id="start">
+							<div class="c-event-meta__label">Aanvang</div>
+							<div class="c-event-meta__field">22:00 uur</div>
+						</div>
+																<div class="c-event-meta__row" id="end">
+							<div class="c-event-meta__label">Eindtijd</div>
+							<div class="c-event-meta__field">Uiterlijk 03:00 uur</div>
+						</div>
+									</div>
+			</div>
+
+			<div class="c-event-meta__button">
+										<a href="https://dehelling.stager.co/shop/default/events/111690990" class="c-raised-button c-raised-button--big c-raised-button--white" target="_blank" rel="noreferrer">
+							Tickets						</a>
+							</div>
+
+		</div>
+	</aside>
+<div class="u-section__inner u-section__inner--right c-event-content__text wysiwyg">
+			<p>In De Helling, you can hear the heartbeat of the local underground scene, and it sounds a lot like a breakbeat. Set the Bar dives deep into the local bass movement, showcasing crews that are pushing the boundaries of club culture. Here – in the intimate setting of De Helling’s café – various forward-thinking artists from Utrecht and the Netherlands take the stage. Artists you might not know yet, but who are bound to become familiar faces in the Dutch club scene. Come dance to curated club sounds from the underground.</p>
+<p><strong>Mokum Rave Massive</strong><br>
+Mokum Rave Massive is a growing collective with its heart in the underground rave culture surrounding multi-genre bass music. MRM creates accessible (outdoor) events like those often found in the UK drum and bass scene. Inspired by the free-city movement, MRM stands for self-expression, collective autonomy, and the power of people creating spaces outside of imposed control. MRM honours the roots of rave culture: community over profit, music over ego, freedom over fame. Their events strive to break down barriers so no one is excluded.</p>
+		</div>

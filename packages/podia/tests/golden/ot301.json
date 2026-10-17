@@ -1,0 +1,1764 @@
+[
+ {
+  "availability": "free",
+  "categories": [
+   "Food, kitchen"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": null,
+  "end": null,
+  "extra": {},
+  "genres": [],
+  "image": "https://amsterdamalternative.nl/media/content/20120_large.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 0.0,
+   "min_eur": 0.0,
+   "text": null
+  },
+  "room": "Café Gilde",
+  "source_id": "23152",
+  "start": "2026-10-17T12:00:00+02:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": null,
+  "title": "Lunch at Café Gilde",
+  "url": "https://ot301.nl/agenda/23152",
+  "venue": "ot301"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [
+   "Film"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": null,
+  "end": null,
+  "extra": {},
+  "genres": [],
+  "image": "https://amsterdamalternative.nl/media/content/22193_large.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 10.0,
+   "min_eur": 10.0,
+   "text": null
+  },
+  "room": "Ventilator Cinema",
+  "source_id": "22735",
+  "start": "2026-10-17T15:00:00+02:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://amsterdamalternative.nl/tickets/22735",
+  "title": "CineCarib NL (Ed. 5): Kombiná + Forsa Ansestral (Special Screening)",
+  "url": "https://ot301.nl/agenda/22735",
+  "venue": "ot301"
+ },
+ {
+  "availability": "unknown",
+  "categories": [
+   "Workshop, class"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": null,
+  "end": null,
+  "extra": {},
+  "genres": [],
+  "image": "https://amsterdamalternative.nl/media/content/18170_large.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 180.0,
+   "min_eur": 30.0,
+   "text": "150 early bird, 180 after August 30th"
+  },
+  "room": "4bid Gallery",
+  "source_id": "22661",
+  "start": "2026-10-17T16:00:00+02:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": null,
+  "title": "Life Drawing Weekend Intensive",
+  "url": "https://ot301.nl/agenda/22661",
+  "venue": "ot301"
+ },
+ {
+  "availability": "unknown",
+  "categories": [
+   "Food, kitchen"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": null,
+  "end": null,
+  "extra": {},
+  "genres": [],
+  "image": "https://amsterdamalternative.nl/media/content/19999_large.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 10.0,
+   "min_eur": 10.0,
+   "text": null
+  },
+  "room": "Café Gilde",
+  "source_id": "23164",
+  "start": "2026-10-17T18:00:00+02:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": null,
+  "title": "Dinner at Café Gilde",
+  "url": "https://ot301.nl/agenda/23164",
+  "venue": "ot301"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [
+   "Concert"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": null,
+  "end": null,
+  "extra": {},
+  "genres": [],
+  "image": "https://amsterdamalternative.nl/media/content/22487_large.jpg",
+  "performers": [
+   "Viva Rosa",
+   "Combo Qazam",
+   "Sentinel Island Disco"
+  ],
+  "price": {
+   "max_eur": 8.0,
+   "min_eur": 8.0,
+   "text": null
+  },
+  "room": "Studios",
+  "source_id": "22991",
+  "start": "2026-10-17T20:00:00+02:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://amsterdamalternative.nl/tickets/22991",
+  "title": "Viva Rosa + Combo Qazam",
+  "url": "https://ot301.nl/agenda/22991",
+  "venue": "ot301"
+ },
+ {
+  "availability": "unknown",
+  "categories": [
+   "Workshop, class"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": null,
+  "end": null,
+  "extra": {},
+  "genres": [],
+  "image": "https://amsterdamalternative.nl/media/content/18170_large.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 180.0,
+   "min_eur": 30.0,
+   "text": "150 early bird, 180 after August 30th"
+  },
+  "room": "4bid Gallery",
+  "source_id": "22662",
+  "start": "2026-10-18T16:00:00+02:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": null,
+  "title": "Life Drawing Weekend Intensive",
+  "url": "https://ot301.nl/agenda/22662",
+  "venue": "ot301"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [
+   "Film"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": null,
+  "end": null,
+  "extra": {},
+  "genres": [],
+  "image": "https://amsterdamalternative.nl/media/content/22766_large.jpg",
+  "performers": [
+   "Gérard Depardieu. Nicole Garcia",
+   "Roger Pierre"
+  ],
+  "price": {
+   "max_eur": 3.0,
+   "min_eur": 3.0,
+   "text": null
+  },
+  "room": "Ventilator Cinema",
+  "source_id": "23243",
+  "start": "2026-10-18T19:30:00+02:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://amsterdamalternative.nl/tickets/23243",
+  "title": "Cinema Derive - MON ONCLE D'AMERIQUE 1980",
+  "url": "https://ot301.nl/agenda/23243",
+  "venue": "ot301"
+ },
+ {
+  "availability": "unknown",
+  "categories": [
+   "Workshop, class"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": null,
+  "end": null,
+  "extra": {},
+  "genres": [],
+  "image": "https://amsterdamalternative.nl/media/content/18170_large.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 180.0,
+   "min_eur": 100.0,
+   "text": "100/180 concessions available"
+  },
+  "room": "4bid Gallery",
+  "source_id": "22663",
+  "start": "2026-10-19T18:00:00+02:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": null,
+  "title": "Life Drawing Weekend Intensive",
+  "url": "https://ot301.nl/agenda/22663",
+  "venue": "ot301"
+ },
+ {
+  "availability": "free",
+  "categories": [
+   "Food, kitchen"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": null,
+  "end": null,
+  "extra": {},
+  "genres": [],
+  "image": "https://amsterdamalternative.nl/media/content/20120_large.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 0.0,
+   "min_eur": 0.0,
+   "text": null
+  },
+  "room": "Café Gilde",
+  "source_id": "23153",
+  "start": "2026-10-21T12:00:00+02:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": null,
+  "title": "Lunch at Café Gilde",
+  "url": "https://ot301.nl/agenda/23153",
+  "venue": "ot301"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [
+   "Electronic music, party"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": null,
+  "end": null,
+  "extra": {},
+  "genres": [],
+  "image": "https://amsterdamalternative.nl/media/content/22653_large.jpg",
+  "performers": [
+   "Subject Sue",
+   "M2K",
+   "Dear Omen (DJ set)"
+  ],
+  "price": {
+   "max_eur": 12.0,
+   "min_eur": 8.0,
+   "text": "8-12"
+  },
+  "room": "Studios",
+  "source_id": "22673",
+  "start": "2026-10-21T20:00:00+02:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://amsterdamalternative.nl/tickets/22673",
+  "title": "AADE: Subject Sue – EP Release Details In The Dark",
+  "url": "https://ot301.nl/agenda/22673",
+  "venue": "ot301"
+ },
+ {
+  "availability": "free",
+  "categories": [
+   "Food, kitchen"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": null,
+  "end": null,
+  "extra": {},
+  "genres": [],
+  "image": "https://amsterdamalternative.nl/media/content/20120_large.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 0.0,
+   "min_eur": 0.0,
+   "text": null
+  },
+  "room": "Café Gilde",
+  "source_id": "23154",
+  "start": "2026-10-22T12:00:00+02:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": null,
+  "title": "Lunch at Café Gilde",
+  "url": "https://ot301.nl/agenda/23154",
+  "venue": "ot301"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [
+   "Electronic music, party"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": null,
+  "end": null,
+  "extra": {},
+  "genres": [],
+  "image": "https://amsterdamalternative.nl/media/content/22126_large.jpg",
+  "performers": [
+   "Aili & Orson",
+   "TUKAN",
+   "charlie avalon",
+   "Umbra"
+  ],
+  "price": {
+   "max_eur": 16.0,
+   "min_eur": 14.0,
+   "text": "14-16"
+  },
+  "room": "Studios",
+  "source_id": "22680",
+  "start": "2026-10-22T20:00:00+02:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://amsterdamalternative.nl/tickets/22680",
+  "title": "AADE: w/ Aili & Orson x TUKAN",
+  "url": "https://ot301.nl/agenda/22680",
+  "venue": "ot301"
+ },
+ {
+  "availability": "free",
+  "categories": [
+   "Food, kitchen"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": null,
+  "end": null,
+  "extra": {},
+  "genres": [],
+  "image": "https://amsterdamalternative.nl/media/content/20120_large.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 0.0,
+   "min_eur": 0.0,
+   "text": null
+  },
+  "room": "Café Gilde",
+  "source_id": "23155",
+  "start": "2026-10-23T12:00:00+02:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": null,
+  "title": "Lunch at Café Gilde",
+  "url": "https://ot301.nl/agenda/23155",
+  "venue": "ot301"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [
+   "Workshop, class"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": null,
+  "end": null,
+  "extra": {},
+  "genres": [],
+  "image": "https://amsterdamalternative.nl/media/content/22758_large.jpg",
+  "performers": [
+   "Nadia Struiwigh",
+   "Kessler"
+  ],
+  "price": {
+   "max_eur": 10.0,
+   "min_eur": 10.0,
+   "text": null
+  },
+  "room": "Ventilator Cinema",
+  "source_id": "23233",
+  "start": "2026-10-23T17:00:00+02:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://amsterdamalternative.nl/tickets/23233",
+  "title": "AADE: The Noodle Show",
+  "url": "https://ot301.nl/agenda/23233",
+  "venue": "ot301"
+ },
+ {
+  "availability": "unknown",
+  "categories": [
+   "Food, kitchen"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": null,
+  "end": null,
+  "extra": {},
+  "genres": [],
+  "image": "https://amsterdamalternative.nl/media/content/19999_large.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 10.0,
+   "min_eur": 10.0,
+   "text": null
+  },
+  "room": "Café Gilde",
+  "source_id": "23165",
+  "start": "2026-10-23T18:00:00+02:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": null,
+  "title": "Dinner at Café Gilde",
+  "url": "https://ot301.nl/agenda/23165",
+  "venue": "ot301"
+ },
+ {
+  "availability": "free",
+  "categories": [
+   "Exhibition, art"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": null,
+  "end": null,
+  "extra": {},
+  "genres": [],
+  "image": "https://amsterdamalternative.nl/media/content/22773_large.jpg",
+  "performers": [
+   "Chagall"
+  ],
+  "price": {
+   "max_eur": 0.0,
+   "min_eur": 0.0,
+   "text": "Free"
+  },
+  "room": "Ventilator Bar",
+  "source_id": "23223",
+  "start": "2026-10-23T20:00:00+02:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": null,
+  "title": "AADE: Anderworld zine launch",
+  "url": "https://ot301.nl/agenda/23223",
+  "venue": "ot301"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [
+   "Electronic music, party"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": null,
+  "end": null,
+  "extra": {},
+  "genres": [],
+  "image": "https://amsterdamalternative.nl/media/content/22778_large.jpg",
+  "performers": [
+   "BlackBeach (live)",
+   "Camy Huot (live)",
+   "Parrish Smith",
+   "Omar Medina"
+  ],
+  "price": {
+   "max_eur": 13.0,
+   "min_eur": 10.0,
+   "text": "10-13"
+  },
+  "room": "Studios",
+  "source_id": "22675",
+  "start": "2026-10-23T22:00:00+02:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://amsterdamalternative.nl/tickets/22675",
+  "title": "AADE: Anderworld release event",
+  "url": "https://ot301.nl/agenda/22675",
+  "venue": "ot301"
+ },
+ {
+  "availability": "free",
+  "categories": [
+   "Food, kitchen"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": null,
+  "end": null,
+  "extra": {},
+  "genres": [],
+  "image": "https://amsterdamalternative.nl/media/content/20120_large.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 0.0,
+   "min_eur": 0.0,
+   "text": null
+  },
+  "room": "Café Gilde",
+  "source_id": "23156",
+  "start": "2026-10-24T12:00:00+02:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": null,
+  "title": "Lunch at Café Gilde",
+  "url": "https://ot301.nl/agenda/23156",
+  "venue": "ot301"
+ },
+ {
+  "availability": "unknown",
+  "categories": [
+   "Food, kitchen"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": null,
+  "end": null,
+  "extra": {},
+  "genres": [],
+  "image": "https://amsterdamalternative.nl/media/content/19999_large.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 10.0,
+   "min_eur": 10.0,
+   "text": null
+  },
+  "room": "Café Gilde",
+  "source_id": "23166",
+  "start": "2026-10-24T18:00:00+02:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": null,
+  "title": "Dinner at Café Gilde",
+  "url": "https://ot301.nl/agenda/23166",
+  "venue": "ot301"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [
+   "Electronic music, party"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": null,
+  "end": null,
+  "extra": {},
+  "genres": [],
+  "image": "https://amsterdamalternative.nl/media/content/22841_large.jpg",
+  "performers": [
+   "Alberta Balsam",
+   "Wilco Prinsen (live)",
+   "Keynu (live)",
+   "Arc Vale (live)",
+   "Waldo b2b Tania Kim",
+   "Industrial Romantico",
+   "Oca-Reena"
+  ],
+  "price": {
+   "max_eur": 12.0,
+   "min_eur": 8.0,
+   "text": "8-12"
+  },
+  "room": "Studios",
+  "source_id": "22676",
+  "start": "2026-10-24T20:00:00+02:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://amsterdamalternative.nl/tickets/22676",
+  "title": "AADE: ADEV after",
+  "url": "https://ot301.nl/agenda/22676",
+  "venue": "ot301"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [
+   "Electronic music, party"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": null,
+  "end": null,
+  "extra": {},
+  "genres": [],
+  "image": "https://amsterdamalternative.nl/media/content/22764_large.jpg",
+  "performers": [
+   "The Outside Agency",
+   "Pythius",
+   "Dolphin",
+   "Thrasher",
+   "Mindustries",
+   "Hellcreator vs Kame",
+   "Aliienmia",
+   "Agent Zero",
+   "Jade Scarr"
+  ],
+  "price": {
+   "max_eur": 12.0,
+   "min_eur": 8.0,
+   "text": "8-12"
+  },
+  "room": "Studios",
+  "source_id": "23009",
+  "start": "2026-10-25T16:00:00+01:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://amsterdamalternative.nl/tickets/23009",
+  "title": "AADE: PRSPCT Fundraver for Gaza Skate Team",
+  "url": "https://ot301.nl/agenda/23009",
+  "venue": "ot301"
+ },
+ {
+  "availability": "free",
+  "categories": [
+   "Food, kitchen"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": null,
+  "end": null,
+  "extra": {},
+  "genres": [],
+  "image": "https://amsterdamalternative.nl/media/content/20120_large.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 0.0,
+   "min_eur": 0.0,
+   "text": null
+  },
+  "room": "Café Gilde",
+  "source_id": "23157",
+  "start": "2026-10-28T12:00:00+01:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": null,
+  "title": "Lunch at Café Gilde",
+  "url": "https://ot301.nl/agenda/23157",
+  "venue": "ot301"
+ },
+ {
+  "availability": "free",
+  "categories": [
+   "Food, kitchen"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": null,
+  "end": null,
+  "extra": {},
+  "genres": [],
+  "image": "https://amsterdamalternative.nl/media/content/20120_large.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 0.0,
+   "min_eur": 0.0,
+   "text": null
+  },
+  "room": "Café Gilde",
+  "source_id": "23158",
+  "start": "2026-10-29T12:00:00+01:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": null,
+  "title": "Lunch at Café Gilde",
+  "url": "https://ot301.nl/agenda/23158",
+  "venue": "ot301"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [
+   "Talk"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": null,
+  "end": null,
+  "extra": {},
+  "genres": [],
+  "image": "https://amsterdamalternative.nl/media/content/22655_large.jpg",
+  "performers": [
+   "Jim Saah - King Koala press - limited copies of the book on sale 19:00h open 19:30 start"
+  ],
+  "price": {
+   "max_eur": null,
+   "min_eur": null,
+   "text": "Donation"
+  },
+  "room": "4bid Gallery",
+  "source_id": "23112",
+  "start": "2026-10-29T19:00:00+01:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://amsterdamalternative.nl/tickets/23112",
+  "title": "Jim Saah - IN MY EYES book talk",
+  "url": "https://ot301.nl/agenda/23112",
+  "venue": "ot301"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [
+   "Film"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": null,
+  "end": null,
+  "extra": {},
+  "genres": [],
+  "image": "https://amsterdamalternative.nl/media/content/22498_large.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 7.0,
+   "min_eur": 7.0,
+   "text": null
+  },
+  "room": "Ventilator Cinema",
+  "source_id": "23013",
+  "start": "2026-10-29T19:30:00+01:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://amsterdamalternative.nl/tickets/23013",
+  "title": "Fangs (Anyab) halloween screening",
+  "url": "https://ot301.nl/agenda/23013",
+  "venue": "ot301"
+ },
+ {
+  "availability": "free",
+  "categories": [
+   "Food, kitchen"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": null,
+  "end": null,
+  "extra": {},
+  "genres": [],
+  "image": "https://amsterdamalternative.nl/media/content/20120_large.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 0.0,
+   "min_eur": 0.0,
+   "text": null
+  },
+  "room": "Café Gilde",
+  "source_id": "23159",
+  "start": "2026-10-30T12:00:00+01:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": null,
+  "title": "Lunch at Café Gilde",
+  "url": "https://ot301.nl/agenda/23159",
+  "venue": "ot301"
+ },
+ {
+  "availability": "unknown",
+  "categories": [
+   "Food, kitchen"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": null,
+  "end": null,
+  "extra": {},
+  "genres": [],
+  "image": "https://amsterdamalternative.nl/media/content/19999_large.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 10.0,
+   "min_eur": 10.0,
+   "text": null
+  },
+  "room": "Café Gilde",
+  "source_id": "23167",
+  "start": "2026-10-30T18:00:00+01:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": null,
+  "title": "Dinner at Café Gilde",
+  "url": "https://ot301.nl/agenda/23167",
+  "venue": "ot301"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [
+   "Talk"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": null,
+  "end": null,
+  "extra": {},
+  "genres": [],
+  "image": "https://amsterdamalternative.nl/media/content/22499_large.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 6.5,
+   "min_eur": 6.5,
+   "text": null
+  },
+  "room": "Ventilator Cinema",
+  "source_id": "23014",
+  "start": "2026-10-30T18:45:00+01:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://amsterdamalternative.nl/tickets/23014",
+  "title": "SCIENCE FICTION, FANTASY & MARXISM with Jelle Klaas",
+  "url": "https://ot301.nl/agenda/23014",
+  "venue": "ot301"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [
+   "Exhibition, art"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": null,
+  "end": null,
+  "extra": {},
+  "genres": [],
+  "image": "https://amsterdamalternative.nl/media/content/22789_large.jpg",
+  "performers": [
+   "Anouk van Wijk",
+   "Nene Moné"
+  ],
+  "price": {
+   "max_eur": null,
+   "min_eur": null,
+   "text": "Donation"
+  },
+  "room": "4bid Gallery",
+  "source_id": "23257",
+  "start": "2026-10-30T19:00:00+01:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://amsterdamalternative.nl/tickets/23257",
+  "title": "EMBER #3",
+  "url": "https://ot301.nl/agenda/23257",
+  "venue": "ot301"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [
+   "Electronic music, party"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": null,
+  "end": null,
+  "extra": {},
+  "genres": [],
+  "image": "https://amsterdamalternative.nl/media/content/22590_large.jpg",
+  "performers": [
+   "Bella Hall",
+   "Sachiko"
+  ],
+  "price": {
+   "max_eur": 15.0,
+   "min_eur": 15.0,
+   "text": null
+  },
+  "room": "Studios",
+  "source_id": "23069",
+  "start": "2026-10-30T23:00:00+01:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://amsterdamalternative.nl/tickets/23069",
+  "title": "VIS 01 AMS",
+  "url": "https://ot301.nl/agenda/23069",
+  "venue": "ot301"
+ },
+ {
+  "availability": "free",
+  "categories": [
+   "Food, kitchen"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": null,
+  "end": null,
+  "extra": {},
+  "genres": [],
+  "image": "https://amsterdamalternative.nl/media/content/20120_large.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 0.0,
+   "min_eur": 0.0,
+   "text": null
+  },
+  "room": "Café Gilde",
+  "source_id": "23160",
+  "start": "2026-10-31T12:00:00+01:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": null,
+  "title": "Lunch at Café Gilde",
+  "url": "https://ot301.nl/agenda/23160",
+  "venue": "ot301"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [
+   "Film"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": null,
+  "end": null,
+  "extra": {},
+  "genres": [],
+  "image": "https://amsterdamalternative.nl/media/content/22503_large.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 5.0,
+   "min_eur": 5.0,
+   "text": null
+  },
+  "room": "Ventilator Cinema",
+  "source_id": "23011",
+  "start": "2026-10-31T12:30:00+01:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://amsterdamalternative.nl/tickets/23011",
+  "title": "Visual Encounters Film Fest 2026",
+  "url": "https://ot301.nl/agenda/23011",
+  "venue": "ot301"
+ },
+ {
+  "availability": "unknown",
+  "categories": [
+   "Food, kitchen"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": null,
+  "end": null,
+  "extra": {},
+  "genres": [],
+  "image": "https://amsterdamalternative.nl/media/content/19999_large.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 10.0,
+   "min_eur": 10.0,
+   "text": null
+  },
+  "room": "Café Gilde",
+  "source_id": "23168",
+  "start": "2026-10-31T18:00:00+01:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": null,
+  "title": "Dinner at Café Gilde",
+  "url": "https://ot301.nl/agenda/23168",
+  "venue": "ot301"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [
+   "Electronic music, party"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": null,
+  "end": null,
+  "extra": {},
+  "genres": [],
+  "image": "https://amsterdamalternative.nl/media/content/22662_large.jpg",
+  "performers": [
+   "Drag King Mannish Pixel",
+   "dj’s Mr en Mevr Koot"
+  ],
+  "price": {
+   "max_eur": 5.0,
+   "min_eur": 5.0,
+   "text": null
+  },
+  "room": "Studios",
+  "source_id": "23117",
+  "start": "2026-10-31T22:00:00+01:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://amsterdamalternative.nl/tickets/23117",
+  "title": "Imagine Halloween Party",
+  "url": "https://ot301.nl/agenda/23117",
+  "venue": "ot301"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [
+   "Bar"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": null,
+  "end": null,
+  "extra": {},
+  "genres": [],
+  "image": "https://amsterdamalternative.nl/media/content/22505_large.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 5.0,
+   "min_eur": 5.0,
+   "text": null
+  },
+  "room": "Ventilator Cinema",
+  "source_id": "23018",
+  "start": "2026-11-01T12:30:00+01:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://amsterdamalternative.nl/tickets/23018",
+  "title": "Visual Encounters Film Fest 2026",
+  "url": "https://ot301.nl/agenda/23018",
+  "venue": "ot301"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [
+   "Film"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": null,
+  "end": null,
+  "extra": {},
+  "genres": [],
+  "image": "https://amsterdamalternative.nl/media/content/22432_large.jpg",
+  "performers": [
+   "Peter Sant"
+  ],
+  "price": {
+   "max_eur": 10.0,
+   "min_eur": 10.0,
+   "text": null
+  },
+  "room": "Ventilator Cinema",
+  "source_id": "22970",
+  "start": "2026-11-04T19:30:00+01:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://amsterdamalternative.nl/tickets/22970",
+  "title": "Zafzifa",
+  "url": "https://ot301.nl/agenda/22970",
+  "venue": "ot301"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [
+   "Electronic music, party"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": null,
+  "end": null,
+  "extra": {},
+  "genres": [],
+  "image": "https://amsterdamalternative.nl/media/content/22486_large.jpg",
+  "performers": [
+   "Robinbird",
+   "Sio’s Orange Core"
+  ],
+  "price": {
+   "max_eur": 10.0,
+   "min_eur": 5.0,
+   "text": "5-10"
+  },
+  "room": "Studios",
+  "source_id": "23008",
+  "start": "2026-11-05T20:00:00+01:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://amsterdamalternative.nl/tickets/23008",
+  "title": "Robinbird presents: Music for the Information Age",
+  "url": "https://ot301.nl/agenda/23008",
+  "venue": "ot301"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [
+   "Film"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": null,
+  "end": null,
+  "extra": {},
+  "genres": [],
+  "image": "https://amsterdamalternative.nl/media/content/22812_large.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 10.0,
+   "min_eur": 10.0,
+   "text": null
+  },
+  "room": "Ventilator Cinema",
+  "source_id": "23252",
+  "start": "2026-11-06T18:15:00+01:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://amsterdamalternative.nl/tickets/23252",
+  "title": "Africadelic2026: The Rising Dawn (NL Premiere) + Beach Inna Bondage (NL Preview)",
+  "url": "https://ot301.nl/agenda/23252",
+  "venue": "ot301"
+ },
+ {
+  "availability": "free",
+  "categories": [
+   "Concert"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": null,
+  "end": null,
+  "extra": {},
+  "genres": [],
+  "image": "https://amsterdamalternative.nl/media/content/22765_large.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 0.0,
+   "min_eur": 0.0,
+   "text": null
+  },
+  "room": "Café Gilde",
+  "source_id": "23242",
+  "start": "2026-11-06T20:00:00+01:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": null,
+  "title": "Kazemat",
+  "url": "https://ot301.nl/agenda/23242",
+  "venue": "ot301"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [
+   "Electronic music, party"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": null,
+  "end": null,
+  "extra": {},
+  "genres": [],
+  "image": "https://amsterdamalternative.nl/media/content/22346_large.jpg",
+  "performers": [
+   "Max Durante",
+   "Feryne",
+   "The Dark Wasp",
+   "Feralia Planitia"
+  ],
+  "price": {
+   "max_eur": 10.0,
+   "min_eur": 10.0,
+   "text": null
+  },
+  "room": "Studios",
+  "source_id": "22894",
+  "start": "2026-11-06T21:00:00+01:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://amsterdamalternative.nl/tickets/22894",
+  "title": "Synthetic Reality",
+  "url": "https://ot301.nl/agenda/22894",
+  "venue": "ot301"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [
+   "Film"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": null,
+  "end": null,
+  "extra": {},
+  "genres": [],
+  "image": "https://amsterdamalternative.nl/media/content/22190_large.jpg",
+  "performers": [
+   "Shandra Apondi Abraham Joseph Ibrahim Joseph"
+  ],
+  "price": {
+   "max_eur": 10.0,
+   "min_eur": 10.0,
+   "text": null
+  },
+  "room": "Ventilator Cinema",
+  "source_id": "23251",
+  "start": "2026-11-07T18:45:00+01:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://amsterdamalternative.nl/tickets/23251",
+  "title": "Africadelic: Memory of Princess Mumbi (Special Screening)",
+  "url": "https://ot301.nl/agenda/23251",
+  "venue": "ot301"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [
+   "Electronic music, party"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": null,
+  "end": null,
+  "extra": {},
+  "genres": [],
+  "image": "https://amsterdamalternative.nl/media/content/22656_large.jpg",
+  "performers": [
+   "Fatty Hands (All night)"
+  ],
+  "price": {
+   "max_eur": 5.0,
+   "min_eur": 5.0,
+   "text": null
+  },
+  "room": "Studios",
+  "source_id": "23113",
+  "start": "2026-11-07T22:00:00+01:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://amsterdamalternative.nl/tickets/23113",
+  "title": "Molecular",
+  "url": "https://ot301.nl/agenda/23113",
+  "venue": "ot301"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [
+   "Film"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": null,
+  "end": null,
+  "extra": {},
+  "genres": [],
+  "image": "https://amsterdamalternative.nl/media/content/22797_large.jpg",
+  "performers": [
+   "Ismet Mršević",
+   "Mustafa Osmanović",
+   "Faruk Titorić"
+  ],
+  "price": {
+   "max_eur": 14.0,
+   "min_eur": 14.0,
+   "text": null
+  },
+  "room": "Ventilator Cinema",
+  "source_id": "23253",
+  "start": "2026-11-08T18:45:00+01:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://amsterdamalternative.nl/tickets/23253",
+  "title": "Ventilator Cinema presents: Inn a State of Siege – Amsterdam Premiere + Q&A (Special Screening)",
+  "url": "https://ot301.nl/agenda/23253",
+  "venue": "ot301"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [
+   "Film"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": null,
+  "end": null,
+  "extra": {},
+  "genres": [],
+  "image": "https://amsterdamalternative.nl/media/content/22784_large.jpg",
+  "performers": [
+   "Malek Rasamny",
+   "Jeremiah Wolf"
+  ],
+  "price": {
+   "max_eur": 7.5,
+   "min_eur": 7.5,
+   "text": null
+  },
+  "room": "Ventilator Cinema",
+  "source_id": "23255",
+  "start": "2026-11-11T18:00:00+01:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://amsterdamalternative.nl/tickets/23255",
+  "title": "\"Spaces of Exception\" + Post-Film Discussion",
+  "url": "https://ot301.nl/agenda/23255",
+  "venue": "ot301"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [
+   "Dance performance"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": null,
+  "end": null,
+  "extra": {},
+  "genres": [],
+  "image": "https://amsterdamalternative.nl/media/content/22588_large.jpg",
+  "performers": [
+   "Irina Baldini with Emily Welther",
+   "Artemise Ploegaerts",
+   "Simona Piras",
+   "Katarina Kadijevic"
+  ],
+  "price": {
+   "max_eur": 15.0,
+   "min_eur": 10.0,
+   "text": "sliding scale 10><15"
+  },
+  "room": "Studios",
+  "source_id": "23071",
+  "start": "2026-11-12T19:30:00+01:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://amsterdamalternative.nl/tickets/23071",
+  "title": "VIRTA (current): An Evening of Performance in the Underworld",
+  "url": "https://ot301.nl/agenda/23071",
+  "venue": "ot301"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [
+   "Electronic music, party"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": null,
+  "end": null,
+  "extra": {},
+  "genres": [],
+  "image": "https://amsterdamalternative.nl/media/content/22796_large.jpg",
+  "performers": [
+   "OBX_ZMK",
+   "DJ Trippy-D",
+   "DJ Easy B",
+   "Tec-9"
+  ],
+  "price": {
+   "max_eur": 15.0,
+   "min_eur": 5.0,
+   "text": "5-15"
+  },
+  "room": "Studios",
+  "source_id": "23263",
+  "start": "2026-11-13T22:00:00+01:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://amsterdamalternative.nl/tickets/23263",
+  "title": "No Escape at OT301 /// PvsP",
+  "url": "https://ot301.nl/agenda/23263",
+  "venue": "ot301"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [
+   "Theatre"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": null,
+  "end": null,
+  "extra": {},
+  "genres": [],
+  "image": "https://amsterdamalternative.nl/media/content/18311_large.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 9.0,
+   "min_eur": 9.0,
+   "text": null
+  },
+  "room": "Ventilator Cinema",
+  "source_id": "23040",
+  "start": "2026-11-20T18:30:00+01:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://amsterdamalternative.nl/tickets/23040",
+  "title": "Improvisatie Theater - De Concurrent Speelt",
+  "url": "https://ot301.nl/agenda/23040",
+  "venue": "ot301"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [
+   "Electronic music, party"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": null,
+  "end": null,
+  "extra": {},
+  "genres": [],
+  "image": "https://amsterdamalternative.nl/media/content/22409_large.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 10.0,
+   "min_eur": 8.0,
+   "text": "8-10"
+  },
+  "room": "Studios",
+  "source_id": "22955",
+  "start": "2026-11-20T22:00:00+01:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://amsterdamalternative.nl/tickets/22955",
+  "title": "Amsterdam Junglist Kru X Guerilla Bass",
+  "url": "https://ot301.nl/agenda/22955",
+  "venue": "ot301"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [
+   "Electronic music, party"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": null,
+  "end": null,
+  "extra": {},
+  "genres": [],
+  "image": "https://amsterdamalternative.nl/media/content/22589_large.jpg",
+  "performers": [
+   "Unit Moebius Anonymous",
+   "Acidupdub",
+   "Light speed drivers",
+   "Rombout"
+  ],
+  "price": {
+   "max_eur": 10.0,
+   "min_eur": 10.0,
+   "text": null
+  },
+  "room": "Studios",
+  "source_id": "23072",
+  "start": "2026-11-21T20:00:00+01:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://amsterdamalternative.nl/tickets/23072",
+  "title": "Abyss-2",
+  "url": "https://ot301.nl/agenda/23072",
+  "venue": "ot301"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [
+   "Concert"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": null,
+  "end": null,
+  "extra": {},
+  "genres": [],
+  "image": "https://amsterdamalternative.nl/media/content/22738_large.jpg",
+  "performers": [
+   "Hidden Since the Foundation of the World",
+   "Crashing",
+   "Farer"
+  ],
+  "price": {
+   "max_eur": 10.0,
+   "min_eur": 10.0,
+   "text": null
+  },
+  "room": "Studios",
+  "source_id": "23222",
+  "start": "2026-11-26T19:30:00+01:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://amsterdamalternative.nl/tickets/23222",
+  "title": "Gazing into the Abyss",
+  "url": "https://ot301.nl/agenda/23222",
+  "venue": "ot301"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [
+   "Electronic music, party"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": null,
+  "end": null,
+  "extra": {},
+  "genres": [],
+  "image": "https://amsterdamalternative.nl/media/content/22586_large.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 12.0,
+   "min_eur": 12.0,
+   "text": null
+  },
+  "room": "Studios",
+  "source_id": "23070",
+  "start": "2026-11-27T21:00:00+01:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://amsterdamalternative.nl/tickets/23070",
+  "title": "Stepping Through",
+  "url": "https://ot301.nl/agenda/23070",
+  "venue": "ot301"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [
+   "Electronic music, party"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": null,
+  "end": null,
+  "extra": {},
+  "genres": [],
+  "image": "https://amsterdamalternative.nl/media/content/22496_large.jpg",
+  "performers": [
+   "Peramore",
+   "Aria Marzen",
+   "Plastique01",
+   "Lenfant_Soleil",
+   "Lorenzo Donato"
+  ],
+  "price": {
+   "max_eur": 11.0,
+   "min_eur": 11.0,
+   "text": null
+  },
+  "room": "Studios",
+  "source_id": "23012",
+  "start": "2026-11-28T21:00:00+01:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://amsterdamalternative.nl/tickets/23012",
+  "title": "Unknown Electronics 24",
+  "url": "https://ot301.nl/agenda/23012",
+  "venue": "ot301"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [
+   "Electronic music, party"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": null,
+  "end": null,
+  "extra": {},
+  "genres": [],
+  "image": "https://amsterdamalternative.nl/media/content/22071_large.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 10.0,
+   "min_eur": 10.0,
+   "text": null
+  },
+  "room": "Studios",
+  "source_id": "22621",
+  "start": "2026-12-04T20:00:00+01:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://amsterdamalternative.nl/tickets/22621",
+  "title": "Resonance",
+  "url": "https://ot301.nl/agenda/22621",
+  "venue": "ot301"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [
+   "Electronic music, party"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": null,
+  "end": null,
+  "extra": {},
+  "genres": [],
+  "image": "https://amsterdamalternative.nl/media/content/22665_large.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 11.0,
+   "min_eur": 8.0,
+   "text": "8-11"
+  },
+  "room": "Studios",
+  "source_id": "23118",
+  "start": "2026-12-05T20:00:00+01:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://amsterdamalternative.nl/tickets/23118",
+  "title": "Melanż",
+  "url": "https://ot301.nl/agenda/23118",
+  "venue": "ot301"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [
+   "Electronic music, party"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": null,
+  "end": null,
+  "extra": {},
+  "genres": [],
+  "image": "https://amsterdamalternative.nl/media/content/21978_large.jpg",
+  "performers": [],
+  "price": {
+   "max_eur": 12.0,
+   "min_eur": 8.0,
+   "text": "8-12"
+  },
+  "room": "Studios",
+  "source_id": "22545",
+  "start": "2026-12-11T22:00:00+01:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://amsterdamalternative.nl/tickets/22545",
+  "title": "Cat in the bag - Jungle sessions",
+  "url": "https://ot301.nl/agenda/22545",
+  "venue": "ot301"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [
+   "Electronic music, party"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": null,
+  "end": null,
+  "extra": {},
+  "genres": [],
+  "image": "https://amsterdamalternative.nl/media/content/22767_large.jpg",
+  "performers": [
+   "Tamen (IE/AU)",
+   "Son of Sesh",
+   "Rikipicchi b2b dj Lis",
+   "Kizzero b2b Gimmeamfbreakbeat",
+   "Déandrah (VJ)"
+  ],
+  "price": {
+   "max_eur": 12.0,
+   "min_eur": 10.0,
+   "text": "10-12"
+  },
+  "room": "Studios",
+  "source_id": "23215",
+  "start": "2026-12-19T21:00:00+01:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://amsterdamalternative.nl/tickets/23215",
+  "title": "Massief",
+  "url": "https://ot301.nl/agenda/23215",
+  "venue": "ot301"
+ },
+ {
+  "availability": "on_sale",
+  "categories": [
+   "Concert"
+  ],
+  "city": "Amsterdam",
+  "description": null,
+  "doors": null,
+  "end": null,
+  "extra": {},
+  "genres": [],
+  "image": "https://amsterdamalternative.nl/media/content/22842_large.jpg",
+  "performers": [
+   "El Caribefunk"
+  ],
+  "price": {
+   "max_eur": 25.0,
+   "min_eur": 25.0,
+   "text": null
+  },
+  "room": "Studios",
+  "source_id": "23306",
+  "start": "2027-05-14T20:00:00+02:00",
+  "status": "scheduled",
+  "subtitle": null,
+  "support": [],
+  "ticket_url": "https://amsterdamalternative.nl/tickets/23306",
+  "title": "Caribefunk in Amsterdam",
+  "url": "https://ot301.nl/agenda/23306",
+  "venue": "ot301"
+ }
+]

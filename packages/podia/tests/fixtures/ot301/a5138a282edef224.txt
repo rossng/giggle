@@ -1,0 +1,38 @@
+<div class="selected event">
+	<div class="head bg-dark light">Saturday 17 October</div>
+	<article class="body">
+		<div  class="media" style="background-image:url(https://amsterdamalternative.nl/media/content/22487_large.jpg)"></div>		<div class="meta">
+<!-- 
+						<div class="icon type" style="background-image:url(/media/agenda/.svg)"></div>
+ -->
+			Studios // 20:00 // € 8 // 18+<br/>
+			<strong>Viva Rosa + Combo Qazam</strong>
+		</div>
+		<div class="info">
+			
+		<div class="icon type bg-dark" style="background-image:url(https://amsterdamalternative.nl/media/agenda/1002.svg)"></div><a href="https://amsterdamalternative.nl/tickets/22991" class="button presale head bg-dark white" target="_blank">Buy tickets</a>		</div>
+		<div class="detail">
+			<strong>Genre:</strong> Post-punk, noise, indie-rock<br/><strong>Line up:</strong> Viva Rosa, Combo Qazam, Sentinel Island Disco<br/><strong>Open:</strong> 20:00 - 01:00 hrs<br/><strong>Tickets:</strong> € 8 		</div>
+		<div class="text">
+			<p class="intro">A night that&nbsp;moves from&nbsp;eerie, groove-driven&nbsp;post-punk&nbsp;to&nbsp;nostalgic indie rock&nbsp;and ends with&nbsp;deep, percussive disco.</p>
+
+<p><strong>Combo Qazam</strong><br />
+Combo Qazam is a post-punk band from Utrecht that relies heavily on grooves and eerie vocal harmonies. On their well-received debut Flight Music (2020), they link this to 90s indie, math rock, prog and krautrock. Rhythmic and mechanical, yet nostalgic like a warm glow. On their second album Ghost Interior (2022), the band pursues the suffering of being human. For fans of Wire, Battles, Beak&gt;, Tortoise, Pinback, Unwound, Can and Devo.<br />
+<a href="https://www.instagram.com/combo_qazam" target="_blank">Insta</a> // <a href="https://open.spotify.com/artist/7knDpm1ZleLQxKi49eCnCd?si=wk5UPafWQGyIhA5hQB2hZQ" target="_blank">Spotify</a> // <a href="https://tinyroomrecords.bandcamp.com/album/ghost-interior" target="_blank">Bandcamp</a><br />
+<br />
+<strong>Viva Rosa</strong><br />
+Inspired by the great noise bands of the late eighties and early nineties, Viva Rosa plays indie rock with a hint of alt-country and Americana. With the passing of frontman and founder Mathieu Rosmuller, the band came to an abrupt end in 2009. Since then they&#39;ve reunited a handful of times to perform his beautiful songs. Now in a new line-up, consisting of the remaining members of Viva Rosa together with two close friends, they are working on new material.<br />
+<a href="https://www.instagram.com/viva_rosa_" target="_blank">Insta</a> // <a href="https://open.spotify.com/album/3LPY4rtGCpsLs2Ti2dUSye?si=zLbNb92AQ4C-7uxYR7uLeQ" target="_blank">Spotify</a>&nbsp;<br />
+<br />
+<strong>Sentinel Island Disco</strong><br />
+Besides being a record label and club night, Sentinel Island Disco is a DJ duo that has its roots in Amsterdam. Moreover, it is a fictional island where the inhabitants seem to have eccentric party rituals. If you want to know what that looks like, you&#39;ll have to dock at Sentinel Island. Someone like Barbara Boeing or San Soda likes to go there too. Think obscure soca, ecstatic (afro) disco and deep percussive grooves from Sentinel&#39;s dark jungles.<br />
+<a href="https://www.instagram.com/sentinelislanddisco" target="_blank">Insta</a> // <a href="https://open.spotify.com/artist/7IslZuhIpt37LL25Ru4sqR" target="_blank">Spotify</a> // <a href="https://soundcloud.com/sentinelislanddisco" target="_blank">Soundcloud</a></p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+		</div>
+	</article>
+</div>
