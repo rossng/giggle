@@ -1,6 +1,6 @@
 import json
 
-from podia.extract import next_flight
+from podia.extract import mask_emails, next_flight
 
 
 def _page(*chunks: str) -> str:
@@ -18,3 +18,10 @@ def test_next_flight_resolves_text_rows():
     text = "Één zin."  # 10 bytes in UTF-8
     page = _page(f"5:T{len(text.encode()):x},{text}", '0:{"d":"$5","p":"$$9","q":"$"}\n')
     assert next_flight(page) == [{"d": text, "p": "$9", "q": "$"}]
+
+
+def test_mask_emails_leaves_image_names_for_sharper_screens():
+    text = "info@venue.nl poster-50-50@2x.jpg logo@1.5x.png, tickets@podium.example.com"
+    assert mask_emails(text) == (
+        "email@example.invalid poster-50-50@2x.jpg logo@1.5x.png, email@example.invalid"
+    )

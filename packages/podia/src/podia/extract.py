@@ -129,7 +129,8 @@ def json_ld(page: str) -> Iterator[dict[str, Any]]:
                 yield item
 
 
-_EMAIL = re.compile(r"[\w.%+-]+@[\w-]+(?:\.[\w-]+)*\.[a-z]{2,}", re.I)
+# Not image names for sharper screens: "poster-50-50@2x.jpg", "logo@1.5x.png".
+_EMAIL = re.compile(r"[\w.%+-]+@(?!\d+(?:\.\d+)?x[-.])[\w-]+(?:\.[\w-]+)*\.[a-z]{2,}", re.I)
 
 
 def mask_emails(text: str) -> str:

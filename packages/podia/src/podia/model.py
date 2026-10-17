@@ -38,11 +38,15 @@ class Price:
 
 @dataclass(frozen=True, slots=True)
 class VenueInfo:
+    """`capacity`: the largest room's audience, as the venue (or its operator) publishes it;
+    None when not set."""
+
     slug: str
     name: str
     city: str
     website: str
     country: str = "NL"
+    capacity: int | None = None
 
 
 @dataclass(slots=True)

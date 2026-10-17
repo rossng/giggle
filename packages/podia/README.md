@@ -22,6 +22,9 @@ title, start/doors/end times in Europe/Amsterdam, room, city, performers and sup
 acts where the venue names them, genres as the venue tags them, availability, price and
 ticket URL.
 
+Each adapter's `info` (`podia.VenueInfo`) names the venue, its city and website, and, where
+the venue publishes it, its `capacity` (the largest room's audience).
+
 Listings stay cheap: `events()` reads a venue's agenda in one or a few requests. Where some
 fields are only on each event's own page, the adapter sets `has_details` and implements
 `details(fetch, event)`, which returns an enriched copy of the event (same `source_id`, no
