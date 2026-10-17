@@ -14,6 +14,8 @@ export interface Venue {
 	city: string;
 	website: string;
 	country: string;
+	/** The largest room's audience, as the venue publishes it; absent when not known. */
+	capacity?: number | null;
 }
 
 export type GigStatus = 'scheduled' | 'cancelled' | 'postponed' | 'moved';

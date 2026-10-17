@@ -14,6 +14,8 @@
 // keeps only gigs with an artist the *viewer* marked listen more on their board (board.ts): the
 // whole gig passes, line-up and all (the radio then plays just those artists: station.ts).
 //
+// `hide=large` leaves out gigs at large venues: arenas and stadiums, by capacity (`isLarge`).
+//
 // Genres come at two levels: the coarse buckets (`genre`, genres.ts) and specific styles
 // (`style`, styles.ts), each style belonging to one or more buckets. Together they are one
 // facet, and a gig passes it when
@@ -30,9 +32,9 @@
 import { addDays, amsterdamDate } from './dates';
 import { GENRES, isGenreId, type GenreId } from './genres';
 import { bucketsForStyle, styleKey } from './styles';
-import type { Gig, IsoDate } from './types';
+import type { Gig, IsoDate, Venue } from './types';
 
-export const HIDE_FLAGS = ['soldout', 'unavailable'] as const;
+export const HIDE_FLAGS = ['large', 'soldout', 'unavailable'] as const;
 export type HideFlag = (typeof HIDE_FLAGS)[number];
 
 /** Gigs by the listener's board: `listen`, those with an artist they marked listen more. */
@@ -57,7 +59,8 @@ export interface Filters {
 	styles: string[];
 	/** Free-text search over titles, artists and venues. */
 	q: string;
-	/** `soldout`; `unavailable`: gigs on the listener's unavailable dates (see `apply`). */
+	/** `large`: gigs at large venues; `soldout`; `unavailable`: gigs on the listener's
+	 * unavailable dates (see `apply`). */
 	hide: HideFlag[];
 	/** Only gigs by the listener's board (see `apply`); null for any gig. */
 	board: BoardFilter | null;
@@ -264,10 +267,20 @@ export interface Filterable {
 	styles: readonly string[];
 	/** Lowercase, accent-free text that `q` is matched against. */
 	haystack: string;
+	/** At a large venue (`isLarge`). */
+	large: boolean;
 }
 
 /** Facets counted by `facetCounts`; 'genre' is buckets and styles together. */
 export type Facet = 'city' | 'venue' | 'genre';
+
+/** Venues from this audience size up are large: the arenas and the stadium, not the biggest
+ * halls of Paradiso, Melkweg or TivoliVredenburg (around 1,500–2,000). */
+export const LARGE_CAPACITY = 3000;
+
+export function isLarge(venue: Pick<Venue, 'capacity'> | null | undefined): boolean {
+	return (venue?.capacity ?? 0) >= LARGE_CAPACITY;
+}
 
 export function isSoldOut(gig: Gig): boolean {
 	return gig.availability === 'sold_out'; // "unknown" counts as available
@@ -300,6 +313,7 @@ function predicate(
 	const venues = skip === 'venue' ? null : new Set(filters.venues);
 	const genre = skip === 'genre' ? null : genreTest(filters);
 	const words = searchText(cleanQuery(filters.q)).split(' ').filter(Boolean);
+	const hideLarge = filters.hide.includes('large');
 	const hideSoldOut = filters.hide.includes('soldout');
 	const away = filters.hide.includes('unavailable') ? unavailable : undefined;
 	const mine = filters.board === 'listen' ? (listenMore ?? new Set<string>()) : null;
@@ -309,6 +323,7 @@ function predicate(
 		(!cities?.size || cities.has(item.city)) &&
 		(!venues?.size || venues.has(item.gig.venue)) &&
 		(!genre || genre(item)) &&
+		!(hideLarge && item.large) &&
 		!(hideSoldOut && isSoldOut(item.gig)) &&
 		!away?.(item.date) &&
 		(!mine || item.gig.artists.some((a) => mine.has(a.key))) &&
@@ -502,6 +517,7 @@ export function activeFilters(filters: Filters, names: FilterNames = {}): Active
 		});
 	}
 	const hides: Record<HideFlag, string> = {
+		large: 'No large venues',
 		soldout: 'No sold out',
 		unavailable: 'Not on my unavailable dates'
 	};
@@ -535,6 +551,7 @@ export function summarise(filters: Filters, names: FilterNames = {}): string {
 		);
 	}
 	if (filters.q) parts.push(`“${filters.q}”`);
+	if (filters.hide.includes('large')) parts.push('no large venues');
 	if (filters.hide.includes('soldout')) parts.push('no sold-out gigs');
 	if (filters.hide.includes('unavailable')) parts.push('not on my unavailable dates');
 	if (filters.order) parts.push(`order: ${filters.order}`);

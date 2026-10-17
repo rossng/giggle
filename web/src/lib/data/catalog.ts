@@ -3,7 +3,7 @@
 
 import { localDate, localTime } from './dates';
 import { GENRES, NO_GENRE_COLOUR, bucketsFor, gigLabels, type GenreId } from './genres';
-import { isSoldOut, searchText, type Filterable, type FilterNames } from './filters';
+import { isLarge, isSoldOut, searchText, type Filterable, type FilterNames } from './filters';
 import { isGeneric, styleKey, styleList, stylesFor, type Style, type StyleName } from './styles';
 import { dict } from './own';
 import { gigPath, slugify } from './slugs';
@@ -127,6 +127,7 @@ export function viewGig(
 		styles: styleNames.map((s) => s.key),
 		styleNames,
 		haystack,
+		large: isLarge(venue),
 		venue,
 		venueName: venue?.name ?? gig.venue,
 		headliner: headRef?.name ?? gig.title,

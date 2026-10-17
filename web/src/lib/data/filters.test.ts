@@ -88,8 +88,9 @@ describe('parse', () => {
 		expect(p('style=--,a_b,' + 'x'.repeat(41)).styles).toEqual([]);
 	});
 
-	it('reads both hide flags', () => {
+	it('reads the hide flags', () => {
 		expect(p('hide=unavailable,soldout').hide).toEqual(['soldout', 'unavailable']);
+		expect(p('hide=large,huge').hide).toEqual(['large']);
 	});
 });
 
@@ -204,6 +205,30 @@ describe('apply', () => {
 		expect(ids(f({ hide: ['soldout'] }))).toEqual(['1', '3']);
 	});
 
+	it('hides gigs at large venues, by capacity, only when asked to', () => {
+		const venues = {
+			...VENUES,
+			paradiso: { ...VENUES.paradiso, capacity: 1500 },
+			ziggodome: {
+				slug: 'ziggodome',
+				name: 'Ziggo Dome',
+				city: 'Amsterdam',
+				website: 'https://www.ziggodome.nl',
+				country: 'NL',
+				capacity: 17000
+			}
+		};
+		const sized = [
+			gig({ source_id: '1', start: '2026-09-27T20:00:00+02:00' }),
+			gig({ source_id: '2', venue: 'ziggodome', start: '2026-09-28T20:00:00+02:00' }),
+			// TivoliVredenburg has no capacity in the fixtures: unknown isn't large.
+			gig({ source_id: '3', venue: 'tivolivredenburg', start: '2026-09-29T20:00:00+02:00' })
+		].map((g) => viewGig(g, venues, {}));
+		const kept = (filters: Filters) => apply(filters, sized, NOW).map((v) => v.gig.source_id);
+		expect(kept(f())).toEqual(['1', '2', '3']);
+		expect(kept(f({ hide: ['large'] }))).toEqual(['1', '3']);
+	});
+
 	it("hides gigs on the listener's unavailable dates, only when asked to", () => {
 		const away = (date: string) => date === '2026-10-01' || date === '2026-10-10';
 		const hide = f({ hide: ['unavailable'] });
@@ -307,6 +332,7 @@ describe('summarise', () => {
 				}
 			)
 		).toBe('Next month from +3 days · Amsterdam · Jazz · no sold-out gigs');
+		expect(summarise(f({ hide: ['large'] }))).toBe('Next 3 months · no large venues');
 		expect(summarise(f({ hide: ['unavailable'] }))).toBe(
 			'Next 3 months · not on my unavailable dates'
 		);

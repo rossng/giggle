@@ -28,7 +28,16 @@ export const IMAGE_HOSTS = [
 	'patronaat.nl',
 	'a.storyblok.com', // Q-Factory
 	'media.tivolivredenburg.nl',
-	'stadsherstel.nl' // Het Zonnehuis (run by Stadsherstel)
+	'stadsherstel.nl', // Het Zonnehuis (run by Stadsherstel)
+	'www.afaslive.nl',
+	'amsterdamalternative.nl', // OT301 (its agenda service)
+	'dehelling.nl',
+	'garagenoord.com',
+	'johan-cruijff-arena.b-cdn.net',
+	'p60.nl',
+	'www.podiumvictorie.nl',
+	'zaal100.nl',
+	'cdn.ziggodome.nl'
 ] as const;
 
 /** The CSP img-src sources for IMAGE_HOSTS. */

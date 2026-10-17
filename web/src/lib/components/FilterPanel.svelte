@@ -242,6 +242,15 @@
 			type="button"
 			class="toggle"
 			role="switch"
+			aria-checked={filters.hide.includes('large')}
+			onclick={() => onchange({ hide: toggle(filters.hide, 'large') })}
+		>
+			<span class="tg" aria-hidden="true"></span>Arenas and stadiums
+		</button>
+		<button
+			type="button"
+			class="toggle"
+			role="switch"
 			aria-checked={filters.hide.includes('unavailable')}
 			onclick={() => onchange({ hide: toggle(filters.hide, 'unavailable') })}
 		>
