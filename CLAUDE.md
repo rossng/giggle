@@ -65,6 +65,7 @@ https://claude.ai/artifact/6PDPXr3LtbEbPPLUxQPXWR. Architecture diagram: README.
     flags for possible abuse. `make seed-dev` fills the local D1 for it (as alice).
   - One filter model (`lib/data/filters.ts`) lives in the URL; genre buckets expand to specific
     styles (`lib/data/styles.ts`, `style=`); `hide=unavailable` uses the listener's own dates,
+    `hide=large` arenas and the stadium (`isLarge`, by the venue's `capacity`),
     `board=listen` their listen-more artists (`Personal`, `lib/data/personal.ts`; the radio then
     plays just those artists, not the rest of their gigs' line-ups).
   - UI: primary controls up front, the rest behind drawers or "More" disclosures. Shared pieces:
@@ -203,8 +204,10 @@ pipeline runs. Keep `make help` accurate.
 - Adapters use `FetchOptions.since`, never `date.today()`, so fixtures replay deterministically.
 - Prefer structured sources (APIs, feeds, embedded JSON) over HTML; don't guess missing fields.
 - Scope decisions live in `pipeline/src/giggle_pipeline/scope.toml`, not in podia: no club/EDM
-  nights, classical, tribute acts, non-music or children's events; no arenas (AFAS Live, Ziggo
-  Dome). When changing rules, add a case to `pipeline/tests/test_scope.py`.
+  nights, classical, tribute acts, non-music or children's events. When changing rules, add a
+  case to `pipeline/tests/test_scope.py`. Large venues (AFAS Live, Ziggo Dome, Johan Cruijff
+  ArenA) are in, with their published `capacity` on `VenueInfo`; the web's `hide=large` leaves
+  out venues from `LARGE_CAPACITY` (3,000) up.
 - YouTube Music only; Spotify on hold.
 - Svelte: never put player/SDK objects in `$state`; use private fields or `$state.raw`.
 - Links from data go through `externalHref` (`web/src/lib/data/slugs.ts`), pictures through
