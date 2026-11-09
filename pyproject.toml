@@ -22,7 +22,7 @@ giggle-pipeline = { workspace = true }
 members = ["packages/podia", "pipeline"]  # packages/radio-core is TypeScript
 
 [dependency-groups]
-dev = ["pytest>=8,<10", "ruff>=0.6,<0.17"]
+dev = ["pytest>=8,<10", "ruff>=0.17,<0.18"]
 
 [tool.ruff]
 line-length = 100
